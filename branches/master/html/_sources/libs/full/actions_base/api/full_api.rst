@@ -23,6 +23,7 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/full/actions_base/api/actions_base_support.rst
    /libs/full/actions_base/api/basic_action.rst
    /libs/full/actions_base/api/macros.rst
+   /libs/full/actions_base/api/reflect_action.rst
    /libs/full/actions_base/api/plain_action.rst
    /libs/full/actions_base/api/basic_action_fwd.rst
    /libs/full/actions_base/api/lambda_to_action.rst
