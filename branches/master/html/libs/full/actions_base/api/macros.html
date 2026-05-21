@@ -472,7 +472,7 @@
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../runtime_components/api/full_api.html">runtime_components</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_components/api/new.html">hpx::new_</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../runtime_components/api/macros.html">hpx/runtime_components/macros.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../runtime_components/api/derived_component_factory.html">hpx/runtime_components/derived_component_factory.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_components/api/component_registry.html">hpx/runtime_components/component_registry.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_components/api/components_fwd.html">hpx/runtime_components/components_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_components/api/component_factory.html">HPX_REGISTER_COMPONENT</a></li>
@@ -1327,7 +1327,7 @@ document.write(`
 <dd><p>Define the necessary component action boilerplate code and assign a predefined unique id to the action. </p>
 <p>The macro <em>HPX_REGISTER_ACTION</em> can be used to define all the boilerplate code which is required for proper functioning of component actions in the context of HPX.</p>
 <p>The parameter <em>action</em> is the type of the action to define the boilerplate for.</p>
-<p>The parameter <em>actionname</em> specifies a unique name of the action to be used for serialization purposes. The second parameter has to be usable as a plain (nonqualified) C++ identifier, it should not contain special characters which cannot be part of a C++ identifier, such as ‘&lt;’, ‘&gt;’, or ‘:’.</p>
+<p>The parameter <em>actionname</em> specifies an unique name of the action to be used for serialization purposes. The second parameter has to be usable as a plain (nonqualified) C++ identifier, it should not contain special characters which cannot be part of a C++ identifier, such as ‘&lt;’, ‘&gt;’, or ‘:’.</p>
 <p>The parameter <em>actionid</em> specifies a unique integer value which will be used to represent the action during serialization.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1460,7 +1460,7 @@ The default value for the third argument (the typename of the defined action) is
 <p>The macro <em>HPX_PLAIN_ACTION_ID</em> can be used to define a plain action (e.g. an action encapsulating a global or free function) based on the given function <em>func</em>. It defines the action type <em>actionname</em> representing the given function.</p>
 <p>The parameter <em>actionid</em> specifies a unique integer value which will be used to represent the action during serialization.</p>
 <p>The parameter <code class="docutils literal notranslate"><span class="pre">func</span></code> is a global or free (non-member) function which should be encapsulated into a plain action. The parameter <code class="docutils literal notranslate"><span class="pre">name</span></code> is the name of the action type defined by this macro.</p>
-<p>The second parameter has to be usable as a plain (nonqualified) C++ identifier, it should not contain special characters which cannot be part of a C++ identifier, such as ‘&lt;’, ‘&gt;’, or ‘:’.</p>
+<p>The second parameter has to be usable as a plain (non-qualified) C++ identifier, it should not contain special characters which cannot be part of a C++ identifier, such as ‘&lt;’, ‘&gt;’, or ‘:’.</p>
 <p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">app</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">some_global_function</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>

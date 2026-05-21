@@ -469,7 +469,7 @@
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="libs/full/runtime_components/api/full_api.html">runtime_components</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="libs/full/runtime_components/api/new.html">hpx::new_</a></li>
-<li class="toctree-l4"><a class="reference internal" href="libs/full/runtime_components/api/macros.html">hpx/runtime_components/macros.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs/full/runtime_components/api/derived_component_factory.html">hpx/runtime_components/derived_component_factory.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="libs/full/runtime_components/api/component_registry.html">hpx/runtime_components/component_registry.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="libs/full/runtime_components/api/components_fwd.html">hpx/runtime_components/components_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="libs/full/runtime_components/api/component_factory.html">HPX_REGISTER_COMPONENT</a></li>
@@ -4833,6 +4833,8 @@ document.write(`
 </li>
       <li><a href="libs/core/datastructures/api/tuple.html#_CPPv4I_NSt6size_tEEN3hpx3getERN4util8at_indexI1IDp2TsE4typeEv">hpx::get (C++ function)</a>, <a href="libs/core/datastructures/api/tuple.html#_CPPv4I_NSt6size_tEENK3hpx3getERKN4util8at_indexI1IDp2TsE4typeEv">[1]</a>
 </li>
+      <li><a href="libs/full/async_colocated/api/get_colocation_id.html#_CPPv4N3hpx17get_colocation_idEN6launch11sync_policyERKN3hpx7id_typeER10error_code">hpx::get_colocation_id (C++ function)</a>, <a href="libs/full/async_colocated/api/get_colocation_id.html#_CPPv4N3hpx17get_colocation_idERKN3hpx7id_typeE">[1]</a>
+</li>
       <li><a href="libs/full/runtime_distributed/api/runtime_fwd.html#_CPPv4N3hpx12get_localityEv">hpx::get_locality (C++ function)</a>
 </li>
       <li><a href="libs/full/runtime_distributed/api/get_locality_name.html#_CPPv4N3hpx17get_locality_nameERKN3hpx7id_typeE">hpx::get_locality_name (C++ function)</a>
@@ -4856,6 +4858,8 @@ document.write(`
       <li><a href="libs/full/runtime_distributed/api/runtime_fwd.html#_CPPv4N3hpx23get_runtime_distributedEv">hpx::get_runtime_distributed (C++ function)</a>
 </li>
       <li><a href="libs/full/runtime_distributed/api/runtime_fwd.html#_CPPv4N3hpx27get_runtime_distributed_ptrEv">hpx::get_runtime_distributed_ptr (C++ function)</a>
+</li>
+      <li><a href="libs/full/runtime_components/api/components_fwd.html#_CPPv4N3hpx23get_runtime_support_ptrEv">hpx::get_runtime_support_ptr (C++ function)</a>
 </li>
       <li><a href="libs/core/datastructures/api/tuple.html#_CPPv4N3hpx6ignoreE">hpx::ignore (C++ member)</a>
 </li>
@@ -5767,6 +5771,8 @@ document.write(`
 </li>
       <li><a href="libs/full/performance_counters/api/counters_fwd.html#_CPPv4N3hpx20performance_counters20counter_values_array9serializeERN13serialization13input_archiveEKj">hpx::performance_counters::counter_values_array::serialize (C++ function)</a>, <a href="libs/full/performance_counters/api/counters_fwd.html#_CPPv4NK3hpx20performance_counters20counter_values_array9serializeERN13serialization14output_archiveEKj">[1]</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/full/performance_counters/api/counters_fwd.html#_CPPv4N3hpx20performance_counters20counter_values_array7status_E">hpx::performance_counters::counter_values_array::status_ (C++ member)</a>
 </li>
       <li><a href="libs/full/performance_counters/api/counters_fwd.html#_CPPv4N3hpx20performance_counters20counter_values_array5time_E">hpx::performance_counters::counter_values_array::time_ (C++ member)</a>
@@ -5791,8 +5797,6 @@ document.write(`
 </li>
       <li><a href="libs/full/performance_counters/api/counters_fwd.html#_CPPv4N3hpx20performance_counters22discover_counters_mode7minimalE">hpx::performance_counters::discover_counters_mode::minimal (C++ enumerator)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/full/performance_counters/api/counters.html#_CPPv4N3hpx20performance_counters21ensure_counter_prefixERKNSt6stringE">hpx::performance_counters::ensure_counter_prefix (C++ function)</a>, <a href="libs/full/performance_counters/api/counters.html#_CPPv4N3hpx20performance_counters21ensure_counter_prefixERNSt6stringE">[1]</a>
 </li>
       <li><a href="libs/full/performance_counters/api/counters_fwd.html#_CPPv4N3hpx20performance_counters19expand_counter_infoERK12counter_infoRK21discover_counter_funcR10error_code">hpx::performance_counters::expand_counter_info (C++ function)</a>
@@ -8557,22 +8561,6 @@ document.write(`
 </li>
       <li><a href="libs/full/performance_counters/api/counters_fwd.html#c.HPX_DISCOVER_COUNTERS_MODE_UNSCOPED_ENUM_DEPRECATION_MSG">HPX_DISCOVER_COUNTERS_MODE_UNSCOPED_ENUM_DEPRECATION_MSG (C macro)</a>
 </li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_DISTRIBUTED_METADATA">HPX_DISTRIBUTED_METADATA (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_DISTRIBUTED_METADATA_">HPX_DISTRIBUTED_METADATA_ (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_DISTRIBUTED_METADATA_1">HPX_DISTRIBUTED_METADATA_1 (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_DISTRIBUTED_METADATA_2">HPX_DISTRIBUTED_METADATA_2 (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_DISTRIBUTED_METADATA_DECLARATION">HPX_DISTRIBUTED_METADATA_DECLARATION (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_DISTRIBUTED_METADATA_DECLARATION_">HPX_DISTRIBUTED_METADATA_DECLARATION_ (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_DISTRIBUTED_METADATA_DECLARATION_1">HPX_DISTRIBUTED_METADATA_DECLARATION_1 (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_DISTRIBUTED_METADATA_DECLARATION_2">HPX_DISTRIBUTED_METADATA_DECLARATION_2 (C macro)</a>
-</li>
       <li><a href="libs/core/errors/api/error.html#c.HPX_ERROR_UNSCOPED_ENUM_DEPRECATION_MSG">HPX_ERROR_UNSCOPED_ENUM_DEPRECATION_MSG (C macro)</a>
 </li>
       <li><a href="libs/full/components_base/api/component_type.html#c.HPX_FACTORY_STATE_ENUM_DEPRECATION_MSG">HPX_FACTORY_STATE_ENUM_DEPRECATION_MSG (C macro)</a>
@@ -8679,9 +8667,7 @@ document.write(`
 </li>
       <li><a href="libs/core/runtime_configuration/api/macros.html#c.HPX_REGISTER_COMMANDLINE_REGISTRY_DYNAMIC">HPX_REGISTER_COMMANDLINE_REGISTRY_DYNAMIC (C macro)</a>
 </li>
-      <li><a href="libs/full/runtime_components/api/component_factory.html#c.HPX_REGISTER_COMPONENT">HPX_REGISTER_COMPONENT (C macro)</a>, <a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_COMPONENT">[1]</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_COMPONENT_DYNAMIC">HPX_REGISTER_COMPONENT_DYNAMIC (C macro)</a>
+      <li><a href="libs/full/runtime_components/api/component_factory.html#c.HPX_REGISTER_COMPONENT">HPX_REGISTER_COMPONENT (C macro)</a>
 </li>
       <li><a href="libs/core/runtime_configuration/api/macros.html#c.HPX_REGISTER_COMPONENT_FACTORY">HPX_REGISTER_COMPONENT_FACTORY (C macro)</a>
 </li>
@@ -8693,65 +8679,37 @@ document.write(`
 </li>
       <li><a href="libs/core/runtime_configuration/api/macros.html#c.HPX_REGISTER_COMPONENT_REGISTRY_DYNAMIC">HPX_REGISTER_COMPONENT_REGISTRY_DYNAMIC (C macro)</a>
 </li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY">HPX_REGISTER_DERIVED_COMPONENT_FACTORY (C macro)</a>
+      <li><a href="libs/full/runtime_components/api/derived_component_factory.html#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY">HPX_REGISTER_DERIVED_COMPONENT_FACTORY (C macro)</a>
 </li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_ (C macro)</a>
+      <li><a href="libs/full/runtime_components/api/derived_component_factory.html#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_ (C macro)</a>
 </li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_3">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_3 (C macro)</a>
+      <li><a href="libs/full/runtime_components/api/derived_component_factory.html#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_3">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_3 (C macro)</a>
 </li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_4">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_4 (C macro)</a>
+      <li><a href="libs/full/runtime_components/api/derived_component_factory.html#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_4">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_4 (C macro)</a>
 </li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC (C macro)</a>
+      <li><a href="libs/full/runtime_components/api/derived_component_factory.html#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC (C macro)</a>
 </li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_ (C macro)</a>
+      <li><a href="libs/full/runtime_components/api/derived_component_factory.html#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_ (C macro)</a>
 </li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_3">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_3 (C macro)</a>
+      <li><a href="libs/full/runtime_components/api/derived_component_factory.html#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_3">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_3 (C macro)</a>
 </li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_4">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_4 (C macro)</a>
+      <li><a href="libs/full/runtime_components/api/derived_component_factory.html#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_4">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_4 (C macro)</a>
 </li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_DISABLED_COMPONENT_FACTORY">HPX_REGISTER_DISABLED_COMPONENT_FACTORY (C macro)</a>
+      <li><a href="libs/full/runtime_components/api/component_registry.html#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY (C macro)</a>
 </li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_DISABLED_COMPONENT_FACTORY_DYNAMIC">HPX_REGISTER_DISABLED_COMPONENT_FACTORY_DYNAMIC (C macro)</a>
+      <li><a href="libs/full/runtime_components/api/component_registry.html#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_ (C macro)</a>
 </li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_ENABLED_COMPONENT_FACTORY">HPX_REGISTER_ENABLED_COMPONENT_FACTORY (C macro)</a>
+      <li><a href="libs/full/runtime_components/api/component_registry.html#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_2">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_2 (C macro)</a>
 </li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_ENABLED_COMPONENT_FACTORY_DYNAMIC">HPX_REGISTER_ENABLED_COMPONENT_FACTORY_DYNAMIC (C macro)</a>
+      <li><a href="libs/full/runtime_components/api/component_registry.html#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_3">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_3 (C macro)</a>
 </li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY (C macro)</a>
+      <li><a href="libs/full/runtime_components/api/component_registry.html#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC (C macro)</a>
 </li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_ (C macro)</a>
+      <li><a href="libs/full/runtime_components/api/component_registry.html#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_ (C macro)</a>
 </li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_1">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_1 (C macro)</a>
+      <li><a href="libs/full/runtime_components/api/component_registry.html#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_2">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_2 (C macro)</a>
 </li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_2">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_2 (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_3">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_3 (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_ (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_1">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_1 (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_2">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_2 (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_3">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_3 (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_ (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_2">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_2 (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_3">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_3 (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_ (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_2">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_2 (C macro)</a>
-</li>
-      <li><a href="libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_3">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_3 (C macro)</a>
+      <li><a href="libs/full/runtime_components/api/component_registry.html#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_3">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_3 (C macro)</a>
 </li>
       <li><a href="libs/full/actions_base/api/macros.html#c.HPX_REGISTER_PER_ACTION_DATA_COUNTER_TYPES">HPX_REGISTER_PER_ACTION_DATA_COUNTER_TYPES (C macro)</a>
 </li>
