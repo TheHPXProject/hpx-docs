@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>hpx/runtime_components/derived_component_factory.hpp &#8212; HPX 2.0.0 documentation</title>
+    <title>hpx/runtime_components/macros.hpp &#8212; HPX 2.0.0 documentation</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../../../../_static/clipboard.min.js"></script>
     <script src="../../../../_static/copybutton.js"></script>
     <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'libs/full/runtime_components/api/derived_component_factory';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'libs/full/runtime_components/api/macros';</script>
     <link rel="shortcut icon" href="../../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -472,7 +472,7 @@
 </li>
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="full_api.html">runtime_components</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="new.html">hpx::new_</a></li>
-<li class="toctree-l4 current active"><a class="current reference internal" href="#">hpx/runtime_components/derived_component_factory.hpp</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">hpx/runtime_components/macros.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="component_registry.html">hpx/runtime_components/component_registry.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="components_fwd.html">hpx/runtime_components/components_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="component_factory.html">HPX_REGISTER_COMPONENT</a></li>
@@ -1097,7 +1097,7 @@
       
       
       
-      <li><a href="https://github.com/TheHPXProject/hpx/issues/new?title=Issue%20on%20page%20%2Flibs/full/runtime_components/api/derived_component_factory.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/TheHPXProject/hpx/issues/new?title=Issue%20on%20page%20%2Flibs/full/runtime_components/api/macros.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -1127,7 +1127,7 @@
       
       
       
-      <li><a href="../../../../_sources/libs/full/runtime_components/api/derived_component_factory.rst" target="_blank"
+      <li><a href="../../../../_sources/libs/full/runtime_components/api/macros.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -1207,7 +1207,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>hpx/runtime_components/derived_component_factory.hpp</h1>
+    <h1>hpx/runtime_components/macros.hpp</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -1221,52 +1221,214 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="hpx-runtime-components-derived-component-factory-hpp">
-<span id="modules-hpx-runtime-components-derived-component-factory-hpp-api"></span><h1>hpx/runtime_components/derived_component_factory.hpp<a class="headerlink" href="#hpx-runtime-components-derived-component-factory-hpp" title="Permalink to this heading">#</a></h1>
-<p>Defined in header hpx/runtime_components/derived_component_factory.hpp.</p>
+  <section id="hpx-runtime-components-macros-hpp">
+<span id="modules-hpx-runtime-components-macros-hpp-api"></span><h1>hpx/runtime_components/macros.hpp<a class="headerlink" href="#hpx-runtime-components-macros-hpp" title="Permalink to this heading">#</a></h1>
+<p>Defined in header hpx/runtime_components/macros.hpp.</p>
 <p>See <a class="reference internal" href="../../../../api/public_api.html#public-api"><span class="std std-ref">Public API</span></a> for a list of names and headers that are part of the public
 <em>HPX</em> API.</p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
 <dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY">
+<span class="target" id="macros_8hpp_1a13d8cead6dde96320cecd14df79cab7a"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_COMPONENT">
+<span class="target" id="macros_8hpp_1aa826d8e43051e404b3f1f22cbd452424"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_COMPONENT</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_ENABLED_COMPONENT_FACTORY">
+<span class="target" id="macros_8hpp_1a44476024c9503db368a7c201f367753e"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_ENABLED_COMPONENT_FACTORY</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_ENABLED_COMPONENT_FACTORY" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_DISABLED_COMPONENT_FACTORY">
+<span class="target" id="macros_8hpp_1a5f9ccd1fe16171dfe4e02630932bf824"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_DISABLED_COMPONENT_FACTORY</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_DISABLED_COMPONENT_FACTORY" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_">
+<span class="target" id="macros_8hpp_1abaae336d708ac4b029da7124a6f00c41"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_1">
+<span class="target" id="macros_8hpp_1a0b479465f0a085e545370693ab534dad"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_1</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_1" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_2">
+<span class="target" id="macros_8hpp_1a1d538a68be4760bf5863e48f5c1584d5"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_2</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_2" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_3">
+<span class="target" id="macros_8hpp_1a1ba279b74f72b97f85641ba447f46c3c"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_3</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span>, <span class="n"><span class="pre">state</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_3" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC">
+<span class="target" id="macros_8hpp_1a9a2cea0ad169bf74be6d04f033ce2201"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_COMPONENT_DYNAMIC">
+<span class="target" id="macros_8hpp_1aecc1bc6409379a79196c3b9730194747"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_COMPONENT_DYNAMIC</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_COMPONENT_DYNAMIC" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>This macro is used create and to register a minimal component factory for a component type which allows it to be remotely created using the hpx::new_&lt;&gt; function. This macro can be invoked with one, two or three arguments </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_ENABLED_COMPONENT_FACTORY_DYNAMIC">
+<span class="target" id="macros_8hpp_1a95802e13754c9fcc08163de5980c7c9e"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_ENABLED_COMPONENT_FACTORY_DYNAMIC</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_ENABLED_COMPONENT_FACTORY_DYNAMIC" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_DISABLED_COMPONENT_FACTORY_DYNAMIC">
+<span class="target" id="macros_8hpp_1a640c376abda33516b7d3fd913c4b5ade"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_DISABLED_COMPONENT_FACTORY_DYNAMIC</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_DISABLED_COMPONENT_FACTORY_DYNAMIC" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_">
+<span class="target" id="macros_8hpp_1a68dd66cb0d22f3d3b31b8af1485a225d"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_1">
+<span class="target" id="macros_8hpp_1afbd681ac9f90c1b8e912dffc13c7819d"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_1</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_1" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_2">
+<span class="target" id="macros_8hpp_1a9e6af25920383cde5ac35a751ae8590b"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_2</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_2" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_3">
+<span class="target" id="macros_8hpp_1a4d1984da4f4f38dd2c954b23ec514896"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_3</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span>, <span class="n"><span class="pre">state</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_FACTORY_DYNAMIC_3" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY">
+<span class="target" id="macros_8hpp_1a561fdd330aef2871daeecac097832e7f"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>This macro is used create and to register a minimal component registry with Hpx.Plugin. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_">
+<span class="target" id="macros_8hpp_1ac483a7dd09d2cbace9c82876d7f5f901"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_2">
+<span class="target" id="macros_8hpp_1a701d6969cfc5c21470c0076d55fff880"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_2</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_2" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_3">
+<span class="target" id="macros_8hpp_1a0af4b0d7e3b1e8cb6df8ed6cf73805fc"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_3</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span>, <span class="n"><span class="pre">state</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_3" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC">
+<span class="target" id="macros_8hpp_1a959fa2270fa30dbad37330bfa68f5537"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_">
+<span class="target" id="macros_8hpp_1a318bbb4681d4d9cb3fbafbd986244988"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_2">
+<span class="target" id="macros_8hpp_1a20af31f5dca01774aa3afafa2cbfcd7a"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_2</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_2" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_3">
+<span class="target" id="macros_8hpp_1adc8c6798184d02824b4876532c27b262"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_3</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span>, <span class="n"><span class="pre">state</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_3" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
 <dt class="sig sig-object cpp" id="c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY">
-<span class="target" id="derived__component__factory_8hpp_1a06be2b09507b75340a6c3433402609e8"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_DERIVED_COMPONENT_FACTORY</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY" title="Permalink to this definition">#</a><br /></dt>
+<span class="target" id="macros_8hpp_1a06be2b09507b75340a6c3433402609e8"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_DERIVED_COMPONENT_FACTORY</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>This macro is used create and to register a minimal component factory with Hpx.Plugin. This macro may be used if the registered component factory is the only factory to be exposed from a particular module. If more than one factory needs to be exposed the <em>HPX_REGISTER_COMPONENT_FACTORY</em> and <em>HPX_REGISTER_COMPONENT_MODULE</em> macros should be used instead. </p>
 </dd></dl>
 
 <dl class="cpp macro">
 <dt class="sig sig-object cpp" id="c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_">
-<span class="target" id="derived__component__factory_8hpp_1a716f8463a0031ce33e93d826ef5f3617"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_" title="Permalink to this definition">#</a><br /></dt>
+<span class="target" id="macros_8hpp_1a716f8463a0031ce33e93d826ef5f3617"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_" title="Permalink to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp macro">
 <dt class="sig sig-object cpp" id="c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_3">
-<span class="target" id="derived__component__factory_8hpp_1a68270509ec414b420d64b4fa5fa1f16d"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_3</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span>, <span class="n"><span class="pre">basecomponentname</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_3" title="Permalink to this definition">#</a><br /></dt>
+<span class="target" id="macros_8hpp_1a68270509ec414b420d64b4fa5fa1f16d"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_3</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span>, <span class="n"><span class="pre">basecomponentname</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_3" title="Permalink to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp macro">
 <dt class="sig sig-object cpp" id="c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_4">
-<span class="target" id="derived__component__factory_8hpp_1a89103e4c549554f46dbdc7b442f13dd5"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_4</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span>, <span class="n"><span class="pre">basecomponentname</span></span>, <span class="n"><span class="pre">state</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_4" title="Permalink to this definition">#</a><br /></dt>
+<span class="target" id="macros_8hpp_1a89103e4c549554f46dbdc7b442f13dd5"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_4</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span>, <span class="n"><span class="pre">basecomponentname</span></span>, <span class="n"><span class="pre">state</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_4" title="Permalink to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp macro">
 <dt class="sig sig-object cpp" id="c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC">
-<span class="target" id="derived__component__factory_8hpp_1a2d5582e8def0df08ded437a2ce272e0d"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC" title="Permalink to this definition">#</a><br /></dt>
+<span class="target" id="macros_8hpp_1a2d5582e8def0df08ded437a2ce272e0d"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC" title="Permalink to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp macro">
 <dt class="sig sig-object cpp" id="c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_">
-<span class="target" id="derived__component__factory_8hpp_1a4d572e7b68fadf82f13b306db4e9adfb"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_" title="Permalink to this definition">#</a><br /></dt>
+<span class="target" id="macros_8hpp_1a4d572e7b68fadf82f13b306db4e9adfb"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_" title="Permalink to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp macro">
 <dt class="sig sig-object cpp" id="c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_3">
-<span class="target" id="derived__component__factory_8hpp_1a3a67f0d4e4a6e888cec8c685e2bb7249"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_3</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span>, <span class="n"><span class="pre">basecomponentname</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_3" title="Permalink to this definition">#</a><br /></dt>
+<span class="target" id="macros_8hpp_1a3a67f0d4e4a6e888cec8c685e2bb7249"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_3</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span>, <span class="n"><span class="pre">basecomponentname</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_3" title="Permalink to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp macro">
 <dt class="sig sig-object cpp" id="c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_4">
-<span class="target" id="derived__component__factory_8hpp_1ad011179be41f549e82cc19031bbb7bf3"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_4</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span>, <span class="n"><span class="pre">basecomponentname</span></span>, <span class="n"><span class="pre">state</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_4" title="Permalink to this definition">#</a><br /></dt>
+<span class="target" id="macros_8hpp_1ad011179be41f549e82cc19031bbb7bf3"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_4</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span>, <span class="n"><span class="pre">basecomponentname</span></span>, <span class="n"><span class="pre">state</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_DERIVED_COMPONENT_FACTORY_DYNAMIC_4" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_DISTRIBUTED_METADATA_DECLARATION">
+<span class="target" id="macros_8hpp_1a8febe9656755aa6371cb60efe328ca4c"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_DISTRIBUTED_METADATA_DECLARATION</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_DISTRIBUTED_METADATA_DECLARATION" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_DISTRIBUTED_METADATA_DECLARATION_">
+<span class="target" id="macros_8hpp_1a15719d4a675b8bf1409f458231eafa8e"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_DISTRIBUTED_METADATA_DECLARATION_</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_DISTRIBUTED_METADATA_DECLARATION_" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_DISTRIBUTED_METADATA_DECLARATION_1">
+<span class="target" id="macros_8hpp_1a83484492602fa5a6e55923f7bd26290f"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_DISTRIBUTED_METADATA_DECLARATION_1</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_DISTRIBUTED_METADATA_DECLARATION_1" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_DISTRIBUTED_METADATA_DECLARATION_2">
+<span class="target" id="macros_8hpp_1a77ff8d14e100af0e57bbd4d098c92040"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_DISTRIBUTED_METADATA_DECLARATION_2</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">config</span></span>, <span class="n"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_DISTRIBUTED_METADATA_DECLARATION_2" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_DISTRIBUTED_METADATA">
+<span class="target" id="macros_8hpp_1ae4e5661bed6a50363e109e0fb45230ad"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_DISTRIBUTED_METADATA</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_DISTRIBUTED_METADATA" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_DISTRIBUTED_METADATA_">
+<span class="target" id="macros_8hpp_1a312877609134e58e238716948ef1281c"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_DISTRIBUTED_METADATA_</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_DISTRIBUTED_METADATA_" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_DISTRIBUTED_METADATA_1">
+<span class="target" id="macros_8hpp_1ab1d8d25c776cd5674fc09de7470696a7"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_DISTRIBUTED_METADATA_1</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_DISTRIBUTED_METADATA_1" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_DISTRIBUTED_METADATA_2">
+<span class="target" id="macros_8hpp_1ab9c1493d73b16cec58fd164d45d64ef7"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_DISTRIBUTED_METADATA_2</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">config</span></span>, <span class="n"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_DISTRIBUTED_METADATA_2" title="Permalink to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 </div>

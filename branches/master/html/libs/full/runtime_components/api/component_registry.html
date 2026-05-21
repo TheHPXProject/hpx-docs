@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="hpx/runtime_components/components_fwd.hpp" href="components_fwd.html" />
-    <link rel="prev" title="hpx/runtime_components/derived_component_factory.hpp" href="derived_component_factory.html" />
+    <link rel="prev" title="hpx/runtime_components/macros.hpp" href="macros.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -472,7 +472,7 @@
 </li>
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="full_api.html">runtime_components</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="new.html">hpx::new_</a></li>
-<li class="toctree-l4"><a class="reference internal" href="derived_component_factory.html">hpx/runtime_components/derived_component_factory.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="macros.html">hpx/runtime_components/macros.hpp</a></li>
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">hpx/runtime_components/component_registry.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="components_fwd.html">hpx/runtime_components/components_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="component_factory.html">HPX_REGISTER_COMPONENT</a></li>
@@ -1226,50 +1226,6 @@ document.write(`
 <p>Defined in header hpx/runtime_components/component_registry.hpp.</p>
 <p>See <a class="reference internal" href="../../../../api/public_api.html#public-api"><span class="std std-ref">Public API</span></a> for a list of names and headers that are part of the public
 <em>HPX</em> API.</p>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
-<dl class="cpp macro">
-<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY">
-<span class="target" id="component__registry_8hpp_1a561fdd330aef2871daeecac097832e7f"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>This macro is used create and to register a minimal component registry with Hpx.Plugin. </p>
-</dd></dl>
-
-<dl class="cpp macro">
-<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_">
-<span class="target" id="component__registry_8hpp_1ac483a7dd09d2cbace9c82876d7f5f901"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_" title="Permalink to this definition">#</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp macro">
-<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_2">
-<span class="target" id="component__registry_8hpp_1a701d6969cfc5c21470c0076d55fff880"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_2</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_2" title="Permalink to this definition">#</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp macro">
-<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_3">
-<span class="target" id="component__registry_8hpp_1a0af4b0d7e3b1e8cb6df8ed6cf73805fc"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_3</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span>, <span class="n"><span class="pre">state</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_3" title="Permalink to this definition">#</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp macro">
-<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC">
-<span class="target" id="component__registry_8hpp_1a959fa2270fa30dbad37330bfa68f5537"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC" title="Permalink to this definition">#</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp macro">
-<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_">
-<span class="target" id="component__registry_8hpp_1a318bbb4681d4d9cb3fbafbd986244988"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_" title="Permalink to this definition">#</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp macro">
-<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_2">
-<span class="target" id="component__registry_8hpp_1a20af31f5dca01774aa3afafa2cbfcd7a"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_2</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_2" title="Permalink to this definition">#</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp macro">
-<dt class="sig sig-object cpp" id="c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_3">
-<span class="target" id="component__registry_8hpp_1adc8c6798184d02824b4876532c27b262"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_3</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ComponentType</span></span>, <span class="n"><span class="pre">componentname</span></span>, <span class="n"><span class="pre">state</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_REGISTER_MINIMAL_COMPONENT_REGISTRY_DYNAMIC_3" title="Permalink to this definition">#</a><br /></dt>
-<dd></dd></dl>
-
-</div>
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv43hpx">
 <span id="_CPPv33hpx"></span><span id="_CPPv23hpx"></span><span id="hpx"></span><span class="target" id="namespacehpx"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">hpx</span></span></span><br /></dt>
@@ -1335,12 +1291,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="derived_component_factory.html"
+       href="macros.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">hpx/runtime_components/derived_component_factory.hpp</p>
+        <p class="prev-next-title">hpx/runtime_components/macros.hpp</p>
       </div>
     </a>
     <a class="right-next"
