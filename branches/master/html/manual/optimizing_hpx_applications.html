@@ -1924,7 +1924,7 @@ data. The value is incremented on each invocation, i.e., each time a consumer
 requests the counter data of this performance counter.</p>
 <p>The next step in exposing this counter to the runtime system is to register the
 function as a new raw counter type using the <em>HPX</em> API function
-<a class="reference internal" href="../libs/full/performance_counters/api/manage_counter_type.html#_CPPv4N3hpx20performance_counters20install_counter_typeERKNSt6stringERKN3hpx8functionIFNSt7int64_tEbEEERKNSt6stringERKNSt6stringE12counter_typeR10error_code" title="hpx::performance_counters::install_counter_type"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::performance_counters::install_counter_type</span></code></a>. A counter type
+<code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::performance_counters::install_counter_type</span></code>. A counter type
 represents certain common characteristics of counters, like their counter type
 name and any associated description information. The following snippet shows an
 example of how to register the function <code class="docutils literal notranslate"><span class="pre">some_performance_data</span></code>, which is shown
@@ -1949,7 +1949,7 @@ counter type:</p>
 scheme <code class="docutils literal notranslate"><span class="pre">&quot;/test{locality#*/total}/data&quot;</span></code> where <code class="docutils literal notranslate"><span class="pre">*</span></code> is a zero-based integer
 index identifying the <a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a> for which the counter instance should be
 accessed. The function
-<a class="reference internal" href="../libs/full/performance_counters/api/manage_counter_type.html#_CPPv4N3hpx20performance_counters20install_counter_typeERKNSt6stringERKN3hpx8functionIFNSt7int64_tEbEEERKNSt6stringERKNSt6stringE12counter_typeR10error_code" title="hpx::performance_counters::install_counter_type"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::performance_counters::install_counter_type</span></code></a> enables users to
+<code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::performance_counters::install_counter_type</span></code> enables users to
 instantiate exactly one counter instance for each <a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a>. Repeated
 requests to instantiate such a counter will return the same instance, i.e., the
 instance created for the first request.</p>
@@ -1991,7 +1991,7 @@ performance counters which support:</p>
 <li><p>Setting the (initial) value of the performance counter</p></li>
 </ul>
 <p>Every full performance counter will implement a predefined interface:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">//  Copyright (c) 2007-2023 Hartmut Kaiser</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">//  Copyright (c) 2007-2026 Hartmut Kaiser</span>
 <span class="c1">//</span>
 <span class="c1">//  SPDX-License-Identifier: BSL-1.0</span>
 <span class="c1">//  Distributed under the Boost Software License, Version 1.0. (See accompanying</span>
@@ -2019,7 +2019,7 @@ performance counters which support:</p>
 <span class="k">namespace</span><span class="w"> </span><span class="nn">hpx</span><span class="o">::</span><span class="nn">performance_counters</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
 <span class="w">    </span><span class="c1">///////////////////////////////////////////////////////////////////////////</span>
-<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">HPX_EXPORT</span><span class="w"> </span><span class="n">performance_counter</span><span class="w"></span>
+<span class="w">    </span><span class="n">HPX_CXX_EXPORT</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">HPX_EXPORT</span><span class="w"> </span><span class="n">performance_counter</span><span class="w"></span>
 <span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">components</span><span class="o">::</span><span class="n">client_base</span><span class="o">&lt;</span><span class="n">performance_counter</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="n">server</span><span class="o">::</span><span class="n">base_performance_counter</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
@@ -2123,8 +2123,8 @@ performance counters which support:</p>
 <span class="w">    </span><span class="p">};</span><span class="w"></span>
 
 <span class="w">    </span><span class="c1">// Return all counters matching the given name (with optional wild cards).</span>
-<span class="w">    </span><span class="n">HPX_EXPORT</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">performance_counter</span><span class="o">&gt;</span><span class="w"> </span><span class="n">discover_counters</span><span class="p">(</span><span class="w"></span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">error_code</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">throws</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">HPX_CXX_EXPORT</span><span class="w"> </span><span class="n">HPX_EXPORT</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">performance_counter</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="n">discover_counters</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">error_code</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">throws</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w">    </span><span class="c1">// namespace hpx::performance_counters</span>
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/config/warnings_suffix.hpp&gt;</span><span class="cp"></span>
@@ -2138,7 +2138,7 @@ performance counter based on the Sine example, which you can find in the
 directory <code class="docutils literal notranslate"><span class="pre">examples/performance_counters/sine/</span></code>.</p>
 <p>The base class is defined in the header file <a class="reference download internal" download="" href="../_downloads/d3b25bcbf98f8a7fc6a27e4befa7e1fe/base_performance_counter.hpp"><code class="xref download docutils literal notranslate"><span class="pre">base_performance_counter.cpp</span></code></a>
 as:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">//  Copyright (c) 2007-2025 Hartmut Kaiser</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">//  Copyright (c) 2007-2026 Hartmut Kaiser</span>
 <span class="c1">//</span>
 <span class="c1">//  SPDX-License-Identifier: BSL-1.0</span>
 <span class="c1">//  Distributed under the Boost Software License, Version 1.0. (See accompanying</span>
@@ -2150,9 +2150,11 @@ as:</p>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/modules/actions_base.hpp&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/modules/components_base.hpp&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/modules/runtime_local.hpp&gt;</span><span class="cp"></span>
+
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/performance_counters/counters.hpp&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/performance_counters/server/base_performance_counter.hpp&gt;</span><span class="cp"></span>
 
+<span class="cp">#if defined(DOXYGEN)</span>
 <span class="c1">///////////////////////////////////////////////////////////////////////////////</span>
 <span class="c1">//[performance_counter_base_class</span>
 <span class="k">namespace</span><span class="w"> </span><span class="nn">hpx</span><span class="o">::</span><span class="nn">performance_counters</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -2161,11 +2163,12 @@ as:</p>
 <span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">base_performance_counter</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w">    </span><span class="c1">// namespace hpx::performance_counters</span>
 <span class="c1">//]</span>
+<span class="cp">#endif</span>
 
 <span class="c1">///////////////////////////////////////////////////////////////////////////////</span>
 <span class="k">namespace</span><span class="w"> </span><span class="nn">hpx</span><span class="o">::</span><span class="nn">performance_counters</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
-<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Derived</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="n">HPX_CXX_EXPORT</span><span class="w"> </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Derived</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">base_performance_counter</span><span class="w"></span>
 <span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">performance_counters</span><span class="o">::</span><span class="n">server</span><span class="o">::</span><span class="n">base_performance_counter</span><span class="w"></span>
 <span class="w">      </span><span class="p">,</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">components</span><span class="o">::</span><span class="n">component_base</span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">&gt;</span><span class="w"></span>
@@ -5719,7 +5722,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 22, 2026.
+  Last updated on May 23, 2026.
   <br/>
 </p>
   </div>
