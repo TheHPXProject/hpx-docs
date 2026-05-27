@@ -19,9 +19,9 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    :maxdepth: 1
 
    /libs/full/init_runtime/api/hpx_start.rst
-   /libs/full/init_runtime/api/hpx_init.rst
    /libs/full/init_runtime/api/hpx_init_params.rst
-   /libs/full/init_runtime/api/suspend.rst
+   /libs/full/init_runtime/api/hpx_init.rst
    /libs/full/init_runtime/api/start_impl.rst
    /libs/full/init_runtime/api/finalize.rst
    /libs/full/init_runtime/api/init_impl.rst
+   /libs/full/init_runtime/api/suspend.rst
