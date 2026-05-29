@@ -64,6 +64,7 @@ refer to the full documentation below.
    /libs/core/timed_execution/api/full_api.rst
    /libs/core/timing/api/full_api.rst
    /libs/core/topology/api/full_api.rst
+   /libs/core/tracing/api/full_api.rst
    /libs/core/util/api/full_api.rst
    /libs/full/actions/api/full_api.rst
    /libs/full/actions_base/api/full_api.rst
