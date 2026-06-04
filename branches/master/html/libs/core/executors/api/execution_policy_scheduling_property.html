@@ -1245,28 +1245,7 @@ document.write(`
 <dd><dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx9execution12experimentalE">
 <span id="_CPPv3N3hpx9execution12experimentalE"></span><span id="_CPPv2N3hpx9execution12experimentalE"></span><span id="hpx::execution::experimental"></span><span class="target" id="namespacehpx_1_1execution_1_1experimental"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">experimental</span></span></span><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
-<dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="execution__policy__scheduling__property_8hpp_1ad66799ca752a1c0e911c968e311602e1"></span><span class="sig-name descname"><span class="pre">template&lt;scheduling_property</span> <span class="pre">Tag,</span> <span class="pre">execution_policy</span> <span class="pre">ExPolicy,</span> <span class="pre">typename</span> <span class="pre">Property&gt;</span> <span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">requires</span> <span class="pre">(hpx::functional::is_tag_invocable_v&lt;</span> <span class="pre">Tag,</span> <span class="pre">typename</span> <span class="pre">std::decay_t&lt;</span> <span class="pre">ExPolicy</span> <span class="pre">&gt;::executor_type,</span> <span class="pre">Property</span> <span class="pre">&gt;)</span> <span class="pre">const</span> <span class="pre">expr</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_invoke(Tag</span> <span class="pre">tag</span></span></dt>
 <dd></dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="execution__policy__scheduling__property_8hpp_1a87a4d9505d2133ea5518c7ec90b421bb"></span><span class="sig-name descname"><span class="pre">template&lt;scheduling_property</span> <span class="pre">Tag,</span> <span class="pre">execution_policy</span> <span class="pre">ExPolicy&gt;</span> <span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">requires</span> <span class="pre">(hpx::functional::is_tag_invocable_v&lt;</span> <span class="pre">Tag,</span> <span class="pre">typename</span> <span class="pre">std::decay_t&lt;</span> <span class="pre">ExPolicy</span> <span class="pre">&gt;::executor_type</span> <span class="pre">&gt;)</span> <span class="pre">const</span> <span class="pre">expr</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_invoke(Tag</span> <span class="pre">tag</span></span></dt>
-<dd></dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-variables">Variables</p>
-<dl class="cpp var">
-<dt class="sig sig-object cpp">
-<span class="target" id="execution__policy__scheduling__property_8hpp_1a14d256a85276ac20585407948831f5eb"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">ExPolicy</span> <span class="pre">Property</span> <span class="pre">&amp;&amp;</span> <span class="pre">prop</span>&#160; <span class="pre">{return</span> <span class="pre">hpx::execution::experimental::create_rebound_policy(policy,tag(policy.executor(),</span> <span class="pre">HPX_FORWARD(Property,</span> <span class="pre">prop)),policy.parameters())</span></span></dt>
-<dd></dd></dl>
-
-</div>
-</dd></dl>
 
 </dd></dl>
 

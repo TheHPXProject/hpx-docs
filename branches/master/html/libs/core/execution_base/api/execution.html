@@ -1363,6 +1363,11 @@ document.write(`
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1async__execute__t_1ae80fc3eb7f3f34d76815f28020732a87"></span><span class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">Executor,</span> <span class="pre">typename</span> <span class="pre">F,</span> <span class="pre">typename...</span> <span class="pre">Ts&gt;</span>&#160; <span class="pre">requires</span> <span class="pre">(detail::has_async_execute_member&lt;</span> <span class="pre">Executor,</span> <span class="pre">F,</span> <span class="pre">Ts...</span> <span class="pre">&gt;)</span> <span class="pre">friend</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_invoke(async_execute_t</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
 <span class="target" id="structhpx_1_1parallel_1_1execution_1_1async__execute__t_1ae8b7d3fc9afdc1841791bf398b45fcbf"></span><span class="sig-name descname"><span class="pre">template&lt;executor_any</span> <span class="pre">Executor,</span> <span class="pre">typename</span> <span class="pre">F,</span> <span class="pre">typename...</span> <span class="pre">Ts&gt;</span>&#160; <span class="pre">requires</span> <span class="pre">(std::invocable&lt;</span> <span class="pre">F</span> <span class="pre">&amp;&amp;,</span> <span class="pre">Ts</span> <span class="pre">&amp;&amp;...</span> <span class="pre">&gt;)</span> <span class="pre">friend</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_fallback_invoke(async_execute_t</span></span></dt>
 <dd></dd></dl>
 
@@ -1371,17 +1376,17 @@ document.write(`
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx8parallel9execution15async_execute_t4execE">
-<span id="_CPPv3N3hpx8parallel9execution15async_execute_t4execE"></span><span id="_CPPv2N3hpx8parallel9execution15async_execute_t4execE"></span><span id="hpx::parallel::execution::async_execute_t::exec__ExecutorRR"></span><span class="target" id="structhpx_1_1parallel_1_1execution_1_1async__execute__t_1ae5fbc3ab39ad5d69009f4fc5fedf6181"></span><span class="n"><span class="pre">Executor</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">exec</span></span></span><a class="headerlink" href="#_CPPv4N3hpx8parallel9execution15async_execute_t4execE" title="Permalink to this definition">#</a><br /></dt>
+<span id="_CPPv3N3hpx8parallel9execution15async_execute_t4execE"></span><span id="_CPPv2N3hpx8parallel9execution15async_execute_t4execE"></span><span id="hpx::parallel::execution::async_execute_t::exec__ExecutorRR"></span><span class="target" id="structhpx_1_1parallel_1_1execution_1_1async__execute__t_1a949cd960b73a26a959c22305aff88283"></span><span class="n"><span class="pre">Executor</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">exec</span></span></span><a class="headerlink" href="#_CPPv4N3hpx8parallel9execution15async_execute_t4execE" title="Permalink to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="structhpx_1_1parallel_1_1execution_1_1async__execute__t_1a82c374da71eb8190fabd44148a215d5e"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">&amp;&amp;</span> <span class="pre">f</span></span></dt>
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1async__execute__t_1a5880ed7176a5af0b9304007c5cdd6b79"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">&amp;&amp;</span> <span class="pre">f</span></span></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="structhpx_1_1parallel_1_1execution_1_1async__execute__t_1ac00f2729426f96456ceb1e08631b5cba"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Ts</span> <span class="pre">&amp;&amp;</span> <span class="pre">ts</span>&#160; <span class="pre">{return</span> <span class="pre">detail::async_execute_fn_helper&lt;std::decay_t&lt;Executor&gt;&gt;::call(HPX_FORWARD(Executor,</span> <span class="pre">exec),HPX_FORWARD(F,</span> <span class="pre">f),</span> <span class="pre">HPX_FORWARD(Ts,</span> <span class="pre">ts)...)</span></span></dt>
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1async__execute__t_1a2c1582be4fb13378b1c4af88a200c58e"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Ts</span> <span class="pre">&amp;&amp;</span> <span class="pre">ts</span>&#160; <span class="pre">{return</span> <span class="pre">HPX_FORWARD(Executor,</span> <span class="pre">exec).async_execute(HPX_FORWARD(F,</span> <span class="pre">f),</span> <span class="pre">HPX_FORWARD(Ts,</span> <span class="pre">ts)...)</span></span></dt>
 <dd></dd></dl>
 
 </div>
@@ -1414,6 +1419,11 @@ document.write(`
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1async__invoke__t_1ab403b5392e481d297f28f79ac831290d"></span><span class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">Executor,</span> <span class="pre">typename</span> <span class="pre">F,</span> <span class="pre">typename...</span> <span class="pre">Fs&gt;</span>&#160; <span class="pre">requires</span> <span class="pre">(detail::has_async_invoke_member&lt;</span> <span class="pre">Executor,</span> <span class="pre">F,</span> <span class="pre">Fs...</span> <span class="pre">&gt;)</span> <span class="pre">friend</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_invoke(async_invoke_t</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
 <span class="target" id="structhpx_1_1parallel_1_1execution_1_1async__invoke__t_1a427602826ba8b9e453dc41de9eecf082"></span><span class="sig-name descname"><span class="pre">template&lt;executor_any</span> <span class="pre">Executor,</span> <span class="pre">typename</span> <span class="pre">F,</span> <span class="pre">typename...</span> <span class="pre">Fs&gt;</span>&#160; <span class="pre">requires</span> <span class="pre">(std::invocable&lt;</span> <span class="pre">F</span> <span class="pre">&gt;</span> <span class="pre">&amp;&amp;(std::invocable&lt;</span> <span class="pre">Fs</span> <span class="pre">&gt;</span> <span class="pre">&amp;&amp;...))</span> <span class="pre">friend</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_fallback_invoke(async_invoke_t</span></span></dt>
 <dd></dd></dl>
 
@@ -1422,17 +1432,17 @@ document.write(`
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx8parallel9execution14async_invoke_t4execE">
-<span id="_CPPv3N3hpx8parallel9execution14async_invoke_t4execE"></span><span id="_CPPv2N3hpx8parallel9execution14async_invoke_t4execE"></span><span id="hpx::parallel::execution::async_invoke_t::exec__ExecutorRR"></span><span class="target" id="structhpx_1_1parallel_1_1execution_1_1async__invoke__t_1aed699c2303793ebd55206566612cfe2d"></span><span class="n"><span class="pre">Executor</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">exec</span></span></span><a class="headerlink" href="#_CPPv4N3hpx8parallel9execution14async_invoke_t4execE" title="Permalink to this definition">#</a><br /></dt>
+<span id="_CPPv3N3hpx8parallel9execution14async_invoke_t4execE"></span><span id="_CPPv2N3hpx8parallel9execution14async_invoke_t4execE"></span><span id="hpx::parallel::execution::async_invoke_t::exec__ExecutorRR"></span><span class="target" id="structhpx_1_1parallel_1_1execution_1_1async__invoke__t_1a341089c45c7425c70f6b1fec470278f4"></span><span class="n"><span class="pre">Executor</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">exec</span></span></span><a class="headerlink" href="#_CPPv4N3hpx8parallel9execution14async_invoke_t4execE" title="Permalink to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="structhpx_1_1parallel_1_1execution_1_1async__invoke__t_1a9ef76f06c31455820c35398f5af788d5"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">&amp;&amp;</span> <span class="pre">f</span></span></dt>
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1async__invoke__t_1ab5f6350ef7675dcad9e0090fff8d1af3"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">&amp;&amp;</span> <span class="pre">f</span></span></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="structhpx_1_1parallel_1_1execution_1_1async__invoke__t_1abe13af56b2461b0daf302a19fa8b3f3b"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Fs</span> <span class="pre">&amp;&amp;</span> <span class="pre">fs</span>&#160; <span class="pre">{return</span> <span class="pre">detail::async_invoke_fn_helper&lt;std::decay_t&lt;Executor&gt;&gt;::call(HPX_FORWARD(Executor,</span> <span class="pre">exec),</span> <span class="pre">HPX_FORWARD(F,</span> <span class="pre">f),HPX_FORWARD(Fs,</span> <span class="pre">fs)...)</span></span></dt>
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1async__invoke__t_1a67aacee417080318c98930b15075e54c"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Fs</span> <span class="pre">&amp;&amp;</span> <span class="pre">fs</span>&#160; <span class="pre">{return</span> <span class="pre">HPX_FORWARD(Executor,</span> <span class="pre">exec).async_invoke(HPX_FORWARD(F,</span> <span class="pre">f),</span> <span class="pre">HPX_FORWARD(Fs,</span> <span class="pre">fs)...)</span></span></dt>
 <dd></dd></dl>
 
 </div>
@@ -1476,6 +1486,11 @@ This asynchronously creates a group of function invocations f(i) whose ordering 
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1bulk__async__execute__t_1a9e66efa3420aa38c9150bf4f3c2a2506"></span><span class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">Executor,</span> <span class="pre">typename</span> <span class="pre">F,</span> <span class="pre">typename</span> <span class="pre">Shape,</span> <span class="pre">typename...</span> <span class="pre">Ts&gt;</span>&#160; <span class="pre">requires</span> <span class="pre">(!std::integral&lt;</span> <span class="pre">Shape</span> <span class="pre">&gt;</span> <span class="pre">&amp;&amp;detail::has_bulk_async_execute_member&lt;</span> <span class="pre">Executor,</span> <span class="pre">F,</span> <span class="pre">Shape,</span> <span class="pre">Ts...</span> <span class="pre">&gt;)</span> <span class="pre">friend</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_invoke(bulk_async_execute_t</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
 <span class="target" id="structhpx_1_1parallel_1_1execution_1_1bulk__async__execute__t_1a9b04355f1b9551cc8d452c600061a9af"></span><span class="sig-name descname"><span class="pre">template&lt;executor_any</span> <span class="pre">Executor,</span> <span class="pre">typename</span> <span class="pre">F,</span> <span class="pre">typename</span> <span class="pre">Shape,</span> <span class="pre">typename...</span> <span class="pre">Ts&gt;</span>&#160; <span class="pre">requires</span> <span class="pre">(!std::integral&lt;</span> <span class="pre">Shape</span> <span class="pre">&gt;)</span> <span class="pre">friend</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_fallback_invoke(bulk_async_execute_t</span></span></dt>
 <dd></dd></dl>
 
@@ -1504,7 +1519,7 @@ This asynchronously creates a group of function invocations f(i) whose ordering 
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="structhpx_1_1parallel_1_1execution_1_1bulk__async__execute__t_1a140df1c88edfd0306eab9b2e98b5dd1b"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Shape</span> <span class="pre">const</span> <span class="pre">Ts</span> <span class="pre">&amp;&amp;</span> <span class="pre">ts</span>&#160; <span class="pre">{return</span> <span class="pre">detail::bulk_async_execute_fn_helper&lt;std::decay_t&lt;Executor&gt;&gt;::call(HPX_FORWARD(Executor,</span> <span class="pre">exec),HPX_FORWARD(F,</span> <span class="pre">f),</span> <span class="pre">shape,</span> <span class="pre">HPX_FORWARD(Ts,</span> <span class="pre">ts)...)</span></span></dt>
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1bulk__async__execute__t_1a140df1c88edfd0306eab9b2e98b5dd1b"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Shape</span> <span class="pre">const</span> <span class="pre">Ts</span> <span class="pre">&amp;&amp;</span> <span class="pre">ts</span>&#160; <span class="pre">{return</span> <span class="pre">HPX_FORWARD(Executor,</span> <span class="pre">exec).bulk_async_execute(HPX_FORWARD(F,</span> <span class="pre">f),</span> <span class="pre">shape,</span> <span class="pre">HPX_FORWARD(Ts,</span> <span class="pre">ts)...)</span></span></dt>
 <dd></dd></dl>
 
 </div>
@@ -1548,6 +1563,11 @@ This synchronously creates a group of function invocations f(i) whose ordering i
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1bulk__sync__execute__t_1afac5783a8a6267e4fe7c28b45b9fda67"></span><span class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">Executor,</span> <span class="pre">typename</span> <span class="pre">F,</span> <span class="pre">typename</span> <span class="pre">Shape,</span> <span class="pre">typename...</span> <span class="pre">Ts&gt;</span>&#160; <span class="pre">requires</span> <span class="pre">(!std::integral&lt;</span> <span class="pre">Shape</span> <span class="pre">&gt;</span> <span class="pre">&amp;&amp;detail::has_bulk_sync_execute_member&lt;</span> <span class="pre">Executor,</span> <span class="pre">F,</span> <span class="pre">Shape,</span> <span class="pre">Ts...</span> <span class="pre">&gt;)</span> <span class="pre">friend</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_invoke(bulk_sync_execute_t</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
 <span class="target" id="structhpx_1_1parallel_1_1execution_1_1bulk__sync__execute__t_1a02fd10a042ab87b64990723fc9c0d6f4"></span><span class="sig-name descname"><span class="pre">template&lt;executor_any</span> <span class="pre">Executor,</span> <span class="pre">typename</span> <span class="pre">F,</span> <span class="pre">typename</span> <span class="pre">Shape,</span> <span class="pre">typename...</span> <span class="pre">Ts&gt;</span>&#160; <span class="pre">requires</span> <span class="pre">(!std::integral&lt;</span> <span class="pre">Shape</span> <span class="pre">&gt;)</span> <span class="pre">friend</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_fallback_invoke(bulk_sync_execute_t</span></span></dt>
 <dd></dd></dl>
 
@@ -1576,7 +1596,7 @@ This synchronously creates a group of function invocations f(i) whose ordering i
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="structhpx_1_1parallel_1_1execution_1_1bulk__sync__execute__t_1a6c93eae06d81958ac639961dee0505df"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Shape</span> <span class="pre">const</span> <span class="pre">Ts</span> <span class="pre">&amp;&amp;</span> <span class="pre">ts</span>&#160; <span class="pre">{return</span> <span class="pre">detail::bulk_sync_execute_fn_helper&lt;std::decay_t&lt;Executor&gt;&gt;::call(HPX_FORWARD(Executor,</span> <span class="pre">exec),HPX_FORWARD(F,</span> <span class="pre">f),</span> <span class="pre">shape,</span> <span class="pre">HPX_FORWARD(Ts,</span> <span class="pre">ts)...)</span></span></dt>
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1bulk__sync__execute__t_1a6c93eae06d81958ac639961dee0505df"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Shape</span> <span class="pre">const</span> <span class="pre">Ts</span> <span class="pre">&amp;&amp;</span> <span class="pre">ts</span>&#160; <span class="pre">{return</span> <span class="pre">HPX_FORWARD(Executor,</span> <span class="pre">exec).bulk_sync_execute(HPX_FORWARD(F,</span> <span class="pre">f),</span> <span class="pre">shape,</span> <span class="pre">HPX_FORWARD(Ts,</span> <span class="pre">ts)...)</span></span></dt>
 <dd></dd></dl>
 
 </div>
@@ -1623,6 +1643,11 @@ This creates a group of function invocations f(i) whose ordering is given by the
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1bulk__then__execute__t_1a92f49fbbf33404646c2b84b253af61c7"></span><span class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">Executor,</span> <span class="pre">typename</span> <span class="pre">F,</span> <span class="pre">typename</span> <span class="pre">Shape,</span> <span class="pre">typename</span> <span class="pre">Future,</span> <span class="pre">typename...</span> <span class="pre">Ts&gt;</span>&#160; <span class="pre">requires</span> <span class="pre">(!std::integral&lt;</span> <span class="pre">Shape</span> <span class="pre">&gt;</span> <span class="pre">&amp;&amp;detail::has_bulk_then_execute_member&lt;</span> <span class="pre">Executor,</span> <span class="pre">F,</span> <span class="pre">Shape,</span> <span class="pre">Future,</span> <span class="pre">Ts...</span> <span class="pre">&gt;)</span> <span class="pre">friend</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_invoke(bulk_then_execute_t</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
 <span class="target" id="structhpx_1_1parallel_1_1execution_1_1bulk__then__execute__t_1a23139625f9054e211955d40f6df10135"></span><span class="sig-name descname"><span class="pre">template&lt;executor_any</span> <span class="pre">Executor,</span> <span class="pre">typename</span> <span class="pre">F,</span> <span class="pre">typename</span> <span class="pre">Shape,</span> <span class="pre">typename</span> <span class="pre">Future,</span> <span class="pre">typename...</span> <span class="pre">Ts&gt;</span>&#160; <span class="pre">requires</span> <span class="pre">(!std::integral&lt;</span> <span class="pre">Shape</span> <span class="pre">&gt;)</span> <span class="pre">friend</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_fallback_invoke(bulk_then_execute_t</span></span></dt>
 <dd></dd></dl>
 
@@ -1656,7 +1681,7 @@ This creates a group of function invocations f(i) whose ordering is given by the
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="structhpx_1_1parallel_1_1execution_1_1bulk__then__execute__t_1ad93a2c306247ec1c1ce99fd009af9fbb"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Shape</span> <span class="pre">const</span> <span class="pre">Future</span> <span class="pre">Ts</span> <span class="pre">&amp;&amp;</span> <span class="pre">ts</span>&#160; <span class="pre">{return</span> <span class="pre">detail::bulk_then_execute_fn_helper&lt;std::decay_t&lt;Executor&gt;&gt;::call(HPX_FORWARD(Executor,</span> <span class="pre">exec),HPX_FORWARD(F,</span> <span class="pre">f),</span> <span class="pre">shape,</span> <span class="pre">HPX_FORWARD(Future,</span> <span class="pre">predecessor),HPX_FORWARD(Ts,</span> <span class="pre">ts)...)</span></span></dt>
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1bulk__then__execute__t_1ad93a2c306247ec1c1ce99fd009af9fbb"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Shape</span> <span class="pre">const</span> <span class="pre">Future</span> <span class="pre">Ts</span> <span class="pre">&amp;&amp;</span> <span class="pre">ts</span>&#160; <span class="pre">{return</span> <span class="pre">HPX_FORWARD(Executor,</span> <span class="pre">exec).bulk_then_execute(HPX_FORWARD(F,</span> <span class="pre">f),</span> <span class="pre">shape,HPX_FORWARD(Future,</span> <span class="pre">predecessor),</span> <span class="pre">HPX_FORWARD(Ts,</span> <span class="pre">ts)...)</span></span></dt>
 <dd></dd></dl>
 
 </div>
@@ -1688,6 +1713,11 @@ This creates a group of function invocations f(i) whose ordering is given by the
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1post__t_1a5447e8153739766c2dd9d06860ab7e33"></span><span class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">Executor,</span> <span class="pre">typename</span> <span class="pre">F,</span> <span class="pre">typename...</span> <span class="pre">Ts&gt;</span>&#160; <span class="pre">requires</span> <span class="pre">(detail::has_post_member&lt;</span> <span class="pre">Executor,</span> <span class="pre">F,</span> <span class="pre">Ts...</span> <span class="pre">&gt;)</span> <span class="pre">friend</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_invoke(post_t</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
 <span class="target" id="structhpx_1_1parallel_1_1execution_1_1post__t_1a3a4e24a0f1a3da60791f9d04dd7d3cce"></span><span class="sig-name descname"><span class="pre">template&lt;executor_any</span> <span class="pre">Executor,</span> <span class="pre">typename</span> <span class="pre">F,</span> <span class="pre">typename...</span> <span class="pre">Ts&gt;</span>&#160; <span class="pre">requires</span> <span class="pre">(std::invocable&lt;</span> <span class="pre">F</span> <span class="pre">&amp;&amp;,</span> <span class="pre">Ts</span> <span class="pre">&amp;&amp;...</span> <span class="pre">&gt;)</span> <span class="pre">friend</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_fallback_invoke(post_t</span></span></dt>
 <dd></dd></dl>
 
@@ -1696,17 +1726,17 @@ This creates a group of function invocations f(i) whose ordering is given by the
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx8parallel9execution6post_t4execE">
-<span id="_CPPv3N3hpx8parallel9execution6post_t4execE"></span><span id="_CPPv2N3hpx8parallel9execution6post_t4execE"></span><span id="hpx::parallel::execution::post_t::exec__ExecutorRR"></span><span class="target" id="structhpx_1_1parallel_1_1execution_1_1post__t_1a21c3549c5c2fc0cd10cf45f9b8b9487e"></span><span class="n"><span class="pre">Executor</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">exec</span></span></span><a class="headerlink" href="#_CPPv4N3hpx8parallel9execution6post_t4execE" title="Permalink to this definition">#</a><br /></dt>
+<span id="_CPPv3N3hpx8parallel9execution6post_t4execE"></span><span id="_CPPv2N3hpx8parallel9execution6post_t4execE"></span><span id="hpx::parallel::execution::post_t::exec__ExecutorRR"></span><span class="target" id="structhpx_1_1parallel_1_1execution_1_1post__t_1ae0ebc1b18567406572c87df0c1041773"></span><span class="n"><span class="pre">Executor</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">exec</span></span></span><a class="headerlink" href="#_CPPv4N3hpx8parallel9execution6post_t4execE" title="Permalink to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="structhpx_1_1parallel_1_1execution_1_1post__t_1a32ace9e2c94f3384184640e8479c76e7"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">&amp;&amp;</span> <span class="pre">f</span></span></dt>
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1post__t_1a54db3335c302b5565564510df713b837"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">&amp;&amp;</span> <span class="pre">f</span></span></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="structhpx_1_1parallel_1_1execution_1_1post__t_1a7956798ded2efba776af0213ffaff5d4"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Ts</span> <span class="pre">&amp;&amp;</span> <span class="pre">ts</span>&#160; <span class="pre">{return</span> <span class="pre">detail::post_fn_helper&lt;std::decay_t&lt;Executor&gt;&gt;::call(HPX_FORWARD(Executor,</span> <span class="pre">exec),</span> <span class="pre">HPX_FORWARD(F,</span> <span class="pre">f),HPX_FORWARD(Ts,</span> <span class="pre">ts)...)</span></span></dt>
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1post__t_1acadb24fcdd5bb48bf76cd41bab76559d"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Ts</span> <span class="pre">&amp;&amp;</span> <span class="pre">ts</span>&#160; <span class="pre">{return</span> <span class="pre">HPX_FORWARD(Executor,</span> <span class="pre">exec).post(HPX_FORWARD(F,</span> <span class="pre">f),</span> <span class="pre">HPX_FORWARD(Ts,</span> <span class="pre">ts)...)</span></span></dt>
 <dd></dd></dl>
 
 </div>
@@ -1741,6 +1771,11 @@ This creates a group of function invocations f(i) whose ordering is given by the
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1sync__execute__t_1aedafa702a3b8136afb6251a410a914d2"></span><span class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">Executor,</span> <span class="pre">typename</span> <span class="pre">F,</span> <span class="pre">typename...</span> <span class="pre">Ts&gt;</span>&#160; <span class="pre">requires</span> <span class="pre">(detail::has_sync_execute_member&lt;</span> <span class="pre">Executor,</span> <span class="pre">F,</span> <span class="pre">Ts...</span> <span class="pre">&gt;)</span> <span class="pre">friend</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_invoke(sync_execute_t</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
 <span class="target" id="structhpx_1_1parallel_1_1execution_1_1sync__execute__t_1a74faa69d5e25d72182369214051f7a64"></span><span class="sig-name descname"><span class="pre">template&lt;executor_any</span> <span class="pre">Executor,</span> <span class="pre">typename</span> <span class="pre">F,</span> <span class="pre">typename...</span> <span class="pre">Ts&gt;</span>&#160; <span class="pre">requires</span> <span class="pre">(std::invocable&lt;</span> <span class="pre">F</span> <span class="pre">&amp;&amp;,</span> <span class="pre">Ts</span> <span class="pre">&amp;&amp;...</span> <span class="pre">&gt;)</span> <span class="pre">friend</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_fallback_invoke(sync_execute_t</span></span></dt>
 <dd></dd></dl>
 
@@ -1749,17 +1784,17 @@ This creates a group of function invocations f(i) whose ordering is given by the
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx8parallel9execution14sync_execute_t4execE">
-<span id="_CPPv3N3hpx8parallel9execution14sync_execute_t4execE"></span><span id="_CPPv2N3hpx8parallel9execution14sync_execute_t4execE"></span><span id="hpx::parallel::execution::sync_execute_t::exec__ExecutorRR"></span><span class="target" id="structhpx_1_1parallel_1_1execution_1_1sync__execute__t_1a4e96118a5deab9bc87dce9cbc3f88b02"></span><span class="n"><span class="pre">Executor</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">exec</span></span></span><a class="headerlink" href="#_CPPv4N3hpx8parallel9execution14sync_execute_t4execE" title="Permalink to this definition">#</a><br /></dt>
+<span id="_CPPv3N3hpx8parallel9execution14sync_execute_t4execE"></span><span id="_CPPv2N3hpx8parallel9execution14sync_execute_t4execE"></span><span id="hpx::parallel::execution::sync_execute_t::exec__ExecutorRR"></span><span class="target" id="structhpx_1_1parallel_1_1execution_1_1sync__execute__t_1ad7168da71e1984a3d2a06b44da16472a"></span><span class="n"><span class="pre">Executor</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">exec</span></span></span><a class="headerlink" href="#_CPPv4N3hpx8parallel9execution14sync_execute_t4execE" title="Permalink to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="structhpx_1_1parallel_1_1execution_1_1sync__execute__t_1a27b39b99778d49b1fa37ffc0de353d5a"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">&amp;&amp;</span> <span class="pre">f</span></span></dt>
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1sync__execute__t_1a8a9e4140b5602167d8d83bb2ef70c7e8"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">&amp;&amp;</span> <span class="pre">f</span></span></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="structhpx_1_1parallel_1_1execution_1_1sync__execute__t_1adc6154de2025609d1df5f633fc9b3e99"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Ts</span> <span class="pre">&amp;&amp;</span> <span class="pre">ts</span>&#160; <span class="pre">{return</span> <span class="pre">detail::sync_execute_fn_helper&lt;std::decay_t&lt;Executor&gt;&gt;::call(HPX_FORWARD(Executor,</span> <span class="pre">exec),</span> <span class="pre">HPX_FORWARD(F,</span> <span class="pre">f),HPX_FORWARD(Ts,</span> <span class="pre">ts)...)</span></span></dt>
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1sync__execute__t_1ac487e4414d8adb23272723d43ed6d1e4"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Ts</span> <span class="pre">&amp;&amp;</span> <span class="pre">ts</span>&#160; <span class="pre">{return</span> <span class="pre">HPX_FORWARD(Executor,</span> <span class="pre">exec).sync_execute(HPX_FORWARD(F,</span> <span class="pre">f),</span> <span class="pre">HPX_FORWARD(Ts,</span> <span class="pre">ts)...)</span></span></dt>
 <dd></dd></dl>
 
 </div>
@@ -1792,6 +1827,11 @@ This creates a group of function invocations f(i) whose ordering is given by the
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1sync__invoke__t_1a93e8d64b5288f1816de1f11a3b41baea"></span><span class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">Executor,</span> <span class="pre">typename</span> <span class="pre">F,</span> <span class="pre">typename...</span> <span class="pre">Fs&gt;</span>&#160; <span class="pre">requires</span> <span class="pre">(detail::has_sync_invoke_member&lt;</span> <span class="pre">Executor,</span> <span class="pre">F,</span> <span class="pre">Fs...</span> <span class="pre">&gt;)</span> <span class="pre">friend</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_invoke(sync_invoke_t</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
 <span class="target" id="structhpx_1_1parallel_1_1execution_1_1sync__invoke__t_1a602b39b3ca741fe095342dd37388beb5"></span><span class="sig-name descname"><span class="pre">template&lt;executor_any</span> <span class="pre">Executor,</span> <span class="pre">typename</span> <span class="pre">F,</span> <span class="pre">typename...</span> <span class="pre">Fs&gt;</span>&#160; <span class="pre">requires</span> <span class="pre">(std::invocable&lt;</span> <span class="pre">F</span> <span class="pre">&gt;</span> <span class="pre">&amp;&amp;(std::invocable&lt;</span> <span class="pre">Fs</span> <span class="pre">&gt;</span> <span class="pre">&amp;&amp;...))</span> <span class="pre">friend</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_fallback_invoke(sync_invoke_t</span></span></dt>
 <dd></dd></dl>
 
@@ -1800,17 +1840,17 @@ This creates a group of function invocations f(i) whose ordering is given by the
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx8parallel9execution13sync_invoke_t4execE">
-<span id="_CPPv3N3hpx8parallel9execution13sync_invoke_t4execE"></span><span id="_CPPv2N3hpx8parallel9execution13sync_invoke_t4execE"></span><span id="hpx::parallel::execution::sync_invoke_t::exec__ExecutorRR"></span><span class="target" id="structhpx_1_1parallel_1_1execution_1_1sync__invoke__t_1a19fd7c3d1384b9b408b25c828de6951f"></span><span class="n"><span class="pre">Executor</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">exec</span></span></span><a class="headerlink" href="#_CPPv4N3hpx8parallel9execution13sync_invoke_t4execE" title="Permalink to this definition">#</a><br /></dt>
+<span id="_CPPv3N3hpx8parallel9execution13sync_invoke_t4execE"></span><span id="_CPPv2N3hpx8parallel9execution13sync_invoke_t4execE"></span><span id="hpx::parallel::execution::sync_invoke_t::exec__ExecutorRR"></span><span class="target" id="structhpx_1_1parallel_1_1execution_1_1sync__invoke__t_1a3d9757ba8a637fbab03c05bb89bbe340"></span><span class="n"><span class="pre">Executor</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">exec</span></span></span><a class="headerlink" href="#_CPPv4N3hpx8parallel9execution13sync_invoke_t4execE" title="Permalink to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="structhpx_1_1parallel_1_1execution_1_1sync__invoke__t_1a433e3b39f7f5eec38e5f6f45b079d34c"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">&amp;&amp;</span> <span class="pre">f</span></span></dt>
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1sync__invoke__t_1a34cf8aa6f8085041494cf5da71240d8a"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">&amp;&amp;</span> <span class="pre">f</span></span></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="structhpx_1_1parallel_1_1execution_1_1sync__invoke__t_1a8e8029ca3c573e1eaddc278aa0ecb745"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Fs</span> <span class="pre">&amp;&amp;</span> <span class="pre">fs</span>&#160; <span class="pre">{return</span> <span class="pre">detail::sync_invoke_fn_helper&lt;std::decay_t&lt;Executor&gt;&gt;::call(HPX_FORWARD(Executor,</span> <span class="pre">exec),</span> <span class="pre">HPX_FORWARD(F,</span> <span class="pre">f),HPX_FORWARD(Fs,</span> <span class="pre">fs)...)</span></span></dt>
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1sync__invoke__t_1aed02de807535f2bd28fffbab8a2b7e31"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Fs</span> <span class="pre">&amp;&amp;</span> <span class="pre">fs</span>&#160; <span class="pre">{return</span> <span class="pre">HPX_FORWARD(Executor,</span> <span class="pre">exec).sync_invoke(HPX_FORWARD(F,</span> <span class="pre">f),</span> <span class="pre">HPX_FORWARD(Fs,</span> <span class="pre">fs)...)</span></span></dt>
 <dd></dd></dl>
 
 </div>
@@ -1848,6 +1888,11 @@ This creates a group of function invocations f(i) whose ordering is given by the
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1then__execute__t_1a5fbceab00cbc32d02fbd6b2044647364"></span><span class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">Executor,</span> <span class="pre">typename</span> <span class="pre">F,</span> <span class="pre">typename</span> <span class="pre">Future,</span> <span class="pre">typename...</span> <span class="pre">Ts&gt;</span>&#160; <span class="pre">requires</span> <span class="pre">(detail::has_then_execute_member&lt;</span> <span class="pre">Executor,</span> <span class="pre">F,</span> <span class="pre">Future,</span> <span class="pre">Ts...</span> <span class="pre">&gt;)</span> <span class="pre">friend</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_invoke(then_execute_t</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
 <span class="target" id="structhpx_1_1parallel_1_1execution_1_1then__execute__t_1a7cd2f1a48c63e2a73f21b62d6c4c8b15"></span><span class="sig-name descname"><span class="pre">template&lt;executor_any</span> <span class="pre">Executor,</span> <span class="pre">typename</span> <span class="pre">F,</span> <span class="pre">typename</span> <span class="pre">Future,</span> <span class="pre">typename...</span> <span class="pre">Ts&gt;</span>&#160; <span class="pre">requires</span> <span class="pre">(std::invocable&lt;</span> <span class="pre">F</span> <span class="pre">&amp;&amp;,</span> <span class="pre">Future</span> <span class="pre">&amp;&amp;,</span> <span class="pre">Ts</span> <span class="pre">&amp;&amp;...</span> <span class="pre">&gt;)</span> <span class="pre">friend</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_fallback_invoke(then_execute_t</span></span></dt>
 <dd></dd></dl>
 
@@ -1856,22 +1901,22 @@ This creates a group of function invocations f(i) whose ordering is given by the
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx8parallel9execution14then_execute_t4execE">
-<span id="_CPPv3N3hpx8parallel9execution14then_execute_t4execE"></span><span id="_CPPv2N3hpx8parallel9execution14then_execute_t4execE"></span><span id="hpx::parallel::execution::then_execute_t::exec__ExecutorRR"></span><span class="target" id="structhpx_1_1parallel_1_1execution_1_1then__execute__t_1a567b26c3abc990fbce99751b41ea6875"></span><span class="n"><span class="pre">Executor</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">exec</span></span></span><a class="headerlink" href="#_CPPv4N3hpx8parallel9execution14then_execute_t4execE" title="Permalink to this definition">#</a><br /></dt>
+<span id="_CPPv3N3hpx8parallel9execution14then_execute_t4execE"></span><span id="_CPPv2N3hpx8parallel9execution14then_execute_t4execE"></span><span id="hpx::parallel::execution::then_execute_t::exec__ExecutorRR"></span><span class="target" id="structhpx_1_1parallel_1_1execution_1_1then__execute__t_1a9b1ce0d9e01c4fa2397682f2ba137e9f"></span><span class="n"><span class="pre">Executor</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">exec</span></span></span><a class="headerlink" href="#_CPPv4N3hpx8parallel9execution14then_execute_t4execE" title="Permalink to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="structhpx_1_1parallel_1_1execution_1_1then__execute__t_1a6ed296b6dab4e51d51c2d1a7b7e67c6f"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">&amp;&amp;</span> <span class="pre">f</span></span></dt>
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1then__execute__t_1aa70ac9511f1d1effc847aa26ff2981c5"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">&amp;&amp;</span> <span class="pre">f</span></span></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="structhpx_1_1parallel_1_1execution_1_1then__execute__t_1a0056d82bde150dfd0d23b4cbaab62641"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Future</span> <span class="pre">&amp;&amp;</span> <span class="pre">predecessor</span></span></dt>
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1then__execute__t_1a8562e165fe000353e245cc426d716c81"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Future</span> <span class="pre">&amp;&amp;</span> <span class="pre">predecessor</span></span></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="structhpx_1_1parallel_1_1execution_1_1then__execute__t_1a8a939a4d47046c89e80f366c28b88f43"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Future</span> <span class="pre">Ts</span> <span class="pre">&amp;&amp;</span> <span class="pre">ts</span>&#160; <span class="pre">{return</span> <span class="pre">detail::then_execute_fn_helper&lt;std::decay_t&lt;Executor&gt;&gt;::call(HPX_FORWARD(Executor,</span> <span class="pre">exec),</span> <span class="pre">HPX_FORWARD(F,</span> <span class="pre">f),HPX_FORWARD(Future,</span> <span class="pre">predecessor),</span> <span class="pre">HPX_FORWARD(Ts,</span> <span class="pre">ts)...)</span></span></dt>
+<span class="target" id="structhpx_1_1parallel_1_1execution_1_1then__execute__t_1a9fcbffacd812f4368a70894e3c118fde"></span><span class="sig-name descname"><span class="pre">Executor</span> <span class="pre">F</span> <span class="pre">Future</span> <span class="pre">Ts</span> <span class="pre">&amp;&amp;</span> <span class="pre">ts</span>&#160; <span class="pre">{return</span> <span class="pre">HPX_FORWARD(Executor,</span> <span class="pre">exec).then_execute(HPX_FORWARD(F,</span> <span class="pre">f),HPX_FORWARD(Future,</span> <span class="pre">predecessor),</span> <span class="pre">HPX_FORWARD(Ts,</span> <span class="pre">ts)...)</span></span></dt>
 <dd></dd></dl>
 
 </div>

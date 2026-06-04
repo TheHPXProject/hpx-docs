@@ -1249,22 +1249,7 @@ document.write(`
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
-<span class="target" id="execution__policy__parameters_8hpp_1a32b311fc24e92f2b5455a2be0170791f"></span><span class="sig-name descname"><span class="pre">template&lt;execution_policy</span> <span class="pre">ExPolicy&gt;</span> <span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">requires</span> <span class="pre">(std::invocable&lt;</span> <span class="pre">with_processing_units_count_t,</span> <span class="pre">typename</span> <span class="pre">std::decay_t&lt;</span> <span class="pre">ExPolicy</span> <span class="pre">&gt;::executor_type,</span> <span class="pre">std::size_t</span> <span class="pre">&gt;)</span> <span class="pre">const</span> <span class="pre">expr</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_invoke(with_processing_units_count_t</span></span></dt>
-<dd></dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="execution__policy__parameters_8hpp_1aae98424bfd71f56ad595c79036d92fc5"></span><span class="sig-name descname"><span class="pre">return</span> <span class="pre">create_rebound_policy</span> <span class="pre">(policy,</span> <span class="pre">HPX_MOVE(exec),</span> <span class="pre">policy.parameters())</span></span></dt>
-<dd></dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="execution__policy__parameters_8hpp_1a81f8ab2eb7a639ec2d0f6814692cad5c"></span><span class="sig-name descname"><span class="pre">template&lt;execution_policy</span> <span class="pre">ExPolicy,</span> <span class="pre">executor_parameters</span> <span class="pre">Params&gt;</span> <span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">requires</span> <span class="pre">(std::invocable&lt;</span> <span class="pre">with_processing_units_count_t,</span> <span class="pre">typename</span> <span class="pre">std::decay_t&lt;</span> <span class="pre">ExPolicy</span> <span class="pre">&gt;::executor_type,</span> <span class="pre">std::size_t</span> <span class="pre">&gt;</span> <span class="pre">&amp;&amp;std::invocable&lt;</span> <span class="pre">processing_units_count_t,</span> <span class="pre">std::decay_t&lt;</span> <span class="pre">Params</span> <span class="pre">&gt;,</span> <span class="pre">typename</span> <span class="pre">std::decay_t&lt;</span> <span class="pre">ExPolicy</span> <span class="pre">&gt;::executor_type,</span> <span class="pre">hpx::chrono::steady_duration</span> <span class="pre">const</span> <span class="pre">&amp;,</span> <span class="pre">std::size_t</span> <span class="pre">&gt;)</span> <span class="pre">const</span> <span class="pre">expr</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_invoke(with_processing_units_count_t</span></span></dt>
-<dd></dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="execution__policy__parameters_8hpp_1a138d86bc98da0a345c5573c67ff3e37a"></span><span class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">ParametersProperty,</span> <span class="pre">execution_policy</span> <span class="pre">ExPolicy,</span> <span class="pre">executor_parameters</span> <span class="pre">Params&gt;</span> <span class="pre">constexpr</span> <span class="pre">decltype(auto)</span> <span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">tag_fallback_invoke</span> <span class="pre">(ParametersProperty,</span> <span class="pre">ExPolicy</span> <span class="pre">&amp;&amp;policy,</span> <span class="pre">Params</span> <span class="pre">&amp;&amp;params)</span></span></dt>
+<span class="target" id="execution__policy__parameters_8hpp_1a4ef888183c5fd9f98c93ec399222ade5"></span><span class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">ParametersProperty,</span> <span class="pre">execution_policy</span> <span class="pre">ExPolicy,</span> <span class="pre">executor_parameters</span> <span class="pre">Params&gt;</span> <span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">requires</span> <span class="pre">(!is_scheduling_property_v&lt;</span> <span class="pre">ParametersProperty</span> <span class="pre">&gt;)</span> <span class="pre">const</span> <span class="pre">expr</span> <span class="pre">decltype(auto)</span> <span class="pre">tag_fallback_invoke(ParametersProperty</span></span></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
@@ -1277,17 +1262,12 @@ document.write(`
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-variables">Variables</p>
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="execution__policy__parameters_8hpp_1aa7e60efb03977149162dc47eb0e85c01"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">ExPolicy</span> <span class="pre">&amp;&amp;</span> <span class="pre">policy</span>&#160; <span class="pre">{return</span> <span class="pre">tag(policy.executor())</span></span></dt>
+<span class="target" id="execution__policy__parameters_8hpp_1a69ee72d3178e3547d5ee04ebc447925f"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">ExPolicy</span> <span class="pre">&amp;&amp;</span> <span class="pre">policy</span></span></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp">
-<span class="target" id="execution__policy__parameters_8hpp_1a681048ed80d05aa9e1f0d63e241ecf83"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">ExPolicy</span> <span class="pre">std::size_t</span> <span class="pre">num_cores</span>&#160; <span class="pre">{auto</span> <span class="pre">exec</span> <span class="pre">=</span> <span class="pre">with_processing_units_count(policy.executor(),</span> <span class="pre">num_cores)</span></span></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp">
-<span class="target" id="execution__policy__parameters_8hpp_1a16327bca1fdac6e2efc4c3debf5221c0"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">ExPolicy</span> <span class="pre">Params</span> <span class="pre">&amp;&amp;</span> <span class="pre">params</span>&#160; <span class="pre">{auto</span> <span class="pre">exec</span> <span class="pre">=</span> <span class="pre">with_processing_units_count(policy.executor(),processing_units_count(params,</span> <span class="pre">policy.executor(),</span> <span class="pre">hpx::chrono::null_duration,</span> <span class="pre">0))</span></span></dt>
+<span class="target" id="execution__policy__parameters_8hpp_1a16327bca1fdac6e2efc4c3debf5221c0"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">ExPolicy</span> <span class="pre">Params</span> <span class="pre">&amp;&amp;</span> <span class="pre">params</span>&#160; <span class="pre">{return</span> <span class="pre">policy.with(HPX_FORWARD(Params,</span> <span class="pre">params))</span></span></dt>
 <dd></dd></dl>
 
 </div>
