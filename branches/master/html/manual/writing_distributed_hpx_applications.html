@@ -1232,6 +1232,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-names">Global names</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posting-actions">Posting actions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#action-type-definition">Action type definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-based-component-actions-experimental">Reflection-based component actions (experimental)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#action-invocation">Action invocation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#posting-an-action-asynchronously-without-any-synchronization">Posting an action asynchronously without any synchronization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#posting-an-action-asynchronously-with-synchronization">Posting an action asynchronously with synchronization</a></li>
@@ -1430,7 +1431,7 @@ go into the header file:</p>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="nf">some_member_function</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">lexical_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">        </span><span class="c1">// This will define the action type &#39;some_member_action&#39; which</span>
@@ -1464,6 +1465,37 @@ functions, they should still be manageable.</p>
 <p>The most important macro invocation is the <a class="reference internal" href="../libs/full/actions_base/api/macros.html#c.HPX_DEFINE_COMPONENT_ACTION" title="HPX_DEFINE_COMPONENT_ACTION"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_DEFINE_COMPONENT_ACTION</span></code></a> in the header file
 as this defines the action type we need to invoke the member function. For a
 complete example of a simple component action see <a class="reference download internal" download="" href="../_downloads/7b08f088c4a0239d9ff79cffe9cab53c/component_in_executable.cpp"><code class="xref download docutils literal notranslate"><span class="pre">component_in_executable.cpp</span></code></a>.</p>
+</section>
+<section id="reflection-based-component-actions-experimental">
+<span id="reflection-based-component-actions"></span><h3>Reflection-based component actions (experimental)<a class="headerlink" href="#reflection-based-component-actions-experimental" title="Permalink to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This feature requires a compiler with C++26 reflection support
+(<code class="docutils literal notranslate"><span class="pre">HPX_HAVE_CXX26_REFLECTION</span></code>) and is currently experimental.</p>
+</div>
+<p>When reflection support is available, component actions can be defined with
+a single macro instead of the three-step process described above:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">app</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">some_component</span><span class="w"></span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">components</span><span class="o">::</span><span class="n">component_base</span><span class="o">&lt;</span><span class="n">some_component</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="nf">some_member_function</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// This single line replaces HPX_DEFINE_COMPONENT_ACTION,</span>
+<span class="w">        </span><span class="c1">// HPX_REGISTER_ACTION_DECLARATION, and HPX_REGISTER_ACTION.</span>
+<span class="w">        </span><span class="n">HPX_COMPONENT_ACTION</span><span class="p">(</span><span class="n">some_component</span><span class="p">,</span><span class="w"> </span><span class="n">some_member_function</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">some_member_action</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The resulting <code class="docutils literal notranslate"><span class="pre">some_member_action</span></code> type can be used exactly like an action
+type created with <a class="reference internal" href="../libs/full/actions_base/api/macros.html#c.HPX_DEFINE_COMPONENT_ACTION" title="HPX_DEFINE_COMPONENT_ACTION"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_DEFINE_COMPONENT_ACTION</span></code></a>, with <a class="reference internal" href="../libs/core/async_base/api/post.html#_CPPv4I0DpEN3hpx4postEbRR1FDpRR2Ts" title="hpx::post"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::post</span></code></a>,
+<a class="reference internal" href="../libs/core/async_sycl/api/sycl_executor.html#_CPPv4I0DpEN3hpx5asyncEDcRR8ExecutorRRN3hpx4sycl12experimental13sycl_executor20queue_function_ptr_tIDp2TsEEDpRR2Ts" title="hpx::async"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async</span></code></a>, and <a class="reference internal" href="../libs/full/async_distributed/api/sync.html#_CPPv4I00DpEN3hpx4syncEDcRR6ActionRR6TargetDpRR2Ts" title="hpx::sync"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::sync</span></code></a>, or by invoking it directly. No
+separate registration step is required in the source file.</p>
 </section>
 <section id="action-invocation">
 <span id="id5"></span><h3>Action invocation<a class="headerlink" href="#action-invocation" title="Permalink to this heading">#</a></h3>
@@ -1859,7 +1891,7 @@ class:</p>
 <span class="w">        </span><span class="c1">// This member function is has to be invoked remotely</span>
 <span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="nf">some_member_function</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">lexical_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">        </span><span class="c1">// This will define the action type &#39;some_member_action&#39; which</span>
@@ -2815,6 +2847,7 @@ dimension index” equal to the value returned by <code class="docutils literal 
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-names">Global names</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posting-actions">Posting actions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#action-type-definition">Action type definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-based-component-actions-experimental">Reflection-based component actions (experimental)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#action-invocation">Action invocation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#posting-an-action-asynchronously-without-any-synchronization">Posting an action asynchronously without any synchronization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#posting-an-action-asynchronously-with-synchronization">Posting an action asynchronously with synchronization</a></li>
@@ -2886,7 +2919,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 18, 2026.
+  Last updated on Jun 19, 2026.
   <br/>
 </p>
   </div>
