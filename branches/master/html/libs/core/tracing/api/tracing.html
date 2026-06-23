@@ -1236,6 +1236,112 @@ document.write(`
 <p>Defined in header hpx/tracing/tracing.hpp.</p>
 <p>See <a class="reference internal" href="../../../../api/public_api.html#public-api"><span class="std std-ref">Public API</span></a> for a list of names and headers that are part of the public
 <em>HPX</em> API.</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv43hpx">
+<span id="_CPPv33hpx"></span><span id="_CPPv23hpx"></span><span id="hpx"></span><span class="target" id="namespacehpx"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">hpx</span></span></span><br /></dt>
+<dd><dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx7threadsE">
+<span id="_CPPv3N3hpx7threadsE"></span><span id="_CPPv2N3hpx7threadsE"></span><span id="hpx::threads"></span><span class="target" id="namespacehpx_1_1threads"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">threads</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx7tracingE">
+<span id="_CPPv3N3hpx7tracingE"></span><span id="_CPPv2N3hpx7tracingE"></span><span id="hpx::tracing"></span><span class="target" id="namespacehpx_1_1tracing"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">tracing</span></span></span><br /></dt>
+<dd><dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx7tracing12lock_contextE">
+<span id="_CPPv3N3hpx7tracing12lock_contextE"></span><span id="_CPPv2N3hpx7tracing12lock_contextE"></span><span id="hpx::tracing::lock_context"></span><span class="target" id="structhpx_1_1tracing_1_1lock__context"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lock_context</span></span></span><a class="headerlink" href="#_CPPv4N3hpx7tracing12lock_contextE" title="Permalink to this definition">#</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;tracing.hpp&gt;</em></div>
+<p>Context for annotating lock acquisitions and releases. </p>
+<p>This struct is used to provide tracing annotations for synchronization primitives such as spinlocks and mutexes. It registers the creation, acquisition, and release of locks to the active tracing backend. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx7tracing12lock_context12lock_contextEPKcPKv">
+<span id="_CPPv3N3hpx7tracing12lock_context12lock_contextEPKcPKv"></span><span id="_CPPv2N3hpx7tracing12lock_context12lock_contextEPKcPKv"></span><span id="hpx::tracing::lock_context::lock_context__cCP.voidCP"></span><span class="target" id="structhpx_1_1tracing_1_1lock__context_1a7b96c3ec14d0bce0696b07136c5b2b47"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lock_context</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">addr</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx7tracing12lock_context12lock_contextEPKcPKv" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Constructs a lock context. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – The name or description of the lock. </p></li>
+<li><p><strong>addr</strong> – The memory address of the lock, used to track it uniquely. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx7tracing12lock_context12lock_contextEPKcPKcPKv">
+<span id="_CPPv3N3hpx7tracing12lock_context12lock_contextEPKcPKcPKv"></span><span id="_CPPv2N3hpx7tracing12lock_context12lock_contextEPKcPKcPKv"></span><span id="hpx::tracing::lock_context::lock_context__cCP.cCP.voidCP"></span><span class="target" id="structhpx_1_1tracing_1_1lock__context_1a73d57f65a548c5d876d7a2694f09a17a"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lock_context</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">prefix</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">suffix</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">addr</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx7tracing12lock_context12lock_contextEPKcPKcPKv" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Constructs a lock context with a dynamic name. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prefix</strong> – The prefix for the lock name. </p></li>
+<li><p><strong>suffix</strong> – The suffix for the lock name. </p></li>
+<li><p><strong>addr</strong> – The memory address of the lock, used to track it uniquely. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3hpx7tracing12lock_context11before_lockEv">
+<span id="_CPPv3NK3hpx7tracing12lock_context11before_lockEv"></span><span id="_CPPv2NK3hpx7tracing12lock_context11before_lockEv"></span><span id="hpx::tracing::lock_context::before_lockC"></span><span class="target" id="structhpx_1_1tracing_1_1lock__context_1adc9f97214a59772cbb73f73b8225c6ef"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">before_lock</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3hpx7tracing12lock_context11before_lockEv" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Called immediately before attempting to acquire the lock. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>true if the prepare event was recorded and after_lock should be called. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3hpx7tracing12lock_context10after_lockEv">
+<span id="_CPPv3NK3hpx7tracing12lock_context10after_lockEv"></span><span id="_CPPv2NK3hpx7tracing12lock_context10after_lockEv"></span><span id="hpx::tracing::lock_context::after_lockC"></span><span class="target" id="structhpx_1_1tracing_1_1lock__context_1acce5925853c87a16110aa250134a0f1c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">after_lock</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3hpx7tracing12lock_context10after_lockEv" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Called immediately after the lock is successfully acquired. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3hpx7tracing12lock_context14after_try_lockEb">
+<span id="_CPPv3NK3hpx7tracing12lock_context14after_try_lockEb"></span><span id="_CPPv2NK3hpx7tracing12lock_context14after_try_lockEb"></span><span id="hpx::tracing::lock_context::after_try_lock__bC"></span><span class="target" id="structhpx_1_1tracing_1_1lock__context_1af4fcd9c5676e874dc56fc6b9f9751281"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">after_try_lock</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">success</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3hpx7tracing12lock_context14after_try_lockEb" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Called after a try-lock operation completes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>success</strong> – true if the lock was acquired, false if it failed. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3hpx7tracing12lock_context13before_unlockEv">
+<span id="_CPPv3NK3hpx7tracing12lock_context13before_unlockEv"></span><span id="_CPPv2NK3hpx7tracing12lock_context13before_unlockEv"></span><span id="hpx::tracing::lock_context::before_unlockC"></span><span class="target" id="structhpx_1_1tracing_1_1lock__context_1a2d2ba8ac9b5d65f009f66b35656d777e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">before_unlock</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3hpx7tracing12lock_context13before_unlockEv" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Called immediately before releasing the lock. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3hpx7tracing12lock_context12after_unlockEv">
+<span id="_CPPv3NK3hpx7tracing12lock_context12after_unlockEv"></span><span id="_CPPv2NK3hpx7tracing12lock_context12after_unlockEv"></span><span id="hpx::tracing::lock_context::after_unlockC"></span><span class="target" id="structhpx_1_1tracing_1_1lock__context_1a31fc35f570ef5eb39e9b37734e1cebfb"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">after_unlock</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3hpx7tracing12lock_context12after_unlockEv" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Called immediately after releasing the lock. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx4utilE">
+<span id="_CPPv3N3hpx4utilE"></span><span id="_CPPv2N3hpx4utilE"></span><span id="hpx::util"></span><span class="target" id="namespacehpx_1_1util"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">util</span></span></span><br /></dt>
+<dd><dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx4util14external_timerE">
+<span id="_CPPv3N3hpx4util14external_timerE"></span><span id="_CPPv2N3hpx4util14external_timerE"></span><span id="hpx::util::external_timer"></span><span class="target" id="namespacehpx_1_1util_1_1external__timer"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">external_timer</span></span></span><a class="headerlink" href="#_CPPv4N3hpx4util14external_timerE" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 
