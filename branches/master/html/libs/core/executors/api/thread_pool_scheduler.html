@@ -597,6 +597,7 @@
 <li class="toctree-l4"><a class="reference internal" href="scheduler_executor.html">hpx/executors/scheduler_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="std_execution_policy.html">hpx/executors/std_execution_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="execution_policy_parameters.html">hpx/executors/execution_policy_parameters.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="thread_pool_continues_on_sender.html">hpx/executors/thread_pool_continues_on_sender.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="executor_scheduler.html">hpx/executors/executor_scheduler.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="datapar_execution_policy.html">hpx/executors/datapar/execution_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="datapar_execution_policy_mappings.html">hpx/executors/datapar/execution_policy_mappings.hpp</a></li>
@@ -1301,6 +1302,11 @@ document.write(`
 <span class="target" id="structhpx_1_1execution_1_1experimental_1_1thread__pool__domain_1a5e32fc8aac47c128832279e10d1362f5"></span><span class="sig-name descname"><span class="pre">template&lt;bulk_chunked_or_unchunked_sender</span> <span class="pre">Sender,</span> <span class="pre">typename</span> <span class="pre">Env&gt;</span> <span class="pre">inline</span> <span class="pre">requires</span> <span class="pre">constexpr</span> <span class="pre">std::same_as&lt;</span> <span class="pre">std::decay_t&lt;</span> <span class="pre">decltype(hpx::execution::experimental::get_scheduler(std::declval&lt;</span> <span class="pre">Env</span> <span class="pre">const</span>&#160; <span class="pre">&amp;</span> <span class="pre">&gt;)))&gt;,</span> <span class="pre">thread_pool_policy_scheduler&lt;</span> <span class="pre">Policy</span> <span class="pre">&gt;</span> <span class="pre">&gt;</span> <span class="pre">auto</span> <span class="pre">transform_sender</span> <span class="pre">(hpx::execution::experimental::set_value_t,</span> <span class="pre">Sender</span> <span class="pre">&amp;&amp;sndr,</span> <span class="pre">Env</span> <span class="pre">const</span> <span class="pre">&amp;env)</span> <span class="pre">const</span> <span class="pre">noexcept</span></span></dt>
 <dd></dd></dl>
 
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="structhpx_1_1execution_1_1experimental_1_1thread__pool__domain_1ae22d2a9d63f8b30e1e4babad62d17109"></span><span class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">Sender,</span> <span class="pre">typename</span> <span class="pre">Env&gt;</span> <span class="pre">inline</span> <span class="pre">requires</span> <span class="pre">constexpr</span> <span class="pre">sender_invokes_algorithm_v&lt;</span> <span class="pre">Sender,</span> <span class="pre">hpx::execution::experimental::continues_on_t</span> <span class="pre">&gt;</span> <span class="pre">auto</span> <span class="pre">transform_sender</span> <span class="pre">(hpx::execution::experimental::set_value_t,</span> <span class="pre">Sender</span> <span class="pre">&amp;&amp;sndr,</span> <span class="pre">Env</span> <span class="pre">const</span> <span class="pre">&amp;)</span> <span class="pre">const</span> <span class="pre">noexcept</span></span></dt>
+<dd></dd></dl>
+
 </div>
 </dd></dl>
 
@@ -1410,7 +1416,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 28, 2026.
+  Last updated on Jul 04, 2026.
   <br/>
 </p>
   </div>

@@ -36,6 +36,7 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/executors/api/scheduler_executor.rst
    /libs/core/executors/api/std_execution_policy.rst
    /libs/core/executors/api/execution_policy_parameters.rst
+   /libs/core/executors/api/thread_pool_continues_on_sender.rst
    /libs/core/executors/api/executor_scheduler.rst
    /libs/core/executors/api/datapar_execution_policy.rst
    /libs/core/executors/api/datapar_execution_policy_mappings.rst
