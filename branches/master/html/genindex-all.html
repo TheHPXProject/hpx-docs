@@ -1879,6 +1879,8 @@ document.write(`
 </li>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_CONTRACTS-BOOL">HPX_WITH_CONTRACTS:BOOL</a>
 </li>
+        <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_CONTRACTS_MODE-STRING">HPX_WITH_CONTRACTS_MODE:STRING</a>
+</li>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_COROUTINE_COUNTERS-BOOL">HPX_WITH_COROUTINE_COUNTERS:BOOL</a>
 </li>
         <li><a href="manual/building_hpx.html#cmdoption-arg-HPX_WITH_CUDA">HPX_WITH_CUDA</a>
@@ -4744,7 +4746,7 @@ document.write(`
 </li>
       <li><a href="libs/core/futures/api/future.html#_CPPv4I00EN3hpx6future4thenEDcRR2T0RR1FR10error_code">hpx::future::then (C++ function)</a>, <a href="libs/core/futures/api/future.html#_CPPv4I0EN3hpx6future4thenEDcRR1FR10error_code">[1]</a>
 </li>
-      <li><a href="libs/core/futures/api/future.html#_CPPv4I00EN3hpx6future10then_allocEDTclN9base_type10then_allocE5alloccl8HPX_MOVEdefpTEcl11HPX_FORWARD1F1fE2ecEERK9AllocatorRR1FR10error_code">hpx::future::then_alloc (C++ function)</a>
+      <li><a href="libs/core/futures/api/future.html#_CPPv4I00EN3hpx6future10then_allocEDTclN9base_type10then_allocE5allocclNSt4moveEdefpTEclNSt7forwardI1FEE1fE2ecEERK9AllocatorRR1FR10error_code">hpx::future::then_alloc (C++ function)</a>
 </li>
       <li><a href="libs/core/futures/api/future.html#_CPPv4N3hpx6futureD0Ev">hpx::future::~future (C++ function)</a>
 </li>
@@ -5770,10 +5772,10 @@ document.write(`
 </li>
       <li><a href="libs/core/functional/api/bind.html#_CPPv4N3hpx12placeholdersE">hpx::placeholders (C++ type)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/core/runtime_configuration/api/plugin_registry_base.html#_CPPv4N3hpx7pluginsE">hpx::plugins (C++ type)</a>, <a href="libs/full/plugin_factories/api/binary_filter_factory.html#_CPPv4N3hpx7pluginsE">[1]</a>, <a href="libs/full/plugin_factories/api/plugin_registry.html#_CPPv4N3hpx7pluginsE">[2]</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/full/plugin_factories/api/binary_filter_factory.html#_CPPv4I0EN3hpx7plugins21binary_filter_factoryE">hpx::plugins::binary_filter_factory (C++ struct)</a>
 </li>
       <li><a href="libs/full/plugin_factories/api/binary_filter_factory.html#_CPPv4N3hpx7plugins21binary_filter_factory21binary_filter_factoryEPKN4util7sectionEPKN4util7sectionEb">hpx::plugins::binary_filter_factory::binary_filter_factory (C++ function)</a>
@@ -6558,7 +6560,7 @@ document.write(`
 </li>
       <li><a href="libs/core/futures/api/future.html#_CPPv4I00ENK3hpx13shared_future4thenEDcRR2T0RR1FR10error_code">hpx::shared_future::then (C++ function)</a>, <a href="libs/core/futures/api/future.html#_CPPv4I0ENK3hpx13shared_future4thenEDcRR1FR10error_code">[1]</a>
 </li>
-      <li><a href="libs/core/futures/api/future.html#_CPPv4I00EN3hpx13shared_future10then_allocEDTclN9base_type10then_allocE5alloccl8HPX_MOVEdefpTEcl11HPX_FORWARD1F1fE2ecEERK9AllocatorRR1FR10error_code">hpx::shared_future::then_alloc (C++ function)</a>
+      <li><a href="libs/core/futures/api/future.html#_CPPv4I00EN3hpx13shared_future10then_allocEDTclN9base_type10then_allocE5allocclNSt4moveEdefpTEclNSt7forwardI1FEE1fE2ecEERK9AllocatorRR1FR10error_code">hpx::shared_future::then_alloc (C++ function)</a>
 </li>
       <li><a href="libs/core/futures/api/future.html#_CPPv4N3hpx13shared_futureD0Ev">hpx::shared_future::~shared_future (C++ function)</a>
 </li>
@@ -8883,6 +8885,13 @@ document.write(`
 </li>
       </ul></li>
       <li>
+    HPX_WITH_CONTRACTS_MODE:STRING
+
+      <ul>
+        <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_CONTRACTS_MODE-STRING">command line option</a>
+</li>
+      </ul></li>
+      <li>
     HPX_WITH_COROUTINE_COUNTERS:BOOL
 
       <ul>
@@ -9970,7 +9979,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 04, 2026.
+  Last updated on Jul 05, 2026.
   <br/>
 </p>
   </div>
