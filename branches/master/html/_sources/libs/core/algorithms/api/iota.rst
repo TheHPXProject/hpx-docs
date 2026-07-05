@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/iota.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------------
 hpx/parallel/container_algorithms/iota.hpp
--------------------------------------------------------------------------------
+------------------------------------------
 
 Defined in header hpx/parallel/container_algorithms/iota.hpp.
 

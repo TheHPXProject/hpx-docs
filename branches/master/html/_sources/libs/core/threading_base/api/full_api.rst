@@ -7,9 +7,9 @@
 
 .. _modules_threading_base_api:
 
--------------------------------------------------------------------------------
+--------------
 threading_base
--------------------------------------------------------------------------------
+--------------
 
 See :ref:`public_api` for a list of names and headers that are part of the public
 |hpx| API.

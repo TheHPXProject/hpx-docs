@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/rotate.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------------
 hpx::ranges::rotate, hpx::ranges::rotate_copy
--------------------------------------------------------------------------------
+---------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

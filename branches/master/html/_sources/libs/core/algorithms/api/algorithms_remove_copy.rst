@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/remove_copy.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------
 hpx::remove_copy, hpx::remove_copy_if
--------------------------------------------------------------------------------
+-------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

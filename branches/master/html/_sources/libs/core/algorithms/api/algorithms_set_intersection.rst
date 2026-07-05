@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/set_intersection.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------
 hpx::set_intersection
--------------------------------------------------------------------------------
+---------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

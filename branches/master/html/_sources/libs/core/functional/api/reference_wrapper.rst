@@ -7,9 +7,9 @@
 
 .. _modules_hpx/functional/reference_wrapper.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------------
 hpx::reference_wrapper, hpx::ref, hpx::cref
--------------------------------------------------------------------------------
+-------------------------------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/functional.hpp`.
 

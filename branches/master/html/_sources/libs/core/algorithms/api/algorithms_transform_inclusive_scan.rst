@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/transform_inclusive_scan.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------
 hpx::transform_inclusive_scan
--------------------------------------------------------------------------------
+-----------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

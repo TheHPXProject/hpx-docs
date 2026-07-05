@@ -7,9 +7,9 @@
 
 .. _modules_hpx/executors/current_executor.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------
 hpx/executors/current_executor.hpp
--------------------------------------------------------------------------------
+----------------------------------
 
 Defined in header hpx/executors/current_executor.hpp.
 

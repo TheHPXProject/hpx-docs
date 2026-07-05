@@ -7,9 +7,9 @@
 
 .. _modules_hpx/execution/executors/max_num_chunks.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------------
 hpx::execution::experimental::max_num_chunks
--------------------------------------------------------------------------------
+--------------------------------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/execution.hpp`.
 

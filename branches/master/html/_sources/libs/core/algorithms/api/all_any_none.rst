@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/all_any_none.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------
 hpx::ranges::all_of, hpx::ranges::any_of, hpx::ranges::none_of
--------------------------------------------------------------------------------
+--------------------------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

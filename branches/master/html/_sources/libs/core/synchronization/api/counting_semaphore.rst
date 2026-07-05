@@ -7,9 +7,9 @@
 
 .. _modules_hpx/synchronization/counting_semaphore.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------
 hpx::counting_semaphore
--------------------------------------------------------------------------------
+-----------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/semaphore.hpp`.
 

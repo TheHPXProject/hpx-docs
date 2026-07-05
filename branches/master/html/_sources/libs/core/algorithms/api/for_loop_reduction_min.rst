@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/for_loop_reduction_min.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------
 hpx::experimental::reduction_min
--------------------------------------------------------------------------------
+--------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

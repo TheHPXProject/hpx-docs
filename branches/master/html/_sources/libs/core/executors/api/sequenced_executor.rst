@@ -7,9 +7,9 @@
 
 .. _modules_hpx/executors/sequenced_executor.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------
 hpx/executors/sequenced_executor.hpp
--------------------------------------------------------------------------------
+------------------------------------
 
 Defined in header hpx/executors/sequenced_executor.hpp.
 

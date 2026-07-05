@@ -7,9 +7,9 @@
 
 .. _modules_async_combinators_api:
 
--------------------------------------------------------------------------------
+-----------------
 async_combinators
--------------------------------------------------------------------------------
+-----------------
 
 See :ref:`public_api` for a list of names and headers that are part of the public
 |hpx| API.

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/thread_support/unlock_guard.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------
 hpx::unlock_guard
--------------------------------------------------------------------------------
+-----------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/mutex.hpp`.
 

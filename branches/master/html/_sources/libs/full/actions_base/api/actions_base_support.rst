@@ -7,9 +7,9 @@
 
 .. _modules_hpx/actions_base/actions_base_support.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------------
 hpx/actions_base/actions_base_support.hpp
--------------------------------------------------------------------------------
+-----------------------------------------
 
 Defined in header hpx/actions_base/actions_base_support.hpp.
 

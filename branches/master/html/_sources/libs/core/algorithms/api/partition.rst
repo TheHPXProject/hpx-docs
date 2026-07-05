@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/partition.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
 hpx::ranges::partition, hpx::ranges::stable_partition, hpx::ranges::partition_copy
--------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

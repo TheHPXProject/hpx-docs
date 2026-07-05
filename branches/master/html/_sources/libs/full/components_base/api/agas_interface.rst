@@ -7,9 +7,9 @@
 
 .. _modules_hpx/components_base/agas_interface.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------
 hpx/components_base/agas_interface.hpp
--------------------------------------------------------------------------------
+--------------------------------------
 
 Defined in header hpx/components_base/agas_interface.hpp.
 

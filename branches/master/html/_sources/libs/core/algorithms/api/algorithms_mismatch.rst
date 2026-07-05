@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/mismatch.hpp_api:
 
--------------------------------------------------------------------------------
+-------------
 hpx::mismatch
--------------------------------------------------------------------------------
+-------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

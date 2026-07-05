@@ -7,9 +7,9 @@
 
 .. _modules_hpx/components/basename_registration.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------------
 hpx/components/basename_registration.hpp
--------------------------------------------------------------------------------
+----------------------------------------
 
 Defined in header hpx/components/basename_registration.hpp.
 

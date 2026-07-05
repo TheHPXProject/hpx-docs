@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_local/termination_detection.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------------
 hpx/runtime_local/termination_detection.hpp
--------------------------------------------------------------------------------
+-------------------------------------------
 
 Defined in header hpx/runtime_local/termination_detection.hpp.
 

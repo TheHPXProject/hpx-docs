@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/nth_element.hpp_api:
 
--------------------------------------------------------------------------------
+----------------
 hpx::nth_element
--------------------------------------------------------------------------------
+----------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

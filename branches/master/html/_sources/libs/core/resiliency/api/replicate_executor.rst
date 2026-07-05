@@ -7,9 +7,9 @@
 
 .. _modules_hpx/resiliency/replicate_executor.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------
 hpx/resiliency/replicate_executor.hpp
--------------------------------------------------------------------------------
+-------------------------------------
 
 Defined in header hpx/resiliency/replicate_executor.hpp.
 

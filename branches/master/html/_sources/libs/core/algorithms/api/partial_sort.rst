@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/partial_sort.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------
 hpx::ranges::partial_sort
--------------------------------------------------------------------------------
+-------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

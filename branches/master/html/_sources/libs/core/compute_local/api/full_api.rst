@@ -7,9 +7,9 @@
 
 .. _modules_compute_local_api:
 
--------------------------------------------------------------------------------
+-------------
 compute_local
--------------------------------------------------------------------------------
+-------------
 
 See :ref:`public_api` for a list of names and headers that are part of the public
 |hpx| API.

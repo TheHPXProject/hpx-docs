@@ -7,9 +7,9 @@
 
 .. _modules_hpx/executors/execution_policy_annotation.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------------
 hpx/executors/execution_policy_annotation.hpp
--------------------------------------------------------------------------------
+---------------------------------------------
 
 Defined in header hpx/executors/execution_policy_annotation.hpp.
 

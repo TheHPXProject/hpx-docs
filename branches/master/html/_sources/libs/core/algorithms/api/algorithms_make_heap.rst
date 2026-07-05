@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/make_heap.hpp_api:
 
--------------------------------------------------------------------------------
+--------------
 hpx::make_heap
--------------------------------------------------------------------------------
+--------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

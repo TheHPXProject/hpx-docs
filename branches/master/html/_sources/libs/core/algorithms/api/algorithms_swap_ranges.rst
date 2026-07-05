@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/swap_ranges.hpp_api:
 
--------------------------------------------------------------------------------
+----------------
 hpx::swap_ranges
--------------------------------------------------------------------------------
+----------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

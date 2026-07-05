@@ -7,9 +7,9 @@
 
 .. _modules_hpx/synchronization/mutex.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------
 hpx::mutex, hpx::timed_mutex
--------------------------------------------------------------------------------
+----------------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/mutex.hpp`.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_distributed/find_all_localities.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 hpx::find_root_locality, hpx::find_all_localities, hpx::find_remote_localities
--------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/runtime.hpp`.
 

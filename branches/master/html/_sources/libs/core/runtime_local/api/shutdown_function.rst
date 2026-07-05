@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_local/shutdown_function.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------
 hpx::shutdown_function_type, hpx::register_pre_shutdown_function, hpx::register_shutdown_function
--------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/runtime.hpp`.
 

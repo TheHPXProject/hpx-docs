@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_components/component_registry.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------------
 hpx/runtime_components/component_registry.hpp
--------------------------------------------------------------------------------
+---------------------------------------------
 
 Defined in header hpx/runtime_components/component_registry.hpp.
 

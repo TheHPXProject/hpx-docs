@@ -7,9 +7,9 @@
 
 .. _modules_hpx/compute/host/target_distribution_policy.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------------------
 hpx/compute/host/target_distribution_policy.hpp
--------------------------------------------------------------------------------
+-----------------------------------------------
 
 Defined in header hpx/compute/host/target_distribution_policy.hpp.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/datastructures/serialization/serializable_any.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------
 hpx::any, hpx::make_any
--------------------------------------------------------------------------------
+-----------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/any.hpp`.
 

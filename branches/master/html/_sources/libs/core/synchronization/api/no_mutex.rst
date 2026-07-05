@@ -7,9 +7,9 @@
 
 .. _modules_hpx/synchronization/no_mutex.hpp_api:
 
--------------------------------------------------------------------------------
+-------------
 hpx::no_mutex
--------------------------------------------------------------------------------
+-------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/mutex.hpp`.
 

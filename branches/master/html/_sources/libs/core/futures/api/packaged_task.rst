@@ -7,9 +7,9 @@
 
 .. _modules_hpx/futures/packaged_task.hpp_api:
 
--------------------------------------------------------------------------------
+------------------
 hpx::packaged_task
--------------------------------------------------------------------------------
+------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/future.hpp`.
 

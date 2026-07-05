@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/remove.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------------
 hpx::ranges::remove, hpx::ranges::remove_if
--------------------------------------------------------------------------------
+-------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

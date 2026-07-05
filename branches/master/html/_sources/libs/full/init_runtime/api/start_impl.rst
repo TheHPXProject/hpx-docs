@@ -7,9 +7,9 @@
 
 .. _modules_hpx/init_runtime/start_impl.hpp_api:
 
--------------------------------------------------------------------------------
+----------
 hpx::start
--------------------------------------------------------------------------------
+----------
 
 Defined in header :hpx-header:`libs/full/init_runtime/include,hpx/init.hpp`.
 

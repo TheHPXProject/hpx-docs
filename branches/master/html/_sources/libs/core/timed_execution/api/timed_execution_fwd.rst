@@ -7,9 +7,9 @@
 
 .. _modules_hpx/timed_execution/timed_execution_fwd.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------------
 hpx/timed_execution/timed_execution_fwd.hpp
--------------------------------------------------------------------------------
+-------------------------------------------
 
 Defined in header hpx/timed_execution/timed_execution_fwd.hpp.
 

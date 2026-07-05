@@ -7,9 +7,9 @@
 
 .. _modules_hpx/async_base/launch_policy.hpp_api:
 
--------------------------------------------------------------------------------
+-----------
 hpx::launch
--------------------------------------------------------------------------------
+-----------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/future.hpp`.
 

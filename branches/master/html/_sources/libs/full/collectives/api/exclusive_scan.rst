@@ -7,9 +7,9 @@
 
 .. _modules_hpx/collectives/exclusive_scan.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------
 hpx/collectives/exclusive_scan.hpp
--------------------------------------------------------------------------------
+----------------------------------
 
 Defined in header hpx/collectives/exclusive_scan.hpp.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/threading_base/register_thread.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------
 hpx/threading_base/register_thread.hpp
--------------------------------------------------------------------------------
+--------------------------------------
 
 Defined in header hpx/threading_base/register_thread.hpp.
 

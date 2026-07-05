@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_local/startup_function.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
 hpx::startup_function_type, hpx::register_pre_startup_function, hpx::register_startup_function
--------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/runtime.hpp`.
 

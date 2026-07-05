@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_distributed/copy_component.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------------
 hpx/runtime_distributed/copy_component.hpp
--------------------------------------------------------------------------------
+------------------------------------------
 
 Defined in header hpx/runtime_distributed/copy_component.hpp.
 

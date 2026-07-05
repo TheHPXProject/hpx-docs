@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/partial_sort_copy.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------
 hpx::partial_sort_copy
--------------------------------------------------------------------------------
+----------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/sort.hpp_api:
 
--------------------------------------------------------------------------------
+---------
 hpx::sort
--------------------------------------------------------------------------------
+---------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/run_on_all.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------
 hpx::experimental::run_on_all
--------------------------------------------------------------------------------
+-----------------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/task_block.hpp`.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parcelset/parcelhandler.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------
 hpx/parcelset/parcelhandler.hpp
--------------------------------------------------------------------------------
+-------------------------------
 
 Defined in header hpx/parcelset/parcelhandler.hpp.
 

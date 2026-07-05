@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/equal.hpp_api:
 
--------------------------------------------------------------------------------
+----------
 hpx::equal
--------------------------------------------------------------------------------
+----------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

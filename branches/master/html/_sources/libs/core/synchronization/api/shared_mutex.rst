@@ -7,9 +7,9 @@
 
 .. _modules_hpx/synchronization/shared_mutex.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------
 hpx::shared_mutex
--------------------------------------------------------------------------------
+-----------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/shared_mutex.hpp`.
 

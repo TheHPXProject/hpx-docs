@@ -7,9 +7,9 @@
 
 .. _modules_hpx/executors/datapar/execution_policy.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------------
 hpx/executors/datapar/execution_policy.hpp
--------------------------------------------------------------------------------
+------------------------------------------
 
 Defined in header hpx/executors/datapar/execution_policy.hpp.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/unique.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------------
 hpx::ranges::unique, hpx::ranges::unique_copy
--------------------------------------------------------------------------------
+---------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/task_group.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------
 hpx::experimental::task_group
--------------------------------------------------------------------------------
+-----------------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/experimental/task_group.hpp`.
 

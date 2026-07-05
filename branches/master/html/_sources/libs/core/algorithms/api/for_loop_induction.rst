@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/for_loop_induction.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------
 hpx::experimental::induction
--------------------------------------------------------------------------------
+----------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/async_base/post.hpp_api:
 
--------------------------------------------------------------------------------
+---------
 hpx::post
--------------------------------------------------------------------------------
+---------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/future.hpp`.
 

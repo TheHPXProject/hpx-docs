@@ -7,9 +7,9 @@
 
 .. _modules_hpx/collectives/inclusive_scan.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------
 hpx/collectives/inclusive_scan.hpp
--------------------------------------------------------------------------------
+----------------------------------
 
 Defined in header hpx/collectives/inclusive_scan.hpp.
 

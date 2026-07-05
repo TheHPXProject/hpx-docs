@@ -7,9 +7,9 @@
 
 .. _modules_hpx/executors/execution_policy_scheduling_property.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------------------------
 hpx/executors/execution_policy_scheduling_property.hpp
--------------------------------------------------------------------------------
+------------------------------------------------------
 
 Defined in header hpx/executors/execution_policy_scheduling_property.hpp.
 

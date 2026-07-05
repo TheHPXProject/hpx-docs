@@ -7,9 +7,9 @@
 
 .. _modules_lcos_local_api:
 
--------------------------------------------------------------------------------
+----------
 lcos_local
--------------------------------------------------------------------------------
+----------
 
 See :ref:`public_api` for a list of names and headers that are part of the public
 |hpx| API.

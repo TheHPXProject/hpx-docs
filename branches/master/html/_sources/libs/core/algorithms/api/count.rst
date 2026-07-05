@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/count.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------------
 hpx::ranges::count, hpx::ranges::count_if
--------------------------------------------------------------------------------
+-----------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/plugin_factories/parcelport_factory.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------------
 hpx/plugin_factories/parcelport_factory.hpp
--------------------------------------------------------------------------------
+-------------------------------------------
 
 Defined in header hpx/plugin_factories/parcelport_factory.hpp.
 

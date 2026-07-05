@@ -7,9 +7,9 @@
 
 .. _modules_hpx/executors/fork_join_executor.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------
 hpx/executors/fork_join_executor.hpp
--------------------------------------------------------------------------------
+------------------------------------
 
 Defined in header hpx/executors/fork_join_executor.hpp.
 

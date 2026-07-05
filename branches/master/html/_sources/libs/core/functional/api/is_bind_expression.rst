@@ -7,9 +7,9 @@
 
 .. _modules_hpx/functional/traits/is_bind_expression.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------
 hpx::is_bind_expression
--------------------------------------------------------------------------------
+-----------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/functional.hpp`.
 

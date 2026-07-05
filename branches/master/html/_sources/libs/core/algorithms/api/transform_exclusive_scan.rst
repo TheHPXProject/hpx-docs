@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/transform_exclusive_scan.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------
 hpx::ranges::transform_exclusive_scan
--------------------------------------------------------------------------------
+-------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

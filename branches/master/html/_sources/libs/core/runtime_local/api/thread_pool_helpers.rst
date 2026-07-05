@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_local/thread_pool_helpers.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------------
 hpx/runtime_local/thread_pool_helpers.hpp
--------------------------------------------------------------------------------
+-----------------------------------------
 
 Defined in header hpx/runtime_local/thread_pool_helpers.hpp.
 

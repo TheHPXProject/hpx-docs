@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/adjacent_find.hpp_api:
 
--------------------------------------------------------------------------------
+------------------
 hpx::adjacent_find
--------------------------------------------------------------------------------
+------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

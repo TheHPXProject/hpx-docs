@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/remove.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------
 hpx::remove, hpx::remove_if
--------------------------------------------------------------------------------
+---------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

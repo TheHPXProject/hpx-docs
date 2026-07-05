@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/make_heap.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------
 hpx::ranges::make_heap
--------------------------------------------------------------------------------
+----------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

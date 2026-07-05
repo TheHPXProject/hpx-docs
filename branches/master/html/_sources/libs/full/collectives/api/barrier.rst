@@ -7,9 +7,9 @@
 
 .. _modules_hpx/collectives/barrier.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------
 hpx::distributed::barrier
--------------------------------------------------------------------------------
+-------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/barrier.hpp`.
 

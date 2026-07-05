@@ -7,9 +7,9 @@
 
 .. _modules_hpx/actions_base/lambda_to_action.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------
 hpx/actions_base/lambda_to_action.hpp
--------------------------------------------------------------------------------
+-------------------------------------
 
 Defined in header hpx/actions_base/lambda_to_action.hpp.
 

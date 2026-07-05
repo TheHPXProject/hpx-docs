@@ -7,9 +7,9 @@
 
 .. _modules_hpx/functional/invoke.hpp_api:
 
--------------------------------------------------------------------------------
+-----------
 hpx::invoke
--------------------------------------------------------------------------------
+-----------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/functional.hpp`.
 

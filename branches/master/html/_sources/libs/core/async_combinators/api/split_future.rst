@@ -7,9 +7,9 @@
 
 .. _modules_hpx/async_combinators/split_future.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------
 hpx/async_combinators/split_future.hpp
--------------------------------------------------------------------------------
+--------------------------------------
 
 Defined in header hpx/async_combinators/split_future.hpp.
 

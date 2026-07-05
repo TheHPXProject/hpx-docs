@@ -7,9 +7,9 @@
 
 .. _modules_distribution_policies_api:
 
--------------------------------------------------------------------------------
+---------------------
 distribution_policies
--------------------------------------------------------------------------------
+---------------------
 
 See :ref:`public_api` for a list of names and headers that are part of the public
 |hpx| API.

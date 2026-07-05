@@ -7,9 +7,9 @@
 
 .. _modules_hpx/execution/executors/default_parameters.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------------------
 hpx/execution/executors/default_parameters.hpp
--------------------------------------------------------------------------------
+----------------------------------------------
 
 Defined in header hpx/execution/executors/default_parameters.hpp.
 

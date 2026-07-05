@@ -7,9 +7,9 @@
 
 .. _modules_hpx/async_colocated/get_colocation_id.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------
 hpx::get_colocation_id
--------------------------------------------------------------------------------
+----------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/runtime.hpp`.
 

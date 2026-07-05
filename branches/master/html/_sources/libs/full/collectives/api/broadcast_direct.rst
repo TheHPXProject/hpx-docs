@@ -7,9 +7,9 @@
 
 .. _modules_hpx/collectives/broadcast_direct.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------
 hpx/collectives/broadcast_direct.hpp
--------------------------------------------------------------------------------
+------------------------------------
 
 Defined in header hpx/collectives/broadcast_direct.hpp.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/components_base/component_startup_shutdown.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------
 HPX_REGISTER_STARTUP_MODULE
--------------------------------------------------------------------------------
+---------------------------
 
 Defined in header hpx/components.hpp.
 

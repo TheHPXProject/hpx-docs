@@ -7,9 +7,9 @@
 
 .. _modules_hpx/execution/executors/execution_information.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------------------
 hpx/execution/executors/execution_information.hpp
--------------------------------------------------------------------------------
+-------------------------------------------------
 
 Defined in header hpx/execution/executors/execution_information.hpp.
 

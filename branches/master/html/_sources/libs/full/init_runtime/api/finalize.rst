@@ -7,9 +7,9 @@
 
 .. _modules_hpx/init_runtime/finalize.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------
 hpx::finalize, hpx::disconnect
--------------------------------------------------------------------------------
+------------------------------
 
 Defined in header :hpx-header:`libs/full/init_runtime/include,hpx/init.hpp`.
 

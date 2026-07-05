@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_configuration/plugin_registry_base.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------------------
 hpx/runtime_configuration/plugin_registry_base.hpp
--------------------------------------------------------------------------------
+--------------------------------------------------
 
 Defined in header hpx/runtime_configuration/plugin_registry_base.hpp.
 

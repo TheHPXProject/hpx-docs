@@ -7,9 +7,9 @@
 
 .. _modules_hpx/collectives/argument_types.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------
 hpx/collectives/argument_types.hpp
--------------------------------------------------------------------------------
+----------------------------------
 
 Defined in header hpx/collectives/argument_types.hpp.
 

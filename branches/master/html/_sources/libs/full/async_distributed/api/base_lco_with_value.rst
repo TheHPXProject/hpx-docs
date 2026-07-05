@@ -7,9 +7,9 @@
 
 .. _modules_hpx/async_distributed/base_lco_with_value.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------------
 hpx/async_distributed/base_lco_with_value.hpp
--------------------------------------------------------------------------------
+---------------------------------------------
 
 Defined in header hpx/async_distributed/base_lco_with_value.hpp.
 

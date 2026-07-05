@@ -7,9 +7,9 @@
 
 .. _modules_hpx/synchronization/barrier.hpp_api:
 
--------------------------------------------------------------------------------
+------------
 hpx::barrier
--------------------------------------------------------------------------------
+------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/barrier.hpp`.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/resiliency/replay_executor.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------
 hpx/resiliency/replay_executor.hpp
--------------------------------------------------------------------------------
+----------------------------------
 
 Defined in header hpx/resiliency/replay_executor.hpp.
 

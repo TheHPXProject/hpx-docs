@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/is_heap.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------
 hpx::is_heap, hpx::is_heap_until
--------------------------------------------------------------------------------
+--------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

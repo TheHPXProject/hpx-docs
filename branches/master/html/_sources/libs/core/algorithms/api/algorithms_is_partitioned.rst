@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/is_partitioned.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------
 hpx::is_partitioned
--------------------------------------------------------------------------------
+-------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

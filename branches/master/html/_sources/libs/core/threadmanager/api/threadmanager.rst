@@ -7,9 +7,9 @@
 
 .. _modules_hpx/threadmanager/threadmanager.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------
 hpx/threadmanager/threadmanager.hpp
--------------------------------------------------------------------------------
+-----------------------------------
 
 Defined in header hpx/threadmanager/threadmanager.hpp.
 

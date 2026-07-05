@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_components/components_fwd.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------------
 hpx/runtime_components/components_fwd.hpp
--------------------------------------------------------------------------------
+-----------------------------------------
 
 Defined in header hpx/runtime_components/components_fwd.hpp.
 

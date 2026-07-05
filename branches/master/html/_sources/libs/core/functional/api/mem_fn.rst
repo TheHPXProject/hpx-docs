@@ -7,9 +7,9 @@
 
 .. _modules_hpx/functional/mem_fn.hpp_api:
 
--------------------------------------------------------------------------------
+-----------
 hpx::mem_fn
--------------------------------------------------------------------------------
+-----------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/functional.hpp`.
 

@@ -1277,7 +1277,7 @@ cancelable.</p></li>
 composed. The helper functions <a class="reference internal" href="../libs/core/async_combinators/api/wait_all.html#_CPPv4I0EN3hpx8wait_allEv9InputIter9InputIter" title="hpx::wait_all"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_all</span></code></a>,
 <a class="reference internal" href="../libs/core/async_combinators/api/wait_any.html#_CPPv4I0EN3hpx8wait_anyEv9InputIter9InputIter" title="hpx::wait_any"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_any</span></code></a>, and <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_n</span></code> can be used to wait for
 more than one future at a time.</p></li>
-<li><p><em>HPX</em> now exposes <a class="reference internal" href="../libs/core/async_sycl/api/sycl_executor.html#_CPPv4I0DpEN3hpx5applyEbRR8ExecutorRRN3hpx4sycl12experimental13sycl_executor20queue_function_ptr_tIDp2TsEEDpRR2Ts" title="hpx::apply"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::apply</span></code></a> and <a class="reference internal" href="../libs/core/async_sycl/api/sycl_executor.html#_CPPv4I0DpEN3hpx5asyncEDcRR8ExecutorRRN3hpx4sycl12experimental13sycl_executor20queue_function_ptr_tIDp2TsEEDpRR2Ts" title="hpx::async"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async</span></code></a> as the
+<li><p><em>HPX</em> now exposes <a class="reference internal" href="../libs/core/async_sycl/api/sycl_executor.html#_CPPv4I0DpEN3hpx5applyEbRR8ExecutorRRN3hpx4sycl12experimental13sycl_executor20queue_function_ptr_tIDp2TsEEDpRR2Ts" title="hpx::apply"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::apply</span></code></a> and <a class="reference internal" href="../libs/core/async_base/api/async.html#_CPPv4I0DpEN3hpx5asyncEDcRR1FDpRR2Ts" title="hpx::async"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async</span></code></a> as the
 preferred way of creating (or invoking) any deferred work. These functions are
 usable with various types of functions, function objects, and actions and
 provide a uniform way to spawn deferred tasks.</p></li>
@@ -1290,7 +1290,7 @@ user can write is own types of continuations. It can be used to execute any
 function as an continuation of a particular action.</p></li>
 <li><p>Reworked the action invocation API to be fully conformant to normal functions.
 Actions can now be invoked using <a class="reference internal" href="../libs/core/async_sycl/api/sycl_executor.html#_CPPv4I0DpEN3hpx5applyEbRR8ExecutorRRN3hpx4sycl12experimental13sycl_executor20queue_function_ptr_tIDp2TsEEDpRR2Ts" title="hpx::apply"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::apply</span></code></a>,
-<a class="reference internal" href="../libs/core/async_sycl/api/sycl_executor.html#_CPPv4I0DpEN3hpx5asyncEDcRR8ExecutorRRN3hpx4sycl12experimental13sycl_executor20queue_function_ptr_tIDp2TsEEDpRR2Ts" title="hpx::async"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async</span></code></a>, or using the <code class="docutils literal notranslate"><span class="pre">operator()</span></code> implemented on actions.
+<a class="reference internal" href="../libs/core/async_base/api/async.html#_CPPv4I0DpEN3hpx5asyncEDcRR1FDpRR2Ts" title="hpx::async"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async</span></code></a>, or using the <code class="docutils literal notranslate"><span class="pre">operator()</span></code> implemented on actions.
 Actions themselves can now be cheaply instantiated as they do not have any
 members anymore.</p></li>
 <li><p>Reworked the lazy action invocation API. Actions can now be directly bound
@@ -1351,7 +1351,7 @@ factory methods, one based on the number of existing instances of the
 component type to create, and one based on an arbitrary performance counter
 which will be queried for all relevant localities.</p></li>
 <li><p>Added API functions allowing to access elements of the diagnostic information
-embedded in the given exception: <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::get_locality_id</span></code>,
+embedded in the given exception: <a class="reference internal" href="../libs/core/runtime_local/api/get_locality_id.html#_CPPv4N3hpx15get_locality_idER10error_code" title="hpx::get_locality_id"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::get_locality_id</span></code></a>,
 <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::get_host_name</span></code>, <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::get_process_id</span></code>,
 <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::get_function_name</span></code>, <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::get_file_name</span></code>,
 <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::get_line_number</span></code>, <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::get_os_thread</span></code>,

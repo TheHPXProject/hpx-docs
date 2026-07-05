@@ -7,9 +7,9 @@
 
 .. _modules_hpx/agas_base/server/primary_namespace.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------------
 hpx/agas_base/server/primary_namespace.hpp
--------------------------------------------------------------------------------
+------------------------------------------
 
 Defined in header hpx/agas_base/server/primary_namespace.hpp.
 

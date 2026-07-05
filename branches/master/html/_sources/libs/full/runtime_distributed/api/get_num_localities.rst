@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_distributed/get_num_localities.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------------------
 hpx/runtime_distributed/get_num_localities.hpp
--------------------------------------------------------------------------------
+----------------------------------------------
 
 Defined in header hpx/runtime_distributed/get_num_localities.hpp.
 

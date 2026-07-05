@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/minmax.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------------------------
 hpx::min_element, hpx::max_element, hpx::minmax_element
--------------------------------------------------------------------------------
+-------------------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

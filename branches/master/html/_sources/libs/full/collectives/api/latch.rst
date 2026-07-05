@@ -7,9 +7,9 @@
 
 .. _modules_hpx/collectives/latch.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------
 hpx::distributed::latch
--------------------------------------------------------------------------------
+-----------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/latch.hpp`.
 

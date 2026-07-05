@@ -7,9 +7,9 @@
 
 .. _modules_hpx/functional/traits/is_invocable.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------
 hpx::is_invocable, hpx::is_invocable_r
--------------------------------------------------------------------------------
+--------------------------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/type_traits.hpp`.
 

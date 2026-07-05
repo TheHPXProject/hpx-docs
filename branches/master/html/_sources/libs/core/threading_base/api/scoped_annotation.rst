@@ -7,9 +7,9 @@
 
 .. _modules_hpx/threading_base/scoped_annotation.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------
 hpx::scoped_annotation
--------------------------------------------------------------------------------
+----------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/functional.hpp`.
 

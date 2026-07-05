@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/shift_right.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------
 hpx::ranges::shift_right
--------------------------------------------------------------------------------
+------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

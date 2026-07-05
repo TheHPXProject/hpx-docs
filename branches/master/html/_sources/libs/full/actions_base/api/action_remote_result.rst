@@ -7,9 +7,9 @@
 
 .. _modules_hpx/actions_base/traits/action_remote_result.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------------------
 hpx/actions_base/traits/action_remote_result.hpp
--------------------------------------------------------------------------------
+------------------------------------------------
 
 Defined in header hpx/actions_base/traits/action_remote_result.hpp.
 

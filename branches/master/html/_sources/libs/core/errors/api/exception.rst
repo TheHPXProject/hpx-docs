@@ -7,9 +7,9 @@
 
 .. _modules_hpx/errors/exception.hpp_api:
 
--------------------------------------------------------------------------------
+--------------
 hpx::exception
--------------------------------------------------------------------------------
+--------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/exception.hpp`.
 

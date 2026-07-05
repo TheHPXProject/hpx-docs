@@ -1243,44 +1243,44 @@ document.write(`
 <dd><div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="runtime__local__fwd_8hpp_1ac91ac849a88419b84e0cf48c665623ec"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">bool</span> <span class="pre">register_thread</span> <span class="pre">(runtime</span> <span class="pre">*rt,</span> <span class="pre">char</span> <span class="pre">const</span> <span class="pre">*name,</span> <span class="pre">error_code</span> <span class="pre">&amp;ec=throws)</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx15register_threadEP7runtimePKcR10error_code">
+<span id="_CPPv3N3hpx15register_threadEP7runtimePKcR10error_code"></span><span id="_CPPv2N3hpx15register_threadEP7runtimePKcR10error_code"></span><span id="hpx::register_thread__runtimeP.cCP.error_codeR"></span><span class="target" id="runtime__local__fwd_8hpp_1a0bdf7871dfff58e68ae5eab9af23f2aa"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">register_thread</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="runtime_local.html#_CPPv4N3hpx7runtimeE" title="hpx::runtime"><span class="n"><span class="pre">runtime</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">rt</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">name</span></span>, <a class="reference internal" href="../../errors/api/error_code.html#_CPPv4N3hpx10error_codeE" title="hpx::error_code"><span class="n"><span class="pre">error_code</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ec</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../errors/api/exception_fwd.html#_CPPv4N3hpx6throwsE" title="hpx::throws"><span class="n"><span class="pre">throws</span></span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx15register_threadEP7runtimePKcR10error_code" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Register the current kernel thread with HPX, this should be done once for each external OS-thread intended to invoke HPX functionality. Calling this function more than once will return false. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="runtime__local__fwd_8hpp_1a19ffb6dcf99b9e3fbfe1aaf825fc954d"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">void</span> <span class="pre">unregister_thread</span> <span class="pre">(runtime</span> <span class="pre">*rt)</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx17unregister_threadEP7runtime">
+<span id="_CPPv3N3hpx17unregister_threadEP7runtime"></span><span id="_CPPv2N3hpx17unregister_threadEP7runtime"></span><span id="hpx::unregister_thread__runtimeP"></span><span class="target" id="runtime__local__fwd_8hpp_1ae6fab9f567417d9f1fa0772537b5dc2b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">unregister_thread</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="runtime_local.html#_CPPv4N3hpx7runtimeE" title="hpx::runtime"><span class="n"><span class="pre">runtime</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">rt</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx17unregister_threadEP7runtime" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Unregister the thread from HPX, this should be done once in the end before the external thread exists. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="runtime__local__fwd_8hpp_1a6910fe3b538b1c8ff6d1c3d4899d7b14"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">runtime_local::os_thread_data</span> <span class="pre">get_os_thread_data</span> <span class="pre">(std::string</span> <span class="pre">const</span> <span class="pre">&amp;label)</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx18get_os_thread_dataERKNSt6stringE">
+<span id="_CPPv3N3hpx18get_os_thread_dataERKNSt6stringE"></span><span id="_CPPv2N3hpx18get_os_thread_dataERKNSt6stringE"></span><span id="hpx::get_os_thread_data__ssCR"></span><span class="target" id="runtime__local__fwd_8hpp_1ac032ed6e97f4d2491f840d130e42a4a7"></span><span class="n"><span class="pre">runtime_local</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">os_thread_data</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_os_thread_data</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">label</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx18get_os_thread_dataERKNSt6stringE" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Access data for a given OS thread that was previously registered by <em>register_thread</em>. This function must be called from a thread that was previously registered with the runtime. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="runtime__local__fwd_8hpp_1ac1732c9c792f77344634425f91c96c0a"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">bool</span> <span class="pre">enumerate_os_threads</span> <span class="pre">(hpx::function&lt;</span> <span class="pre">bool(os_thread_data</span> <span class="pre">const</span> <span class="pre">&amp;)&gt;</span> <span class="pre">const</span> <span class="pre">&amp;f)</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx20enumerate_os_threadsERKN3hpx8functionIFbRK14os_thread_dataEEE">
+<span id="_CPPv3N3hpx20enumerate_os_threadsERKN3hpx8functionIFbRK14os_thread_dataEEE"></span><span id="_CPPv2N3hpx20enumerate_os_threadsERKN3hpx8functionIFbRK14os_thread_dataEEE"></span><span class="target" id="runtime__local__fwd_8hpp_1a8c3dc9edb94911c3fbf0251ca0157e85"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">enumerate_os_threads</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../functional/api/function.html#_CPPv4I0_bEN3hpx8functionE" title="hpx::function"><span class="n"><span class="pre">function</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">bool</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">os_thread_data</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">f</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx20enumerate_os_threadsERKN3hpx8functionIFbRK14os_thread_dataEEE" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Enumerate all OS threads that have registered with the runtime. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="runtime__local__fwd_8hpp_1a6fac31663c8cf10918d5a0eb4d1455d7"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">std::size_t</span> <span class="pre">get_runtime_instance_number</span> <span class="pre">()</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx27get_runtime_instance_numberEv">
+<span id="_CPPv3N3hpx27get_runtime_instance_numberEv"></span><span id="_CPPv2N3hpx27get_runtime_instance_numberEv"></span><span id="hpx::get_runtime_instance_number"></span><span class="target" id="runtime__local__fwd_8hpp_1a9cd8c96309c6ea084c51856ae6cde7a5"></span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_runtime_instance_number</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx27get_runtime_instance_numberEv" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Return the runtime instance number associated with the runtime instance the current thread is running in. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="runtime__local__fwd_8hpp_1a55fb4c32b9fb9dad625a8d688304eea0"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">bool</span> <span class="pre">register_on_exit</span> <span class="pre">(hpx::function&lt;</span> <span class="pre">void()&gt;</span> <span class="pre">const</span> <span class="pre">&amp;)</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx16register_on_exitERKN3hpx8functionIFvvEEE">
+<span id="_CPPv3N3hpx16register_on_exitERKN3hpx8functionIFvvEEE"></span><span id="_CPPv2N3hpx16register_on_exitERKN3hpx8functionIFvvEEE"></span><span class="target" id="runtime__local__fwd_8hpp_1a5ada15a521b399157176337a9d601d6a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">register_on_exit</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../functional/api/function.html#_CPPv4I0_bEN3hpx8functionE" title="hpx::function"><span class="n"><span class="pre">function</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx16register_on_exitERKN3hpx8functionIFvvEEE" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Register a function to be called during system shutdown. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="runtime__local__fwd_8hpp_1a47a5b64dc49c807f23f78d44178a95fd"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">bool</span> <span class="pre">is_starting</span> <span class="pre">()</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11is_startingEv">
+<span id="_CPPv3N3hpx11is_startingEv"></span><span id="_CPPv2N3hpx11is_startingEv"></span><span id="hpx::is_starting"></span><span class="target" id="runtime__local__fwd_8hpp_1ad8fbe89e273b0a5d2f57ea09a971e1af"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_starting</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx11is_startingEv" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Test whether the runtime system is currently being started. </p>
 <p>This function returns whether the runtime system is currently being started or not, e.g. whether the current state of the runtime system is <em>hpx::state::startup</em></p>
 <div class="admonition note">
@@ -1290,15 +1290,15 @@ document.write(`
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="runtime__local__fwd_8hpp_1acb5e38f4c91d80507abbfa479e30c85d"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">bool</span> <span class="pre">tolerate_node_faults</span> <span class="pre">()</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx20tolerate_node_faultsEv">
+<span id="_CPPv3N3hpx20tolerate_node_faultsEv"></span><span id="_CPPv2N3hpx20tolerate_node_faultsEv"></span><span id="hpx::tolerate_node_faults"></span><span class="target" id="runtime__local__fwd_8hpp_1a6a7e3387e6a55d6d7040a142bda044d6"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">tolerate_node_faults</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx20tolerate_node_faultsEv" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Test if HPX runs in fault-tolerant mode. </p>
 <p>This function returns whether the runtime system is running in fault-tolerant mode </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="runtime__local__fwd_8hpp_1aa23a657d8a5c38153a434f63e7f7150e"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">bool</span> <span class="pre">is_running</span> <span class="pre">()</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx10is_runningEv">
+<span id="_CPPv3N3hpx10is_runningEv"></span><span id="_CPPv2N3hpx10is_runningEv"></span><span id="hpx::is_running"></span><span class="target" id="runtime__local__fwd_8hpp_1ab20f0913801d5a05d84e4eac0e24f704"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_running</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx10is_runningEv" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Test whether the runtime system is currently running. </p>
 <p>This function returns whether the runtime system is currently running or not, e.g. whether the current state of the runtime system is <em>hpx::state::running</em></p>
 <div class="admonition note">
@@ -1308,8 +1308,8 @@ document.write(`
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="runtime__local__fwd_8hpp_1abf8d61e83758e111045cdb7ece949d21"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">bool</span> <span class="pre">is_stopped</span> <span class="pre">()</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx10is_stoppedEv">
+<span id="_CPPv3N3hpx10is_stoppedEv"></span><span id="_CPPv2N3hpx10is_stoppedEv"></span><span id="hpx::is_stopped"></span><span class="target" id="runtime__local__fwd_8hpp_1a04f7638724843ab606835ba07816acb4"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_stopped</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx10is_stoppedEv" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Test whether the runtime system is currently stopped. </p>
 <p>This function returns whether the runtime system is currently stopped or not, e.g. whether the current state of the runtime system is <em>hpx::state::stopped</em></p>
 <div class="admonition note">
@@ -1319,8 +1319,8 @@ document.write(`
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="runtime__local__fwd_8hpp_1a82d65127bc1adc7f296af43ead5c627f"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">bool</span> <span class="pre">is_stopped_or_shutting_down</span> <span class="pre">()</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx27is_stopped_or_shutting_downEv">
+<span id="_CPPv3N3hpx27is_stopped_or_shutting_downEv"></span><span id="_CPPv2N3hpx27is_stopped_or_shutting_downEv"></span><span id="hpx::is_stopped_or_shutting_down"></span><span class="target" id="runtime__local__fwd_8hpp_1a6ed14cb2616c96933836462c355f1e13"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_stopped_or_shutting_down</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx27is_stopped_or_shutting_downEv" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Test whether the runtime system is currently being shut down. </p>
 <p>This function returns whether the runtime system is currently being shut down or not, e.g. whether the current state of the runtime system is <em>hpx::state::stopped</em> or <em>hpx::state::shutdown</em></p>
 <div class="admonition note">
@@ -1330,15 +1330,15 @@ document.write(`
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="runtime__local__fwd_8hpp_1a8d2f4e887f833eed83d2fa13b09949d5"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">std::size_t</span> <span class="pre">get_num_worker_threads</span> <span class="pre">()</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx22get_num_worker_threadsEv">
+<span id="_CPPv3N3hpx22get_num_worker_threadsEv"></span><span id="_CPPv2N3hpx22get_num_worker_threadsEv"></span><span id="hpx::get_num_worker_threads"></span><span class="target" id="runtime__local__fwd_8hpp_1ae0cb050327ed37e6863061bd1761409e"></span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_num_worker_threads</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx22get_num_worker_threadsEv" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Return the number of worker OS- threads used to execute HPX threads. </p>
 <p>This function returns the number of OS-threads used to execute HPX threads. If the function is called while no HPX runtime system is active, it will return zero. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="runtime__local__fwd_8hpp_1a6afb05801f085373d5b8b01f4dc6e988"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">std::uint64_t</span> <span class="pre">get_system_uptime</span> <span class="pre">()</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx17get_system_uptimeEv">
+<span id="_CPPv3N3hpx17get_system_uptimeEv"></span><span id="_CPPv2N3hpx17get_system_uptimeEv"></span><span id="hpx::get_system_uptime"></span><span class="target" id="runtime__local__fwd_8hpp_1a805a6863e2633550de10e42233f6ee0b"></span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_system_uptime</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx17get_system_uptimeEv" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Return the system uptime measure on the thread executing this call. </p>
 <p>This function returns the system uptime measured in nanoseconds for the thread executing this call. If the function is called while no HPX runtime system is active, it will return zero. </p>
 </dd></dl>

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/assertion/source_location.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------------------
 HPX_CURRENT_SOURCE_LOCATION, hpx::source_location
--------------------------------------------------------------------------------
+-------------------------------------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/source_location.hpp`.
 

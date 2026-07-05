@@ -7,9 +7,9 @@
 
 .. _modules_hpx/execution_base/traits/is_executor_parameters.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------------------------
 hpx/execution_base/traits/is_executor_parameters.hpp
--------------------------------------------------------------------------------
+----------------------------------------------------
 
 Defined in header hpx/execution_base/traits/is_executor_parameters.hpp.
 

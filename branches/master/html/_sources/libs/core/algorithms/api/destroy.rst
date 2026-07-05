@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/destroy.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------------
 hpx::ranges::destroy, hpx::ranges::destroy_n
--------------------------------------------------------------------------------
+--------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

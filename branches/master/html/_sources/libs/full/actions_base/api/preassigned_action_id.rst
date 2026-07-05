@@ -7,9 +7,9 @@
 
 .. _modules_hpx/actions_base/preassigned_action_id.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------------
 hpx/actions_base/preassigned_action_id.hpp
--------------------------------------------------------------------------------
+------------------------------------------
 
 Defined in header hpx/actions_base/preassigned_action_id.hpp.
 

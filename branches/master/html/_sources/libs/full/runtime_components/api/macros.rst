@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_components/macros.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------
 hpx/runtime_components/macros.hpp
--------------------------------------------------------------------------------
+---------------------------------
 
 Defined in header hpx/runtime_components/macros.hpp.
 

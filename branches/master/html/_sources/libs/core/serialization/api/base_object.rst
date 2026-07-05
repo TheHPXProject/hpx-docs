@@ -7,9 +7,9 @@
 
 .. _modules_hpx/serialization/base_object.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------
 hpx/serialization/base_object.hpp
--------------------------------------------------------------------------------
+---------------------------------
 
 Defined in header hpx/serialization/base_object.hpp.
 

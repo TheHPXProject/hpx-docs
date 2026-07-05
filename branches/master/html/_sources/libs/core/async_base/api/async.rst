@@ -7,9 +7,9 @@
 
 .. _modules_hpx/async_base/async.hpp_api:
 
--------------------------------------------------------------------------------
+----------
 hpx::async
--------------------------------------------------------------------------------
+----------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/future.hpp`.
 

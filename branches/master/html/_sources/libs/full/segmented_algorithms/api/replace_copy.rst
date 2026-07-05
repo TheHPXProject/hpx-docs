@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/segmented_algorithms/replace_copy.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------------------
 hpx/parallel/segmented_algorithms/replace_copy.hpp
--------------------------------------------------------------------------------
+--------------------------------------------------
 
 Defined in header hpx/parallel/segmented_algorithms/replace_copy.hpp.
 

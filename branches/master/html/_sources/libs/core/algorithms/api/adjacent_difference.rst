@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/adjacent_difference.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------
 hpx::ranges::adjacent_difference
--------------------------------------------------------------------------------
+--------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

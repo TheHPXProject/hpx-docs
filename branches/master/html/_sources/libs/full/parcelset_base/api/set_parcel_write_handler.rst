@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parcelset_base/set_parcel_write_handler.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------------------
 hpx/parcelset_base/set_parcel_write_handler.hpp
--------------------------------------------------------------------------------
+-----------------------------------------------
 
 Defined in header hpx/parcelset_base/set_parcel_write_handler.hpp.
 

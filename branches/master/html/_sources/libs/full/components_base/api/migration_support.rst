@@ -7,9 +7,9 @@
 
 .. _modules_hpx/components_base/server/migration_support.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------------------
 hpx/components_base/server/migration_support.hpp
--------------------------------------------------------------------------------
+------------------------------------------------
 
 Defined in header hpx/components_base/server/migration_support.hpp.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/stable_sort.hpp_api:
 
--------------------------------------------------------------------------------
+----------------
 hpx::stable_sort
--------------------------------------------------------------------------------
+----------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

@@ -1368,7 +1368,7 @@ function will be invoked as the first <em>HPX</em> thread of your application). 
 <p>The thread executing the function <a class="reference internal" href="../libs/full/init_runtime/api/init_impl.html#_CPPv4N3hpx4initENSt8functionIFiRN3hpx15program_options13variables_mapEEEEiPPcRK11init_params" title="hpx::init"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::init</span></code></a> will block waiting for
 the runtime system to exit. The value returned from <code class="docutils literal notranslate"><span class="pre">hpx_main</span></code> will be
 returned from <a class="reference internal" href="../libs/full/init_runtime/api/init_impl.html#_CPPv4N3hpx4initENSt8functionIFiRN3hpx15program_options13variables_mapEEEEiPPcRK11init_params" title="hpx::init"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::init</span></code></a> after the runtime system has stopped.</p>
-<p>The function <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::finalize</span></code> has to be called on one of the <em>HPX</em>
+<p>The function <a class="reference internal" href="../libs/full/init_runtime/api/finalize.html#_CPPv4N3hpx8finalizeEddRN3hpx10error_codeE" title="hpx::finalize"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::finalize</span></code></a> has to be called on one of the <em>HPX</em>
 localities in order to signal that all work has been scheduled and the runtime
 system should be stopped after the scheduled work has been executed.</p>
 <p>This method of invoking <em>HPX</em> has the advantage of the user being able to decide
@@ -1417,14 +1417,14 @@ function will be invoked as the first <em>HPX</em> thread of your application). 
 <em>HPX</em> API functions can be used from within this function.</p>
 <p>The thread executing the function <a class="reference internal" href="../libs/full/init_runtime/api/start_impl.html#_CPPv4N3hpx5startENSt8functionIFiRN3hpx15program_options13variables_mapEEEEiPPcRK11init_params" title="hpx::start"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::start</span></code></a> will <em>not</em> block
 waiting for the runtime system to exit, but will return immediately.
-The function <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::finalize</span></code> has to be called on one of the <em>HPX</em>
+The function <a class="reference internal" href="../libs/full/init_runtime/api/finalize.html#_CPPv4N3hpx8finalizeEddRN3hpx10error_codeE" title="hpx::finalize"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::finalize</span></code></a> has to be called on one of the <em>HPX</em>
 localities in order to signal that all work has been scheduled and the runtime
 system should be stopped after the scheduled work has been executed.</p>
 <p>This method of invoking <em>HPX</em> is useful for applications where the main thread
-is used for special operations, such a GUIs. The function <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::stop</span></code>
+is used for special operations, such a GUIs. The function <a class="reference internal" href="../libs/full/init_runtime/api/finalize.html#_CPPv4N3hpx4stopERN3hpx10error_codeE" title="hpx::stop"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::stop</span></code></a>
 can be used to wait for the <em>HPX</em> runtime system to exit and should at least be
 used as the last function called in <code class="docutils literal notranslate"><span class="pre">main()</span></code>. The value returned from
-<code class="docutils literal notranslate"><span class="pre">hpx_main</span></code> will be returned from <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::stop</span></code> after the runtime
+<code class="docutils literal notranslate"><span class="pre">hpx_main</span></code> will be returned from <a class="reference internal" href="../libs/full/init_runtime/api/finalize.html#_CPPv4N3hpx4stopERN3hpx10error_codeE" title="hpx::stop"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::stop</span></code></a> after the runtime
 system has stopped.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/hpx_start.hpp&gt;</span><span class="cp"></span>
 
@@ -1503,12 +1503,12 @@ startup function on this locality.</p>
 <section id="suspending-and-resuming-the-hpx-runtime">
 <span id="suspend-resume"></span><h2>Suspending and resuming the <em>HPX</em> runtime<a class="headerlink" href="#suspending-and-resuming-the-hpx-runtime" title="Permalink to this heading">#</a></h2>
 <p>In some applications it is required to combine <em>HPX</em> with other runtimes. To
-support this use case, <em>HPX</em> provides two functions: <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::suspend</span></code> and
-<code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::resume</span></code>. <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::suspend</span></code> is a blocking call which will
+support this use case, <em>HPX</em> provides two functions: <a class="reference internal" href="../libs/full/init_runtime/api/suspend.html#_CPPv4N3hpx7suspendER10error_code" title="hpx::suspend"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::suspend</span></code></a> and
+<a class="reference internal" href="../libs/full/init_runtime/api/suspend.html#_CPPv4N3hpx6resumeER10error_code" title="hpx::resume"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::resume</span></code></a>. <a class="reference internal" href="../libs/full/init_runtime/api/suspend.html#_CPPv4N3hpx7suspendER10error_code" title="hpx::suspend"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::suspend</span></code></a> is a blocking call which will
 wait for all scheduled tasks to finish executing and then put the thread pool OS
-threads to sleep. <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::resume</span></code> simply wakes up the sleeping threads
-so that they are ready to accept new work. <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::suspend</span></code> and
-<code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::resume</span></code> can be found in the header <code class="docutils literal notranslate"><span class="pre">hpx/hpx_suspend.hpp</span></code>.</p>
+threads to sleep. <a class="reference internal" href="../libs/full/init_runtime/api/suspend.html#_CPPv4N3hpx6resumeER10error_code" title="hpx::resume"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::resume</span></code></a> simply wakes up the sleeping threads
+so that they are ready to accept new work. <a class="reference internal" href="../libs/full/init_runtime/api/suspend.html#_CPPv4N3hpx7suspendER10error_code" title="hpx::suspend"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::suspend</span></code></a> and
+<a class="reference internal" href="../libs/full/init_runtime/api/suspend.html#_CPPv4N3hpx6resumeER10error_code" title="hpx::resume"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::resume</span></code></a> can be found in the header <code class="docutils literal notranslate"><span class="pre">hpx/hpx_suspend.hpp</span></code>.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/hpx_start.hpp&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/hpx_suspend.hpp&gt;</span><span class="cp"></span>
 
@@ -1539,14 +1539,14 @@ so that they are ready to accept new work. <code class="xref cpp cpp-func docuti
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::suspend</span></code> does not wait for <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::finalize</span></code> to be
-called. Only call <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::finalize</span></code> when you wish to fully stop the
+<p><a class="reference internal" href="../libs/full/init_runtime/api/suspend.html#_CPPv4N3hpx7suspendER10error_code" title="hpx::suspend"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::suspend</span></code></a> does not wait for <a class="reference internal" href="../libs/full/init_runtime/api/finalize.html#_CPPv4N3hpx8finalizeEddRN3hpx10error_codeE" title="hpx::finalize"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::finalize</span></code></a> to be
+called. Only call <a class="reference internal" href="../libs/full/init_runtime/api/finalize.html#_CPPv4N3hpx8finalizeEddRN3hpx10error_codeE" title="hpx::finalize"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::finalize</span></code></a> when you wish to fully stop the
 <em>HPX</em> runtime.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <dl class="simple">
-<dt><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::suspend</span></code> only waits for local tasks, i.e. tasks on the</dt><dd><p>current locality, to finish executing. When using <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::suspend</span></code>
+<dt><a class="reference internal" href="../libs/full/init_runtime/api/suspend.html#_CPPv4N3hpx7suspendER10error_code" title="hpx::suspend"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::suspend</span></code></a> only waits for local tasks, i.e. tasks on the</dt><dd><p>current locality, to finish executing. When using <a class="reference internal" href="../libs/full/init_runtime/api/suspend.html#_CPPv4N3hpx7suspendER10error_code" title="hpx::suspend"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::suspend</span></code></a>
 in a multi-locality scenario the user is responsible for ensuring that any
 work required from other localities has also finished.</p>
 </dd>

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/uninitialized_relocate.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------------------------------
 hpx::uninitialized_relocate, hpx::uninitialized_relocate_n
--------------------------------------------------------------------------------
+----------------------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

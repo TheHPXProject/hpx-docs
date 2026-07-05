@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/for_each_index.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------
 hpx::experimental::for_each_index
--------------------------------------------------------------------------------
+---------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

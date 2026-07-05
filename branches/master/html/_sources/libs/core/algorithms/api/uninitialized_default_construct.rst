@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/uninitialized_default_construct.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 hpx::ranges::uninitialized_default_construct, hpx::ranges::uninitialized_default_construct_n
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/fill.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------
 hpx::ranges::fill, hpx::ranges::fill_n
--------------------------------------------------------------------------------
+--------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

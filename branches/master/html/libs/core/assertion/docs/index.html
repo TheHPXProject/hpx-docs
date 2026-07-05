@@ -1239,7 +1239,7 @@ document.write(`
 which are turned of during a release build.</p>
 <p>By default, the location and function where the assert has been called from are
 displayed when the assertion fires. This behavior can be modified by using
-<code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::assertion::set_assertion_handler</span></code>. When HPX initializes, it uses
+<a class="reference internal" href="../api/api.html#_CPPv4N3hpx9assertion21set_assertion_handlerE17assertion_handler" title="hpx::assertion::set_assertion_handler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::assertion::set_assertion_handler</span></code></a>. When HPX initializes, it uses
 this function to specify a more elaborate assertion handler. If your application
 needs to customize this, it needs to do so before calling
 <a class="reference internal" href="../../../full/init_runtime/api/init_impl.html#_CPPv4N3hpx4initENSt8functionIFiRN3hpx15program_options13variables_mapEEEEiPPcRK11init_params" title="hpx::init"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::init</span></code></a>, <a class="reference internal" href="../../../../manual/starting_the_hpx_runtime.html#starting-hpx"><span class="std std-ref">hpx_main</span></a> or using the C-main

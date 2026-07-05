@@ -7,9 +7,9 @@
 
 .. _modules_hpx/executors/thread_pool_scheduler.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------
 hpx/executors/thread_pool_scheduler.hpp
--------------------------------------------------------------------------------
+---------------------------------------
 
 Defined in header hpx/executors/thread_pool_scheduler.hpp.
 

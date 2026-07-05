@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/includes.hpp_api:
 
--------------------------------------------------------------------------------
+-------------
 hpx::includes
--------------------------------------------------------------------------------
+-------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

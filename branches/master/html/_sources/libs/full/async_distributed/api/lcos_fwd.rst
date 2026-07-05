@@ -7,9 +7,9 @@
 
 .. _modules_hpx/async_distributed/lcos_fwd.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------
 hpx::distributed::promise
--------------------------------------------------------------------------------
+-------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/future.hpp`.
 

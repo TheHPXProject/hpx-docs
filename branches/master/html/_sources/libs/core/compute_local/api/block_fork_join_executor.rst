@@ -7,9 +7,9 @@
 
 .. _modules_hpx/compute_local/host/block_fork_join_executor.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------------------
 hpx/compute_local/host/block_fork_join_executor.hpp
--------------------------------------------------------------------------------
+---------------------------------------------------
 
 Defined in header hpx/compute_local/host/block_fork_join_executor.hpp.
 

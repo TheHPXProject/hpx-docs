@@ -7,9 +7,9 @@
 
 .. _modules_hpx/cache/statistics/local_statistics.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------------
 hpx/cache/statistics/local_statistics.hpp
--------------------------------------------------------------------------------
+-----------------------------------------
 
 Defined in header hpx/cache/statistics/local_statistics.hpp.
 

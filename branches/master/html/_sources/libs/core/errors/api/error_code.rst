@@ -7,9 +7,9 @@
 
 .. _modules_hpx/errors/error_code.hpp_api:
 
--------------------------------------------------------------------------------
+---------------
 hpx::error_code
--------------------------------------------------------------------------------
+---------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/system_error.hpp`.
 

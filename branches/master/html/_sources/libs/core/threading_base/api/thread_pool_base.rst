@@ -7,9 +7,9 @@
 
 .. _modules_hpx/threading_base/thread_pool_base.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------
 hpx/threading_base/thread_pool_base.hpp
--------------------------------------------------------------------------------
+---------------------------------------
 
 Defined in header hpx/threading_base/thread_pool_base.hpp.
 

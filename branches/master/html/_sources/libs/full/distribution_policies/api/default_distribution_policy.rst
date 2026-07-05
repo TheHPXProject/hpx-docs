@@ -7,9 +7,9 @@
 
 .. _modules_hpx/distribution_policies/default_distribution_policy.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------------------------
 hpx/distribution_policies/default_distribution_policy.hpp
--------------------------------------------------------------------------------
+---------------------------------------------------------
 
 Defined in header hpx/distribution_policies/default_distribution_policy.hpp.
 

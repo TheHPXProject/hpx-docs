@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/merge.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------------------
 hpx::ranges::merge, hpx::ranges::inplace_merge
--------------------------------------------------------------------------------
+----------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

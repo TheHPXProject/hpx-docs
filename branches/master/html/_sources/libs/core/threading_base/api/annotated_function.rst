@@ -7,9 +7,9 @@
 
 .. _modules_hpx/threading_base/annotated_function.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------
 hpx::annotated_function
--------------------------------------------------------------------------------
+-----------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/functional.hpp`.
 

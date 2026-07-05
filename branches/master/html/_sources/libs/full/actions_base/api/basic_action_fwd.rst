@@ -7,9 +7,9 @@
 
 .. _modules_hpx/actions_base/basic_action_fwd.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------
 hpx/actions_base/basic_action_fwd.hpp
--------------------------------------------------------------------------------
+-------------------------------------
 
 Defined in header hpx/actions_base/basic_action_fwd.hpp.
 

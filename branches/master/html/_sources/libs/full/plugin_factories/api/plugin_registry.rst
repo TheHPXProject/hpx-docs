@@ -7,9 +7,9 @@
 
 .. _modules_hpx/plugin_factories/plugin_registry.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------------
 hpx/plugin_factories/plugin_registry.hpp
--------------------------------------------------------------------------------
+----------------------------------------
 
 Defined in header hpx/plugin_factories/plugin_registry.hpp.
 

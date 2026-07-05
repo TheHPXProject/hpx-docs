@@ -7,9 +7,9 @@
 
 .. _modules_hpx/functional/function_ref.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------
 hpx::function_ref
--------------------------------------------------------------------------------
+-----------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/functional.hpp`.
 

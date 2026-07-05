@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/segmented_algorithms/is_sorted.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------------------
 hpx/parallel/segmented_algorithms/is_sorted.hpp
--------------------------------------------------------------------------------
+-----------------------------------------------
 
 Defined in header hpx/parallel/segmented_algorithms/is_sorted.hpp.
 

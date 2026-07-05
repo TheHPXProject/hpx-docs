@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/for_each.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------------------
 hpx::ranges::for_each, hpx::ranges::for_each_n
--------------------------------------------------------------------------------
+----------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

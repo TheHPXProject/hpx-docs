@@ -7,9 +7,9 @@
 
 .. _modules_hpx/executors/thread_pool_continues_on_sender.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------------------
 hpx/executors/thread_pool_continues_on_sender.hpp
--------------------------------------------------------------------------------
+-------------------------------------------------
 
 Defined in header hpx/executors/thread_pool_continues_on_sender.hpp.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_local/get_thread_name.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------
 hpx::get_thread_name
--------------------------------------------------------------------------------
+--------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/runtime.hpp`.
 

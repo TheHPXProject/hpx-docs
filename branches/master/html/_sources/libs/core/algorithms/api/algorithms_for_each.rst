@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/for_each.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------
 hpx::for_each, hpx::for_each_n
--------------------------------------------------------------------------------
+------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

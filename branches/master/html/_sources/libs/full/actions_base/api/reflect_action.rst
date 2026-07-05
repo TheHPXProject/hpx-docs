@@ -7,9 +7,9 @@
 
 .. _modules_hpx/actions_base/reflect_action.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------
 hpx/actions_base/reflect_action.hpp
--------------------------------------------------------------------------------
+-----------------------------------
 
 Defined in header hpx/actions_base/reflect_action.hpp.
 

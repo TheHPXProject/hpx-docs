@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_local/get_num_all_localities.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------------------------
 hpx::get_initial_num_localities, hpx::get_num_localities
--------------------------------------------------------------------------------
+--------------------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/runtime.hpp`.
 

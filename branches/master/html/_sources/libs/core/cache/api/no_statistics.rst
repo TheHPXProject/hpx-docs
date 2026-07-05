@@ -7,9 +7,9 @@
 
 .. _modules_hpx/cache/statistics/no_statistics.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------
 hpx/cache/statistics/no_statistics.hpp
--------------------------------------------------------------------------------
+--------------------------------------
 
 Defined in header hpx/cache/statistics/no_statistics.hpp.
 

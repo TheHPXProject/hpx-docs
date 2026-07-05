@@ -1935,7 +1935,7 @@ data. The value is incremented on each invocation, i.e., each time a consumer
 requests the counter data of this performance counter.</p>
 <p>The next step in exposing this counter to the runtime system is to register the
 function as a new raw counter type using the <em>HPX</em> API function
-<code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::performance_counters::install_counter_type</span></code>. A counter type
+<a class="reference internal" href="../libs/full/performance_counters/api/manage_counter_type.html#_CPPv4N3hpx20performance_counters20install_counter_typeERKNSt6stringERKN3hpx8functionIFNSt7int64_tEbEEERKNSt6stringERKNSt6stringE12counter_typeR10error_code" title="hpx::performance_counters::install_counter_type"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::performance_counters::install_counter_type</span></code></a>. A counter type
 represents certain common characteristics of counters, like their counter type
 name and any associated description information. The following snippet shows an
 example of how to register the function <code class="docutils literal notranslate"><span class="pre">some_performance_data</span></code>, which is shown
@@ -1960,7 +1960,7 @@ counter type:</p>
 scheme <code class="docutils literal notranslate"><span class="pre">&quot;/test{locality#*/total}/data&quot;</span></code> where <code class="docutils literal notranslate"><span class="pre">*</span></code> is a zero-based integer
 index identifying the <a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a> for which the counter instance should be
 accessed. The function
-<code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::performance_counters::install_counter_type</span></code> enables users to
+<a class="reference internal" href="../libs/full/performance_counters/api/manage_counter_type.html#_CPPv4N3hpx20performance_counters20install_counter_typeERKNSt6stringERKN3hpx8functionIFNSt7int64_tEbEEERKNSt6stringERKNSt6stringE12counter_typeR10error_code" title="hpx::performance_counters::install_counter_type"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::performance_counters::install_counter_type</span></code></a> enables users to
 instantiate exactly one counter instance for each <a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a>. Repeated
 requests to instantiate such a counter will return the same instance, i.e., the
 instance created for the first request.</p>
@@ -1968,7 +1968,7 @@ instance created for the first request.</p>
 options, the registration has to be performed during application startup, before
 <code class="docutils literal notranslate"><span class="pre">hpx_main</span></code> is executed. The best way to achieve this is to register an <em>HPX</em>
 startup function using the API function
-<code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::register_startup_function</span></code> before calling <code class="docutils literal notranslate"><span class="pre">hpx::init</span></code> to
+<a class="reference internal" href="../libs/core/runtime_local/api/startup_function.html#_CPPv4N3hpx25register_startup_functionE21startup_function_type" title="hpx::register_startup_function"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::register_startup_function</span></code></a> before calling <code class="docutils literal notranslate"><span class="pre">hpx::init</span></code> to
 initialize the runtime system:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>

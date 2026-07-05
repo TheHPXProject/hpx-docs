@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/is_heap.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------------------
 hpx::ranges::is_heap, hpx::ranges::is_heap_until
--------------------------------------------------------------------------------
+------------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

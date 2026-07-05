@@ -7,9 +7,9 @@
 
 .. _modules_hpx/synchronization/stop_token.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
 hpx::nostopstate, hpx::stop_callback, hpx::stop_source, hpx::stop_token, hpx::nostopstate_t
--------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/stop_token.hpp`.
 

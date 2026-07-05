@@ -7,9 +7,9 @@
 
 .. _modules_hpx/actions/transfer_base_action.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------
 hpx/actions/transfer_base_action.hpp
--------------------------------------------------------------------------------
+------------------------------------
 
 Defined in header hpx/actions/transfer_base_action.hpp.
 

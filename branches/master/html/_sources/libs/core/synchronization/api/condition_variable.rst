@@ -7,9 +7,9 @@
 
 .. _modules_hpx/synchronization/condition_variable.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------
 hpx::condition_variable, hpx::condition_variable_any, hpx::cv_status
--------------------------------------------------------------------------------
+--------------------------------------------------------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/condition_variable.hpp`.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/collectives/reduce_direct.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------
 hpx/collectives/reduce_direct.hpp
--------------------------------------------------------------------------------
+---------------------------------
 
 Defined in header hpx/collectives/reduce_direct.hpp.
 

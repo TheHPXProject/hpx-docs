@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_local/service_executors.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------
 hpx/runtime_local/service_executors.hpp
--------------------------------------------------------------------------------
+---------------------------------------
 
 Defined in header hpx/runtime_local/service_executors.hpp.
 

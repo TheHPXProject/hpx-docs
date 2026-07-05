@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/lexicographical_compare.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------
 hpx::ranges::lexicographical_compare
--------------------------------------------------------------------------------
+------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

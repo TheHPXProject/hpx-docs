@@ -7,9 +7,9 @@
 
 .. _modules_hpx/synchronization/once.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------
 hpx::once_flag, hpx::call_once
--------------------------------------------------------------------------------
+------------------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/mutex.hpp`.
 

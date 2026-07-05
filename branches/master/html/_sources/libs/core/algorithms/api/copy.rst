@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/copy.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------------------------------
 hpx::ranges::copy, hpx::ranges::copy_n, hpx::ranges::copy_if
--------------------------------------------------------------------------------
+------------------------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

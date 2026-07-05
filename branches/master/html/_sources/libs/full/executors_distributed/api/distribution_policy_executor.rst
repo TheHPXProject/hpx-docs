@@ -7,9 +7,9 @@
 
 .. _modules_hpx/executors_distributed/distribution_policy_executor.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------------------------------
 hpx/executors_distributed/distribution_policy_executor.hpp
--------------------------------------------------------------------------------
+----------------------------------------------------------
 
 Defined in header hpx/executors_distributed/distribution_policy_executor.hpp.
 

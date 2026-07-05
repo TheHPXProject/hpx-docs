@@ -7,9 +7,9 @@
 
 .. _modules_hpx/executors/restricted_thread_pool_executor.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------------------
 hpx/executors/restricted_thread_pool_executor.hpp
--------------------------------------------------------------------------------
+-------------------------------------------------
 
 Defined in header hpx/executors/restricted_thread_pool_executor.hpp.
 

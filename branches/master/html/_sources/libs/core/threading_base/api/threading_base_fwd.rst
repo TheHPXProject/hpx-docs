@@ -7,9 +7,9 @@
 
 .. _modules_hpx/threading_base/threading_base_fwd.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------------
 hpx/threading_base/threading_base_fwd.hpp
--------------------------------------------------------------------------------
+-----------------------------------------
 
 Defined in header hpx/threading_base/threading_base_fwd.hpp.
 

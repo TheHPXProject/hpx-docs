@@ -7,9 +7,9 @@
 
 .. _modules_hpx/execution/executors/num_cores.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------
 hpx::execution::experimental::num_cores
--------------------------------------------------------------------------------
+---------------------------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/execution.hpp`.
 

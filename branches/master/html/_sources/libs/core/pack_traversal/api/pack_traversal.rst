@@ -7,9 +7,9 @@
 
 .. _modules_hpx/pack_traversal/pack_traversal.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------
 hpx/pack_traversal/pack_traversal.hpp
--------------------------------------------------------------------------------
+-------------------------------------
 
 Defined in header hpx/pack_traversal/pack_traversal.hpp.
 

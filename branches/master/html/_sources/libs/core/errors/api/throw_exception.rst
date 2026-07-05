@@ -7,9 +7,9 @@
 
 .. _modules_hpx/errors/throw_exception.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------------------------
 HPX_THROW_EXCEPTION, HPX_THROW_BAD_ALLOC, HPX_THROWS_IF
--------------------------------------------------------------------------------
+-------------------------------------------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/exception.hpp`.
 

@@ -1493,8 +1493,8 @@ class:</p></li>
 </div>
 <ul class="simple">
 <li><p><strong>Synchronous</strong>: To invoke an action in a fully synchronous manner, we can
-simply call <a class="reference internal" href="../libs/full/async_distributed/api/sync.html#_CPPv4I00DpEN3hpx4syncEDcRR6ActionRR6TargetDpRR2Ts" title="hpx::sync"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::sync</span></code></a> which is semantically equivalent to
-<a class="reference internal" href="../libs/core/async_sycl/api/sycl_executor.html#_CPPv4I0DpEN3hpx5asyncEDcRR8ExecutorRRN3hpx4sycl12experimental13sycl_executor20queue_function_ptr_tIDp2TsEEDpRR2Ts" title="hpx::async"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async</span></code></a><code class="docutils literal notranslate"><span class="pre">().get()</span></code> (i.e., create a future and immediately
+simply call <a class="reference internal" href="../libs/core/async_base/api/sync.html#_CPPv4I0DpEN3hpx4syncEDcRR1FDpRR2Ts" title="hpx::sync"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::sync</span></code></a> which is semantically equivalent to
+<a class="reference internal" href="../libs/core/async_base/api/async.html#_CPPv4I0DpEN3hpx5asyncEDcRR1FDpRR2Ts" title="hpx::async"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async</span></code></a><code class="docutils literal notranslate"><span class="pre">().get()</span></code> (i.e., create a future and immediately
 wait on it to be ready). Here’s an example from the accumulator
 client class:</p></li>
 </ul>
@@ -1512,7 +1512,7 @@ client class:</p></li>
 accumulator instance.</p>
 <p><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::id_type</span></code> is a type which represents a global identifier
 in <em>HPX</em>. This type specifies the target of an action. This is the type that is
-returned by <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::find_here</span></code> in which case it represents the
+returned by <a class="reference internal" href="../libs/full/runtime_distributed/api/find_here.html#_CPPv4N3hpx9find_hereER10error_code" title="hpx::find_here"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::find_here</span></code></a> in which case it represents the
 <a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a> the code is running on.</p>
 </section>
 </section>

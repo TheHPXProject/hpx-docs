@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/exclusive_scan.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------
 hpx::exclusive_scan
--------------------------------------------------------------------------------
+-------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

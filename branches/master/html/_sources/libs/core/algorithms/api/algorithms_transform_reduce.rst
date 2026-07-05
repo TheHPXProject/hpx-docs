@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/transform_reduce.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------
 hpx::transform_reduce
--------------------------------------------------------------------------------
+---------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

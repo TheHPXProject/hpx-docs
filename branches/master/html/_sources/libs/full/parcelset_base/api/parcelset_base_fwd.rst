@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parcelset_base/parcelset_base_fwd.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------------
 hpx/parcelset_base/parcelset_base_fwd.hpp
--------------------------------------------------------------------------------
+-----------------------------------------
 
 Defined in header hpx/parcelset_base/parcelset_base_fwd.hpp.
 

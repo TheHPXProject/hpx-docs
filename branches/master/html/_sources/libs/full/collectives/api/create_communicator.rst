@@ -7,9 +7,9 @@
 
 .. _modules_hpx/collectives/create_communicator.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------
 hpx/collectives/create_communicator.hpp
--------------------------------------------------------------------------------
+---------------------------------------
 
 Defined in header hpx/collectives/create_communicator.hpp.
 

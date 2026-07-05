@@ -7,9 +7,9 @@
 
 .. _modules_hpx/async_distributed/promise.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------
 hpx/async_distributed/promise.hpp
--------------------------------------------------------------------------------
+---------------------------------
 
 Defined in header hpx/async_distributed/promise.hpp.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_distributed/applier_fwd.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------
 hpx/runtime_distributed/applier_fwd.hpp
--------------------------------------------------------------------------------
+---------------------------------------
 
 Defined in header hpx/runtime_distributed/applier_fwd.hpp.
 

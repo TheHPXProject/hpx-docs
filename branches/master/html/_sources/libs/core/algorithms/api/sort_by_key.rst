@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/sort_by_key.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------
 hpx::experimental::sort_by_key
--------------------------------------------------------------------------------
+------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/checkpoint_base/checkpoint_data.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------
 hpx/checkpoint_base/checkpoint_data.hpp
--------------------------------------------------------------------------------
+---------------------------------------
 
 Defined in header hpx/checkpoint_base/checkpoint_data.hpp.
 

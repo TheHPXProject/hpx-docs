@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/uninitialized_value_construct.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
 hpx::ranges::uninitialized_value_construct, hpx::ranges::uninitialized_value_construct_n
--------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

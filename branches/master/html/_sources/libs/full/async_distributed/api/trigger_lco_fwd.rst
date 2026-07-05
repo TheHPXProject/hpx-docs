@@ -7,9 +7,9 @@
 
 .. _modules_hpx/async_distributed/trigger_lco_fwd.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------------
 hpx/async_distributed/trigger_lco_fwd.hpp
--------------------------------------------------------------------------------
+-----------------------------------------
 
 Defined in header hpx/async_distributed/trigger_lco_fwd.hpp.
 

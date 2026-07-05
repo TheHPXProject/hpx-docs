@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_local/component_startup_shutdown_base.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------------------------
 hpx/runtime_local/component_startup_shutdown_base.hpp
--------------------------------------------------------------------------------
+-----------------------------------------------------
 
 Defined in header hpx/runtime_local/component_startup_shutdown_base.hpp.
 

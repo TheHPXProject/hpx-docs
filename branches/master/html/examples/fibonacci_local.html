@@ -1400,7 +1400,7 @@ asynchronous. To understand what is happening we have to look inside the
 meaning n is 0 or 1, then we return 0 or 1 (recall the first element of the
 Fibonacci sequence is 0 and the second is 1). If n is larger than 1 we spawn two
 new tasks whose results are contained in <code class="docutils literal notranslate"><span class="pre">n1</span></code> and <code class="docutils literal notranslate"><span class="pre">n2</span></code>. This is done using
-<a class="reference internal" href="../libs/core/async_sycl/api/sycl_executor.html#_CPPv4I0DpEN3hpx5asyncEDcRR8ExecutorRRN3hpx4sycl12experimental13sycl_executor20queue_function_ptr_tIDp2TsEEDpRR2Ts" title="hpx::async"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async</span></code></a> which takes as arguments a function (function pointer,
+<a class="reference internal" href="../libs/core/async_base/api/async.html#_CPPv4I0DpEN3hpx5asyncEDcRR1FDpRR2Ts" title="hpx::async"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async</span></code></a> which takes as arguments a function (function pointer,
 object or lambda) and the arguments to the function. Instead of returning a
 <code class="docutils literal notranslate"><span class="pre">std::uint64_t</span></code> like <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code> does, <code class="docutils literal notranslate"><span class="pre">hpx::async</span></code> returns a future of a
 <code class="docutils literal notranslate"><span class="pre">std::uint64_t</span></code>, i.e. <code class="docutils literal notranslate"><span class="pre">hpx::future&lt;std::uint64_t&gt;</span></code>. Each of these futures

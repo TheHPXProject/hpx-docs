@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/is_sorted.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------------------------
 hpx::ranges::is_sorted, hpx::ranges::is_sorted_until
--------------------------------------------------------------------------------
+----------------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

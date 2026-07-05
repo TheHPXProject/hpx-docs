@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_configuration/component_commandline_base.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------------
 hpx::components::component_commandline_base
--------------------------------------------------------------------------------
+-------------------------------------------
 
 Defined in header hpx/components.hpp.
 

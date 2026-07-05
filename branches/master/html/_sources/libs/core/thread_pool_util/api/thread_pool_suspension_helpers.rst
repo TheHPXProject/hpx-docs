@@ -7,9 +7,9 @@
 
 .. _modules_hpx/thread_pool_util/thread_pool_suspension_helpers.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------------------------
 hpx/thread_pool_util/thread_pool_suspension_helpers.hpp
--------------------------------------------------------------------------------
+-------------------------------------------------------
 
 Defined in header hpx/thread_pool_util/thread_pool_suspension_helpers.hpp.
 

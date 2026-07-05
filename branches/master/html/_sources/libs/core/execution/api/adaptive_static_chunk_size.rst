@@ -7,9 +7,9 @@
 
 .. _modules_hpx/execution/executors/adaptive_static_chunk_size.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------------------------
 hpx/execution/executors/adaptive_static_chunk_size.hpp
--------------------------------------------------------------------------------
+------------------------------------------------------
 
 Defined in header hpx/execution/executors/adaptive_static_chunk_size.hpp.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/includes.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------
 hpx::ranges::includes
--------------------------------------------------------------------------------
+---------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/executors/std_execution_policy.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------
 hpx/executors/std_execution_policy.hpp
--------------------------------------------------------------------------------
+--------------------------------------
 
 Defined in header hpx/executors/std_execution_policy.hpp.
 

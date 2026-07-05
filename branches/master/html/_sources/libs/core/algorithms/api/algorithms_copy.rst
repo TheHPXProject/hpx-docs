@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/copy.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------
 hpx::copy, hpx::copy_n, hpx::copy_if
--------------------------------------------------------------------------------
+------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

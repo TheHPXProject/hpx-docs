@@ -7,9 +7,9 @@
 
 .. _modules_hpx/components_base/component_type.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------
 hpx/components_base/component_type.hpp
--------------------------------------------------------------------------------
+--------------------------------------
 
 Defined in header hpx/components_base/component_type.hpp.
 

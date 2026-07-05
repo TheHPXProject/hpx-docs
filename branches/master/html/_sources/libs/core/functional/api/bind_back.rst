@@ -7,9 +7,9 @@
 
 .. _modules_hpx/functional/bind_back.hpp_api:
 
--------------------------------------------------------------------------------
+--------------
 hpx::bind_back
--------------------------------------------------------------------------------
+--------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/functional.hpp`.
 

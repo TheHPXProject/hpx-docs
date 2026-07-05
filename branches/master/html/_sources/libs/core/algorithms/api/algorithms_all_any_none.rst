@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/all_any_none.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------
 hpx::all_of, hpx::any_of, hpx::none_of
--------------------------------------------------------------------------------
+--------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/functional/experimental/scope_success.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------
 hpx::experimental::scope_success
--------------------------------------------------------------------------------
+--------------------------------
 
 Defined in header hpx/experimental/scope.hpp.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/preprocessor/strip_parens.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------
 hpx/preprocessor/strip_parens.hpp
--------------------------------------------------------------------------------
+---------------------------------
 
 Defined in header hpx/preprocessor/strip_parens.hpp.
 

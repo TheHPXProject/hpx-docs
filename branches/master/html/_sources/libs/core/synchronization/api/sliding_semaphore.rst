@@ -7,9 +7,9 @@
 
 .. _modules_hpx/synchronization/sliding_semaphore.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------------
 hpx/synchronization/sliding_semaphore.hpp
--------------------------------------------------------------------------------
+-----------------------------------------
 
 Defined in header hpx/synchronization/sliding_semaphore.hpp.
 

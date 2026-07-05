@@ -7,9 +7,9 @@
 
 .. _modules_hpx/timing/high_resolution_timer.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------
 hpx::chrono::high_resolution_timer
--------------------------------------------------------------------------------
+----------------------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/chrono.hpp`.
 

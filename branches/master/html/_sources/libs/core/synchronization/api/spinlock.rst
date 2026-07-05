@@ -7,9 +7,9 @@
 
 .. _modules_hpx/synchronization/spinlock.hpp_api:
 
--------------------------------------------------------------------------------
+-------------
 hpx::spinlock
--------------------------------------------------------------------------------
+-------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/mutex.hpp`.
 

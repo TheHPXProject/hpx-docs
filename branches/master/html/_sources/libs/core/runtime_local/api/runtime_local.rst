@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_local/runtime_local.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------
 hpx/runtime_local/runtime_local.hpp
--------------------------------------------------------------------------------
+-----------------------------------
 
 Defined in header hpx/runtime_local/runtime_local.hpp.
 

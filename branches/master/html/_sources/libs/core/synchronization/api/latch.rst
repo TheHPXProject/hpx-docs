@@ -7,9 +7,9 @@
 
 .. _modules_hpx/synchronization/latch.hpp_api:
 
--------------------------------------------------------------------------------
+----------
 hpx::latch
--------------------------------------------------------------------------------
+----------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/latch.hpp`.
 

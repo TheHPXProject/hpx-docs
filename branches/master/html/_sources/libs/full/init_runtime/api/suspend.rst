@@ -7,9 +7,9 @@
 
 .. _modules_hpx/init_runtime/suspend.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------
 hpx::suspend, hpx::resume
--------------------------------------------------------------------------------
+-------------------------
 
 Defined in header :hpx-header:`libs/full/init_runtime/include,hpx/init.hpp`.
 

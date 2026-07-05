@@ -7,9 +7,9 @@
 
 .. _modules_hpx/performance_counters/registry.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------
 hpx/performance_counters/registry.hpp
--------------------------------------------------------------------------------
+-------------------------------------
 
 Defined in header hpx/performance_counters/registry.hpp.
 

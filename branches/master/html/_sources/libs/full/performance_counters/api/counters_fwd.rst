@@ -7,9 +7,9 @@
 
 .. _modules_hpx/performance_counters/counters_fwd.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------------
 hpx/performance_counters/counters_fwd.hpp
--------------------------------------------------------------------------------
+-----------------------------------------
 
 Defined in header hpx/performance_counters/counters_fwd.hpp.
 

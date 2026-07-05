@@ -1246,51 +1246,51 @@ document.write(`
 <dd><div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="copy__component_8hpp_1ac2d15e0e072130a9631045f8ab761689"></span><span class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">Component&gt;</span> <span class="pre">HPX_CXX_EXPORT</span> <span class="pre">requires</span> <span class="pre">(traits::is_component_v&lt;</span> <span class="pre">Component</span> <span class="pre">&gt;)</span> <span class="pre">future&lt;</span> <span class="pre">hpx</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4I0EN3hpx10components4copyE6futureIN3hpx7id_typeEERKN3hpx7id_typeE">
+<span id="_CPPv3I0EN3hpx10components4copyERKN3hpx7id_typeE"></span><span id="_CPPv2I0EN3hpx10components4copyERKN3hpx7id_typeE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Component</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="copy__component_8hpp_1a7ef48a4fcb57be7cf7f69aa55b7e5c83"></span><a class="reference internal" href="../../../core/futures/api/future.html#_CPPv4I0EN3hpx6futureE" title="hpx::future"><span class="n"><span class="pre">future</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">copy</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">to_copy</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3hpx10components4copyE6futureIN3hpx7id_typeEERKN3hpx7id_typeE" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Copy given component to the specified target locality. </p>
 <p>The function <em>copy&lt;Component&gt;</em> will create a copy of the component referenced by <em>to_copy</em> on the locality specified with <em>target_locality</em>. It returns a future referring to the newly created component instance.</p>
-<p>
-The function <em>copy&lt;Component&gt;</em> will create a copy of the component referenced by <em>to_copy</em> on the locality specified with <em>target_locality</em>. It returns a future referring to the newly created component instance.</p>
-<p>
-Migrate the component with the given id to the specified target locality</p>
-<p>The function <em>migrate&lt;Component&gt;</em> will migrate the component referenced by <em>to_migrate</em> to the locality specified with <em>target_locality</em>. It returns a future referring to the migrated component instance.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The new component instance is created on the locality of the component instance which is to be copied.</p>
+<p>The new component instance is created on the locality of the component instance which is to be copied. </p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>to_copy</strong> – [in] The global id of the component to copy</p></li>
-<li><p><strong>to_copy</strong> – [in] The global id of the component to copy </p></li>
-<li><p><strong>target_locality</strong> – [in ] The locality where the copy should be created.</p></li>
-<li><p><strong>to_migrate</strong> – [in] The global id of the component to migrate. </p></li>
-<li><p><strong>target_locality</strong> – [in] The locality where the component should be migrated to.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>to_copy</strong> – [in] The global id of the component to copy</p>
 </dd>
 <dt class="field-even">Template Parameters</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>The</strong> – only template argument specifies the component type to create.</p></li>
-<li><p><strong>The</strong> – only template argument specifies the component type to create.</p></li>
-<li><p><strong>Component</strong> – Specifies the component type of the component to migrate.</p></li>
-</ul>
+<dd class="field-even"><p><strong>The</strong> – only template argument specifies the component type to create.</p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>A future representing the global id of the newly (copied) component instance.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A future representing the global id of the newly (copied) component instance.</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A future representing the global id of the migrated component instance. This should be the same as <em>migrate_to</em>. </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="copy__component_8hpp_1ab8692a518e9e4ca85610542574d11f91"></span><span class="sig-name descname"><span class="pre">template&lt;typename</span> <span class="pre">Derived,</span> <span class="pre">typename</span> <span class="pre">Stub,</span> <span class="pre">typename</span> <span class="pre">Data&gt;</span> <span class="pre">HPX_CXX_EXPORT</span> <span class="pre">Derived</span> <span class="pre">copy</span> <span class="pre">(client_base&lt;</span> <span class="pre">Derived,</span> <span class="pre">Stub,</span> <span class="pre">Data</span> <span class="pre">&gt;</span> <span class="pre">const</span> <span class="pre">&amp;to_copy,</span> <span class="pre">hpx::id_type</span> <span class="pre">const</span> <span class="pre">&amp;target_locality=hpx::invalid_id)</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4I0EN3hpx10components4copyE6futureIN3hpx7id_typeEERKN3hpx7id_typeERKN3hpx7id_typeE">
+<span id="_CPPv3I0EN3hpx10components4copyERKN3hpx7id_typeERKN3hpx7id_typeE"></span><span id="_CPPv2I0EN3hpx10components4copyERKN3hpx7id_typeERKN3hpx7id_typeE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Component</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="copy__component_8hpp_1a6d61ea421e33af00ee5bdd5c99ba8a2d"></span><a class="reference internal" href="../../../core/futures/api/future.html#_CPPv4I0EN3hpx6futureE" title="hpx::future"><span class="n"><span class="pre">future</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">copy</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">to_copy</span></span>, <a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">target_locality</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3hpx10components4copyE6futureIN3hpx7id_typeEERKN3hpx7id_typeERKN3hpx7id_typeE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Copy given component to the specified target locality. </p>
+<p>The function <em>copy&lt;Component&gt;</em> will create a copy of the component referenced by <em>to_copy</em> on the locality specified with <em>target_locality</em>. It returns a future referring to the newly created component instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to_copy</strong> – [in] The global id of the component to copy </p></li>
+<li><p><strong>target_locality</strong> – [in ] The locality where the copy should be created.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Template Parameters</dt>
+<dd class="field-even"><p><strong>The</strong> – only template argument specifies the component type to create.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A future representing the global id of the newly (copied) component instance. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I000EN3hpx10components4copyE7DerivedRK11client_baseI7Derived4Stub4DataERKN3hpx7id_typeE">
+<span id="_CPPv3I000EN3hpx10components4copyERK11client_baseI7Derived4Stub4DataERKN3hpx7id_typeE"></span><span id="_CPPv2I000EN3hpx10components4copyERK11client_baseI7Derived4Stub4DataERKN3hpx7id_typeE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Derived</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Stub</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Data</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="copy__component_8hpp_1a90a5f95262746366237e9eb7ab6c941d"></span><a class="reference internal" href="#_CPPv4I000EN3hpx10components4copyE7DerivedRK11client_baseI7Derived4Stub4DataERKN3hpx7id_typeE" title="hpx::components::copy::Derived"><span class="n"><span class="pre">Derived</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">copy</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../components/api/client_base.html#_CPPv4I000EN3hpx10components11client_baseE" title="hpx::components::client_base"><span class="n"><span class="pre">client_base</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I000EN3hpx10components4copyE7DerivedRK11client_baseI7Derived4Stub4DataERKN3hpx7id_typeE" title="hpx::components::copy::Derived"><span class="n"><span class="pre">Derived</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I000EN3hpx10components4copyE7DerivedRK11client_baseI7Derived4Stub4DataERKN3hpx7id_typeE" title="hpx::components::copy::Stub"><span class="n"><span class="pre">Stub</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I000EN3hpx10components4copyE7DerivedRK11client_baseI7Derived4Stub4DataERKN3hpx7id_typeE" title="hpx::components::copy::Data"><span class="n"><span class="pre">Data</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">to_copy</span></span>, <a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">target_locality</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">invalid_id</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I000EN3hpx10components4copyE7DerivedRK11client_baseI7Derived4Stub4DataERKN3hpx7id_typeE" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Copy given component to the specified target locality. </p>
 <p>The function <em>copy</em> will create a copy of the component referenced by the client side object <em>to_copy</em> on the locality specified with <em>target_locality</em>. It returns a new client side object future referring to the newly created component instance.</p>
 <div class="admonition note">

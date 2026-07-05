@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/for_loop_reduction_plus.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------
 hpx::experimental::reduction_plus
--------------------------------------------------------------------------------
+---------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

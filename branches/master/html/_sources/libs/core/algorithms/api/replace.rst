@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/replace.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
 hpx::ranges::replace, hpx::ranges::replace_if, hpx::ranges::replace_copy, hpx::ranges::replace_copy_if
--------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

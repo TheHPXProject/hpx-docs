@@ -7,9 +7,9 @@
 
 .. _modules_hpx/execution/executors/static_chunk_size.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------------------
 hpx::execution::experimental::static_chunk_size
--------------------------------------------------------------------------------
+-----------------------------------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/execution.hpp`.
 

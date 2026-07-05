@@ -7,9 +7,9 @@
 
 .. _modules_hpx/executors/annotating_executor.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------
 hpx/executors/annotating_executor.hpp
--------------------------------------------------------------------------------
+-------------------------------------
 
 Defined in header hpx/executors/annotating_executor.hpp.
 

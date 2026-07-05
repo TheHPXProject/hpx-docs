@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parcelset/connection_cache.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------
 hpx/parcelset/connection_cache.hpp
--------------------------------------------------------------------------------
+----------------------------------
 
 Defined in header hpx/parcelset/connection_cache.hpp.
 

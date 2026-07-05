@@ -7,9 +7,9 @@
 
 .. _modules_hpx/components_base/component_commandline.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------
 HPX_REGISTER_COMMANDLINE_MODULE
--------------------------------------------------------------------------------
+-------------------------------
 
 Defined in header hpx/components.hpp.
 

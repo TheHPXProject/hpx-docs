@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/segmented_algorithms/replace.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------------
 hpx/parallel/segmented_algorithms/replace.hpp
--------------------------------------------------------------------------------
+---------------------------------------------
 
 Defined in header hpx/parallel/segmented_algorithms/replace.hpp.
 

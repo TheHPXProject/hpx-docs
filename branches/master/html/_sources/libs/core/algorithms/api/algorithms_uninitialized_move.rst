@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/uninitialized_move.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------------------
 hpx::uninitialized_move, hpx::uninitialized_move_n
--------------------------------------------------------------------------------
+--------------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

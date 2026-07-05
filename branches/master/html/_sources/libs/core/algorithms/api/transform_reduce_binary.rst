@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/transform_reduce_binary.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------------------
 hpx/parallel/algorithms/transform_reduce_binary.hpp
--------------------------------------------------------------------------------
+---------------------------------------------------
 
 Defined in header hpx/parallel/algorithms/transform_reduce_binary.hpp.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/executors/executor_scheduler.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------
 hpx/executors/executor_scheduler.hpp
--------------------------------------------------------------------------------
+------------------------------------
 
 Defined in header hpx/executors/executor_scheduler.hpp.
 

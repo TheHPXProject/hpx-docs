@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/reverse.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------
 hpx::reverse, hpx::reverse_copy
--------------------------------------------------------------------------------
+-------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

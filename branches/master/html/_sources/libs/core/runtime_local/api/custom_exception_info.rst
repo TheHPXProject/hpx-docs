@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_local/custom_exception_info.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------------
 hpx/runtime_local/custom_exception_info.hpp
--------------------------------------------------------------------------------
+-------------------------------------------
 
 Defined in header hpx/runtime_local/custom_exception_info.hpp.
 

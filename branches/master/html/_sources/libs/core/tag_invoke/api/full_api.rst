@@ -7,9 +7,9 @@
 
 .. _modules_tag_invoke_api:
 
--------------------------------------------------------------------------------
+----------
 tag_invoke
--------------------------------------------------------------------------------
+----------
 
 See :ref:`public_api` for a list of names and headers that are part of the public
 |hpx| API.

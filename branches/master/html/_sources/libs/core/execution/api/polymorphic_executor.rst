@@ -7,9 +7,9 @@
 
 .. _modules_hpx/execution/executors/polymorphic_executor.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------------------
 hpx/execution/executors/polymorphic_executor.hpp
--------------------------------------------------------------------------------
+------------------------------------------------
 
 Defined in header hpx/execution/executors/polymorphic_executor.hpp.
 

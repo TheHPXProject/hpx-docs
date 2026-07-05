@@ -7,9 +7,9 @@
 
 .. _modules_hpx/async_distributed/transfer_continuation_action.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------------------------
 hpx/async_distributed/transfer_continuation_action.hpp
--------------------------------------------------------------------------------
+------------------------------------------------------
 
 Defined in header hpx/async_distributed/transfer_continuation_action.hpp.
 

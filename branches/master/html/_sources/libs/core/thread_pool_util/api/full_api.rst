@@ -7,9 +7,9 @@
 
 .. _modules_thread_pool_util_api:
 
--------------------------------------------------------------------------------
+----------------
 thread_pool_util
--------------------------------------------------------------------------------
+----------------
 
 See :ref:`public_api` for a list of names and headers that are part of the public
 |hpx| API.

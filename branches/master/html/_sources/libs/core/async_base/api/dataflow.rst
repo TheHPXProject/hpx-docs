@@ -7,9 +7,9 @@
 
 .. _modules_hpx/async_base/dataflow.hpp_api:
 
--------------------------------------------------------------------------------
+-------------
 hpx::dataflow
--------------------------------------------------------------------------------
+-------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/future.hpp`.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_configuration/runtime_mode.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------
 hpx::runtime_mode
--------------------------------------------------------------------------------
+-----------------
 
 Defined in header :hpx-header:`libs/full/init_runtime/include,hpx/init.hpp`.
 

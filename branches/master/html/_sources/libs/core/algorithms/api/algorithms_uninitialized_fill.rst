@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/uninitialized_fill.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------------------
 hpx::uninitialized_fill, hpx::uninitialized_fill_n
--------------------------------------------------------------------------------
+--------------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

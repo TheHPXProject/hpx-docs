@@ -7,9 +7,9 @@
 
 .. _modules_hpx/hpx_init_params.hpp_api:
 
--------------------------------------------------------------------------------
+----------------
 hpx::init_params
--------------------------------------------------------------------------------
+----------------
 
 Defined in header :hpx-header:`libs/full/init_runtime/include,hpx/init.hpp`.
 

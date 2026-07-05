@@ -7,9 +7,9 @@
 
 .. _modules_hpx/execution/executors/collect_chunking_parameters.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------------------------
 hpx::execution::experimental::collect_chunking_parameters
--------------------------------------------------------------------------------
+---------------------------------------------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/execution.hpp`.
 

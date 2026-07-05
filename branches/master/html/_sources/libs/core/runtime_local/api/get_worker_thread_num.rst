@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_local/get_worker_thread_num.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------------
 hpx/runtime_local/get_worker_thread_num.hpp
--------------------------------------------------------------------------------
+-------------------------------------------
 
 Defined in header hpx/runtime_local/get_worker_thread_num.hpp.
 

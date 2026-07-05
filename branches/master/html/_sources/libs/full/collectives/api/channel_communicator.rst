@@ -7,9 +7,9 @@
 
 .. _modules_hpx/collectives/channel_communicator.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------------
 hpx/collectives/channel_communicator.hpp
--------------------------------------------------------------------------------
+----------------------------------------
 
 Defined in header hpx/collectives/channel_communicator.hpp.
 

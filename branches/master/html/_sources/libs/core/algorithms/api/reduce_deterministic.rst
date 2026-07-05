@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/reduce_deterministic.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------
 hpx::reduce_deterministic
--------------------------------------------------------------------------------
+-------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

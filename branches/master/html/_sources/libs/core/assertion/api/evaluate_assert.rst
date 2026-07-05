@@ -7,9 +7,9 @@
 
 .. _modules_hpx/assertion/evaluate_assert.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------
 hpx/assertion/evaluate_assert.hpp
--------------------------------------------------------------------------------
+---------------------------------
 
 Defined in header hpx/assertion/evaluate_assert.hpp.
 

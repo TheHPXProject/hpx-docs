@@ -7,9 +7,9 @@
 
 .. _modules_hpx/components_base/server/fixed_component_base.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------------------
 hpx/components_base/server/fixed_component_base.hpp
--------------------------------------------------------------------------------
+---------------------------------------------------
 
 Defined in header hpx/components_base/server/fixed_component_base.hpp.
 

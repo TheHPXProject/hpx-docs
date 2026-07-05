@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/move.hpp_api:
 
--------------------------------------------------------------------------------
+---------
 hpx::move
--------------------------------------------------------------------------------
+---------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

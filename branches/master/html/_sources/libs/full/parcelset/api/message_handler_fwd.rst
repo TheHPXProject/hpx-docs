@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parcelset/message_handler_fwd.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------
 hpx/parcelset/message_handler_fwd.hpp
--------------------------------------------------------------------------------
+-------------------------------------
 
 Defined in header hpx/parcelset/message_handler_fwd.hpp.
 

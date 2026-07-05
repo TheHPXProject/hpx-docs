@@ -7,9 +7,9 @@
 
 .. _modules_hpx/executors/parallel_executor.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------
 hpx/executors/parallel_executor.hpp
--------------------------------------------------------------------------------
+-----------------------------------
 
 Defined in header hpx/executors/parallel_executor.hpp.
 

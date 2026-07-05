@@ -7,9 +7,9 @@
 
 .. _modules_hpx/timed_execution/traits/is_timed_executor.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------------------
 hpx/timed_execution/traits/is_timed_executor.hpp
--------------------------------------------------------------------------------
+------------------------------------------------
 
 Defined in header hpx/timed_execution/traits/is_timed_executor.hpp.
 

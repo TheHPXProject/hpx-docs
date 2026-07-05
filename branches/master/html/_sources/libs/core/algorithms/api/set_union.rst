@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/set_union.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------
 hpx::ranges::set_union
--------------------------------------------------------------------------------
+----------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

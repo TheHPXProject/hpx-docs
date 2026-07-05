@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/generate.hpp_api:
 
--------------------------------------------------------------------------------
+----------------------------------------------
 hpx::ranges::generate, hpx::ranges::generate_n
--------------------------------------------------------------------------------
+----------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

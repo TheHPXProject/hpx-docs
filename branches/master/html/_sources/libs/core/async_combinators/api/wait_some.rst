@@ -7,9 +7,9 @@
 
 .. _modules_hpx/async_combinators/wait_some.hpp_api:
 
--------------------------------------------------------------------------------
+--------------
 hpx::wait_some
--------------------------------------------------------------------------------
+--------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/future.hpp`.
 

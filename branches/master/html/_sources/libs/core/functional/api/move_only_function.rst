@@ -7,9 +7,9 @@
 
 .. _modules_hpx/functional/move_only_function.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------
 hpx::move_only_function
--------------------------------------------------------------------------------
+-----------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/functional.hpp`.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/async_combinators/when_each.hpp_api:
 
--------------------------------------------------------------------------------
+--------------
 hpx::when_each
--------------------------------------------------------------------------------
+--------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/future.hpp`.
 

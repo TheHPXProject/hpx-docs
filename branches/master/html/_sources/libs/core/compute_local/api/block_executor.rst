@@ -7,9 +7,9 @@
 
 .. _modules_hpx/compute_local/host/block_executor.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------------
 hpx/compute_local/host/block_executor.hpp
--------------------------------------------------------------------------------
+-----------------------------------------
 
 Defined in header hpx/compute_local/host/block_executor.hpp.
 

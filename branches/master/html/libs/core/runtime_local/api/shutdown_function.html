@@ -1252,13 +1252,13 @@ document.write(`
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="shutdown__function_8hpp_1aacac38657d3c3bcc68c59f924d77149e"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">void</span> <span class="pre">register_pre_shutdown_function</span> <span class="pre">(shutdown_function_type</span> <span class="pre">f)</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx30register_pre_shutdown_functionE22shutdown_function_type">
+<span id="_CPPv3N3hpx30register_pre_shutdown_functionE22shutdown_function_type"></span><span id="_CPPv2N3hpx30register_pre_shutdown_functionE22shutdown_function_type"></span><span id="hpx::register_pre_shutdown_function__shutdown_function_type"></span><span class="target" id="shutdown__function_8hpp_1af9d4996bd26c9518cad472ae5da0e52b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">register_pre_shutdown_function</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3hpx22shutdown_function_typeE" title="hpx::shutdown_function_type"><span class="n"><span class="pre">shutdown_function_type</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">f</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx30register_pre_shutdown_functionE22shutdown_function_type" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Add a function to be executed by a HPX thread during <em>hpx::finalize()</em> but guaranteed before any shutdown function is executed (system-wide) </p>
-<p>Any of the functions registered with <em>register_pre_shutdown_function</em> are guaranteed to be executed by an HPX thread during the execution of <em>hpx::finalize()</em> before any of the registered shutdown functions are executed (see: <em><a class="reference internal" href="#shutdown__function_8hpp_1a17a47fbd2bdbae287280f27404b4fe21"><span class="std std-ref">hpx::register_shutdown_function()</span></a></em>).</p>
+<p>Any of the functions registered with <em>register_pre_shutdown_function</em> are guaranteed to be executed by an HPX thread during the execution of <em>hpx::finalize()</em> before any of the registered shutdown functions are executed (see: <em><a class="reference internal" href="#shutdown__function_8hpp_1af2378fac549f2d83f691f5990fcd3453"><span class="std std-ref">hpx::register_shutdown_function()</span></a></em>).</p>
 <p><div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><em><a class="reference internal" href="#shutdown__function_8hpp_1a17a47fbd2bdbae287280f27404b4fe21"><span class="std std-ref">hpx::register_shutdown_function()</span></a></em></p>
+<p><em><a class="reference internal" href="#shutdown__function_8hpp_1af2378fac549f2d83f691f5990fcd3453"><span class="std std-ref">hpx::register_shutdown_function()</span></a></em></p>
 </div>
 </p>
 <div class="admonition note">
@@ -1273,13 +1273,13 @@ document.write(`
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="shutdown__function_8hpp_1a17a47fbd2bdbae287280f27404b4fe21"></span><span class="sig-name descname"><span class="pre">HPX_CXX_CORE_EXPORT</span> <span class="pre">void</span> <span class="pre">register_shutdown_function</span> <span class="pre">(shutdown_function_type</span> <span class="pre">f)</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx26register_shutdown_functionE22shutdown_function_type">
+<span id="_CPPv3N3hpx26register_shutdown_functionE22shutdown_function_type"></span><span id="_CPPv2N3hpx26register_shutdown_functionE22shutdown_function_type"></span><span id="hpx::register_shutdown_function__shutdown_function_type"></span><span class="target" id="shutdown__function_8hpp_1af2378fac549f2d83f691f5990fcd3453"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">register_shutdown_function</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3hpx22shutdown_function_typeE" title="hpx::shutdown_function_type"><span class="n"><span class="pre">shutdown_function_type</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">f</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx26register_shutdown_functionE22shutdown_function_type" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Add a function to be executed by a HPX thread during <em>hpx::finalize()</em> but guaranteed after any pre-shutdown function is executed (system-wide) </p>
-<p>Any of the functions registered with <em>register_shutdown_function</em> are guaranteed to be executed by an HPX thread during the execution of <em>hpx::finalize()</em> after any of the registered pre-shutdown functions are executed (see: <em><a class="reference internal" href="#shutdown__function_8hpp_1aacac38657d3c3bcc68c59f924d77149e"><span class="std std-ref">hpx::register_pre_shutdown_function()</span></a></em>).</p>
+<p>Any of the functions registered with <em>register_shutdown_function</em> are guaranteed to be executed by an HPX thread during the execution of <em>hpx::finalize()</em> after any of the registered pre-shutdown functions are executed (see: <em><a class="reference internal" href="#shutdown__function_8hpp_1af9d4996bd26c9518cad472ae5da0e52b"><span class="std std-ref">hpx::register_pre_shutdown_function()</span></a></em>).</p>
 <p><div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><em><a class="reference internal" href="#shutdown__function_8hpp_1aacac38657d3c3bcc68c59f924d77149e"><span class="std std-ref">hpx::register_pre_shutdown_function()</span></a></em></p>
+<p><em><a class="reference internal" href="#shutdown__function_8hpp_1af9d4996bd26c9518cad472ae5da0e52b"><span class="std std-ref">hpx::register_pre_shutdown_function()</span></a></em></p>
 </div>
 </p>
 <div class="admonition note">

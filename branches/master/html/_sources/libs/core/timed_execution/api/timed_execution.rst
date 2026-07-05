@@ -7,9 +7,9 @@
 
 .. _modules_hpx/timed_execution/timed_execution.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------
 hpx/timed_execution/timed_execution.hpp
--------------------------------------------------------------------------------
+---------------------------------------
 
 Defined in header hpx/timed_execution/timed_execution.hpp.
 

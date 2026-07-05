@@ -7,9 +7,9 @@
 
 .. _modules_hpx/futures/promise.hpp_api:
 
--------------------------------------------------------------------------------
+------------
 hpx::promise
--------------------------------------------------------------------------------
+------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/future.hpp`.
 

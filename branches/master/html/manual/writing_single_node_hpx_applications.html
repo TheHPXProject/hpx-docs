@@ -1884,7 +1884,7 @@ futures:</p>
 <p>For this reason, <em>HPX</em> implements a set of extensions to
 <a class="reference external" href="http://en.cppreference.com/w/cpp/thread/future">std::future</a> (as proposed by <a class="reference external" href="http://wg21.link/n4313">N4313</a>). This
 proposal introduces the following key asynchronous operations to
-<a class="reference internal" href="../libs/core/futures/api/future.html#_CPPv4I0EN3hpx6futureE" title="hpx::future"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::future</span></code></a>, <a class="reference internal" href="../libs/core/futures/api/future.html#_CPPv4I0EN3hpx13shared_futureE" title="hpx::shared_future"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::shared_future</span></code></a> and <a class="reference internal" href="../libs/core/async_sycl/api/sycl_executor.html#_CPPv4I0DpEN3hpx5asyncEDcRR8ExecutorRRN3hpx4sycl12experimental13sycl_executor20queue_function_ptr_tIDp2TsEEDpRR2Ts" title="hpx::async"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async</span></code></a>,
+<a class="reference internal" href="../libs/core/futures/api/future.html#_CPPv4I0EN3hpx6futureE" title="hpx::future"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::future</span></code></a>, <a class="reference internal" href="../libs/core/futures/api/future.html#_CPPv4I0EN3hpx13shared_futureE" title="hpx::shared_future"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::shared_future</span></code></a> and <a class="reference internal" href="../libs/core/async_base/api/async.html#_CPPv4I0DpEN3hpx5asyncEDcRR1FDpRR2Ts" title="hpx::async"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async</span></code></a>,
 which enhance and enrich these facilities.</p>
 <table class="colwidths-given table" id="id12">
 <caption><span class="caption-number">Table 10 </span><span class="caption-text">Facilities extending <code class="docutils literal notranslate"><span class="pre">std::future</span></code></span><a class="headerlink" href="#id12" title="Permalink to this table">#</a></caption>
@@ -1922,7 +1922,7 @@ This function gives the ability to test for early completion and allows
 us to avoid associating a continuation, which needs to be scheduled with
 some non-trivial overhead and near-certain loss of cache efficiency.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::make_ready_future</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/futures/api/future.html#_CPPv4I0DpEN3hpx17make_ready_futureENSt11enable_if_tIXooNSt18is_constructible_vI1TDpRR2TsEENSt9is_void_vI1TEEE6futureI1TEEEDpRR2Ts" title="hpx::make_ready_future"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::make_ready_future</span></code></a></p></td>
 <td><p>Some functions may know the value at the point of construction. In these
 cases the value is immediately available, but needs to be returned as a
 future. By using <code class="docutils literal notranslate"><span class="pre">hpx::make_ready_future</span></code> a future can be created that
@@ -2106,7 +2106,7 @@ results:</p>
 </pre></div>
 </div>
 <p>The example above demonstrates the use of two of the functions,
-<code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::define_task_block</span></code> and the
+<a class="reference internal" href="../libs/core/algorithms/api/task_block.html#_CPPv4I00EN3hpx12experimental17define_task_blockEDcRR8ExPolicyRR1F" title="hpx::experimental::define_task_block"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::define_task_block</span></code></a> and the
 <a class="reference internal" href="../libs/core/algorithms/api/task_block.html#_CPPv4I0DpEN3hpx12experimental10task_block3runEvRR1FDpRR2Ts" title="hpx::experimental::task_block::run"><code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">hpx::experimental::task_block::run</span></code></a> member function of a
 <a class="reference internal" href="../libs/core/algorithms/api/task_block.html#_CPPv4I0EN3hpx12experimental10task_blockE" title="hpx::experimental::task_block"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::experimental::task_block</span></code></a>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">task_block</span></code> function delineates a region in a program code potentially
@@ -2178,7 +2178,7 @@ created <code class="docutils literal notranslate"><span class="pre">task_block<
 template in our implementation. The template argument is the type of the
 execution policy used to create the task block. The template argument defaults
 to <a class="reference internal" href="../libs/core/executors/api/execution_policy.html#_CPPv4N3hpx9execution15parallel_policyE" title="hpx::execution::parallel_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::parallel_policy</span></code></a>.</p>
-<p><em>HPX</em> still supports calling <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::define_task_block</span></code>
+<p><em>HPX</em> still supports calling <a class="reference internal" href="../libs/core/algorithms/api/task_block.html#_CPPv4I00EN3hpx12experimental17define_task_blockEDcRR8ExPolicyRR1F" title="hpx::experimental::define_task_block"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::define_task_block</span></code></a>
 without an explicit execution policy. In this case the task block will run using
 the <a class="reference internal" href="../libs/core/executors/api/execution_policy.html#_CPPv4N3hpx9execution15parallel_policyE" title="hpx::execution::parallel_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::parallel_policy</span></code></a>.</p>
 <p><em>HPX</em> also adds the ability to access the execution policy that was used to
@@ -2218,7 +2218,7 @@ function enables this use case:</p>
 <p><em>HPX</em> still supports calling <a class="reference internal" href="../libs/core/algorithms/api/task_block.html#_CPPv4I0DpEN3hpx12experimental10task_block3runEvRR1FDpRR2Ts" title="hpx::experimental::task_block::run"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::task_block::run</span></code></a>
 without an explicit executor object. In this case the task will be run using the
 executor associated with the execution policy that was used to call
-<code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::define_task_block</span></code>.</p>
+<a class="reference internal" href="../libs/core/algorithms/api/task_block.html#_CPPv4I00EN3hpx12experimental17define_task_blockEDcRR8ExPolicyRR1F" title="hpx::experimental::define_task_block"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::define_task_block</span></code></a>.</p>
 </section>
 </section>
 </section>
@@ -2450,7 +2450,7 @@ program is determined by the type of execution policy used to invoke the
 algorithm:</p>
 <ul class="simple">
 <li><p>If the execution policy object is of type
-<a class="reference internal" href="../libs/core/executors/api/execution_policy.html#_CPPv4N3hpx9execution27parallel_unsequenced_policyE" title="hpx::execution::parallel_unsequenced_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::parallel_unsequenced_policy</span></code></a>, <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::terminate</span></code> shall
+<a class="reference internal" href="../libs/core/executors/api/execution_policy.html#_CPPv4N3hpx9execution27parallel_unsequenced_policyE" title="hpx::execution::parallel_unsequenced_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::parallel_unsequenced_policy</span></code></a>, <a class="reference internal" href="../libs/full/init_runtime/api/finalize.html#_CPPv4N3hpx9terminateEv" title="hpx::terminate"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::terminate</span></code></a> shall
 be called.</p></li>
 <li><p>If the execution policy object is of type <a class="reference internal" href="../libs/core/executors/api/execution_policy.html#_CPPv4N3hpx9execution16sequenced_policyE" title="hpx::execution::sequenced_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::sequenced_policy</span></code></a>,
 <a class="reference internal" href="../libs/core/executors/api/execution_policy.html#_CPPv4N3hpx9execution21sequenced_task_policyE" title="hpx::execution::sequenced_task_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::sequenced_task_policy</span></code></a>, <a class="reference internal" href="../libs/core/executors/api/execution_policy.html#_CPPv4N3hpx9execution15parallel_policyE" title="hpx::execution::parallel_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::parallel_policy</span></code></a>, or

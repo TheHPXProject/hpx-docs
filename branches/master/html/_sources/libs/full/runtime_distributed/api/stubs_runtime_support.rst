@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_distributed/stubs/runtime_support.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------------------
 hpx/runtime_distributed/stubs/runtime_support.hpp
--------------------------------------------------------------------------------
+-------------------------------------------------
 
 Defined in header hpx/runtime_distributed/stubs/runtime_support.hpp.
 

@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/algorithms/starts_with.hpp_api:
 
--------------------------------------------------------------------------------
+----------------
 hpx::starts_with
--------------------------------------------------------------------------------
+----------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

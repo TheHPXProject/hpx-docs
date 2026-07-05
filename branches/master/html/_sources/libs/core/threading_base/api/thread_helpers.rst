@@ -7,9 +7,9 @@
 
 .. _modules_hpx/threading_base/thread_helpers.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------------------------
 hpx/threading_base/thread_helpers.hpp
--------------------------------------------------------------------------------
+-------------------------------------
 
 Defined in header hpx/threading_base/thread_helpers.hpp.
 

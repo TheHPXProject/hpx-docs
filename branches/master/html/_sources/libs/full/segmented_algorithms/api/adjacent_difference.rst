@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/segmented_algorithms/adjacent_difference.hpp_api:
 
--------------------------------------------------------------------------------
+---------------------------------------------------------
 hpx/parallel/segmented_algorithms/adjacent_difference.hpp
--------------------------------------------------------------------------------
+---------------------------------------------------------
 
 Defined in header hpx/parallel/segmented_algorithms/adjacent_difference.hpp.
 

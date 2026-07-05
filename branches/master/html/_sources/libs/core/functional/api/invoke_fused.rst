@@ -7,9 +7,9 @@
 
 .. _modules_hpx/functional/invoke_fused.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------
 hpx::invoke_fused, hpx::invoke_fused_r
--------------------------------------------------------------------------------
+--------------------------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/functional.hpp`.
 

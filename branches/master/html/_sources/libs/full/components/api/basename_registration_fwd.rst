@@ -7,9 +7,9 @@
 
 .. _modules_hpx/components/basename_registration_fwd.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------------
 hpx/components/basename_registration_fwd.hpp
--------------------------------------------------------------------------------
+--------------------------------------------
 
 Defined in header hpx/components/basename_registration_fwd.hpp.
 

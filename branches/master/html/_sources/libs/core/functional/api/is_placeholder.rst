@@ -7,9 +7,9 @@
 
 .. _modules_hpx/functional/traits/is_placeholder.hpp_api:
 
--------------------------------------------------------------------------------
+-------------------
 hpx::is_placeholder
--------------------------------------------------------------------------------
+-------------------
 
 Defined in header :hpx-header:`libs/core/include_local/include,hpx/functional.hpp`.
 

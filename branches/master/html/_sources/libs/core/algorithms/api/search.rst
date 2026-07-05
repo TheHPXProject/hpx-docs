@@ -7,9 +7,9 @@
 
 .. _modules_hpx/parallel/container_algorithms/search.hpp_api:
 
--------------------------------------------------------------------------------
+------------------------------------------
 hpx::ranges::search, hpx::ranges::search_n
--------------------------------------------------------------------------------
+------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/algorithm.hpp`.
 

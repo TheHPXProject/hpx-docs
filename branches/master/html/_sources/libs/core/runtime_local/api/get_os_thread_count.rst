@@ -7,9 +7,9 @@
 
 .. _modules_hpx/runtime_local/get_os_thread_count.hpp_api:
 
--------------------------------------------------------------------------------
+-----------------------------------------
 hpx/runtime_local/get_os_thread_count.hpp
--------------------------------------------------------------------------------
+-----------------------------------------
 
 Defined in header hpx/runtime_local/get_os_thread_count.hpp.
 

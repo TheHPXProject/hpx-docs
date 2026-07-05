@@ -7,9 +7,9 @@
 
 .. _modules_hpx/execution/traits/is_execution_policy.hpp_api:
 
--------------------------------------------------------------------------------
+--------------------------------------------
 hpx/execution/traits/is_execution_policy.hpp
--------------------------------------------------------------------------------
+--------------------------------------------
 
 Defined in header hpx/execution/traits/is_execution_policy.hpp.
 
