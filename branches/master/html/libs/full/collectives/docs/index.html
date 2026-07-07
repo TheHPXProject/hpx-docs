@@ -1207,7 +1207,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -1223,6 +1225,17 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchical-collectives">Hierarchical collectives</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generation-model">Generation model</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -1237,7 +1250,7 @@ document.write(`
 <p>The collectives module exposes a set of distributed collective operations. Those
 can be used to exchange data between participating sites in a coordinated way.
 At this point the module exposes the following collective primitives:</p>
-<ul>
+<ul class="simple">
 <li><p><a class="reference internal" href="../api/all_gather.html#_CPPv4I0EN3hpx11collectives10all_gatherEN3hpx6futureINSt6vectorINSt7decay_tI1TEEEEEEPKcRR1T13num_sites_arg13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::all_gather"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::all_gather</span></code></a>: receives a set of values from all
 participating sites.</p></li>
 <li><p><a class="reference internal" href="../api/all_reduce.html#_CPPv4I00EN3hpx11collectives10all_reduceEN3hpx6futureINSt7decay_tI1TEEEEPKcRR1TRR1F13num_sites_arg13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::all_reduce"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::all_reduce</span></code></a>: performs a reduction on data from
@@ -1248,23 +1261,13 @@ from every other site.</p></li>
 <li><p><a class="reference internal" href="../api/broadcast.html#_CPPv4I0EN3hpx11collectives12broadcast_toEN3hpx6futureI1TEEPKcRR1T13num_sites_arg13this_site_arg14generation_arg" title="hpx::collectives::broadcast_to"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::broadcast_to</span></code></a> and
 <a class="reference internal" href="../api/broadcast.html#_CPPv4I0EN3hpx11collectives14broadcast_fromEN3hpx6futureI1TEEPKc13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::broadcast_from"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::broadcast_from</span></code></a>: performs a broadcast operation
 from a root site to all participating sites.</p></li>
-<li><dl class="field-list simple">
-<dt class="field-odd">cpp:func:hpx::collectives::exclusive_scan</dt>
-<dd class="field-odd"><p>performs an exclusive scan operation</p>
-</dd>
-</dl>
-<p>on a set of values received from all call sites operating on the given base name.</p>
-</li>
+<li><p><a class="reference internal" href="../api/exclusive_scan.html#_CPPv4I00EN3hpx11collectives14exclusive_scanEN3hpx6futureINSt7decay_tI1TEEEEPKcRR1TRR1F13num_sites_arg13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::exclusive_scan"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::exclusive_scan</span></code></a>: performs an exclusive scan operation
+on a set of values received from all call sites operating on the given base name.</p></li>
 <li><p><a class="reference internal" href="../api/gather.html#_CPPv4I0EN3hpx11collectives11gather_hereEN3hpx6futureINSt6vectorI7decay_tI1TEEEEEPKcRR1T13num_sites_arg13this_site_arg14generation_arg" title="hpx::collectives::gather_here"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::gather_here</span></code></a> and
 <a class="reference internal" href="../api/gather.html#_CPPv4I0EN3hpx11collectives12gather_thereEN3hpx6futureIvEEPKcRR1T13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::gather_there"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::gather_there</span></code></a>: gathers values from all
 participating sites.</p></li>
-<li><dl class="field-list simple">
-<dt class="field-odd">cpp:func:hpx::collectives::inclusive_scan</dt>
-<dd class="field-odd"><p>performs an inclusive scan operation</p>
-</dd>
-</dl>
-<p>on a set of values received from all call sites operating on the given base name.</p>
-</li>
+<li><p><a class="reference internal" href="../api/inclusive_scan.html#_CPPv4I00EN3hpx11collectives14inclusive_scanEN3hpx6futureINSt7decay_tI1TEEEEPKcRR1TRR1F13num_sites_arg13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::inclusive_scan"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::inclusive_scan</span></code></a>: performs an inclusive scan operation
+on a set of values received from all call sites operating on the given base name.</p></li>
 <li><p><a class="reference internal" href="../api/reduce.html#_CPPv4I00EN3hpx11collectives11reduce_hereEN3hpx6futureINSt7decay_tI1TEEEEPKcRR1TRR1F13num_sites_arg13this_site_arg14generation_arg" title="hpx::collectives::reduce_here"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::reduce_here</span></code></a> and
 <a class="reference internal" href="../api/reduce.html#_CPPv4I00EN3hpx11collectives12reduce_thereEN3hpx6futureIvEEPKcRR1T13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::reduce_there"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::reduce_there</span></code></a>: performs a reduction on data from each
 participating site to a root site.</p></li>
@@ -1284,6 +1287,32 @@ image while providing handles to the other images.</p></li>
 </ul>
 <p>See the <a class="reference internal" href="../api/full_api.html#modules-collectives-api"><span class="std std-ref">API reference</span></a> of the module for more
 details.</p>
+<section id="hierarchical-collectives">
+<h2>Hierarchical collectives<a class="headerlink" href="#hierarchical-collectives" title="Permalink to this heading">#</a></h2>
+<p>Hierarchical communicators split a collective into sub-communicators arranged as
+a tree. This reduces the number of participants in each individual operation,
+but it also means that one user-visible hierarchical call can touch several
+internal communicators.</p>
+<section id="generation-model">
+<h3>Generation model<a class="headerlink" href="#generation-model" title="Permalink to this heading">#</a></h3>
+<p>Hierarchical collectives use two internal generations for each user generation.
+For a user generation <code class="docutils literal notranslate"><span class="pre">k</span></code>, the first internal phase uses <code class="docutils literal notranslate"><span class="pre">2k</span> <span class="pre">-</span> <span class="pre">1</span></code> and the
+second uses <code class="docutils literal notranslate"><span class="pre">2k</span></code>. Single-pass hierarchical operations and the inter-group
+exchange of <a class="reference internal" href="../api/all_to_all.html#_CPPv4I0EN3hpx11collectives10all_to_allEN3hpx6futureINSt6vectorI1TEEEEPKcRRNSt6vectorI1TEE13num_sites_arg13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::all_to_all"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::all_to_all</span></code></a> advance the communicator by
+two generations in one step so that shared hierarchical communicators stay
+aligned with two-phase collectives.</p>
+<p>When a hierarchical communicator instance is shared between collective
+operations, callers must pass explicit, strictly consecutive positive
+generation numbers. Two-phase hierarchical collectives, including
+<a class="reference internal" href="../api/all_gather.html#_CPPv4I0EN3hpx11collectives10all_gatherEN3hpx6futureINSt6vectorINSt7decay_tI1TEEEEEEPKcRR1T13num_sites_arg13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::all_gather"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::all_gather</span></code></a>,
+<a class="reference internal" href="../api/all_reduce.html#_CPPv4I00EN3hpx11collectives10all_reduceEN3hpx6futureINSt7decay_tI1TEEEEPKcRR1TRR1F13num_sites_arg13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::all_reduce"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::all_reduce</span></code></a>,
+<a class="reference internal" href="../api/all_to_all.html#_CPPv4I0EN3hpx11collectives10all_to_allEN3hpx6futureINSt6vectorI1TEEEEPKcRRNSt6vectorI1TEE13num_sites_arg13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::all_to_all"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::all_to_all</span></code></a>,
+<a class="reference internal" href="../api/inclusive_scan.html#_CPPv4I00EN3hpx11collectives14inclusive_scanEN3hpx6futureINSt7decay_tI1TEEEEPKcRR1TRR1F13num_sites_arg13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::inclusive_scan"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::inclusive_scan</span></code></a>,
+<a class="reference internal" href="../api/exclusive_scan.html#_CPPv4I00EN3hpx11collectives14exclusive_scanEN3hpx6futureINSt7decay_tI1TEEEEPKcRR1TRR1F13num_sites_arg13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::exclusive_scan"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::exclusive_scan</span></code></a>, and
+<a class="reference internal" href="../api/barrier.html#_CPPv4N3hpx11distributed7barrierERKNSt6stringE" title="hpx::distributed::barrier"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::distributed::barrier</span></code></a>, reject the default generation because
+their phase generations are derived from the explicit user generation.</p>
+</section>
+</section>
 </section>
 
 
@@ -1325,6 +1354,23 @@ details.</p>
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchical-collectives">Hierarchical collectives</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generation-model">Generation model</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

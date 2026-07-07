@@ -1253,7 +1253,7 @@ document.write(`
 <p>This function performs an exclusive scan operation on a set of values received from all call sites operating on the given base name.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The result returned on the root_site is always the same as the result returned on thus_site == 1 and is the same as the value provided by the root_site.</p>
+<p>This no-init overload has MPI_Exscan-like semantics, with a deterministic HPX first result: participating site 0 returns a value-initialized result (<code class="docutils literal notranslate"><span class="pre">std::decay_t&lt;T&gt;{}</span></code>, or <code class="docutils literal notranslate"><span class="pre">false</span></code> for <code class="docutils literal notranslate"><span class="pre">bool</span></code>). Use the overload taking an explicit <code class="docutils literal notranslate"><span class="pre">init</span></code> argument for C++ exclusive-scan semantics where site 0 returns <code class="docutils literal notranslate"><span class="pre">init</span></code>.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1268,7 +1268,7 @@ document.write(`
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>For the participating site i this function returns a future the reduction (calculated according to the function op) of the values passed in by the participating sites 0, …, i-1. The value returned on participating site 0 is undefined. The value returned on participating site on process 1 is always the value passed in by participating site 1. The returned future will become ready once the exclusive_scan operation has been completed. </p>
+<dd class="field-even"><p>For the participating site i this function returns the reduction (calculated according to the function op) of the values passed in by the participating sites 0, …, i-1. Participating site 0 returns a value-initialized result. The returned future will become ready once the exclusive_scan operation has been completed. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -1283,11 +1283,11 @@ Exclusive scan a set of values from different call sites</p>
 <p>This function performs an exclusive scan operation on a set of values received from all call sites operating on the given base name.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The result returned on the root_site is always the same as the result returned on thus_site == 1 and is the same as the value provided by the root_site.</p>
+<p>This no-init overload has MPI_Exscan-like semantics, with a deterministic HPX first result: participating site 0 returns a value-initialized result (<code class="docutils literal notranslate"><span class="pre">std::decay_t&lt;T&gt;{}</span></code>, or <code class="docutils literal notranslate"><span class="pre">false</span></code> for <code class="docutils literal notranslate"><span class="pre">bool</span></code>). Use the overload taking an explicit <code class="docutils literal notranslate"><span class="pre">init</span></code> argument for C++ exclusive-scan semantics where site 0 returns <code class="docutils literal notranslate"><span class="pre">init</span></code>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The result returned on the root_site is always the same as the result returned on thus_site == 1 and is the same as the value provided by the root_site.</p>
+<p>This no-init overload has MPI_Exscan-like semantics, with a deterministic HPX first result: participating site 0 returns a value-initialized result (<code class="docutils literal notranslate"><span class="pre">std::decay_t&lt;T&gt;{}</span></code>, or <code class="docutils literal notranslate"><span class="pre">false</span></code> for <code class="docutils literal notranslate"><span class="pre">bool</span></code>). Use the overload taking an explicit <code class="docutils literal notranslate"><span class="pre">init</span></code> argument for C++ exclusive-scan semantics where site 0 returns <code class="docutils literal notranslate"><span class="pre">init</span></code>.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1305,10 +1305,10 @@ Exclusive scan a set of values from different call sites</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>For the participating site i this function returns a future the reduction (calculated according to the function op) of the values passed in by the participating sites 0, …, i-1. The value returned on participating site 0 is undefined. The value returned on participating site on process 1 is always the value passed in by participating site 1. The returned future will become ready once the exclusive_scan operation has been completed.</p>
+<dd class="field-even"><p>For the participating site i this function returns the reduction (calculated according to the function op) of the values passed in by the participating sites 0, …, i-1. Participating site 0 returns a value-initialized result. The returned future will become ready once the exclusive_scan operation has been completed.</p>
 </dd>
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>For the participating site i this function returns a future the reduction (calculated according to the function op) of the values passed in by the participating sites 0, …, i-1. The value returned on participating site 0 is undefined. The value returned on participating site on process 1 is always the value passed in by participating site 1. The returned future will become ready once the exclusive_scan operation has been completed. </p>
+<dd class="field-odd"><p>For the participating site i this function returns a future the reduction (calculated according to the function op) of the values passed in by the participating sites 0, …, i-1. Participating site 0 returns a value-initialized result. The returned future will become ready once the exclusive_scan operation has been completed. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -1320,7 +1320,7 @@ Exclusive scan a set of values from different call sites</p>
 <p>This function performs an exclusive scan operation on a set of values received from all call sites operating on the given base name.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The result returned on the root_site is always the same as the result returned on thus_site == 1 and is the same as the value provided by the root_site.</p>
+<p>This no-init overload has MPI_Exscan-like semantics, with a deterministic HPX first result: participating site 0 returns a value-initialized result (<code class="docutils literal notranslate"><span class="pre">std::decay_t&lt;T&gt;{}</span></code>, or <code class="docutils literal notranslate"><span class="pre">false</span></code> for <code class="docutils literal notranslate"><span class="pre">bool</span></code>). Use the overload taking an explicit <code class="docutils literal notranslate"><span class="pre">init</span></code> argument for C++ exclusive-scan semantics where site 0 returns <code class="docutils literal notranslate"><span class="pre">init</span></code>.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1336,7 +1336,7 @@ Exclusive scan a set of values from different call sites</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>For the participating site i this function returns a future the reduction (calculated according to the function op) of the values passed in by the participating sites 0, …, i-1. The value returned on participating site 0 is undefined. The value returned on participating site on process 1 is always the value passed in by participating site 1. The returned future will become ready once the exclusive_scan operation has been completed. </p>
+<dd class="field-even"><p>For the participating site i this function returns a future the reduction (calculated according to the function op) of the values passed in by the participating sites 0, …, i-1. Participating site 0 returns a value-initialized result. The operation completes before this function returns. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -1351,11 +1351,11 @@ Exclusive scan a set of values from different call sites</p>
 <p>This function performs an exclusive scan operation on a set of values received from all call sites operating on the given base name.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The result returned on the root_site is always the same as the result returned on thus_site == 1 and is the same as the value provided by the root_site.</p>
+<p>This no-init overload has MPI_Exscan-like semantics, with a deterministic HPX first result: participating site 0 returns a value-initialized result (<code class="docutils literal notranslate"><span class="pre">std::decay_t&lt;T&gt;{}</span></code>, or <code class="docutils literal notranslate"><span class="pre">false</span></code> for <code class="docutils literal notranslate"><span class="pre">bool</span></code>). Use the overload taking an explicit <code class="docutils literal notranslate"><span class="pre">init</span></code> argument for C++ exclusive-scan semantics where site 0 returns <code class="docutils literal notranslate"><span class="pre">init</span></code>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The result returned on the root_site is always the same as the result returned on thus_site == 1 and is the same as the value provided by the root_site.</p>
+<p>This no-init overload has MPI_Exscan-like semantics, with a deterministic HPX first result: participating site 0 returns a value-initialized result (<code class="docutils literal notranslate"><span class="pre">std::decay_t&lt;T&gt;{}</span></code>, or <code class="docutils literal notranslate"><span class="pre">false</span></code> for <code class="docutils literal notranslate"><span class="pre">bool</span></code>). Use the overload taking an explicit <code class="docutils literal notranslate"><span class="pre">init</span></code> argument for C++ exclusive-scan semantics where site 0 returns <code class="docutils literal notranslate"><span class="pre">init</span></code>.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1375,10 +1375,10 @@ Exclusive scan a set of values from different call sites</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>For the participating site i this function returns a future the reduction (calculated according to the function op) of the values passed in by the participating sites 0, …, i-1. The value returned on participating site 0 is undefined. The value returned on participating site on process 1 is always the value passed in by participating site 1. The returned future will become ready once the exclusive_scan operation has been completed.</p>
+<dd class="field-even"><p>For the participating site i this function returns a future the reduction (calculated according to the function op) of the values passed in by the participating sites 0, …, i-1. Participating site 0 returns a value-initialized result. The operation completes before this function returns.</p>
 </dd>
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>For the participating site i this function returns the reduction (calculated according to the function op) of the values passed in by the participating sites 0, …, i-1. The value returned on participating site 0 is undefined. The value returned on participating site on process 1 is always the value passed in by participating site 1. The returned future will become ready once the exclusive_scan operation has been completed. </p>
+<dd class="field-odd"><p>For the participating site i this function returns the reduction (calculated according to the function op) of the values passed in by the participating sites 0, …, i-1. Participating site 0 returns a value-initialized result. The operation completes before this function returns. </p>
 </dd>
 </dl>
 </dd></dl>
