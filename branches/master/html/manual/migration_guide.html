@@ -1284,6 +1284,17 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mpi-reduce">MPI_Reduce</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#migrating-to-c-26-reflection-based-actions">Migrating to C++26 reflection-based actions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-requirements">Build requirements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existing-code-requires-no-changes">Existing code requires no changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-migration-plain-actions">Explicit migration: plain actions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-migration-component-actions">Explicit migration: component actions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-migration-direct-plain-actions">Explicit migration: direct plain actions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-migration-direct-component-actions">Explicit migration: direct component actions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overloaded-functions">Overloaded functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-available-at-compile-time">Properties available at compile time</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -3312,6 +3323,137 @@ reduction operation to complete. This is done to ensure synchronization among lo
 </ul>
 </section>
 </section>
+<section id="migrating-to-c-26-reflection-based-actions">
+<span id="reflection-action-migration"></span><h2>Migrating to C++26 reflection-based actions<a class="headerlink" href="#migrating-to-c-26-reflection-based-actions" title="Permalink to this heading">#</a></h2>
+<p>Starting with HPX 2.0, C++26 static reflection (P2996) can be used to define
+distributed actions without the verbose macro boilerplate previously required.
+This section describes how to migrate existing action definitions to the new
+reflection-based API when building with <code class="docutils literal notranslate"><span class="pre">HPX_WITH_CXX26_REFLECTION=ON</span></code>.</p>
+<section id="build-requirements">
+<h3>Build requirements<a class="headerlink" href="#build-requirements" title="Permalink to this heading">#</a></h3>
+<p>Reflection-based actions require a C++26-capable compiler with reflection
+support enabled:</p>
+<ul class="simple">
+<li><p>GCC 16.0.1 trunk or later (<code class="docutils literal notranslate"><span class="pre">stellargroup/gcc_trunk_build_env:1</span></code>)
+with <code class="docutils literal notranslate"><span class="pre">-freflection</span> <span class="pre">-std=c++26</span></code></p></li>
+<li><p>Clang 22 with P2996 support (<code class="docutils literal notranslate"><span class="pre">stellargroup/clang_p2996_build_env:1</span></code>)
+with <code class="docutils literal notranslate"><span class="pre">-freflection-latest</span> <span class="pre">-stdlib=libc++</span></code></p></li>
+</ul>
+<p>Reflection support is auto-detected by HPX’s CMake build system via
+<code class="docutils literal notranslate"><span class="pre">hpx_check_for_cxx26_reflection()</span></code> in
+<code class="docutils literal notranslate"><span class="pre">cmake/HPX_PerformCxxFeatureTests.cmake</span></code>. No manual flag is required
+when using a supported compiler — <code class="docutils literal notranslate"><span class="pre">HPX_HAVE_CXX26_REFLECTION</span></code> is set
+automatically.</p>
+</section>
+<section id="existing-code-requires-no-changes">
+<h3>Existing code requires no changes<a class="headerlink" href="#existing-code-requires-no-changes" title="Permalink to this heading">#</a></h3>
+<p>The most important point: <strong>existing code using</strong> <code class="docutils literal notranslate"><span class="pre">HPX_PLAIN_ACTION</span></code>,
+<code class="docutils literal notranslate"><span class="pre">HPX_DEFINE_COMPONENT_ACTION</span></code>, and related macros requires zero source
+changes. When <code class="docutils literal notranslate"><span class="pre">HPX_WITH_CXX26_REFLECTION=ON</span></code>, these macros automatically
+use the reflection-based implementation internally. No
+<code class="docutils literal notranslate"><span class="pre">HPX_REGISTER_ACTION</span></code> calls are needed — registration is automatic.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// This works unchanged with or without reflection enabled.</span>
+<span class="c1">// When HPX_WITH_CXX26_REFLECTION=ON, it automatically uses</span>
+<span class="c1">// reflect_action&lt;^^some_function&gt; internally.</span>
+<span class="n">HPX_PLAIN_ACTION</span><span class="p">(</span><span class="n">some_function</span><span class="p">,</span><span class="w"> </span><span class="n">some_action</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="explicit-migration-plain-actions">
+<h3>Explicit migration: plain actions<a class="headerlink" href="#explicit-migration-plain-actions" title="Permalink to this heading">#</a></h3>
+<p>For new code or explicit migration, use <code class="docutils literal notranslate"><span class="pre">HPX_ACTION</span></code> or
+<code class="docutils literal notranslate"><span class="pre">reflect_action</span></code> directly:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Before: three-step macro sequence</span>
+<span class="n">HPX_PLAIN_ACTION</span><span class="p">(</span><span class="n">app</span><span class="o">::</span><span class="n">compute</span><span class="p">,</span><span class="w"> </span><span class="n">compute_action</span><span class="p">)</span><span class="w"></span>
+<span class="n">HPX_REGISTER_ACTION_DECLARATION</span><span class="p">(</span><span class="n">compute_action</span><span class="p">)</span><span class="w"></span>
+<span class="n">HPX_REGISTER_ACTION</span><span class="p">(</span><span class="n">compute_action</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">// After: single line, no registration required</span>
+<span class="n">HPX_ACTION</span><span class="p">(</span><span class="n">app</span><span class="o">::</span><span class="n">compute</span><span class="p">,</span><span class="w"> </span><span class="n">compute_action</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">// Or equivalently, using the template directly:</span>
+<span class="k">using</span><span class="w"> </span><span class="n">compute_action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">actions</span><span class="o">::</span><span class="n">reflect_action</span><span class="o">&lt;^^</span><span class="n">app</span><span class="o">::</span><span class="n">compute</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="explicit-migration-component-actions">
+<h3>Explicit migration: component actions<a class="headerlink" href="#explicit-migration-component-actions" title="Permalink to this heading">#</a></h3>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Before: three-step macro sequence</span>
+<span class="n">HPX_DEFINE_COMPONENT_ACTION</span><span class="p">(</span><span class="n">server</span><span class="p">,</span><span class="w"> </span><span class="n">compute</span><span class="p">,</span><span class="w"> </span><span class="n">compute_action</span><span class="p">)</span><span class="w"></span>
+<span class="n">HPX_REGISTER_ACTION_DECLARATION</span><span class="p">(</span><span class="n">compute_action</span><span class="p">)</span><span class="w"></span>
+<span class="n">HPX_REGISTER_ACTION</span><span class="p">(</span><span class="n">compute_action</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">// After: single line</span>
+<span class="n">HPX_COMPONENT_ACTION</span><span class="p">(</span><span class="n">server</span><span class="p">,</span><span class="w"> </span><span class="n">compute</span><span class="p">,</span><span class="w"> </span><span class="n">compute_action</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">// Or equivalently:</span>
+<span class="k">using</span><span class="w"> </span><span class="n">compute_action</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">actions</span><span class="o">::</span><span class="n">reflect_component_action</span><span class="o">&lt;^^</span><span class="n">server</span><span class="o">::</span><span class="n">compute</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="explicit-migration-direct-plain-actions">
+<h3>Explicit migration: direct plain actions<a class="headerlink" href="#explicit-migration-direct-plain-actions" title="Permalink to this heading">#</a></h3>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Before: three-step macro sequence</span>
+<span class="n">HPX_PLAIN_DIRECT_ACTION</span><span class="p">(</span><span class="n">app</span><span class="o">::</span><span class="n">compute</span><span class="p">,</span><span class="w"> </span><span class="n">compute_action</span><span class="p">)</span><span class="w"></span>
+<span class="n">HPX_REGISTER_ACTION_DECLARATION</span><span class="p">(</span><span class="n">compute_action</span><span class="p">)</span><span class="w"></span>
+<span class="n">HPX_REGISTER_ACTION</span><span class="p">(</span><span class="n">compute_action</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">// After: single line</span>
+<span class="n">HPX_DIRECT_ACTION</span><span class="p">(</span><span class="n">app</span><span class="o">::</span><span class="n">compute</span><span class="p">,</span><span class="w"> </span><span class="n">compute_action</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">// Or equivalently, using the template directly:</span>
+<span class="k">using</span><span class="w"> </span><span class="n">compute_action</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">actions</span><span class="o">::</span><span class="n">reflect_direct_action</span><span class="o">&lt;^^</span><span class="n">app</span><span class="o">::</span><span class="n">compute</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="explicit-migration-direct-component-actions">
+<h3>Explicit migration: direct component actions<a class="headerlink" href="#explicit-migration-direct-component-actions" title="Permalink to this heading">#</a></h3>
+<p>Direct actions execute without spawning a new HPX thread — locally they
+run inline on the calling thread, and remotely on the target locality’s
+existing HPX thread. The reflection-based API preserves this behavior:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Before: three-step macro sequence</span>
+<span class="n">HPX_DEFINE_COMPONENT_DIRECT_ACTION</span><span class="p">(</span><span class="n">server</span><span class="p">,</span><span class="w"> </span><span class="n">compute</span><span class="p">,</span><span class="w"> </span><span class="n">compute_action</span><span class="p">)</span><span class="w"></span>
+<span class="n">HPX_REGISTER_ACTION_DECLARATION</span><span class="p">(</span><span class="n">compute_action</span><span class="p">)</span><span class="w"></span>
+<span class="n">HPX_REGISTER_ACTION</span><span class="p">(</span><span class="n">compute_action</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">// After: single line</span>
+<span class="n">HPX_COMPONENT_DIRECT_ACTION</span><span class="p">(</span><span class="n">server</span><span class="p">,</span><span class="w"> </span><span class="n">compute</span><span class="p">,</span><span class="w"> </span><span class="n">compute_action</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">// Or equivalently, using the template directly:</span>
+<span class="k">using</span><span class="w"> </span><span class="n">compute_action</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">actions</span><span class="o">::</span><span class="n">reflect_component_direct_action</span><span class="o">&lt;^^</span><span class="n">server</span><span class="o">::</span><span class="n">compute</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="overloaded-functions">
+<h3>Overloaded functions<a class="headerlink" href="#overloaded-functions" title="Permalink to this heading">#</a></h3>
+<p>Reflection cannot disambiguate overloaded functions. If your action
+function is overloaded, keep the existing <code class="docutils literal notranslate"><span class="pre">HPX_PLAIN_ACTION</span></code> macro:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Not supported with reflection (ambiguous):</span>
+<span class="c1">// using my_action = hpx::actions::reflect_action&lt;^^overloaded_func&gt;;</span>
+
+<span class="c1">// Use the existing macro instead:</span>
+<span class="n">HPX_PLAIN_ACTION</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">overloaded_func</span><span class="p">),</span><span class="w"> </span><span class="n">my_action</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="properties-available-at-compile-time">
+<h3>Properties available at compile time<a class="headerlink" href="#properties-available-at-compile-time" title="Permalink to this heading">#</a></h3>
+<p>Reflection-based action types expose additional compile-time properties:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">my_action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">actions</span><span class="o">::</span><span class="n">reflect_action</span><span class="o">&lt;^^</span><span class="n">app</span><span class="o">::</span><span class="n">compute</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// Number of parameters</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">my_action</span><span class="o">::</span><span class="n">arity</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// Function pointer type and value</span>
+<span class="k">using</span><span class="w"> </span><span class="n">fptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_action</span><span class="o">::</span><span class="n">func_ptr_type</span><span class="p">;</span><span class="w"></span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_action</span><span class="o">::</span><span class="n">func_ptr</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 
 
@@ -3416,6 +3558,17 @@ reduction operation to complete. This is done to ensure synchronization among lo
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mpi-reduce">MPI_Reduce</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#migrating-to-c-26-reflection-based-actions">Migrating to C++26 reflection-based actions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-requirements">Build requirements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existing-code-requires-no-changes">Existing code requires no changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-migration-plain-actions">Explicit migration: plain actions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-migration-component-actions">Explicit migration: component actions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-migration-direct-plain-actions">Explicit migration: direct plain actions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-migration-direct-component-actions">Explicit migration: direct component actions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overloaded-functions">Overloaded functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-available-at-compile-time">Properties available at compile time</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -3448,7 +3601,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 05, 2026.
+  Last updated on Jul 07, 2026.
   <br/>
 </p>
   </div>
