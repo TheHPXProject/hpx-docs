@@ -1267,7 +1267,7 @@ document.write(`
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx11collectives14generation_argE">
 <span id="_CPPv3N3hpx11collectives14generation_argE"></span><span id="_CPPv2N3hpx11collectives14generation_argE"></span><span class="target" id="argument__types_8hpp_1ad0173456e0f618da8021e70a7623f693"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">generation_arg</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">detail</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">argument_type</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">detail</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">generation_tag</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N3hpx11collectives14generation_argE" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>The generational counter identifying the sequence number of the operation performed on the given base name. It needs to be supplied only if the operation on the given base name has to be performed more than once. It must be a positive number greater than zero. </p>
+<dd><p>The generational counter identifying the sequence number of the operation performed on the given base name. It needs to be supplied only if the operation on the given base name has to be performed more than once. It must be a positive number greater than zero. On any given communicator instance, operations that pass an explicit generation may not follow operations that used the default: the internal counter’s position is no longer reliably known to the caller. The reverse transition, from explicit numbering back to the default, remains valid. </p>
 </dd></dl>
 
 <dl class="cpp type">
@@ -1368,7 +1368,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 10, 2026.
+  Last updated on Jul 11, 2026.
   <br/>
 </p>
   </div>

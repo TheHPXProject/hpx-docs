@@ -1295,7 +1295,7 @@ document.write(`
 <p>This functions creates a new hierarchical_communicator object that can be called in order to pre-allocate a communicator object usable with multiple invocations of a collective operation (such as <em>all_gather</em>, <em>all_reduce</em>, <em>all_to_all</em>, <em>broadcast</em>, etc.).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The sub-communicators of a hierarchical_communicator share one generation sequence per registered name. Every hierarchical collective advances each sub-communicator it touches by exactly two internal generations per call (a single-pass collective such as <em>broadcast</em>, <em>gather</em>, <em>scatter</em> or <em>reduce</em>, and the inter-group exchange of <em>all_to_all</em>, skip the second generation in one step rather than performing a second round-trip). A single hierarchical_communicator instance may therefore be shared freely across collective operations, provided every call uses an explicit, strictly consecutive generation number so the shared sequence stays gap-free. Because the two-phase hierarchical collectives (<em>all_gather</em>, <em>all_reduce</em>, <em>all_to_all</em> and the hierarchical <em>barrier</em>) derive their phase generations from that explicit number, they require it and reject an auto (default) generation. The non-hierarchical (flat) collectives keep supporting the default generation, falling back to the internal per-communicator counter maintained in the and_gate.</p>
+<p>The sub-communicators of a hierarchical_communicator share one generation sequence per registered name. Every hierarchical collective advances each sub-communicator it touches by exactly two internal generations per call (a single-pass collective such as <em>broadcast</em>, <em>gather</em>, <em>scatter</em> or <em>reduce</em>, and the inter-group exchange of <em>all_to_all</em>, skip the second generation in one step rather than performing a second round-trip). A single hierarchical_communicator instance may therefore be shared freely across collective operations, provided every call uses an explicit, strictly consecutive generation number so the shared sequence stays gap-free. Because the two-phase hierarchical collectives (<em>all_gather</em>, <em>all_reduce</em>, <em>all_to_all</em> and the hierarchical <em>barrier</em>) derive their phase generations from that explicit number, they require it and reject an auto (default) generation. The non-hierarchical (flat) collectives keep supporting the default generation, falling back to the internal per-communicator counter maintained in the and_gate. Once any operation on a communicator has used that default, later operations on the same instance may no longer pass an explicit generation number: the counter’s position is no longer reliably known to the caller. The reverse transition, from explicit numbering back to the default, remains valid. All participants of a single operation must use the same generation mode.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1426,7 +1426,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 10, 2026.
+  Last updated on Jul 11, 2026.
   <br/>
 </p>
   </div>
