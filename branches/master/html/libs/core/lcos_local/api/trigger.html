@@ -51,7 +51,7 @@
     <link rel="shortcut icon" href="../../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="pack_traversal" href="../../pack_traversal/api/full_api.html" />
+    <link rel="next" title="hpx::lcos::local::and_gate" href="and_gate.html" />
     <link rel="prev" title="lcos_local" href="full_api.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -637,6 +637,7 @@
 </li>
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="full_api.html">lcos_local</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">hpx/lcos_local/trigger.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="and_gate.html">hpx::lcos::local::and_gate</a></li>
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../pack_traversal/api/full_api.html">pack_traversal</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -1245,7 +1246,7 @@ document.write(`
 <span id="_CPPv3N3hpx4lcosE"></span><span id="_CPPv2N3hpx4lcosE"></span><span id="hpx::lcos"></span><span class="target" id="namespacehpx_1_1lcos"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lcos</span></span></span><br /></dt>
 <dd><dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx4lcos5localE">
-<span id="_CPPv3N3hpx4lcos5localE"></span><span id="_CPPv2N3hpx4lcos5localE"></span><span id="hpx::lcos::local"></span><span class="target" id="namespacehpx_1_1lcos_1_1local"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">local</span></span></span><a class="headerlink" href="#_CPPv4N3hpx4lcos5localE" title="Permalink to this definition">#</a><br /></dt>
+<span id="_CPPv3N3hpx4lcos5localE"></span><span id="_CPPv2N3hpx4lcos5localE"></span><span id="hpx::lcos::local"></span><span class="target" id="namespacehpx_1_1lcos_1_1local"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">local</span></span></span><br /></dt>
 <dd><dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4I0EN3hpx4lcos5local12base_triggerE">
 <span id="_CPPv3I0EN3hpx4lcos5local12base_triggerE"></span><span id="_CPPv2I0EN3hpx4lcos5local12base_triggerE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mutex</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../synchronization/api/spinlock.html#_CPPv4N3hpx8spinlockE" title="hpx::spinlock"><span class="n"><span class="pre">spinlock</span></span></a><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structhpx_1_1lcos_1_1local_1_1base__trigger"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">base_trigger</span></span></span><a class="headerlink" href="#_CPPv4I0EN3hpx4lcos5local12base_triggerE" title="Permalink to this definition">#</a><br /></dt>
@@ -1421,7 +1422,7 @@ document.write(`
 
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx4lcos5local7triggerE">
-<span id="_CPPv3N3hpx4lcos5local7triggerE"></span><span id="_CPPv2N3hpx4lcos5local7triggerE"></span><span id="hpx::lcos::local::trigger"></span><span class="target" id="structhpx_1_1lcos_1_1local_1_1trigger"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trigger</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../futures/api/future.html#_CPPv4N3hpx4lcosE" title="hpx::lcos"><span class="n"><span class="pre">lcos</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N3hpx4lcos5localE" title="hpx::lcos::local"><span class="n"><span class="pre">local</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4I0EN3hpx4lcos5local12base_triggerE" title="hpx::lcos::local::base_trigger"><span class="n"><span class="pre">base_trigger</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../synchronization/api/no_mutex.html#_CPPv4N3hpx8no_mutexE" title="hpx::no_mutex"><span class="n"><span class="pre">no_mutex</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N3hpx4lcos5local7triggerE" title="Permalink to this definition">#</a><br /></dt>
+<span id="_CPPv3N3hpx4lcos5local7triggerE"></span><span id="_CPPv2N3hpx4lcos5local7triggerE"></span><span id="hpx::lcos::local::trigger"></span><span class="target" id="structhpx_1_1lcos_1_1local_1_1trigger"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trigger</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../futures/api/future.html#_CPPv4N3hpx4lcosE" title="hpx::lcos"><span class="n"><span class="pre">lcos</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="and_gate.html#_CPPv4N3hpx4lcos5localE" title="hpx::lcos::local"><span class="n"><span class="pre">local</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4I0EN3hpx4lcos5local12base_triggerE" title="hpx::lcos::local::base_trigger"><span class="n"><span class="pre">base_trigger</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../synchronization/api/no_mutex.html#_CPPv4N3hpx8no_mutexE" title="hpx::no_mutex"><span class="n"><span class="pre">no_mutex</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N3hpx4lcos5local7triggerE" title="Permalink to this definition">#</a><br /></dt>
 <dd><div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
@@ -1485,11 +1486,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../../pack_traversal/api/full_api.html"
+       href="and_gate.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">pack_traversal</p>
+        <p class="prev-next-title">hpx::lcos::local::and_gate</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1530,7 +1531,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 12, 2026.
+  Last updated on Jul 13, 2026.
   <br/>
 </p>
   </div>

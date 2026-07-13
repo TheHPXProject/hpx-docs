@@ -19,3 +19,4 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    :maxdepth: 1
 
    /libs/core/lcos_local/api/trigger.rst
+   /libs/core/lcos_local/api/and_gate.rst
