@@ -1262,8 +1262,11 @@ document.write(`
 <li><p><strong>root_site</strong> – The site that is responsible for creating the collective support object. This value is optional and defaults to ‘0’ (zero).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>This function returns a new communicator object usable with the collective operation. </p>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n">hpx</span></a><span class="p">::</span><a class="reference internal" href="../../../core/errors/api/exception.html#_CPPv4N3hpx9exceptionE" title="hpx::exception"><span class="n">exception</span></a></span></span> – with hpx::error::bad_parameter if <em>basename</em> is null or empty, if the (resolved) <em>num_sites</em> is zero, if the (resolved) <em>this_site</em> is not smaller than <em>num_sites</em>, or if the (resolved) <em>root_site</em> does not designate a participating site. </p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>This function returns a new communicator object usable with the collective operation.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1283,8 +1286,11 @@ document.write(`
 <li><p><strong>root_site</strong> – The site that is responsible for creating the collective support object. This value is optional and defaults to ‘0’ (zero).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>This function returns a new communicator object usable for all local collective operations. </p>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n">hpx</span></a><span class="p">::</span><a class="reference internal" href="../../../core/errors/api/exception.html#_CPPv4N3hpx9exceptionE" title="hpx::exception"><span class="n">exception</span></a></span></span> – with hpx::error::bad_parameter if <em>basename</em> is null or empty, if <em>num_sites</em> is unspecified or zero, if <em>this_site</em> is unspecified or not smaller than <em>num_sites</em>, or if the (resolved) <em>root_site</em> does not designate a participating site. </p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>This function returns a new communicator object usable for all local collective operations.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1296,7 +1302,11 @@ document.write(`
 <p>This functions creates a new hierarchical_communicator object that can be called in order to pre-allocate a communicator object usable with multiple invocations of a collective operation (such as <em>all_gather</em>, <em>all_reduce</em>, <em>all_to_all</em>, <em>broadcast</em>, etc.).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The sub-communicators of a hierarchical_communicator share one generation sequence per registered name. Every hierarchical collective advances each sub-communicator it touches by exactly two internal generations per call (a single-pass collective such as <em>broadcast</em>, <em>gather</em>, <em>scatter</em> or <em>reduce</em>, and the inter-group exchange of <em>all_to_all</em>, skip the second generation in one step rather than performing a second round-trip). A single hierarchical_communicator instance may therefore be shared freely across collective operations, provided every call uses an explicit, strictly consecutive generation number so the shared sequence stays gap-free. Because the two-phase hierarchical collectives (<em>all_gather</em>, <em>all_reduce</em>, <em>all_to_all</em> and the hierarchical <em>barrier</em>) derive their phase generations from that explicit number, they require it and reject an auto (default) generation. The non-hierarchical (flat) collectives keep supporting the default generation, falling back to the internal per-communicator counter maintained in the and_gate. Once any operation on a communicator has used that default, later operations on the same instance may no longer pass an explicit generation number: the counter’s position is no longer reliably known to the caller. The reverse transition, from explicit numbering back to the default, remains valid. All participants of a single operation must use the same generation mode.</p>
+<p>The sub-communicators of a hierarchical_communicator share one generation sequence per registered name. Every hierarchical collective advances each sub-communicator it touches by exactly two internal generations per call (a single-pass collective such as <em>broadcast</em>, <em>gather</em>, <em>scatter</em> or <em>reduce</em>, and the inter-group exchange of <em>all_to_all</em>, skip the second generation in one step rather than performing a second round-trip). A single hierarchical_communicator instance may therefore be shared freely across collective operations, provided every call uses an explicit, strictly consecutive generation number so the shared sequence stays gap-free. Because the two-phase hierarchical collectives (<em>all_gather</em>, <em>all_reduce</em>, <em>all_to_all</em>, <em>inclusive_scan</em>, <em>exclusive_scan</em> and the hierarchical <em>barrier</em>) derive their phase generations from that explicit number, they require it and reject an auto (default) generation. The non-hierarchical (flat) collectives keep supporting the default generation, falling back to the internal per-communicator counter maintained in the and_gate. Once any operation on a communicator has used that default, later operations on the same instance may no longer pass an explicit generation number: the counter’s position is no longer reliably known to the caller. The reverse transition, from explicit numbering back to the default, remains valid. All participants of a single operation must use the same generation mode.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Hierarchical collective overloads that return hpx::future may still perform internal waits while walking the communicator tree. They should not be treated as fully non-blocking: validation failures are reported through the returned exceptional future, but internal phase hand-offs can throw or block before that future is delivered.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1304,14 +1314,17 @@ document.write(`
 <li><p><strong>basename</strong> – The base name identifying the collective operation </p></li>
 <li><p><strong>num_sites</strong> – The number of participating sites (default: all localities). </p></li>
 <li><p><strong>this_site</strong> – The sequence number of this invocation (usually the locality id). This value is optional and defaults to whatever hpx::get_locality_id() returns. </p></li>
-<li><p><strong>arity</strong> – The arity of the hierarchical tree of communicators to create for the given endpoint. The default arity is 2. </p></li>
+<li><p><strong>arity</strong> – The arity of the hierarchical tree of communicators to create for the given endpoint. The default arity is 2 and the value must be at least 2. </p></li>
 <li><p><strong>generation</strong> – The generational counter identifying the sequence number of the collective operation performed on the given base name. This is optional and needs to be supplied only if the collective operation on the given base name has to be performed more than once. </p></li>
-<li><p><strong>root_site</strong> – The site that is responsible for creating the collective support object. This value is optional and defaults to ‘0’ (zero). </p></li>
+<li><p><strong>root_site</strong> – The site that is responsible for creating the collective support object. Hierarchical communicators currently support only site 0 as the root, which is also the default. </p></li>
 <li><p><strong>threshold</strong> – The site-count threshold below which the communicator collapses to a single flat communicator spanning all sites (strict comparison: num_sites &lt; threshold). The default is 16; pass 0 to disable the fallback and always build a tree.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>This function returns a new communicator object usable with the collective operation. </p>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n">hpx</span></a><span class="p">::</span><a class="reference internal" href="../../../core/errors/api/exception.html#_CPPv4N3hpx9exceptionE" title="hpx::exception"><span class="n">exception</span></a></span></span> – with hpx::error::bad_parameter if <em>basename</em> is null or empty, if the (resolved) <em>num_sites</em> is zero, if the (resolved) <em>this_site</em> is not smaller than <em>num_sites</em>, if the (resolved) <em>root_site</em> is not zero, or if <em>arity</em> is smaller than 2. </p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>This function returns a new communicator object usable with the collective operation.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1427,7 +1440,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 13, 2026.
+  Last updated on Jul 14, 2026.
   <br/>
 </p>
   </div>
