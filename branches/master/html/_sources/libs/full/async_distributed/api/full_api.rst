@@ -29,4 +29,7 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/full/async_distributed/api/base_lco.rst
    /libs/full/async_distributed/api/promise.rst
    /libs/full/async_distributed/api/post.rst
+   /libs/full/async_distributed/api/distributed_continues_on_sender.rst
    /libs/full/async_distributed/api/trigger_lco.rst
+   /libs/full/async_distributed/api/distributed_scheduler.rst
+   /libs/full/async_distributed/api/distributed_then_sender.rst
