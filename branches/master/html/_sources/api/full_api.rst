@@ -35,6 +35,7 @@ refer to the full documentation below.
    /libs/full/components_base/api/full_api.rst
    /libs/full/compute/api/full_api.rst
    /libs/full/distribution_policies/api/full_api.rst
+   /libs/full/execution_distributed/api/full_api.rst
    /libs/full/executors_distributed/api/full_api.rst
    /libs/full/include/api/full_api.rst
    /libs/full/init_runtime/api/full_api.rst
