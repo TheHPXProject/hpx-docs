@@ -20,5 +20,5 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
 
    /libs/core/futures/api/promise.rst
    /libs/core/futures/api/future_fwd.rst
-   /libs/core/futures/api/future.rst
    /libs/core/futures/api/packaged_task.rst
+   /libs/core/futures/api/future.rst
