@@ -47,6 +47,7 @@ refer to the full documentation below.
    /libs/full/runtime_components/api/full_api.rst
    /libs/full/runtime_distributed/api/full_api.rst
    /libs/full/segmented_algorithms/api/full_api.rst
+   /libs/full/supervision/api/full_api.rst
    /libs/core/algorithms/api/full_api.rst
    /libs/core/asio/api/full_api.rst
    /libs/core/assertion/api/full_api.rst
