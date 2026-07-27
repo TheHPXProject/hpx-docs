@@ -1383,7 +1383,6 @@ Scatter (send) a part of the value set at the given call site</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>policy</strong> – The execution policy specifying synchronous execution. </p></li>
 <li><p><strong>basename</strong> – The base name identifying the scatter operation </p></li>
 <li><p><strong>this_site</strong> – The sequence number of this invocation (usually the locality id). This value is optional and defaults to whatever hpx::get_locality_id() returns. </p></li>
 <li><p><strong>generation</strong> – The generational counter identifying the sequence number of the scatter operation performed on the given base name. This is optional and needs to be supplied only if the scatter operation on the given base name has to be performed more than once. The generation number (if given) must be a positive number greater than zero. </p></li>
@@ -1415,11 +1414,9 @@ Scatter (receive) a set of values to different call sites</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>policy</strong> – The execution policy specifying synchronous execution. </p></li>
 <li><p><strong>comm</strong> – A communicator object returned from <em>create_communicator</em></p></li>
 <li><p><strong>this_site</strong> – The sequence number of this invocation (usually the locality id). This value is optional and defaults to whatever hpx::get_locality_id() returns. </p></li>
 <li><p><strong>generation</strong> – The generational counter identifying the sequence number of the scatter operation performed on the given base name. This is optional and needs to be supplied only if the scatter operation on the given base name has to be performed more than once. The generation number (if given) must be a positive number greater than zero.</p></li>
-<li><p><strong>policy</strong> – The execution policy specifying synchronous execution. </p></li>
 <li><p><strong>comm</strong> – A communicator object returned from <em>create_communicator</em></p></li>
 <li><p><strong>generation</strong> – The generational counter identifying the sequence number of the scatter operation performed on the given base name. This is optional and needs to be supplied only if the scatter operation on the given base name has to be performed more than once. The generation number (if given) must be a positive number greater than zero. </p></li>
 <li><p><strong>this_site</strong> – The sequence number of this invocation (usually the locality id). This value is optional and defaults to whatever hpx::get_locality_id() returns.</p></li>
@@ -1442,7 +1439,6 @@ Scatter (receive) a set of values to different call sites</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>policy</strong> – The execution policy specifying synchronous execution. </p></li>
 <li><p><strong>basename</strong> – The base name identifying the scatter operation </p></li>
 <li><p><strong>result</strong> – The value to transmit to the central scatter point from this call site. </p></li>
 <li><p><strong>num_sites</strong> – The number of participating sites (default: all localities). </p></li>
@@ -1475,12 +1471,10 @@ Scatter (send) a part of the value set at the given call site</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>policy</strong> – The execution policy specifying synchronous execution. </p></li>
 <li><p><strong>comm</strong> – A communicator object returned from <em>create_communicator</em></p></li>
 <li><p><strong>result</strong> – The value to transmit to the central scatter point from this call site. </p></li>
 <li><p><strong>this_site</strong> – The sequence number of this invocation (usually the locality id). This value is optional and defaults to whatever hpx::get_locality_id() returns. </p></li>
 <li><p><strong>generation</strong> – The generational counter identifying the sequence number of the scatter operation performed on the given base name. This is optional and needs to be supplied only if the scatter operation on the given base name has to be performed more than once. The generation number (if given) must be a positive number greater than zero.</p></li>
-<li><p><strong>policy</strong> – The execution policy specifying synchronous execution. </p></li>
 <li><p><strong>comm</strong> – A communicator object returned from <em>create_communicator</em></p></li>
 <li><p><strong>result</strong> – The value to transmit to the central scatter point from this call site. </p></li>
 <li><p><strong>generation</strong> – The generational counter identifying the sequence number of the scatter operation performed on the given base name. This is optional and needs to be supplied only if the scatter operation on the given base name has to be performed more than once. The generation number (if given) must be a positive number greater than zero. </p></li>
@@ -1570,7 +1564,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 25, 2026.
+  Last updated on Jul 27, 2026.
   <br/>
 </p>
   </div>

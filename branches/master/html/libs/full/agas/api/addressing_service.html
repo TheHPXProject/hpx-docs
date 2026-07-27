@@ -1549,7 +1549,6 @@ document.write(`
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>locality</strong> – [out] The locality_id value uniquely identifying the console locality. This is valid only, if the return value of this function is true. </p></li>
-<li><p><strong>try_cache</strong> – [in] If this is set to true the console is first tried to be found in the local cache. Otherwise this function will always query AGAS, even if the console locality_id is already known locally. </p></li>
 <li><p><strong>ec</strong> – [in,out] this represents the error status on exit, if this is pre-initialized to <em>hpx::throws</em> the function will throw on error instead.</p></li>
 </ul>
 </dd>
@@ -1589,6 +1588,21 @@ document.write(`
 <span id="_CPPv3NK3hpx4agas18addressing_service24get_num_localities_asyncEN10components14component_typeE"></span><span id="_CPPv2NK3hpx4agas18addressing_service24get_num_localities_asyncEN10components14component_typeE"></span><span id="hpx::agas::addressing_service::get_num_localities_async__components::component_typeC"></span><span class="target" id="structhpx_1_1agas_1_1addressing__service_1a4d9027351e42aefc256ad46bfe3367c3"></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/futures/api/future.html#_CPPv4I0EN3hpx6futureE" title="hpx::future"><span class="n"><span class="pre">future</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_num_localities_async</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/runtime_configuration/api/component_commandline_base.html#_CPPv4N3hpx10componentsE" title="hpx::components"><span class="n"><span class="pre">components</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">component_type</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">type</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">to_int</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/runtime_configuration/api/component_commandline_base.html#_CPPv4N3hpx10componentsE" title="hpx::components"><span class="n"><span class="pre">components</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../components_base/api/component_type.html#_CPPv4N3hpx10components19component_enum_typeE" title="hpx::components::component_enum_type"><span class="n"><span class="pre">component_enum_type</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../components_base/api/component_type.html#_CPPv4N3hpx10components19component_enum_type7invalidE" title="hpx::components::component_enum_type::invalid"><span class="n"><span class="pre">invalid</span></span></a><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3hpx4agas18addressing_service24get_num_localities_asyncEN10components14component_typeE" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Query for the number of all known localities. </p>
 <p>This function returns the number of localities known to the AGAS server or the number of localities having a registered factory for a given component type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>type</strong> – [in] The component type will be used to determine the set of prefixes having a registered factory for this component. The default value for this parameter is <em>components::component_type::invalid</em>, which will return prefixes of all localities.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A future that becomes ready with the number of matching localities. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3hpx4agas18addressing_service18get_num_localitiesEN10components14component_typeER10error_code">
+<span id="_CPPv3NK3hpx4agas18addressing_service18get_num_localitiesEN10components14component_typeER10error_code"></span><span id="_CPPv2NK3hpx4agas18addressing_service18get_num_localitiesEN10components14component_typeER10error_code"></span><span id="hpx::agas::addressing_service::get_num_localities__components::component_type.error_codeRC"></span><span class="target" id="structhpx_1_1agas_1_1addressing__service_1a915d471833e65da575a402ddf4f6eeeb"></span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_num_localities</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/runtime_configuration/api/component_commandline_base.html#_CPPv4N3hpx10componentsE" title="hpx::components"><span class="n"><span class="pre">components</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">component_type</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">type</span></span>, <a class="reference internal" href="../../../core/errors/api/error_code.html#_CPPv4N3hpx10error_codeE" title="hpx::error_code"><span class="n"><span class="pre">error_code</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ec</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../../core/errors/api/exception_fwd.html#_CPPv4N3hpx6throwsE" title="hpx::throws"><span class="n"><span class="pre">throws</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3hpx4agas18addressing_service18get_num_localitiesEN10components14component_typeER10error_code" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Query for the number of all known localities. </p>
+<p>This function returns the number of localities known to the AGAS server or the number of localities having a registered factory for a given component type.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>As long as <em>ec</em> is not pre-initialized to <em>hpx::throws</em> this function doesn’t throw but returns the result code using the parameter <em>ec</em>. Otherwise, it throws an instance of hpx::exception. </p>
@@ -1604,14 +1618,20 @@ document.write(`
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK3hpx4agas18addressing_service18get_num_localitiesEN10components14component_typeER10error_code">
-<span id="_CPPv3NK3hpx4agas18addressing_service18get_num_localitiesEN10components14component_typeER10error_code"></span><span id="_CPPv2NK3hpx4agas18addressing_service18get_num_localitiesEN10components14component_typeER10error_code"></span><span id="hpx::agas::addressing_service::get_num_localities__components::component_type.error_codeRC"></span><span class="target" id="structhpx_1_1agas_1_1addressing__service_1a915d471833e65da575a402ddf4f6eeeb"></span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_num_localities</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/runtime_configuration/api/component_commandline_base.html#_CPPv4N3hpx10componentsE" title="hpx::components"><span class="n"><span class="pre">components</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">component_type</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">type</span></span>, <a class="reference internal" href="../../../core/errors/api/error_code.html#_CPPv4N3hpx10error_codeE" title="hpx::error_code"><span class="n"><span class="pre">error_code</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ec</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../../core/errors/api/exception_fwd.html#_CPPv4N3hpx6throwsE" title="hpx::throws"><span class="n"><span class="pre">throws</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3hpx4agas18addressing_service18get_num_localitiesEN10components14component_typeER10error_code" title="Permalink to this definition">#</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3hpx4agas18addressing_service18get_num_localitiesER10error_code">
 <span id="_CPPv3NK3hpx4agas18addressing_service18get_num_localitiesER10error_code"></span><span id="_CPPv2NK3hpx4agas18addressing_service18get_num_localitiesER10error_code"></span><span id="hpx::agas::addressing_service::get_num_localities__error_codeRC"></span><span class="target" id="structhpx_1_1agas_1_1addressing__service_1a90a5c7cee1ca4b1ed3b7db20a78addea"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_num_localities</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/errors/api/error_code.html#_CPPv4N3hpx10error_codeE" title="hpx::error_code"><span class="n"><span class="pre">error_code</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ec</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../../core/errors/api/exception_fwd.html#_CPPv4N3hpx6throwsE" title="hpx::throws"><span class="n"><span class="pre">throws</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3hpx4agas18addressing_service18get_num_localitiesER10error_code" title="Permalink to this definition">#</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Query for the number of all known localities. </p>
+<p>This function returns the number of localities known to the AGAS server or the number of localities having a registered factory for a given component type.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As long as <em>ec</em> is not pre-initialized to <em>hpx::throws</em> this function doesn’t throw but returns the result code using the parameter <em>ec</em>. Otherwise, it throws an instance of hpx::exception. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ec</strong> – [in,out] this represents the error status on exit, if this is pre-initialized to <em>hpx::throws</em> the function will throw on error instead.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3hpx4agas18addressing_service29get_num_overall_threads_asyncEv">
@@ -1709,7 +1729,6 @@ document.write(`
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>l</strong> – [in] The locality the locality id needs to be generated for. Repeating calls using the same locality results in identical locality_id values. </p></li>
 <li><p><strong>count</strong> – [in] The number of global ids to be generated. </p></li>
 <li><p><strong>lower_bound</strong> – [out] The lower bound of the assigned id range. The returned value can be used as the first id to assign. This is valid only, if the return value of this function is true. </p></li>
 <li><p><strong>upper_bound</strong> – [out] The upper bound of the assigned id range. The returned value can be used as the last id to assign. This is valid only, if the return value of this function is true. </p></li>
@@ -2083,8 +2102,7 @@ document.write(`
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>gid</strong> – [in] The global address (id) for which the global reference count has to be incremented. </p></li>
 <li><p><strong>credits</strong> – [in] The number of reference counts to add for the given id. </p></li>
-<li><p><strong>keep_alive</strong> – [in] Id to keep alive (if valid) </p></li>
-<li><p><strong>ec</strong> – [in,out] this represents the error status on exit, if this is pre-initialized to <em>hpx::throws</em> the function will throw on error instead.</p></li>
+<li><p><strong>keep_alive</strong> – [in] Id to keep alive (if valid)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -2110,7 +2128,6 @@ document.write(`
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>id</strong> – [in] The global address (id) for which the global reference count has to be decremented. </p></li>
-<li><p><strong>t</strong> – [out] If this was the last outstanding global reference for the given gid (the return value of this function is zero), t will be set to the component type of the corresponding element. Otherwise t will not be modified. </p></li>
 <li><p><strong>credits</strong> – [in] The number of reference counts to add for the given id. </p></li>
 <li><p><strong>ec</strong> – [in,out] this represents the error status on exit, if this is pre-initialized to <em>hpx::throws</em> the function will throw on error instead.</p></li>
 </ul>
@@ -2169,6 +2186,21 @@ document.write(`
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3hpx4agas18addressing_service21unregister_name_asyncERKNSt6stringE">
 <span id="_CPPv3NK3hpx4agas18addressing_service21unregister_name_asyncERKNSt6stringE"></span><span id="_CPPv2NK3hpx4agas18addressing_service21unregister_name_asyncERKNSt6stringE"></span><span id="hpx::agas::addressing_service::unregister_name_async__ssCRC"></span><span class="target" id="structhpx_1_1agas_1_1addressing__service_1a9e26276e037226303d68cace9e9ef23f"></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/futures/api/future.html#_CPPv4I0EN3hpx6futureE" title="hpx::future"><span class="n"><span class="pre">future</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">unregister_name_async</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3hpx4agas18addressing_service21unregister_name_asyncERKNSt6stringE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Unregister a global name (release any existing association). </p>
+<p>This function releases any existing association of the given global name with a global address (id).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – [in] The global name (string) for which any association with a global address (id) has to be released.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A future that becomes ready with the global id that was associated with the given name. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3hpx4agas18addressing_service15unregister_nameERKNSt6stringER10error_code">
+<span id="_CPPv3NK3hpx4agas18addressing_service15unregister_nameERKNSt6stringER10error_code"></span><span id="_CPPv2NK3hpx4agas18addressing_service15unregister_nameERKNSt6stringER10error_code"></span><span id="hpx::agas::addressing_service::unregister_name__ssCR.error_codeRC"></span><span class="target" id="structhpx_1_1agas_1_1addressing__service_1a660ae8826a3cf229ed5ea348e1bd5c4b"></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">unregister_name</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span>, <a class="reference internal" href="../../../core/errors/api/error_code.html#_CPPv4N3hpx10error_codeE" title="hpx::error_code"><span class="n"><span class="pre">error_code</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ec</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../../core/errors/api/exception_fwd.html#_CPPv4N3hpx6throwsE" title="hpx::throws"><span class="n"><span class="pre">throws</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3hpx4agas18addressing_service15unregister_nameERKNSt6stringER10error_code" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Unregister a global name (release any existing association) </p>
 <p>This function releases any existing association of the given global name with a global address (id).</p>
 <div class="admonition note">
@@ -2183,23 +2215,31 @@ document.write(`
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The function returns <em>true</em> if an association of this global name has been released, and it returns <em>false</em>, if no association existed. Any error results in an exception thrown from this function.</p>
+<dd class="field-even"><p>The global id that was associated with the given name. Any error results in an exception thrown from this function.</p>
 </dd>
 </dl>
 </dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK3hpx4agas18addressing_service15unregister_nameERKNSt6stringER10error_code">
-<span id="_CPPv3NK3hpx4agas18addressing_service15unregister_nameERKNSt6stringER10error_code"></span><span id="_CPPv2NK3hpx4agas18addressing_service15unregister_nameERKNSt6stringER10error_code"></span><span id="hpx::agas::addressing_service::unregister_name__ssCR.error_codeRC"></span><span class="target" id="structhpx_1_1agas_1_1addressing__service_1a660ae8826a3cf229ed5ea348e1bd5c4b"></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">unregister_name</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span>, <a class="reference internal" href="../../../core/errors/api/error_code.html#_CPPv4N3hpx10error_codeE" title="hpx::error_code"><span class="n"><span class="pre">error_code</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ec</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../../core/errors/api/exception_fwd.html#_CPPv4N3hpx6throwsE" title="hpx::throws"><span class="n"><span class="pre">throws</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3hpx4agas18addressing_service15unregister_nameERKNSt6stringER10error_code" title="Permalink to this definition">#</a><br /></dt>
-<dd></dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3hpx4agas18addressing_service18resolve_name_asyncERKNSt6stringE">
 <span id="_CPPv3NK3hpx4agas18addressing_service18resolve_name_asyncERKNSt6stringE"></span><span id="_CPPv2NK3hpx4agas18addressing_service18resolve_name_asyncERKNSt6stringE"></span><span id="hpx::agas::addressing_service::resolve_name_async__ssCRC"></span><span class="target" id="structhpx_1_1agas_1_1addressing__service_1a5669ab813ac580fc3bfee8e38ed8643e"></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/futures/api/future.html#_CPPv4I0EN3hpx6futureE" title="hpx::future"><span class="n"><span class="pre">future</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">resolve_name_async</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3hpx4agas18addressing_service18resolve_name_asyncERKNSt6stringE" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Query for the global address associated with a given global name. </p>
 <p>This function returns the global address associated with the given global name.</p>
-<p>
-This function returns true if it returned global address (id), which is currently associated with the given global name, and it returns false, if currently there is no association for this global name. Any error results in an exception thrown from this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – [in] The global name (string) for which the currently associated global address has to be retrieved.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A future holding the global id currently associated with the given global name. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3hpx4agas18addressing_service12resolve_nameERKNSt6stringER10error_code">
+<span id="_CPPv3NK3hpx4agas18addressing_service12resolve_nameERKNSt6stringER10error_code"></span><span id="_CPPv2NK3hpx4agas18addressing_service12resolve_nameERKNSt6stringER10error_code"></span><span id="hpx::agas::addressing_service::resolve_name__ssCR.error_codeRC"></span><span class="target" id="structhpx_1_1agas_1_1addressing__service_1a2cd2fecab38d26717f185fa4e79093c4"></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">resolve_name</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span>, <a class="reference internal" href="../../../core/errors/api/error_code.html#_CPPv4N3hpx10error_codeE" title="hpx::error_code"><span class="n"><span class="pre">error_code</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ec</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../../core/errors/api/exception_fwd.html#_CPPv4N3hpx6throwsE" title="hpx::throws"><span class="n"><span class="pre">throws</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3hpx4agas18addressing_service12resolve_nameERKNSt6stringER10error_code" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Query for the global address associated with a given global name. </p>
+<p>This function returns the global address associated with the given global name.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>As long as <em>ec</em> is not pre-initialized to <em>hpx::throws</em> this function doesn’t throw but returns the result code using the parameter <em>ec</em>. Otherwise it throws an instance of hpx::exception. </p>
@@ -2208,19 +2248,14 @@ This function returns true if it returned global address (id), which is currentl
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> – [in] The global name (string) for which the currently associated global address has to be retrieved. </p></li>
-<li><p><strong>ec</strong> – [in,out] this represents the error status on exit, if this is pre-initialized to <em>hpx::throws</em> the function will throw on error instead. </p></li>
+<li><p><strong>ec</strong> – [in,out] This represents the error status on exit. If this is pre-initialized to <em>hpx::throws</em> the function will throw on error instead.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>[out] The id currently associated with the given global name (valid only if the return value is true).</p>
+<dd class="field-even"><p>The global id currently associated with the given global name.</p>
 </dd>
 </dl>
 </dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK3hpx4agas18addressing_service12resolve_nameERKNSt6stringER10error_code">
-<span id="_CPPv3NK3hpx4agas18addressing_service12resolve_nameERKNSt6stringER10error_code"></span><span id="_CPPv2NK3hpx4agas18addressing_service12resolve_nameERKNSt6stringER10error_code"></span><span id="hpx::agas::addressing_service::resolve_name__ssCR.error_codeRC"></span><span class="target" id="structhpx_1_1agas_1_1addressing__service_1a2cd2fecab38d26717f185fa4e79093c4"></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">resolve_name</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span>, <a class="reference internal" href="../../../core/errors/api/error_code.html#_CPPv4N3hpx10error_codeE" title="hpx::error_code"><span class="n"><span class="pre">error_code</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ec</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../../core/errors/api/exception_fwd.html#_CPPv4N3hpx6throwsE" title="hpx::throws"><span class="n"><span class="pre">throws</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3hpx4agas18addressing_service12resolve_nameERKNSt6stringER10error_code" title="Permalink to this definition">#</a><br /></dt>
-<dd></dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3hpx4agas18addressing_service25on_symbol_namespace_eventERKNSt6stringEb">
@@ -2235,7 +2270,6 @@ This function returns true if it returned global address (id), which is currentl
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> – [in] The global name (string) for which the given event should be triggered. </p></li>
-<li><p><strong>evt</strong> – [in] The event for which a listener should be installed. </p></li>
 <li><p><strong>call_for_past_events</strong> – [in, optional] Trigger the listener even if the given event has already happened in the past. The default for this parameter is <em>false</em>.</p></li>
 </ul>
 </dd>
@@ -2597,7 +2631,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 25, 2026.
+  Last updated on Jul 27, 2026.
   <br/>
 </p>
   </div>
