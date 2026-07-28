@@ -529,7 +529,7 @@
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="libs/full/supervision/api/full_api.html">supervision</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="libs/full/supervision/api/supervision_api.html">hpx::supervision::publish_event, hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs/full/supervision/api/supervision_api.html">hpx::supervision::publish_event, hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer, hpx::supervision::register_activity_observer, hpx::supervision::unregister_activity_observer</a></li>
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="libs/core/algorithms/api/full_api.html">algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -3262,6 +3262,8 @@ document.write(`
 </li>
       <li><a href="libs/core/errors/api/error.html#_CPPv4N3hpx5error7successE">hpx::error::success (C++ enumerator)</a>
 </li>
+      <li><a href="libs/core/errors/api/error.html#_CPPv4N3hpx5error13target_fencedE">hpx::error::target_fenced (C++ enumerator)</a>
+</li>
       <li><a href="libs/core/errors/api/error.html#_CPPv4N3hpx5error20task_already_startedE">hpx::error::task_already_started (C++ enumerator)</a>
 </li>
       <li><a href="libs/core/errors/api/error.html#_CPPv4N3hpx5error21task_block_not_activeE">hpx::error::task_block_not_active (C++ enumerator)</a>
@@ -5224,8 +5226,6 @@ document.write(`
 </li>
       <li><a href="libs/full/performance_counters/api/counters.html#_CPPv4N3hpx20performance_counters12counter_infoE">hpx::performance_counters::counter_info (C++ struct)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/full/performance_counters/api/counters.html#_CPPv4N3hpx20performance_counters12counter_info12counter_infoE12counter_type">hpx::performance_counters::counter_info::counter_info (C++ function)</a>, <a href="libs/full/performance_counters/api/counters.html#_CPPv4N3hpx20performance_counters12counter_info12counter_infoE12counter_typeRKNSt6stringERKNSt6stringENSt8uint32_tERKNSt6stringE">[1]</a>, <a href="libs/full/performance_counters/api/counters.html#_CPPv4N3hpx20performance_counters12counter_info12counter_infoERKNSt6stringE">[2]</a>
 </li>
       <li><a href="libs/full/performance_counters/api/counters.html#_CPPv4N3hpx20performance_counters12counter_info9fullname_E">hpx::performance_counters::counter_info::fullname_ (C++ member)</a>
@@ -5248,6 +5248,8 @@ document.write(`
 </li>
       <li><a href="libs/full/performance_counters/api/counters.html#_CPPv4N3hpx20performance_counters21counter_path_elements9base_typeE">hpx::performance_counters::counter_path_elements::base_type (C++ type)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/full/performance_counters/api/counters.html#_CPPv4N3hpx20performance_counters21counter_path_elements21counter_path_elementsERKNSt6stringERKNSt6stringERKNSt6stringERKNSt6stringERKNSt6stringENSt7int64_tENSt7int64_tEb">hpx::performance_counters::counter_path_elements::counter_path_elements (C++ function)</a>, <a href="libs/full/performance_counters/api/counters.html#_CPPv4N3hpx20performance_counters21counter_path_elements21counter_path_elementsERKNSt6stringERKNSt6stringERKNSt6stringERKNSt6stringERKNSt6stringERKNSt6stringENSt7int64_tENSt7int64_tENSt7int64_tEb">[1]</a>, <a href="libs/full/performance_counters/api/counters.html#_CPPv4N3hpx20performance_counters21counter_path_elements21counter_path_elementsEv">[2]</a>
 </li>
       <li><a href="libs/full/performance_counters/api/counters.html#_CPPv4N3hpx20performance_counters21counter_path_elements14instanceindex_E">hpx::performance_counters::counter_path_elements::instanceindex_ (C++ member)</a>
@@ -6532,7 +6534,47 @@ document.write(`
 </li>
       <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervisionE">hpx::supervision (C++ type)</a>
 </li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision17activity_callbackE">hpx::supervision::activity_callback (C++ type)</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision21activity_notificationE">hpx::supervision::activity_notification (C++ struct)</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision21activity_notification5actorE">hpx::supervision::activity_notification::actor (C++ member)</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision21activity_notification2ecE">hpx::supervision::activity_notification::ec (C++ member)</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision21activity_notification5epochE">hpx::supervision::activity_notification::epoch (C++ member)</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision21activity_notification10event_timeE">hpx::supervision::activity_notification::event_time (C++ member)</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision21activity_notification5stateE">hpx::supervision::activity_notification::state (C++ member)</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision21activity_notification10transitionE">hpx::supervision::activity_notification::transition (C++ member)</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision14activity_stateE">hpx::supervision::activity_state (C++ enum)</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision14activity_state6activeE">hpx::supervision::activity_state::active (C++ enumerator)</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision14activity_state8inactiveE">hpx::supervision::activity_state::inactive (C++ enumerator)</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision19activity_transitionE">hpx::supervision::activity_transition (C++ enum)</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision19activity_transition14already_activeE">hpx::supervision::activity_transition::already_active (C++ enumerator)</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision19activity_transition11first_eventE">hpx::supervision::activity_transition::first_event (C++ enumerator)</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision19activity_transition14first_observerE">hpx::supervision::activity_transition::first_observer (C++ enumerator)</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision19activity_transition26last_observer_unregisteredE">hpx::supervision::activity_transition::last_observer_unregistered (C++ enumerator)</a>
+</li>
       <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision14await_terminalEN3hpx6launch11sync_policyERKN3hpx7id_typeERKN3hpx7id_typeENSt8uint64_tENSt8optionalINSt6chrono12steady_clock8durationEEERN3hpx10error_codeE">hpx::supervision::await_terminal (C++ function)</a>, <a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision14await_terminalERKN3hpx7id_typeENSt8uint64_tENSt8optionalINSt6chrono12steady_clock8durationEEERN3hpx10error_codeE">[1]</a>, <a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision14await_terminalERKN3hpx7id_typeERKN3hpx7id_typeENSt8uint64_tENSt8optionalINSt6chrono12steady_clock8durationEEE">[2]</a>, <a href="libs/full/supervision/docs/index.html#_CPPv4N3hpx11supervision14await_terminalEN3hpx6launch11sync_policyERKN3hpx7id_typeERKN3hpx7id_typeENSt8uint64_tENSt6chrono12steady_clock8durationERN3hpx10error_codeE">[3]</a>, <a href="libs/full/supervision/docs/index.html#_CPPv4N3hpx11supervision14await_terminalERKN3hpx7id_typeENSt8uint64_tENSt6chrono12steady_clock8durationE">[4]</a>, <a href="libs/full/supervision/docs/index.html#_CPPv4N3hpx11supervision14await_terminalERKN3hpx7id_typeERKN3hpx7id_typeENSt8uint64_tENSt6chrono12steady_clock8durationE">[5]</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision15check_admissionERKN3hpx7id_typeENSt8uint64_tE">hpx::supervision::check_admission (C++ function)</a>, <a href="libs/full/supervision/docs/index.html#_CPPv4N3hpx11supervision15check_admissionERKN3hpx7id_typeENSt8uint64_tE">[1]</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision16dispatch_outcomeE">hpx::supervision::dispatch_outcome (C++ enum)</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision16dispatch_outcome8admittedE">hpx::supervision::dispatch_outcome::admitted (C++ enumerator)</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision16dispatch_outcome15rejected_fencedE">hpx::supervision::dispatch_outcome::rejected_fenced (C++ enumerator)</a>
 </li>
       <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision5eventE">hpx::supervision::event (C++ enum)</a>
 </li>
@@ -6596,7 +6638,11 @@ document.write(`
 </li>
       <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision11query_stateEN3hpx6launch11sync_policyERKN3hpx7id_typeERKN3hpx7id_typeERN3hpx10error_codeE">hpx::supervision::query_state (C++ function)</a>, <a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision11query_stateERKN3hpx7id_typeERKN3hpx7id_typeE">[1]</a>, <a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision11query_stateERKN3hpx7id_typeERN3hpx10error_codeE">[2]</a>, <a href="libs/full/supervision/docs/index.html#_CPPv4N3hpx11supervision11query_stateEN3hpx6launch11sync_policyERKN3hpx7id_typeERKN3hpx7id_typeERN3hpx10error_codeE">[3]</a>, <a href="libs/full/supervision/docs/index.html#_CPPv4N3hpx11supervision11query_stateERKN3hpx7id_typeERKN3hpx7id_typeE">[4]</a>, <a href="libs/full/supervision/docs/index.html#_CPPv4N3hpx11supervision11query_stateERKN3hpx7id_typeERN3hpx10error_codeE">[5]</a>
 </li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision26register_activity_observerEN3hpx6launch11sync_policyERKN3hpx7id_typeERK17activity_callbackNSt8optionalINSt8uint64_tEEERN3hpx10error_codeE">hpx::supervision::register_activity_observer (C++ function)</a>, <a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision26register_activity_observerERK17activity_callbackNSt8optionalINSt8uint64_tEEERN3hpx10error_codeE">[1]</a>, <a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision26register_activity_observerERKN3hpx7id_typeERK17activity_callbackNSt8optionalINSt8uint64_tEEE">[2]</a>, <a href="libs/full/supervision/docs/index.html#_CPPv4N3hpx11supervision26register_activity_observerEN3hpx6launch11sync_policyERKN3hpx7id_typeERKN3hpx11supervision17activity_callbackENSt8optionalINSt8uint64_tEEERN3hpx10error_codeE">[3]</a>, <a href="libs/full/supervision/docs/index.html#_CPPv4N3hpx11supervision26register_activity_observerERKN3hpx11supervision17activity_callbackENSt8optionalINSt8uint64_tEEERN3hpx10error_codeE">[4]</a>, <a href="libs/full/supervision/docs/index.html#_CPPv4N3hpx11supervision26register_activity_observerERKN3hpx7id_typeERKN3hpx11supervision17activity_callbackENSt8optionalINSt8uint64_tEEE">[5]</a>
+</li>
       <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision17register_observerEN3hpx6launch11sync_policyERKN3hpx7id_typeERKN3hpx7id_typeERK18lifecycle_callbackNSt8optionalINSt8uint64_tEEERN3hpx10error_codeE">hpx::supervision::register_observer (C++ function)</a>, <a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision17register_observerERKN3hpx7id_typeERK18lifecycle_callbackNSt8optionalINSt8uint64_tEEERN3hpx10error_codeE">[1]</a>, <a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision17register_observerERKN3hpx7id_typeERKN3hpx7id_typeERK18lifecycle_callbackNSt8optionalINSt8uint64_tEEE">[2]</a>, <a href="libs/full/supervision/docs/index.html#_CPPv4N3hpx11supervision17register_observerEN3hpx6launch11sync_policyERKN3hpx7id_typeERKN3hpx7id_typeERKN3hpx11supervision18lifecycle_callbackENSt8optionalINSt8uint64_tEEERN3hpx10error_codeE">[3]</a>, <a href="libs/full/supervision/docs/index.html#_CPPv4N3hpx11supervision17register_observerERKN3hpx7id_typeERKN3hpx11supervision18lifecycle_callbackENSt8optionalINSt8uint64_tEEERN3hpx10error_codeE">[4]</a>, <a href="libs/full/supervision/docs/index.html#_CPPv4N3hpx11supervision17register_observerERKN3hpx7id_typeERKN3hpx7id_typeERKN3hpx11supervision18lifecycle_callbackENSt8optionalINSt8uint64_tEEE">[5]</a>
+</li>
+      <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision28unregister_activity_observerEN3hpx6launch11sync_policyERKN3hpx7id_typeERKN3hpx7id_typeERN3hpx10error_codeE">hpx::supervision::unregister_activity_observer (C++ function)</a>, <a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision28unregister_activity_observerERKN3hpx7id_typeERKN3hpx7id_typeE">[1]</a>, <a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision28unregister_activity_observerERKN3hpx7id_typeERN3hpx10error_codeE">[2]</a>, <a href="libs/full/supervision/docs/index.html#_CPPv4N3hpx11supervision28unregister_activity_observerEN3hpx6launch11sync_policyERKN3hpx7id_typeERKN3hpx7id_typeERN3hpx10error_codeE">[3]</a>, <a href="libs/full/supervision/docs/index.html#_CPPv4N3hpx11supervision28unregister_activity_observerERKN3hpx7id_typeERKN3hpx7id_typeE">[4]</a>, <a href="libs/full/supervision/docs/index.html#_CPPv4N3hpx11supervision28unregister_activity_observerERKN3hpx7id_typeERN3hpx10error_codeE">[5]</a>
 </li>
       <li><a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision19unregister_observerEN3hpx6launch11sync_policyERKN3hpx7id_typeERKN3hpx7id_typeERN3hpx10error_codeE">hpx::supervision::unregister_observer (C++ function)</a>, <a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision19unregister_observerERKN3hpx7id_typeERKN3hpx7id_typeE">[1]</a>, <a href="libs/full/supervision/api/supervision_api.html#_CPPv4N3hpx11supervision19unregister_observerERKN3hpx7id_typeERN3hpx10error_codeE">[2]</a>, <a href="libs/full/supervision/docs/index.html#_CPPv4N3hpx11supervision19unregister_observerEN3hpx6launch11sync_policyERKN3hpx7id_typeERKN3hpx7id_typeERN3hpx10error_codeE">[3]</a>, <a href="libs/full/supervision/docs/index.html#_CPPv4N3hpx11supervision19unregister_observerERKN3hpx7id_typeERKN3hpx7id_typeE">[4]</a>, <a href="libs/full/supervision/docs/index.html#_CPPv4N3hpx11supervision19unregister_observerERKN3hpx7id_typeERN3hpx10error_codeE">[5]</a>
 </li>
@@ -10158,7 +10204,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 27, 2026.
+  Last updated on Jul 28, 2026.
   <br/>
 </p>
   </div>

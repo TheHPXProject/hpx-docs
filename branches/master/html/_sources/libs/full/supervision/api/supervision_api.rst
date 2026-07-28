@@ -7,9 +7,9 @@
 
 .. _modules_hpx/supervision/supervision_api.hpp_api:
 
-------------------------------------------------------------------------------------------------------------------------------------------
-hpx::supervision::publish_event, hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer
-------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+hpx::supervision::publish_event, hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer, hpx::supervision::register_activity_observer, hpx::supervision::unregister_activity_observer
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Defined in header hpx/supervision.hpp.
 

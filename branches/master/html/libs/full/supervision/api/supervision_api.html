@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>hpx::supervision::publish_event, hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer &#8212; HPX 2.0.0 documentation</title>
+    <title>hpx::supervision::publish_event, hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer, hpx::supervision::register_activity_observer, hpx::supervision::unregister_activity_observer &#8212; HPX 2.0.0 documentation</title>
   
   
   
@@ -531,7 +531,7 @@
 </ul>
 </li>
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="full_api.html">supervision</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l4 current active"><a class="current reference internal" href="#">hpx::supervision::publish_event, hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">hpx::supervision::publish_event, hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer, hpx::supervision::register_activity_observer, hpx::supervision::unregister_activity_observer</a></li>
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/algorithms/api/full_api.html">algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -1232,7 +1232,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>hpx::supervision::publish_event, hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer</h1>
+    <h1>hpx::supervision::publish_event, hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer, hpx::supervision::register_activity_observer, hpx::supervision::unregister_activity_observer</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -1246,8 +1246,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="hpx-supervision-publish-event-hpx-supervision-query-state-hpx-supervision-register-observer-hpx-supervision-unregister-observer">
-<span id="modules-hpx-supervision-supervision-api-hpp-api"></span><h1>hpx::supervision::publish_event, hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer<a class="headerlink" href="#hpx-supervision-publish-event-hpx-supervision-query-state-hpx-supervision-register-observer-hpx-supervision-unregister-observer" title="Permalink to this heading">#</a></h1>
+  <section id="hpx-supervision-publish-event-hpx-supervision-query-state-hpx-supervision-register-observer-hpx-supervision-unregister-observer-hpx-supervision-register-activity-observer-hpx-supervision-unregister-activity-observer">
+<span id="modules-hpx-supervision-supervision-api-hpp-api"></span><h1>hpx::supervision::publish_event, hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer, hpx::supervision::register_activity_observer, hpx::supervision::unregister_activity_observer<a class="headerlink" href="#hpx-supervision-publish-event-hpx-supervision-query-state-hpx-supervision-register-observer-hpx-supervision-unregister-observer-hpx-supervision-register-activity-observer-hpx-supervision-unregister-activity-observer" title="Permalink to this heading">#</a></h1>
 <p>Defined in header hpx/supervision.hpp.</p>
 <p>See <a class="reference internal" href="../../../../api/public_api.html#public-api"><span class="std std-ref">Public API</span></a> for a list of names and headers that are part of the public
 <em>HPX</em> API.</p>
@@ -1271,6 +1271,26 @@ document.write(`
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The callback must not block indefinitely; local observers are invoked synchronously from within the call that publishes the event. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if the observer should stay registered, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise (i.e., <code class="docutils literal notranslate"><span class="pre">false</span></code> will unregister the observer and no further callbacks will be invoked for the given observer).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision17activity_callbackE">
+<span id="_CPPv3N3hpx11supervision17activity_callbackE"></span><span id="_CPPv2N3hpx11supervision17activity_callbackE"></span><span class="target" id="supervision__api_8hpp_1a51933f3894d31c5ef2635361093014d5"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">activity_callback</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">bool</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#_CPPv4N3hpx11supervision21activity_notificationE" title="hpx::supervision::activity_notification"><span class="n"><span class="pre">activity_notification</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision17activity_callbackE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Callback type used to observe activity-state transitions for a supervised target. </p>
+<p>The callback is invoked with the <a class="reference internal" href="#structhpx_1_1supervision_1_1activity__notification"><span class="std std-ref">activity_notification</span></a> describing the transition that occurred. Delivery status (e.g. staleness or delivery failures for remote observers) is reported via <code class="docutils literal notranslate"><span class="pre">notification.ec</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Any exception thrown from the callback is logged and does not affect observer registration. </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The callback must not block indefinitely; local observers are invoked synchronously from within the call that triggers the transition. </p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return</dt>
@@ -1352,6 +1372,77 @@ document.write(`
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision14publish_result11stale_epochE">
 <span id="_CPPv3N3hpx11supervision14publish_result11stale_epochE"></span><span id="_CPPv2N3hpx11supervision14publish_result11stale_epochE"></span><span class="target" id="supervision__api_8hpp_1ad4c7a7cd2ee6b9c5c086f1ed658b56f6a7c7eb6efb4f1b7cfc02c2cf3939366db"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">stale_epoch</span></span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision14publish_result11stale_epochE" title="Permalink to this definition">#</a><br /></dt>
 <dd><p><em>epoch</em> was lower than the target’s current epoch; the call was a stale/out-of-order publication, rejected as a no-op without mutating state or notifying observers. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp enum-class">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision16dispatch_outcomeE">
+<span id="_CPPv3N3hpx11supervision16dispatch_outcomeE"></span><span id="_CPPv2N3hpx11supervision16dispatch_outcomeE"></span><span class="target" id="supervision__api_8hpp_1a779f35ae6dad072ab40c8c9cc8bdc056"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dispatch_outcome</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint8_t</span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision16dispatch_outcomeE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Outcome of an admission check performed before dispatching new work to a target. </p>
+<p>Unlike <code class="docutils literal notranslate"><span class="pre">publish_result</span></code>, which reports how a <em>publication</em> was resolved, <code class="docutils literal notranslate"><span class="pre">dispatch_outcome</span></code> answers a <em>consumer-side</em> question: is it safe to schedule/route work to this target right now? </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision16dispatch_outcome8admittedE">
+<span id="_CPPv3N3hpx11supervision16dispatch_outcome8admittedE"></span><span id="_CPPv2N3hpx11supervision16dispatch_outcome8admittedE"></span><span class="target" id="supervision__api_8hpp_1a779f35ae6dad072ab40c8c9cc8bdc056a228d58eccdf6411184ad665467955e5a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">admitted</span></span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision16dispatch_outcome8admittedE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The target has not latched a terminal event for the queried epoch; dispatch may proceed. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision16dispatch_outcome15rejected_fencedE">
+<span id="_CPPv3N3hpx11supervision16dispatch_outcome15rejected_fencedE"></span><span id="_CPPv2N3hpx11supervision16dispatch_outcome15rejected_fencedE"></span><span class="target" id="supervision__api_8hpp_1a779f35ae6dad072ab40c8c9cc8bdc056a07ed1c5dfecc566d5ce834974046f648"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rejected_fenced</span></span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision16dispatch_outcome15rejected_fencedE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The target has already latched a terminal event (<code class="docutils literal notranslate"><span class="pre">completed</span></code> or <code class="docutils literal notranslate"><span class="pre">failed</span></code>) for the queried epoch, as observed by the <em>local</em> supervision manager; dispatch was refused. This is final relative to this locality’s latch state - not a stale read - so callers on the locality that owns <em>target</em> should not retry against this target/epoch. It says nothing about localities other than the one hosting <em>target’s</em> supervision manager (see <code class="docutils literal notranslate"><span class="pre">check_admission's</span></code> note on locality scope). </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp enum-class">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision14activity_stateE">
+<span id="_CPPv3N3hpx11supervision14activity_stateE"></span><span id="_CPPv2N3hpx11supervision14activity_stateE"></span><span class="target" id="supervision__api_8hpp_1ad98678a65bf7d59bee91fabc704f5d6d"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">activity_state</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint8_t</span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision14activity_stateE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The activity state of a supervised target, as tracked by <em><a class="reference internal" href="#supervision__api_8hpp_1a64dccbe437ab646d587b4e7273a6479b"><span class="std std-ref">register_activity_observer()</span></a></em>. </p>
+<p>A target is considered <code class="docutils literal notranslate"><span class="pre">active</span></code> as soon as it has published at least one lifecycle event or has at least one registered activity observer, whichever happens first, and remains so until every activity observer has been unregistered again. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision14activity_state8inactiveE">
+<span id="_CPPv3N3hpx11supervision14activity_state8inactiveE"></span><span id="_CPPv2N3hpx11supervision14activity_state8inactiveE"></span><span class="target" id="supervision__api_8hpp_1ad98678a65bf7d59bee91fabc704f5d6da19d3894f53ce79c3f836f26cf8a3be3b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">inactive</span></span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision14activity_state8inactiveE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The target has never published a lifecycle event and currently has no registered activity observers. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision14activity_state6activeE">
+<span id="_CPPv3N3hpx11supervision14activity_state6activeE"></span><span id="_CPPv2N3hpx11supervision14activity_state6activeE"></span><span class="target" id="supervision__api_8hpp_1ad98678a65bf7d59bee91fabc704f5d6dac76a5e84e4bdee527e274ea30c680d79"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">active</span></span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision14activity_state6activeE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The target has published at least one lifecycle event, or has at least one registered activity observer. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp enum-class">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision19activity_transitionE">
+<span id="_CPPv3N3hpx11supervision19activity_transitionE"></span><span id="_CPPv2N3hpx11supervision19activity_transitionE"></span><span class="target" id="supervision__api_8hpp_1af1966a632a33f5f40d055ffbf9256080"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">activity_transition</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint8_t</span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision19activity_transitionE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The reason a <em><a class="reference internal" href="#structhpx_1_1supervision_1_1activity__notification"><span class="std std-ref">activity_notification</span></a></em> was delivered. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision19activity_transition11first_eventE">
+<span id="_CPPv3N3hpx11supervision19activity_transition11first_eventE"></span><span id="_CPPv2N3hpx11supervision19activity_transition11first_eventE"></span><span class="target" id="supervision__api_8hpp_1af1966a632a33f5f40d055ffbf9256080a93bb29cbb053d617ca51730ba34495eb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">first_event</span></span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision19activity_transition11first_eventE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The target transitioned to <code class="docutils literal notranslate"><span class="pre">activity_state::active</span></code> because it published its first lifecycle event. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision19activity_transition14first_observerE">
+<span id="_CPPv3N3hpx11supervision19activity_transition14first_observerE"></span><span id="_CPPv2N3hpx11supervision19activity_transition14first_observerE"></span><span class="target" id="supervision__api_8hpp_1af1966a632a33f5f40d055ffbf9256080a31255f74a541e0995adedccdf8328b07"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">first_observer</span></span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision19activity_transition14first_observerE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The target transitioned to <code class="docutils literal notranslate"><span class="pre">activity_state::active</span></code> because the first per-target lifecycle observer was registered for it. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision19activity_transition26last_observer_unregisteredE">
+<span id="_CPPv3N3hpx11supervision19activity_transition26last_observer_unregisteredE"></span><span id="_CPPv2N3hpx11supervision19activity_transition26last_observer_unregisteredE"></span><span class="target" id="supervision__api_8hpp_1af1966a632a33f5f40d055ffbf9256080a171393072532ccdbd5032809dd63584a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">last_observer_unregistered</span></span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision19activity_transition26last_observer_unregisteredE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The target transitioned to <code class="docutils literal notranslate"><span class="pre">activity_state::inactive</span></code> because its last remaining per-target lifecycle observer was unregistered. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision19activity_transition14already_activeE">
+<span id="_CPPv3N3hpx11supervision19activity_transition14already_activeE"></span><span id="_CPPv2N3hpx11supervision19activity_transition14already_activeE"></span><span class="target" id="supervision__api_8hpp_1af1966a632a33f5f40d055ffbf9256080a441ae66b18694109d2b7742459d00ba8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">already_active</span></span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision19activity_transition14already_activeE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The target was already <code class="docutils literal notranslate"><span class="pre">activity_state::active</span></code> at the time a per-target lifecycle observer was registered for it. Delivered as a replay, synchronously as part of registration under the same lock that guards the activity state, so that a newly-registered observer cannot miss (nor be delivered twice for) a transition that raced with its own registration. </p>
 </dd></dl>
 
 </dd></dl>
@@ -1458,7 +1549,7 @@ document.write(`
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision19is_valid_transitionE5event5event">
 <span id="_CPPv3N3hpx11supervision19is_valid_transitionE5event5event"></span><span id="_CPPv2N3hpx11supervision19is_valid_transitionE5event5event"></span><span id="hpx::supervision::is_valid_transition__event.event"></span><span class="target" id="supervision__api_8hpp_1abd3bb62b40e3dc1aacf28142d676cd49"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_valid_transition</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3hpx11supervision5eventE" title="hpx::supervision::event"><span class="n"><span class="pre">event</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">from</span></span>, <a class="reference internal" href="#_CPPv4N3hpx11supervision5eventE" title="hpx::supervision::event"><span class="n"><span class="pre">event</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">to</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision19is_valid_transitionE5event5event" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Determine whether transitioning from lifecycle event <em>from</em> to lifecycle event <em>to</em> is permitted by the supervision lifecycle state machine. </p>
-<p><em>completed</em> and <em>failed</em> are terminal states and have no outgoing transitions. <em>losing_locality</em> is only reachable from <em>started</em>, <em>running</em>, or <em>suspending</em>, and may only transition to <em>failed</em>. A missing prior event is represented as <em>event::unknown</em>, from which the only valid transition is to <em>started</em>. </p>
+<p><em>event::completed</em> and <em>event::failed</em> are terminal states and have no outgoing transitions. <em>event::losing_locality</em> is only reachable from <em>event::started</em>, <em>event::running</em>, or <em>event::suspending</em>, and may only transition to <em>failed</em>. A missing prior event is represented as <em>event::unknown</em>, from which the only valid transition is to <em>event::started</em>. </p>
 </dd></dl>
 
 <dl class="cpp function">
@@ -1784,14 +1875,262 @@ document.write(`
 </dl>
 </dd></dl>
 
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision15check_admissionERKN3hpx7id_typeENSt8uint64_tE">
+<span id="_CPPv3N3hpx11supervision15check_admissionERKN3hpx7id_typeENSt8uint64_tE"></span><span id="_CPPv2N3hpx11supervision15check_admissionERKN3hpx7id_typeENSt8uint64_tE"></span><span id="hpx::supervision::check_admission__hpx::id_typeCR.std::uint64_t"></span><span class="target" id="supervision__api_8hpp_1afcacae666a2b8c6ffd3118a0f601489a"></span><a class="reference internal" href="#_CPPv4N3hpx11supervision16dispatch_outcomeE" title="hpx::supervision::dispatch_outcome"><span class="n"><span class="pre">dispatch_outcome</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">check_admission</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">target</span></span>, <a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">epoch</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision15check_admissionERKN3hpx7id_typeENSt8uint64_tE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Check whether <em>target</em> currently admits new dispatch under <em>epoch</em>. </p>
+<p>Queries the local supervision manager’s terminal-latch state for <em>target</em> within <em>epoch</em>, i.e. the same state maintained by <em><a class="reference internal" href="#supervision__api_8hpp_1acef9b875c8bd80ffb1dde89c884837f2"><span class="std std-ref">publish_event()</span></a></em> and consulted by <em><a class="reference internal" href="#supervision__api_8hpp_1a2ab2474ef31d8bfd606bd35bbb39133c"><span class="std std-ref">await_terminal()</span></a></em>. Does not publish, mutate state, or notify observers.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a pure local read of already-resident latch state, not a query that can fail the way a remote <em><a class="reference internal" href="#supervision__api_8hpp_1acef9b875c8bd80ffb1dde89c884837f2"><span class="std std-ref">publish_event()</span></a></em> call can; it never throws and carries no <em>hpx::error_code</em> out-parameter. </p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The terminal latch consulted here is populated only by <em><a class="reference internal" href="#supervision__api_8hpp_1acef9b875c8bd80ffb1dde89c884837f2"><span class="std std-ref">publish_event()</span></a></em> calls delivered to <em>this</em> locality’s supervision manager for <em>target</em>. It is not synchronized across localities: a terminal event published to a different locality’s manager for the same logical target/epoch is invisible here and does not affect this call’s outcome. <code class="docutils literal notranslate"><span class="pre">register_observer</span></code> / <code class="docutils literal notranslate"><span class="pre">unregister_observer</span></code> notifications do not feed this state either. Any locality other than the one hosting <em>target’s</em> supervision manager that needs to gate its own dispatch decisions on <em>target’s</em> terminal state must build that cross-locality propagation itself (e.g. registering an observer with the owning locality and re-publishing locally, or routing the admission decision to the owning locality); this API provides no such mechanism. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> – [in] The actor (or component) to check. Must be local to the calling locality. </p></li>
+<li><p><strong>epoch</strong> – [in] The epoch dispatch would occur under.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">dispatch_outcome::rejected_fenced</span></code> if <em>target</em> has already latched a terminal event (<code class="docutils literal notranslate"><span class="pre">completed</span></code> or <code class="docutils literal notranslate"><span class="pre">failed</span></code>) under <em>epoch</em>, <code class="docutils literal notranslate"><span class="pre">dispatch_outcome::admitted</span></code> otherwise (including when <em>target</em> is unknown locally or invalid).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision26register_activity_observerERKN3hpx7id_typeERK17activity_callbackNSt8optionalINSt8uint64_tEEE">
+<span id="_CPPv3N3hpx11supervision26register_activity_observerERKN3hpx7id_typeERK17activity_callbackNSt8optionalINSt8uint64_tEEE"></span><span id="_CPPv2N3hpx11supervision26register_activity_observerERKN3hpx7id_typeERK17activity_callbackNSt8optionalINSt8uint64_tEEE"></span><span id="hpx::supervision::register_activity_observer__hpx::id_typeCR.activity_callbackCR.std::optional:std::uint64_t:"></span><span class="target" id="supervision__api_8hpp_1a8dc915e62df241d8dcb214a41fbce517"></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/futures/api/future.html#_CPPv4I0EN3hpx6futureE" title="hpx::future"><span class="n"><span class="pre">future</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">register_activity_observer</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">locality</span></span>, <a class="reference internal" href="#_CPPv4N3hpx11supervision17activity_callbackE" title="hpx::supervision::activity_callback"><span class="n"><span class="pre">activity_callback</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">callback</span></span>, <a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">optional</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">epoch_filter</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">nullopt</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx11supervision26register_activity_observerERKN3hpx7id_typeERK17activity_callbackNSt8optionalINSt8uint64_tEEE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Register a callback to observe activity-state transitions of all targets tracked on a possibly remote locality. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For every target tracked on <em>locality</em> that is already <code class="docutils literal notranslate"><span class="pre">activity_state::active</span></code> at registration time, the new observer synchronously receives one replay notification (carrying <code class="docutils literal notranslate"><span class="pre">activity_transition::already_active</span></code>) as part of registration, taken under the same lock that serializes activity-state transitions. This guarantees the observer sees exactly one notification for each such target’s current activity state: either the replay, or a live transition that raced with registration, but never both and never neither. </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If <em>locality</em> is the local locality, callbacks (including the registration-time replay) are invoked synchronously from within the call that triggered the transition (best effort; the callback must not block indefinitely). </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If <em>locality</em> is remote, callbacks are invoked asynchronously via a dedicated parcel, with retry semantics (e.g., 3 attempts over 500 ms before logging failure). </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The callback must not throw; exceptions thrown from it are logged and do not affect the observer registration. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>locality</strong> – [in] The locality on which the callback should be registered. </p></li>
+<li><p><strong>callback</strong> – [in] The callback invoked whenever any target tracked on <em>locality</em> transitions between <em>activity_state::inactive</em> and <em>activity_state::active</em>. </p></li>
+<li><p><strong>epoch_filter</strong> – [in] If set, restricts notifications to transitions recorded under this epoch; transitions recorded under any other epoch are silently skipped for this observer. This also applies to the registration-time replay described below. If <code class="docutils literal notranslate"><span class="pre">std::nullopt</span></code> (the default), the observer is notified regardless of epoch.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n">hpx</span></a><span class="p">::</span><a class="reference internal" href="../../../core/errors/api/exception.html#_CPPv4N3hpx9exceptionE" title="hpx::exception"><span class="n">exception</span></a></span></span> – if <em>locality</em> does not represent a locality. The returned future becomes exceptional if the operation fails.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A future holding the global id of the observer handle. This handle must be passed to <em><a class="reference internal" href="#supervision__api_8hpp_1ac45aa3e8f413d382a84fe45b3fc8c1be"><span class="std std-ref">unregister_activity_observer()</span></a></em> in order to stop receiving notifications.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision26register_activity_observerEN3hpx6launch11sync_policyERKN3hpx7id_typeERK17activity_callbackNSt8optionalINSt8uint64_tEEERN3hpx10error_codeE">
+<span id="_CPPv3N3hpx11supervision26register_activity_observerEN3hpx6launch11sync_policyERKN3hpx7id_typeERK17activity_callbackNSt8optionalINSt8uint64_tEEERN3hpx10error_codeE"></span><span id="_CPPv2N3hpx11supervision26register_activity_observerEN3hpx6launch11sync_policyERKN3hpx7id_typeERK17activity_callbackNSt8optionalINSt8uint64_tEEERN3hpx10error_codeE"></span><span id="hpx::supervision::register_activity_observer__hpx::launch::sync_policy.hpx::id_typeCR.activity_callbackCR.std::optional:std::uint64_t:.hpx::error_codeR"></span><span class="target" id="supervision__api_8hpp_1ae3605f06257736a6411ebfc3ae6f2d75"></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">register_activity_observer</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/async_base/api/launch_policy.html#_CPPv4N3hpx6launchE" title="hpx::launch"><span class="n"><span class="pre">launch</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">sync_policy</span></span>, <a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">locality</span></span>, <a class="reference internal" href="#_CPPv4N3hpx11supervision17activity_callbackE" title="hpx::supervision::activity_callback"><span class="n"><span class="pre">activity_callback</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">callback</span></span>, <a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">optional</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">epoch_filter</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">nullopt</span></span>, <a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/errors/api/error_code.html#_CPPv4N3hpx10error_codeE" title="hpx::error_code"><span class="n"><span class="pre">error_code</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ec</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/errors/api/exception_fwd.html#_CPPv4N3hpx6throwsE" title="hpx::throws"><span class="n"><span class="pre">throws</span></span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx11supervision26register_activity_observerEN3hpx6launch11sync_policyERKN3hpx7id_typeERK17activity_callbackNSt8optionalINSt8uint64_tEEERN3hpx10error_codeE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Register a callback to observe activity-state transitions of all targets tracked on a possibly remote locality, blocking until the registration has completed. </p>
+<p>This is the synchronous equivalent of <em>register_activity_observer</em>(hpx::id_type const&amp;, activity_callback const&amp;, std::optional&lt;std::uint64_t&gt;).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>locality</strong> – [in] The locality on which the callback should be registered. </p></li>
+<li><p><strong>callback</strong> – [in] The callback invoked whenever any target tracked on <em>locality</em> transitions between <em>activity_state::inactive</em> and <em>activity_state::active</em>. </p></li>
+<li><p><strong>epoch_filter</strong> – [in] If set, restricts notifications to transitions recorded under this epoch; see the asynchronous overload for details, including how this applies to the registration-time replay. </p></li>
+<li><p><strong>ec</strong> – [in,out] this represents the error status on exit, if this is pre-initialized to <em>hpx::throws</em> the function will throw on error instead.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n">hpx</span></a><span class="p">::</span><a class="reference internal" href="../../../core/errors/api/exception.html#_CPPv4N3hpx9exceptionE" title="hpx::exception"><span class="n">exception</span></a></span></span> – if <em>locality</em> does not represent a locality, unless <em>ec</em> was not pre-initialized to <em>hpx::throws</em>. </p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The global id of the observer handle. This handle must be passed to <em><a class="reference internal" href="#supervision__api_8hpp_1ac45aa3e8f413d382a84fe45b3fc8c1be"><span class="std std-ref">unregister_activity_observer()</span></a></em> in order to stop receiving notifications.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision26register_activity_observerERK17activity_callbackNSt8optionalINSt8uint64_tEEERN3hpx10error_codeE">
+<span id="_CPPv3N3hpx11supervision26register_activity_observerERK17activity_callbackNSt8optionalINSt8uint64_tEEERN3hpx10error_codeE"></span><span id="_CPPv2N3hpx11supervision26register_activity_observerERK17activity_callbackNSt8optionalINSt8uint64_tEEERN3hpx10error_codeE"></span><span id="hpx::supervision::register_activity_observer__activity_callbackCR.std::optional:std::uint64_t:.hpx::error_codeR"></span><span class="target" id="supervision__api_8hpp_1a64dccbe437ab646d587b4e7273a6479b"></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">register_activity_observer</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3hpx11supervision17activity_callbackE" title="hpx::supervision::activity_callback"><span class="n"><span class="pre">activity_callback</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">callback</span></span>, <a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">optional</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">epoch_filter</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">nullopt</span></span>, <a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/errors/api/error_code.html#_CPPv4N3hpx10error_codeE" title="hpx::error_code"><span class="n"><span class="pre">error_code</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ec</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/errors/api/exception_fwd.html#_CPPv4N3hpx6throwsE" title="hpx::throws"><span class="n"><span class="pre">throws</span></span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx11supervision26register_activity_observerERK17activity_callbackNSt8optionalINSt8uint64_tEEERN3hpx10error_codeE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Register a callback to observe activity-state transitions of all targets tracked on the local locality. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As for the remote overloads, for every target on the local locality that is already <code class="docutils literal notranslate"><span class="pre">activity_state::active</span></code> at registration time, one <code class="docutils literal notranslate"><span class="pre">activity_transition:</span></code>: already_active replay notification is delivered synchronously as part of this call, taken under the same lock that serializes activity-state transitions, so the observer can neither miss nor double-receive any active target’s current activity state. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>callback</strong> – [in] The callback invoked whenever any target tracked on the local locality transitions between <em>activity_state::inactive</em> and <em>activity_state::active</em>. </p></li>
+<li><p><strong>epoch_filter</strong> – [in] If set, restricts notifications to transitions recorded under this epoch, including the registration-time replay; see the remote overload for details. If <code class="docutils literal notranslate"><span class="pre">std::nullopt</span></code> (the default), the observer is notified regardless of epoch. </p></li>
+<li><p><strong>ec</strong> – [in,out] this represents the error status on exit, if this is pre-initialized to <em>hpx::throws</em> the function will throw on error instead.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n">hpx</span></a><span class="p">::</span><a class="reference internal" href="../../../core/errors/api/exception.html#_CPPv4N3hpx9exceptionE" title="hpx::exception"><span class="n">exception</span></a></span></span> – if the operation fails, unless <em>ec</em> was initialized to <em>hpx::throws</em>.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The global id of the observer handle. This handle must be passed to <em><a class="reference internal" href="#supervision__api_8hpp_1ac45aa3e8f413d382a84fe45b3fc8c1be"><span class="std std-ref">unregister_activity_observer()</span></a></em> in order to stop receiving notifications.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision28unregister_activity_observerERKN3hpx7id_typeERKN3hpx7id_typeE">
+<span id="_CPPv3N3hpx11supervision28unregister_activity_observerERKN3hpx7id_typeERKN3hpx7id_typeE"></span><span id="_CPPv2N3hpx11supervision28unregister_activity_observerERKN3hpx7id_typeERKN3hpx7id_typeE"></span><span id="hpx::supervision::unregister_activity_observer__hpx::id_typeCR.hpx::id_typeCR"></span><span class="target" id="supervision__api_8hpp_1a740f6d61e606a5462c0e74b84a901e7a"></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/futures/api/future.html#_CPPv4I0EN3hpx6futureE" title="hpx::future"><span class="n"><span class="pre">future</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">unregister_activity_observer</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">locality</span></span>, <a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">observer_handle</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx11supervision28unregister_activity_observerERKN3hpx7id_typeERKN3hpx7id_typeE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Unregister a previously registered activity observer on a possibly remote locality. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Once the returned future has become ready, no orphaned callbacks fire after unregistration completes. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>locality</strong> – [in] The locality on which the observer was registered. </p></li>
+<li><p><strong>observer_handle</strong> – [in] The handle returned by a prior call to <em><a class="reference internal" href="#supervision__api_8hpp_1a64dccbe437ab646d587b4e7273a6479b"><span class="std std-ref">register_activity_observer()</span></a></em>. Only handles returned from that function are accepted; passing a handle obtained from <em><a class="reference internal" href="#supervision__api_8hpp_1ab703ac049e6f4a92094ce969df02a8ab"><span class="std std-ref">register_observer()</span></a></em> (or any foreign handle) is rejected.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n">hpx</span></a><span class="p">::</span><a class="reference internal" href="../../../core/errors/api/exception.html#_CPPv4N3hpx9exceptionE" title="hpx::exception"><span class="n">exception</span></a></span></span> – if <em>locality</em> does not represent a locality, or if <em>observer_handle</em> does not represent a valid activity-observer handle. The returned future becomes exceptional if the operation fails.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A future that becomes ready once the observer has been unregistered.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision28unregister_activity_observerEN3hpx6launch11sync_policyERKN3hpx7id_typeERKN3hpx7id_typeERN3hpx10error_codeE">
+<span id="_CPPv3N3hpx11supervision28unregister_activity_observerEN3hpx6launch11sync_policyERKN3hpx7id_typeERKN3hpx7id_typeERN3hpx10error_codeE"></span><span id="_CPPv2N3hpx11supervision28unregister_activity_observerEN3hpx6launch11sync_policyERKN3hpx7id_typeERKN3hpx7id_typeERN3hpx10error_codeE"></span><span id="hpx::supervision::unregister_activity_observer__hpx::launch::sync_policy.hpx::id_typeCR.hpx::id_typeCR.hpx::error_codeR"></span><span class="target" id="supervision__api_8hpp_1affbcab6182f0ec6e16065371cad4e4ec"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">unregister_activity_observer</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/async_base/api/launch_policy.html#_CPPv4N3hpx6launchE" title="hpx::launch"><span class="n"><span class="pre">launch</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">sync_policy</span></span>, <a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">locality</span></span>, <a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">observer_handle</span></span>, <a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/errors/api/error_code.html#_CPPv4N3hpx10error_codeE" title="hpx::error_code"><span class="n"><span class="pre">error_code</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ec</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/errors/api/exception_fwd.html#_CPPv4N3hpx6throwsE" title="hpx::throws"><span class="n"><span class="pre">throws</span></span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx11supervision28unregister_activity_observerEN3hpx6launch11sync_policyERKN3hpx7id_typeERKN3hpx7id_typeERN3hpx10error_codeE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Unregister a previously registered activity observer on a possibly remote locality, blocking until the operation has completed. </p>
+<p>This is the synchronous equivalent of <em>unregister_activity_observer</em>(hpx::id_type const&amp;, hpx::id_type const&amp;).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>No orphaned callbacks fire after unregistration completes. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>locality</strong> – [in] The locality on which the observer was registered. </p></li>
+<li><p><strong>observer_handle</strong> – [in] The handle returned by a prior call to <em><a class="reference internal" href="#supervision__api_8hpp_1a64dccbe437ab646d587b4e7273a6479b"><span class="std std-ref">register_activity_observer()</span></a></em>. See the asynchronous overload regarding foreign handles. </p></li>
+<li><p><strong>ec</strong> – [in,out] this represents the error status on exit, if this pre-initialized to <em>hpx::throws</em> the function will throw on error instead.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n">hpx</span></a><span class="p">::</span><a class="reference internal" href="../../../core/errors/api/exception.html#_CPPv4N3hpx9exceptionE" title="hpx::exception"><span class="n">exception</span></a></span></span> – if <em>locality</em> does not represent a locality, or if <em>observer_handle</em> does not represent a valid activity-observer handle, unless <em>ec</em> was initialized not to <em>hpx::throws</em>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision28unregister_activity_observerERKN3hpx7id_typeERN3hpx10error_codeE">
+<span id="_CPPv3N3hpx11supervision28unregister_activity_observerERKN3hpx7id_typeERN3hpx10error_codeE"></span><span id="_CPPv2N3hpx11supervision28unregister_activity_observerERKN3hpx7id_typeERN3hpx10error_codeE"></span><span id="hpx::supervision::unregister_activity_observer__hpx::id_typeCR.hpx::error_codeR"></span><span class="target" id="supervision__api_8hpp_1ac45aa3e8f413d382a84fe45b3fc8c1be"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">unregister_activity_observer</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">observer_handle</span></span>, <a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/errors/api/error_code.html#_CPPv4N3hpx10error_codeE" title="hpx::error_code"><span class="n"><span class="pre">error_code</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ec</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/errors/api/exception_fwd.html#_CPPv4N3hpx6throwsE" title="hpx::throws"><span class="n"><span class="pre">throws</span></span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx11supervision28unregister_activity_observerERKN3hpx7id_typeERN3hpx10error_codeE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Unregister a previously registered activity observer on the local locality. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>No orphaned callbacks fire after unregistration completes. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>observer_handle</strong> – [in] The handle returned by a prior call to <em><a class="reference internal" href="#supervision__api_8hpp_1a64dccbe437ab646d587b4e7273a6479b"><span class="std std-ref">register_activity_observer()</span></a></em>. Must be local to the calling locality. See the remote overload regarding foreign handles. </p></li>
+<li><p><strong>ec</strong> – [in,out] this represents the error status on exit, if this is pre-initialized to <em>hpx::throws</em> the function will throw on error instead.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n">hpx</span></a><span class="p">::</span><a class="reference internal" href="../../../core/errors/api/exception.html#_CPPv4N3hpx9exceptionE" title="hpx::exception"><span class="n">exception</span></a></span></span> – if <em>observer_handle</em> does not represent a valid activity-observer handle, unless <em>ec</em> was not pre-initialized to <em>hpx::throws</em>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision21activity_notificationE">
+<span id="_CPPv3N3hpx11supervision21activity_notificationE"></span><span id="_CPPv2N3hpx11supervision21activity_notificationE"></span><span id="hpx::supervision::activity_notification"></span><span class="target" id="structhpx_1_1supervision_1_1activity__notification"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">activity_notification</span></span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision21activity_notificationE" title="Permalink to this definition">#</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;supervision_api.hpp&gt;</em></div>
+<p>Payload delivered to a registered per-target lifecycle observer callback whenever a supervised target transitions between <em>activity_state::inactive</em> and <em>activity_state::active</em>. </p>
+<p>A <code class="docutils literal notranslate"><a class="reference internal" href="#structhpx_1_1supervision_1_1activity__notification"><span class="std std-ref"><span class="pre">activity_notification</span></span></a></code> is constructed by the supervision manager whenever <a class="reference internal" href="#structhpx_1_1supervision_1_1activity__notification_1a994a1189f9e726022d3f2fed99b96385"><span class="std std-ref">actor</span></a>’s activity state changes (see activity_transition), and once more, synchronously at registration time, if <a class="reference internal" href="#structhpx_1_1supervision_1_1activity__notification_1a994a1189f9e726022d3f2fed99b96385"><span class="std std-ref">actor</span></a> is already active when hpx::supervision::register_activity_observer is called (carrying <code class="docutils literal notranslate"><span class="pre">activity_transition::already_active</span></code>). It is delivered synchronously to local observers within the call that triggered the transition, and asynchronously via a dedicated parcel to remote observers.</p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>hpx::supervision::activity_state </p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>hpx::supervision::activity_transition </p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>hpx::supervision::activity_callback </p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>hpx::supervision::register_activity_observer </p>
+</div>
+</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Instances are serializable so that they may be transmitted to remote observers across localities.</p>
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision21activity_notification5actorE">
+<span id="_CPPv3N3hpx11supervision21activity_notification5actorE"></span><span id="_CPPv2N3hpx11supervision21activity_notification5actorE"></span><span id="hpx::supervision::activity_notification::actor__hpx::id_type"></span><span class="target" id="structhpx_1_1supervision_1_1activity__notification_1a994a1189f9e726022d3f2fed99b96385"></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">id_type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">actor</span></span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision21activity_notification5actorE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The global id of the actor this notification describes. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision21activity_notification5stateE">
+<span id="_CPPv3N3hpx11supervision21activity_notification5stateE"></span><span id="_CPPv2N3hpx11supervision21activity_notification5stateE"></span><span id="hpx::supervision::activity_notification::state__activity_state"></span><span class="target" id="structhpx_1_1supervision_1_1activity__notification_1a9c0f92fab38205d6c8af6446f7cb1e86"></span><a class="reference internal" href="#_CPPv4N3hpx11supervision14activity_stateE" title="hpx::supervision::activity_state"><span class="n"><span class="pre">activity_state</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">state</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3hpx11supervision14activity_stateE" title="hpx::supervision::activity_state"><span class="n"><span class="pre">activity_state</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N3hpx11supervision14activity_state8inactiveE" title="hpx::supervision::activity_state::inactive"><span class="n"><span class="pre">inactive</span></span></a><a class="headerlink" href="#_CPPv4N3hpx11supervision21activity_notification5stateE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The activity state <a class="reference internal" href="#structhpx_1_1supervision_1_1activity__notification_1a994a1189f9e726022d3f2fed99b96385"><span class="std std-ref">actor</span></a> transitioned to. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision21activity_notification10transitionE">
+<span id="_CPPv3N3hpx11supervision21activity_notification10transitionE"></span><span id="_CPPv2N3hpx11supervision21activity_notification10transitionE"></span><span id="hpx::supervision::activity_notification::transition__activity_transition"></span><span class="target" id="structhpx_1_1supervision_1_1activity__notification_1ab63d7c2ac103d8159e1961ff55f2221d"></span><a class="reference internal" href="#_CPPv4N3hpx11supervision19activity_transitionE" title="hpx::supervision::activity_transition"><span class="n"><span class="pre">activity_transition</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">transition</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3hpx11supervision19activity_transitionE" title="hpx::supervision::activity_transition"><span class="n"><span class="pre">activity_transition</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N3hpx11supervision19activity_transition11first_eventE" title="hpx::supervision::activity_transition::first_event"><span class="n"><span class="pre">first_event</span></span></a><a class="headerlink" href="#_CPPv4N3hpx11supervision21activity_notification10transitionE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The reason this notification was delivered. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision21activity_notification10event_timeE">
+<span id="_CPPv3N3hpx11supervision21activity_notification10event_timeE"></span><span id="_CPPv2N3hpx11supervision21activity_notification10event_timeE"></span><span id="hpx::supervision::activity_notification::event_time__std::chrono::steady_clock::time_point"></span><span class="target" id="structhpx_1_1supervision_1_1activity__notification_1adec3b6ee00064f5c31ad69d8ac644f97"></span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">steady_clock</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">time_point</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">event_time</span></span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision21activity_notification10event_timeE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The time at which the transition was recorded, as observed by the runtime managing <a class="reference internal" href="#structhpx_1_1supervision_1_1activity__notification_1a994a1189f9e726022d3f2fed99b96385"><span class="std std-ref">actor</span></a>’s registration. For a <code class="docutils literal notranslate"><span class="pre">activity_transition::already_active</span></code> replay this is the time <a class="reference internal" href="#structhpx_1_1supervision_1_1activity__notification_1a994a1189f9e726022d3f2fed99b96385"><span class="std std-ref">actor</span></a> originally became active, not the time of registration. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision21activity_notification5epochE">
+<span id="_CPPv3N3hpx11supervision21activity_notification5epochE"></span><span id="_CPPv2N3hpx11supervision21activity_notification5epochE"></span><span id="hpx::supervision::activity_notification::epoch__std::uint64_t"></span><span class="target" id="structhpx_1_1supervision_1_1activity__notification_1ad73146b8f4ac7ca1a6dbdaf9cd0ef537"></span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">epoch</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision21activity_notification5epochE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The epoch <a class="reference internal" href="#structhpx_1_1supervision_1_1activity__notification_1a994a1189f9e726022d3f2fed99b96385"><span class="std std-ref">actor</span></a> was in at the time of the transition (see the epoch semantics of <em>publish_event</em>). </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision21activity_notification2ecE">
+<span id="_CPPv3N3hpx11supervision21activity_notification2ecE"></span><span id="_CPPv2N3hpx11supervision21activity_notification2ecE"></span><span id="hpx::supervision::activity_notification::ec__hpx::error_code"></span><span class="target" id="structhpx_1_1supervision_1_1activity__notification_1a06df6accc1c238764451967278b148c9"></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/errors/api/error_code.html#_CPPv4N3hpx10error_codeE" title="hpx::error_code"><span class="n"><span class="pre">error_code</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ec</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/errors/api/error_code.html#_CPPv4N3hpx17make_success_codeE9throwmode" title="hpx::make_success_code"><span class="n"><span class="pre">make_success_code</span></span></a><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision21activity_notification2ecE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Error code describing the outcome of delivering this notification. A successful delivery yields <code class="docutils literal notranslate"><span class="pre">hpx::make_success_code()</span></code>; a non-success code may indicate staleness or a delivery failure that the observer callback should account for. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision28lifecycle_event_notificationE">
 <span id="_CPPv3N3hpx11supervision28lifecycle_event_notificationE"></span><span id="_CPPv2N3hpx11supervision28lifecycle_event_notificationE"></span><span id="hpx::supervision::lifecycle_event_notification"></span><span class="target" id="structhpx_1_1supervision_1_1lifecycle__event__notification"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lifecycle_event_notification</span></span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision28lifecycle_event_notificationE" title="Permalink to this definition">#</a><br /></dt>
 <dd><div class="docutils container">
 <em>#include &lt;supervision_api.hpp&gt;</em></div>
 <p>Payload delivered to a registered lifecycle observer callback whenever a supervised actor publishes a lifecycle event. </p>
-<p>A <code class="docutils literal notranslate"><a class="reference internal" href="#structhpx_1_1supervision_1_1lifecycle__event__notification"><span class="std std-ref"><span class="pre">lifecycle_event_notification</span></span></a></code> is constructed by the supervision manager each time , hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer is invoked for a target actor that has one or more registered observers (see hpx::supervision::register_observer). It is delivered synchronously to local observers within the publishing call, and asynchronously via a dedicated parcel to remote observers.</p>
+<p>A <code class="docutils literal notranslate"><a class="reference internal" href="#structhpx_1_1supervision_1_1lifecycle__event__notification"><span class="std std-ref"><span class="pre">lifecycle_event_notification</span></span></a></code> is constructed by the supervision manager each time , hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer, hpx::supervision::register_activity_observer, hpx::supervision::unregister_activity_observer is invoked for a target actor that has one or more registered observers (see hpx::supervision::register_observer). It is delivered synchronously to local observers within the publishing call, and asynchronously via a dedicated parcel to remote observers.</p>
 <p><div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>hpx::supervision::event </p>
@@ -1998,7 +2337,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 27, 2026.
+  Last updated on Jul 28, 2026.
   <br/>
 </p>
   </div>

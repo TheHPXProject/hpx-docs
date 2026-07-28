@@ -531,7 +531,7 @@
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../full/supervision/api/full_api.html">supervision</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../full/supervision/api/supervision_api.html">hpx::supervision::publish_event, hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../full/supervision/api/supervision_api.html">hpx::supervision::publish_event, hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer, hpx::supervision::register_activity_observer, hpx::supervision::unregister_activity_observer</a></li>
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../algorithms/api/full_api.html">algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -1600,6 +1600,12 @@ document.write(`
 <dd><p>The queried state may be stale, e.g. because no state has been recorded yet or a preceding notification has not yet been delivered </p>
 </dd></dl>
 
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx5error13target_fencedE">
+<span id="_CPPv3N3hpx5error13target_fencedE"></span><span id="_CPPv2N3hpx5error13target_fencedE"></span><span class="target" id="error_8hpp_1aa18b931507260d4d2ea8d98145249c28a442c6f0886a8af5db9fa5959c2af3b7d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">target_fenced</span></span></span><a class="headerlink" href="#_CPPv4N3hpx5error13target_fencedE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>A dispatch was deliberately and correctly refused because the target had already latched a terminal lifecycle event; this is a final rejection, not a staleness signal, and should not be retried </p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -2015,7 +2021,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 27, 2026.
+  Last updated on Jul 28, 2026.
   <br/>
 </p>
   </div>
