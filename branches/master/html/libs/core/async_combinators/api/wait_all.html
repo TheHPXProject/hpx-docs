@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>hpx::wait_all &#8212; HPX 2.0.0 documentation</title>
+    <title>hpx::wait_all, hpx::wait_all_nothrow, hpx::wait_all_n, hpx::wait_all_n_nothrow &#8212; HPX 2.0.0 documentation</title>
   
   
   
@@ -51,7 +51,7 @@
     <link rel="shortcut icon" href="../../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="async_cuda" href="../../async_cuda/api/full_api.html" />
+    <link rel="next" title="hpx::wait_all_for, hpx::wait_all_for_nothrow, hpx::wait_all_for_n, hpx::wait_all_for_n_nothrow" href="wait_all_for.html" />
     <link rel="prev" title="hpx::when_some" href="when_some.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -533,7 +533,9 @@
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../full/supervision/api/full_api.html">supervision</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../full/supervision/api/supervision_api.html">hpx::supervision::publish_event, hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer, hpx::supervision::register_activity_observer, hpx::supervision::unregister_activity_observer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../full/supervision/api/supervision_api.html">hpx::supervision::publish_event, hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer, hpx::supervision::remove_target, hpx::supervision::register_activity_observer, hpx::supervision::unregister_activity_observer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../full/supervision/api/supervision_manager.html">hpx/supervision/supervision_manager.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../full/supervision/api/server_supervision_manager.html">hpx/supervision/server/supervision_manager.hpp</a></li>
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../algorithms/api/full_api.html">algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -693,15 +695,16 @@
 </ul>
 </li>
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="full_api.html">async_combinators</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="wait_some.html">hpx::wait_some</a></li>
-<li class="toctree-l4"><a class="reference internal" href="wait_any.html">hpx::wait_any</a></li>
-<li class="toctree-l4"><a class="reference internal" href="wait_each.html">hpx::wait_each</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wait_some.html">hpx::wait_some, hpx::wait_some_nothrow, hpx::wait_some_n, hpx::wait_some_n_nothrow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wait_any.html">hpx::wait_any, hpx::wait_any_nothrow, hpx::wait_any_n, hpx::wait_any_n_nothrow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wait_each.html">hpx::wait_each, hpx::wait_each_nothrow, hpx::wait_each_n, hpx::wait_each_n_nothrow</a></li>
 <li class="toctree-l4"><a class="reference internal" href="when_any.html">hpx::when_any</a></li>
 <li class="toctree-l4"><a class="reference internal" href="when_all.html">hpx::when_all</a></li>
 <li class="toctree-l4"><a class="reference internal" href="split_future.html">hpx/async_combinators/split_future.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="when_each.html">hpx::when_each</a></li>
 <li class="toctree-l4"><a class="reference internal" href="when_some.html">hpx::when_some</a></li>
-<li class="toctree-l4 current active"><a class="current reference internal" href="#">hpx::wait_all</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">hpx::wait_all, hpx::wait_all_nothrow, hpx::wait_all_n, hpx::wait_all_n_nothrow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wait_all_for.html">hpx::wait_all_for, hpx::wait_all_for_nothrow, hpx::wait_all_for_n, hpx::wait_all_for_n_nothrow</a></li>
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../async_cuda/api/full_api.html">async_cuda</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -1234,7 +1237,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>hpx::wait_all</h1>
+    <h1>hpx::wait_all, hpx::wait_all_nothrow, hpx::wait_all_n, hpx::wait_all_n_nothrow</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -1248,8 +1251,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="hpx-wait-all">
-<span id="modules-hpx-async-combinators-wait-all-hpp-api"></span><h1>hpx::wait_all<a class="headerlink" href="#hpx-wait-all" title="Permalink to this heading">#</a></h1>
+  <section id="hpx-wait-all-hpx-wait-all-nothrow-hpx-wait-all-n-hpx-wait-all-n-nothrow">
+<span id="modules-hpx-async-combinators-wait-all-hpp-api"></span><h1>hpx::wait_all, hpx::wait_all_nothrow, hpx::wait_all_n, hpx::wait_all_n_nothrow<a class="headerlink" href="#hpx-wait-all-hpx-wait-all-nothrow-hpx-wait-all-n-hpx-wait-all-n-nothrow" title="Permalink to this heading">#</a></h1>
 <p>Defined in header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/unknown/libs/full/include/include/hpx/future.hpp">hpx/future.hpp</a>.</p>
 <p>See <a class="reference internal" href="../../../../api/public_api.html#public-api"><span class="std std-ref">Public API</span></a> for a list of names and headers that are part of the public
 <em>HPX</em> API.</p>
@@ -1269,13 +1272,17 @@ document.write(`
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The function wait_all will rethrow any exceptions captured by the futures while becoming ready. If this behavior is undesirable, use <em>wait_all_nothrow</em> instead. </p>
+<p>The function wait_all will rethrow any exceptions captured by the futures while becoming ready. If this behavior is undesirable, use <em>wait_all_nothrow</em> instead.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The caller is responsible for keeping the <em>futures</em> container alive, unmoved, and unmodified until wait_all returns and all inspection of the futures is complete. </p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>first</strong> – The iterator pointing to the first element of a sequence of <em>future</em> or <em>shared_future</em> objects for which <em>wait_all</em> should wait. </p></li>
-<li><p><strong>last</strong> – The iterator pointing to the last element of a sequence of <em>future</em> or <em>shared_future</em> objects for which <em>wait_all</em> should wait.</p></li>
+<li><p><strong>last</strong> – The iterator pointing to the element after the last one of a sequence of <em>future</em> or <em>shared_future</em> objects for which <em>wait_all</em> should wait.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1291,7 +1298,11 @@ document.write(`
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The function wait_all will rethrow any exceptions captured by the futures while becoming ready. If this behavior is undesirable, use <em>wait_all_nothrow</em> instead. </p>
+<p>The function wait_all will rethrow any exceptions captured by the futures while becoming ready. If this behavior is undesirable, use <em>wait_all_nothrow</em> instead.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The caller is responsible for keeping the <em>futures</em> container alive, unmoved, and unmodified until wait_all returns and all inspection of the futures is complete. </p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1310,7 +1321,11 @@ document.write(`
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The function wait_all will rethrow any exceptions captured by the futures while becoming ready. If this behavior is undesirable, use <em>wait_all_nothrow</em> instead. </p>
+<p>The function wait_all will rethrow any exceptions captured by the futures while becoming ready. If this behavior is undesirable, use <em>wait_all_nothrow</em> instead.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The caller is responsible for keeping the <em>futures</em> container alive, unmoved, and unmodified until wait_all returns and all inspection of the futures is complete. </p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1367,7 +1382,11 @@ document.write(`
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The function wait_all_n will rethrow any exceptions captured by the futures while becoming ready. If this behavior is undesirable, use <em>wait_all_n_nothrow</em> instead. </p>
+<p>The function wait_all_n will rethrow any exceptions captured by the futures while becoming ready. If this behavior is undesirable, use <em>wait_all_n_nothrow</em> instead.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The caller is responsible for keeping the <em>futures</em> container alive, unmoved, and unmodified until wait_all returns and all inspection of the futures is complete. </p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1378,6 +1397,152 @@ document.write(`
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The function <em>wait_all_n</em> will return an iterator referring to the first element in the input sequence after the last processed element.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN3hpx16wait_all_nothrowEb9InputIter9InputIter">
+<span id="_CPPv3I0EN3hpx16wait_all_nothrowE9InputIter9InputIter"></span><span id="_CPPv2I0EN3hpx16wait_all_nothrowE9InputIter9InputIter"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">InputIter</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacehpx_1ad8ab3baaacbaf2d214121e382a0bfe09"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">wait_all_nothrow</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0EN3hpx16wait_all_nothrowEb9InputIter9InputIter" title="hpx::wait_all_nothrow::InputIter"><span class="n"><span class="pre">InputIter</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">first</span></span>, <a class="reference internal" href="#_CPPv4I0EN3hpx16wait_all_nothrowEb9InputIter9InputIter" title="hpx::wait_all_nothrow::InputIter"><span class="n"><span class="pre">InputIter</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">last</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3hpx16wait_all_nothrowEb9InputIter9InputIter" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The function <em>wait_all_nothrow</em> is an operator allowing to join on the result of all given futures. It AND-composes all future objects given and returns after they finished executing, similar to <em>wait_all</em>. It differs from <em>wait_all</em> in that it will not rethrow any exceptions captured by the given futures while they became ready.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The function <em>wait_all_nothrow</em> returns after all futures have become ready. All input futures are still valid after <em>wait_all_nothrow</em> returns.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unlike <em>wait_all</em>, this function will not rethrow any exceptions captured by the futures while becoming ready. Any such exceptions are not rethrown by this call; the caller can use the returned <em>bool</em> to detect their presence.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The caller is responsible for keeping the <em>futures</em> container alive, unmoved, and unmodified until wait_all returns and all inspection of the futures is complete. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>first</strong> – The iterator pointing to the first element of a sequence of <em>future</em> or <em>shared_future</em> objects for which <em>wait_all_nothrow</em> should wait. </p></li>
+<li><p><strong>last</strong> – The iterator pointing to the element after the last one of a sequence of <em>future</em> or <em>shared_future</em> objects for which <em>wait_all_nothrow</em> should wait.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns <em>true</em> if any of the given futures held an exception once it became ready, and <em>false</em> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN3hpx16wait_all_nothrowEbRRNSt6vectorI6futureI1REEE">
+<span id="_CPPv3I0EN3hpx16wait_all_nothrowERRNSt6vectorI6futureI1REEE"></span><span id="_CPPv2I0EN3hpx16wait_all_nothrowERRNSt6vectorI6futureI1REEE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">R</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacehpx_1ac354f8b441bcdd6969508990664fcd46"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">wait_all_nothrow</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../futures/api/future.html#_CPPv4I0EN3hpx6futureE" title="hpx::future"><span class="n"><span class="pre">future</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN3hpx16wait_all_nothrowEbRRNSt6vectorI6futureI1REEE" title="hpx::wait_all_nothrow::R"><span class="n"><span class="pre">R</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">futures</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3hpx16wait_all_nothrowEbRRNSt6vectorI6futureI1REEE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The function <em>wait_all_nothrow</em> is an operator allowing to join on the result of all given futures. It AND-composes all future objects given and returns after they finished executing, similar to <em>wait_all</em>. It differs from <em>wait_all</em> in that it will not rethrow any exceptions captured by the given futures while they became ready.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The function <em>wait_all_nothrow</em> returns after all futures have become ready. All input futures are still valid after <em>wait_all_nothrow</em> returns.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unlike <em>wait_all</em>, this function will not rethrow any exceptions captured by the futures while becoming ready. Any such exceptions are not rethrown by this call; the caller can use the returned <em>bool</em> to detect their presence. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>futures</strong> – A vector or array holding an arbitrary amount of <em>future</em> or <em>shared_future</em> objects for which <em>wait_all_nothrow</em> should wait.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns <em>true</em> if any of the given futures held an exception once it became ready, and <em>false</em> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0_NSt6size_tEEN3hpx16wait_all_nothrowEbRRNSt5arrayI6futureI1RE1NEE">
+<span id="_CPPv3I0_NSt6size_tEEN3hpx16wait_all_nothrowERRNSt5arrayI6futureI1RE1NEE"></span><span id="_CPPv2I0_NSt6size_tEEN3hpx16wait_all_nothrowERRNSt5arrayI6futureI1RE1NEE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">R</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacehpx_1acdf113ef6083786c6fdd6650bc182f2c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">wait_all_nothrow</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../futures/api/future.html#_CPPv4I0EN3hpx6futureE" title="hpx::future"><span class="n"><span class="pre">future</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_NSt6size_tEEN3hpx16wait_all_nothrowEbRRNSt5arrayI6futureI1RE1NEE" title="hpx::wait_all_nothrow::R"><span class="n"><span class="pre">R</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_NSt6size_tEEN3hpx16wait_all_nothrowEbRRNSt5arrayI6futureI1RE1NEE" title="hpx::wait_all_nothrow::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">futures</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0_NSt6size_tEEN3hpx16wait_all_nothrowEbRRNSt5arrayI6futureI1RE1NEE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The function <em>wait_all_nothrow</em> is an operator allowing to join on the result of all given futures. It AND-composes all future objects given and returns after they finished executing, similar to <em>wait_all</em>. It differs from <em>wait_all</em> in that it will not rethrow any exceptions captured by the given futures while they became ready.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The function <em>wait_all_nothrow</em> returns after all futures have become ready. All input futures are still valid after <em>wait_all_nothrow</em> returns.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unlike <em>wait_all</em>, this function will not rethrow any exceptions captured by the futures while becoming ready. Any such exceptions are not rethrown by this call; the caller can use the returned <em>bool</em> to detect their presence. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>futures</strong> – A vector or array holding an arbitrary amount of <em>future</em> or <em>shared_future</em> objects for which <em>wait_all_nothrow</em> should wait.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns <em>true</em> if any of the given futures held an exception once it became ready, and <em>false</em> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN3hpx16wait_all_nothrowEbRKN3hpx6futureI1TEE">
+<span id="_CPPv3I0EN3hpx16wait_all_nothrowERKN3hpx6futureI1TEE"></span><span id="_CPPv2I0EN3hpx16wait_all_nothrowERKN3hpx6futureI1TEE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacehpx_1ac875ae5d9744cb9f74c1f3326769a6bb"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">wait_all_nothrow</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../futures/api/future.html#_CPPv4I0EN3hpx6futureE" title="hpx::future"><span class="n"><span class="pre">future</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN3hpx16wait_all_nothrowEbRKN3hpx6futureI1TEE" title="hpx::wait_all_nothrow::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">f</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3hpx16wait_all_nothrowEbRKN3hpx6futureI1TEE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The function <em>wait_all_nothrow</em> is an operator allowing to join on the result of all given futures. It AND-composes all future objects given and returns after they finished executing, similar to <em>wait_all</em>. It differs from <em>wait_all</em> in that it will not rethrow any exceptions captured by the given future while it became ready.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The function <em>wait_all_nothrow</em> returns after the future has become ready. The input future is still valid after <em>wait_all_nothrow</em> returns.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unlike <em>wait_all</em>, this function will not rethrow any exception captured by the future while becoming ready. Any such exception is silently discarded; the caller can use the returned <em>bool</em> to detect its presence. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>f</strong> – A <em>future</em> or <em>shared_future</em> for which <em>wait_all_nothrow</em> should wait.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns <em>true</em> if the given future held an exception once it became ready, and <em>false</em> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4IDpEN3hpx16wait_all_nothrowEbDpRR1T">
+<span id="_CPPv3IDpEN3hpx16wait_all_nothrowEDpRR1T"></span><span id="_CPPv2IDpEN3hpx16wait_all_nothrowEDpRR1T"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacehpx_1a26119274141403ba13f723bc3f434586"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">wait_all_nothrow</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4IDpEN3hpx16wait_all_nothrowEbDpRR1T" title="hpx::wait_all_nothrow::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">...</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">futures</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IDpEN3hpx16wait_all_nothrowEbDpRR1T" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The function <em>wait_all_nothrow</em> is an operator allowing to join on the result of all given futures. It AND-composes all future objects given and returns after they finished executing, similar to <em>wait_all</em>. It differs from <em>wait_all</em> in that it will not rethrow any exceptions captured by the given futures while they became ready.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The function <em>wait_all_nothrow</em> returns after all futures have become ready. All input futures are still valid after <em>wait_all_nothrow</em> returns.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unlike <em>wait_all</em>, this function will not rethrow any exceptions captured by the futures while becoming ready. Any such exceptions are not rethrown by this call; the caller can use the returned <em>bool</em> to detect their presence. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>futures</strong> – An arbitrary number of <em>future</em> or <em>shared_future</em> objects, possibly holding different types for which <em>wait_all_nothrow</em> should wait.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns <em>true</em> if any of the given futures held an exception once it became ready, and <em>false</em> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN3hpx18wait_all_n_nothrowENSt4pairI9InputIterbEE9InputIterNSt6size_tE">
+<span id="_CPPv3I0EN3hpx18wait_all_n_nothrowE9InputIterNSt6size_tE"></span><span id="_CPPv2I0EN3hpx18wait_all_n_nothrowE9InputIterNSt6size_tE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">InputIter</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacehpx_1a86963e41cc61cf1b60c8d791d7e5ae83"></span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">pair</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN3hpx18wait_all_n_nothrowENSt4pairI9InputIterbEE9InputIterNSt6size_tE" title="hpx::wait_all_n_nothrow::InputIter"><span class="n"><span class="pre">InputIter</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">wait_all_n_nothrow</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0EN3hpx18wait_all_n_nothrowENSt4pairI9InputIterbEE9InputIterNSt6size_tE" title="hpx::wait_all_n_nothrow::InputIter"><span class="n"><span class="pre">InputIter</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">begin</span></span>, <a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3hpx18wait_all_n_nothrowENSt4pairI9InputIterbEE9InputIterNSt6size_tE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The function <em>wait_all_n_nothrow</em> is an operator allowing to join on the result of all given futures. It AND-composes all future objects given and returns after they finished executing, similar to <em>wait_all_n</em>. It differs from <em>wait_all_n</em> in that it will not rethrow any exceptions captured by the given futures while they became ready.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The function <em>wait_all_n_nothrow</em> returns after all futures have become ready. All input futures are still valid after <em>wait_all_n_nothrow</em> returns.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unlike <em>wait_all_n</em>, this function will not rethrow any exceptions captured by the futures while becoming ready. Any such exceptions are not rethrown by this call; the caller can use the returned <em>bool</em> to detect their presence.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The caller is responsible for keeping the <em>futures</em> container alive, unmoved, and unmodified until wait_all returns and all inspection of the futures is complete. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>begin</strong> – The iterator pointing to the first element of a sequence of <em>future</em> or <em>shared_future</em> objects for which <em>wait_all_n_nothrow</em> should wait. </p></li>
+<li><p><strong>count</strong> – The number of elements in the sequence starting at <em>first</em>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The function <em>wait_all_n_nothrow</em> returns a pair consisting of an iterator referring to the first element in the input sequence after the last processed element, and a <em>bool</em> that is <em>true</em> if any of the given futures held an exception once it became ready, and <em>false</em> otherwise.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1409,11 +1574,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../../async_cuda/api/full_api.html"
+       href="wait_all_for.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">async_cuda</p>
+        <p class="prev-next-title">hpx::wait_all_for, hpx::wait_all_for_nothrow, hpx::wait_all_for_n, hpx::wait_all_for_n_nothrow</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1454,7 +1619,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 31, 2026.
+  Last updated on Aug 01, 2026.
   <br/>
 </p>
   </div>

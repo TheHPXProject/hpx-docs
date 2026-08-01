@@ -7,9 +7,9 @@
 
 .. _modules_hpx/async_combinators/wait_some.hpp_api:
 
---------------
-hpx::wait_some
---------------
+----------------------------------------------------------------------------------
+hpx::wait_some, hpx::wait_some_nothrow, hpx::wait_some_n, hpx::wait_some_n_nothrow
+----------------------------------------------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/future.hpp`.
 

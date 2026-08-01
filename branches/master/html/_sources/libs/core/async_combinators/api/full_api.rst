@@ -27,3 +27,4 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/async_combinators/api/when_each.rst
    /libs/core/async_combinators/api/when_some.rst
    /libs/core/async_combinators/api/wait_all.rst
+   /libs/core/async_combinators/api/wait_all_for.rst

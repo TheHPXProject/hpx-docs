@@ -7,9 +7,9 @@
 
 .. _modules_hpx/async_combinators/wait_all.hpp_api:
 
--------------
-hpx::wait_all
--------------
+------------------------------------------------------------------------------
+hpx::wait_all, hpx::wait_all_nothrow, hpx::wait_all_n, hpx::wait_all_n_nothrow
+------------------------------------------------------------------------------
 
 Defined in header :hpx-header:`libs/full/include/include,hpx/future.hpp`.
 

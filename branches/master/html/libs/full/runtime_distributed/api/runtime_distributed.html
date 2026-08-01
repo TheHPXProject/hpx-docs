@@ -533,7 +533,9 @@
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../supervision/api/full_api.html">supervision</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../supervision/api/supervision_api.html">hpx::supervision::publish_event, hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer, hpx::supervision::register_activity_observer, hpx::supervision::unregister_activity_observer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../supervision/api/supervision_api.html">hpx::supervision::publish_event, hpx::supervision::query_state, hpx::supervision::register_observer, hpx::supervision::unregister_observer, hpx::supervision::remove_target, hpx::supervision::register_activity_observer, hpx::supervision::unregister_activity_observer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../supervision/api/supervision_manager.html">hpx/supervision/supervision_manager.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../supervision/api/server_supervision_manager.html">hpx/supervision/server/supervision_manager.hpp</a></li>
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/algorithms/api/full_api.html">algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -693,15 +695,16 @@
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/async_combinators/api/full_api.html">async_combinators</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../core/async_combinators/api/wait_some.html">hpx::wait_some</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../core/async_combinators/api/wait_any.html">hpx::wait_any</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../core/async_combinators/api/wait_each.html">hpx::wait_each</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../core/async_combinators/api/wait_some.html">hpx::wait_some, hpx::wait_some_nothrow, hpx::wait_some_n, hpx::wait_some_n_nothrow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../core/async_combinators/api/wait_any.html">hpx::wait_any, hpx::wait_any_nothrow, hpx::wait_any_n, hpx::wait_any_n_nothrow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../core/async_combinators/api/wait_each.html">hpx::wait_each, hpx::wait_each_nothrow, hpx::wait_each_n, hpx::wait_each_n_nothrow</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_combinators/api/when_any.html">hpx::when_any</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_combinators/api/when_all.html">hpx::when_all</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_combinators/api/split_future.html">hpx/async_combinators/split_future.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_combinators/api/when_each.html">hpx::when_each</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_combinators/api/when_some.html">hpx::when_some</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../core/async_combinators/api/wait_all.html">hpx::wait_all</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../core/async_combinators/api/wait_all.html">hpx::wait_all, hpx::wait_all_nothrow, hpx::wait_all_n, hpx::wait_all_n_nothrow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../core/async_combinators/api/wait_all_for.html">hpx::wait_all_for, hpx::wait_all_for_nothrow, hpx::wait_all_for_n, hpx::wait_all_for_n_nothrow</a></li>
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/async_cuda/api/full_api.html">async_cuda</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -1496,11 +1499,6 @@ document.write(`
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N3hpx19runtime_distributed23get_supervision_managerEv">
-<span id="_CPPv3N3hpx19runtime_distributed23get_supervision_managerEv"></span><span id="_CPPv2N3hpx19runtime_distributed23get_supervision_managerEv"></span><span id="hpx::runtime_distributed::get_supervision_manager"></span><span class="target" id="classhpx_1_1runtime__distributed_1aa5a43832542d04967332ca8e3f7bda48"></span><a class="reference internal" href="../../supervision/api/supervision_api.html#_CPPv4N3hpx11supervisionE" title="hpx::supervision"><span class="n"><span class="pre">supervision</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">supervision_manager</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">get_supervision_manager</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx19runtime_distributed23get_supervision_managerEv" title="Permalink to this definition">#</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx19runtime_distributed18get_thread_managerEv">
 <span id="_CPPv3N3hpx19runtime_distributed18get_thread_managerEv"></span><span id="_CPPv2N3hpx19runtime_distributed18get_thread_managerEv"></span><span id="hpx::runtime_distributed::get_thread_manager"></span><span class="target" id="classhpx_1_1runtime__distributed_1af2bc1a56bd74fdc2bda0317327f75c52"></span><a class="reference internal" href="../../../core/algorithms/api/adjacent_difference.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/coroutines/api/thread_enums.html#_CPPv4N3hpx7threadsE" title="hpx::threads"><span class="n"><span class="pre">threads</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/threadmanager/api/threadmanager.html#_CPPv4N3hpx7threads13threadmanagerE" title="hpx::threads::threadmanager"><span class="n"><span class="pre">threadmanager</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">get_thread_manager</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N3hpx19runtime_distributed18get_thread_managerEv" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Allow access to the thread manager instance used by the HPX runtime. </p>
@@ -1743,11 +1741,6 @@ document.write(`
 <dd></dd></dl>
 
 <dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N3hpx19runtime_distributed20supervision_manager_E">
-<span id="_CPPv3N3hpx19runtime_distributed20supervision_manager_E"></span><span id="_CPPv2N3hpx19runtime_distributed20supervision_manager_E"></span><span id="hpx::runtime_distributed::supervision_manager___supervision::supervision_manager"></span><span class="target" id="classhpx_1_1runtime__distributed_1a6def675b2d7635c1a49a07b7fb6c143d"></span><a class="reference internal" href="../../supervision/api/supervision_api.html#_CPPv4N3hpx11supervisionE" title="hpx::supervision"><span class="n"><span class="pre">supervision</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">supervision_manager</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">supervision_manager_</span></span></span><a class="headerlink" href="#_CPPv4N3hpx19runtime_distributed20supervision_manager_E" title="Permalink to this definition">#</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx19runtime_distributed15used_cores_map_E">
 <span id="_CPPv3N3hpx19runtime_distributed15used_cores_map_E"></span><span id="_CPPv2N3hpx19runtime_distributed15used_cores_map_E"></span><span id="hpx::runtime_distributed::used_cores_map___used_cores_map_type"></span><span class="target" id="classhpx_1_1runtime__distributed_1abe47f18edc779c9702d101d556b9a65e"></span><a class="reference internal" href="#_CPPv4N3hpx19runtime_distributed19used_cores_map_typeE" title="hpx::runtime_distributed::used_cores_map_type"><span class="n"><span class="pre">used_cores_map_type</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">used_cores_map_</span></span></span><a class="headerlink" href="#_CPPv4N3hpx19runtime_distributed15used_cores_map_E" title="Permalink to this definition">#</a><br /></dt>
 <dd></dd></dl>
@@ -1854,7 +1847,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jul 31, 2026.
+  Last updated on Aug 01, 2026.
   <br/>
 </p>
   </div>

@@ -19,3 +19,5 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    :maxdepth: 1
 
    /libs/full/supervision/api/supervision_api.rst
+   /libs/full/supervision/api/supervision_manager.rst
+   /libs/full/supervision/api/server_supervision_manager.rst
