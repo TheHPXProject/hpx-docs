@@ -35,3 +35,5 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/execution/api/execution.rst
    /libs/core/execution/api/num_cores.rst
    /libs/core/execution/api/max_num_chunks.rst
+   /libs/core/execution/api/sender_future.rst
+   /libs/core/execution/api/future_sender.rst
