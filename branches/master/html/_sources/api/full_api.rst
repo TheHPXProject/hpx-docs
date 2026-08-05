@@ -90,6 +90,7 @@ refer to the full documentation below.
    /libs/core/timing/api/full_api.rst
    /libs/core/topology/api/full_api.rst
    /libs/core/tracing/api/full_api.rst
+   /libs/core/tracy/api/full_api.rst
    /libs/core/util/api/full_api.rst
 
 
