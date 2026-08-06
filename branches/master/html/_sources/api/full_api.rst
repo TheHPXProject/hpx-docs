@@ -42,7 +42,6 @@ refer to the full documentation below.
    /libs/full/naming_base/api/full_api.rst
    /libs/full/parcelset/api/full_api.rst
    /libs/full/parcelset_base/api/full_api.rst
-   /libs/full/performance_counters/api/full_api.rst
    /libs/full/plugin_factories/api/full_api.rst
    /libs/full/runtime_components/api/full_api.rst
    /libs/full/runtime_distributed/api/full_api.rst
@@ -92,6 +91,8 @@ refer to the full documentation below.
    /libs/core/tracing/api/full_api.rst
    /libs/core/tracy/api/full_api.rst
    /libs/core/util/api/full_api.rst
+   /components/component_storage/api/full_api.rst
+   /components/supervision_dispatch/api/full_api.rst
 
 
 .. _libs_unmodularized:

@@ -1,7 +1,9 @@
 
 ..
     Copyright (C) 2019 Thomas Heller
+    Copyright (C) 2019-2026 The STE||AR Group
 
+    SPDX-License-Identifier: BSL-1.0
     Distributed under the Boost Software License, Version 1.0. (See accompanying
     file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
@@ -19,8 +21,10 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    :maxdepth: 1
 
    /libs/full/runtime_distributed/api/runtime_distributed.rst
-   /libs/full/runtime_distributed/api/find_localities.rst
-   /libs/full/runtime_distributed/api/find_all_localities.rst
+   /libs/full/runtime_distributed/api/find_localities_hpx_find_locality.rst
+   /libs/full/runtime_distributed/api/find_all_localities_hpx_find_root_locality.rst
+   /libs/full/runtime_distributed/api/find_all_localities_hpx_find_all_localities.rst
+   /libs/full/runtime_distributed/api/find_all_localities_hpx_find_remote_localities.rst
    /libs/full/runtime_distributed/api/runtime_support.rst
    /libs/full/runtime_distributed/api/applier_fwd.rst
    /libs/full/runtime_distributed/api/get_locality_name.rst
