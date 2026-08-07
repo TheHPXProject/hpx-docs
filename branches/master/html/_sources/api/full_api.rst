@@ -43,7 +43,6 @@ refer to the full documentation below.
    /libs/full/parcelset/api/full_api.rst
    /libs/full/parcelset_base/api/full_api.rst
    /libs/full/plugin_factories/api/full_api.rst
-   /libs/full/resiliency_distributed/api/full_api.rst
    /libs/full/runtime_components/api/full_api.rst
    /libs/full/runtime_distributed/api/full_api.rst
    /libs/full/segmented_algorithms/api/full_api.rst
@@ -86,7 +85,6 @@ refer to the full documentation below.
    /libs/core/threading/api/full_api.rst
    /libs/core/threading_base/api/full_api.rst
    /libs/core/threadmanager/api/full_api.rst
-   /libs/core/thrust/api/full_api.rst
    /libs/core/timed_execution/api/full_api.rst
    /libs/core/timing/api/full_api.rst
    /libs/core/topology/api/full_api.rst
