@@ -37,3 +37,7 @@ See also:
    :project: hpx
 .. doxygenfunction:: hpx::supervision::publish_event(hpx::id_type const &target, hpx::supervision::event ev, std::uint64_t epoch=0, hpx::error_code &ec=throws)
    :project: hpx
+.. doxygenfunction:: hpx::supervision::publish_event(registry const &handle, event ev, std::uint64_t epoch=0)
+   :project: hpx
+.. doxygenfunction:: hpx::supervision::publish_event(hpx::launch::sync_policy policy, registry const &handle, event ev, std::uint64_t epoch=0, hpx::error_code &ec=hpx::throws)
+   :project: hpx

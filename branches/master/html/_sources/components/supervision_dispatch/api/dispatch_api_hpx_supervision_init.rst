@@ -26,5 +26,5 @@ See also:
 
 .. doxygenfunction:: hpx::supervision::init(hpx::chrono::steady_duration const &discovery_timeout=default_discovery_timeout)
    :project: hpx
-.. doxygenfunction:: hpx::supervision::init(hpx::launch::sync_policy, hpx::chrono::steady_duration const &discovery_timeout=default_discovery_timeout)
+.. doxygenfunction:: hpx::supervision::init(hpx::launch::sync_policy policy, hpx::chrono::steady_duration const &discovery_timeout=default_discovery_timeout)
    :project: hpx

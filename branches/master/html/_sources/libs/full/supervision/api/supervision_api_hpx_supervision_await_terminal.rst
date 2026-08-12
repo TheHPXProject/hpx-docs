@@ -35,7 +35,7 @@ See also:
    :project: hpx
 .. doxygenfunction:: hpx::supervision::await_terminal(hpx::launch::sync_policy, hpx::id_type const &locality, hpx::id_type const &target, std::uint64_t epoch=0, std::optional< std::chrono::steady_clock::duration > timeout=std::nullopt, hpx::error_code &ec=hpx::throws)
    :project: hpx
-.. doxygenfunction:: hpx::supervision::await_terminal(hpx::id_type const &target, std::uint64_t epoch=0, std::optional< std::chrono::steady_clock::duration > timeout=std::nullopt, hpx::error_code &ec=hpx::throws)
+.. doxygenfunction:: hpx::supervision::await_terminal(hpx::id_type const &target, std::uint64_t epoch=0, std::optional< std::chrono::steady_clock::duration > timeout=std::nullopt)
    :project: hpx
 .. doxygenfunction:: hpx::supervision::await_terminal(hpx::launch::sync_policy, hpx::id_type const &target, std::uint64_t epoch=0, std::optional< std::chrono::steady_clock::duration > timeout=std::nullopt, hpx::error_code &ec=hpx::throws)
    :project: hpx

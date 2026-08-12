@@ -1250,22 +1250,18 @@
 <li class="toctree-l4"><a class="reference internal" href="discovery_hpx_supervision_discover_peers.html">hpx::supervision::discover_peers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discovery_hpx_supervision_fan_out_join.html">hpx::supervision::fan_out_join</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discovery_hpx_supervision_discover_and_join.html">hpx::supervision::discover_and_join</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sentinel_hpx_supervision_sentinel.html">hpx::supervision::sentinel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dispatch_work_hpx_supervision_dispatch_work.html">hpx::supervision::dispatch_work</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dispatch_work_hpx_supervision_invoke_fenced_action.html">hpx::supervision::invoke_fenced_action</a></li>
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">hpx::supervision::registry</a></li>
 <li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_local_snapshot_peers.html">hpx::supervision::testing::local_snapshot_peers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_set_failure_detection_poll_timeout_for_testing.html">hpx::supervision::testing::set_failure_detection_poll_timeout_for_testing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_last_join_shadow.html">hpx::supervision::testing::last_join_shadow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_last_join_locality.html">hpx::supervision::testing::last_join_locality</a></li>
 <li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_suspend_heartbeat_for_testing.html">hpx::supervision::testing::suspend_heartbeat_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_failure_detection_sweep_in_flight_for_testing.html">hpx::supervision::testing::failure_detection_sweep_in_flight_for_testing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="shadow_id_hpx_supervision_shadow_id.html">hpx::supervision::shadow_id</a></li>
-<li class="toctree-l4"><a class="reference internal" href="shadow_id_hpx_supervision_invalid_shadow_id.html">hpx::supervision::invalid_shadow_id</a></li>
-<li class="toctree-l4"><a class="reference internal" href="shadow_id_hpx_supervision_joined_peer.html">hpx::supervision::joined_peer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_stop_background_loops.html">hpx::supervision::testing::stop_background_loops</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dispatch_api_hpx_supervision_init.html">hpx::supervision::init</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dispatch_api_hpx_supervision_finalize.html">hpx::supervision::finalize</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dispatch_api_hpx_supervision_is_initialized.html">hpx::supervision::is_initialized</a></li>
-<li class="toctree-l4"><a class="reference internal" href="server_sentinel.html">hpx/supervision_dispatch/server/sentinel.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="server_registry.html">hpx/supervision_dispatch/server/registry.hpp</a></li>
 </ul>
 </li>
@@ -1534,7 +1530,7 @@ document.write(`
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision8registryE">
 <span id="_CPPv3N3hpx11supervision8registryE"></span><span id="_CPPv2N3hpx11supervision8registryE"></span><span id="hpx::supervision::registry"></span><span class="target" id="classhpx_1_1supervision_1_1registry"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">registry</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../component_storage/api/migrate_from_storage.html#_CPPv4N3hpx10componentsE" title="hpx::components"><span class="n"><span class="pre">components</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../libs/full/components/api/client_base_hpx_components_client_base.html#_CPPv4I000EN3hpx10components11client_baseE" title="hpx::components::client_base"><span class="n"><span class="pre">client_base</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N3hpx11supervision8registryE" title="hpx::supervision::registry"><span class="n"><span class="pre">registry</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="server_registry.html#_CPPv4N3hpx11supervision6serverE" title="hpx::supervision::server"><span class="n"><span class="pre">server</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="server_registry.html#_CPPv4N3hpx11supervision6server8registryE" title="hpx::supervision::server::registry"><span class="n"><span class="pre">registry</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision8registryE" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>A registry is a lightweight, self-supervising handle for pairing with peer sentinels. It mirrors a peer’s lifecycle state locally via join(), and can itself be discovered by name in AGAS like other supervision_dispatch components. </p>
+<dd><p>A registry is a lightweight, self-supervising handle for pairing with peer localities. It mirrors a peer’s lifecycle state locally via join(), and can itself be discovered by name in AGAS like other supervision_dispatch components. </p>
 </dd></dl>
 
 </section>

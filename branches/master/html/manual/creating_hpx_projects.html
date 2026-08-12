@@ -1250,22 +1250,18 @@
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/discovery_hpx_supervision_discover_peers.html">hpx::supervision::discover_peers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/discovery_hpx_supervision_fan_out_join.html">hpx::supervision::fan_out_join</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/discovery_hpx_supervision_discover_and_join.html">hpx::supervision::discover_and_join</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/sentinel_hpx_supervision_sentinel.html">hpx::supervision::sentinel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_work_hpx_supervision_dispatch_work.html">hpx::supervision::dispatch_work</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_work_hpx_supervision_invoke_fenced_action.html">hpx::supervision::invoke_fenced_action</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/registry_hpx_supervision_registry.html">hpx::supervision::registry</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_local_snapshot_peers.html">hpx::supervision::testing::local_snapshot_peers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_failure_detection_poll_timeout_for_testing.html">hpx::supervision::testing::set_failure_detection_poll_timeout_for_testing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_last_join_shadow.html">hpx::supervision::testing::last_join_shadow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_last_join_locality.html">hpx::supervision::testing::last_join_locality</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_suspend_heartbeat_for_testing.html">hpx::supervision::testing::suspend_heartbeat_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_failure_detection_sweep_in_flight_for_testing.html">hpx::supervision::testing::failure_detection_sweep_in_flight_for_testing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/shadow_id_hpx_supervision_shadow_id.html">hpx::supervision::shadow_id</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/shadow_id_hpx_supervision_invalid_shadow_id.html">hpx::supervision::invalid_shadow_id</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/shadow_id_hpx_supervision_joined_peer.html">hpx::supervision::joined_peer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_stop_background_loops.html">hpx::supervision::testing::stop_background_loops</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_init.html">hpx::supervision::init</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_finalize.html">hpx::supervision::finalize</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_is_initialized.html">hpx::supervision::is_initialized</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/server_sentinel.html">hpx/supervision_dispatch/server/sentinel.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/server_registry.html">hpx/supervision_dispatch/server/registry.hpp</a></li>
 </ul>
 </li>
@@ -1852,7 +1848,7 @@ CMake target <code class="docutils literal notranslate"><span class="pre">HPX::w
 executables if you are using the macros described below
 (<a class="reference internal" href="#using-hpx-cmake-macros"><span class="std std-ref">Using macros to create new targets</span></a>). See <a class="reference internal" href="starting_the_hpx_runtime.html#minimal"><span class="std std-ref">Re-use the main() function as the main HPX entry point</span></a> for more information on
 implicitly using <code class="docutils literal notranslate"><span class="pre">main()</span></code> as the entry point. If you want the same wrapping
-behavior without including <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/c690078bf30926034763c72d5046af07bfb1fe6f/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a>, link to
+behavior without including <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/79e8ead6fe0bbd269e13bd87b441b74cf3c2b15c/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a>, link to
 the <code class="docutils literal notranslate"><span class="pre">HPX::auto_wrap_main</span></code> target instead. This enables the runtime
 initialization around <code class="docutils literal notranslate"><span class="pre">main()</span></code> unconditionally and is useful for codebases
 where adding the header to <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code> is impractical</p>

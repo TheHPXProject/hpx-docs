@@ -1250,22 +1250,18 @@
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/discovery_hpx_supervision_discover_peers.html">hpx::supervision::discover_peers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/discovery_hpx_supervision_fan_out_join.html">hpx::supervision::fan_out_join</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/discovery_hpx_supervision_discover_and_join.html">hpx::supervision::discover_and_join</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/sentinel_hpx_supervision_sentinel.html">hpx::supervision::sentinel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_work_hpx_supervision_dispatch_work.html">hpx::supervision::dispatch_work</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_work_hpx_supervision_invoke_fenced_action.html">hpx::supervision::invoke_fenced_action</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/registry_hpx_supervision_registry.html">hpx::supervision::registry</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_local_snapshot_peers.html">hpx::supervision::testing::local_snapshot_peers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_failure_detection_poll_timeout_for_testing.html">hpx::supervision::testing::set_failure_detection_poll_timeout_for_testing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_last_join_shadow.html">hpx::supervision::testing::last_join_shadow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_last_join_locality.html">hpx::supervision::testing::last_join_locality</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_suspend_heartbeat_for_testing.html">hpx::supervision::testing::suspend_heartbeat_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_failure_detection_sweep_in_flight_for_testing.html">hpx::supervision::testing::failure_detection_sweep_in_flight_for_testing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/shadow_id_hpx_supervision_shadow_id.html">hpx::supervision::shadow_id</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/shadow_id_hpx_supervision_invalid_shadow_id.html">hpx::supervision::invalid_shadow_id</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/shadow_id_hpx_supervision_joined_peer.html">hpx::supervision::joined_peer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_stop_background_loops.html">hpx::supervision::testing::stop_background_loops</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_init.html">hpx::supervision::init</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_finalize.html">hpx::supervision::finalize</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_is_initialized.html">hpx::supervision::is_initialized</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/server_sentinel.html">hpx/supervision_dispatch/server/sentinel.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/server_registry.html">hpx/supervision_dispatch/server/registry.hpp</a></li>
 </ul>
 </li>
@@ -1542,7 +1538,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-shot-discovery-and-staleness">One-shot discovery and staleness</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shadow-state-versus-the-authoritative-registry">Shadow state versus the authoritative registry</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-sentinels-and-registries-stay-synchronized">How sentinels and registries stay synchronized</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-registries-stay-synchronized">How registries stay synchronized</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#registration-at-join-time">Registration, at join time</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ongoing-synchronization">Ongoing synchronization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-this-does-and-does-not-cover">What this does and does not cover</a></li>
@@ -1562,6 +1558,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-examples">Worked examples</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fencing-a-silent-peer">Fencing a silent peer</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#waiting-on-a-dispatch-outcome-with-a-timeout">Waiting on a dispatch outcome with a timeout</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-state-and-publishing-events-through-a-handle">Querying state and publishing events through a handle</a></li>
 </ul>
 </li>
 </ul>
@@ -1669,13 +1666,13 @@ is not something publishing <code class="docutils literal notranslate"><span cla
 <p>In practice, two kinds of ids show up as targets in this component:</p>
 <ul class="simple">
 <li><p>The sentinel/registry ids of peer localities, once joined via
-<a class="reference internal" href="../components/supervision_dispatch/docs/index.html#_CPPv4NK3hpx11supervision8registry4joinERKN3hpx11supervision8sentinelERKN3hpx7id_typeE" title="hpx::supervision::registry::join"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::supervision::registry::join</span></code></a> - these are the targets whose
+<a class="reference internal" href="../components/supervision_dispatch/docs/index.html#_CPPv4NK3hpx11supervision8registry4joinERKN3hpx7id_typeE" title="hpx::supervision::registry::join"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::supervision::registry::join</span></code></a> - these are the targets whose
 shadow state feeds <code class="docutils literal notranslate"><span class="pre">registry::snapshot_peers()</span></code> and local admission
 filtering.</p></li>
 <li><p>The ids of individual localities/components that fenced work is dispatched
 against via <a class="reference internal" href="../components/supervision_dispatch/api/dispatch_work_hpx_supervision_dispatch_work.html#modules-dispatch-work-hpx-supervision-dispatch-work-api"><span class="std std-ref">hpx::supervision::dispatch_work</span></a>
-(<code class="docutils literal notranslate"><span class="pre">dispatch_work(target,</span> <span class="pre">epoch,</span> <span class="pre">...)</span></code>) – these need not be peers’
-sentinels at all; any component id that has had lifecycle events published
+(<code class="docutils literal notranslate"><span class="pre">dispatch_work(target,</span> <span class="pre">epoch,</span> <span class="pre">...)</span></code>) - these need not be peers’
+localities at all; any component id that has had lifecycle events published
 for it can be fenced.</p></li>
 </ul>
 <p>Unlike joining a peer registry, there is no explicit “register this target”
@@ -1759,8 +1756,8 @@ accumulate indefinitely over the lifetime of a long-running application.</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">uninitialized</span></code>: no local sentinel/registry exist.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">initializing</span></code>: sentinel/registry creation, <code class="docutils literal notranslate"><span class="pre">event::started</span></code>
+<li><p><code class="docutils literal notranslate"><span class="pre">uninitialized</span></code>: no local registry exist.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">initializing</span></code>: registry creation, <code class="docutils literal notranslate"><span class="pre">event::started</span></code>
 publication, symbol registration, and the one-shot <code class="docutils literal notranslate"><span class="pre">discover_and_join()</span></code>
 pass are in progress. Concurrent callers attach to the same in-flight
 initialization rather than racing.</p></li>
@@ -1807,8 +1804,8 @@ filtering sees, per the shadow/authoritative distinction above.</p>
 <p>While a locality is <code class="docutils literal notranslate"><span class="pre">active</span></code> (see “Application-visible state machines”
 above), a background heartbeat task runs alongside the failure-detection
 loop. Its job is narrow but essential: periodically republish
-<code class="docutils literal notranslate"><span class="pre">event::running</span></code> against the locality’s own local sentinel, purely to keep
-that sentinel’s event sequence number and timestamp advancing even when the
+<code class="docutils literal notranslate"><span class="pre">event::running</span></code> against the locality, purely to keep
+that localty’s event sequence number and timestamp advancing even when the
 application itself has nothing new to report.</p>
 <section id="why-this-is-needed">
 <h3>Why this is needed<a class="headerlink" href="#why-this-is-needed" title="Permalink to this heading">#</a></h3>
@@ -1880,7 +1877,7 @@ place.</p>
 <section id="one-shot-discovery-and-staleness">
 <h2>One-shot discovery and staleness<a class="headerlink" href="#one-shot-discovery-and-staleness" title="Permalink to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">discover_and_join()</span></code> pass performed by <code class="docutils literal notranslate"><span class="pre">init()</span></code> runs exactly once. It
-finds whichever peer sentinels/registries are reachable <em>at that moment</em> and
+finds whichever peer registries are reachable <em>at that moment</em> and
 joins them; it does not re-run periodically, and peers that join the system
 later are not automatically discovered by localities that have already
 initialized. This has two practical implications:</p>
@@ -1919,24 +1916,25 @@ two: a background loop periodically checks each joined peer’s shadow for
 silence and marks it accordingly, but there is always a window between a
 peer actually going silent and that silence being locally observed.</p>
 </section>
-<section id="how-sentinels-and-registries-stay-synchronized">
-<h2>How sentinels and registries stay synchronized<a class="headerlink" href="#how-sentinels-and-registries-stay-synchronized" title="Permalink to this heading">#</a></h2>
+<section id="how-registries-stay-synchronized">
+<h2>How registries stay synchronized<a class="headerlink" href="#how-registries-stay-synchronized" title="Permalink to this heading">#</a></h2>
 <p>The shadow-mirroring described above is not maintained by polling. It is
 driven entirely by event-based observer callbacks, registered once at
 <code class="docutils literal notranslate"><span class="pre">registry::join()</span></code> time and then firing automatically for the lifetime of
 the joined peer.</p>
 <section id="registration-at-join-time">
 <h3>Registration, at join time<a class="headerlink" href="#registration-at-join-time" title="Permalink to this heading">#</a></h3>
-<p>When <code class="docutils literal notranslate"><span class="pre">registry::join(peer_sentinel,</span> <span class="pre">peer_locality)</span></code> is called, the local
-registry does two things before returning a shadow id to the caller:</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">registry::join(peer_locality)</span></code> is called, the local registry does
+two things before returning a shadow id to the caller. A peer’s identity
+<em>is</em> its locality since exactly one registry exists per locality.</p>
 <ol class="arabic simple">
 <li><p><strong>Seeds the shadow with the peer’s current state.</strong> It performs a single,
-synchronous <code class="docutils literal notranslate"><span class="pre">query_state()</span></code> call against <code class="docutils literal notranslate"><span class="pre">peer_sentinel</span></code> to read
+synchronous <code class="docutils literal notranslate"><span class="pre">query_state()</span></code> call against <code class="docutils literal notranslate"><span class="pre">peer_locality</span></code> to read
 whatever epoch the peer is currently in, then publishes <code class="docutils literal notranslate"><span class="pre">event::started</span></code>
 for that epoch onto a freshly minted shadow id. This seed step exists so
 the shadow reflects the peer’s state as of joining, rather than starting
 from <code class="docutils literal notranslate"><span class="pre">unknown</span></code> and waiting for the first subsequent event to arrive.</p></li>
-<li><p><strong>Registers a lifecycle-event observer</strong> on <code class="docutils literal notranslate"><span class="pre">peer_sentinel</span></code> (via
+<li><p><strong>Registers a lifecycle-event observer</strong> on <code class="docutils literal notranslate"><span class="pre">peer_locality</span></code> (via
 <code class="docutils literal notranslate"><span class="pre">hpx::supervision::register_observer()</span></code>), along with an
 activity-transition observer (via <code class="docutils literal notranslate"><span class="pre">register_activity_observer()</span></code>,
 currently a no-op placeholder reserved for future use). These
@@ -2127,7 +2125,7 @@ handle a single error regardless of which side detected the fence:</p>
 ----------------                         ---------------
 dispatch_work(action, target, epoch, args...)
   check_admission(target, epoch)   &lt;-- reads local shadow (non-authoritative)
-    rejected -&gt; exceptiona future, done (no dispatch sent)
+    rejected -&gt; exceptional future, done (no dispatch sent)
     admitted -&gt; hpx::async(fenced_action, hpx::colocated(target), ...)
                                       |
                                       v
@@ -2247,10 +2245,9 @@ elapsed.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/supervision_dispatch.hpp&gt;</span><span class="cp"></span>
 
 <span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">registry</span><span class="w"> </span><span class="nf">local_registry</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">find_here</span><span class="p">());</span><span class="w"></span>
-<span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">sentinel</span><span class="w"> </span><span class="nf">peer_sentinel</span><span class="p">(</span><span class="n">peer_symbolic_name</span><span class="p">);</span><span class="w"></span>
 
 <span class="n">hpx</span><span class="o">::</span><span class="n">id_type</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">shadow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">local_registry</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="w"></span>
-<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">launch</span><span class="o">::</span><span class="n">sync</span><span class="p">,</span><span class="w"> </span><span class="n">peer_sentinel</span><span class="p">,</span><span class="w"> </span><span class="n">peer_locality</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">launch</span><span class="o">::</span><span class="n">sync</span><span class="p">,</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">find_here</span><span class="p">());</span><span class="w"></span>
 
 <span class="c1">// ... time passes; the peer&#39;s heartbeat stops ...</span>
 
@@ -2303,6 +2300,46 @@ elapsed.</p>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
+</section>
+<section id="querying-state-and-publishing-events-through-a-handle">
+<h3>Querying state and publishing events through a handle<a class="headerlink" href="#querying-state-and-publishing-events-through-a-handle" title="Permalink to this heading">#</a></h3>
+<p>The handle returned by <code class="docutils literal notranslate"><span class="pre">init()</span></code> also doubles as the argument to a small
+family of convenience overloads of <code class="docutils literal notranslate"><span class="pre">query_state()</span></code>/<code class="docutils literal notranslate"><span class="pre">publish_event()</span></code>
+that resolve locality and target automatically, instead of requiring the
+caller to extract <code class="docutils literal notranslate"><span class="pre">handle.get_id()</span></code> and <code class="docutils literal notranslate"><span class="pre">hpx::find_here()</span></code> manually:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/supervision_dispatch.hpp&gt;</span><span class="cp"></span>
+
+<span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">supervision_handle</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">launch</span><span class="o">::</span><span class="n">sync</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// Recover the epoch init() started this handle&#39;s locality at, for use</span>
+<span class="c1">// with dispatch_work()/publish_event() later on.</span>
+<span class="n">std</span><span class="o">::</span><span class="kt">uint64_t</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">epoch</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">query_state</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">launch</span><span class="o">::</span><span class="n">sync</span><span class="p">,</span><span class="w"> </span><span class="n">handle</span><span class="p">).</span><span class="n">epoch</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// ... later, e.g. once this locality&#39;s own supervised work completes ...</span>
+<span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">publish_event</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">launch</span><span class="o">::</span><span class="n">sync</span><span class="p">,</span><span class="w"> </span><span class="n">handle</span><span class="p">,</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">event</span><span class="o">::</span><span class="n">completed</span><span class="p">,</span><span class="w"> </span><span class="n">epoch</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Querying a peer’s state after joining it follows the same pattern, using a
+<code class="docutils literal notranslate"><span class="pre">discovered_peer</span></code> in place of an explicit locality/target pair:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">peer</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">discover_and_join</span><span class="p">(</span><span class="n">handle</span><span class="p">.</span><span class="n">registry_client</span><span class="p">))</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">lifecycle_state</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">peer_state</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">        </span><span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">query_state</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">launch</span><span class="o">::</span><span class="n">sync</span><span class="p">,</span><span class="w"> </span><span class="n">handle</span><span class="p">,</span><span class="w"> </span><span class="n">peer</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// `handle` is only needed here for overload resolution; `peer`</span>
+<span class="w">    </span><span class="c1">// alone carries the locality/target this call actually queries.</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>There is no peer-publishing overload: a locality only ever publishes
+lifecycle events it self, never on behalf of a peer’s.</p>
+<p>A worked example combining this with a supervised worker loop - covering
+when to publish <code class="docutils literal notranslate"><span class="pre">started</span></code>/<code class="docutils literal notranslate"><span class="pre">running</span></code>/a terminal event for a worker’s own
+locality, and how a supervisor queries peer worker state through the handle
+above - is available in <code class="docutils literal notranslate"><span class="pre">components/supervision_dispatch/examples/plain_worker.cpp</span></code>.</p>
 <p>See <a class="reference internal" href="../libs/full/supervision/docs/index.html#modules-supervision"><span class="std std-ref">Supervision module</span></a> for the full semantics of <code class="docutils literal notranslate"><span class="pre">check_admission</span></code>,
 <code class="docutils literal notranslate"><span class="pre">dispatch_outcome</span></code>, and the individual lifecycle events referenced above,
 and <a class="reference internal" href="../components/supervision_dispatch/docs/index.html#modules-supervision-dispatch"><span class="std std-ref">Supervision dispatch module</span></a> for the API reference of this
@@ -2378,7 +2415,7 @@ component’s own types and functions (<code class="docutils literal notranslate
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-shot-discovery-and-staleness">One-shot discovery and staleness</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shadow-state-versus-the-authoritative-registry">Shadow state versus the authoritative registry</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-sentinels-and-registries-stay-synchronized">How sentinels and registries stay synchronized</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-registries-stay-synchronized">How registries stay synchronized</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#registration-at-join-time">Registration, at join time</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ongoing-synchronization">Ongoing synchronization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-this-does-and-does-not-cover">What this does and does not cover</a></li>
@@ -2398,6 +2435,7 @@ component’s own types and functions (<code class="docutils literal notranslate
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-examples">Worked examples</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fencing-a-silent-peer">Fencing a silent peer</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#waiting-on-a-dispatch-outcome-with-a-timeout">Waiting on a dispatch outcome with a timeout</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-state-and-publishing-events-through-a-handle">Querying state and publishing events through a handle</a></li>
 </ul>
 </li>
 </ul>

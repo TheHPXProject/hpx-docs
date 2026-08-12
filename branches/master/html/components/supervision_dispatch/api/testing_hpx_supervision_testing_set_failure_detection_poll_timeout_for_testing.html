@@ -51,7 +51,7 @@
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="hpx::supervision::testing::last_join_shadow" href="testing_hpx_supervision_testing_last_join_shadow.html" />
+    <link rel="next" title="hpx::supervision::testing::last_join_locality" href="testing_hpx_supervision_testing_last_join_locality.html" />
     <link rel="prev" title="hpx::supervision::testing::local_snapshot_peers" href="testing_hpx_supervision_testing_local_snapshot_peers.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -1250,22 +1250,18 @@
 <li class="toctree-l4"><a class="reference internal" href="discovery_hpx_supervision_discover_peers.html">hpx::supervision::discover_peers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discovery_hpx_supervision_fan_out_join.html">hpx::supervision::fan_out_join</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discovery_hpx_supervision_discover_and_join.html">hpx::supervision::discover_and_join</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sentinel_hpx_supervision_sentinel.html">hpx::supervision::sentinel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dispatch_work_hpx_supervision_dispatch_work.html">hpx::supervision::dispatch_work</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dispatch_work_hpx_supervision_invoke_fenced_action.html">hpx::supervision::invoke_fenced_action</a></li>
 <li class="toctree-l4"><a class="reference internal" href="registry_hpx_supervision_registry.html">hpx::supervision::registry</a></li>
 <li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_local_snapshot_peers.html">hpx::supervision::testing::local_snapshot_peers</a></li>
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">hpx::supervision::testing::set_failure_detection_poll_timeout_for_testing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_last_join_shadow.html">hpx::supervision::testing::last_join_shadow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_last_join_locality.html">hpx::supervision::testing::last_join_locality</a></li>
 <li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_suspend_heartbeat_for_testing.html">hpx::supervision::testing::suspend_heartbeat_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_failure_detection_sweep_in_flight_for_testing.html">hpx::supervision::testing::failure_detection_sweep_in_flight_for_testing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="shadow_id_hpx_supervision_shadow_id.html">hpx::supervision::shadow_id</a></li>
-<li class="toctree-l4"><a class="reference internal" href="shadow_id_hpx_supervision_invalid_shadow_id.html">hpx::supervision::invalid_shadow_id</a></li>
-<li class="toctree-l4"><a class="reference internal" href="shadow_id_hpx_supervision_joined_peer.html">hpx::supervision::joined_peer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_stop_background_loops.html">hpx::supervision::testing::stop_background_loops</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dispatch_api_hpx_supervision_init.html">hpx::supervision::init</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dispatch_api_hpx_supervision_finalize.html">hpx::supervision::finalize</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dispatch_api_hpx_supervision_is_initialized.html">hpx::supervision::is_initialized</a></li>
-<li class="toctree-l4"><a class="reference internal" href="server_sentinel.html">hpx/supervision_dispatch/server/sentinel.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="server_registry.html">hpx/supervision_dispatch/server/registry.hpp</a></li>
 </ul>
 </li>
@@ -1535,15 +1531,16 @@ document.write(`
 <blockquote>
 <div><ul class="simple">
 <li><p><a class="reference internal" href="testing_hpx_supervision_testing_local_snapshot_peers.html#modules-testing-hpx-supervision-testing-local-snapshot-peers-api"><span class="std std-ref">hpx::supervision::testing::local_snapshot_peers</span></a></p></li>
-<li><p><a class="reference internal" href="testing_hpx_supervision_testing_last_join_shadow.html#modules-testing-hpx-supervision-testing-last-join-shadow-api"><span class="std std-ref">hpx::supervision::testing::last_join_shadow</span></a></p></li>
+<li><p><a class="reference internal" href="testing_hpx_supervision_testing_last_join_locality.html#modules-testing-hpx-supervision-testing-last-join-locality-api"><span class="std std-ref">hpx::supervision::testing::last_join_locality</span></a></p></li>
 <li><p><a class="reference internal" href="testing_hpx_supervision_testing_suspend_heartbeat_for_testing.html#modules-testing-hpx-supervision-testing-suspend-heartbeat-for-testing-api"><span class="std std-ref">hpx::supervision::testing::suspend_heartbeat_for_testing</span></a></p></li>
 <li><p><a class="reference internal" href="testing_hpx_supervision_testing_failure_detection_sweep_in_flight_for_testing.html#modules-testing-hpx-supervision-testing-failure-detection-sweep-in-flight-for-testing-api"><span class="std std-ref">hpx::supervision::testing::failure_detection_sweep_in_flight_for_testing</span></a></p></li>
+<li><p><a class="reference internal" href="testing_hpx_supervision_testing_stop_background_loops.html#modules-testing-hpx-supervision-testing-stop-background-loops-api"><span class="std std-ref">hpx::supervision::testing::stop_background_loops</span></a></p></li>
 </ul>
 </div></blockquote>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision7testing46set_failure_detection_poll_timeout_for_testingERKN3hpx6chrono15steady_durationE">
 <span id="_CPPv3N3hpx11supervision7testing46set_failure_detection_poll_timeout_for_testingERKN3hpx6chrono15steady_durationE"></span><span id="_CPPv2N3hpx11supervision7testing46set_failure_detection_poll_timeout_for_testingERKN3hpx6chrono15steady_durationE"></span><span id="hpx::supervision::testing::set_failure_detection_poll_timeout_for_testing__hpx::chrono::steady_durationCR"></span><span class="target" id="components_2supervision__dispatch_2include_2hpx_2supervision__dispatch_2testing_8hpp_1a63a60123baf299f46b2d393fee016350"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="server_registry.html#_CPPv4N3hpx11supervisionE" title="hpx::supervision"><span class="n"><span class="pre">supervision</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">testing</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">set_failure_detection_poll_timeout_for_testing</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">steady_duration</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">timeout</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx11supervision7testing46set_failure_detection_poll_timeout_for_testingERKN3hpx6chrono15steady_durationE" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>Overrides the timeout failure_detection_loop() passes to <a class="reference internal" href="../../../libs/full/supervision/api/supervision_api_hpx_supervision_await_terminal.html#namespacehpx_1_1supervision_1a2a285791c5f29ed49d9c9fbcf5108691"><span class="std std-ref">await_terminal()</span></a> on each sweep. Must be called before <a class="reference internal" href="dispatch_api_hpx_supervision_init.html#namespacehpx_1_1supervision_1a83476b50d724441a86b492925be61af9"><span class="std std-ref">init()</span></a> starts the loop to take effect for that lifecycle; has no effect on a sweep already in flight. Not part of the public dispatch API - exists only to make failure-detection tests deterministic and fast instead of bound by the real 60s default_discovery_timeout.</p>
+<dd><p>Overrides the timeout failure_detection_loop() passes to <a class="reference internal" href="../../../libs/full/supervision/api/supervision_api_hpx_supervision_await_terminal.html#namespacehpx_1_1supervision_1a2a285791c5f29ed49d9c9fbcf5108691"><span class="std std-ref">await_terminal()</span></a> on each sweep. Must be called before <a class="reference internal" href="dispatch_api_hpx_supervision_init.html#namespacehpx_1_1supervision_1aa1986e4715edf916c72401e539ccf995"><span class="std std-ref">init()</span></a> starts the loop to take effect for that lifecycle; has no effect on a sweep already in flight. Not part of the public dispatch API - exists only to make failure-detection tests deterministic and fast instead of bound by the real 60s default_discovery_timeout.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>timeout</strong> – The new poll timeout. </p>
@@ -1575,11 +1572,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="testing_hpx_supervision_testing_last_join_shadow.html"
+       href="testing_hpx_supervision_testing_last_join_locality.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">hpx::supervision::testing::last_join_shadow</p>
+        <p class="prev-next-title">hpx::supervision::testing::last_join_locality</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

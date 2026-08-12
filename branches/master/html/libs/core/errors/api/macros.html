@@ -1250,22 +1250,18 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/discovery_hpx_supervision_discover_peers.html">hpx::supervision::discover_peers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/discovery_hpx_supervision_fan_out_join.html">hpx::supervision::fan_out_join</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/discovery_hpx_supervision_discover_and_join.html">hpx::supervision::discover_and_join</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/sentinel_hpx_supervision_sentinel.html">hpx::supervision::sentinel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/dispatch_work_hpx_supervision_dispatch_work.html">hpx::supervision::dispatch_work</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/dispatch_work_hpx_supervision_invoke_fenced_action.html">hpx::supervision::invoke_fenced_action</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/registry_hpx_supervision_registry.html">hpx::supervision::registry</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/testing_hpx_supervision_testing_local_snapshot_peers.html">hpx::supervision::testing::local_snapshot_peers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_failure_detection_poll_timeout_for_testing.html">hpx::supervision::testing::set_failure_detection_poll_timeout_for_testing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/testing_hpx_supervision_testing_last_join_shadow.html">hpx::supervision::testing::last_join_shadow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/testing_hpx_supervision_testing_last_join_locality.html">hpx::supervision::testing::last_join_locality</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/testing_hpx_supervision_testing_suspend_heartbeat_for_testing.html">hpx::supervision::testing::suspend_heartbeat_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/testing_hpx_supervision_testing_failure_detection_sweep_in_flight_for_testing.html">hpx::supervision::testing::failure_detection_sweep_in_flight_for_testing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/shadow_id_hpx_supervision_shadow_id.html">hpx::supervision::shadow_id</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/shadow_id_hpx_supervision_invalid_shadow_id.html">hpx::supervision::invalid_shadow_id</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/shadow_id_hpx_supervision_joined_peer.html">hpx::supervision::joined_peer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/testing_hpx_supervision_testing_stop_background_loops.html">hpx::supervision::testing::stop_background_loops</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/dispatch_api_hpx_supervision_init.html">hpx::supervision::init</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/dispatch_api_hpx_supervision_finalize.html">hpx::supervision::finalize</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/dispatch_api_hpx_supervision_is_initialized.html">hpx::supervision::is_initialized</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/server_sentinel.html">hpx/supervision_dispatch/server/sentinel.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/server_registry.html">hpx/supervision_dispatch/server/registry.hpp</a></li>
 </ul>
 </li>
@@ -1545,6 +1541,27 @@ document.write(`
 <span class="w">    </span><span class="c1">// Additionally associate with this exception some detailed</span>
 <span class="w">    </span><span class="c1">// diagnostic information about the throw-site.</span>
 <span class="w">    </span><span class="n">HPX_THROW_EXCEPTION</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">error</span><span class="o">::</span><span class="n">no_success</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;raise_exception&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="s">&quot;simulated error&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Example:</strong></dt><dd><p></p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_THROW_EXCEPTION_MODE">
+<span class="target" id="macros_8hpp_1ac40cf0c95df2176eb220a4e076805f76"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_THROW_EXCEPTION_MODE</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">errcode</span></span>, <span class="n"><span class="pre">mode</span></span>, <span class="n"><span class="pre">f</span></span>, <span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_THROW_EXCEPTION_MODE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Throw a <a class="reference internal" href="exception_hpx_exception.html#classhpx_1_1exception"><span class="std std-ref">hpx::exception</span></a> initialized from the given parameters. </p>
+<p>The macro <em>HPX_THROW_EXCEPTION_MODE</em> can be used to throw a <a class="reference internal" href="exception_hpx_exception.html#classhpx_1_1exception"><span class="std std-ref">hpx::exception</span></a>. The purpose of this macro is to prepend the source file name and line number of the position where the exception is thrown to the error message. Moreover, this associates additional diagnostic information with the exception, such as file name and line number, locality id and thread id, and stack backtrace from the point where the exception was thrown.</p>
+<p>The parameter <code class="docutils literal notranslate"><span class="pre">errcode</span></code> holds the hpx::error code the new exception should encapsulate. The parameter <code class="docutils literal notranslate"><span class="pre">f</span></code> is expected to hold the name of the function exception is thrown from and the parameter <code class="docutils literal notranslate"><span class="pre">msg</span></code> holds the error message the new exception should encapsulate. The <code class="docutils literal notranslate"><span class="pre">throwmode</span></code> parameter allows to specify the type of the thrown exception.</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">raise_exception</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Throw a hpx::exception initialized from the given parameters.</span>
+<span class="w">    </span><span class="n">HPX_THROW_EXCEPTION_MODE</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">error</span><span class="o">::</span><span class="n">no_success</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="n">hpx</span><span class="o">::</span><span class="n">throwmode</span><span class="o">::</span><span class="n">lighweight</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;raise_exception&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">       </span><span class="s">&quot;simulated error&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>

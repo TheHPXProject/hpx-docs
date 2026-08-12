@@ -23,8 +23,9 @@ See also:
 
    - :ref:`hpx::supervision::testing::local_snapshot_peers <modules_testing_hpx_supervision_testing_local_snapshot_peers_api>`
    - :ref:`hpx::supervision::testing::set_failure_detection_poll_timeout_for_testing <modules_testing_hpx_supervision_testing_set_failure_detection_poll_timeout_for_testing_api>`
-   - :ref:`hpx::supervision::testing::last_join_shadow <modules_testing_hpx_supervision_testing_last_join_shadow_api>`
+   - :ref:`hpx::supervision::testing::last_join_locality <modules_testing_hpx_supervision_testing_last_join_locality_api>`
    - :ref:`hpx::supervision::testing::suspend_heartbeat_for_testing <modules_testing_hpx_supervision_testing_suspend_heartbeat_for_testing_api>`
+   - :ref:`hpx::supervision::testing::stop_background_loops <modules_testing_hpx_supervision_testing_stop_background_loops_api>`
 
 .. doxygenfunction:: hpx::supervision::testing::failure_detection_sweep_in_flight_for_testing
    :project: hpx

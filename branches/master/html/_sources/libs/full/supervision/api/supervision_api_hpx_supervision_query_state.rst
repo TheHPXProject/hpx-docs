@@ -37,3 +37,11 @@ See also:
    :project: hpx
 .. doxygenfunction:: hpx::supervision::query_state(hpx::id_type const &target, hpx::error_code &ec=hpx::throws)
    :project: hpx
+.. doxygenfunction:: hpx::supervision::query_state(registry const &handle)
+   :project: hpx
+.. doxygenfunction:: hpx::supervision::query_state(hpx::launch::sync_policy policy, registry const &handle, hpx::error_code &ec=hpx::throws)
+   :project: hpx
+.. doxygenfunction:: hpx::supervision::query_state(registry const &handle, discovered_peer const &peer)
+   :project: hpx
+.. doxygenfunction:: hpx::supervision::query_state(hpx::launch::sync_policy policy, registry const &handle, discovered_peer const &peer, hpx::error_code &ec=hpx::throws)
+   :project: hpx

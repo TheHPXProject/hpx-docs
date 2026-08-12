@@ -51,7 +51,7 @@
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="hpx/supervision_dispatch/server/sentinel.hpp" href="server_sentinel.html" />
+    <link rel="next" title="hpx/supervision_dispatch/server/registry.hpp" href="server_registry.html" />
     <link rel="prev" title="hpx::supervision::finalize" href="dispatch_api_hpx_supervision_finalize.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -1250,22 +1250,18 @@
 <li class="toctree-l4"><a class="reference internal" href="discovery_hpx_supervision_discover_peers.html">hpx::supervision::discover_peers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discovery_hpx_supervision_fan_out_join.html">hpx::supervision::fan_out_join</a></li>
 <li class="toctree-l4"><a class="reference internal" href="discovery_hpx_supervision_discover_and_join.html">hpx::supervision::discover_and_join</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sentinel_hpx_supervision_sentinel.html">hpx::supervision::sentinel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dispatch_work_hpx_supervision_dispatch_work.html">hpx::supervision::dispatch_work</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dispatch_work_hpx_supervision_invoke_fenced_action.html">hpx::supervision::invoke_fenced_action</a></li>
 <li class="toctree-l4"><a class="reference internal" href="registry_hpx_supervision_registry.html">hpx::supervision::registry</a></li>
 <li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_local_snapshot_peers.html">hpx::supervision::testing::local_snapshot_peers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_set_failure_detection_poll_timeout_for_testing.html">hpx::supervision::testing::set_failure_detection_poll_timeout_for_testing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_last_join_shadow.html">hpx::supervision::testing::last_join_shadow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_last_join_locality.html">hpx::supervision::testing::last_join_locality</a></li>
 <li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_suspend_heartbeat_for_testing.html">hpx::supervision::testing::suspend_heartbeat_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_failure_detection_sweep_in_flight_for_testing.html">hpx::supervision::testing::failure_detection_sweep_in_flight_for_testing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="shadow_id_hpx_supervision_shadow_id.html">hpx::supervision::shadow_id</a></li>
-<li class="toctree-l4"><a class="reference internal" href="shadow_id_hpx_supervision_invalid_shadow_id.html">hpx::supervision::invalid_shadow_id</a></li>
-<li class="toctree-l4"><a class="reference internal" href="shadow_id_hpx_supervision_joined_peer.html">hpx::supervision::joined_peer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_stop_background_loops.html">hpx::supervision::testing::stop_background_loops</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dispatch_api_hpx_supervision_init.html">hpx::supervision::init</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dispatch_api_hpx_supervision_finalize.html">hpx::supervision::finalize</a></li>
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">hpx::supervision::is_initialized</a></li>
-<li class="toctree-l4"><a class="reference internal" href="server_sentinel.html">hpx/supervision_dispatch/server/sentinel.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="server_registry.html">hpx/supervision_dispatch/server/registry.hpp</a></li>
 </ul>
 </li>
@@ -1541,10 +1537,10 @@ document.write(`
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision14is_initializedEv">
 <span id="_CPPv3N3hpx11supervision14is_initializedEv"></span><span id="_CPPv2N3hpx11supervision14is_initializedEv"></span><span id="hpx::supervision::is_initialized"></span><span class="target" id="namespacehpx_1_1supervision_1a883a09011d575a91967e1f94e6210f91"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="server_registry.html#_CPPv4N3hpx11supervisionE" title="hpx::supervision"><span class="n"><span class="pre">supervision</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">is_initialized</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx11supervision14is_initializedEv" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>Returns whether the supervision-dispatch runtime for this locality is currently <em>active</em>, i.e. has completed <a class="reference internal" href="dispatch_api_hpx_supervision_init.html#namespacehpx_1_1supervision_1a83476b50d724441a86b492925be61af9"><span class="std std-ref">init()</span></a> and has not yet been torn down by <a class="reference internal" href="dispatch_api_hpx_supervision_finalize.html#namespacehpx_1_1supervision_1a0017d3d0f141187b75a6c7ea75019617"><span class="std std-ref">finalize()</span></a>.</p>
+<dd><p>Returns whether the supervision-dispatch runtime for this locality is currently <em>active</em>, i.e. has completed <a class="reference internal" href="dispatch_api_hpx_supervision_init.html#namespacehpx_1_1supervision_1aa1986e4715edf916c72401e539ccf995"><span class="std std-ref">init()</span></a> and has not yet been torn down by <a class="reference internal" href="dispatch_api_hpx_supervision_finalize.html#namespacehpx_1_1supervision_1a0017d3d0f141187b75a6c7ea75019617"><span class="std std-ref">finalize()</span></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This function never blocks and performs a single atomic load; it is safe to call from any thread, including while <a class="reference internal" href="dispatch_api_hpx_supervision_init.html#namespacehpx_1_1supervision_1a83476b50d724441a86b492925be61af9"><span class="std std-ref">init()</span></a> or <a class="reference internal" href="dispatch_api_hpx_supervision_finalize.html#namespacehpx_1_1supervision_1a0017d3d0f141187b75a6c7ea75019617"><span class="std std-ref">finalize()</span></a> is concurrently in flight. </p>
+<p>This function never blocks and performs a single atomic load; it is safe to call from any thread, including while <a class="reference internal" href="dispatch_api_hpx_supervision_init.html#namespacehpx_1_1supervision_1aa1986e4715edf916c72401e539ccf995"><span class="std std-ref">init()</span></a> or <a class="reference internal" href="dispatch_api_hpx_supervision_finalize.html#namespacehpx_1_1supervision_1a0017d3d0f141187b75a6c7ea75019617"><span class="std std-ref">finalize()</span></a> is concurrently in flight. </p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -1577,11 +1573,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="server_sentinel.html"
+       href="server_registry.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">hpx/supervision_dispatch/server/sentinel.hpp</p>
+        <p class="prev-next-title">hpx/supervision_dispatch/server/registry.hpp</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
