@@ -19,6 +19,9 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
 |hpx| API.
 
 
+.. seealso::
+   :hpx:func:`hpx::post (distributed)`
+
 .. doxygenfunction:: hpx::post(F &&f, Ts &&... ts)
    :project: hpx
 .. doxygenfunction:: hpx::post(hpx::id_type const &id, Ts &&... vs)

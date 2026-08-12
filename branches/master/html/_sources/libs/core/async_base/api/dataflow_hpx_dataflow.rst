@@ -19,6 +19,9 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
 |hpx| API.
 
 
+.. seealso::
+   :hpx:func:`hpx::dataflow (distributed)`
+
 .. doxygenfunction:: hpx::dataflow(F &&f, Ts &&... ts)
    :project: hpx
 .. doxygenfunction:: hpx::dataflow(Action &&action, Target &&target, Ts &&... ts)

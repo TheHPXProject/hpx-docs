@@ -19,6 +19,9 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
 |hpx| API.
 
 
+.. seealso::
+   :hpx:func:`hpx::async (distributed)`
+
 .. doxygenfunction:: hpx::async(F &&f, Ts &&... ts)
    :project: hpx
 .. doxygenfunction:: hpx::async(F &&f, Ts &&... ts) -> decltype(detail::async_action_dispatch< Action, std::decay_t< F >>::call(HPX_FORWARD(F, f), HPX_FORWARD(Ts, ts)...))

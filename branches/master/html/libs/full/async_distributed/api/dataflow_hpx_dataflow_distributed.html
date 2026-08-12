@@ -1531,9 +1531,23 @@ document.write(`
 <p>Defined in header hpx/async.hpp.</p>
 <p>See <a class="reference internal" href="../../../../api/public_api.html#public-api"><span class="std std-ref">Public API</span></a> for a list of names and headers that are part of the public
 <em>HPX</em> API.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../../../core/async_base/api/dataflow_hpx_dataflow.html#modules-dataflow-hpx-dataflow-api"><span class="std std-ref">hpx::dataflow</span></a></p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>doxygenfunction: Unable to resolve function “hpx::dataflow” with arguments (distributed) in doxygen xml output for project “hpx” from directory: ../hpx_autodoc.
+<p>doxygenfunction: Unable to resolve function “hpx::dataflow” with arguments (F&amp;&amp;, Ts&amp;&amp;…) in doxygen xml output for project “hpx” from directory: ../hpx_autodoc.
+Potential matches:
+</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="w"> </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Action</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Target</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="p">...</span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">dataflow</span><span class="p">(</span><span class="n">Action</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="n">Target</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">Ts</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">ts</span><span class="p">)</span><span class="w"></span>
+<span class="o">-</span><span class="w"> </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="p">...</span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">dataflow</span><span class="p">(</span><span class="n">F</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">Ts</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">ts</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Unable to resolve function “hpx::dataflow” with arguments (Action&amp;&amp;, Target&amp;&amp;, Ts&amp;&amp;…) in doxygen xml output for project “hpx” from directory: ../hpx_autodoc.
 Potential matches:
 </p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="w"> </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Action</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Target</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="p">...</span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">dataflow</span><span class="p">(</span><span class="n">Action</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="n">Target</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">Ts</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">ts</span><span class="p">)</span><span class="w"></span>

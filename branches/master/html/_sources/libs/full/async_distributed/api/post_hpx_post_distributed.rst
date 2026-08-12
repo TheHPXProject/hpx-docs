@@ -19,5 +19,22 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
 |hpx| API.
 
 
-.. doxygenfunction:: hpx::post (distributed)
+.. seealso::
+   :hpx:func:`hpx::post`
+
+.. doxygenfunction:: hpx::post(F &&f, Ts &&... ts)
+   :project: hpx
+.. doxygenfunction:: hpx::post(hpx::id_type const &id, Ts &&... vs)
+   :project: hpx
+.. doxygenfunction:: hpx::post(components::client_base< Client, Stub, Data > const &c, Ts &&... vs)
+   :project: hpx
+.. doxygenfunction:: hpx::post(DistPolicy const &policy, Ts &&... vs)
+   :project: hpx
+.. doxygenfunction:: hpx::post(Continuation &&c, hpx::id_type const &gid, Ts &&... vs)
+   :project: hpx
+.. doxygenfunction:: hpx::post(Continuation &&cont, components::client_base< Client, Stub, Data > const &c, Ts &&... vs)
+   :project: hpx
+.. doxygenfunction:: hpx::post(Continuation &&c, DistPolicy const &policy, Ts &&... vs)
+   :project: hpx
+.. doxygenfunction:: hpx::post(Action &&action, Target &&target, Ts &&... ts)
    :project: hpx

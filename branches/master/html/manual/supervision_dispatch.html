@@ -1588,11 +1588,15 @@ locally cached peer state and the registry’s authoritative state, and how that
 distinction shows up in the two-tier admission check used by fenced dispatch.
 For the detailed semantics of individual lifecycle events, <code class="docutils literal notranslate"><span class="pre">check_admission</span></code>,
 and <code class="docutils literal notranslate"><span class="pre">dispatch_outcome</span></code> values, see <a class="reference internal" href="../libs/full/supervision/docs/index.html#modules-supervision"><span class="std std-ref">Supervision module</span></a>; this page does
-not repeat that reference material.</p>
+not repeat that reference material. For the API reference of the
+dispatch-specific types and functions this component introduces -
+<code class="docutils literal notranslate"><span class="pre">registry</span></code>, <code class="docutils literal notranslate"><span class="pre">sentinel</span></code>, <code class="docutils literal notranslate"><span class="pre">discovery::discover_and_join</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">dispatch_work</span></code> - see <a class="reference internal" href="../components/supervision_dispatch/docs/index.html#modules-supervision-dispatch"><span class="std std-ref">Supervision dispatch module</span></a>.</p>
 <section id="initialization-and-shutdown-ordering">
 <h2>Initialization and shutdown ordering<a class="headerlink" href="#initialization-and-shutdown-ordering" title="Permalink to this heading">#</a></h2>
-<p>Supervision dispatch is brought up with a single call to <code class="docutils literal notranslate"><span class="pre">init()</span></code> and torn
-down with a single call to <code class="docutils literal notranslate"><span class="pre">finalize()</span></code>:</p>
+<p>Supervision dispatch is brought up with a single call to
+<a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_init.html#modules-dispatch-api-hpx-supervision-init-api"><span class="std std-ref">hpx::supervision::init</span></a> and torn down with a single call to
+<a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_finalize.html#modules-dispatch-api-hpx-supervision-finalize-api"><span class="std std-ref">hpx::supervision::finalize</span></a>:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/supervision_dispatch.hpp&gt;</span><span class="cp"></span>
 
 <span class="c1">// Blocking, one-shot startup for this locality.</span>
@@ -1612,8 +1616,11 @@ locality.</p></li>
 component’s symbol name is registered with AGAS, so that no peer can
 discover and join a not-yet-started sentinel.</p></li>
 <li><p>Registration of both symbol names.</p></li>
-<li><p>A single <code class="docutils literal notranslate"><span class="pre">discover_and_join()</span></code> pass that joins every peer registry
-reachable within <code class="docutils literal notranslate"><span class="pre">discovery_timeout</span></code>.</p></li>
+<li><p>A single <a class="reference internal" href="../components/supervision_dispatch/api/discovery_hpx_supervision_discover_and_join.html#modules-discovery-hpx-supervision-discover-and-join-api"><span class="std std-ref">hpx::supervision::discover_and_join</span></a> pass that joins
+every peer registry reachable within <code class="docutils literal notranslate"><span class="pre">discovery_timeout</span></code>. Its result is
+a list of <code class="docutils literal notranslate"><span class="pre">joined_discovery_result</span></code> (peer paired with the shadow id its
+<code class="docutils literal notranslate"><span class="pre">join()</span></code> call was assigned); peers that time out mid-pass are omitted
+from that list entirely rather than leaving a gap in it.</p></li>
 </ol>
 <p><code class="docutils literal notranslate"><span class="pre">init()</span></code> is idempotent: calling it while already active is a no-op, and
 concurrent callers attach to a single in-flight initialization rather than
@@ -1662,12 +1669,14 @@ is not something publishing <code class="docutils literal notranslate"><span cla
 <p>In practice, two kinds of ids show up as targets in this component:</p>
 <ul class="simple">
 <li><p>The sentinel/registry ids of peer localities, once joined via
-<code class="docutils literal notranslate"><span class="pre">registry::join()</span></code> - these are the targets whose shadow state feeds
-<code class="docutils literal notranslate"><span class="pre">registry::snapshot_peers()</span></code> and local admission filtering.</p></li>
+<a class="reference internal" href="../components/supervision_dispatch/docs/index.html#_CPPv4NK3hpx11supervision8registry4joinERKN3hpx11supervision8sentinelERKN3hpx7id_typeE" title="hpx::supervision::registry::join"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::supervision::registry::join</span></code></a> - these are the targets whose
+shadow state feeds <code class="docutils literal notranslate"><span class="pre">registry::snapshot_peers()</span></code> and local admission
+filtering.</p></li>
 <li><p>The ids of individual localities/components that fenced work is dispatched
-against via <code class="docutils literal notranslate"><span class="pre">dispatch_work(target,</span> <span class="pre">epoch,</span> <span class="pre">...)</span></code> – these need not be
-peers’ sentinels at all; any component id that has had lifecycle events
-published for it can be fenced.</p></li>
+against via <a class="reference internal" href="../components/supervision_dispatch/api/dispatch_work_hpx_supervision_dispatch_work.html#modules-dispatch-work-hpx-supervision-dispatch-work-api"><span class="std std-ref">hpx::supervision::dispatch_work</span></a>
+(<code class="docutils literal notranslate"><span class="pre">dispatch_work(target,</span> <span class="pre">epoch,</span> <span class="pre">...)</span></code>) – these need not be peers’
+sentinels at all; any component id that has had lifecycle events published
+for it can be fenced.</p></li>
 </ul>
 <p>Unlike joining a peer registry, there is no explicit “register this target”
 call for the underlying supervision manager. A target is introduced
@@ -1700,14 +1709,16 @@ after a failed registration attempt or once a peer has been evicted from the
 registry, to avoid accumulating unbounded per-target state.</p>
 <section id="removing-a-target">
 <h3>Removing a target<a class="headerlink" href="#removing-a-target" title="Permalink to this heading">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">hpx::supervision::remove_target()</span></code> is the counterpart to introducing a
-target: it unconditionally erases whatever supervision state is locally
-recorded for a target id, on a single locality.</p>
+<p><a class="reference internal" href="../libs/full/supervision/api/supervision_api_hpx_supervision_remove_target.html#modules-supervision-api-hpx-supervision-remove-target-api"><span class="std std-ref">hpx::supervision::remove_target</span></a> is the counterpart to
+introducing a target: it unconditionally erases whatever supervision state
+is locally recorded for a target id, on a single locality.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Synchronous version, target on a possibly remote locality:</span>
 <span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">remove_target</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">launch</span><span class="o">::</span><span class="n">sync</span><span class="p">,</span><span class="w"> </span><span class="n">locality</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-<p>See <a class="reference internal" href="../libs/full/supervision/docs/index.html#modules-supervision"><span class="std std-ref">Supervision module</span></a> for the full semantics of <code class="docutils literal notranslate"><span class="pre">remove_target</span></code>.</p>
+<p>See <a class="reference internal" href="../libs/full/supervision/docs/index.html#modules-supervision"><span class="std std-ref">Supervision module</span></a> for the full semantics of <code class="docutils literal notranslate"><span class="pre">remove_target</span></code>,
+and <a class="reference internal" href="../components/supervision_dispatch/docs/index.html#modules-supervision-dispatch"><span class="std std-ref">Supervision dispatch module</span></a> for this component’s own API
+reference.</p>
 <p>A few points worth calling out:</p>
 <ul class="simple">
 <li><p><strong>It is a forget operation, not a lifecycle event.</strong> It erases the
@@ -2293,7 +2304,10 @@ elapsed.</p>
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="../libs/full/supervision/docs/index.html#modules-supervision"><span class="std std-ref">Supervision module</span></a> for the full semantics of <code class="docutils literal notranslate"><span class="pre">check_admission</span></code>,
-<code class="docutils literal notranslate"><span class="pre">dispatch_outcome</span></code>, and the individual lifecycle events referenced above.</p>
+<code class="docutils literal notranslate"><span class="pre">dispatch_outcome</span></code>, and the individual lifecycle events referenced above,
+and <a class="reference internal" href="../components/supervision_dispatch/docs/index.html#modules-supervision-dispatch"><span class="std std-ref">Supervision dispatch module</span></a> for the API reference of this
+component’s own types and functions (<code class="docutils literal notranslate"><span class="pre">registry</span></code>, <code class="docutils literal notranslate"><span class="pre">sentinel</span></code>,
+<code class="docutils literal notranslate"><span class="pre">discovery</span></code>, and <code class="docutils literal notranslate"><span class="pre">dispatch_work</span></code>).</p>
 </section>
 </section>
 </section>
