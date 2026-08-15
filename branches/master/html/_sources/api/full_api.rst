@@ -94,6 +94,7 @@ refer to the full documentation below.
    /libs/core/tracy/api/full_api.rst
    /libs/core/util/api/full_api.rst
    /components/component_storage/api/full_api.rst
+   /components/process/api/full_api.rst
    /components/supervision_dispatch/api/full_api.rst
 
 
