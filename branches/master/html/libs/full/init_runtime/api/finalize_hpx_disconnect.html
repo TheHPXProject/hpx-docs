@@ -361,7 +361,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/lcos_fwd_hpx_distributed_promise.html">hpx::distributed::promise</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/promise.html">hpx/async_distributed/promise.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/transfer_continuation_action.html">hpx/async_distributed/transfer_continuation_action.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/continuation.html">hpx/async_distributed/continuation.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/trigger_lco.html">hpx/async_distributed/trigger_lco.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/trigger.html">hpx/async_distributed/trigger.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/dataflow_hpx_dataflow_distributed.html">hpx::dataflow (distributed)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/sync_hpx_sync_distributed.html">hpx::sync (distributed)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/async_hpx_async_distributed.html">hpx::async (distributed)</a></li>
@@ -1524,7 +1526,7 @@ document.write(`
                   
   <section id="hpx-disconnect">
 <span id="modules-finalize-hpx-disconnect-api"></span><h1>hpx::disconnect<a class="headerlink" href="#hpx-disconnect" title="Permalink to this heading">#</a></h1>
-<p>Defined in header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/793a6af02dc2859218663563ff18100870ad3ceb/libs/full/init_runtime/include/hpx/init.hpp">hpx/init.hpp</a>.</p>
+<p>Defined in header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/efaaf50a9c1eb74d8168044e1751b9cf05a006c0/libs/full/init_runtime/include/hpx/init.hpp">hpx/init.hpp</a>.</p>
 <p>See <a class="reference internal" href="../../../../api/public_api.html#public-api"><span class="std std-ref">Public API</span></a> for a list of names and headers that are part of the public
 <em>HPX</em> API.</p>
 <p>See also:</p>
@@ -1580,10 +1582,15 @@ This function will block and wait for this locality to finish executing before r
 <dd class="field-odd"><p><strong>ec</strong> – [in,out] this represents the error status on exit, if this is pre-initialized to <em>hpx::throws</em> the function will throw on error instead.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>This function will always return zero.</p>
+<dd class="field-even"><p>This function will always return zero if successful, -1 otherwise.</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx10disconnectEddR10error_code">
+<span id="_CPPv3N3hpx10disconnectEddR10error_code"></span><span id="_CPPv2N3hpx10disconnectEddR10error_code"></span><span id="hpx::disconnect__double.double.error_codeR"></span><span class="target" id="namespacehpx_1a7dc8625d983a8234467f1d7dd686c8b1"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">disconnect</span></span></span><span class="sig-paren">(</span><span class="p"><span class="pre">[[</span></span><span class="pre">maybe_unused</span><span class="p"><span class="pre">]]</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">shutdown_timeout</span></span>, <span class="p"><span class="pre">[[</span></span><span class="pre">maybe_unused</span><span class="p"><span class="pre">]]</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">localwait</span></span>, <span class="p"><span class="pre">[[</span></span><span class="pre">maybe_unused</span><span class="p"><span class="pre">]]</span></span><span class="w"> </span><a class="reference internal" href="../../../core/errors/api/error_code_hpx_error_code.html#_CPPv4N3hpx10error_codeE" title="hpx::error_code"><span class="n"><span class="pre">error_code</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ec</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx10disconnectEddR10error_code" title="Permalink to this definition">#</a><br /></dt>
+<dd></dd></dl>
 
 </section>
 

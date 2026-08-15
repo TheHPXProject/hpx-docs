@@ -361,7 +361,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/lcos_fwd_hpx_distributed_promise.html">hpx::distributed::promise</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/promise.html">hpx/async_distributed/promise.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/transfer_continuation_action.html">hpx/async_distributed/transfer_continuation_action.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/continuation.html">hpx/async_distributed/continuation.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/trigger_lco.html">hpx/async_distributed/trigger_lco.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/trigger.html">hpx/async_distributed/trigger.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/dataflow_hpx_dataflow_distributed.html">hpx::dataflow (distributed)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/sync_hpx_sync_distributed.html">hpx::sync (distributed)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/async_hpx_async_distributed.html">hpx::async (distributed)</a></li>
@@ -2221,16 +2223,31 @@ for each of the actions defined by the component type.</p>
 <span class="c1">// (system-wide) unique C++-style identifier (without any namespaces)</span>
 <span class="c1">//</span>
 <span class="n">HPX_REGISTER_COMPONENT</span><span class="p">(</span><span class="n">some_component_type</span><span class="p">,</span><span class="w"> </span><span class="n">some_component</span><span class="p">);</span><span class="w"></span>
-
-<span class="c1">// The parameters for this macro have to be the same as used in the corresponding</span>
-<span class="c1">// HPX_REGISTER_ACTION_DECLARATION() macro invocation in the corresponding</span>
-<span class="c1">// header file.</span>
-<span class="c1">//</span>
-<span class="c1">// Please note that the second argument to this macro must be a</span>
-<span class="c1">// (system-wide) unique C++-style identifier (without any namespaces)</span>
-<span class="c1">//</span>
-<span class="n">HPX_REGISTER_ACTION</span><span class="p">(</span><span class="n">app</span><span class="o">::</span><span class="n">some_component</span><span class="o">::</span><span class="n">some_member_action</span><span class="p">,</span><span class="w"> </span><span class="n">some_component_some_action</span><span class="p">);</span><span class="w"></span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When C++26 reflection is enabled (<code class="docutils literal notranslate"><span class="pre">HPX_WITH_CXX26_REFLECTION=ON</span></code>),
+the second argument to <a class="reference internal" href="../libs/full/runtime_components/api/macros.html#c.HPX_REGISTER_COMPONENT" title="HPX_REGISTER_COMPONENT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_REGISTER_COMPONENT</span></code></a> can be omitted.
+The component name is then derived automatically from the server type
+via <code class="docutils literal notranslate"><span class="pre">std::meta::identifier_of</span></code>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// With C++26 reflection -- single argument, name derived automatically</span>
+<span class="n">HPX_REGISTER_COMPONENT</span><span class="p">(</span><span class="n">some_component_type</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The derived name is fully qualified (includes enclosing namespaces) and
+is equivalent to the explicit two-argument form. Explicit names always
+take precedence over reflection-derived ones.</p>
+<blockquote>
+<div><p>// The parameters for this macro have to be the same as used in the corresponding
+// HPX_REGISTER_ACTION_DECLARATION() macro invocation in the corresponding
+// header file.
+//
+// Please note that the second argument to this macro must be a
+// (system-wide) unique C++-style identifier (without any namespaces)
+//
+HPX_REGISTER_ACTION(app::some_component::some_member_action, some_component_some_action);</p>
+</div></blockquote>
 </div>
 </section>
 <section id="defining-client-side-representation-classes">

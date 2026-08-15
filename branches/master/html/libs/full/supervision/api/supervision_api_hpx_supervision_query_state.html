@@ -361,7 +361,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/lcos_fwd_hpx_distributed_promise.html">hpx::distributed::promise</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/promise.html">hpx/async_distributed/promise.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/transfer_continuation_action.html">hpx/async_distributed/transfer_continuation_action.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/continuation.html">hpx/async_distributed/continuation.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/trigger_lco.html">hpx/async_distributed/trigger_lco.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/trigger.html">hpx/async_distributed/trigger.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/dataflow_hpx_dataflow_distributed.html">hpx::dataflow (distributed)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/sync_hpx_sync_distributed.html">hpx::sync (distributed)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/async_hpx_async_distributed.html">hpx::async (distributed)</a></li>
@@ -1649,7 +1651,7 @@ document.write(`
 </ul>
 </dd>
 <dt class="field-even">Throws</dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n">hpx</span></a><span class="p">::</span><a class="reference internal" href="../../../core/errors/api/exception_hpx_exception.html#_CPPv4N3hpx9exceptionE" title="hpx::exception"><span class="n">exception</span></a></span></span> – if <em>handle</em> does not hold a valid registry client, unless <em>ec</em> was not pre-initialized to <em>hpx::throws</em>.</p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n">hpx</span></a><span class="p">::</span><a class="reference internal" href="../../../core/errors/api/exception_hpx_exception.html#_CPPv4N3hpx9exceptionE" title="hpx::exception"><span class="n">exception</span></a></span></span> – if <em>handle</em> does not hold a valid registry client, unless <em>ec</em> was pre-initialized to something other than <em>hpx::throws</em>.</p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>The last event recorded for the local locality. </p>
@@ -1690,7 +1692,7 @@ document.write(`
 </ul>
 </dd>
 <dt class="field-even">Throws</dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n">hpx</span></a><span class="p">::</span><a class="reference internal" href="../../../core/errors/api/exception_hpx_exception.html#_CPPv4N3hpx9exceptionE" title="hpx::exception"><span class="n">exception</span></a></span></span> – if <em>peer</em> does not hold a valid locality, unless <em>ec</em> was not pre-initialized to <em>hpx::throws</em>.</p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n">hpx</span></a><span class="p">::</span><a class="reference internal" href="../../../core/errors/api/exception_hpx_exception.html#_CPPv4N3hpx9exceptionE" title="hpx::exception"><span class="n">exception</span></a></span></span> – if <em>peer.locality</em> does not hold a valid registry client, unless <em>ec</em> was pre-initialized to something other than <em>hpx::throws</em>.</p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>The last event recorded for <em>peer.locality</em>. </p>

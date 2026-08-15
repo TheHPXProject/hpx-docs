@@ -361,7 +361,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/lcos_fwd_hpx_distributed_promise.html">hpx::distributed::promise</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/promise.html">hpx/async_distributed/promise.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/transfer_continuation_action.html">hpx/async_distributed/transfer_continuation_action.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/continuation.html">hpx/async_distributed/continuation.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/trigger_lco.html">hpx/async_distributed/trigger_lco.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/trigger.html">hpx/async_distributed/trigger.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/dataflow_hpx_dataflow_distributed.html">hpx::dataflow (distributed)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/sync_hpx_sync_distributed.html">hpx::sync (distributed)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/async_hpx_async_distributed.html">hpx::async (distributed)</a></li>
@@ -2246,7 +2248,7 @@ elapsed.</p>
 
 <span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">registry</span><span class="w"> </span><span class="nf">local_registry</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">find_here</span><span class="p">());</span><span class="w"></span>
 
-<span class="n">hpx</span><span class="o">::</span><span class="n">id_type</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">shadow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">local_registry</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="w"></span>
+<span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">joined_peer</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">peer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">local_registry</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="w"></span>
 <span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">launch</span><span class="o">::</span><span class="n">sync</span><span class="p">,</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">find_here</span><span class="p">());</span><span class="w"></span>
 
 <span class="c1">// ... time passes; the peer&#39;s heartbeat stops ...</span>
@@ -2309,7 +2311,7 @@ that resolve locality and target automatically, instead of requiring the
 caller to extract <code class="docutils literal notranslate"><span class="pre">handle.get_id()</span></code> and <code class="docutils literal notranslate"><span class="pre">hpx::find_here()</span></code> manually:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/supervision_dispatch.hpp&gt;</span><span class="cp"></span>
 
-<span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">supervision_handle</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">registry</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">launch</span><span class="o">::</span><span class="n">sync</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Recover the epoch init() started this handle&#39;s locality at, for use</span>
@@ -2325,7 +2327,7 @@ caller to extract <code class="docutils literal notranslate"><span class="pre">h
 <p>Querying a peer’s state after joining it follows the same pattern, using a
 <code class="docutils literal notranslate"><span class="pre">discovered_peer</span></code> in place of an explicit locality/target pair:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">peer</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
-<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">discover_and_join</span><span class="p">(</span><span class="n">handle</span><span class="p">.</span><span class="n">registry_client</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">discover_and_join</span><span class="p">(</span><span class="n">handle</span><span class="p">))</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">lifecycle_state</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">peer_state</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="w">        </span><span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">query_state</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">launch</span><span class="o">::</span><span class="n">sync</span><span class="p">,</span><span class="w"> </span><span class="n">handle</span><span class="p">,</span><span class="w"> </span><span class="n">peer</span><span class="p">);</span><span class="w"></span>

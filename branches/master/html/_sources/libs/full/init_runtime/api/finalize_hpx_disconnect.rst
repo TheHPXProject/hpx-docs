@@ -27,3 +27,5 @@ See also:
    :project: hpx
 .. doxygenfunction:: hpx::disconnect(hpx::error_code &ec=throws)
    :project: hpx
+.. doxygenfunction:: hpx::disconnect([[maybe_unused]] double shutdown_timeout, [[maybe_unused]] double localwait, [[maybe_unused]] error_code &ec)
+   :project: hpx

@@ -361,7 +361,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/lcos_fwd_hpx_distributed_promise.html">hpx::distributed::promise</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/promise.html">hpx/async_distributed/promise.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/transfer_continuation_action.html">hpx/async_distributed/transfer_continuation_action.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/continuation.html">hpx/async_distributed/continuation.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/trigger_lco.html">hpx/async_distributed/trigger_lco.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/trigger.html">hpx/async_distributed/trigger.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/dataflow_hpx_dataflow_distributed.html">hpx::dataflow (distributed)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/sync_hpx_sync_distributed.html">hpx::sync (distributed)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/async_hpx_async_distributed.html">hpx::async (distributed)</a></li>
@@ -1848,7 +1850,7 @@ CMake target <code class="docutils literal notranslate"><span class="pre">HPX::w
 executables if you are using the macros described below
 (<a class="reference internal" href="#using-hpx-cmake-macros"><span class="std std-ref">Using macros to create new targets</span></a>). See <a class="reference internal" href="starting_the_hpx_runtime.html#minimal"><span class="std std-ref">Re-use the main() function as the main HPX entry point</span></a> for more information on
 implicitly using <code class="docutils literal notranslate"><span class="pre">main()</span></code> as the entry point. If you want the same wrapping
-behavior without including <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/793a6af02dc2859218663563ff18100870ad3ceb/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a>, link to
+behavior without including <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/efaaf50a9c1eb74d8168044e1751b9cf05a006c0/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a>, link to
 the <code class="docutils literal notranslate"><span class="pre">HPX::auto_wrap_main</span></code> target instead. This enables the runtime
 initialization around <code class="docutils literal notranslate"><span class="pre">main()</span></code> unconditionally and is useful for codebases
 where adding the header to <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code> is impractical</p>
