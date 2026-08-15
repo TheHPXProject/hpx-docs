@@ -21,7 +21,7 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    :maxdepth: 1
 
    /libs/full/components/api/client_hpx_components_client.rst
+   /libs/full/components/api/get_ptr.rst
    /libs/full/components/api/client_base_hpx_components_client_base.rst
    /libs/full/components/api/basename_registration_fwd.rst
-   /libs/full/components/api/get_ptr.rst
    /libs/full/components/api/basename_registration.rst
