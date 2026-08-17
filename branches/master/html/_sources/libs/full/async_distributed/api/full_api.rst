@@ -26,6 +26,7 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/full/async_distributed/api/lcos_fwd_hpx_distributed_promise.rst
    /libs/full/async_distributed/api/promise.rst
    /libs/full/async_distributed/api/transfer_continuation_action.rst
+   /libs/full/async_distributed/api/async_callback.rst
    /libs/full/async_distributed/api/continuation.rst
    /libs/full/async_distributed/api/trigger_lco.rst
    /libs/full/async_distributed/api/trigger.rst
