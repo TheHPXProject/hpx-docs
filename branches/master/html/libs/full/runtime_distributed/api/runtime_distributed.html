@@ -51,7 +51,7 @@
     <link rel="shortcut icon" href="../../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="hpx/runtime_distributed/applier.hpp" href="applier.html" />
+    <link rel="next" title="hpx/runtime_distributed/big_boot_barrier.hpp" href="big_boot_barrier.html" />
     <link rel="prev" title="runtime_distributed" href="full_api.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -527,6 +527,7 @@
 </li>
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="full_api.html">runtime_distributed</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">hpx/runtime_distributed.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="big_boot_barrier.html">hpx/runtime_distributed/big_boot_barrier.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="applier.html">hpx/runtime_distributed/applier.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="migrate_component.html">hpx/runtime_distributed/migrate_component.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="get_locality_name.html">hpx/runtime_distributed/get_locality_name.hpp</a></li>
@@ -935,6 +936,7 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/errors/api/full_api.html">errors</a><input class="toctree-checkbox" id="toctree-checkbox-49" name="toctree-checkbox-49" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-49"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/errors/api/define_error_info.html">hpx/errors/define_error_info.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/errors/api/error_code_hpx_error_code.html">hpx::error_code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../core/errors/api/try_catch_exception_ptr.html">hpx/errors/try_catch_exception_ptr.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/errors/api/exception_hpx_exception.html">hpx::exception</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/errors/api/exception_list.html">hpx/errors/exception_list.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/errors/api/throw_exception_HPX_THROW_EXCEPTION.html">HPX_THROW_EXCEPTION</a></li>
@@ -1091,6 +1093,7 @@
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/runtime_configuration/api/full_api.html">runtime_configuration</a><input class="toctree-checkbox" id="toctree-checkbox-61" name="toctree-checkbox-61" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-61"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/runtime_configuration/api/component_registry_base.html">hpx/runtime_configuration/component_registry_base.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../core/runtime_configuration/api/runtime_configuration.html">hpx/runtime_configuration/runtime_configuration.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/runtime_configuration/api/component_commandline_base_hpx_components_component_commandline_base.html">hpx::components::component_commandline_base</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/runtime_configuration/api/runtime_mode_hpx_runtime_mode.html">hpx::runtime_mode</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/runtime_configuration/api/plugin_registry_base.html">hpx/runtime_configuration/plugin_registry_base.hpp</a></li>
@@ -1548,7 +1551,7 @@ document.write(`
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx19runtime_distributed19runtime_distributedERN4util21runtime_configurationEPFi12runtime_modeEPFvvE">
-<span id="_CPPv3N3hpx19runtime_distributed19runtime_distributedERN4util21runtime_configurationEPFi12runtime_modeEPFvvE"></span><span id="_CPPv2N3hpx19runtime_distributed19runtime_distributedERN4util21runtime_configurationEPFi12runtime_modeEPFvvE"></span><span class="target" id="classhpx_1_1runtime__distributed_1ad5dbd04cc85735b5558f2b83e913eeaa"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">runtime_distributed</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/asio/api/asio_util.html#_CPPv4N3hpx4utilE" title="hpx::util"><span class="n"><span class="pre">util</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">runtime_configuration</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">rtcfg</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pre_main</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="../../../core/runtime_configuration/api/runtime_mode_hpx_runtime_mode.html#_CPPv4N3hpx12runtime_modeE" title="hpx::runtime_mode"><span class="n"><span class="pre">runtime_mode</span></span></a><span class="p"><span class="pre">)</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">post_main</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx19runtime_distributed19runtime_distributedERN4util21runtime_configurationEPFi12runtime_modeEPFvvE" title="Permalink to this definition">#</a><br /></dt>
+<span id="_CPPv3N3hpx19runtime_distributed19runtime_distributedERN4util21runtime_configurationEPFi12runtime_modeEPFvvE"></span><span id="_CPPv2N3hpx19runtime_distributed19runtime_distributedERN4util21runtime_configurationEPFi12runtime_modeEPFvvE"></span><span class="target" id="classhpx_1_1runtime__distributed_1ad5dbd04cc85735b5558f2b83e913eeaa"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">runtime_distributed</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../core/asio/api/asio_util.html#_CPPv4N3hpx4utilE" title="hpx::util"><span class="n"><span class="pre">util</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/runtime_configuration/api/runtime_configuration.html#_CPPv4N3hpx4util21runtime_configurationE" title="hpx::util::runtime_configuration"><span class="n"><span class="pre">runtime_configuration</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">rtcfg</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pre_main</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="../../../core/runtime_configuration/api/runtime_mode_hpx_runtime_mode.html#_CPPv4N3hpx12runtime_modeE" title="hpx::runtime_mode"><span class="n"><span class="pre">runtime_mode</span></span></a><span class="p"><span class="pre">)</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">post_main</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx19runtime_distributed19runtime_distributedERN4util21runtime_configurationEPFi12runtime_modeEPFvvE" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Construct a new HPX runtime instance</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -2081,11 +2084,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="applier.html"
+       href="big_boot_barrier.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">hpx/runtime_distributed/applier.hpp</p>
+        <p class="prev-next-title">hpx/runtime_distributed/big_boot_barrier.hpp</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

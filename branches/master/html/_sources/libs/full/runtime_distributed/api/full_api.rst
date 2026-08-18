@@ -21,6 +21,7 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    :maxdepth: 1
 
    /libs/full/runtime_distributed/api/runtime_distributed.rst
+   /libs/full/runtime_distributed/api/big_boot_barrier.rst
    /libs/full/runtime_distributed/api/applier.rst
    /libs/full/runtime_distributed/api/migrate_component.rst
    /libs/full/runtime_distributed/api/get_locality_name.rst

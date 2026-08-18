@@ -22,6 +22,7 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
 
    /libs/core/errors/api/define_error_info.rst
    /libs/core/errors/api/error_code_hpx_error_code.rst
+   /libs/core/errors/api/try_catch_exception_ptr.rst
    /libs/core/errors/api/exception_hpx_exception.rst
    /libs/core/errors/api/exception_list.rst
    /libs/core/errors/api/throw_exception_HPX_THROW_EXCEPTION.rst

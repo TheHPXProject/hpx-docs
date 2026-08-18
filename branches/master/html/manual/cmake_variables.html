@@ -527,6 +527,7 @@
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/full/runtime_distributed/api/full_api.html">runtime_distributed</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_distributed/api/runtime_distributed.html">hpx/runtime_distributed.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_distributed/api/big_boot_barrier.html">hpx/runtime_distributed/big_boot_barrier.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_distributed/api/applier.html">hpx/runtime_distributed/applier.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_distributed/api/migrate_component.html">hpx/runtime_distributed/migrate_component.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_distributed/api/get_locality_name.html">hpx/runtime_distributed/get_locality_name.hpp</a></li>
@@ -935,6 +936,7 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/errors/api/full_api.html">errors</a><input class="toctree-checkbox" id="toctree-checkbox-49" name="toctree-checkbox-49" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-49"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/errors/api/define_error_info.html">hpx/errors/define_error_info.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/errors/api/error_code_hpx_error_code.html">hpx::error_code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/errors/api/try_catch_exception_ptr.html">hpx/errors/try_catch_exception_ptr.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/errors/api/exception_hpx_exception.html">hpx::exception</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/errors/api/exception_list.html">hpx/errors/exception_list.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/errors/api/throw_exception_HPX_THROW_EXCEPTION.html">HPX_THROW_EXCEPTION</a></li>
@@ -1091,6 +1093,7 @@
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/runtime_configuration/api/full_api.html">runtime_configuration</a><input class="toctree-checkbox" id="toctree-checkbox-61" name="toctree-checkbox-61" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-61"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/runtime_configuration/api/component_registry_base.html">hpx/runtime_configuration/component_registry_base.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/runtime_configuration/api/runtime_configuration.html">hpx/runtime_configuration/runtime_configuration.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/runtime_configuration/api/component_commandline_base_hpx_components_component_commandline_base.html">hpx::components::component_commandline_base</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/runtime_configuration/api/runtime_mode_hpx_runtime_mode.html">hpx::runtime_mode</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/runtime_configuration/api/plugin_registry_base.html">hpx/runtime_configuration/plugin_registry_base.hpp</a></li>
@@ -1590,6 +1593,7 @@ includes the comprehensive list.</p>
 <li><p><a class="reference internal" href="#cmdoption-arg-HPX_WITH_DISABLED_SIGNAL_EXCEPTION_HANDLERS-BOOL"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_DISABLED_SIGNAL_EXCEPTION_HANDLERS:BOOL</span></code></a></p></li>
 <li><p><a class="reference internal" href="#cmdoption-arg-HPX_WITH_DYNAMIC_HPX_MAIN-BOOL"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_DYNAMIC_HPX_MAIN:BOOL</span></code></a></p></li>
 <li><p><a class="reference internal" href="#cmdoption-arg-HPX_WITH_FAULT_TOLERANCE-BOOL"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_FAULT_TOLERANCE:BOOL</span></code></a></p></li>
+<li><p><a class="reference internal" href="#cmdoption-arg-HPX_WITH_FORCE_DISCONNECT-BOOL"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_FORCE_DISCONNECT:BOOL</span></code></a></p></li>
 <li><p><a class="reference internal" href="#cmdoption-arg-HPX_WITH_FULL_RPATH-BOOL"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_FULL_RPATH:BOOL</span></code></a></p></li>
 <li><p><a class="reference internal" href="#cmdoption-arg-HPX_WITH_GCC_VERSION_CHECK-BOOL"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_GCC_VERSION_CHECK:BOOL</span></code></a></p></li>
 <li><p><a class="reference internal" href="#cmdoption-arg-HPX_WITH_GENERIC_CONTEXT_COROUTINES-BOOL"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_GENERIC_CONTEXT_COROUTINES:BOOL</span></code></a></p></li>
@@ -1722,6 +1726,12 @@ includes the comprehensive list.</p>
 <dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_FAULT_TOLERANCE-BOOL">
 <span id="cmdoption-arg-hpx-with-fault-tolerance-bool"></span><span class="sig-name descname"><span class="pre">HPX_WITH_FAULT_TOLERANCE:BOOL</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_FAULT_TOLERANCE-BOOL" title="Permalink to this definition">#</a></dt>
 <dd><p>Build HPX to tolerate failures of nodes, i.e. ignore errors in active communication channels (default: OFF)</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_FORCE_DISCONNECT-BOOL">
+<span id="cmdoption-arg-hpx-with-force-disconnect-bool"></span><span class="sig-name descname"><span class="pre">HPX_WITH_FORCE_DISCONNECT:BOOL</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_FORCE_DISCONNECT-BOOL" title="Permalink to this definition">#</a></dt>
+<dd><p>Build HPX to support forceful disconnect of localities (default: OFF)</p>
 </dd></dl>
 
 <dl class="std option">
