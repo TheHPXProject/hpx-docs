@@ -1599,7 +1599,7 @@ For the detailed semantics of individual lifecycle events, <code class="docutils
 and <code class="docutils literal notranslate"><span class="pre">dispatch_outcome</span></code> values, see <a class="reference internal" href="../libs/full/supervision/docs/index.html#modules-supervision"><span class="std std-ref">Supervision module</span></a>; this page does
 not repeat that reference material. For the API reference of the
 dispatch-specific types and functions this component introduces -
-<code class="docutils literal notranslate"><span class="pre">registry</span></code>, <code class="docutils literal notranslate"><span class="pre">sentinel</span></code>, <code class="docutils literal notranslate"><span class="pre">discovery::discover_and_join</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">registry</span></code>, <code class="docutils literal notranslate"><span class="pre">discovery::discover_and_join</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">dispatch_work</span></code> - see <a class="reference internal" href="../components/supervision_dispatch/docs/index.html#modules-supervision-dispatch"><span class="std std-ref">Supervision dispatch module</span></a>.</p>
 <section id="initialization-and-shutdown-ordering">
 <h2>Initialization and shutdown ordering<a class="headerlink" href="#initialization-and-shutdown-ordering" title="Permalink to this heading">#</a></h2>
@@ -1619,12 +1619,11 @@ dispatch-specific types and functions this component introduces -
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">init()</span></code> performs, in order:</p>
 <ol class="arabic simple">
-<li><p>Creation of a local <code class="docutils literal notranslate"><span class="pre">sentinel</span></code> and <code class="docutils literal notranslate"><span class="pre">registry</span></code> component for this
-locality.</p></li>
-<li><p>Publication of <code class="docutils literal notranslate"><span class="pre">event::started</span></code> on the sentinel - <em>before</em> either
+<li><p>Creation of a local <code class="docutils literal notranslate"><span class="pre">registry</span></code> component for this locality.</p></li>
+<li><p>Publication of <code class="docutils literal notranslate"><span class="pre">event::started</span></code> on the locality - <em>before</em> the
 component’s symbol name is registered with AGAS, so that no peer can
-discover and join a not-yet-started sentinel.</p></li>
-<li><p>Registration of both symbol names.</p></li>
+discover and join a not-yet-started locality.</p></li>
+<li><p>Registration of the symbol name.</p></li>
 <li><p>A single <a class="reference internal" href="../components/supervision_dispatch/api/discovery_hpx_supervision_discover_and_join.html#modules-discovery-hpx-supervision-discover-and-join-api"><span class="std std-ref">hpx::supervision::discover_and_join</span></a> pass that joins
 every peer registry reachable within <code class="docutils literal notranslate"><span class="pre">discovery_timeout</span></code>. Its result is
 a list of <code class="docutils literal notranslate"><span class="pre">joined_discovery_result</span></code> (peer paired with the shadow id its
@@ -1633,10 +1632,10 @@ from that list entirely rather than leaving a gap in it.</p></li>
 </ol>
 <p><code class="docutils literal notranslate"><span class="pre">init()</span></code> is idempotent: calling it while already active is a no-op, and
 concurrent callers attach to a single in-flight initialization rather than
-racing to create duplicate sentinels/registries. <code class="docutils literal notranslate"><span class="pre">finalize()</span></code> mirrors this
+racing to create duplicate registries. <code class="docutils literal notranslate"><span class="pre">finalize()</span></code> mirrors this
 ordering in reverse - it publishes <code class="docutils literal notranslate"><span class="pre">event::completed</span></code> for the local
-sentinel, unregisters both symbol names, and releases the components - and is
-always safe to call speculatively (e.g. during shutdown) even if <code class="docutils literal notranslate"><span class="pre">init()</span></code>
+locality, unregisters the symbol name, and releases the <code class="docutils literal notranslate"><span class="pre">registry</span></code> component -
+and is always safe to call speculatively (e.g. during shutdown) even if <code class="docutils literal notranslate"><span class="pre">init()</span></code>
 was never called, since it is a no-op unless the runtime is currently active.</p>
 <p>Applications should treat <code class="docutils literal notranslate"><span class="pre">init()</span></code>/<code class="docutils literal notranslate"><span class="pre">finalize()</span></code> as a matched pair around
 the portion of the program that performs supervised, fenced dispatch, and
@@ -1669,7 +1668,7 @@ resolvable by AGAS to some locality - this is a separate requirement from
 having recorded supervision state, and it is not something supervision
 dispatch itself grants. Any id obtained the ordinary way (creating a
 component, <code class="docutils literal notranslate"><span class="pre">hpx::find_here()</span></code>, a symbolic-name lookup, a peer’s joined
-sentinel/registry id) already satisfies this. If a target id can no longer be
+registry id) already satisfies this. If a target id can no longer be
 resolved to a locality - for instance, because the underlying component was
 already destroyed and unregistered - <code class="docutils literal notranslate"><span class="pre">dispatch_work()</span></code> fails when
 <code class="docutils literal notranslate"><span class="pre">hpx::colocated()</span></code> cannot resolve it, <em>before</em> either admission check
@@ -1677,7 +1676,7 @@ runs; this is a distinct failure mode from <code class="docutils literal notrans
 is not something publishing <code class="docutils literal notranslate"><span class="pre">event::started</span></code> can paper over.</p>
 <p>In practice, two kinds of ids show up as targets in this component:</p>
 <ul class="simple">
-<li><p>The sentinel/registry ids of peer localities, once joined via
+<li><p>The registry id of peer localities, once joined via
 <a class="reference internal" href="../components/supervision_dispatch/docs/index.html#_CPPv4NK3hpx11supervision8registry4joinERKN3hpx7id_typeE" title="hpx::supervision::registry::join"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::supervision::registry::join</span></code></a> - these are the targets whose
 shadow state feeds <code class="docutils literal notranslate"><span class="pre">registry::snapshot_peers()</span></code> and local admission
 filtering.</p></li>
@@ -1775,7 +1774,7 @@ pass are in progress. Concurrent callers attach to the same in-flight
 initialization rather than racing.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">active</span></code>: heartbeat and failure-detection background tasks are running.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">finalizing</span></code>: background tasks are being stopped, <code class="docutils literal notranslate"><span class="pre">event::completed</span></code> is
-published, and both symbol names are being unregistered before component
+published, and the symbol name is being unregistered before component
 release.</p></li>
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">init()</span></code>/<code class="docutils literal notranslate"><span class="pre">finalize()</span></code> are idempotent no-ops when already in the target
@@ -2355,8 +2354,8 @@ above - is available in <code class="docutils literal notranslate"><span class="
 <p>See <a class="reference internal" href="../libs/full/supervision/docs/index.html#modules-supervision"><span class="std std-ref">Supervision module</span></a> for the full semantics of <code class="docutils literal notranslate"><span class="pre">check_admission</span></code>,
 <code class="docutils literal notranslate"><span class="pre">dispatch_outcome</span></code>, and the individual lifecycle events referenced above,
 and <a class="reference internal" href="../components/supervision_dispatch/docs/index.html#modules-supervision-dispatch"><span class="std std-ref">Supervision dispatch module</span></a> for the API reference of this
-component’s own types and functions (<code class="docutils literal notranslate"><span class="pre">registry</span></code>, <code class="docutils literal notranslate"><span class="pre">sentinel</span></code>,
-<code class="docutils literal notranslate"><span class="pre">discovery</span></code>, and <code class="docutils literal notranslate"><span class="pre">dispatch_work</span></code>).</p>
+component’s own types and functions (<code class="docutils literal notranslate"><span class="pre">registry</span></code>, <code class="docutils literal notranslate"><span class="pre">discovery</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">dispatch_work</span></code>).</p>
 </section>
 </section>
 </section>
@@ -2482,7 +2481,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Aug 24, 2026.
+  Last updated on Aug 27, 2026.
   <br/>
 </p>
   </div>
