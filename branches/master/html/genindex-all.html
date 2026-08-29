@@ -2778,6 +2778,10 @@ document.write(`
 </li>
       <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service16mark_as_migratedERKN6naming8gid_typeERRN3hpx18move_only_functionIFNSt4pairIbN3hpx6futureIvEEEEvEEEb">hpx::agas::addressing_service::mark_as_migrated (C++ function)</a>
 </li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service41mark_connecting_locality_as_disconnectingERKN3hpx6naming8gid_typeE">hpx::agas::addressing_service::mark_connecting_locality_as_disconnecting (C++ function)</a>
+</li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service41mark_disconnecting_locality_as_connectingERKN3hpx6naming8gid_typeE">hpx::agas::addressing_service::mark_disconnecting_locality_as_connecting (C++ function)</a>
+</li>
       <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service20max_refcnt_requests_E">hpx::agas::addressing_service::max_refcnt_requests_ (C++ member)</a>
 </li>
       <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service21migrated_objects_mtx_E">hpx::agas::addressing_service::migrated_objects_mtx_ (C++ member)</a>
@@ -2846,6 +2850,20 @@ document.write(`
 </li>
       <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service24resolved_localities_typeE">hpx::agas::addressing_service::resolved_localities_type (C++ type)</a>
 </li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service17resolved_localityE">hpx::agas::addressing_service::resolved_locality (C++ struct)</a>
+</li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service17resolved_locality9endpointsE">hpx::agas::addressing_service::resolved_locality::endpoints (C++ member)</a>
+</li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service17resolved_locality5stateE">hpx::agas::addressing_service::resolved_locality::state (C++ member)</a>
+</li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service23resolved_locality_stateE">hpx::agas::addressing_service::resolved_locality_state (C++ enum)</a>
+</li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service23resolved_locality_state9connectedE">hpx::agas::addressing_service::resolved_locality_state::connected (C++ enumerator)</a>
+</li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service23resolved_locality_state10connectingE">hpx::agas::addressing_service::resolved_locality_state::connecting (C++ enumerator)</a>
+</li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service23resolved_locality_state13disconnectingE">hpx::agas::addressing_service::resolved_locality_state::disconnecting (C++ enumerator)</a>
+</li>
       <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service8rts_lva_E">hpx::agas::addressing_service::rts_lva_ (C++ member)</a>
 </li>
       <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service12runtime_typeE">hpx::agas::addressing_service::runtime_type (C++ member)</a>
@@ -2871,6 +2889,8 @@ document.write(`
       <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service10symbol_ns_E">hpx::agas::addressing_service::symbol_ns_ (C++ member)</a>
 </li>
       <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service29synchronize_with_async_increfENSt7int64_tERKN3hpx7id_typeENSt7int64_tE">hpx::agas::addressing_service::synchronize_with_async_incref (C++ function)</a>
+</li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service28transition_resolved_localityERKN3hpx6naming8gid_typeE23resolved_locality_state23resolved_locality_state">hpx::agas::addressing_service::transition_resolved_locality (C++ function)</a>
 </li>
       <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service12unbind_localERKN6naming8gid_typeER10error_code">hpx::agas::addressing_service::unbind_local (C++ function)</a>, <a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service12unbind_localERKN6naming8gid_typeERN6naming7addressER10error_code">[1]</a>
 </li>
@@ -6112,6 +6132,8 @@ document.write(`
 </li>
       <li><a href="libs/core/resiliency/api/replicate_executor.html#_CPPv4NK3hpx10resiliency12experimental18replicate_executor7contextEv">hpx::resiliency::experimental::replicate_executor::context (C++ function)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/core/resiliency/api/replicate_executor.html#_CPPv4N3hpx10resiliency12experimental18replicate_executor5exec_E">hpx::resiliency::experimental::replicate_executor::exec_ (C++ member)</a>
 </li>
       <li><a href="libs/core/resiliency/api/replicate_executor.html#_CPPv4N3hpx10resiliency12experimental18replicate_executor18execution_categoryE">hpx::resiliency::experimental::replicate_executor::execution_category (C++ type)</a>
@@ -6122,8 +6144,6 @@ document.write(`
 </li>
       <li><a href="libs/core/resiliency/api/replicate_executor.html#_CPPv4NK3hpx10resiliency12experimental18replicate_executor12get_executorEv">hpx::resiliency::experimental::replicate_executor::get_executor (C++ function)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/core/resiliency/api/replicate_executor.html#_CPPv4NK3hpx10resiliency12experimental18replicate_executor19get_replicate_countEv">hpx::resiliency::experimental::replicate_executor::get_replicate_count (C++ function)</a>
 </li>
       <li><a href="libs/core/resiliency/api/replicate_executor.html#_CPPv4NK3hpx10resiliency12experimental18replicate_executor13get_validatorEv">hpx::resiliency::experimental::replicate_executor::get_validator (C++ function)</a>

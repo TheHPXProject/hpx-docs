@@ -1750,6 +1750,10 @@ document.write(`
 </li>
       <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service16mark_as_migratedERKN6naming8gid_typeERRN3hpx18move_only_functionIFNSt4pairIbN3hpx6futureIvEEEEvEEEb">hpx::agas::addressing_service::mark_as_migrated (C++ function)</a>
 </li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service41mark_connecting_locality_as_disconnectingERKN3hpx6naming8gid_typeE">hpx::agas::addressing_service::mark_connecting_locality_as_disconnecting (C++ function)</a>
+</li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service41mark_disconnecting_locality_as_connectingERKN3hpx6naming8gid_typeE">hpx::agas::addressing_service::mark_disconnecting_locality_as_connecting (C++ function)</a>
+</li>
       <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service20max_refcnt_requests_E">hpx::agas::addressing_service::max_refcnt_requests_ (C++ member)</a>
 </li>
       <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service21migrated_objects_mtx_E">hpx::agas::addressing_service::migrated_objects_mtx_ (C++ member)</a>
@@ -1818,6 +1822,20 @@ document.write(`
 </li>
       <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service24resolved_localities_typeE">hpx::agas::addressing_service::resolved_localities_type (C++ type)</a>
 </li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service17resolved_localityE">hpx::agas::addressing_service::resolved_locality (C++ struct)</a>
+</li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service17resolved_locality9endpointsE">hpx::agas::addressing_service::resolved_locality::endpoints (C++ member)</a>
+</li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service17resolved_locality5stateE">hpx::agas::addressing_service::resolved_locality::state (C++ member)</a>
+</li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service23resolved_locality_stateE">hpx::agas::addressing_service::resolved_locality_state (C++ enum)</a>
+</li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service23resolved_locality_state9connectedE">hpx::agas::addressing_service::resolved_locality_state::connected (C++ enumerator)</a>
+</li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service23resolved_locality_state10connectingE">hpx::agas::addressing_service::resolved_locality_state::connecting (C++ enumerator)</a>
+</li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service23resolved_locality_state13disconnectingE">hpx::agas::addressing_service::resolved_locality_state::disconnecting (C++ enumerator)</a>
+</li>
       <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service8rts_lva_E">hpx::agas::addressing_service::rts_lva_ (C++ member)</a>
 </li>
       <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service12runtime_typeE">hpx::agas::addressing_service::runtime_type (C++ member)</a>
@@ -1843,6 +1861,8 @@ document.write(`
       <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service10symbol_ns_E">hpx::agas::addressing_service::symbol_ns_ (C++ member)</a>
 </li>
       <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service29synchronize_with_async_increfENSt7int64_tERKN3hpx7id_typeENSt7int64_tE">hpx::agas::addressing_service::synchronize_with_async_incref (C++ function)</a>
+</li>
+      <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service28transition_resolved_localityERKN3hpx6naming8gid_typeE23resolved_locality_state23resolved_locality_state">hpx::agas::addressing_service::transition_resolved_locality (C++ function)</a>
 </li>
       <li><a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service12unbind_localERKN6naming8gid_typeER10error_code">hpx::agas::addressing_service::unbind_local (C++ function)</a>, <a href="libs/full/agas/api/addressing_service.html#_CPPv4N3hpx4agas18addressing_service12unbind_localERKN6naming8gid_typeERN6naming7addressER10error_code">[1]</a>
 </li>
@@ -4912,6 +4932,8 @@ document.write(`
 </li>
       <li><a href="libs/core/algorithms/api/uninitialized_fill_hpx_ranges_uninitialized_fill.html#_CPPv4I0000EN3hpx6ranges18uninitialized_fillEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy7FwdIterEERR8ExPolicy7FwdIter4SentRK1T">hpx::ranges::uninitialized_fill (C++ function)</a>, <a href="libs/core/algorithms/api/uninitialized_fill_hpx_ranges_uninitialized_fill.html#_CPPv4I000EN3hpx6ranges18uninitialized_fillE7FwdIter7FwdIter4SentRK1T">[1]</a>, <a href="libs/core/algorithms/api/uninitialized_fill_hpx_ranges_uninitialized_fill.html#_CPPv4I000EN3hpx6ranges18uninitialized_fillEN8parallel4util6detail16algorithm_resultI8ExPolicyN3hpx6traits12range_traitsI4Rng1E13iterator_typeEE4typeERR8ExPolicyRR3RngRK1T">[2]</a>, <a href="libs/core/algorithms/api/uninitialized_fill_hpx_ranges_uninitialized_fill.html#_CPPv4I00EN3hpx6ranges18uninitialized_fillEN3hpx6traits12range_traitsI3RngE13iterator_typeERR3RngRK1T">[3]</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/core/algorithms/api/uninitialized_fill_hpx_ranges_uninitialized_fill_n.html#_CPPv4I0000EN3hpx6ranges20uninitialized_fill_nEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy7FwdIterEERR8ExPolicy7FwdIter4SizeRK1T">hpx::ranges::uninitialized_fill_n (C++ function)</a>, <a href="libs/core/algorithms/api/uninitialized_fill_hpx_ranges_uninitialized_fill_n.html#_CPPv4I000EN3hpx6ranges20uninitialized_fill_nE7FwdIter7FwdIter4SizeRK1T">[1]</a>
 </li>
       <li><a href="libs/core/algorithms/api/uninitialized_move_hpx_ranges_uninitialized_move.html#_CPPv4I00000EN3hpx6ranges18uninitialized_moveEN8parallel4util6detail16algorithm_resultI8ExPolicyN8parallel4util13in_out_resultI8FwdIter18FwdIter2EEE4typeERR8ExPolicy8FwdIter15Sent18FwdIter25Sent2">hpx::ranges::uninitialized_move (C++ function)</a>, <a href="libs/core/algorithms/api/uninitialized_move_hpx_ranges_uninitialized_move.html#_CPPv4I0000EN3hpx6ranges18uninitialized_moveEN3hpx8parallel4util13in_out_resultI6InIter7FwdIterEE6InIter5Sent17FwdIter5Sent2">[1]</a>, <a href="libs/core/algorithms/api/uninitialized_move_hpx_ranges_uninitialized_move.html#_CPPv4I000EN3hpx6ranges18uninitialized_moveEN8parallel4util6detail16algorithm_resultI8ExPolicyN3hpx8parallel4util13in_out_resultIN3hpx6traits12range_traitsI4Rng1E13iterator_typeEN3hpx6traits12range_traitsI4Rng2E13iterator_typeEEEE4typeERR8ExPolicyRR4Rng1RR4Rng2">[2]</a>, <a href="libs/core/algorithms/api/uninitialized_move_hpx_ranges_uninitialized_move.html#_CPPv4I00EN3hpx6ranges18uninitialized_moveEN3hpx8parallel4util13in_out_resultIN3hpx6traits12range_traitsI4Rng1E13iterator_typeEN3hpx6traits12range_traitsI4Rng2E13iterator_typeEEERR4Rng1RR4Rng2">[3]</a>
@@ -4922,8 +4944,6 @@ document.write(`
 </li>
       <li><a href="libs/core/algorithms/api/uninitialized_value_construct_hpx_ranges_uninitialized_value_construct_n.html#_CPPv4I000EN3hpx6ranges31uninitialized_value_construct_nEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy7FwdIterEERR8ExPolicy7FwdIter4Size">hpx::ranges::uninitialized_value_construct_n (C++ function)</a>, <a href="libs/core/algorithms/api/uninitialized_value_construct_hpx_ranges_uninitialized_value_construct_n.html#_CPPv4I00EN3hpx6ranges31uninitialized_value_construct_nE7FwdIter7FwdIter4Size">[1]</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/core/algorithms/api/unique_hpx_ranges_unique.html#_CPPv4I00000EN3hpx6ranges6uniqueEN8parallel4util6detail16algorithm_resultI8ExPolicy10subrange_tI7FwdIter4SentEE4typeERR8ExPolicy7FwdIter4SentRR4PredRR4Proj">hpx::ranges::unique (C++ function)</a>, <a href="libs/core/algorithms/api/unique_hpx_ranges_unique.html#_CPPv4I0000EN3hpx6ranges6uniqueE10subrange_tI7FwdIter4SentE7FwdIter4SentRR4PredRR4Proj">[1]</a>, <a href="libs/core/algorithms/api/unique_hpx_ranges_unique.html#_CPPv4I0000EN3hpx6ranges6uniqueEN8parallel4util6detail16algorithm_resultI8ExPolicy10subrange_tINSt6ranges10iterator_tI3RngEENSt6ranges10iterator_tI3RngEEEEERR8ExPolicyRR3RngRR4PredRR4Proj">[2]</a>, <a href="libs/core/algorithms/api/unique_hpx_ranges_unique.html#_CPPv4I000EN3hpx6ranges6uniqueE10subrange_tINSt6ranges10iterator_tI3RngEENSt6ranges10iterator_tI3RngEEERR3RngRR4PredRR4Proj">[3]</a>
 </li>
       <li><a href="libs/core/algorithms/api/unique_hpx_ranges_unique_copy.html#_CPPv4I000000EN3hpx6ranges11unique_copyEN8parallel4util6detail16algorithm_resultI8ExPolicy18unique_copy_resultI7FwdIter1OEE4typeERR8ExPolicy7FwdIter4Sent1ORR4PredRR4Proj">hpx::ranges::unique_copy (C++ function)</a>, <a href="libs/core/algorithms/api/unique_hpx_ranges_unique_copy.html#_CPPv4I00000EN3hpx6ranges11unique_copyE18unique_copy_resultI6InIter1OE6InIter4Sent1ORR4PredRR4Proj">[1]</a>, <a href="libs/core/algorithms/api/unique_hpx_ranges_unique_copy.html#_CPPv4I00000EN3hpx6ranges11unique_copyEN8parallel4util6detail16algorithm_resultI8ExPolicy18unique_copy_resultINSt6ranges10iterator_tI3RngEE1OEEERR8ExPolicyRR3Rng1ORR4PredRR4Proj">[2]</a>, <a href="libs/core/algorithms/api/unique_hpx_ranges_unique_copy.html#_CPPv4I0000EN3hpx6ranges11unique_copyE18unique_copy_resultINSt6ranges10iterator_tI3RngEE1OERR3Rng1ORR4PredRR4Proj">[3]</a>
