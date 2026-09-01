@@ -39,6 +39,7 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/runtime_local/api/shutdown_function_hpx_register_shutdown_function.rst
    /libs/core/runtime_local/api/termination_detection.rst
    /libs/core/runtime_local/api/get_locality_name_hpx_get_locality_name.rst
+   /libs/core/runtime_local/api/thread_mapper.rst
    /libs/core/runtime_local/api/report_error.rst
    /libs/core/runtime_local/api/component_startup_shutdown_base.rst
    /libs/core/runtime_local/api/get_locality_id_hpx_get_locality_id.rst

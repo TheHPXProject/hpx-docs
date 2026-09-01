@@ -1121,6 +1121,7 @@
 <li class="toctree-l4"><a class="reference internal" href="shutdown_function_hpx_register_shutdown_function.html">hpx::register_shutdown_function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="termination_detection.html">hpx/runtime_local/termination_detection.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="get_locality_name_hpx_get_locality_name.html">hpx::get_locality_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="thread_mapper.html">hpx/runtime_local/thread_mapper.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="report_error.html">hpx/runtime_local/report_error.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="component_startup_shutdown_base.html">hpx/runtime_local/component_startup_shutdown_base.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="get_locality_id_hpx_get_locality_id.html">hpx::get_locality_id</a></li>
@@ -1644,7 +1645,7 @@ document.write(`
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3hpx7runtime17get_thread_mapperEv">
-<span id="_CPPv3NK3hpx7runtime17get_thread_mapperEv"></span><span id="_CPPv2NK3hpx7runtime17get_thread_mapperEv"></span><span id="hpx::runtime::get_thread_mapperC"></span><span class="target" id="classhpx_1_1runtime_1abdcac6a6fbc7e796db9165558f0a772d"></span><a class="reference internal" href="../../asio/api/asio_util.html#_CPPv4N3hpx4utilE" title="hpx::util"><span class="n"><span class="pre">util</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">thread_mapper</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">get_thread_mapper</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3hpx7runtime17get_thread_mapperEv" title="Permalink to this definition">#</a><br /></dt>
+<span id="_CPPv3NK3hpx7runtime17get_thread_mapperEv"></span><span id="_CPPv2NK3hpx7runtime17get_thread_mapperEv"></span><span id="hpx::runtime::get_thread_mapperC"></span><span class="target" id="classhpx_1_1runtime_1abdcac6a6fbc7e796db9165558f0a772d"></span><a class="reference internal" href="../../asio/api/asio_util.html#_CPPv4N3hpx4utilE" title="hpx::util"><span class="n"><span class="pre">util</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="thread_mapper.html#_CPPv4N3hpx4util13thread_mapperE" title="hpx::util::thread_mapper"><span class="n"><span class="pre">thread_mapper</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">get_thread_mapper</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3hpx7runtime17get_thread_mapperEv" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Return a reference to the internal PAPI thread manager. </p>
 </dd></dl>
 
@@ -2081,7 +2082,7 @@ document.write(`
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx7runtime15thread_support_E">
-<span id="_CPPv3N3hpx7runtime15thread_support_E"></span><span id="_CPPv2N3hpx7runtime15thread_support_E"></span><span id="hpx::runtime::thread_support___std::unique_ptr:util::thread_mapper:"></span><span class="target" id="classhpx_1_1runtime_1a432e6741f4bcb48bcb3818391095ab87"></span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../asio/api/asio_util.html#_CPPv4N3hpx4utilE" title="hpx::util"><span class="n"><span class="pre">util</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">thread_mapper</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">thread_support_</span></span></span><a class="headerlink" href="#_CPPv4N3hpx7runtime15thread_support_E" title="Permalink to this definition">#</a><br /></dt>
+<span id="_CPPv3N3hpx7runtime15thread_support_E"></span><span id="_CPPv2N3hpx7runtime15thread_support_E"></span><span id="hpx::runtime::thread_support___std::unique_ptr:util::thread_mapper:"></span><span class="target" id="classhpx_1_1runtime_1a432e6741f4bcb48bcb3818391095ab87"></span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../asio/api/asio_util.html#_CPPv4N3hpx4utilE" title="hpx::util"><span class="n"><span class="pre">util</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="thread_mapper.html#_CPPv4N3hpx4util13thread_mapperE" title="hpx::util::thread_mapper"><span class="n"><span class="pre">thread_mapper</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">thread_support_</span></span></span><a class="headerlink" href="#_CPPv4N3hpx7runtime15thread_support_E" title="Permalink to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
@@ -2377,7 +2378,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Aug 31, 2026.
+  Last updated on Sep 01, 2026.
   <br/>
 </p>
   </div>
