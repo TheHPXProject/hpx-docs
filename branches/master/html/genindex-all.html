@@ -264,7 +264,6 @@
 <li class="toctree-l3"><a class="reference internal" href="libs/core/timed_execution/docs/index.html">timed_execution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="libs/core/timing/docs/index.html">timing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="libs/core/topology/docs/index.html">topology</a></li>
-<li class="toctree-l3"><a class="reference internal" href="libs/core/tracing/docs/index.html">tracing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="libs/core/tracy/docs/index.html">tracy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="libs/core/type_support/docs/index.html">type_support</a></li>
 <li class="toctree-l3"><a class="reference internal" href="libs/core/util/docs/index.html">util</a></li>
@@ -2255,8 +2254,6 @@ document.write(`
 </li>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_FETCH_LCW-BOOL">HPX_WITH_FETCH_LCW:BOOL</a>
 </li>
-        <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_FETCH_TRACY-BOOL">HPX_WITH_FETCH_TRACY:BOOL</a>
-</li>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_FORCE_DISCONNECT-BOOL">HPX_WITH_FORCE_DISCONNECT:BOOL</a>
 </li>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_FULL_RPATH-BOOL">HPX_WITH_FULL_RPATH:BOOL</a>
@@ -2280,8 +2277,6 @@ document.write(`
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_IO_COUNTERS-BOOL">HPX_WITH_IO_COUNTERS:BOOL</a>
 </li>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_IO_POOL-BOOL">HPX_WITH_IO_POOL:BOOL</a>
-</li>
-        <li><a href="manual/building_hpx.html#cmdoption-arg-HPX_WITH_ITTNOTIFY">HPX_WITH_ITTNOTIFY</a>
 </li>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_ITTNOTIFY-BOOL">HPX_WITH_ITTNOTIFY:BOOL</a>
 </li>
@@ -2324,8 +2319,6 @@ document.write(`
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_PARALLEL_TESTS_BIND_NONE-BOOL">HPX_WITH_PARALLEL_TESTS_BIND_NONE:BOOL</a>
 </li>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_PARCEL_COALESCING-BOOL">HPX_WITH_PARCEL_COALESCING:BOOL</a>
-</li>
-        <li><a href="manual/building_hpx.html#cmdoption-arg-HPX_WITH_PARCEL_PROFILING">HPX_WITH_PARCEL_PROFILING</a>
 </li>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_PARCEL_PROFILING-BOOL">HPX_WITH_PARCEL_PROFILING:BOOL</a>
 </li>
@@ -2454,8 +2447,6 @@ document.write(`
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_TIMER_POOL-BOOL">HPX_WITH_TIMER_POOL:BOOL</a>
 </li>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_TOOLS-BOOL">HPX_WITH_TOOLS:BOOL</a>
-</li>
-        <li><a href="manual/building_hpx.html#cmdoption-arg-HPX_WITH_TRACY">HPX_WITH_TRACY</a>
 </li>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_TRACY-BOOL">HPX_WITH_TRACY:BOOL</a>
 </li>
@@ -6176,6 +6167,8 @@ document.write(`
 </li>
       <li><a href="libs/core/resiliency/api/replicate_executor.html#_CPPv4NK3hpx10resiliency12experimental18replicate_executor7contextEv">hpx::resiliency::experimental::replicate_executor::context (C++ function)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/core/resiliency/api/replicate_executor.html#_CPPv4N3hpx10resiliency12experimental18replicate_executor5exec_E">hpx::resiliency::experimental::replicate_executor::exec_ (C++ member)</a>
 </li>
       <li><a href="libs/core/resiliency/api/replicate_executor.html#_CPPv4N3hpx10resiliency12experimental18replicate_executor18execution_categoryE">hpx::resiliency::experimental::replicate_executor::execution_category (C++ type)</a>
@@ -6184,8 +6177,6 @@ document.write(`
 </li>
       <li><a href="libs/core/resiliency/api/replicate_executor.html#_CPPv4I0EN3hpx10resiliency12experimental18replicate_executor11future_typeE">hpx::resiliency::experimental::replicate_executor::future_type (C++ type)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/core/resiliency/api/replicate_executor.html#_CPPv4NK3hpx10resiliency12experimental18replicate_executor12get_executorEv">hpx::resiliency::experimental::replicate_executor::get_executor (C++ function)</a>
 </li>
       <li><a href="libs/core/resiliency/api/replicate_executor.html#_CPPv4NK3hpx10resiliency12experimental18replicate_executor19get_replicate_countEv">hpx::resiliency::experimental::replicate_executor::get_replicate_count (C++ function)</a>
@@ -9607,13 +9598,6 @@ document.write(`
 </li>
       </ul></li>
       <li>
-    HPX_WITH_FETCH_TRACY:BOOL
-
-      <ul>
-        <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_FETCH_TRACY-BOOL">command line option</a>
-</li>
-      </ul></li>
-      <li>
     HPX_WITH_FORCE_DISCONNECT:BOOL
 
       <ul>
@@ -9695,13 +9679,6 @@ document.write(`
 
       <ul>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_IO_POOL-BOOL">command line option</a>
-</li>
-      </ul></li>
-      <li>
-    HPX_WITH_ITTNOTIFY
-
-      <ul>
-        <li><a href="manual/building_hpx.html#cmdoption-arg-HPX_WITH_ITTNOTIFY">command line option</a>
 </li>
       </ul></li>
       <li>
@@ -9849,13 +9826,6 @@ document.write(`
 
       <ul>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_PARCEL_COALESCING-BOOL">command line option</a>
-</li>
-      </ul></li>
-      <li>
-    HPX_WITH_PARCEL_PROFILING
-
-      <ul>
-        <li><a href="manual/building_hpx.html#cmdoption-arg-HPX_WITH_PARCEL_PROFILING">command line option</a>
 </li>
       </ul></li>
       <li>
@@ -10304,13 +10274,6 @@ document.write(`
 
       <ul>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_TOOLS-BOOL">command line option</a>
-</li>
-      </ul></li>
-      <li>
-    HPX_WITH_TRACY
-
-      <ul>
-        <li><a href="manual/building_hpx.html#cmdoption-arg-HPX_WITH_TRACY">command line option</a>
 </li>
       </ul></li>
       <li>

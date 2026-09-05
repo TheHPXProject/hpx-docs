@@ -267,7 +267,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../libs/core/timed_execution/docs/index.html">timed_execution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../libs/core/timing/docs/index.html">timing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../libs/core/topology/docs/index.html">topology</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../libs/core/tracing/docs/index.html">tracing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../libs/core/tracy/docs/index.html">tracy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../libs/core/type_support/docs/index.html">type_support</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../libs/core/util/docs/index.html">util</a></li>
@@ -1640,30 +1639,6 @@ this experimental parcelport may provide better performance than the MPI parcelp
 <span id="cmdoption-arg-hpx-with-apex"></span><span class="sig-name descname"><span class="pre">HPX_WITH_APEX</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_APEX" title="Permalink to this definition">#</a></dt>
 <dd><p>Enable APEX integration. <a class="reference external" href="https://uo-oaciss.github.io/apex/quickstarthpx/">APEX</a> can be used to profile <em>HPX</em>
 applications. In particular, it provides information about individual tasks in the <em>HPX</em> runtime.</p>
-</dd></dl>
-
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_TRACY">
-<span id="cmdoption-arg-hpx-with-tracy"></span><span class="sig-name descname"><span class="pre">HPX_WITH_TRACY</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_TRACY" title="Permalink to this definition">#</a></dt>
-<dd><p>Enable <a class="reference external" href="https://github.com/wolfpld/tracy">Tracy</a> integration. Tracy shows task lifecycle, work stealing, suspension, and (with
-<a class="reference internal" href="#cmdoption-arg-HPX_WITH_PARCEL_PROFILING"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_PARCEL_PROFILING</span></code></a>) distributed parcel events. See <a class="reference internal" href="optimizing_hpx_applications.html#optimizing-with-tracy"><span class="std std-ref">Tracy integration</span></a> for
-build and attach instructions.</p>
-</dd></dl>
-
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_ITTNOTIFY">
-<span id="cmdoption-arg-hpx-with-ittnotify"></span><span class="sig-name descname"><span class="pre">HPX_WITH_ITTNOTIFY</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_ITTNOTIFY" title="Permalink to this definition">#</a></dt>
-<dd><p>Enable <a class="reference external" href="https://github.com/intel/ittapi">Intel ITT API</a> integration. Requires VTune or any other Intel ITT API
-provider; point <code class="docutils literal notranslate"><span class="pre">Amplifier_ROOT</span></code> at the install (the name is legacy;
-it accepts any ITTNotify installation).</p>
-</dd></dl>
-
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_PARCEL_PROFILING">
-<span id="cmdoption-arg-hpx-with-parcel-profiling"></span><span class="sig-name descname"><span class="pre">HPX_WITH_PARCEL_PROFILING</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_PARCEL_PROFILING" title="Permalink to this definition">#</a></dt>
-<dd><p>Enable per-parcel profiling data. Adds per-parcel identifier and timestamp fields (creation time,
-start time, parcel id) that are carried on the wire and surfaced to whichever tracing backend is
-enabled. Defaults to <code class="docutils literal notranslate"><span class="pre">ON</span></code> when <a class="reference internal" href="#cmdoption-arg-HPX_WITH_APEX"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_APEX</span></code></a> is on, <code class="docutils literal notranslate"><span class="pre">OFF</span></code> otherwise.</p>
 </dd></dl>
 
 <dl class="std option">

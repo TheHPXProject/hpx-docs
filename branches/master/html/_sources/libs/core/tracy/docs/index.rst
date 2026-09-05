@@ -11,7 +11,6 @@
 tracy
 =====
 
-This module enables the integration of |hpx| applications with the |tracy|_
-profiler. See :ref:`modules_tracing` for the backend abstraction that dispatches
-to |tracy| at compile time, and :ref:`optimizing_with_tracy` for how to build
-|hpx| against |tracy| and attach the profiler.
+This modules enables the integration of |hpx| applications with the |tracy|_ profiler.
+
+.. tracy: https://github.com/wolfpld/tracy

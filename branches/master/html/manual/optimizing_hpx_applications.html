@@ -267,7 +267,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../libs/core/timed_execution/docs/index.html">timed_execution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../libs/core/timing/docs/index.html">timing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../libs/core/topology/docs/index.html">topology</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../libs/core/tracing/docs/index.html">tracing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../libs/core/tracy/docs/index.html">tracy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../libs/core/type_support/docs/index.html">type_support</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../libs/core/util/docs/index.html">util</a></li>
@@ -1565,7 +1564,6 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apex-integration">APEX integration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tracy-integration">Tracy integration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
             </nav>
@@ -5914,25 +5912,6 @@ addition, you can override the tag used for <a class="reference external" href="
 <code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_APEX_TAG</span></code> option. Please see the <a class="reference external" href="https://uo-oaciss.github.io/apex/usage/#hpx-louisiana-state-university">APEX <em>HPX</em> documentation</a> for detailed
 instructions on using <a class="reference external" href="http://uo-oaciss.github.io/apex">APEX</a> with <em>HPX</em>.</p>
 </section>
-<section id="tracy-integration">
-<span id="optimizing-with-tracy"></span><h2>Tracy integration<a class="headerlink" href="#tracy-integration" title="Permalink to this heading">#</a></h2>
-<p><em>HPX</em> provides integration with the <a class="reference external" href="https://github.com/wolfpld/tracy">Tracy</a> profiler, which offers
-per-thread zone tracking, message logs, and fiber support. Enable it with
-<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACY"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACY</span></code></a><code class="docutils literal notranslate"><span class="pre">=ON</span></code> during <a class="reference external" href="https://www.cmake.org">CMake</a> configuration.</p>
-<p>Tracy can be supplied via a system install (point <code class="docutils literal notranslate"><span class="pre">Tracy_ROOT</span></code> at the install
-tree) or fetched by CMake at configure time by adding
-<code class="docutils literal notranslate"><span class="pre">HPX_WITH_FETCH_TRACY=ON</span></code>. The version fetched is pinned by
-<code class="docutils literal notranslate"><span class="pre">HPX_WITH_TRACY_TAG</span></code>, which defaults to <code class="docutils literal notranslate"><span class="pre">v0.13.1</span></code>. When Tracy is
-fetched, <em>HPX</em> forces <code class="docutils literal notranslate"><span class="pre">TRACY_ON_DEMAND</span></code> and <code class="docutils literal notranslate"><span class="pre">TRACY_FIBERS</span></code> on the built
-client. A system-supplied Tracy must have been built with both.</p>
-<p>To profile a distributed run, additionally enable
-<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_PARCEL_PROFILING"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_PARCEL_PROFILING</span></code></a><code class="docutils literal notranslate"><span class="pre">=ON</span></code> so per-parcel identifiers are
-carried on the wire and the <code class="docutils literal notranslate"><span class="pre">send_parcel</span></code> / <code class="docutils literal notranslate"><span class="pre">recv_parcel</span></code> /
-<code class="docutils literal notranslate"><span class="pre">parcel_scheduled</span></code> events can be correlated across localities by parcel id.</p>
-<p>Start <code class="docutils literal notranslate"><span class="pre">tracy-profiler</span></code> (or <code class="docutils literal notranslate"><span class="pre">tracy-capture</span></code> for headless capture) before
-or during the run. Tracy discovers instrumented processes via UDP broadcast
-on the local network; no port configuration is required for the common case.</p>
-</section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <div class="docutils container" id="id12">
@@ -6024,7 +6003,6 @@ on the local network; no port configuration is required for the common case.</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apex-integration">APEX integration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tracy-integration">Tracy integration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
   </nav></div>
