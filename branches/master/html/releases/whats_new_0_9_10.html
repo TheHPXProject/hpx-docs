@@ -385,10 +385,13 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/trigger.html">hpx/async_distributed/trigger.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/sync_hpx_sync_distributed.html">hpx::sync (distributed)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/promise.html">hpx/async_distributed/promise.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/bind_action.html">hpx/async_distributed/bind_action.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/post_hpx_post_distributed.html">hpx::post (distributed)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/async_continue_callback.html">hpx/async_distributed/async_continue_callback.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/transfer_continuation_action.html">hpx/async_distributed/transfer_continuation_action.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/dataflow_hpx_dataflow_distributed.html">hpx::dataflow (distributed)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/async_callback.html">hpx/async_distributed/async_callback.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/async_continue.html">hpx/async_distributed/async_continue.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/base_lco_with_value.html">hpx/async_distributed/base_lco_with_value.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/continuation.html">hpx/async_distributed/continuation.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/async_distributed/api/base_lco.html">hpx/async_distributed/base_lco.hpp</a></li>
@@ -1624,7 +1627,7 @@ compatibility:</p>
 <ul class="simple">
 <li><p>Move to Variadics- All of the API now uses variadic templates. However, this
 change required to modify the argument sequence for some of the exiting API
-functions (<code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async_continue</span></code>, <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::apply_continue</span></code>,
+functions (<a class="reference internal" href="../libs/full/async_distributed/api/async_continue.html#_CPPv4I00DpEN3hpx14async_continueEN3hpx6futureIN6traits20promise_local_resultIN6detail24result_of_async_continueI6Action4ContE4typeEE4typeEEERR4ContRKN3hpx7id_typeEDpRR2Ts" title="hpx::async_continue"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async_continue</span></code></a>, <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::apply_continue</span></code>,
 <a class="reference internal" href="../libs/core/async_combinators/api/when_each_hpx_when_each.html#_CPPv4I00EN3hpx9when_eachE6futureIvERR1FRRNSt6vectorI6FutureEE" title="hpx::when_each"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::when_each</span></code></a>, <a class="reference internal" href="../libs/core/async_combinators/api/wait_each_hpx_wait_each.html#_CPPv4I00EN3hpx9wait_eachEvRR1FRRNSt6vectorI6FutureEE" title="hpx::wait_each"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_each</span></code></a>, synchronous invocation
 of actions).</p></li>
 <li><p>Changes to Macros- We also removed the macros <code class="docutils literal notranslate"><span class="pre">HPX_STD_FUNCTION</span></code> and
