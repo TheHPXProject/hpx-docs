@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-theme="auto">
+<html lang="en" data-content_root="../../../../" data-theme="auto">
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>hpx::collectives::get &#8212; HPX 2.0.0 documentation</title>
   
@@ -15,46 +14,45 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=91097ee6" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-    <script src="../../../../_static/jquery.js"></script>
-    <script src="../../../../_static/underscore.js"></script>
-    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../../_static/doctools.js"></script>
-    <script src="../../../../_static/sphinx_highlight.js"></script>
-    <script src="../../../../_static/clipboard.min.js"></script>
-    <script src="../../../../_static/copybutton.js"></script>
-    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../../_static/documentation_options.js?v=ce394494"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'libs/full/collectives/api/channel_communicator_hpx_collectives_get';</script>
-    <link rel="shortcut icon" href="../../../../_static/favicon.png"/>
+    <link rel="icon" href="../../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="hpx::collectives::set" href="channel_communicator_hpx_collectives_set.html" />
     <link rel="prev" title="hpx::collectives::create_channel_communicator" href="channel_communicator_hpx_collectives_create_channel_communicator.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="Sep 06, 2026"/>
   </head>
   
   
@@ -62,19 +60,23 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -96,12 +98,20 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -116,9 +126,13 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../../../../index.html">
+  
   
   
   
@@ -128,12 +142,23 @@
       
     
     
-    <img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0 documentation - Home"/>
+    <script>document.write(`<img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0 documentation - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -147,7 +172,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../tutorials.html">Tutorials</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../examples.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../examples/fibonacci_local.html">Asynchronous execution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../examples/matrix_multiplication.html">Parallel algorithms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../examples/fibonacci.html">Asynchronous execution with actions</a></li>
@@ -158,8 +183,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../examples/serialization.html">Serializing user-defined types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../examples/termination_detection.html">Termination detection</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../manual.html">Manual</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../manual.html">Manual</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../manual/prerequisites.html">Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../manual/getting_hpx.html">Getting <em>HPX</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../manual/building_hpx.html">Building <em>HPX</em></a></li>
@@ -184,15 +209,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../manual/supervision_dispatch.html">Supervision dispatch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../manual/troubleshooting.html">Troubleshooting</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../terminology.html">Terminology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../why_hpx.html">Why <em>HPX</em>?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../additional_material.html">Additional material</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../overview.html">Overview</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../core/modules.html">Core modules</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../overview.html">Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../core/modules.html">Core modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../core/affinity/docs/index.html">affinity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../core/algorithms/docs/index.html">algorithms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../core/allocator_support/docs/index.html">allocator_support</a></li>
@@ -267,13 +292,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../core/timed_execution/docs/index.html">timed_execution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../core/timing/docs/index.html">timing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../core/topology/docs/index.html">topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../core/tracing/docs/index.html">tracing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../core/tracy/docs/index.html">tracy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../core/type_support/docs/index.html">type_support</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../core/util/docs/index.html">util</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../core/version/docs/index.html">version</a></li>
 </ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../modules.html">Main <em>HPX</em> modules</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../modules.html">Main <em>HPX</em> modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../actions/docs/index.html">actions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../actions_base/docs/index.html">actions_base</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../agas/docs/index.html">agas</a></li>
@@ -308,26 +334,26 @@
 <li class="toctree-l3"><a class="reference internal" href="../../statistics/docs/index.html">statistics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../supervision/docs/index.html">Supervision module</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../../../api.html">API reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../../../api.html">API reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/public_api.html">Public API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/public_distributed_api.html">Public distributed API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../components/supervision_dispatch/docs/index.html">Supervision dispatch module</a></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="../../../../api/full_api.html">Full API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../actions/api/full_api.html">actions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../../../../api/full_api.html">Full API</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../actions/api/full_api.html">actions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../actions/api/transfer_action.html">hpx/actions/transfer_action.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../actions/api/transfer_base_action.html">hpx/actions/transfer_base_action.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../actions/api/base_action.html">hpx/actions/base_action.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../actions/api/actions_fwd.html">hpx/actions/actions_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../actions/api/action_support.html">hpx/actions/action_support.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../actions_base/api/full_api.html">actions_base</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../actions_base/api/full_api.html">actions_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../actions_base/api/macros.html">hpx/actions_base/macros.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../actions_base/api/basic_action_fwd.html">hpx/actions_base/basic_action_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../actions_base/api/reflect_annotated_actions.html">hpx/actions_base/reflect_annotated_actions.hpp</a></li>
@@ -342,20 +368,20 @@
 <li class="toctree-l4"><a class="reference internal" href="../../actions_base/api/actions_base_fwd.html">hpx/actions_base/actions_base_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../actions_base/api/action_remote_result.html">hpx/actions_base/traits/action_remote_result.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../agas/api/full_api.html">agas</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../agas/api/full_api.html">agas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../agas/api/addressing_service.html">hpx/agas/addressing_service.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../agas_base/api/full_api.html">agas_base</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../agas_base/api/full_api.html">agas_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../agas_base/api/primary_namespace.html">hpx/agas_base/server/primary_namespace.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../async_colocated/api/full_api.html">async_colocated</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../async_colocated/api/full_api.html">async_colocated</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../async_colocated/api/get_colocation_id_hpx_get_colocation_id.html">hpx::get_colocation_id</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../async_distributed/api/full_api.html">async_distributed</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../async_distributed/api/full_api.html">async_distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/trigger.html">hpx/async_distributed/trigger.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/sync_hpx_sync_distributed.html">hpx::sync (distributed)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/promise.html">hpx/async_distributed/promise.hpp</a></li>
@@ -372,12 +398,12 @@
 <li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/trigger_lco_fwd.html">hpx/async_distributed/trigger_lco_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../async_distributed/api/packaged_action.html">hpx/async_distributed/packaged_action.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../checkpoint/api/full_api.html">checkpoint</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../checkpoint/api/full_api.html">checkpoint</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../checkpoint/api/checkpoint.html">hpx/checkpoint/checkpoint.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 current active has-children"><a class="reference internal" href="full_api.html">collectives</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="full_api.html">collectives</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="exclusive_scan_hpx_collectives_exclusive_scan.html">hpx::collectives::exclusive_scan</a></li>
 <li class="toctree-l4"><a class="reference internal" href="scatter_hpx_collectives_scatter_from.html">hpx::collectives::scatter_from</a></li>
 <li class="toctree-l4"><a class="reference internal" href="scatter_hpx_collectives_scatter_to.html">hpx::collectives::scatter_to</a></li>
@@ -426,16 +452,16 @@
 <li class="toctree-l4"><a class="reference internal" href="reduce_direct_hpx_lcos_reduce.html">hpx::lcos::reduce</a></li>
 <li class="toctree-l4"><a class="reference internal" href="reduce_direct_hpx_lcos_reduce_with_index.html">hpx::lcos::reduce_with_index</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../components/api/full_api.html">components</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../components/api/full_api.html">components</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../components/api/basename_registration.html">hpx/components/basename_registration.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../components/api/client_hpx_components_client.html">hpx::components::client</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../components/api/get_ptr.html">hpx/components/get_ptr.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../components/api/basename_registration_fwd.html">hpx/components/basename_registration_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../components/api/client_base_hpx_components_client_base.html">hpx::components::client_base</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../components_base/api/full_api.html">components_base</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../components_base/api/full_api.html">components_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../components_base/api/components_base_fwd_hpx_components_component.html">hpx::components::component</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../components_base/api/components_base_fwd_hpx_components_component_base.html">hpx::components::component_base</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../components_base/api/component_commandline_HPX_REGISTER_COMMANDLINE_MODULE.html">HPX_REGISTER_COMMANDLINE_MODULE</a></li>
@@ -447,35 +473,35 @@
 <li class="toctree-l4"><a class="reference internal" href="../../components_base/api/managed_component_base.html">hpx/components_base/server/managed_component_base.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../components_base/api/migration_support.html">hpx/components_base/server/migration_support.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../compute/api/full_api.html">compute</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../compute/api/full_api.html">compute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../compute/api/target_distribution_policy.html">hpx/compute/host/target_distribution_policy.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../distribution_policies/api/full_api.html">distribution_policies</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../distribution_policies/api/full_api.html">distribution_policies</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../distribution_policies/api/unwrapping_result_policy.html">hpx/distribution_policies/unwrapping_result_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../distribution_policies/api/default_distribution_policy.html">hpx/distribution_policies/default_distribution_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../distribution_policies/api/binpacking_distribution_policy.html">hpx/distribution_policies/binpacking_distribution_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../distribution_policies/api/colocating_distribution_policy.html">hpx/distribution_policies/colocating_distribution_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../distribution_policies/api/target_distribution_policy.html">hpx/distribution_policies/target_distribution_policy.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../execution_distributed/api/full_api.html">execution_distributed</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../execution_distributed/api/full_api.html">execution_distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../execution_distributed/api/distributed_continues_on_sender.html">hpx/execution_distributed/distributed_continues_on_sender.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../execution_distributed/api/distributed_scheduler.html">hpx/execution_distributed/distributed_scheduler.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../execution_distributed/api/distributed_bulk_sender.html">hpx/execution_distributed/distributed_bulk_sender.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../execution_distributed/api/distributed_then_sender.html">hpx/execution_distributed/distributed_then_sender.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../executors_distributed/api/full_api.html">executors_distributed</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../executors_distributed/api/full_api.html">executors_distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../executors_distributed/api/distribution_policy_executor.html">hpx/executors_distributed/distribution_policy_executor.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../include/api/full_api.html">include</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../include/api/full_api.html">include</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../include/api/sandbox.html">hpx/experimental/sandbox.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../init_runtime/api/full_api.html">init_runtime</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../init_runtime/api/full_api.html">init_runtime</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../init_runtime/api/hpx_start.html">hpx/hpx_start.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../init_runtime/api/hpx_init_params_hpx_init_params.html">hpx::init_params</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../init_runtime/api/hpx_init.html">hpx/hpx_init.hpp</a></li>
@@ -486,37 +512,37 @@
 <li class="toctree-l4"><a class="reference internal" href="../../init_runtime/api/init_impl_hpx_init.html">hpx::init</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../init_runtime/api/start_impl_hpx_start.html">hpx::start</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../naming_base/api/full_api.html">naming_base</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../naming_base/api/full_api.html">naming_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../naming_base/api/unmanaged.html">hpx/naming_base/unmanaged.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../parcelset/api/full_api.html">parcelset</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../parcelset/api/full_api.html">parcelset</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../parcelset/api/message_handler_fwd.html">hpx/parcelset/message_handler_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../parcelset/api/parcelhandler.html">hpx/parcelset/parcelhandler.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../parcelset/api/connection_cache.html">hpx/parcelset/connection_cache.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../parcelset/api/parcelset_fwd.html">hpx/parcelset/parcelset_fwd.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../parcelset_base/api/full_api.html">parcelset_base</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../parcelset_base/api/full_api.html">parcelset_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../parcelset_base/api/set_parcel_write_handler.html">hpx/parcelset_base/set_parcel_write_handler.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../parcelset_base/api/parcelport.html">hpx/parcelset_base/parcelport.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../parcelset_base/api/parcelset_base_fwd.html">hpx/parcelset_base/parcelset_base_fwd.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../plugin_factories/api/full_api.html">plugin_factories</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../plugin_factories/api/full_api.html">plugin_factories</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../plugin_factories/api/plugin_registry.html">hpx/plugin_factories/plugin_registry.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../plugin_factories/api/parcelport_factory.html">hpx/plugin_factories/parcelport_factory.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../plugin_factories/api/message_handler_factory.html">hpx/plugin_factories/message_handler_factory.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../plugin_factories/api/binary_filter_factory.html">hpx/plugin_factories/binary_filter_factory.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../resiliency_distributed/api/full_api.html">resiliency_distributed</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../resiliency_distributed/api/full_api.html">resiliency_distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../resiliency_distributed/api/async_replay_distributed.html">hpx/resiliency_distributed/async_replay_distributed.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../resiliency_distributed/api/async_replicate_distributed.html">hpx/resiliency_distributed/async_replicate_distributed.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../runtime_components/api/full_api.html">runtime_components</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../runtime_components/api/full_api.html">runtime_components</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_components/api/macros.html">hpx/runtime_components/macros.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_components/api/component_factory_HPX_REGISTER_COMPONENT.html">HPX_REGISTER_COMPONENT</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_components/api/reflect_client_macros.html">hpx/runtime_components/reflect_client_macros.hpp</a></li>
@@ -525,8 +551,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_components/api/new_hpx_new.html">hpx::new_</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_components/api/component_registry.html">hpx/runtime_components/component_registry.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../runtime_distributed/api/full_api.html">runtime_distributed</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../runtime_distributed/api/full_api.html">runtime_distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_distributed/api/runtime_distributed.html">hpx/runtime_distributed.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_distributed/api/find_localities_hpx_find_locality.html">hpx::find_locality</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_distributed/api/applier.html">hpx/runtime_distributed/applier.hpp</a></li>
@@ -546,8 +572,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_distributed/api/server_runtime_support.html">hpx/runtime_distributed/server/runtime_support.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_distributed/api/stubs_runtime_support.html">hpx/runtime_distributed/stubs/runtime_support.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../segmented_algorithms/api/full_api.html">segmented_algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../segmented_algorithms/api/full_api.html">segmented_algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../segmented_algorithms/api/exclusive_scan.html">hpx/parallel/segmented_algorithms/exclusive_scan.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../segmented_algorithms/api/is_partitioned.html">hpx/parallel/segmented_algorithms/is_partitioned.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../segmented_algorithms/api/inclusive_scan.html">hpx/parallel/segmented_algorithms/inclusive_scan.hpp</a></li>
@@ -571,8 +597,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../segmented_algorithms/api/all_any_none.html">hpx/parallel/segmented_algorithms/all_any_none.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../segmented_algorithms/api/transform.html">hpx/parallel/segmented_algorithms/transform.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../supervision/api/full_api.html">supervision</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../supervision/api/full_api.html">supervision</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../supervision/api/supervision_api_hpx_supervision_publish_event.html">hpx::supervision::publish_event</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../supervision/api/supervision_api_hpx_supervision_query_state.html">hpx::supervision::query_state</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../supervision/api/supervision_api_hpx_supervision_register_observer.html">hpx::supervision::register_observer</a></li>
@@ -587,8 +613,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../supervision/api/supervision_manager_hpx_supervision_supervision_manager.html">hpx::supervision::supervision_manager</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../supervision/api/server_supervision_manager.html">hpx/supervision/server/supervision_manager.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/algorithms/api/full_api.html">algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/algorithms/api/full_api.html">algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/algorithms/api/run_on_all_hpx_experimental_run_on_all.html">hpx::experimental::run_on_all</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/algorithms/api/task_group_hpx_experimental_task_group.html">hpx::experimental::task_group</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/algorithms/api/task_block_hpx_experimental_task_canceled_exception.html">hpx::experimental::task_canceled_exception</a></li>
@@ -810,12 +836,12 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/algorithms/api/container_algorithms_all_any_none_hpx_ranges_none_of.html">hpx::ranges::none_of</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/algorithms/api/container_algorithms_transform_hpx_ranges_transform.html">hpx::ranges::transform</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/asio/api/full_api.html">asio</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/asio/api/full_api.html">asio</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/asio/api/asio_util.html">hpx/asio/asio_util.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/assertion/api/full_api.html">assertion</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/assertion/api/full_api.html">assertion</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/assertion/api/evaluate_assert.html">hpx/assertion/evaluate_assert.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/assertion/api/api.html">hpx/assertion/api.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/assertion/api/macros_HPX_ASSERT.html">HPX_ASSERT</a></li>
@@ -823,16 +849,16 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/assertion/api/source_location_HPX_CURRENT_SOURCE_LOCATION.html">HPX_CURRENT_SOURCE_LOCATION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/assertion/api/source_location_hpx_source_location.html">hpx::source_location</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/async_base/api/full_api.html">async_base</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/async_base/api/full_api.html">async_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_base/api/sync_hpx_sync.html">hpx::sync</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_base/api/launch_policy_hpx_launch.html">hpx::launch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_base/api/post_hpx_post.html">hpx::post</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_base/api/dataflow_hpx_dataflow.html">hpx::dataflow</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_base/api/async_hpx_async.html">hpx::async</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/async_combinators/api/full_api.html">async_combinators</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/async_combinators/api/full_api.html">async_combinators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_combinators/api/wait_some_hpx_wait_some.html">hpx::wait_some</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_combinators/api/wait_some_hpx_wait_some_nothrow.html">hpx::wait_some_nothrow</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_combinators/api/wait_some_hpx_wait_some_n.html">hpx::wait_some_n</a></li>
@@ -859,22 +885,22 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_combinators/api/wait_any_hpx_wait_any_n.html">hpx::wait_any_n</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_combinators/api/wait_any_hpx_wait_any_n_nothrow.html">hpx::wait_any_n_nothrow</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/async_cuda/api/full_api.html">async_cuda</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/async_cuda/api/full_api.html">async_cuda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_cuda/api/cublas_executor.html">hpx/async_cuda/cublas_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_cuda/api/cuda_executor.html">hpx/async_cuda/cuda_executor.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/async_mpi/api/full_api.html">async_mpi</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/async_mpi/api/full_api.html">async_mpi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_mpi/api/transform_mpi.html">hpx/async_mpi/transform_mpi.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_mpi/api/mpi_executor.html">hpx/async_mpi/mpi_executor.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/async_sycl/api/full_api.html">async_sycl</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/async_sycl/api/full_api.html">async_sycl</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/async_sycl/api/sycl_executor.html">hpx/async_sycl/sycl_executor.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/cache/api/full_api.html">cache</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/cache/api/full_api.html">cache</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/cache/api/local_cache.html">hpx/cache/local_cache.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/cache/api/lru_cache.html">hpx/cache/lru_cache.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/cache/api/size_entry.html">hpx/cache/entries/size_entry.hpp</a></li>
@@ -885,33 +911,33 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/cache/api/no_statistics.html">hpx/cache/statistics/no_statistics.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/cache/api/local_statistics.html">hpx/cache/statistics/local_statistics.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/checkpoint_base/api/full_api.html">checkpoint_base</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/checkpoint_base/api/full_api.html">checkpoint_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/checkpoint_base/api/checkpoint_data.html">hpx/checkpoint_base/checkpoint_data.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/compute_local/api/full_api.html">compute_local</a><input class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-43"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/compute_local/api/full_api.html">compute_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/compute_local/api/vector.html">hpx/compute_local/vector.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/compute_local/api/block_fork_join_executor.html">hpx/compute_local/host/block_fork_join_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/compute_local/api/block_executor.html">hpx/compute_local/host/block_executor.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/config/api/full_api.html">config</a><input class="toctree-checkbox" id="toctree-checkbox-44" name="toctree-checkbox-44" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-44"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/config/api/full_api.html">config</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/config/api/endian.html">hpx/config/endian.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/contracts/api/full_api.html">contracts</a><input class="toctree-checkbox" id="toctree-checkbox-45" name="toctree-checkbox-45" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-45"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/contracts/api/full_api.html">contracts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/contracts/api/macros_HPX_PRE.html">HPX_PRE</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/contracts/api/macros_HPX_POST.html">HPX_POST</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/contracts/api/macros_HPX_CONTRACT_ASSERT.html">HPX_CONTRACT_ASSERT</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/coroutines/api/full_api.html">coroutines</a><input class="toctree-checkbox" id="toctree-checkbox-46" name="toctree-checkbox-46" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-46"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/coroutines/api/full_api.html">coroutines</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html">hpx/coroutines/thread_id_type.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/coroutines/api/thread_enums.html">hpx/coroutines/thread_enums.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/datastructures/api/full_api.html">datastructures</a><input class="toctree-checkbox" id="toctree-checkbox-47" name="toctree-checkbox-47" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-47"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/datastructures/api/full_api.html">datastructures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/datastructures/api/tuple_hpx_ignore.html">hpx::ignore</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/datastructures/api/tuple_hpx_tuple.html">hpx::tuple</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/datastructures/api/tuple_hpx_tuple_size.html">hpx::tuple_size</a></li>
@@ -929,12 +955,12 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/datastructures/api/serializable_any_hpx_any.html">hpx::any</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/datastructures/api/serializable_any_hpx_make_any.html">hpx::make_any</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/debugging/api/full_api.html">debugging</a><input class="toctree-checkbox" id="toctree-checkbox-48" name="toctree-checkbox-48" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-48"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/debugging/api/full_api.html">debugging</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/debugging/api/print.html">hpx/debugging/print.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/errors/api/full_api.html">errors</a><input class="toctree-checkbox" id="toctree-checkbox-49" name="toctree-checkbox-49" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-49"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/errors/api/full_api.html">errors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/errors/api/error_code_hpx_error_code.html">hpx::error_code</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/errors/api/exception_hpx_exception.html">hpx::exception</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/errors/api/define_error_info.html">hpx/errors/define_error_info.hpp</a></li>
@@ -947,8 +973,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/errors/api/error.html">hpx/errors/error.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/errors/api/exception_fwd.html">hpx/errors/exception_fwd.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/execution/api/full_api.html">execution</a><input class="toctree-checkbox" id="toctree-checkbox-50" name="toctree-checkbox-50" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-50"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/execution/api/full_api.html">execution</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/execution/api/future_sender.html">hpx/execution/algorithms/future_sender.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/execution/api/sender_future.html">hpx/execution/algorithms/sender_future.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/execution/api/is_execution_policy.html">hpx/execution/traits/is_execution_policy.hpp</a></li>
@@ -969,13 +995,13 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/execution/api/collect_chunking_parameters_hpx_execution_experimental_collect_chunking_parameters.html">hpx::execution::experimental::collect_chunking_parameters</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/execution/api/dynamic_chunk_size_hpx_execution_experimental_dynamic_chunk_size.html">hpx::execution::experimental::dynamic_chunk_size</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/execution_base/api/full_api.html">execution_base</a><input class="toctree-checkbox" id="toctree-checkbox-51" name="toctree-checkbox-51" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-51"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/execution_base/api/full_api.html">execution_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/execution_base/api/execution.html">hpx/execution_base/execution.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/execution_base/api/is_executor_parameters.html">hpx/execution_base/traits/is_executor_parameters.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/executors/api/full_api.html">executors</a><input class="toctree-checkbox" id="toctree-checkbox-52" name="toctree-checkbox-52" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-52"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/executors/api/full_api.html">executors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/executors/api/sequenced_executor.html">hpx/executors/sequenced_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/executors/api/restricted_thread_pool_executor.html">hpx/executors/restricted_thread_pool_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/executors/api/explicit_scheduler_executor.html">hpx/executors/explicit_scheduler_executor.hpp</a></li>
@@ -1007,12 +1033,12 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/executors/api/datapar_execution_policy.html">hpx/executors/datapar/execution_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/executors/api/datapar_execution_policy_mappings.html">hpx/executors/datapar/execution_policy_mappings.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/filesystem/api/full_api.html">filesystem</a><input class="toctree-checkbox" id="toctree-checkbox-53" name="toctree-checkbox-53" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-53"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/filesystem/api/full_api.html">filesystem</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/filesystem/api/api.html">hpx/filesystem/api.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/functional/api/full_api.html">functional</a><input class="toctree-checkbox" id="toctree-checkbox-54" name="toctree-checkbox-54" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-54"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/functional/api/full_api.html">functional</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/functional/api/mem_fn_hpx_mem_fn.html">hpx::mem_fn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/functional/api/reference_wrapper_hpx_reference_wrapper.html">hpx::reference_wrapper</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/functional/api/reference_wrapper_hpx_ref.html">hpx::ref</a></li>
@@ -1035,8 +1061,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/functional/api/is_bind_expression_hpx_is_bind_expression.html">hpx::is_bind_expression</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/functional/api/is_placeholder_hpx_is_placeholder.html">hpx::is_placeholder</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/futures/api/full_api.html">futures</a><input class="toctree-checkbox" id="toctree-checkbox-55" name="toctree-checkbox-55" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-55"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/futures/api/full_api.html">futures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/futures/api/packaged_task_hpx_packaged_task.html">hpx::packaged_task</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/futures/api/promise_hpx_promise.html">hpx::promise</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/futures/api/future_hpx_future.html">hpx::future</a></li>
@@ -1050,17 +1076,17 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/futures/api/future_hpx_make_exceptional_future.html">hpx::make_exceptional_future</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/futures/api/future_fwd.html">hpx/futures/future_fwd.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/io_service/api/full_api.html">io_service</a><input class="toctree-checkbox" id="toctree-checkbox-56" name="toctree-checkbox-56" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-56"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/io_service/api/full_api.html">io_service</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/io_service/api/io_service_pool.html">hpx/io_service/io_service_pool.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/lcos_local/api/full_api.html">lcos_local</a><input class="toctree-checkbox" id="toctree-checkbox-57" name="toctree-checkbox-57" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-57"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/lcos_local/api/full_api.html">lcos_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/lcos_local/api/trigger.html">hpx/lcos_local/trigger.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/lcos_local/api/and_gate_hpx_lcos_local_and_gate.html">hpx::lcos::local::and_gate</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/pack_traversal/api/full_api.html">pack_traversal</a><input class="toctree-checkbox" id="toctree-checkbox-58" name="toctree-checkbox-58" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-58"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/pack_traversal/api/full_api.html">pack_traversal</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/pack_traversal/api/pack_traversal.html">hpx/pack_traversal/pack_traversal.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/pack_traversal/api/unwrap_hpx_functional_unwrap.html">hpx::functional::unwrap</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/pack_traversal/api/unwrap_hpx_functional_unwrap_n.html">hpx::functional::unwrap_n</a></li>
@@ -1073,16 +1099,16 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/pack_traversal/api/unwrap_hpx_unwrapping_all.html">hpx::unwrapping_all</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/pack_traversal/api/pack_traversal_async.html">hpx/pack_traversal/pack_traversal_async.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/preprocessor/api/full_api.html">preprocessor</a><input class="toctree-checkbox" id="toctree-checkbox-59" name="toctree-checkbox-59" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-59"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/preprocessor/api/full_api.html">preprocessor</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/preprocessor/api/strip_parens.html">hpx/preprocessor/strip_parens.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/preprocessor/api/cat.html">hpx/preprocessor/cat.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/preprocessor/api/nargs.html">hpx/preprocessor/nargs.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/preprocessor/api/stringize.html">hpx/preprocessor/stringize.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/preprocessor/api/expand.html">hpx/preprocessor/expand.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/resiliency/api/full_api.html">resiliency</a><input class="toctree-checkbox" id="toctree-checkbox-60" name="toctree-checkbox-60" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-60"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/resiliency/api/full_api.html">resiliency</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/resiliency/api/replay_executor.html">hpx/resiliency/replay_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/resiliency/api/async_replicate_executor.html">hpx/resiliency/async_replicate_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/resiliency/api/async_replicate.html">hpx/resiliency/async_replicate.hpp</a></li>
@@ -1091,8 +1117,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/resiliency/api/async_replay.html">hpx/resiliency/async_replay.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/resiliency/api/resiliency_cpos.html">hpx/resiliency/resiliency_cpos.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/runtime_configuration/api/full_api.html">runtime_configuration</a><input class="toctree-checkbox" id="toctree-checkbox-61" name="toctree-checkbox-61" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-61"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/runtime_configuration/api/full_api.html">runtime_configuration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/runtime_configuration/api/runtime_configuration.html">hpx/runtime_configuration/runtime_configuration.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/runtime_configuration/api/runtime_mode_hpx_runtime_mode.html">hpx::runtime_mode</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/runtime_configuration/api/component_commandline_base_hpx_components_component_commandline_base.html">hpx::components::component_commandline_base</a></li>
@@ -1100,8 +1126,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/runtime_configuration/api/plugin_registry_base.html">hpx/runtime_configuration/plugin_registry_base.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/runtime_configuration/api/component_registry_base.html">hpx/runtime_configuration/component_registry_base.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/runtime_local/api/full_api.html">runtime_local</a><input class="toctree-checkbox" id="toctree-checkbox-62" name="toctree-checkbox-62" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-62"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/runtime_local/api/full_api.html">runtime_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/runtime_local/api/get_locality_id_hpx_get_locality_id.html">hpx::get_locality_id</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/runtime_local/api/get_os_thread_count.html">hpx/runtime_local/get_os_thread_count.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/runtime_local/api/get_locality_name_hpx_get_locality_name.html">hpx::get_locality_name</a></li>
@@ -1138,12 +1164,12 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/runtime_local/api/component_startup_shutdown_base.html">hpx/runtime_local/component_startup_shutdown_base.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/runtime_local/api/service_executors.html">hpx/runtime_local/service_executors.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/serialization/api/full_api.html">serialization</a><input class="toctree-checkbox" id="toctree-checkbox-63" name="toctree-checkbox-63" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-63"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/serialization/api/full_api.html">serialization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/serialization/api/base_object.html">hpx/serialization/base_object.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/synchronization/api/full_api.html">synchronization</a><input class="toctree-checkbox" id="toctree-checkbox-64" name="toctree-checkbox-64" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-64"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/synchronization/api/full_api.html">synchronization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/synchronization/api/mutex_hpx_mutex.html">hpx::mutex</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/synchronization/api/mutex_hpx_timed_mutex.html">hpx::timed_mutex</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/synchronization/api/latch_hpx_latch.html">hpx::latch</a></li>
@@ -1167,23 +1193,23 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/synchronization/api/event.html">hpx/synchronization/event.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/synchronization/api/spinlock_hpx_spinlock.html">hpx::spinlock</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/tag_invoke/api/full_api.html">tag_invoke</a><input class="toctree-checkbox" id="toctree-checkbox-65" name="toctree-checkbox-65" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-65"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/tag_invoke/api/full_api.html">tag_invoke</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/tag_invoke/api/invoke_hpx_invoke.html">hpx::invoke</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/tag_invoke/api/is_invocable_hpx_is_invocable.html">hpx::is_invocable</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/tag_invoke/api/is_invocable_hpx_is_invocable_r.html">hpx::is_invocable_r</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/thread_pool_util/api/full_api.html">thread_pool_util</a><input class="toctree-checkbox" id="toctree-checkbox-66" name="toctree-checkbox-66" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-66"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/thread_pool_util/api/full_api.html">thread_pool_util</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/thread_pool_util/api/thread_pool_suspension_helpers.html">hpx/thread_pool_util/thread_pool_suspension_helpers.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/thread_support/api/full_api.html">thread_support</a><input class="toctree-checkbox" id="toctree-checkbox-67" name="toctree-checkbox-67" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-67"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/thread_support/api/full_api.html">thread_support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/thread_support/api/spinlock.html">hpx/thread_support/spinlock.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/thread_support/api/unlock_guard_hpx_unlock_guard.html">hpx::unlock_guard</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/threading/api/full_api.html">threading</a><input class="toctree-checkbox" id="toctree-checkbox-68" name="toctree-checkbox-68" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-68"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/threading/api/full_api.html">threading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/threading/api/thread_hpx_thread.html">hpx::thread</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/threading/api/thread_hpx_this_thread_yield.html">hpx::this_thread::yield</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/threading/api/thread_hpx_this_thread_get_id.html">hpx::this_thread::get_id</a></li>
@@ -1191,8 +1217,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/threading/api/thread_hpx_this_thread_sleep_until.html">hpx::this_thread::sleep_until</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/threading/api/jthread_hpx_jthread.html">hpx::jthread</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/threading_base/api/full_api.html">threading_base</a><input class="toctree-checkbox" id="toctree-checkbox-69" name="toctree-checkbox-69" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-69"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/threading_base/api/full_api.html">threading_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/threading_base/api/thread_helpers.html">hpx/threading_base/thread_helpers.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/threading_base/api/thread_pool_base.html">hpx/threading_base/thread_pool_base.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/threading_base/api/print.html">hpx/threading_base/print.hpp</a></li>
@@ -1206,60 +1232,60 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/threading_base/api/scoped_annotation_hpx_scoped_annotation.html">hpx::scoped_annotation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/threading_base/api/thread_data.html">hpx/threading_base/thread_data.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/threadmanager/api/full_api.html">threadmanager</a><input class="toctree-checkbox" id="toctree-checkbox-70" name="toctree-checkbox-70" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-70"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/threadmanager/api/full_api.html">threadmanager</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/threadmanager/api/threadmanager.html">hpx/threadmanager/threadmanager.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/thrust/api/full_api.html">thrust</a><input class="toctree-checkbox" id="toctree-checkbox-71" name="toctree-checkbox-71" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-71"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/thrust/api/full_api.html">thrust</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/thrust/api/algorithms.html">hpx/thrust/algorithms.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/timed_execution/api/full_api.html">timed_execution</a><input class="toctree-checkbox" id="toctree-checkbox-72" name="toctree-checkbox-72" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-72"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/timed_execution/api/full_api.html">timed_execution</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/timed_execution/api/timed_execution_fwd.html">hpx/timed_execution/timed_execution_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/timed_execution/api/timed_executors.html">hpx/timed_execution/timed_executors.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/timed_execution/api/timed_execution.html">hpx/timed_execution/timed_execution.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/timed_execution/api/is_timed_executor.html">hpx/timed_execution/traits/is_timed_executor.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/timing/api/full_api.html">timing</a><input class="toctree-checkbox" id="toctree-checkbox-73" name="toctree-checkbox-73" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-73"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/timing/api/full_api.html">timing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/timing/api/high_resolution_clock_hpx_chrono_high_resolution_clock.html">hpx::chrono::high_resolution_clock</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/timing/api/high_resolution_timer_hpx_chrono_high_resolution_timer.html">hpx::chrono::high_resolution_timer</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/topology/api/full_api.html">topology</a><input class="toctree-checkbox" id="toctree-checkbox-74" name="toctree-checkbox-74" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-74"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/topology/api/full_api.html">topology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/topology/api/cpu_mask.html">hpx/topology/cpu_mask.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/topology/api/topology.html">hpx/topology/topology.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/tracing/api/full_api.html">tracing</a><input class="toctree-checkbox" id="toctree-checkbox-75" name="toctree-checkbox-75" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-75"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/tracing/api/full_api.html">tracing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/tracing/api/tracing.html">hpx/tracing/tracing.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/tracing/api/empty.html">hpx/tracing/backends/empty.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/tracing/api/ittnotify.html">hpx/tracing/backends/ittnotify.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/tracing/api/apex.html">hpx/tracing/backends/apex.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/tracing/api/tracy.html">hpx/tracing/backends/tracy.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/tracy/api/full_api.html">tracy</a><input class="toctree-checkbox" id="toctree-checkbox-76" name="toctree-checkbox-76" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-76"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/tracy/api/full_api.html">tracy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/tracy/api/tracy_tls.html">hpx/tracy/tracy_tls.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/tracy/api/tracy.html">hpx/tracy/tracy.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/util/api/full_api.html">util</a><input class="toctree-checkbox" id="toctree-checkbox-77" name="toctree-checkbox-77" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-77"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/util/api/full_api.html">util</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/util/api/sed_transform.html">hpx/util/sed_transform.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/util/api/insert_checked.html">hpx/util/insert_checked.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../components/component_storage/api/full_api.html">component_storage</a><input class="toctree-checkbox" id="toctree-checkbox-78" name="toctree-checkbox-78" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-78"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../components/component_storage/api/full_api.html">component_storage</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/component_storage/api/migrate_to_storage.html">hpx/components/component_storage/migrate_to_storage.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html">hpx/components/component_storage/migrate_from_storage.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../components/process/api/full_api.html">process</a><input class="toctree-checkbox" id="toctree-checkbox-79" name="toctree-checkbox-79" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-79"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../components/process/api/full_api.html">process</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/process/api/process.html">hpx/components/process/process.hpp</a></li>
 </ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../components/supervision_dispatch/api/full_api.html">supervision_dispatch</a><input class="toctree-checkbox" id="toctree-checkbox-80" name="toctree-checkbox-80" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-80"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../components/supervision_dispatch/api/full_api.html">supervision_dispatch</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/dispatch_api_hpx_supervision_init.html">hpx::supervision::init</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/dispatch_api_hpx_supervision_finalize.html">hpx::supervision::finalize</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/dispatch_api_hpx_supervision_is_initialized.html">hpx::supervision::is_initialized</a></li>
@@ -1277,15 +1303,15 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/registry_hpx_supervision_registry.html">hpx::supervision::registry</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/server_registry.html">hpx/supervision_dispatch/server/registry.hpp</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../contributing.html">Contributing to <em>HPX</em></a><input class="toctree-checkbox" id="toctree-checkbox-81" name="toctree-checkbox-81" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-81"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../contributing.html">Contributing to <em>HPX</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../contributing/contributing.html">Contributing to <em>HPX</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../contributing/governance.html"><em>HPX</em> governance model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../contributing/release_procedure.html">Release procedure for <em>HPX</em></a></li>
@@ -1294,11 +1320,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../contributing/documentation.html">Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../contributing/modules.html">Module structure</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../releases.html">Releases</a><input class="toctree-checkbox" id="toctree-checkbox-82" name="toctree-checkbox-82" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-82"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../releases.html">Releases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_2_0_0.html"><em>HPX</em> V2.0.0 (TBD)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_1_11_0.html"><em>HPX</em> V1.11.0 (Jun 30, 2025)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_1_10_0.html"><em>HPX</em> V1.10.0 (May 29, 2024)</a></li>
@@ -1332,14 +1358,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_0_7_0.html"><em>HPX</em> V0.7.0 (Dec 12, 2011)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../releases/new_namespaces_1_9_0.html"><em>HPX</em> V1.9.0 Namespace changes</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../citing.html">Citing <em>HPX</em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../users.html"><em>HPX</em> users</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../about_hpx.html">About <em>HPX</em></a><input class="toctree-checkbox" id="toctree-checkbox-83" name="toctree-checkbox-83" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-83"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../about_hpx.html">About <em>HPX</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../about_hpx/history.html">History</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../about_hpx/people.html">People</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -1355,7 +1381,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -1364,14 +1390,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -1493,24 +1519,28 @@
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -1526,6 +1556,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN3hpx11collectives3getEN3hpx6futureI1TEE20channel_communicator13that_site_arg7tag_arg"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -1533,10 +1571,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="hpx-collectives-get">
-<span id="modules-channel-communicator-hpx-collectives-get-api"></span><h1>hpx::collectives::get<a class="headerlink" href="#hpx-collectives-get" title="Permalink to this heading">#</a></h1>
+<span id="modules-channel-communicator-hpx-collectives-get-api"></span><h1>hpx::collectives::get<a class="headerlink" href="#hpx-collectives-get" title="Link to this heading">#</a></h1>
 <p>Defined in header hpx/collectives.hpp.</p>
 <p>See <a class="reference internal" href="../../../../api/public_api.html#public-api"><span class="std std-ref">Public API</span></a> for a list of names and headers that are part of the public
 <em>HPX</em> API.</p>
@@ -1550,17 +1588,17 @@ document.write(`
 </div></blockquote>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4I0EN3hpx11collectives3getEN3hpx6futureI1TEE20channel_communicator13that_site_arg7tag_arg">
-<span id="_CPPv3I0EN3hpx11collectives3getE20channel_communicator13that_site_arg7tag_arg"></span><span id="_CPPv2I0EN3hpx11collectives3getE20channel_communicator13that_site_arg7tag_arg"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="channel__communicator_8hpp_1ae901a0b5bd8f510d15d62c14a336fa0f"></span><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/futures/api/future_fwd.html#_CPPv4I0EN3hpx6futureE" title="hpx::future"><span class="n"><span class="pre">future</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN3hpx11collectives3getEN3hpx6futureI1TEE20channel_communicator13that_site_arg7tag_arg" title="hpx::collectives::get::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">collectives</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="channel_communicator_hpx_collectives_channel_communicator.html#_CPPv4N3hpx11collectives20channel_communicatorE" title="hpx::collectives::channel_communicator"><span class="n"><span class="pre">channel_communicator</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">comm</span></span>, <a class="reference internal" href="argument_types_hpx_collectives_that_site_arg.html#_CPPv4N3hpx11collectives13that_site_argE" title="hpx::collectives::that_site_arg"><span class="n"><span class="pre">that_site_arg</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">site</span></span>, <a class="reference internal" href="argument_types_hpx_collectives_tag_arg.html#_CPPv4N3hpx11collectives7tag_argE" title="hpx::collectives::tag_arg"><span class="n"><span class="pre">tag_arg</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tag</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="argument_types_hpx_collectives_tag_arg.html#_CPPv4N3hpx11collectives7tag_argE" title="hpx::collectives::tag_arg"><span class="n"><span class="pre">tag_arg</span></span></a><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3hpx11collectives3getEN3hpx6futureI1TEE20channel_communicator13that_site_arg7tag_arg" title="Permalink to this definition">#</a><br /></dt>
+<span id="_CPPv3I0EN3hpx11collectives3getE20channel_communicator13that_site_arg7tag_arg"></span><span id="_CPPv2I0EN3hpx11collectives3getE20channel_communicator13that_site_arg7tag_arg"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="channel__communicator_8hpp_1ae901a0b5bd8f510d15d62c14a336fa0f"></span><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../core/futures/api/future_hpx_future.html#_CPPv4I0EN3hpx6futureE" title="hpx::future"><span class="n"><span class="pre">future</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN3hpx11collectives3getEN3hpx6futureI1TEE20channel_communicator13that_site_arg7tag_arg" title="hpx::collectives::get::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">collectives</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="channel_communicator_hpx_collectives_channel_communicator.html#_CPPv4N3hpx11collectives20channel_communicatorE" title="hpx::collectives::channel_communicator"><span class="n"><span class="pre">channel_communicator</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">comm</span></span>, <a class="reference internal" href="argument_types_hpx_collectives_that_site_arg.html#_CPPv4N3hpx11collectives13that_site_argE" title="hpx::collectives::that_site_arg"><span class="n"><span class="pre">that_site_arg</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">site</span></span>, <a class="reference internal" href="argument_types_hpx_collectives_tag_arg.html#_CPPv4N3hpx11collectives7tag_argE" title="hpx::collectives::tag_arg"><span class="n"><span class="pre">tag_arg</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tag</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="argument_types_hpx_collectives_tag_arg.html#_CPPv4N3hpx11collectives7tag_argE" title="hpx::collectives::tag_arg"><span class="n"><span class="pre">tag_arg</span></span></a><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3hpx11collectives3getEN3hpx6futureI1TEE20channel_communicator13that_site_arg7tag_arg" title="Link to this definition">#</a><br /></dt>
 <dd><p>Send a value to the given site</p>
 <p>This function receives a value from the given site based on the given communicator.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>comm</strong> – The channel communicator object to use for the data transfer </p></li>
 <li><p><strong>site</strong> – The source site</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>This function returns a future&lt;T&gt; that becomes ready once the data transfer operation has finished. The future will hold the received value. </p>
 </dd>
 </dl>
@@ -1574,11 +1612,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="channel_communicator_hpx_collectives_create_channel_communicator.html"
@@ -1598,15 +1635,27 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN3hpx11collectives3getEN3hpx6futureI1TEE20channel_communicator13that_site_arg7tag_arg"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
@@ -1624,6 +1673,7 @@ By The HPX project
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2026, HPX Project, a Series of LF Projects, LLC.
@@ -1635,7 +1685,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Sep 05, 2026.
+  Last updated on Sep 06, 2026.
   <br/>
 </p>
   </div>
@@ -1653,8 +1703,8 @@ By The HPX project
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
