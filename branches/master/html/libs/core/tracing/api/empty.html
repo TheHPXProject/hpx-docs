@@ -52,7 +52,7 @@
     <link rel="prev" title="hpx/tracing/tracing.hpp" href="tracing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Sep 06, 2026"/>
+    <meta name="docbuild:last-update" content="Sep 07, 2026"/>
   </head>
   
   
@@ -1592,8 +1592,9 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing15register_threadEPKc"><code class="docutils literal notranslate"><span class="pre">register_thread()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing14create_counterERKNSt6stringERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">create_counter()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing14sample_counterERKNSt6stringERKNSt6stringEd"><code class="docutils literal notranslate"><span class="pre">sample_counter()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing11send_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tE"><code class="docutils literal notranslate"><span class="pre">send_parcel()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing11recv_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tENSt8uint64_tE"><code class="docutils literal notranslate"><span class="pre">recv_parcel()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing11send_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tENSt8uint64_tE"><code class="docutils literal notranslate"><span class="pre">send_parcel()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing11recv_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tE"><code class="docutils literal notranslate"><span class="pre">recv_parcel()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing16parcel_scheduledENSt8uint64_tENSt8uint64_tENSt8uint64_tENSt8uint64_tE"><code class="docutils literal notranslate"><span class="pre">parcel_scheduled()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing30set_enable_parent_task_handlerE31enable_parent_task_handler_type"><code class="docutils literal notranslate"><span class="pre">set_enable_parent_task_handler()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing12lock_contextE"><code class="docutils literal notranslate"><span class="pre">hpx::tracing::lock_context</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing17annotation_handleE"><code class="docutils literal notranslate"><span class="pre">hpx::tracing::annotation_handle</span></code></a></li>
@@ -1891,14 +1892,60 @@ document.write(`
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N3hpx7tracing11send_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tE">
-<span id="_CPPv3N3hpx7tracing11send_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tE"></span><span id="_CPPv2N3hpx7tracing11send_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tE"></span><span id="hpx::tracing::send_parcel__std::uint64_t.std::uint64_t.std::uint64_tCE"></span><span class="target" id="empty_8hpp_1a6a87c169bfe43c49f0468d2d9c2785fd"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">send_parcel</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span>, <a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span>, <a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx7tracing11send_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tE" title="Link to this definition">#</a><br /></dt>
-<dd></dd></dl>
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx7tracing11send_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tENSt8uint64_tE">
+<span id="_CPPv3N3hpx7tracing11send_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tENSt8uint64_tE"></span><span id="_CPPv2N3hpx7tracing11send_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tENSt8uint64_tE"></span><span id="hpx::tracing::send_parcel__std::uint64_t.std::uint64_t.std::uint64_t.std::uint64_tCE"></span><span class="target" id="empty_8hpp_1adaf94ddd5798bc969d65e7d2836c113a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">send_parcel</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span>, <a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span>, <a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span>, <a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx7tracing11send_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tENSt8uint64_tE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Parcel-send signal: parcel handed to parcelport (no-op stub). </p>
+<p>Parcel-send signal: a parcel has been handed to the parcelport for transmission.</p>
+<p>Parcel-send signal: parcel handed to parcelport (APEX shim).</p>
+<p>Parcel-send signal: parcel handed to parcelport (no-op stub for ITTNotify).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag_msb</strong> – High 64 bits of the parcel id. </p></li>
+<li><p><strong>tag_lsb</strong> – Low 64 bits of the parcel id. Together with tag_msb they form the full 128-bit id used to pair events across localities; lsb alone restarts per locality and would produce false matches. </p></li>
+<li><p><strong>size</strong> – Wire size of the parcel in bytes. </p></li>
+<li><p><strong>target_locality_id</strong> – Destination locality id, or <code class="docutils literal notranslate"><span class="pre">naming::invalid_locality_id</span></code> if unknown. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N3hpx7tracing11recv_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tENSt8uint64_tE">
-<span id="_CPPv3N3hpx7tracing11recv_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tENSt8uint64_tE"></span><span id="_CPPv2N3hpx7tracing11recv_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tENSt8uint64_tE"></span><span id="hpx::tracing::recv_parcel__std::uint64_t.std::uint64_t.std::uint64_t.std::uint64_tCE"></span><span class="target" id="empty_8hpp_1a45692a8e32d199ac2c4c13f1fdf2551d"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">recv_parcel</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span>, <a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span>, <a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span>, <a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx7tracing11recv_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tENSt8uint64_tE" title="Link to this definition">#</a><br /></dt>
-<dd></dd></dl>
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx7tracing11recv_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tE">
+<span id="_CPPv3N3hpx7tracing11recv_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tE"></span><span id="_CPPv2N3hpx7tracing11recv_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tE"></span><span id="hpx::tracing::recv_parcel__std::uint64_t.std::uint64_t.std::uint64_tCE"></span><span class="target" id="empty_8hpp_1a8cbf965ebec71d74abce45f93a05093f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">recv_parcel</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span>, <a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span>, <a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx7tracing11recv_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Parcel-receive signal: parcel arrived (no-op stub). </p>
+<p>Parcel-receive signal: a parcel has arrived and its header has been deserialized.</p>
+<p>Parcel-receive signal: parcel arrived (APEX shim).</p>
+<p>Parcel-receive signal: parcel arrived (no-op stub for ITTNotify).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag_msb</strong> – High 64 bits of the parcel id. </p></li>
+<li><p><strong>tag_lsb</strong> – Low 64 bits of the parcel id. </p></li>
+<li><p><strong>source_locality_id</strong> – Sending locality id, or <code class="docutils literal notranslate"><span class="pre">naming::invalid_locality_id</span></code> when the parcel has no source id yet (pre-AGAS handshake parcels). </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx7tracing16parcel_scheduledENSt8uint64_tENSt8uint64_tENSt8uint64_tENSt8uint64_tE">
+<span id="_CPPv3N3hpx7tracing16parcel_scheduledENSt8uint64_tENSt8uint64_tENSt8uint64_tENSt8uint64_tE"></span><span id="_CPPv2N3hpx7tracing16parcel_scheduledENSt8uint64_tENSt8uint64_tENSt8uint64_tENSt8uint64_tE"></span><span id="hpx::tracing::parcel_scheduled__std::uint64_t.std::uint64_t.std::uint64_t.std::uint64_tCE"></span><span class="target" id="empty_8hpp_1a9da5ec2de6113a1b7733223bf52b7d19"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">parcel_scheduled</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span>, <a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span>, <a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span>, <a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx7tracing16parcel_scheduledENSt8uint64_tENSt8uint64_tENSt8uint64_tENSt8uint64_tE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Parcel-scheduled signal: action entered local scheduler (no-op stub). </p>
+<p>Parcel-scheduled signal: an action carried by a parcel has been placed onto the local scheduler. Fires for deferred receives (zero-copy or multi-parcel message), for AGAS-routed parcels, and for parcels the AGAS re-route chain delivered after a migration detection. Does not fire for the non-deferred path where load_schedule schedules inline.</p>
+<p>Parcel-scheduled signal: action entered local scheduler (no-op stub for APEX).</p>
+<p>Parcel-scheduled signal: action entered local scheduler (no-op stub for ITTNotify).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag_msb</strong> – High 64 bits of the parcel id. </p></li>
+<li><p><strong>tag_lsb</strong> – Low 64 bits of the parcel id. </p></li>
+<li><p><strong>source_locality_id</strong> – Sending locality id (see recv_parcel). </p></li>
+<li><p><strong>source_thread_id</strong> – Parent HPX thread id captured on the sender; may be 0 when unavailable. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx7tracing30set_enable_parent_task_handlerE31enable_parent_task_handler_type">
@@ -2141,8 +2188,9 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing15register_threadEPKc"><code class="docutils literal notranslate"><span class="pre">register_thread()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing14create_counterERKNSt6stringERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">create_counter()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing14sample_counterERKNSt6stringERKNSt6stringEd"><code class="docutils literal notranslate"><span class="pre">sample_counter()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing11send_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tE"><code class="docutils literal notranslate"><span class="pre">send_parcel()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing11recv_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tENSt8uint64_tE"><code class="docutils literal notranslate"><span class="pre">recv_parcel()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing11send_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tENSt8uint64_tE"><code class="docutils literal notranslate"><span class="pre">send_parcel()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing11recv_parcelENSt8uint64_tENSt8uint64_tENSt8uint64_tE"><code class="docutils literal notranslate"><span class="pre">recv_parcel()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing16parcel_scheduledENSt8uint64_tENSt8uint64_tENSt8uint64_tENSt8uint64_tE"><code class="docutils literal notranslate"><span class="pre">parcel_scheduled()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing30set_enable_parent_task_handlerE31enable_parent_task_handler_type"><code class="docutils literal notranslate"><span class="pre">set_enable_parent_task_handler()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing12lock_contextE"><code class="docutils literal notranslate"><span class="pre">hpx::tracing::lock_context</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7tracing17annotation_handleE"><code class="docutils literal notranslate"><span class="pre">hpx::tracing::annotation_handle</span></code></a></li>
@@ -2223,7 +2271,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Sep 06, 2026.
+  Last updated on Sep 07, 2026.
   <br/>
 </p>
   </div>
