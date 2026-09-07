@@ -1828,8 +1828,8 @@ a single macro instead of the three-step process described above:</p>
 </pre></div>
 </div>
 <p>The resulting <code class="docutils literal notranslate"><span class="pre">some_member_action</span></code> type can be used exactly like an action
-type created with <a class="reference internal" href="../libs/full/actions_base/api/macros.html#c.HPX_DEFINE_COMPONENT_ACTION" title="HPX_DEFINE_COMPONENT_ACTION"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_DEFINE_COMPONENT_ACTION</span></code></a>, with <a class="reference internal" href="../libs/core/async_base/api/post_hpx_post.html#_CPPv4I0DpEN3hpx4postEbRR1FDpRR2Ts" title="hpx::post"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::post</span></code></a>,
-<a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#_CPPv4I00DpEN3hpx5asyncEDTclN6detail21async_action_dispatchI6ActionNSt7decay_tI1FEEE4callEclNSt7forwardI1FEE1fEspclNSt7forwardI2TsEE2tsEEERR1FDpRR2Ts" title="hpx::async"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async</span></code></a>, and <a class="reference internal" href="../libs/core/async_base/api/sync_hpx_sync.html#_CPPv4I00DpEN3hpx4syncEDTclN6detail20sync_action_dispatchI6ActionNSt7decay_tI1FEEE4callEclNSt7forwardI1FEE1fEspclNSt7forwardI2TsEE2tsEEERR1FDpRR2Ts" title="hpx::sync"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::sync</span></code></a>, or by invoking it directly. No
+type created with <a class="reference internal" href="../libs/full/actions_base/api/macros.html#c.HPX_DEFINE_COMPONENT_ACTION" title="HPX_DEFINE_COMPONENT_ACTION"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_DEFINE_COMPONENT_ACTION</span></code></a>, with <a class="reference internal" href="../libs/core/async_base/api/post_hpx_post.html#modules-post-hpx-post-api"><span class="std std-ref">hpx::post</span></a>,
+<a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a>, and <a class="reference internal" href="../libs/core/async_base/api/sync_hpx_sync.html#modules-sync-hpx-sync-api"><span class="std std-ref">hpx::sync</span></a>, or by invoking it directly. No
 separate registration step is required in the source file.</p>
 </section>
 <section id="action-invocation">
@@ -2165,7 +2165,7 @@ executed:</p>
 </pre></div>
 </div>
 <p>The use of <a class="reference internal" href="../libs/core/errors/api/macros.html#c.HPX_THROW_EXCEPTION" title="HPX_THROW_EXCEPTION"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_THROW_EXCEPTION</span></code></a> to report the error encapsulates the
-creation of a <a class="reference internal" href="../libs/core/errors/api/exception_hpx_exception.html#_CPPv4N3hpx9exceptionE" title="hpx::exception"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::exception</span></code></a> which is initialized with the error
+creation of a <a class="reference internal" href="../libs/core/errors/api/exception_hpx_exception.html#modules-exception-hpx-exception-api"><span class="std std-ref">hpx::exception</span></a> which is initialized with the error
 code <code class="docutils literal notranslate"><span class="pre">hpx::error::bad_parameter</span></code>. Additionally it carries the passed strings, the
 information about the file name, line number, and call stack of the point the
 exception was thrown from.</p>
@@ -2330,7 +2330,7 @@ described in the previous section could look like:</p>
 represents. This global id is accessible by calling the function
 <code class="docutils literal notranslate"><span class="pre">client_base&lt;&gt;::get_id()</span></code>. The special constructor which is provided in the
 example allows to create this client side object directly using the API function
-<a class="reference internal" href="../libs/full/runtime_components/api/new_hpx_new.html#_CPPv4I0DpEN3hpx4new_EDaRK7id_typeDpRR2Ts" title="hpx::new_"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::new_</span></code></a>.</p>
+<a class="reference internal" href="../libs/full/runtime_components/api/new_hpx_new.html#modules-new-hpx-new-api"><span class="std std-ref">hpx::new_</span></a>.</p>
 </section>
 <section id="creating-component-instances">
 <span id="create-components"></span><h3>Creating component instances<a class="headerlink" href="#creating-component-instances" title="Link to this heading">#</a></h3>
@@ -2596,7 +2596,7 @@ performed; When this object is used as an r-value, implicit conversion to
 <p>It is sometimes useful not only to iterate element by element, but also segment
 by segment, or simply get a local iterator in order to avoid additional
 construction costs at each deferencing operations. To mitigate this need, the
-<code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::traits::segmented_iterator_traits</span></code> are used.</p>
+<code class="xref cpp cpp-struct docutils literal notranslate"><span class="pre">hpx::traits::segmented_iterator_traits</span></code> are used.</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">segmented_iterator_traits</span></code> users can uniformly get the iterators
 which specifically iterates over segments (by providing a segmented iterator
 as a parameter), or get the local begin/end iterators of the nearest

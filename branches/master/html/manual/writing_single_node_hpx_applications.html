@@ -2218,7 +2218,8 @@ futures:</p>
 <p>For this reason, <em>HPX</em> implements a set of extensions to
 <a class="reference external" href="http://en.cppreference.com/w/cpp/thread/future">std::future</a> (as proposed by <a class="reference external" href="http://wg21.link/n4313">N4313</a>). This
 proposal introduces the following key asynchronous operations to
-<a class="reference internal" href="../libs/core/futures/api/future_hpx_future.html#_CPPv4I0EN3hpx6futureE" title="hpx::future"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::future</span></code></a>, <a class="reference internal" href="../libs/core/futures/api/future_hpx_shared_future.html#_CPPv4I0EN3hpx13shared_futureE" title="hpx::shared_future"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::shared_future</span></code></a> and <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#_CPPv4I00DpEN3hpx5asyncEDTclN6detail21async_action_dispatchI6ActionNSt7decay_tI1FEEE4callEclNSt7forwardI1FEE1fEspclNSt7forwardI2TsEE2tsEEERR1FDpRR2Ts" title="hpx::async"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async</span></code></a>,
+<a class="reference internal" href="../libs/core/futures/api/future_hpx_future.html#modules-future-hpx-future-api"><span class="std std-ref">hpx::future</span></a>, <a class="reference internal" href="../libs/core/futures/api/future_hpx_shared_future.html#modules-future-hpx-shared-future-api"><span class="std std-ref">hpx::shared_future</span></a> and
+<a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a>,
 which enhance and enrich these facilities.</p>
 <div class="pst-scrollable-table-container"><table class="table" id="id12">
 <caption><span class="caption-number">Table 10 </span><span class="caption-text">Facilities extending <code class="docutils literal notranslate"><span class="pre">std::future</span></code></span><a class="headerlink" href="#id12" title="Link to this table">#</a></caption>
@@ -2230,7 +2231,7 @@ which enhance and enrich these facilities.</p>
 <tr class="row-odd"><td><p>Facility</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::future::then</span></code></p></td>
+<tr class="row-even"><td><p><code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">hpx::future::then</span></code></p></td>
 <td><p>In asynchronous programming, it is very common for one asynchronous
 operation, on completion, to invoke a second operation and pass data to
 it. The current C++ standard does not allow one to register a
@@ -2240,7 +2241,7 @@ invoked when the result is ready. Continuations registered using then
 function will help to avoid blocking waits or wasting threads on polling,
 greatly improving the responsiveness and scalability of an application.</p></td>
 </tr>
-<tr class="row-odd"><td><p>unwrapping constructor for <a class="reference internal" href="../libs/core/futures/api/future_hpx_future.html#_CPPv4I0EN3hpx6futureE" title="hpx::future"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::future</span></code></a></p></td>
+<tr class="row-odd"><td><p>unwrapping constructor for <a class="reference internal" href="../libs/core/futures/api/future_hpx_future.html#modules-future-hpx-future-api"><span class="std std-ref">hpx::future</span></a></p></td>
 <td><p>In some scenarios, you might want to create a future that returns another
 future, resulting in nested futures. Although it is possible to write
 code to unwrap the outer future and retrieve the nested future and its
@@ -2249,14 +2250,14 @@ and it may cause a blocking call. Unwrapping can allow users to mitigate
 this problem by doing an asynchronous call to unwrap the outermost
 future.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::future::is_ready</span></code></p></td>
+<tr class="row-even"><td><p><code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">hpx::future::is_ready</span></code></p></td>
 <td><p>There are often situations where a <code class="docutils literal notranslate"><span class="pre">get()</span></code> call on a future may not be
 a blocking call, or is only a blocking call under certain circumstances.
 This function gives the ability to test for early completion and allows
 us to avoid associating a continuation, which needs to be scheduled with
 some non-trivial overhead and near-certain loss of cache efficiency.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/futures/api/future_hpx_make_ready_future.html#_CPPv4I0DpEN3hpx17make_ready_futureENSt11enable_if_tIXooNSt18is_constructible_vI1TDpRR2TsEENSt9is_void_vI1TEEE6futureI1TEEEDpRR2Ts" title="hpx::make_ready_future"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::make_ready_future</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/futures/api/future_hpx_make_ready_future.html#modules-future-hpx-make-ready-future-api"><span class="std std-ref">hpx::make_ready_future</span></a></p></td>
 <td><p>Some functions may know the value at the point of construction. In these
 cases the value is immediately available, but needs to be returned as a
 future. By using <code class="docutils literal notranslate"><span class="pre">hpx::make_ready_future</span></code> a future can be created that
@@ -2281,34 +2282,34 @@ allowing users to compose several futures in a more flexible way.</p>
 <tr class="row-odd"><td><p>Facility</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/async_combinators/api/when_any_hpx_when_any.html#_CPPv4I00EN3hpx8when_anyE6futureI15when_any_resultI9ContainerEE9InputIter9InputIter" title="hpx::when_any"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::when_any</span></code></a>, <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::when_any_n</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/async_combinators/api/when_any_hpx_when_any.html#modules-when-any-hpx-when-any-api"><span class="std std-ref">hpx::when_any</span></a>, <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::when_any_n</span></code></p></td>
 <td><p>Asynchronously wait for at least one of multiple future or shared_future
 objects to finish.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/async_combinators/api/wait_any_hpx_wait_any.html#_CPPv4I0EN3hpx8wait_anyEv9InputIter9InputIter" title="hpx::wait_any"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_any</span></code></a>, <a class="reference internal" href="../libs/core/async_combinators/api/wait_any_hpx_wait_any_n.html#_CPPv4I0EN3hpx10wait_any_nEv9InputIterNSt6size_tE" title="hpx::wait_any_n"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_any_n</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/async_combinators/api/wait_any_hpx_wait_any.html#modules-wait-any-hpx-wait-any-api"><span class="std std-ref">hpx::wait_any</span></a>, <a class="reference internal" href="../libs/core/async_combinators/api/wait_any_hpx_wait_any_n.html#modules-wait-any-hpx-wait-any-n-api"><span class="std std-ref">hpx::wait_any_n</span></a></p></td>
 <td><p>Synchronously wait for at least one of multiple future or shared_future
 objects to finish.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/async_combinators/api/when_all_hpx_when_all.html#_CPPv4I00EN3hpx8when_allEN3hpx6futureI9ContainerEE9InputIter9InputIter" title="hpx::when_all"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::when_all</span></code></a>, <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::when_all_n</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/async_combinators/api/when_all_hpx_when_all.html#modules-when-all-hpx-when-all-api"><span class="std std-ref">hpx::when_all</span></a>, <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::when_all_n</span></code></p></td>
 <td><p>Asynchronously wait for all future and shared_future objects to finish.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/async_combinators/api/wait_all_hpx_wait_all.html#_CPPv4I0EN3hpx8wait_allEv9InputIter9InputIter" title="hpx::wait_all"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_all</span></code></a>, <a class="reference internal" href="../libs/core/async_combinators/api/wait_all_hpx_wait_all_n.html#_CPPv4I0EN3hpx10wait_all_nEv9InputIterNSt6size_tE" title="hpx::wait_all_n"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_all_n</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/async_combinators/api/wait_all_hpx_wait_all.html#modules-wait-all-hpx-wait-all-api"><span class="std std-ref">hpx::wait_all</span></a>, <a class="reference internal" href="../libs/core/async_combinators/api/wait_all_hpx_wait_all_n.html#modules-wait-all-hpx-wait-all-n-api"><span class="std std-ref">hpx::wait_all_n</span></a></p></td>
 <td><p>Synchronously wait for all future and shared_future objects to finish.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/async_combinators/api/when_some_hpx_when_some.html#_CPPv4I00EN3hpx9when_someE6futureI16when_some_resultI9ContainerEENSt6size_tE8Iterator8Iterator" title="hpx::when_some"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::when_some</span></code></a>, <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::when_some_n</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/async_combinators/api/when_some_hpx_when_some.html#modules-when-some-hpx-when-some-api"><span class="std std-ref">hpx::when_some</span></a>, <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::when_some_n</span></code></p></td>
 <td><p>Asynchronously wait for multiple future and shared_future objects to
 finish.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/async_combinators/api/wait_some_hpx_wait_some.html#_CPPv4I0EN3hpx9wait_someEvNSt6size_tE9InputIter9InputIter" title="hpx::wait_some"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_some</span></code></a>, <a class="reference internal" href="../libs/core/async_combinators/api/wait_some_hpx_wait_some_n.html#_CPPv4I0EN3hpx11wait_some_nEvNSt6size_tE9InputIterNSt6size_tE" title="hpx::wait_some_n"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_some_n</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/async_combinators/api/wait_some_hpx_wait_some.html#modules-wait-some-hpx-wait-some-api"><span class="std std-ref">hpx::wait_some</span></a>, <a class="reference internal" href="../libs/core/async_combinators/api/wait_some_hpx_wait_some_n.html#modules-wait-some-hpx-wait-some-n-api"><span class="std std-ref">hpx::wait_some_n</span></a></p></td>
 <td><p>Synchronously wait for multiple future and shared_future objects to
 finish.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/async_combinators/api/when_each_hpx_when_each.html#_CPPv4I00EN3hpx9when_eachE6futureIvERR1FRRNSt6vectorI6FutureEE" title="hpx::when_each"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::when_each</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/async_combinators/api/when_each_hpx_when_each.html#modules-when-each-hpx-when-each-api"><span class="std std-ref">hpx::when_each</span></a></p></td>
 <td><p>Asynchronously wait for multiple future and shared_future objects to
 finish and call a function for each of the future objects as soon as it
 becomes ready.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/async_combinators/api/wait_each_hpx_wait_each.html#_CPPv4I00EN3hpx9wait_eachEvRR1FRRNSt6vectorI6FutureEE" title="hpx::wait_each"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_each</span></code></a>, <a class="reference internal" href="../libs/core/async_combinators/api/wait_each_hpx_wait_each_n.html#_CPPv4I00EN3hpx11wait_each_nEvRR1F8IteratorNSt6size_tE" title="hpx::wait_each_n"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_each_n</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/async_combinators/api/wait_each_hpx_wait_each.html#modules-wait-each-hpx-wait-each-api"><span class="std std-ref">hpx::wait_each</span></a>, <a class="reference internal" href="../libs/core/async_combinators/api/wait_each_hpx_wait_each_n.html#modules-wait-each-hpx-wait-each-n-api"><span class="std std-ref">hpx::wait_each_n</span></a></p></td>
 <td><p>Synchronously wait for multiple future and shared_future objects to
 finish and call a function for each of the future objects as soon as it
 becomes ready.</p></td>
@@ -2438,9 +2439,9 @@ results:</p>
 </pre></div>
 </div>
 <p>The example above demonstrates the use of two of the functions,
-<a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_define_task_block.html#_CPPv4I0EN3hpx12experimental17define_task_blockEvRR1F" title="hpx::experimental::define_task_block"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::define_task_block</span></code></a> and the
+<a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_define_task_block.html#modules-task-block-hpx-experimental-define-task-block-api"><span class="std std-ref">hpx::experimental::define_task_block</span></a> and the
 <code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">hpx::experimental::task_block::run</span></code> member function of a
-<a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_task_block.html#_CPPv4I0EN3hpx12experimental10task_blockE" title="hpx::experimental::task_block"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::experimental::task_block</span></code></a>.</p>
+<a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_task_block.html#modules-task-block-hpx-experimental-task-block-api"><span class="std std-ref">hpx::experimental::task_block</span></a>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">task_block</span></code> function delineates a region in a program code potentially
 containing invocations of threads spawned by the <code class="docutils literal notranslate"><span class="pre">run</span></code> member function of the
 <code class="docutils literal notranslate"><span class="pre">task_block</span></code> class. The <code class="docutils literal notranslate"><span class="pre">run</span></code> function spawns an <em>HPX</em> thread, a unit of
@@ -2506,13 +2507,13 @@ created <code class="docutils literal notranslate"><span class="pre">task_block<
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>This also causes the <a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_task_block.html#_CPPv4I0EN3hpx12experimental10task_blockE" title="hpx::experimental::task_block"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::experimental::task_block</span></code></a> object to be a
+<p>This also causes the <a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_task_block.html#modules-task-block-hpx-experimental-task-block-api"><span class="std std-ref">hpx::experimental::task_block</span></a> object to be a
 template in our implementation. The template argument is the type of the
 execution policy used to create the task block. The template argument defaults
-to <a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_parallel_policy.html#_CPPv4N3hpx9execution15parallel_policyE" title="hpx::execution::parallel_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::parallel_policy</span></code></a>.</p>
-<p><em>HPX</em> still supports calling <a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_define_task_block.html#_CPPv4I0EN3hpx12experimental17define_task_blockEvRR1F" title="hpx::experimental::define_task_block"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::define_task_block</span></code></a>
+to <a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_parallel_policy.html#modules-execution-policy-hpx-execution-parallel-policy-api"><span class="std std-ref">hpx::execution::parallel_policy</span></a>.</p>
+<p><em>HPX</em> still supports calling <a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_define_task_block.html#modules-task-block-hpx-experimental-define-task-block-api"><span class="std std-ref">hpx::experimental::define_task_block</span></a>
 without an explicit execution policy. In this case the task block will run using
-the <a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_parallel_policy.html#_CPPv4N3hpx9execution15parallel_policyE" title="hpx::execution::parallel_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::parallel_policy</span></code></a>.</p>
+the <a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_parallel_policy.html#modules-execution-policy-hpx-execution-parallel-policy-api"><span class="std std-ref">hpx::execution::parallel_policy</span></a>.</p>
 <p><em>HPX</em> also adds the ability to access the execution policy that was used to
 create a given <code class="docutils literal notranslate"><span class="pre">task_block</span></code>.</p>
 </section>
@@ -2547,10 +2548,10 @@ function enables this use case:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><em>HPX</em> still supports calling <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::task_block::run</span></code>
+<p><em>HPX</em> still supports calling <code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">hpx::experimental::task_block::run</span></code>
 without an explicit executor object. In this case the task will be run using the
 executor associated with the execution policy that was used to call
-<a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_define_task_block.html#_CPPv4I0EN3hpx12experimental17define_task_blockEvRR1F" title="hpx::experimental::define_task_block"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::define_task_block</span></code></a>.</p>
+<a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_define_task_block.html#modules-task-block-hpx-experimental-define-task-block-api"><span class="std std-ref">hpx::experimental::define_task_block</span></a>.</p>
 </section>
 </section>
 </section>
@@ -2719,12 +2720,12 @@ passed as the first argument to any of the parallel algorithms and describes the
 manner in which the execution of these algorithms may be parallelized and the
 manner in which they apply user-provided function objects.</p>
 <p>The applications of function objects in parallel algorithms invoked with an
-execution policy object of type <a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_sequenced_policy.html#_CPPv4N3hpx9execution16sequenced_policyE" title="hpx::execution::sequenced_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::sequenced_policy</span></code></a> or
-<a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_sequenced_task_policy.html#_CPPv4N3hpx9execution21sequenced_task_policyE" title="hpx::execution::sequenced_task_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::sequenced_task_policy</span></code></a> execute in sequential order. For
-<a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_sequenced_policy.html#_CPPv4N3hpx9execution16sequenced_policyE" title="hpx::execution::sequenced_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::sequenced_policy</span></code></a> the execution happens in the calling thread.</p>
+execution policy object of type <a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_sequenced_policy.html#modules-execution-policy-hpx-execution-sequenced-policy-api"><span class="std std-ref">hpx::execution::sequenced_policy</span></a> or
+<a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_sequenced_task_policy.html#modules-execution-policy-hpx-execution-sequenced-task-policy-api"><span class="std std-ref">hpx::execution::sequenced_task_policy</span></a> execute in sequential order. For
+<a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_sequenced_policy.html#modules-execution-policy-hpx-execution-sequenced-policy-api"><span class="std std-ref">hpx::execution::sequenced_policy</span></a> the execution happens in the calling thread.</p>
 <p>The applications of function objects in parallel algorithms invoked with an
-execution policy object of type <a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_parallel_policy.html#_CPPv4N3hpx9execution15parallel_policyE" title="hpx::execution::parallel_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::parallel_policy</span></code></a> or
-<a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_parallel_task_policy.html#_CPPv4N3hpx9execution20parallel_task_policyE" title="hpx::execution::parallel_task_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::parallel_task_policy</span></code></a> are permitted to execute in an unordered
+execution policy object of type <a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_parallel_policy.html#modules-execution-policy-hpx-execution-parallel-policy-api"><span class="std std-ref">hpx::execution::parallel_policy</span></a> or
+<a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_parallel_task_policy.html#modules-execution-policy-hpx-execution-parallel-task-policy-api"><span class="std std-ref">hpx::execution::parallel_task_policy</span></a> are permitted to execute in an unordered
 fashion in unspecified threads, and are indeterminately sequenced within each
 thread.</p>
 <div class="admonition important">
@@ -2732,7 +2733,7 @@ thread.</p>
 <p>It is the caller’s responsibility to ensure correctness, such as making sure that the
 invocation does not introduce data races or deadlocks.</p>
 </div>
-<p>The example below demonstrates how to perform a sequential and parallel <a class="reference internal" href="../libs/core/algorithms/api/for_each_hpx_for_each.html#_CPPv4I00EN3hpx8for_eachE1F6InIter6InIterRR1F" title="hpx::for_each"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::for_each</span></code></a> loop on a vector of integers.</p>
+<p>The example below demonstrates how to perform a sequential and parallel <a class="reference internal" href="../libs/core/algorithms/api/for_each_hpx_for_each.html#modules-for-each-hpx-for-each-api"><span class="std std-ref">hpx::for_each</span></a> loop on a vector of integers.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/algorithm.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/execution.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/init.hpp&gt;</span>
@@ -2782,17 +2783,17 @@ program is determined by the type of execution policy used to invoke the
 algorithm:</p>
 <ul class="simple">
 <li><p>If the execution policy object is of type
-<a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_parallel_unsequenced_policy.html#_CPPv4N3hpx9execution27parallel_unsequenced_policyE" title="hpx::execution::parallel_unsequenced_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::parallel_unsequenced_policy</span></code></a>, <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::terminate</span></code> shall
+<a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_parallel_unsequenced_policy.html#modules-execution-policy-hpx-execution-parallel-unsequenced-policy-api"><span class="std std-ref">hpx::execution::parallel_unsequenced_policy</span></a>, <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::terminate</span></code> shall
 be called.</p></li>
-<li><p>If the execution policy object is of type <a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_sequenced_policy.html#_CPPv4N3hpx9execution16sequenced_policyE" title="hpx::execution::sequenced_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::sequenced_policy</span></code></a>,
-<a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_sequenced_task_policy.html#_CPPv4N3hpx9execution21sequenced_task_policyE" title="hpx::execution::sequenced_task_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::sequenced_task_policy</span></code></a>, <a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_parallel_policy.html#_CPPv4N3hpx9execution15parallel_policyE" title="hpx::execution::parallel_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::parallel_policy</span></code></a>, or
-<a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_parallel_task_policy.html#_CPPv4N3hpx9execution20parallel_task_policyE" title="hpx::execution::parallel_task_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::parallel_task_policy</span></code></a>, the execution of the algorithm terminates
+<li><p>If the execution policy object is of type <a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_sequenced_policy.html#modules-execution-policy-hpx-execution-sequenced-policy-api"><span class="std std-ref">hpx::execution::sequenced_policy</span></a>,
+<a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_sequenced_task_policy.html#modules-execution-policy-hpx-execution-sequenced-task-policy-api"><span class="std std-ref">hpx::execution::sequenced_task_policy</span></a>, <a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_parallel_policy.html#modules-execution-policy-hpx-execution-parallel-policy-api"><span class="std std-ref">hpx::execution::parallel_policy</span></a>, or
+<a class="reference internal" href="../libs/core/executors/api/execution_policy_hpx_execution_parallel_task_policy.html#modules-execution-policy-hpx-execution-parallel-task-policy-api"><span class="std std-ref">hpx::execution::parallel_task_policy</span></a>, the execution of the algorithm terminates
 with an <a class="reference internal" href="../libs/core/errors/api/exception_list.html#_CPPv4N3hpx14exception_listE" title="hpx::exception_list"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::exception_list</span></code></a> exception. All uncaught exceptions thrown during the
 application of user-provided function objects shall be contained in the
 <a class="reference internal" href="../libs/core/errors/api/exception_list.html#_CPPv4N3hpx14exception_listE" title="hpx::exception_list"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::exception_list</span></code></a>.</p></li>
 </ul>
 <p>For example, the number of invocations of the user-provided function object in
-for_each is unspecified. When <a class="reference internal" href="../libs/core/algorithms/api/for_each_hpx_for_each.html#_CPPv4I00EN3hpx8for_eachE1F6InIter6InIterRR1F" title="hpx::for_each"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::for_each</span></code></a> is executed sequentially, only one
+for_each is unspecified. When <a class="reference internal" href="../libs/core/algorithms/api/for_each_hpx_for_each.html#modules-for-each-hpx-for-each-api"><span class="std std-ref">hpx::for_each</span></a> is executed sequentially, only one
 exception will be contained in the <a class="reference internal" href="../libs/core/errors/api/exception_list.html#_CPPv4N3hpx14exception_listE" title="hpx::exception_list"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::exception_list</span></code></a> object.</p>
 <p>These guarantees imply that, unless the algorithm has failed to allocate memory
 and terminated with <code class="docutils literal notranslate"><span class="pre">std::bad_alloc</span></code>, all exceptions thrown during the
@@ -2819,75 +2820,75 @@ creating or adding elements to the <a class="reference internal" href="../libs/c
 <td><p>Description</p></td>
 <td><p>C++ standard</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/adjacent_find_hpx_adjacent_find.html#_CPPv4I00EN3hpx13adjacent_findE6InIter6InIter6InIterRR4Pred" title="hpx::adjacent_find"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::adjacent_find</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/adjacent_find_hpx_adjacent_find.html#modules-adjacent-find-hpx-adjacent-find-api"><span class="std std-ref">hpx::adjacent_find</span></a></p></td>
 <td><p>Computes the differences between adjacent elements in a range.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/adjacent_find">adjacent_find</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/all_any_none_hpx_all_of.html#_CPPv4I000EN3hpx6all_ofEN4util6detail18algorithm_result_tI8ExPolicybEERR8ExPolicy7FwdIter7FwdIterRR1F" title="hpx::all_of"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::all_of</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/all_any_none_hpx_all_of.html#modules-all-any-none-hpx-all-of-api"><span class="std std-ref">hpx::all_of</span></a></p></td>
 <td><p>Checks if a predicate is <code class="docutils literal notranslate"><span class="pre">true</span></code> for all of the elements in a range.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/all_any_none_of">all_any_none_of</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/all_any_none_hpx_any_of.html#_CPPv4I000EN3hpx6any_ofEN4util6detail18algorithm_result_tI8ExPolicybEERR8ExPolicy7FwdIter7FwdIterRR1F" title="hpx::any_of"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::any_of</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/all_any_none_hpx_any_of.html#modules-all-any-none-hpx-any-of-api"><span class="std std-ref">hpx::any_of</span></a></p></td>
 <td><p>Checks if a predicate is <code class="docutils literal notranslate"><span class="pre">true</span></code> for any of the elements in a range.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/all_any_none_of">all_any_none_of</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/count_hpx_count.html#_CPPv4I000EN3hpx5countEN4util6detail16algorithm_resultI8ExPolicyNSt15iterator_traitsI7FwdIterE15difference_typeEE4typeERR8ExPolicy7FwdIter7FwdIterRK1T" title="hpx::count"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::count</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/count_hpx_count.html#modules-count-hpx-count-api"><span class="std std-ref">hpx::count</span></a></p></td>
 <td><p>Returns the number of elements equal to a given value.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/count">count</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/count_hpx_count_if.html#_CPPv4I000EN3hpx8count_ifEN4util6detail16algorithm_resultI8ExPolicyNSt15iterator_traitsI7FwdIterE15difference_typeEE4typeERR8ExPolicy7FwdIter7FwdIterRR1F" title="hpx::count_if"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::count_if</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/count_hpx_count_if.html#modules-count-hpx-count-if-api"><span class="std std-ref">hpx::count_if</span></a></p></td>
 <td><p>Returns the number of elements satisfying a specific criteria.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/count_if">count_if</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/equal_hpx_equal.html#_CPPv4I0000EN3hpx5equalEN4util6detail18algorithm_result_tI8ExPolicybEERR8ExPolicy8FwdIter18FwdIter18FwdIter28FwdIter2RR4Pred" title="hpx::equal"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::equal</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/equal_hpx_equal.html#modules-equal-hpx-equal-api"><span class="std std-ref">hpx::equal</span></a></p></td>
 <td><p>Determines if two sets of elements are the same.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/equal">equal</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/find_hpx_find.html#_CPPv4I000EN3hpx4findEN4util6detail18algorithm_result_tI8ExPolicy7FwdIterEERR8ExPolicy7FwdIter7FwdIterRK1T" title="hpx::find"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::find</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/find_hpx_find.html#modules-find-hpx-find-api"><span class="std std-ref">hpx::find</span></a></p></td>
 <td><p>Finds the first element equal to a given value.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/find">find</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/find_hpx_find_end.html#_CPPv4I0000EN3hpx8find_endEN4util6detail18algorithm_result_tI8ExPolicy8FwdIter1EERR8ExPolicy8FwdIter18FwdIter18FwdIter28FwdIter2RR4Pred" title="hpx::find_end"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::find_end</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/find_hpx_find_end.html#modules-find-hpx-find-end-api"><span class="std std-ref">hpx::find_end</span></a></p></td>
 <td><p>Finds the last sequence of elements in a certain range.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/find_end">find_end</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/find_hpx_find_first_of.html#_CPPv4I0000EN3hpx13find_first_ofEN4util6detail18algorithm_result_tI8ExPolicy8FwdIter1EERR8ExPolicy8FwdIter18FwdIter18FwdIter28FwdIter2RR4Pred" title="hpx::find_first_of"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::find_first_of</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/find_hpx_find_first_of.html#modules-find-hpx-find-first-of-api"><span class="std std-ref">hpx::find_first_of</span></a></p></td>
 <td><p>Searches for any one of a set of elements.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/find_first_of">find_first_of</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/find_hpx_find_if.html#_CPPv4I000EN3hpx7find_ifEN4util6detail18algorithm_result_tI8ExPolicy7FwdIterEERR8ExPolicy7FwdIter7FwdIterRR1F" title="hpx::find_if"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::find_if</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/find_hpx_find_if.html#modules-find-hpx-find-if-api"><span class="std std-ref">hpx::find_if</span></a></p></td>
 <td><p>Finds the first element satisfying a specific criteria.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/find_if">find_if</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/find_hpx_find_if_not.html#_CPPv4I000EN3hpx11find_if_notEN4util6detail18algorithm_result_tI8ExPolicy7FwdIterEERR8ExPolicy7FwdIter7FwdIterRR1F" title="hpx::find_if_not"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::find_if_not</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/find_hpx_find_if_not.html#modules-find-hpx-find-if-not-api"><span class="std std-ref">hpx::find_if_not</span></a></p></td>
 <td><p>Finds the first element not satisfying a specific criteria.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/find_if_not">find_if_not</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/for_each_hpx_for_each.html#_CPPv4I00EN3hpx8for_eachE1F6InIter6InIterRR1F" title="hpx::for_each"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::for_each</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/for_each_hpx_for_each.html#modules-for-each-hpx-for-each-api"><span class="std std-ref">hpx::for_each</span></a></p></td>
 <td><p>Applies a function to a range of elements.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/for_each">for_each</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/for_each_hpx_for_each_n.html#_CPPv4I000EN3hpx10for_each_nE6InIter6InIter4SizeRR1F" title="hpx::for_each_n"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::for_each_n</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/for_each_hpx_for_each_n.html#modules-for-each-hpx-for-each-n-api"><span class="std std-ref">hpx::for_each_n</span></a></p></td>
 <td><p>Applies a function to a number of elements.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/for_each_n">for_each_n</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/lexicographical_compare_hpx_lexicographical_compare.html#_CPPv4I000EN3hpx23lexicographical_compareEb7InIter17InIter17InIter27InIter2RR4Pred" title="hpx::lexicographical_compare"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::lexicographical_compare</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/lexicographical_compare_hpx_lexicographical_compare.html#modules-lexicographical-compare-hpx-lexicographical-compare-api"><span class="std std-ref">hpx::lexicographical_compare</span></a></p></td>
 <td><p>Checks if a range of values is lexicographically less than another range of values.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare">lexicographical_compare</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/mismatch_hpx_mismatch.html#_CPPv4I0000EN3hpx8mismatchEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicyNSt4pairI8FwdIter18FwdIter2EEEERR8ExPolicy8FwdIter18FwdIter18FwdIter28FwdIter2RR4Pred" title="hpx::mismatch"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::mismatch</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/mismatch_hpx_mismatch.html#modules-mismatch-hpx-mismatch-api"><span class="std std-ref">hpx::mismatch</span></a></p></td>
 <td><p>Finds the first position where two ranges differ.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/mismatch">mismatch</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/all_any_none_hpx_none_of.html#_CPPv4I000EN3hpx7none_ofEN4util6detail18algorithm_result_tI8ExPolicybEERR8ExPolicy7FwdIter7FwdIterRR1F" title="hpx::none_of"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::none_of</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/all_any_none_hpx_none_of.html#modules-all-any-none-hpx-none-of-api"><span class="std std-ref">hpx::none_of</span></a></p></td>
 <td><p>Checks if a predicate is <code class="docutils literal notranslate"><span class="pre">true</span></code> for none of the elements in a range.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/all_any_none_of">all_any_none_of</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/search_hpx_search.html#_CPPv4I000EN3hpx6searchE7FwdIter7FwdIter7FwdIter8FwdIter28FwdIter2RR4Pred" title="hpx::search"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::search</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/search_hpx_search.html#modules-search-hpx-search-api"><span class="std std-ref">hpx::search</span></a></p></td>
 <td><p>Searches for a range of elements.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/search">search</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/search_hpx_search_n.html#_CPPv4I000EN3hpx8search_nE7FwdIter7FwdIterNSt6size_tE8FwdIter28FwdIter2RR4Pred" title="hpx::search_n"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::search_n</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/search_hpx_search_n.html#modules-search-hpx-search-n-api"><span class="std std-ref">hpx::search_n</span></a></p></td>
 <td><p>Searches for a number consecutive copies of an element in a range.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/search_n">search_n</a></p></td>
 </tr>
@@ -2909,35 +2910,35 @@ creating or adding elements to the <a class="reference internal" href="../libs/c
 <td><p>Description</p></td>
 <td><p>C++ standard</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/copy_hpx_copy.html#_CPPv4I000EN3hpx4copyEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy8FwdIter2EERR8ExPolicy8FwdIter18FwdIter18FwdIter2" title="hpx::copy"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::copy</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/copy_hpx_copy.html#modules-copy-hpx-copy-api"><span class="std std-ref">hpx::copy</span></a></p></td>
 <td><p>Copies a range of elements to a new location.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/exclusive_scan">exclusive_scan</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/copy_hpx_copy_n.html#_CPPv4I0000EN3hpx6copy_nEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy8FwdIter2EERR8ExPolicy8FwdIter14Size8FwdIter2" title="hpx::copy_n"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::copy_n</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/copy_hpx_copy_n.html#modules-copy-hpx-copy-n-api"><span class="std std-ref">hpx::copy_n</span></a></p></td>
 <td><p>Copies a number of elements to a new location.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/copy_n">copy_n</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/copy_hpx_copy_if.html#_CPPv4I0000EN3hpx7copy_ifEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy8FwdIter2EERR8ExPolicy8FwdIter18FwdIter18FwdIter2RR4Pred" title="hpx::copy_if"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::copy_if</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/copy_hpx_copy_if.html#modules-copy-hpx-copy-if-api"><span class="std std-ref">hpx::copy_if</span></a></p></td>
 <td><p>Copies the elements from a range to a new location for which the given predicate is <code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/copy">copy</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/move_hpx_move.html#_CPPv4I000EN3hpx4moveEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy8FwdIter2EERR8ExPolicy8FwdIter18FwdIter18FwdIter2" title="hpx::move"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::move</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/move_hpx_move.html#modules-move-hpx-move-api"><span class="std std-ref">hpx::move</span></a></p></td>
 <td><p>Moves a range of elements to a new location.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/move">move</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/fill_hpx_fill.html#_CPPv4I000EN3hpx4fillEN4util6detail18algorithm_result_tI8ExPolicyEERR8ExPolicy7FwdIter7FwdIter1T" title="hpx::fill"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::fill</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/fill_hpx_fill.html#modules-fill-hpx-fill-api"><span class="std std-ref">hpx::fill</span></a></p></td>
 <td><p>Assigns a range of elements a certain value.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/fill">fill</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/fill_hpx_fill_n.html#_CPPv4I0000EN3hpx6fill_nEN4util6detail18algorithm_result_tI8ExPolicy7FwdIterEERR8ExPolicy7FwdIter4Size1T" title="hpx::fill_n"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::fill_n</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/fill_hpx_fill_n.html#modules-fill-hpx-fill-n-api"><span class="std std-ref">hpx::fill_n</span></a></p></td>
 <td><p>Assigns a value to a number of elements.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/fill_n">fill_n</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/generate_hpx_generate.html#_CPPv4I000EN3hpx8generateEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy7FwdIterEERR8ExPolicy7FwdIter7FwdIterRR1F" title="hpx::generate"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::generate</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/generate_hpx_generate.html#modules-generate-hpx-generate-api"><span class="std std-ref">hpx::generate</span></a></p></td>
 <td><p>Saves the result of a function in a range.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/generate">generate</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/generate_hpx_generate_n.html#_CPPv4I0000EN3hpx10generate_nEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy7FwdIterEERR8ExPolicy7FwdIter4SizeRR1F" title="hpx::generate_n"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::generate_n</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/generate_hpx_generate_n.html#modules-generate-hpx-generate-n-api"><span class="std std-ref">hpx::generate_n</span></a></p></td>
 <td><p>Saves the result of N applications of a function.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/generate_n">generate_n</a></p></td>
 </tr>
@@ -2949,75 +2950,75 @@ sequence <code class="docutils literal notranslate"><span class="pre">{1,1,1,2,3
 <code class="docutils literal notranslate"><span class="pre">values={9,5,30,10}</span></code>.</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/remove_hpx_remove.html#_CPPv4I00EN3hpx6removeE7FwdIter7FwdIter7FwdIterRK1T" title="hpx::remove"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::remove</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/remove_hpx_remove.html#modules-remove-hpx-remove-api"><span class="std std-ref">hpx::remove</span></a></p></td>
 <td><p>Removes the elements from a range that are equal to the given value.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/remove">remove</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/remove_hpx_remove_if.html#_CPPv4I00EN3hpx9remove_ifE7FwdIter7FwdIter7FwdIterRR4Pred" title="hpx::remove_if"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::remove_if</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/remove_hpx_remove_if.html#modules-remove-hpx-remove-if-api"><span class="std std-ref">hpx::remove_if</span></a></p></td>
 <td><p>Removes the elements from a range that are equal to the given predicate is <code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/remove">remove</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/remove_copy_hpx_remove_copy.html#_CPPv4I000EN3hpx11remove_copyE7OutIter6InIter6InIter7OutIterRK1T" title="hpx::remove_copy"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::remove_copy</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/remove_copy_hpx_remove_copy.html#modules-remove-copy-hpx-remove-copy-api"><span class="std std-ref">hpx::remove_copy</span></a></p></td>
 <td><p>Copies the elements from a range to a new location that are not equal to the given value.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/remove_copy">remove_copy</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/remove_copy_hpx_remove_copy_if.html#_CPPv4I000EN3hpx14remove_copy_ifE7OutIter6InIter6InIter7OutIterRR4Pred" title="hpx::remove_copy_if"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::remove_copy_if</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/remove_copy_hpx_remove_copy_if.html#modules-remove-copy-hpx-remove-copy-if-api"><span class="std std-ref">hpx::remove_copy_if</span></a></p></td>
 <td><p>Copies the elements from a range to a new location for which the given predicate is <code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/remove_copy">remove_copy</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/replace_hpx_replace.html#_CPPv4I00EN3hpx7replaceEv6InIter6InIterRK1TRK1T" title="hpx::replace"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::replace</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/replace_hpx_replace.html#modules-replace-hpx-replace-api"><span class="std std-ref">hpx::replace</span></a></p></td>
 <td><p>Replaces all values satisfying specific criteria with another value.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/replace">replace</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/replace_hpx_replace_if.html#_CPPv4I000EN3hpx10replace_ifEv4Iter4IterRR4PredRK1T" title="hpx::replace_if"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::replace_if</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/replace_hpx_replace_if.html#modules-replace-hpx-replace-if-api"><span class="std std-ref">hpx::replace_if</span></a></p></td>
 <td><p>Replaces all values satisfying specific criteria with another value.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/replace">replace</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/replace_hpx_replace_copy.html#_CPPv4I000EN3hpx12replace_copyE7OutIter6InIter6InIter7OutIterRK1TRK1T" title="hpx::replace_copy"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::replace_copy</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/replace_hpx_replace_copy.html#modules-replace-hpx-replace-copy-api"><span class="std std-ref">hpx::replace_copy</span></a></p></td>
 <td><p>Copies a range, replacing elements satisfying specific criteria with another value.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/replace_copy">replace_copy</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/replace_hpx_replace_copy_if.html#_CPPv4I0000EN3hpx15replace_copy_ifE7OutIter6InIter6InIter7OutIterRR4PredRK1T" title="hpx::replace_copy_if"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::replace_copy_if</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/replace_hpx_replace_copy_if.html#modules-replace-hpx-replace-copy-if-api"><span class="std std-ref">hpx::replace_copy_if</span></a></p></td>
 <td><p>Copies a range, replacing elements satisfying specific criteria with another value.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/replace_copy">replace_copy</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/reverse_hpx_reverse.html#_CPPv4I0EN3hpx7reverseEv9BidirIter9BidirIter" title="hpx::reverse"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::reverse</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/reverse_hpx_reverse.html#modules-reverse-hpx-reverse-api"><span class="std std-ref">hpx::reverse</span></a></p></td>
 <td><p>Reverses the order elements in a range.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/reverse">reverse</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/reverse_hpx_reverse_copy.html#_CPPv4I00EN3hpx12reverse_copyE7OutIter9BidirIter9BidirIter7OutIter" title="hpx::reverse_copy"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::reverse_copy</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/reverse_hpx_reverse_copy.html#modules-reverse-hpx-reverse-copy-api"><span class="std std-ref">hpx::reverse_copy</span></a></p></td>
 <td><p>Creates a copy of a range that is reversed.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/reverse_copy">reverse_copy</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/rotate_hpx_rotate.html#_CPPv4I0EN3hpx6rotateE7FwdIter7FwdIter7FwdIter7FwdIter" title="hpx::rotate"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::rotate</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/rotate_hpx_rotate.html#modules-rotate-hpx-rotate-api"><span class="std std-ref">hpx::rotate</span></a></p></td>
 <td><p>Rotates the order of elements in a range.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/rotate">rotate</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/rotate_hpx_rotate_copy.html#_CPPv4I00EN3hpx11rotate_copyE7OutIter7FwdIter7FwdIter7FwdIter7OutIter" title="hpx::rotate_copy"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::rotate_copy</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/rotate_hpx_rotate_copy.html#modules-rotate-hpx-rotate-copy-api"><span class="std std-ref">hpx::rotate_copy</span></a></p></td>
 <td><p>Copies and rotates a range of elements.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/rotate_copy">rotate_copy</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/shift_left_hpx_shift_left.html#_CPPv4I00EN3hpx10shift_leftE7FwdIter7FwdIter7FwdIter4Size" title="hpx::shift_left"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::shift_left</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/shift_left_hpx_shift_left.html#modules-shift-left-hpx-shift-left-api"><span class="std std-ref">hpx::shift_left</span></a></p></td>
 <td><p>Shifts the elements in the range left by n positions.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/shift_left">shift_left</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/shift_right_hpx_shift_right.html#_CPPv4I00EN3hpx11shift_rightE7FwdIter7FwdIter7FwdIter4Size" title="hpx::shift_right"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::shift_right</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/shift_right_hpx_shift_right.html#modules-shift-right-hpx-shift-right-api"><span class="std std-ref">hpx::shift_right</span></a></p></td>
 <td><p>Shifts the elements in the range right by n positions.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/shift_right">shift_right</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/swap_ranges_hpx_swap_ranges.html#_CPPv4I00EN3hpx11swap_rangesE8FwdIter28FwdIter18FwdIter18FwdIter2" title="hpx::swap_ranges"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::swap_ranges</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/swap_ranges_hpx_swap_ranges.html#modules-swap-ranges-hpx-swap-ranges-api"><span class="std std-ref">hpx::swap_ranges</span></a></p></td>
 <td><p>Swaps two ranges of elements.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/swap_ranges">swap_ranges</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/transform_hpx_transform.html#_CPPv4I000EN3hpx9transformE8FwdIter28FwdIter18FwdIter18FwdIter2RR1F" title="hpx::transform"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::transform</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/transform_hpx_transform.html#modules-transform-hpx-transform-api"><span class="std std-ref">hpx::transform</span></a></p></td>
 <td><p>Applies a function to a range of elements.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/transform">transform</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/unique_hpx_unique.html#_CPPv4I000EN3hpx6uniqueE7FwdIter7FwdIter7FwdIterRR4PredRR4Proj" title="hpx::unique"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::unique</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/unique_hpx_unique.html#modules-unique-hpx-unique-api"><span class="std std-ref">hpx::unique</span></a></p></td>
 <td><p>Eliminates all but the first element from every consecutive group of equivalent elements from a range.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/unique">unique</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/unique_hpx_unique_copy.html#_CPPv4I0000EN3hpx11unique_copyE7OutIter6InIter6InIter7OutIterRR4PredRR4Proj" title="hpx::unique_copy"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::unique_copy</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/unique_hpx_unique_copy.html#modules-unique-hpx-unique-copy-api"><span class="std std-ref">hpx::unique_copy</span></a></p></td>
 <td><p>Copies the elements from one range to another in such a way that there are no consecutive equal elements.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/unique_copy">unique_copy</a></p></td>
 </tr>
@@ -3039,31 +3040,31 @@ sequence <code class="docutils literal notranslate"><span class="pre">{1,1,1,2,3
 <td><p>Description</p></td>
 <td><p>C++ standard</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/merge_hpx_merge.html#_CPPv4I00000EN3hpx5mergeEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy9RandIter3EERR8ExPolicy9RandIter19RandIter19RandIter29RandIter29RandIter3RR4Comp" title="hpx::merge"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::merge</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/merge_hpx_merge.html#modules-merge-hpx-merge-api"><span class="std std-ref">hpx::merge</span></a></p></td>
 <td><p>Merges two sorted ranges.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/merge">merge</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/merge_hpx_inplace_merge.html#_CPPv4I000EN3hpx13inplace_mergeEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicyEERR8ExPolicy8RandIter8RandIter8RandIterRR4Comp" title="hpx::inplace_merge"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::inplace_merge</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/merge_hpx_inplace_merge.html#modules-merge-hpx-inplace-merge-api"><span class="std std-ref">hpx::inplace_merge</span></a></p></td>
 <td><p>Merges two ordered ranges in-place.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/inplace_merge">inplace_merge</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/includes_hpx_includes.html#_CPPv4I0000EN3hpx8includesEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicybE4typeERR8ExPolicy8FwdIter18FwdIter18FwdIter28FwdIter2RR4Pred" title="hpx::includes"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::includes</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/includes_hpx_includes.html#modules-includes-hpx-includes-api"><span class="std std-ref">hpx::includes</span></a></p></td>
 <td><p>Returns true if one set is a subset of another.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/includes">includes</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/set_difference_hpx_set_difference.html#_CPPv4I00000EN3hpx14set_differenceEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy8FwdIter3EERR8ExPolicy8FwdIter18FwdIter18FwdIter28FwdIter28FwdIter3RR4Pred" title="hpx::set_difference"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::set_difference</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/set_difference_hpx_set_difference.html#modules-set-difference-hpx-set-difference-api"><span class="std std-ref">hpx::set_difference</span></a></p></td>
 <td><p>Computes the difference between two sets.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/set_difference">set_difference</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/set_intersection_hpx_set_intersection.html#_CPPv4I00000EN3hpx16set_intersectionEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy8FwdIter3EERR8ExPolicy8FwdIter18FwdIter18FwdIter28FwdIter28FwdIter3RR4Pred" title="hpx::set_intersection"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::set_intersection</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/set_intersection_hpx_set_intersection.html#modules-set-intersection-hpx-set-intersection-api"><span class="std std-ref">hpx::set_intersection</span></a></p></td>
 <td><p>Computes the intersection of two sets.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/set_intersection">set_intersection</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/set_symmetric_difference_hpx_set_symmetric_difference.html#_CPPv4I00000EN3hpx24set_symmetric_differenceEN3hpx8parallel4util6detail16algorithm_resultI8ExPolicy8FwdIter3E4typeERR8ExPolicy8FwdIter18FwdIter18FwdIter28FwdIter28FwdIter3RR4Pred" title="hpx::set_symmetric_difference"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::set_symmetric_difference</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/set_symmetric_difference_hpx_set_symmetric_difference.html#modules-set-symmetric-difference-hpx-set-symmetric-difference-api"><span class="std std-ref">hpx::set_symmetric_difference</span></a></p></td>
 <td><p>Computes the symmetric difference between two sets.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/set_symmetric_difference">set_symmetric_difference</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/set_union_hpx_set_union.html#_CPPv4I00000EN3hpx9set_unionEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy8FwdIter3EERR8ExPolicy8FwdIter18FwdIter18FwdIter28FwdIter28FwdIter3RR4Pred" title="hpx::set_union"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::set_union</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/set_union_hpx_set_union.html#modules-set-union-hpx-set-union-api"><span class="std std-ref">hpx::set_union</span></a></p></td>
 <td><p>Computes the union of two sets.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/set_union">set_union</a></p></td>
 </tr>
@@ -3085,15 +3086,15 @@ sequence <code class="docutils literal notranslate"><span class="pre">{1,1,1,2,3
 <td><p>Description</p></td>
 <td><p>C++ standard</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/is_heap_hpx_is_heap.html#_CPPv4I000EN3hpx7is_heapEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicybEERR8ExPolicy8RandIter8RandIterRR4Comp" title="hpx::is_heap"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::is_heap</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/is_heap_hpx_is_heap.html#modules-is-heap-hpx-is-heap-api"><span class="std std-ref">hpx::is_heap</span></a></p></td>
 <td><p>Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if the range is max heap.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/is_heap">is_heap</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/is_heap_hpx_is_heap_until.html#_CPPv4I000EN3hpx13is_heap_untilEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy8RandIterEERR8ExPolicy8RandIter8RandIterRR4Comp" title="hpx::is_heap_until"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::is_heap_until</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/is_heap_hpx_is_heap_until.html#modules-is-heap-hpx-is-heap-until-api"><span class="std std-ref">hpx::is_heap_until</span></a></p></td>
 <td><p>Returns the first element that breaks a max heap.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/is_heap_until">is_heap_until</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/make_heap_hpx_make_heap.html#_CPPv4I000EN3hpx9make_heapEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicyEERR8ExPolicy7RndIter7RndIterRR4Comp" title="hpx::make_heap"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::make_heap</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/make_heap_hpx_make_heap.html#modules-make-heap-hpx-make-heap-api"><span class="std std-ref">hpx::make_heap</span></a></p></td>
 <td><p>Constructs a max heap in the range [first, last).</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/make_heap">make_heap</a></p></td>
 </tr>
@@ -3115,15 +3116,15 @@ sequence <code class="docutils literal notranslate"><span class="pre">{1,1,1,2,3
 <td><p>Description</p></td>
 <td><p>C++ standard</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/minmax_hpx_max_element.html#_CPPv4I00EN3hpx11max_elementE7FwdIter7FwdIter7FwdIterRR1F" title="hpx::max_element"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::max_element</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/minmax_hpx_max_element.html#modules-minmax-hpx-max-element-api"><span class="std std-ref">hpx::max_element</span></a></p></td>
 <td><p>Returns the largest element in a range.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/max_element">max_element</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/minmax_hpx_min_element.html#_CPPv4I00EN3hpx11min_elementE7FwdIter7FwdIter7FwdIterRR1F" title="hpx::min_element"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::min_element</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/minmax_hpx_min_element.html#modules-minmax-hpx-min-element-api"><span class="std std-ref">hpx::min_element</span></a></p></td>
 <td><p>Returns the smallest element in a range.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/min_element">min_element</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/minmax_hpx_minmax_element.html#_CPPv4I00EN3hpx14minmax_elementE21minmax_element_resultI7FwdIterE7FwdIter7FwdIterRR1F" title="hpx::minmax_element"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::minmax_element</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/minmax_hpx_minmax_element.html#modules-minmax-hpx-minmax-element-api"><span class="std std-ref">hpx::minmax_element</span></a></p></td>
 <td><p>Returns the smallest and the largest element in a range.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/minmax_element">minmax_element</a></p></td>
 </tr>
@@ -3145,23 +3146,23 @@ sequence <code class="docutils literal notranslate"><span class="pre">{1,1,1,2,3
 <td><p>Description</p></td>
 <td><p>C++ standard</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/nth_element_hpx_nth_element.html#_CPPv4I00EN3hpx11nth_elementEv8RandomIt8RandomIt8RandomItRR4Pred" title="hpx::nth_element"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::nth_element</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/nth_element_hpx_nth_element.html#modules-nth-element-hpx-nth-element-api"><span class="std std-ref">hpx::nth_element</span></a></p></td>
 <td><p>Partially sorts the given range making sure that it is partitioned by the given element</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/nth_element">nth_element</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/is_partitioned_hpx_is_partitioned.html#_CPPv4I00EN3hpx14is_partitionedEb7FwdIter7FwdIterRR4Pred" title="hpx::is_partitioned"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::is_partitioned</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/is_partitioned_hpx_is_partitioned.html#modules-is-partitioned-hpx-is-partitioned-api"><span class="std std-ref">hpx::is_partitioned</span></a></p></td>
 <td><p>Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if each true element for a predicate precedes the false elements in a range.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/is_partitioned">is_partitioned</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/partition_hpx_partition.html#_CPPv4I000EN3hpx9partitionE7FwdIter7FwdIter7FwdIterRR4PredRR4Proj" title="hpx::partition"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::partition</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/partition_hpx_partition.html#modules-partition-hpx-partition-api"><span class="std std-ref">hpx::partition</span></a></p></td>
 <td><p>Divides elements into two groups without preserving their relative order.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/partition">partition</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/partition_hpx_partition_copy.html#_CPPv4I00000EN3hpx14partition_copyENSt4pairI8FwdIter28FwdIter3EE8FwdIter18FwdIter18FwdIter28FwdIter3RR4PredRR4Proj" title="hpx::partition_copy"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::partition_copy</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/partition_hpx_partition_copy.html#modules-partition-hpx-partition-copy-api"><span class="std std-ref">hpx::partition_copy</span></a></p></td>
 <td><p>Copies a range dividing the elements into two groups.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/partition_copy">partition_copy</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/partition_hpx_stable_partition.html#_CPPv4I000EN3hpx16stable_partitionE9BidirIter9BidirIter9BidirIterRR1FRR4Proj" title="hpx::stable_partition"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::stable_partition</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/partition_hpx_stable_partition.html#modules-partition-hpx-stable-partition-api"><span class="std std-ref">hpx::stable_partition</span></a></p></td>
 <td><p>Divides elements into two groups while preserving their relative order.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/stable_partition">stable_partition</a></p></td>
 </tr>
@@ -3183,31 +3184,31 @@ sequence <code class="docutils literal notranslate"><span class="pre">{1,1,1,2,3
 <td><p>Description</p></td>
 <td><p>C++ standard</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/is_sorted_hpx_is_sorted.html#_CPPv4I00EN3hpx9is_sortedEb7FwdIter7FwdIterRR4Pred" title="hpx::is_sorted"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::is_sorted</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/is_sorted_hpx_is_sorted.html#modules-is-sorted-hpx-is-sorted-api"><span class="std std-ref">hpx::is_sorted</span></a></p></td>
 <td><p>Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if each element in a range is sorted.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/is_sorted">is_sorted</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/is_sorted_hpx_is_sorted_until.html#_CPPv4I00EN3hpx15is_sorted_untilE7FwdIter7FwdIter7FwdIterRR4Pred" title="hpx::is_sorted_until"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::is_sorted_until</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/is_sorted_hpx_is_sorted_until.html#modules-is-sorted-hpx-is-sorted-until-api"><span class="std std-ref">hpx::is_sorted_until</span></a></p></td>
 <td><p>Returns the first unsorted element.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/is_sorted_until">is_sorted_until</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/sort_hpx_sort.html#_CPPv4I000EN3hpx4sortEv8RandomIt8RandomItRR4CompRR4Proj" title="hpx::sort"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::sort</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/sort_hpx_sort.html#modules-sort-hpx-sort-api"><span class="std std-ref">hpx::sort</span></a></p></td>
 <td><p>Sorts the elements in a range.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/sort">sort</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/stable_sort_hpx_stable_sort.html#_CPPv4I000EN3hpx11stable_sortEv8RandomIt8RandomItRR4CompRR4Proj" title="hpx::stable_sort"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::stable_sort</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/stable_sort_hpx_stable_sort.html#modules-stable-sort-hpx-stable-sort-api"><span class="std std-ref">hpx::stable_sort</span></a></p></td>
 <td><p>Sorts the elements in a range, maintain sequence of equal elements.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/stable_sort">stable_sort</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/partial_sort_hpx_partial_sort.html#_CPPv4I00EN3hpx12partial_sortE8RandIter8RandIter8RandIter8RandIterRR4Comp" title="hpx::partial_sort"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::partial_sort</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/partial_sort_hpx_partial_sort.html#modules-partial-sort-hpx-partial-sort-api"><span class="std std-ref">hpx::partial_sort</span></a></p></td>
 <td><p>Sorts the first elements in a range.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/partial_sort">partial_sort</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/partial_sort_copy_hpx_partial_sort_copy.html#_CPPv4I000EN3hpx17partial_sort_copyE8RandIter6InIter6InIter8RandIter8RandIterRR4Comp" title="hpx::partial_sort_copy"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::partial_sort_copy</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/partial_sort_copy_hpx_partial_sort_copy.html#modules-partial-sort-copy-hpx-partial-sort-copy-api"><span class="std std-ref">hpx::partial_sort_copy</span></a></p></td>
 <td><p>Sorts the first elements in a range, storing the result in another range.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/partial_sort_copy">partial_sort_copy</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/sort_by_key_hpx_experimental_sort_by_key.html#_CPPv4I0000EN3hpx12experimental11sort_by_keyEN4util6detail18algorithm_result_tI8ExPolicy18sort_by_key_resultI7KeyIter9ValueIterEEERR8ExPolicy7KeyIter7KeyIter9ValueIterRR7Compare" title="hpx::experimental::sort_by_key"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::sort_by_key</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/sort_by_key_hpx_experimental_sort_by_key.html#modules-sort-by-key-hpx-experimental-sort-by-key-api"><span class="std std-ref">hpx::experimental::sort_by_key</span></a></p></td>
 <td><p>Sorts one range of data using keys supplied in another range.</p></td>
 <td></td>
 </tr>
@@ -3229,31 +3230,31 @@ sequence <code class="docutils literal notranslate"><span class="pre">{1,1,1,2,3
 <td><p>Description</p></td>
 <td><p>C++ standard</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/adjacent_difference_hpx_adjacent_difference.html#_CPPv4I00EN3hpx19adjacent_differenceE8FwdIter28FwdIter18FwdIter18FwdIter2" title="hpx::adjacent_difference"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::adjacent_difference</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/adjacent_difference_hpx_adjacent_difference.html#modules-adjacent-difference-hpx-adjacent-difference-api"><span class="std std-ref">hpx::adjacent_difference</span></a></p></td>
 <td><p>Calculates the difference between each element in an input range and the preceding element.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/adjacent_difference">adjacent_difference</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/exclusive_scan_hpx_exclusive_scan.html#_CPPv4I000EN3hpx14exclusive_scanE7OutIter6InIter6InIter7OutIter1T" title="hpx::exclusive_scan"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::exclusive_scan</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/exclusive_scan_hpx_exclusive_scan.html#modules-exclusive-scan-hpx-exclusive-scan-api"><span class="std std-ref">hpx::exclusive_scan</span></a></p></td>
 <td><p>Does an exclusive parallel scan over a range of elements.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/exclusive_scan">exclusive_scan</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/inclusive_scan_hpx_inclusive_scan.html#_CPPv4I00EN3hpx14inclusive_scanE7OutIter6InIter6InIter7OutIter" title="hpx::inclusive_scan"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::inclusive_scan</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/inclusive_scan_hpx_inclusive_scan.html#modules-inclusive-scan-hpx-inclusive-scan-api"><span class="std std-ref">hpx::inclusive_scan</span></a></p></td>
 <td><p>Does an inclusive parallel scan over a range of elements.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/inclusive_scan">inclusive_scan</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/reduce_hpx_reduce.html#_CPPv4I0000EN3hpx6reduceEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy1TEERR8ExPolicy7FwdIter7FwdIter1TRR1F" title="hpx::reduce"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::reduce</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/reduce_hpx_reduce.html#modules-reduce-hpx-reduce-api"><span class="std std-ref">hpx::reduce</span></a></p></td>
 <td><p>Sums up a range of elements.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/reduce">reduce</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/transform_exclusive_scan_hpx_transform_exclusive_scan.html#_CPPv4I00000EN3hpx24transform_exclusive_scanE7OutIter6InIter6InIter7OutIter1TRR5BinOpRR4UnOp" title="hpx::transform_exclusive_scan"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::transform_exclusive_scan</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/transform_exclusive_scan_hpx_transform_exclusive_scan.html#modules-transform-exclusive-scan-hpx-transform-exclusive-scan-api"><span class="std std-ref">hpx::transform_exclusive_scan</span></a></p></td>
 <td><p>Does an exclusive parallel scan over a range of elements after applying a function.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/transform_exclusive_scan">transform_exclusive_scan</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/transform_inclusive_scan_hpx_transform_inclusive_scan.html#_CPPv4I0000EN3hpx24transform_inclusive_scanE7OutIter6InIter6InIter7OutIterRR5BinOpRR4UnOp" title="hpx::transform_inclusive_scan"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::transform_inclusive_scan</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/transform_inclusive_scan_hpx_transform_inclusive_scan.html#modules-transform-inclusive-scan-hpx-transform-inclusive-scan-api"><span class="std std-ref">hpx::transform_inclusive_scan</span></a></p></td>
 <td><p>Does an inclusive parallel scan over a range of elements after applying a function.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/transform_inclusive_scan">transform_inclusive_scan</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/transform_reduce_hpx_transform_reduce.html#_CPPv4I00000EN3hpx16transform_reduceEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy1TEERR8ExPolicy7FwdIter7FwdIter1TRR6ReduceRR7Convert" title="hpx::transform_reduce"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::transform_reduce</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/transform_reduce_hpx_transform_reduce.html#modules-transform-reduce-hpx-transform-reduce-api"><span class="std std-ref">hpx::transform_reduce</span></a></p></td>
 <td><p>Sums up a range of elements after applying a function. Also, accumulates the inner products of two input ranges.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/transform_reduce">transform_reduce</a></p></td>
 </tr>
@@ -3275,51 +3276,51 @@ sequence <code class="docutils literal notranslate"><span class="pre">{1,1,1,2,3
 <td><p>Description</p></td>
 <td><p>C++ standard</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/destroy_hpx_destroy.html#_CPPv4I00EN3hpx7destroyEN4util6detail18algorithm_result_tI8ExPolicyEERR8ExPolicy7FwdIter7FwdIter" title="hpx::destroy"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::destroy</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/destroy_hpx_destroy.html#modules-destroy-hpx-destroy-api"><span class="std std-ref">hpx::destroy</span></a></p></td>
 <td><p>Destroys a range of objects.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/memory/destroy">destroy</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/destroy_hpx_destroy_n.html#_CPPv4I000EN3hpx9destroy_nEN4util6detail18algorithm_result_tI8ExPolicy7FwdIterEERR8ExPolicy7FwdIter4Size" title="hpx::destroy_n"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::destroy_n</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/destroy_hpx_destroy_n.html#modules-destroy-hpx-destroy-n-api"><span class="std std-ref">hpx::destroy_n</span></a></p></td>
 <td><p>Destroys a range of objects.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/memory/destroy_n">destroy_n</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_copy_hpx_uninitialized_copy.html#_CPPv4I00EN3hpx18uninitialized_copyE7FwdIter6InIter6InIter7FwdIter" title="hpx::uninitialized_copy"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::uninitialized_copy</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_copy_hpx_uninitialized_copy.html#modules-uninitialized-copy-hpx-uninitialized-copy-api"><span class="std std-ref">hpx::uninitialized_copy</span></a></p></td>
 <td><p>Copies a range of objects to an uninitialized area of memory.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/memory/uninitialized_copy">uninitialized_copy</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_copy_hpx_uninitialized_copy_n.html#_CPPv4I000EN3hpx20uninitialized_copy_nE7FwdIter6InIter4Size7FwdIter" title="hpx::uninitialized_copy_n"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::uninitialized_copy_n</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_copy_hpx_uninitialized_copy_n.html#modules-uninitialized-copy-hpx-uninitialized-copy-n-api"><span class="std std-ref">hpx::uninitialized_copy_n</span></a></p></td>
 <td><p>Copies a number of objects to an uninitialized area of memory.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/memory/uninitialized_copy_n">uninitialized_copy_n</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_default_construct_hpx_uninitialized_default_construct.html#_CPPv4I0EN3hpx31uninitialized_default_constructEv7FwdIter7FwdIter" title="hpx::uninitialized_default_construct"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::uninitialized_default_construct</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_default_construct_hpx_uninitialized_default_construct.html#modules-uninitialized-default-construct-hpx-uninitialized-default-construct-api"><span class="std std-ref">hpx::uninitialized_default_construct</span></a></p></td>
 <td><p>Copies a range of objects to an uninitialized area of memory.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/memory/uninitialized_default_construct">uninitialized_default_construct</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_default_construct_hpx_uninitialized_default_construct_n.html#_CPPv4I00EN3hpx33uninitialized_default_construct_nE7FwdIter7FwdIter4Size" title="hpx::uninitialized_default_construct_n"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::uninitialized_default_construct_n</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_default_construct_hpx_uninitialized_default_construct_n.html#modules-uninitialized-default-construct-hpx-uninitialized-default-construct-n-api"><span class="std std-ref">hpx::uninitialized_default_construct_n</span></a></p></td>
 <td><p>Copies a number of objects to an uninitialized area of memory.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/memory/uninitialized_default_construct_n">uninitialized_default_construct_n</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_fill_hpx_uninitialized_fill.html#_CPPv4I00EN3hpx18uninitialized_fillEv7FwdIter7FwdIterRK1T" title="hpx::uninitialized_fill"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::uninitialized_fill</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_fill_hpx_uninitialized_fill.html#modules-uninitialized-fill-hpx-uninitialized-fill-api"><span class="std std-ref">hpx::uninitialized_fill</span></a></p></td>
 <td><p>Copies an object to an uninitialized area of memory.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/memory/uninitialized_fill">uninitialized_fill</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_fill_hpx_uninitialized_fill_n.html#_CPPv4I000EN3hpx20uninitialized_fill_nE7FwdIter7FwdIter4SizeRK1T" title="hpx::uninitialized_fill_n"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::uninitialized_fill_n</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_fill_hpx_uninitialized_fill_n.html#modules-uninitialized-fill-hpx-uninitialized-fill-n-api"><span class="std std-ref">hpx::uninitialized_fill_n</span></a></p></td>
 <td><p>Copies an object to an uninitialized area of memory.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/memory/uninitialized_fill_n">uninitialized_fill_n</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_move_hpx_uninitialized_move.html#_CPPv4I00EN3hpx18uninitialized_moveE7FwdIter6InIter6InIter7FwdIter" title="hpx::uninitialized_move"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::uninitialized_move</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_move_hpx_uninitialized_move.html#modules-uninitialized-move-hpx-uninitialized-move-api"><span class="std std-ref">hpx::uninitialized_move</span></a></p></td>
 <td><p>Moves a range of objects to an uninitialized area of memory.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/memory/uninitialized_move">uninitialized_move</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_move_hpx_uninitialized_move_n.html#_CPPv4I000EN3hpx20uninitialized_move_nENSt4pairI6InIter7FwdIterEE6InIter4Size7FwdIter" title="hpx::uninitialized_move_n"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::uninitialized_move_n</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_move_hpx_uninitialized_move_n.html#modules-uninitialized-move-hpx-uninitialized-move-n-api"><span class="std std-ref">hpx::uninitialized_move_n</span></a></p></td>
 <td><p>Moves a number of objects to an uninitialized area of memory.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/memory/uninitialized_move_n">uninitialized_move_n</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_value_construct_hpx_uninitialized_value_construct.html#_CPPv4I0EN3hpx29uninitialized_value_constructEv7FwdIter7FwdIter" title="hpx::uninitialized_value_construct"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::uninitialized_value_construct</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_value_construct_hpx_uninitialized_value_construct.html#modules-uninitialized-value-construct-hpx-uninitialized-value-construct-api"><span class="std std-ref">hpx::uninitialized_value_construct</span></a></p></td>
 <td><p>Constructs objects in an uninitialized area of memory.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/memory/uninitialized_value_construct">uninitialized_value_construct</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_value_construct_hpx_uninitialized_value_construct_n.html#_CPPv4I00EN3hpx31uninitialized_value_construct_nE7FwdIter7FwdIter4Size" title="hpx::uninitialized_value_construct_n"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::uninitialized_value_construct_n</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/uninitialized_value_construct_hpx_uninitialized_value_construct_n.html#modules-uninitialized-value-construct-hpx-uninitialized-value-construct-n-api"><span class="std std-ref">hpx::uninitialized_value_construct_n</span></a></p></td>
 <td><p>Constructs objects in an uninitialized area of memory.</p></td>
 <td><p><a class="reference external" href="http://en.cppreference.com/w/cpp/memory/uninitialized_value_construct_n">uninitialized_value_construct_n</a></p></td>
 </tr>
@@ -3335,16 +3336,16 @@ sequence <code class="docutils literal notranslate"><span class="pre">{1,1,1,2,3
 <tr class="row-odd"><td><p>Name</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_experimental_for_loop.html#_CPPv4I0DpEN3hpx12experimental8for_loopEvNSt7decay_tI1IEE1IDpRR4Args" title="hpx::experimental::for_loop"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::for_loop</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_experimental_for_loop.html#modules-for-loop-hpx-experimental-for-loop-api"><span class="std std-ref">hpx::experimental::for_loop</span></a></p></td>
 <td><p>Implements loop functionality over a range specified by integral or iterator bounds.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_experimental_for_loop_strided.html#_CPPv4I00DpEN3hpx12experimental16for_loop_stridedEvNSt7decay_tI1IEE1I1SDpRR4Args" title="hpx::experimental::for_loop_strided"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::for_loop_strided</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_experimental_for_loop_strided.html#modules-for-loop-hpx-experimental-for-loop-strided-api"><span class="std std-ref">hpx::experimental::for_loop_strided</span></a></p></td>
 <td><p>Implements loop functionality over a range specified by integral or iterator bounds.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_experimental_for_loop_n.html#_CPPv4I00DpEN3hpx12experimental10for_loop_nEv1I4SizeDpRR4Args" title="hpx::experimental::for_loop_n"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::for_loop_n</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_experimental_for_loop_n.html#modules-for-loop-hpx-experimental-for-loop-n-api"><span class="std std-ref">hpx::experimental::for_loop_n</span></a></p></td>
 <td><p>Implements loop functionality over a range specified by integral or iterator bounds.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_experimental_for_loop_n_strided.html#_CPPv4I000DpEN3hpx12experimental18for_loop_n_stridedEv1I4Size1SDpRR4Args" title="hpx::experimental::for_loop_n_strided"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::for_loop_n_strided</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_experimental_for_loop_n_strided.html#modules-for-loop-hpx-experimental-for-loop-n-strided-api"><span class="std std-ref">hpx::experimental::for_loop_n_strided</span></a></p></td>
 <td><p>Implements loop functionality over a range specified by integral or iterator bounds.</p></td>
 </tr>
 </tbody>
@@ -3378,40 +3379,40 @@ The lambda function exposes a means of test-probing the execution of a single
 iteration for performance measurement purposes. The execution parameter type
 might dynamically determine the execution time of one or more tasks in order
 to calculate the chunk size; see
-<a class="reference internal" href="../libs/core/execution/api/auto_chunk_size_hpx_execution_experimental_auto_chunk_size.html#_CPPv4N3hpx9execution12experimental15auto_chunk_sizeE" title="hpx::execution::experimental::auto_chunk_size"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::experimental::auto_chunk_size</span></code></a> for an example of
+<a class="reference internal" href="../libs/core/execution/api/auto_chunk_size_hpx_execution_experimental_auto_chunk_size.html#modules-auto-chunk-size-hpx-execution-experimental-auto-chunk-size-api"><span class="std std-ref">hpx::execution::experimental::auto_chunk_size</span></a> for an example of
 this executor parameter type.</p>
 <p>Other functions in the interface exist to discover whether an executor parameter
 type should be invoked once (i.e., it returns a static chunk size; see
-<a class="reference internal" href="../libs/core/execution/api/static_chunk_size_hpx_execution_experimental_static_chunk_size.html#_CPPv4N3hpx9execution12experimental17static_chunk_sizeE" title="hpx::execution::experimental::static_chunk_size"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::experimental::static_chunk_size</span></code></a>) or whether it
+<a class="reference internal" href="../libs/core/execution/api/static_chunk_size_hpx_execution_experimental_static_chunk_size.html#modules-static-chunk-size-hpx-execution-experimental-static-chunk-size-api"><span class="std std-ref">hpx::execution::experimental::static_chunk_size</span></a>) or whether it
 should be invoked
 for each scheduled chunk of work (i.e., it returns a variable chunk size; for an
-example, see <a class="reference internal" href="../libs/core/execution/api/guided_chunk_size_hpx_execution_experimental_guided_chunk_size.html#_CPPv4N3hpx9execution12experimental17guided_chunk_sizeE" title="hpx::execution::experimental::guided_chunk_size"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::experimental::guided_chunk_size</span></code></a>).</p>
+example, see <a class="reference internal" href="../libs/core/execution/api/guided_chunk_size_hpx_execution_experimental_guided_chunk_size.html#modules-guided-chunk-size-hpx-execution-experimental-guided-chunk-size-api"><span class="std std-ref">hpx::execution::experimental::guided_chunk_size</span></a>).</p>
 <p>Although this interface appears to require executor parameter type authors to
 implement all different basic operations, none are required. In
 practice, all operations have sensible defaults. However, some executor
 parameter types will naturally specialize all operations for maximum efficiency.</p>
 <p><em>HPX</em>  implements the following executor parameter types:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../libs/core/execution/api/auto_chunk_size_hpx_execution_experimental_auto_chunk_size.html#_CPPv4N3hpx9execution12experimental15auto_chunk_sizeE" title="hpx::execution::experimental::auto_chunk_size"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::experimental::auto_chunk_size</span></code></a>: Loop iterations
+<li><p><a class="reference internal" href="../libs/core/execution/api/auto_chunk_size_hpx_execution_experimental_auto_chunk_size.html#modules-auto-chunk-size-hpx-execution-experimental-auto-chunk-size-api"><span class="std std-ref">hpx::execution::experimental::auto_chunk_size</span></a>: Loop iterations
 are divided into pieces and then assigned to threads. The number of loop
 iterations combined is
 determined based on measurements of how long the execution of 1% of the
 overall number of iterations takes. This executor parameter type makes sure
 that as many loop iterations are combined as necessary to run for the amount
 of time specified.</p></li>
-<li><p><a class="reference internal" href="../libs/core/execution/api/static_chunk_size_hpx_execution_experimental_static_chunk_size.html#_CPPv4N3hpx9execution12experimental17static_chunk_sizeE" title="hpx::execution::experimental::static_chunk_size"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::experimental::static_chunk_size</span></code></a>: Loop iterations
+<li><p><a class="reference internal" href="../libs/core/execution/api/static_chunk_size_hpx_execution_experimental_static_chunk_size.html#modules-static-chunk-size-hpx-execution-experimental-static-chunk-size-api"><span class="std std-ref">hpx::execution::experimental::static_chunk_size</span></a>: Loop iterations
 are divided
 into pieces of a given size and then assigned to threads. If the size is not
 specified, the iterations are, if possible, evenly divided contiguously among
 the threads. This executor parameters type is equivalent to OpenMP’s STATIC
 scheduling directive.</p></li>
-<li><p><a class="reference internal" href="../libs/core/execution/api/dynamic_chunk_size_hpx_execution_experimental_dynamic_chunk_size.html#_CPPv4N3hpx9execution12experimental18dynamic_chunk_sizeE" title="hpx::execution::experimental::dynamic_chunk_size"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::experimental::dynamic_chunk_size</span></code></a>: Loop iterations
+<li><p><a class="reference internal" href="../libs/core/execution/api/dynamic_chunk_size_hpx_execution_experimental_dynamic_chunk_size.html#modules-dynamic-chunk-size-hpx-execution-experimental-dynamic-chunk-size-api"><span class="std std-ref">hpx::execution::experimental::dynamic_chunk_size</span></a>: Loop iterations
 are divided
 into pieces of a given size and then dynamically scheduled among the cores;
 when a core finishes one chunk, it is dynamically assigned another. If the
 size is not specified, the default chunk size is 1. This executor parameter
 type is equivalent to OpenMP’s DYNAMIC scheduling directive.</p></li>
-<li><p><a class="reference internal" href="../libs/core/execution/api/guided_chunk_size_hpx_execution_experimental_guided_chunk_size.html#_CPPv4N3hpx9execution12experimental17guided_chunk_sizeE" title="hpx::execution::experimental::guided_chunk_size"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::execution::experimental::guided_chunk_size</span></code></a>: Iterations are
+<li><p><a class="reference internal" href="../libs/core/execution/api/guided_chunk_size_hpx_execution_experimental_guided_chunk_size.html#modules-guided-chunk-size-hpx-execution-experimental-guided-chunk-size-api"><span class="std std-ref">hpx::execution::experimental::guided_chunk_size</span></a>: Iterations are
 dynamically
 assigned to cores in blocks as cores request them until no blocks remain to be
 assigned. This is similar to <code class="docutils literal notranslate"><span class="pre">dynamic_chunk_size</span></code> except that the block size

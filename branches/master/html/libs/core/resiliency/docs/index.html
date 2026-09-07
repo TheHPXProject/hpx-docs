@@ -1586,7 +1586,7 @@ by repeating a task multiple times.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../api/resiliency_cpos.html#_CPPv4N3hpx10resiliency12experimental12async_replayE" title="hpx::resiliency::experimental::async_replay"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::resiliency::experimental::async_replay</span></code></a>: This version of task replay will
 catch user-defined exceptions and automatically reschedule the task N times
-before throwing an <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::resiliency::experimental::abort_replay_exception</span></code> if no
+before throwing an <code class="xref cpp cpp-struct docutils literal notranslate"><span class="pre">hpx::resiliency::experimental::abort_replay_exception</span></code> if no
 task is able to complete execution without an exception.</p></li>
 <li><p><a class="reference internal" href="../api/resiliency_cpos.html#_CPPv4N3hpx10resiliency12experimental21async_replay_validateE" title="hpx::resiliency::experimental::async_replay_validate"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::resiliency::experimental::async_replay_validate</span></code></a>: This version of replay
 adds an argument to async replay which receives a user-provided validation
@@ -1615,7 +1615,7 @@ Additionally, as described in replicate vote, the user can provide a “voting
 function” which returns the consensus formed by the voting logic.</p></li>
 <li><p><a class="reference internal" href="../api/resiliency_cpos.html#_CPPv4N3hpx10resiliency12experimental15dataflow_replayE" title="hpx::resiliency::experimental::dataflow_replay"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::resiliency::experimental::dataflow_replay</span></code></a>: This version of dataflow replay
 will catch user-defined exceptions and automatically reschedules the task N
-times before throwing an <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::resiliency::experimental::abort_replay_exception</span></code>
+times before throwing an <code class="xref cpp cpp-struct docutils literal notranslate"><span class="pre">hpx::resiliency::experimental::abort_replay_exception</span></code>
 if no task is able to complete execution without an exception. Any arguments
 for the executed task that are futures will cause the task invocation to be
 delayed until all of those futures have become ready.</p></li>

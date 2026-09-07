@@ -1653,7 +1653,7 @@ beginning with <code class="docutils literal notranslate"><span class="pre">main
 </div>
 <p>In this excerpt of the code we again see the use of futures. This time the
 futures are stored in a vector so that they can easily be accessed.
-<a class="reference internal" href="../libs/core/async_combinators/api/wait_all_hpx_wait_all.html#_CPPv4I0EN3hpx8wait_allEv9InputIter9InputIter" title="hpx::wait_all"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_all</span></code></a> is a family of functions that wait on for an
+<a class="reference internal" href="../libs/core/async_combinators/api/wait_all_hpx_wait_all.html#modules-wait-all-hpx-wait-all-api"><span class="std std-ref">hpx::wait_all</span></a> is a family of functions that wait on for an
 <code class="docutils literal notranslate"><span class="pre">std::vector&lt;&gt;</span></code> of futures to become ready. In this piece of code, we are
 using the synchronous version of <a class="reference internal" href="../libs/core/async_combinators/api/wait_all_hpx_wait_all.html#_CPPv4I0EN3hpx8wait_allEv9InputIter9InputIter" title="hpx::wait_all"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_all</span></code></a>, which takes one
 argument (the <code class="docutils literal notranslate"><span class="pre">std::vector&lt;&gt;</span></code> of futures to wait on). This function will not
@@ -1748,13 +1748,13 @@ wrapped in the action above:</p>
 </div>
 <p>Now, before we discuss <code class="docutils literal notranslate"><span class="pre">hello_world_foreman()</span></code>, let’s talk about the
 <a class="reference internal" href="../libs/core/async_combinators/api/wait_each_hpx_wait_each.html#_CPPv4I00EN3hpx9wait_eachEvRR1FRRNSt6vectorI6FutureEE" title="hpx::wait_each"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_each</span></code></a> function.
-The version of <a class="reference internal" href="../libs/core/async_combinators/api/wait_each_hpx_wait_each.html#_CPPv4I00EN3hpx9wait_eachEvRR1FRRNSt6vectorI6FutureEE" title="hpx::wait_each"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_each</span></code></a> invokes a callback function
+The version of <a class="reference internal" href="../libs/core/async_combinators/api/wait_each_hpx_wait_each.html#modules-wait-each-hpx-wait-each-api"><span class="std std-ref">hpx::wait_each</span></a> invokes a callback function
 provided by the user, supplying the callback function with the result of the
 future.</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">hello_world_foreman()</span></code>, an <code class="docutils literal notranslate"><span class="pre">std::set&lt;&gt;</span></code> called <code class="docutils literal notranslate"><span class="pre">attendance</span></code> keeps
 track of which OS-threads have printed out the hello world message. When the
 OS-thread prints out the statement, the future is marked as ready, and
-<a class="reference internal" href="../libs/core/async_combinators/api/wait_each_hpx_wait_each.html#_CPPv4I00EN3hpx9wait_eachEvRR1FRRNSt6vectorI6FutureEE" title="hpx::wait_each"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_each</span></code></a> in <code class="docutils literal notranslate"><span class="pre">hello_world_foreman()</span></code>. If it is not
+<a class="reference internal" href="../libs/core/async_combinators/api/wait_each_hpx_wait_each.html#modules-wait-each-hpx-wait-each-api"><span class="std std-ref">hpx::wait_each</span></a> in <code class="docutils literal notranslate"><span class="pre">hello_world_foreman()</span></code>. If it is not
 executing on the correct OS-thread, it returns a value of -1, which causes
 <code class="docutils literal notranslate"><span class="pre">hello_world_foreman()</span></code> to leave the OS-thread id in <code class="docutils literal notranslate"><span class="pre">attendance</span></code>.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="nf">hello_world_worker</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">desired</span><span class="p">)</span>

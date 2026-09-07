@@ -2296,7 +2296,7 @@ instance created for the first request.</p>
 options, the registration has to be performed during application startup, before
 <code class="docutils literal notranslate"><span class="pre">hpx_main</span></code> is executed. The best way to achieve this is to register an <em>HPX</em>
 startup function using the API function
-<a class="reference internal" href="../libs/core/runtime_local/api/startup_function_hpx_register_startup_function.html#_CPPv4N3hpx25register_startup_functionE21startup_function_type" title="hpx::register_startup_function"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::register_startup_function</span></code></a> before calling <code class="docutils literal notranslate"><span class="pre">hpx::init</span></code> to
+<a class="reference internal" href="../libs/core/runtime_local/api/startup_function_hpx_register_startup_function.html#modules-startup-function-hpx-register-startup-function-api"><span class="std std-ref">hpx::register_startup_function</span></a> before calling <code class="docutils literal notranslate"><span class="pre">hpx::init</span></code> to
 initialize the runtime system:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span>
 <span class="p">{</span>

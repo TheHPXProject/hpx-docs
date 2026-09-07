@@ -1720,13 +1720,13 @@ priority instead of using a separate thread pool.</p>
 <span id="using-resource-partitioner"></span><h3>Using the resource partitioner<a class="headerlink" href="#using-the-resource-partitioner" title="Link to this heading">#</a></h3>
 <p>The <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::resource::partitioner</span></code> is now created during <em>HPX</em> runtime
 initialization without explicit action needed from the user. To specify some of
-the initialization parameters you can use the <a class="reference internal" href="../libs/full/init_runtime/api/hpx_init_params_hpx_init_params.html#_CPPv4N3hpx11init_paramsE" title="hpx::init_params"><code class="xref cpp cpp-struct docutils literal notranslate"><span class="pre">hpx::init_params</span></code></a>.</p>
+the initialization parameters you can use the <a class="reference internal" href="../libs/full/init_runtime/api/hpx_init_params_hpx_init_params.html#modules-hpx-init-params-hpx-init-params-api"><span class="std std-ref">hpx::init_params</span></a>.</p>
 <p>The resource partitioner callback is the interface to add thread pools to the
 <em>HPX</em> runtime and to assign resources to the thread pools.  In order to create
 custom thread pools you can specify the resource partitioner callback
 <code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">hpx::init_params::rp_callback</span></code> which will be called once the
 resource partitioner will be created , see the example below. You can also
-specify other parameters, see <a class="reference internal" href="../libs/full/init_runtime/api/hpx_init_params_hpx_init_params.html#_CPPv4N3hpx11init_paramsE" title="hpx::init_params"><code class="xref cpp cpp-struct docutils literal notranslate"><span class="pre">hpx::init_params</span></code></a>.</p>
+specify other parameters, see <a class="reference internal" href="../libs/full/init_runtime/api/hpx_init_params_hpx_init_params.html#modules-hpx-init-params-hpx-init-params-api"><span class="std std-ref">hpx::init_params</span></a>.</p>
 <p>To add a thread pool use the
 <code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">hpx::resource::partitioner::create_thread_pool</span></code> method. If you
 simply want to use the default scheduler and scheduler options, it is enough to
@@ -1741,7 +1741,7 @@ case we leave the first processing unit for the default thread pool:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Whatever processing units are not assigned to a thread pool by the time
-<a class="reference internal" href="../libs/full/init_runtime/api/init_impl_hpx_init.html#_CPPv4N3hpx4initENSt8functionIFiRN3hpx15program_options13variables_mapEEEEiPPcRK11init_params" title="hpx::init"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::init</span></code></a> is called will be added to the default thread pool. It
+<a class="reference internal" href="../libs/full/init_runtime/api/init_impl_hpx_init.html#modules-init-impl-hpx-init-api"><span class="std std-ref">hpx::init</span></a> is called will be added to the default thread pool. It
 is also possible to explicitly add processing units to the default thread
 pool, and to create the default thread pool manually (in order to e.g. set
 the scheduler type).</p>

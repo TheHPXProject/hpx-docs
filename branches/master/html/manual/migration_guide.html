@@ -1694,7 +1694,7 @@ convert OpenMP to <em>HPX</em> code:</p>
 </pre></div>
 </div>
 <p>In the above code, the OpenMP <cite>#pragma omp parallel for</cite> directive is replaced with
-<a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_experimental_for_loop.html#_CPPv4I0DpEN3hpx12experimental8for_loopEvNSt7decay_tI1IEE1IDpRR4Args" title="hpx::experimental::for_loop"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::for_loop</span></code></a> from the <em>HPX</em> library. The loop body within the lambda
+<a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_experimental_for_loop.html#modules-for-loop-hpx-experimental-for-loop-api"><span class="std std-ref">hpx::experimental::for_loop</span></a> from the <em>HPX</em> library. The loop body within the lambda
 function will be executed in parallel for each iteration.</p>
 </section>
 <section id="private-variables">
@@ -1766,7 +1766,7 @@ atomic variable outside the <cite>for_loop</cite>.</p>
 </div>
 <p>To declare the number of threads to be used for the parallel region, you can use
 <cite>hpx::execution::experimental::num_cores</cite> and pass the number of cores (<cite>nc</cite>) to
-<a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_experimental_for_loop.html#_CPPv4I0DpEN3hpx12experimental8for_loopEvNSt7decay_tI1IEE1IDpRR4Args" title="hpx::experimental::for_loop"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::for_loop</span></code></a> using <cite>hpx::execution::par.with(nc)</cite>.
+<a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_experimental_for_loop.html#modules-for-loop-hpx-experimental-for-loop-api"><span class="std std-ref">hpx::experimental::for_loop</span></a> using <cite>hpx::execution::par.with(nc)</cite>.
 This example uses 2 threads for the parallel loop.</p>
 </section>
 <section id="reduction">
@@ -1824,7 +1824,7 @@ The reduction ensures that the <cite>accum</cite> value is correctly accumulated
 </div>
 <p>To define the scheduling type, you can use the corresponding execution policy from
 <cite>hpx::execution::experimental</cite>, define the chunk size (cs, here declared as 1000) and pass
-it to the to <a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_experimental_for_loop.html#_CPPv4I0DpEN3hpx12experimental8for_loopEvNSt7decay_tI1IEE1IDpRR4Args" title="hpx::experimental::for_loop"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::for_loop</span></code></a> using <cite>hpx::execution::par.with(cs)</cite>.</p>
+it to the to <a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_experimental_for_loop.html#modules-for-loop-hpx-experimental-for-loop-api"><span class="std std-ref">hpx::experimental::for_loop</span></a> using <cite>hpx::execution::par.with(cs)</cite>.</p>
 <p>Accordingly, other types of scheduling are available and can be used in a similar manner:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/execution.hpp&gt;</span>
 <span class="n">hpx</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">experimental</span><span class="o">::</span><span class="n">dynamic_chunk_size</span><span class="w"> </span><span class="nf">cs</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
@@ -1866,7 +1866,7 @@ it to the to <a class="reference internal" href="../libs/core/algorithms/api/for
 </pre></div>
 </div>
 <p>To make sure that only one thread accesses a specific code within a parallel section
-you can use <a class="reference internal" href="../libs/core/synchronization/api/mutex_hpx_mutex.html#_CPPv4N3hpx5mutexE" title="hpx::mutex"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::mutex</span></code></a> and <cite>std::scoped_lock</cite> to take ownership of the given
+you can use <a class="reference internal" href="../libs/core/synchronization/api/mutex_hpx_mutex.html#modules-mutex-hpx-mutex-api"><span class="std std-ref">hpx::mutex</span></a> and <cite>std::scoped_lock</cite> to take ownership of the given
 mutex <cite>mtx</cite>. For more information about mutexes please refer to <a class="reference internal" href="writing_single_node_hpx_applications.html#mutex"><span class="std std-ref">Mutex</span></a>.</p>
 </section>
 <section id="openmp-tasks">
@@ -1903,7 +1903,7 @@ fire-and-forget method.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If you think you will like to synchronize your tasks later on, we suggest you use
-<a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#_CPPv4I00DpEN3hpx5asyncEDTclN6detail21async_action_dispatchI6ActionNSt7decay_tI1FEEE4callEclNSt7forwardI1FEE1fEspclNSt7forwardI2TsEE2tsEEERR1FDpRR2Ts" title="hpx::async"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async</span></code></a> which provides synchronization options, while <a class="reference internal" href="../libs/core/async_base/api/post_hpx_post.html#_CPPv4I0DpEN3hpx4postEbRR1FDpRR2Ts" title="hpx::post"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::post</span></code></a>
+<a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a> which provides synchronization options, while <a class="reference internal" href="../libs/core/async_base/api/post_hpx_post.html#modules-post-hpx-post-api"><span class="std std-ref">hpx::post</span></a>
 explicitly states that there is no return value or way to synchronize with the function
 execution. Synchronization options are listed below.</p>
 </div>
@@ -1930,7 +1930,7 @@ execution. Synchronization options are listed below.</p>
 <span class="c1">// code after completion of task</span>
 </pre></div>
 </div>
-<p>The <cite>get()</cite> function can be used to ensure that the task created with <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#_CPPv4I00DpEN3hpx5asyncEDTclN6detail21async_action_dispatchI6ActionNSt7decay_tI1FEEE4callEclNSt7forwardI1FEE1fEspclNSt7forwardI2TsEE2tsEEERR1FDpRR2Ts" title="hpx::async"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async</span></code></a>
+<p>The <cite>get()</cite> function can be used to ensure that the task created with <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a>
 is completed before the code continues executing beyond that point.</p>
 </section>
 <section id="multiple-tasks-synchronization">
@@ -1966,7 +1966,7 @@ is completed before the code continues executing beyond that point.</p>
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>If you would like to synchronize multiple tasks, you can use the <a class="reference internal" href="../libs/core/async_combinators/api/when_all_hpx_when_all.html#_CPPv4I00EN3hpx8when_allEN3hpx6futureI9ContainerEE9InputIter9InputIter" title="hpx::when_all"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::when_all</span></code></a> function
+<p>If you would like to synchronize multiple tasks, you can use the <a class="reference internal" href="../libs/core/async_combinators/api/when_all_hpx_when_all.html#modules-when-all-hpx-when-all-api"><span class="std std-ref">hpx::when_all</span></a> function
 to define which futures have to be ready and the <cite>then()</cite> function to declare what should
 be executed once these futures are ready.</p>
 </section>
@@ -2008,10 +2008,10 @@ be executed once these futures are ready.</p>
 <span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">future_c</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>If one of the arguments of <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::dataflow</span></code> is a future, then it will wait for the
+<p>If one of the arguments of <a class="reference internal" href="../libs/core/async_base/api/dataflow_hpx_dataflow.html#modules-dataflow-hpx-dataflow-api"><span class="std std-ref">hpx::dataflow</span></a> is a future, then it will wait for the
 future to be ready to launch the thread. Hence, to define the dependencies of tasks
 you have to create futures representing the variables that create dependencies and pass
-them as arguments to <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::dataflow</span></code>. <cite>get()</cite> is used to save the result of the future
+them as arguments to <a class="reference internal" href="../libs/core/async_base/api/dataflow_hpx_dataflow.html#modules-dataflow-hpx-dataflow-api"><span class="std std-ref">hpx::dataflow</span></a>. <cite>get()</cite> is used to save the result of the future
 to the desired variable.</p>
 </section>
 <section id="nested-tasks">
@@ -2051,8 +2051,8 @@ to the desired variable.</p>
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>If you have nested tasks, you can simply use nested <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#_CPPv4I00DpEN3hpx5asyncEDTclN6detail21async_action_dispatchI6ActionNSt7decay_tI1FEEE4callEclNSt7forwardI1FEE1fEspclNSt7forwardI2TsEE2tsEEERR1FDpRR2Ts" title="hpx::async"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async</span></code></a> or
-<a class="reference internal" href="../libs/core/async_base/api/post_hpx_post.html#_CPPv4I0DpEN3hpx4postEbRR1FDpRR2Ts" title="hpx::post"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::post</span></code></a> calls. The implementation is similar if you want to take
+<p>If you have nested tasks, you can simply use nested <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a> or
+<a class="reference internal" href="../libs/core/async_base/api/post_hpx_post.html#modules-post-hpx-post-api"><span class="std std-ref">hpx::post</span></a> calls. The implementation is similar if you want to take
 care of synchronization:</p>
 <p>OpenMP code:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp taskwait</span>
@@ -2105,7 +2105,7 @@ care of synchronization:</p>
 <span class="c1">// code after yielding</span>
 </pre></div>
 </div>
-<p>After creating a task using <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#_CPPv4I00DpEN3hpx5asyncEDTclN6detail21async_action_dispatchI6ActionNSt7decay_tI1FEEE4callEclNSt7forwardI1FEE1fEspclNSt7forwardI2TsEE2tsEEERR1FDpRR2Ts" title="hpx::async"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async</span></code></a>, <a class="reference internal" href="../libs/core/threading/api/thread_hpx_this_thread_yield.html#_CPPv4N3hpx11this_thread5yieldEv" title="hpx::this_thread::yield"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::this_thread::yield</span></code></a>
+<p>After creating a task using <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a>, <a class="reference internal" href="../libs/core/threading/api/thread_hpx_this_thread_yield.html#modules-thread-hpx-this-thread-yield-api"><span class="std std-ref">hpx::this_thread::yield</span></a>
 can be used to reschedule the execution of threads, allowing other threads to run.</p>
 </section>
 <section id="task-group">
@@ -2143,7 +2143,7 @@ can be used to reschedule the execution of threads, allowing other threads to ru
 <span class="n">tg</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>To create task groups, you can use <a class="reference internal" href="../libs/core/algorithms/api/task_group_hpx_experimental_task_group.html#_CPPv4N3hpx12experimental10task_groupE" title="hpx::experimental::task_group"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::experimental::task_group</span></code></a>. The function
+<p>To create task groups, you can use <a class="reference internal" href="../libs/core/algorithms/api/task_group_hpx_experimental_task_group.html#modules-task-group-hpx-experimental-task-group-api"><span class="std std-ref">hpx::experimental::task_group</span></a>. The function
 <cite>run()</cite> can be used to run each task within the task group, while <cite>wait()</cite> can be used to
 achieve synchronization. If you do not care about waiting for the task group to complete
 its execution, you can simply remove the <cite>wait()</cite> function.</p>
@@ -2176,11 +2176,11 @@ its execution, you can simply remove the <cite>wait()</cite> function.</p>
 </pre></div>
 </div>
 <p>Unlike tasks, there is an implicit synchronization barrier at the end of each <cite>sections</cite>
-directive in OpenMP. This synchronization is achieved using <a class="reference internal" href="../libs/core/async_combinators/api/wait_all_hpx_wait_all.html#_CPPv4I0EN3hpx8wait_allEv9InputIter9InputIter" title="hpx::wait_all"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_all</span></code></a> function.</p>
+directive in OpenMP. This synchronization is achieved using <a class="reference internal" href="../libs/core/async_combinators/api/wait_all_hpx_wait_all.html#modules-wait-all-hpx-wait-all-api"><span class="std std-ref">hpx::wait_all</span></a> function.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If the <cite>nowait</cite> clause is used in the <cite>sections</cite> directive, then you can just remove
-the <a class="reference internal" href="../libs/core/async_combinators/api/wait_all_hpx_wait_all.html#_CPPv4I0EN3hpx8wait_allEv9InputIter9InputIter" title="hpx::wait_all"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_all</span></code></a> function while keeping the rest of the code as it is.</p>
+the <a class="reference internal" href="../libs/core/async_combinators/api/wait_all_hpx_wait_all.html#modules-wait-all-hpx-wait-all-api"><span class="std std-ref">hpx::wait_all</span></a> function while keeping the rest of the code as it is.</p>
 </div>
 </section>
 </section>
@@ -2213,7 +2213,7 @@ standard ISO C++ code. Below are some examples on how to convert Intel Threading
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>In the above code, <cite>tbb::parallel_for</cite> is replaced with <a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_experimental_for_loop.html#_CPPv4I0DpEN3hpx12experimental8for_loopEvNSt7decay_tI1IEE1IDpRR4Args" title="hpx::experimental::for_loop"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::for_loop</span></code></a>
+<p>In the above code, <cite>tbb::parallel_for</cite> is replaced with <a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_experimental_for_loop.html#modules-for-loop-hpx-experimental-for-loop-api"><span class="std std-ref">hpx::experimental::for_loop</span></a>
 from the <em>HPX</em> library. The loop body within the lambda function will be executed in
 parallel for each iteration.</p>
 </section>
@@ -2237,7 +2237,7 @@ parallel for each iteration.</p>
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>By utilizing <a class="reference internal" href="../libs/core/algorithms/api/for_each_hpx_for_each.html#_CPPv4I00EN3hpx8for_eachE1F6InIter6InIterRR1F" title="hpx::for_each"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::for_each</span></code></a> and specifying a parallel execution policy with
+<p>By utilizing <a class="reference internal" href="../libs/core/algorithms/api/for_each_hpx_for_each.html#modules-for-each-hpx-for-each-api"><span class="std std-ref">hpx::for_each</span></a> and specifying a parallel execution policy with
 <cite>hpx::execution::par</cite>, it is possible to transform <cite>tbb::parallel_for_each</cite> into its
 equivalent counterpart in <em>HPX</em>.</p>
 </section>
@@ -2253,9 +2253,9 @@ equivalent counterpart in <em>HPX</em>.</p>
 <span class="n">hpx</span><span class="o">::</span><span class="n">wait_all</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">async</span><span class="p">(</span><span class="n">task1</span><span class="p">),</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">async</span><span class="p">(</span><span class="n">task2</span><span class="p">),</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">async</span><span class="p">(</span><span class="n">task3</span><span class="p">));</span>
 </pre></div>
 </div>
-<p>To convert <cite>tbb::parallel_invoke</cite> to <em>HPX</em>, we use <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#_CPPv4I00DpEN3hpx5asyncEDTclN6detail21async_action_dispatchI6ActionNSt7decay_tI1FEEE4callEclNSt7forwardI1FEE1fEspclNSt7forwardI2TsEE2tsEEERR1FDpRR2Ts" title="hpx::async"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::async</span></code></a> to asynchronously
+<p>To convert <cite>tbb::parallel_invoke</cite> to <em>HPX</em>, we use <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a> to asynchronously
 execute each task, which returns a future representing the result of each task.
-We then pass these futures to <a class="reference internal" href="../libs/core/async_combinators/api/when_all_hpx_when_all.html#_CPPv4I00EN3hpx8when_allEN3hpx6futureI9ContainerEE9InputIter9InputIter" title="hpx::when_all"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::when_all</span></code></a>, which waits for all the futures
+We then pass these futures to <a class="reference internal" href="../libs/core/async_combinators/api/when_all_hpx_when_all.html#modules-when-all-hpx-when-all-api"><span class="std std-ref">hpx::when_all</span></a>, which waits for all the futures
 to complete before returning.</p>
 </section>
 <section id="parallel-pipeline">
@@ -2369,7 +2369,7 @@ which can be used to optimize the execution of the fused loop across multiple th
 <span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">par</span><span class="p">,</span><span class="w"> </span><span class="n">values</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">values</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">plus</span><span class="p">{});</span>
 </pre></div>
 </div>
-<p>By utilizing <a class="reference internal" href="../libs/core/algorithms/api/reduce_hpx_reduce.html#_CPPv4I0000EN3hpx6reduceEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy1TEERR8ExPolicy7FwdIter7FwdIter1TRR1F" title="hpx::reduce"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::reduce</span></code></a> and specifying a parallel execution policy with
+<p>By utilizing <a class="reference internal" href="../libs/core/algorithms/api/reduce_hpx_reduce.html#modules-reduce-hpx-reduce-api"><span class="std std-ref">hpx::reduce</span></a> and specifying a parallel execution policy with
 <cite>hpx::execution::par</cite>, it is possible to transform <cite>tbb::parallel_reduce</cite> into its
 equivalent counterpart in <em>HPX</em>. As demonstrated in the previous example, the management
 of intermediate results is seamlessly handled internally by <em>HPX</em>, eliminating the need
@@ -2414,7 +2414,7 @@ for explicit consideration.</p>
 </pre></div>
 </div>
 <p>In situations where certain values require transformation before the reduction process,
-<em>HPX</em> provides a straightforward solution through <a class="reference internal" href="../libs/core/algorithms/api/transform_reduce_hpx_transform_reduce.html#_CPPv4I00000EN3hpx16transform_reduceEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy1TEERR8ExPolicy7FwdIter7FwdIter1TRR6ReduceRR7Convert" title="hpx::transform_reduce"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::transform_reduce</span></code></a>. The
+<em>HPX</em> provides a straightforward solution through <a class="reference internal" href="../libs/core/algorithms/api/transform_reduce_hpx_transform_reduce.html#modules-transform-reduce-hpx-transform-reduce-api"><span class="std std-ref">hpx::transform_reduce</span></a>. The
 <cite>transform_function()</cite> allows for the application of the desired transformation to each value.</p>
 </section>
 </section>
@@ -2446,14 +2446,14 @@ for explicit consideration.</p>
 <span class="w">    </span><span class="p">[](</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">right</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="../libs/core/algorithms/api/inclusive_scan_hpx_inclusive_scan.html#_CPPv4I00EN3hpx14inclusive_scanE7OutIter6InIter6InIter7OutIter" title="hpx::inclusive_scan"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::inclusive_scan</span></code></a> with <cite>hpx::execution::par</cite> as execution policy
+<p><a class="reference internal" href="../libs/core/algorithms/api/inclusive_scan_hpx_inclusive_scan.html#modules-inclusive-scan-hpx-inclusive-scan-api"><span class="std std-ref">hpx::inclusive_scan</span></a> with <cite>hpx::execution::par</cite> as execution policy
 can be used to perform a prefix scan in parallel. The management of intermediate
 results is seamlessly handled internally by <em>HPX</em>, eliminating the need
 for explicit consideration. <cite>input.begin()</cite> and <cite>input.end()</cite> refer to the beginning
 and end of the sequence of elements the algorithm will be applied to respectively.
 <cite>output.begin()</cite> refers to the beginning of the destination, while the last argument
 specifies the function which will be invoked for each of the values of the input sequence.</p>
-<p>Apart from <a class="reference internal" href="../libs/core/algorithms/api/inclusive_scan_hpx_inclusive_scan.html#_CPPv4I00EN3hpx14inclusive_scanE7OutIter6InIter6InIter7OutIter" title="hpx::inclusive_scan"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::inclusive_scan</span></code></a>, <em>HPX</em> provides its users with <a class="reference internal" href="../libs/core/algorithms/api/exclusive_scan_hpx_exclusive_scan.html#_CPPv4I000EN3hpx14exclusive_scanE7OutIter6InIter6InIter7OutIter1T" title="hpx::exclusive_scan"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::exclusive_scan</span></code></a>.
+<p>Apart from <a class="reference internal" href="../libs/core/algorithms/api/inclusive_scan_hpx_inclusive_scan.html#modules-inclusive-scan-hpx-inclusive-scan-api"><span class="std std-ref">hpx::inclusive_scan</span></a>, <em>HPX</em> provides its users with <a class="reference internal" href="../libs/core/algorithms/api/exclusive_scan_hpx_exclusive_scan.html#modules-exclusive-scan-hpx-exclusive-scan-api"><span class="std std-ref">hpx::exclusive_scan</span></a>.
 The key difference between inclusive scan and exclusive scan lies in the treatment of the current element
 during the scan operation. In an inclusive scan, each element in the output sequence includes the
 contribution of the corresponding element in the input sequence, while in an exclusive scan, the current
@@ -2475,7 +2475,7 @@ element in the input sequence does not contribute to the corresponding element i
 <span class="n">hpx</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">par</span><span class="p">,</span><span class="w"> </span><span class="n">numbers</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">numbers</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="../libs/core/algorithms/api/sort_hpx_sort.html#_CPPv4I000EN3hpx4sortEv8RandomIt8RandomItRR4CompRR4Proj" title="hpx::sort"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::sort</span></code></a> provides an equivalent functionality to <cite>tbb::parallel_sort</cite>.
+<p><a class="reference internal" href="../libs/core/algorithms/api/sort_hpx_sort.html#modules-sort-hpx-sort-api"><span class="std std-ref">hpx::sort</span></a> provides an equivalent functionality to <cite>tbb::parallel_sort</cite>.
 When given a parallel execution policy with <cite>hpx::execution::par</cite>, the algorithm employs
 parallel execution, allowing for efficient sorting across available threads.</p>
 </section>
@@ -2507,8 +2507,8 @@ parallel execution, allowing for efficient sorting across available threads.</p>
 <span class="n">tg</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span>
 </pre></div>
 </div>
-<p><em>HPX</em> drew inspiration from Intel Threading Building Blocks (TBB) to introduce the <a class="reference internal" href="../libs/core/algorithms/api/task_group_hpx_experimental_task_group.html#_CPPv4N3hpx12experimental10task_groupE" title="hpx::experimental::task_group"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::task_group</span></code></a>
-feature. Therefore, utilizing <a class="reference internal" href="../libs/core/algorithms/api/task_group_hpx_experimental_task_group.html#_CPPv4N3hpx12experimental10task_groupE" title="hpx::experimental::task_group"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::experimental::task_group</span></code></a> provides an
+<p><em>HPX</em> drew inspiration from Intel Threading Building Blocks (TBB) to introduce the <a class="reference internal" href="../libs/core/algorithms/api/task_group_hpx_experimental_task_group.html#modules-task-group-hpx-experimental-task-group-api"><span class="std std-ref">hpx::experimental::task_group</span></a>
+feature. Therefore, utilizing <a class="reference internal" href="../libs/core/algorithms/api/task_group_hpx_experimental_task_group.html#modules-task-group-hpx-experimental-task-group-api"><span class="std std-ref">hpx::experimental::task_group</span></a> provides an
 equivalent functionality to <cite>tbb::task_group</cite>.</p>
 </section>
 </section>
@@ -2527,49 +2527,49 @@ nodes in a parallel computing system to exchange data and coordinate their execu
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference internal" href="#mpi-allgather"><span class="std std-ref">MPI_Allgather</span></a></p></td>
-<td><p><a class="reference internal" href="../libs/full/collectives/api/all_gather_hpx_collectives_all_gather.html#_CPPv4I0EN3hpx11collectives10all_gatherEN3hpx6futureINSt6vectorINSt7decay_tI1TEEEEEEPKcRR1T13num_sites_arg13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::all_gather"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::collectives::all_gather</span></code></a></p></td>
+<td><p><a class="reference internal" href="../libs/full/collectives/api/all_gather_hpx_collectives_all_gather.html#modules-all-gather-hpx-collectives-all-gather-api"><span class="std std-ref">hpx::collectives::all_gather</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mpi-allreduce"><span class="std std-ref">MPI_Allreduce</span></a></p></td>
-<td><p><a class="reference internal" href="../libs/full/collectives/api/all_reduce_hpx_collectives_all_reduce.html#_CPPv4I00EN3hpx11collectives10all_reduceEN3hpx6futureINSt7decay_tI1TEEEEPKcRR1TRR1F13num_sites_arg13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::all_reduce"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::collectives::all_reduce</span></code></a></p></td>
+<td><p><a class="reference internal" href="../libs/full/collectives/api/all_reduce_hpx_collectives_all_reduce.html#modules-all-reduce-hpx-collectives-all-reduce-api"><span class="std std-ref">hpx::collectives::all_reduce</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mpi-alltoall"><span class="std std-ref">MPI_Alltoall</span></a></p></td>
-<td><p><a class="reference internal" href="../libs/full/collectives/api/all_to_all_hpx_collectives_all_to_all.html#_CPPv4I0EN3hpx11collectives10all_to_allEN3hpx6futureINSt6vectorI1TEEEEPKcRRNSt6vectorI1TEE13num_sites_arg13this_site_arg14generation_arg13root_site_arg22pairwise_threshold_arg" title="hpx::collectives::all_to_all"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::collectives::all_to_all</span></code></a></p></td>
+<td><p><a class="reference internal" href="../libs/full/collectives/api/all_to_all_hpx_collectives_all_to_all.html#modules-all-to-all-hpx-collectives-all-to-all-api"><span class="std std-ref">hpx::collectives::all_to_all</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mpi-barrier"><span class="std std-ref">MPI_Barrier</span></a></p></td>
-<td><p><a class="reference internal" href="../libs/full/collectives/api/barrier_hpx_distributed_barrier.html#_CPPv4N3hpx11distributed7barrierERKNSt6stringE" title="hpx::distributed::barrier"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::distributed::barrier</span></code></a></p></td>
+<td><p><a class="reference internal" href="../libs/full/collectives/api/barrier_hpx_distributed_barrier.html#modules-barrier-hpx-distributed-barrier-api"><span class="std std-ref">hpx::distributed::barrier</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mpi-bcast"><span class="std std-ref">MPI_Bcast</span></a></p></td>
-<td><p><a class="reference internal" href="../libs/full/collectives/api/broadcast_hpx_collectives_broadcast_to.html#_CPPv4I0EN3hpx11collectives12broadcast_toEN3hpx6futureI1TEEPKcRR1T13num_sites_arg13this_site_arg14generation_arg" title="hpx::collectives::broadcast_to"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::collectives::broadcast_to()</span></code></a> and <a class="reference internal" href="../libs/full/collectives/api/broadcast_hpx_collectives_broadcast_from.html#_CPPv4I0EN3hpx11collectives14broadcast_fromEN3hpx6futureI1TEEPKc13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::broadcast_from"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::collectives::broadcast_from()</span></code></a> used with <code class="code docutils literal notranslate"><span class="pre">get()</span></code></p></td>
+<td><p><a class="reference internal" href="../libs/full/collectives/api/broadcast_hpx_collectives_broadcast_to.html#_CPPv4I0EN3hpx11collectives12broadcast_toEN3hpx6futureI1TEEPKcRR1T13num_sites_arg13this_site_arg14generation_arg" title="hpx::collectives::broadcast_to"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::broadcast_to</span></code></a> and <a class="reference internal" href="../libs/full/collectives/api/broadcast_hpx_collectives_broadcast_from.html#_CPPv4I0EN3hpx11collectives14broadcast_fromEN3hpx6futureI1TEEPKc13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::broadcast_from"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::collectives::broadcast_from()</span></code></a> used with <code class="code docutils literal notranslate"><span class="pre">get()</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mpi-send-mpi-recv"><span class="std std-ref">MPI_Comm_size</span></a></p></td>
-<td><p><a class="reference internal" href="../libs/core/runtime_local/api/get_num_all_localities_hpx_get_num_localities.html#_CPPv4N3hpx18get_num_localitiesEv" title="hpx::get_num_localities"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::get_num_localities</span></code></a></p></td>
+<td><p><a class="reference internal" href="../libs/core/runtime_local/api/get_num_all_localities_hpx_get_num_localities.html#modules-get-num-all-localities-hpx-get-num-localities-api"><span class="std std-ref">hpx::get_num_localities</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mpi-send-mpi-recv"><span class="std std-ref">MPI_Comm_rank</span></a></p></td>
-<td><p><a class="reference internal" href="../libs/core/runtime_local/api/get_locality_id_hpx_get_locality_id.html#_CPPv4N3hpx15get_locality_idER10error_code" title="hpx::get_locality_id"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::get_locality_id()</span></code></a></p></td>
+<td><p><a class="reference internal" href="../libs/core/runtime_local/api/get_locality_id_hpx_get_locality_id.html#_CPPv4N3hpx15get_locality_idER10error_code" title="hpx::get_locality_id"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::get_locality_id</span></code></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mpi-exscan"><span class="std std-ref">MPI_Exscan</span></a></p></td>
-<td><p><a class="reference internal" href="../libs/full/collectives/api/exclusive_scan_hpx_collectives_exclusive_scan.html#_CPPv4I00EN3hpx11collectives14exclusive_scanEN3hpx6futureINSt7decay_tI1TEEEEPKcRR1TRR1F13num_sites_arg13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::exclusive_scan"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::collectives::exclusive_scan()</span></code></a> used with <code class="code docutils literal notranslate"><span class="pre">get()</span></code></p></td>
+<td><p><a class="reference internal" href="../libs/full/collectives/api/exclusive_scan_hpx_collectives_exclusive_scan.html#_CPPv4I00EN3hpx11collectives14exclusive_scanEN3hpx6futureINSt7decay_tI1TEEEEPKcRR1TRR1F13num_sites_arg13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::exclusive_scan"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::exclusive_scan</span></code></a> used with <code class="code docutils literal notranslate"><span class="pre">get()</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mpi-gather"><span class="std std-ref">MPI_Gather</span></a></p></td>
-<td><p><a class="reference internal" href="../libs/full/collectives/api/gather_hpx_collectives_gather_here.html#_CPPv4I0EN3hpx11collectives11gather_hereEN3hpx6futureINSt6vectorI7decay_tI1TEEEEEPKcRR1T13num_sites_arg13this_site_arg14generation_arg" title="hpx::collectives::gather_here"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::collectives::gather_here()</span></code></a> and <a class="reference internal" href="../libs/full/collectives/api/gather_hpx_collectives_gather_there.html#_CPPv4I0EN3hpx11collectives12gather_thereEN3hpx6futureIvEEPKcRR1T13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::gather_there"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::collectives::gather_there()</span></code></a> used with <code class="code docutils literal notranslate"><span class="pre">get()</span></code></p></td>
+<td><p><a class="reference internal" href="../libs/full/collectives/api/gather_hpx_collectives_gather_here.html#_CPPv4I0EN3hpx11collectives11gather_hereEN3hpx6futureINSt6vectorI7decay_tI1TEEEEEPKcRR1T13num_sites_arg13this_site_arg14generation_arg" title="hpx::collectives::gather_here"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::gather_here</span></code></a> and <a class="reference internal" href="../libs/full/collectives/api/gather_hpx_collectives_gather_there.html#_CPPv4I0EN3hpx11collectives12gather_thereEN3hpx6futureIvEEPKcRR1T13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::gather_there"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::collectives::gather_there()</span></code></a> used with <code class="code docutils literal notranslate"><span class="pre">get()</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mpi-send-mpi-recv"><span class="std std-ref">MPI_Irecv</span></a></p></td>
-<td><p><a class="reference internal" href="../libs/full/collectives/api/channel_communicator_hpx_collectives_get.html#_CPPv4I0EN3hpx11collectives3getEN3hpx6futureI1TEE20channel_communicator13that_site_arg7tag_arg" title="hpx::collectives::get"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::collectives::get()</span></code></a></p></td>
+<td><p><a class="reference internal" href="../libs/full/collectives/api/channel_communicator_hpx_collectives_get.html#_CPPv4I0EN3hpx11collectives3getEN3hpx6futureI1TEE20channel_communicator13that_site_arg7tag_arg" title="hpx::collectives::get"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::get</span></code></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mpi-send-mpi-recv"><span class="std std-ref">MPI_Isend</span></a></p></td>
-<td><p><a class="reference internal" href="../libs/full/collectives/api/channel_communicator_hpx_collectives_set.html#_CPPv4I0EN3hpx11collectives3setEN3hpx6futureIvEE20channel_communicator13that_site_argRR1T7tag_arg" title="hpx::collectives::set"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::collectives::set()</span></code></a></p></td>
+<td><p><a class="reference internal" href="../libs/full/collectives/api/channel_communicator_hpx_collectives_set.html#_CPPv4I0EN3hpx11collectives3setEN3hpx6futureIvEE20channel_communicator13that_site_argRR1T7tag_arg" title="hpx::collectives::set"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::set</span></code></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mpi-reduce"><span class="std std-ref">MPI_Reduce</span></a></p></td>
-<td><p><a class="reference internal" href="../libs/full/collectives/api/reduce_hpx_collectives_reduce_here.html#_CPPv4I00EN3hpx11collectives11reduce_hereEN3hpx6futureINSt7decay_tI1TEEEEPKcRR1TRR1F13num_sites_arg13this_site_arg14generation_arg" title="hpx::collectives::reduce_here"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::collectives::reduce_here</span></code></a> and <a class="reference internal" href="../libs/full/collectives/api/reduce_hpx_collectives_reduce_there.html#_CPPv4I00EN3hpx11collectives12reduce_thereEN3hpx6futureIvEEPKcRR1T13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::reduce_there"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::collectives::reduce_there</span></code></a> used with <code class="code docutils literal notranslate"><span class="pre">get()</span></code></p></td>
+<td><p><a class="reference internal" href="../libs/full/collectives/api/reduce_hpx_collectives_reduce_here.html#modules-reduce-hpx-collectives-reduce-here-api"><span class="std std-ref">hpx::collectives::reduce_here</span></a> and <a class="reference internal" href="../libs/full/collectives/api/reduce_hpx_collectives_reduce_there.html#modules-reduce-hpx-collectives-reduce-there-api"><span class="std std-ref">hpx::collectives::reduce_there</span></a> used with <code class="code docutils literal notranslate"><span class="pre">get()</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mpi-scan"><span class="std std-ref">MPI_Scan</span></a></p></td>
-<td><p><a class="reference internal" href="../libs/full/collectives/api/inclusive_scan_hpx_collectives_inclusive_scan.html#_CPPv4I00EN3hpx11collectives14inclusive_scanEN3hpx6futureINSt7decay_tI1TEEEEPKcRR1TRR1F13num_sites_arg13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::inclusive_scan"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::collectives::inclusive_scan()</span></code></a> used with <code class="code docutils literal notranslate"><span class="pre">get()</span></code></p></td>
+<td><p><a class="reference internal" href="../libs/full/collectives/api/inclusive_scan_hpx_collectives_inclusive_scan.html#_CPPv4I00EN3hpx11collectives14inclusive_scanEN3hpx6futureINSt7decay_tI1TEEEEPKcRR1TRR1F13num_sites_arg13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::inclusive_scan"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::inclusive_scan</span></code></a> used with <code class="code docutils literal notranslate"><span class="pre">get()</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#mpi-scatter"><span class="std std-ref">MPI_Scatter</span></a></p></td>
-<td><p><a class="reference internal" href="../libs/full/collectives/api/scatter_hpx_collectives_scatter_to.html#_CPPv4I0EN3hpx11collectives10scatter_toEN3hpx6futureI1TEEPKcRRNSt6vectorI1TEE13num_sites_arg13this_site_arg14generation_arg" title="hpx::collectives::scatter_to"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::collectives::scatter_to()</span></code></a> and <a class="reference internal" href="../libs/full/collectives/api/scatter_hpx_collectives_scatter_from.html#_CPPv4I0EN3hpx11collectives12scatter_fromEN3hpx6futureI1TEEPKc13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::scatter_from"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::collectives::scatter_from()</span></code></a></p></td>
+<td><p><a class="reference internal" href="../libs/full/collectives/api/scatter_hpx_collectives_scatter_to.html#_CPPv4I0EN3hpx11collectives10scatter_toEN3hpx6futureI1TEEPKcRRNSt6vectorI1TEE13num_sites_arg13this_site_arg14generation_arg" title="hpx::collectives::scatter_to"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::scatter_to</span></code></a> and <a class="reference internal" href="../libs/full/collectives/api/scatter_hpx_collectives_scatter_from.html#_CPPv4I0EN3hpx11collectives12scatter_fromEN3hpx6futureI1TEEPKc13this_site_arg14generation_arg13root_site_arg" title="hpx::collectives::scatter_from"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::collectives::scatter_from()</span></code></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#mpi-send-mpi-recv"><span class="std std-ref">MPI_Wait</span></a></p></td>
-<td><p><a class="reference internal" href="../libs/full/collectives/api/channel_communicator_hpx_collectives_get.html#_CPPv4I0EN3hpx11collectives3getEN3hpx6futureI1TEE20channel_communicator13that_site_arg7tag_arg" title="hpx::collectives::get"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::collectives::get()</span></code></a> used with a future i.e. <code class="code docutils literal notranslate"><span class="pre">setf.get()</span></code></p></td>
+<td><p><a class="reference internal" href="../libs/full/collectives/api/channel_communicator_hpx_collectives_get.html#_CPPv4I0EN3hpx11collectives3getEN3hpx6futureI1TEE20channel_communicator13that_site_arg7tag_arg" title="hpx::collectives::get"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::collectives::get</span></code></a> used with a future i.e. <code class="code docutils literal notranslate"><span class="pre">setf.get()</span></code></p></td>
 </tr>
 </tbody>
 </table>

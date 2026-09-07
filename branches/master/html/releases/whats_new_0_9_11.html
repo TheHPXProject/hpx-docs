@@ -1604,8 +1604,8 @@ commits to the master branch since the last release.</p>
 <h2>General changes<a class="headerlink" href="#general-changes" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>We are moving into the direction of unifying managed and simple components. As
-such, the classes <a class="reference internal" href="../libs/full/components_base/api/components_base_fwd_hpx_components_component.html#_CPPv4I0EN3hpx10components9componentE" title="hpx::components::component"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::components::component</span></code></a> and
-<a class="reference internal" href="../libs/full/components_base/api/components_base_fwd_hpx_components_component_base.html#_CPPv4I0EN3hpx10components14component_baseE" title="hpx::components::component_base"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::components::component_base</span></code></a> have been added which currently
+such, the classes <a class="reference internal" href="../libs/full/components_base/api/components_base_fwd_hpx_components_component.html#modules-components-base-fwd-hpx-components-component-api"><span class="std std-ref">hpx::components::component</span></a> and
+<a class="reference internal" href="../libs/full/components_base/api/components_base_fwd_hpx_components_component_base.html#modules-components-base-fwd-hpx-components-component-base-api"><span class="std std-ref">hpx::components::component_base</span></a> have been added which currently
 just forward to the currently existing simple component facilities. The
 examples have been converted to only use those two classes.</p></li>
 <li><p>Added integration with the <a class="reference external" href="https://circleci.com/gh/TheHPXProject/hpx">CircleCI</a> hosted continuous integration
@@ -1616,11 +1616,11 @@ reimplemented. Instead of using Boost.Config we now use our own lightweight
 set of cmake scripts to determine the available language and library features
 supported by the used compiler.</p></li>
 <li><p>The API for creating instances of components has been consolidated. All
-component instances should be created using the <a class="reference internal" href="../libs/full/runtime_components/api/new_hpx_new.html#_CPPv4I0DpEN3hpx4new_EDaRK7id_typeDpRR2Ts" title="hpx::new_"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::new_</span></code></a> only. It
+component instances should be created using the <a class="reference internal" href="../libs/full/runtime_components/api/new_hpx_new.html#modules-new-hpx-new-api"><span class="std std-ref">hpx::new_</span></a> only. It
 allows one to instantiate both, single component instances and multiple
 component instances. The placement of the created components can be controlled
 by special distribution policies. Please see the corresponding documentation
-outlining the use of <a class="reference internal" href="../libs/full/runtime_components/api/new_hpx_new.html#_CPPv4I0DpEN3hpx4new_EDaRK7id_typeDpRR2Ts" title="hpx::new_"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::new_</span></code></a>.</p></li>
+outlining the use of <a class="reference internal" href="../libs/full/runtime_components/api/new_hpx_new.html#modules-new-hpx-new-api"><span class="std std-ref">hpx::new_</span></a>.</p></li>
 <li><p>Introduced four new distribution policies which can be used with many API
 functions which traditionally expected to be used with a locality id. The new
 distribution policies are:</p>
@@ -1682,7 +1682,7 @@ Daniel Bourgeois and John Biddiscombe for contributing their work).</p></li>
 <li><p>We are moving into the direction of unifying managed and simple components. In
 order to stop exposing the old facilities, all examples have been converted to
 use the new classes. The breaking change in this release is that performance
-counters are now a <a class="reference internal" href="../libs/full/components_base/api/components_base_fwd_hpx_components_component_base.html#_CPPv4I0EN3hpx10components14component_baseE" title="hpx::components::component_base"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::components::component_base</span></code></a> instead of
+counters are now a <a class="reference internal" href="../libs/full/components_base/api/components_base_fwd_hpx_components_component_base.html#modules-components-base-fwd-hpx-components-component-base-api"><span class="std std-ref">hpx::components::component_base</span></a> instead of
 <a class="reference internal" href="../libs/full/components_base/api/managed_component_base.html#_CPPv4I0000EN3hpx10components22managed_component_baseE" title="hpx::components::managed_component_base"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::components::managed_component_base</span></code></a>.</p></li>
 <li><p>We removed the support for stackless threads. It turned out that there was no
 performance benefit when using stackless threads. As such, we decided to clean
@@ -1700,7 +1700,7 @@ removed. The corresponding functionality is now provided by the
 (<a class="reference internal" href="../libs/full/distribution_policies/api/default_distribution_policy.html#_CPPv4N3hpx10components27default_distribution_policyE" title="hpx::components::default_distribution_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::components::default_distribution_policy</span></code></a> and
 <a class="reference internal" href="../libs/full/distribution_policies/api/binpacking_distribution_policy.html#_CPPv4N3hpx10components30binpacking_distribution_policyE" title="hpx::components::binpacking_distribution_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::components::binpacking_distribution_policy</span></code></a>)</p></li>
 <li><p>The API function <code class="docutils literal notranslate"><span class="pre">hpx::new_colocated</span></code> has been deprecated. Please use the
-consolidated API <a class="reference internal" href="../libs/full/runtime_components/api/new_hpx_new.html#_CPPv4I0DpEN3hpx4new_EDaRK7id_typeDpRR2Ts" title="hpx::new_"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::new_</span></code></a> in conjunction with the new
+consolidated API <a class="reference internal" href="../libs/full/runtime_components/api/new_hpx_new.html#modules-new-hpx-new-api"><span class="std std-ref">hpx::new_</span></a> in conjunction with the new
 <code class="docutils literal notranslate"><span class="pre">hpx::colocated</span></code> distribution policy
 (<a class="reference internal" href="../libs/full/distribution_policies/api/colocating_distribution_policy.html#_CPPv4N3hpx10components30colocating_distribution_policyE" title="hpx::components::colocating_distribution_policy"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::components::colocating_distribution_policy</span></code></a>) instead. The
 old API function will still be available for at least one release of <em>HPX</em> if

@@ -1636,7 +1636,7 @@ document.write(`
 lifecycle management, failure detection, and fenced action dispatch across
 localities, built on top of the <a class="reference internal" href="../../../libs/full/supervision/docs/index.html#modules-supervision"><span class="std std-ref">supervision</span></a>
 module’s lifecycle events and admission checks. See that module’s reference
-for the semantics of <a class="reference internal" href="../../../libs/full/supervision/api/supervision_api_hpx_supervision_check_admission.html#_CPPv4N3hpx11supervision15check_admissionERKN3hpx7id_typeENSt8uint64_tE" title="hpx::supervision::check_admission"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::supervision::check_admission</span></code></a> and
+for the semantics of <a class="reference internal" href="../../../libs/full/supervision/api/supervision_api_hpx_supervision_check_admission.html#modules-supervision-api-hpx-supervision-check-admission-api"><span class="std std-ref">hpx::supervision::check_admission</span></a> and
 <code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">hpx::supervision::dispatch_outcome</span></code>; this page documents only the
 dispatch-specific surface layered on top of them. For the narrative on
 initialization ordering, one-shot discovery, shadow-state semantics, and
@@ -1917,7 +1917,7 @@ cheap, non-authoritative admission check on the caller’s locality to
 short-circuit an already-known-fenced target, then dispatches to the
 target’s own locality (via <code class="docutils literal notranslate"><span class="pre">hpx::colocated</span></code>) where an authoritative
 re-check against the same latch consulted by
-<a class="reference internal" href="../../../libs/full/supervision/api/supervision_api_hpx_supervision_check_admission.html#_CPPv4N3hpx11supervision15check_admissionERKN3hpx7id_typeENSt8uint64_tE" title="hpx::supervision::check_admission"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::supervision::check_admission</span></code></a> runs immediately before the
+<a class="reference internal" href="../../../libs/full/supervision/api/supervision_api_hpx_supervision_check_admission.html#modules-supervision-api-hpx-supervision-check-admission-api"><span class="std std-ref">hpx::supervision::check_admission</span></a> runs immediately before the
 wrapped action executes, on the same thread, closing the
 admission/invocation race. See
 <a class="reference internal" href="../../../manual/supervision_dispatch.html"><span class="doc">Supervision dispatch</span></a> for the full client-side-filtering
