@@ -6042,13 +6042,26 @@ per-thread zone tracking, message logs, and fiber support. Enable it with
 <p>Tracy can be supplied via a system install (point <code class="docutils literal notranslate"><span class="pre">Tracy_ROOT</span></code> at the install
 tree) or fetched by CMake at configure time by adding
 <code class="docutils literal notranslate"><span class="pre">HPX_WITH_FETCH_TRACY=ON</span></code>. The version fetched is pinned by
-<code class="docutils literal notranslate"><span class="pre">HPX_WITH_TRACY_TAG</span></code>, which defaults to <code class="docutils literal notranslate"><span class="pre">v0.13.1</span></code>. When Tracy is
-fetched, <em>HPX</em> forces <code class="docutils literal notranslate"><span class="pre">TRACY_ON_DEMAND</span></code> and <code class="docutils literal notranslate"><span class="pre">TRACY_FIBERS</span></code> on the built
-client. A system-supplied Tracy must have been built with both.</p>
+<code class="docutils literal notranslate"><span class="pre">HPX_WITH_TRACY_TAG</span></code>, which defaults to <code class="docutils literal notranslate"><span class="pre">v0.14.1</span></code>. When Tracy is
+fetched, <em>HPX</em> forces <code class="docutils literal notranslate"><span class="pre">TRACY_ENABLE</span></code>, <code class="docutils literal notranslate"><span class="pre">TRACY_ON_DEMAND</span></code> and
+<code class="docutils literal notranslate"><span class="pre">TRACY_FIBERS</span></code> on the built client. A system-supplied Tracy must have
+been built with the same three options; Tracy 0.14 mangles its exported
+profiler symbol based on the active define set, so a mismatch fails at
+link time rather than producing a silent inconsistency at runtime.</p>
 <p>To profile a distributed run, additionally enable
 <a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_PARCEL_PROFILING"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_PARCEL_PROFILING</span></code></a><code class="docutils literal notranslate"><span class="pre">=ON</span></code> so per-parcel identifiers are
 carried on the wire and the <code class="docutils literal notranslate"><span class="pre">send_parcel</span></code> / <code class="docutils literal notranslate"><span class="pre">recv_parcel</span></code> /
 <code class="docutils literal notranslate"><span class="pre">parcel_scheduled</span></code> events can be correlated across localities by parcel id.</p>
+<p>Event classes can be compiled out individually to reduce the tracing cost
+when only a subset of the timeline is being investigated:
+<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_LIFECYCLE_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_LIFECYCLE_EVENTS</span></code></a>,
+<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_CAUSAL_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_CAUSAL_EVENTS</span></code></a>, and
+<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_WORK_STEALING_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_WORK_STEALING_EVENTS</span></code></a>. All three default to <code class="docutils literal notranslate"><span class="pre">ON</span></code>; turning
+one off compiles the wrapper for that class to a no-op, so the runtime
+connection check and the event body do not run (argument evaluation at each
+call site is unchanged). These gates affect the Tracy backend, which is the
+only backend that emits these classes today; the APEX, ITT-Notify and empty
+backends already treat all three as no-ops.</p>
 <p>Start <code class="docutils literal notranslate"><span class="pre">tracy-profiler</span></code> (or <code class="docutils literal notranslate"><span class="pre">tracy-capture</span></code> for headless capture) before
 or during the run. Tracy discovers instrumented processes via UDP broadcast
 on the local network; no port configuration is required for the common case.</p>

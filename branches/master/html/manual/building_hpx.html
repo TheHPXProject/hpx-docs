@@ -1697,6 +1697,34 @@ enabled. Defaults to <code class="docutils literal notranslate"><span class="pre
 </dd></dl>
 
 <dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_TRACING_LIFECYCLE_EVENTS">
+<span class="sig-name descname"><span class="pre">HPX_WITH_TRACING_LIFECYCLE_EVENTS</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_TRACING_LIFECYCLE_EVENTS" title="Link to this definition">#</a></dt>
+<dd><p>Emit per-task lifecycle events (staged, created, executing, yielded, suspended, resumed, completed,
+deleted). Defaults to <code class="docutils literal notranslate"><span class="pre">ON</span></code>. Turn <code class="docutils literal notranslate"><span class="pre">OFF</span></code> to compile out the per-task hooks and their runtime
+connection check when profiling a workload where only causal or work-stealing events matter. The
+saving applies on Tracy builds; the other backends already treat these hooks as no-ops.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_TRACING_CAUSAL_EVENTS">
+<span class="sig-name descname"><span class="pre">HPX_WITH_TRACING_CAUSAL_EVENTS</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_TRACING_CAUSAL_EVENTS" title="Link to this definition">#</a></dt>
+<dd><p>Emit causal-chain events (<code class="docutils literal notranslate"><span class="pre">future_fulfilled</span></code>, <code class="docutils literal notranslate"><span class="pre">future_exception_set</span></code>, <code class="docutils literal notranslate"><span class="pre">continuation_run</span></code>,
+<code class="docutils literal notranslate"><span class="pre">continuation_finished</span></code>, <code class="docutils literal notranslate"><span class="pre">handle_on_completed_fired</span></code>). Defaults to <code class="docutils literal notranslate"><span class="pre">ON</span></code>. Turning this <code class="docutils literal notranslate"><span class="pre">OFF</span></code>
+also elides the active-continuations counter update in <code class="docutils literal notranslate"><span class="pre">continuation_run</span></code> /
+<code class="docutils literal notranslate"><span class="pre">continuation_finished</span></code>. The saving applies on Tracy builds; the other backends already treat
+these hooks as no-ops.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_TRACING_WORK_STEALING_EVENTS">
+<span class="sig-name descname"><span class="pre">HPX_WITH_TRACING_WORK_STEALING_EVENTS</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_TRACING_WORK_STEALING_EVENTS" title="Link to this definition">#</a></dt>
+<dd><p>Emit the work-stealing signal when a worker steals a task from another worker. Defaults to <code class="docutils literal notranslate"><span class="pre">ON</span></code>.
+Turn <code class="docutils literal notranslate"><span class="pre">OFF</span></code> when profiling a workload with heavy work stealing where the signal itself is not
+being consumed. The saving applies on Tracy builds; the other backends already treat this hook as
+a no-op.</p>
+</dd></dl>
+
+<dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_GENERIC_CONTEXT_COROUTINES">
 <span class="sig-name descname"><span class="pre">HPX_WITH_GENERIC_CONTEXT_COROUTINES</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_GENERIC_CONTEXT_COROUTINES" title="Link to this definition">#</a></dt>
 <dd><p>Enable Boost. Context for task context switching. It must be enabled for non-x86 architectures such as ARM and Power.</p>
