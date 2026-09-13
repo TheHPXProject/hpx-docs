@@ -20,5 +20,4 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
 .. toctree::
    :maxdepth: 1
 
-   /libs/full/agas_base/api/agas_fwd.rst
    /libs/full/agas_base/api/primary_namespace.rst
