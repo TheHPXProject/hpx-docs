@@ -374,6 +374,7 @@
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../full/agas_base/api/full_api.html">agas_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../full/agas_base/api/agas_fwd.html">hpx/agas_base/agas_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../full/agas_base/api/primary_namespace.html">hpx/agas_base/server/primary_namespace.hpp</a></li>
 </ul>
 </details></li>
@@ -926,6 +927,7 @@
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../config/api/full_api.html">config</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../config/api/config.html">hpx/config.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../config/api/endian.html">hpx/config/endian.hpp</a></li>
 </ul>
 </details></li>
@@ -1582,6 +1584,7 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx4util21runtime_configuration25get_agas_local_cache_sizeENSt6size_tE"><code class="docutils literal notranslate"><span class="pre">get_agas_local_cache_size()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx4util21runtime_configuration21get_agas_caching_modeEv"><code class="docutils literal notranslate"><span class="pre">get_agas_caching_mode()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx4util21runtime_configuration27get_agas_range_caching_modeEv"><code class="docutils literal notranslate"><span class="pre">get_agas_range_caching_mode()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx4util21runtime_configuration20get_agas_rpc_timeoutENSt8uint64_tE"><code class="docutils literal notranslate"><span class="pre">get_agas_rpc_timeout()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx4util21runtime_configuration36get_agas_max_pending_refcnt_requestsEv"><code class="docutils literal notranslate"><span class="pre">get_agas_max_pending_refcnt_requests()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4util21runtime_configuration30load_application_configurationEPKcR10error_code"><code class="docutils literal notranslate"><span class="pre">load_application_configuration()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx4util21runtime_configuration19get_itt_notify_modeEv"><code class="docutils literal notranslate"><span class="pre">get_itt_notify_mode()</span></code></a></li>
@@ -1732,6 +1735,11 @@ document.write(`
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3hpx4util21runtime_configuration27get_agas_range_caching_modeEv">
 <span id="_CPPv3NK3hpx4util21runtime_configuration27get_agas_range_caching_modeEv"></span><span id="_CPPv2NK3hpx4util21runtime_configuration27get_agas_range_caching_modeEv"></span><span id="hpx::util::runtime_configuration::get_agas_range_caching_modeC"></span><span class="target" id="classhpx_1_1util_1_1runtime__configuration_1a2e5b3d91e37c85a7e9bcf20d122013af"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_agas_range_caching_mode</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3hpx4util21runtime_configuration27get_agas_range_caching_modeEv" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3hpx4util21runtime_configuration20get_agas_rpc_timeoutENSt8uint64_tE">
+<span id="_CPPv3NK3hpx4util21runtime_configuration20get_agas_rpc_timeoutENSt8uint64_tE"></span><span id="_CPPv2NK3hpx4util21runtime_configuration20get_agas_rpc_timeoutENSt8uint64_tE"></span><span id="hpx::util::runtime_configuration::get_agas_rpc_timeout__std::uint64_tC"></span><span class="target" id="classhpx_1_1util_1_1runtime__configuration_1aec64960cbfde6c879c85a818d7d9da07"></span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_agas_rpc_timeout</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">dflt</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">HPX_AGAS_RPC_TIMEOUT</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3hpx4util21runtime_configuration20get_agas_rpc_timeoutENSt8uint64_tE" title="Link to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
@@ -2048,6 +2056,7 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx4util21runtime_configuration25get_agas_local_cache_sizeENSt6size_tE"><code class="docutils literal notranslate"><span class="pre">get_agas_local_cache_size()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx4util21runtime_configuration21get_agas_caching_modeEv"><code class="docutils literal notranslate"><span class="pre">get_agas_caching_mode()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx4util21runtime_configuration27get_agas_range_caching_modeEv"><code class="docutils literal notranslate"><span class="pre">get_agas_range_caching_mode()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx4util21runtime_configuration20get_agas_rpc_timeoutENSt8uint64_tE"><code class="docutils literal notranslate"><span class="pre">get_agas_rpc_timeout()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx4util21runtime_configuration36get_agas_max_pending_refcnt_requestsEv"><code class="docutils literal notranslate"><span class="pre">get_agas_max_pending_refcnt_requests()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4util21runtime_configuration30load_application_configurationEPKcR10error_code"><code class="docutils literal notranslate"><span class="pre">load_application_configuration()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx4util21runtime_configuration19get_itt_notify_modeEv"><code class="docutils literal notranslate"><span class="pre">get_itt_notify_mode()</span></code></a></li>
