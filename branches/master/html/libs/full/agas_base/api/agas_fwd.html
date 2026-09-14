@@ -52,7 +52,7 @@
     <link rel="prev" title="agas_base" href="full_api.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Sep 13, 2026"/>
+    <meta name="docbuild:last-update" content="Sep 14, 2026"/>
   </head>
   
   
@@ -1569,6 +1569,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv43hpx"><code class="docutils literal notranslate"><span class="pre">hpx</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4agasE"><code class="docutils literal notranslate"><span class="pre">hpx::agas</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4agas27iterate_types_function_typeE"><code class="docutils literal notranslate"><span class="pre">iterate_types_function_type</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4agas19service_name_prefixEv"><code class="docutils literal notranslate"><span class="pre">service_name_prefix()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4agas21service_instance_nameEPKcPKc"><code class="docutils literal notranslate"><span class="pre">service_instance_name()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4agas15get_rpc_timeoutEv"><code class="docutils literal notranslate"><span class="pre">get_rpc_timeout()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4agas15set_rpc_timeoutERKN3hpx6chrono15steady_durationE"><code class="docutils literal notranslate"><span class="pre">set_rpc_timeout()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4agas12service_nameE"><code class="docutils literal notranslate"><span class="pre">service_name</span></code></a></li>
@@ -1622,6 +1624,18 @@ document.write(`
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx4agas19service_name_prefixEv">
+<span id="_CPPv3N3hpx4agas19service_name_prefixEv"></span><span id="_CPPv2N3hpx4agas19service_name_prefixEv"></span><span id="hpx::agas::service_name_prefix"></span><span class="target" id="agas__fwd_8hpp_1ac8252d829f2baa5f893043bc9abf357a"></span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">service_name_prefix</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx4agas19service_name_prefixEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Returns <em>service_name</em> with the id of the locality hosting the AGAS services substituted, i.e. “/0/agas/” unless this locality is connecting to a running application. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx4agas21service_instance_nameEPKcPKc">
+<span id="_CPPv3N3hpx4agas21service_instance_nameEPKcPKc"></span><span id="_CPPv2N3hpx4agas21service_instance_nameEPKcPKc"></span><span id="hpx::agas::service_instance_name__cCP.cCP"></span><span class="target" id="agas__fwd_8hpp_1a045dc0efb9ea42a35e84887d92f8ac60"></span><a class="reference internal" href="../../../core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">service_instance_name</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">servicename</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">namespace_service_name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx4agas21service_instance_nameEPKcPKc" title="Link to this definition">#</a><br /></dt>
+<dd><p>Returns the name one AGAS namespace service is registered under: the prefix returned by <em>service_name_prefix</em> followed by <em>servicename</em> and the service name of the namespace itself (one of agas::server::primary_namespace_service_name and friends). </p>
+</dd></dl>
+
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx4agas15get_rpc_timeoutEv">
 <span id="_CPPv3N3hpx4agas15get_rpc_timeoutEv"></span><span id="_CPPv2N3hpx4agas15get_rpc_timeoutEv"></span><span id="hpx::agas::get_rpc_timeout"></span><span class="target" id="agas__fwd_8hpp_1a6ff15185a195ddfa0115e44625366f67"></span><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">steady_duration</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_rpc_timeout</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx4agas15get_rpc_timeoutEv" title="Link to this definition">#</a><br /></dt>
@@ -1824,6 +1838,8 @@ The following is the canonical description of the partitioning of AGAS’s prima
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv43hpx"><code class="docutils literal notranslate"><span class="pre">hpx</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4agasE"><code class="docutils literal notranslate"><span class="pre">hpx::agas</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4agas27iterate_types_function_typeE"><code class="docutils literal notranslate"><span class="pre">iterate_types_function_type</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4agas19service_name_prefixEv"><code class="docutils literal notranslate"><span class="pre">service_name_prefix()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4agas21service_instance_nameEPKcPKc"><code class="docutils literal notranslate"><span class="pre">service_instance_name()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4agas15get_rpc_timeoutEv"><code class="docutils literal notranslate"><span class="pre">get_rpc_timeout()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4agas15set_rpc_timeoutERKN3hpx6chrono15steady_durationE"><code class="docutils literal notranslate"><span class="pre">set_rpc_timeout()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4agas12service_nameE"><code class="docutils literal notranslate"><span class="pre">service_name</span></code></a></li>
@@ -1878,7 +1894,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Sep 13, 2026.
+  Last updated on Sep 14, 2026.
   <br/>
 </p>
   </div>
