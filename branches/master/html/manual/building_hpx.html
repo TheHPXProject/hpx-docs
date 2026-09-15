@@ -1236,6 +1236,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_num_tss_hpx_get_local_worker_thread_num.html">hpx::get_local_worker_thread_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_num_tss_hpx_get_thread_pool_num.html">hpx::get_thread_pool_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scoped_annotation_hpx_scoped_annotation.html">hpx::scoped_annotation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/tracing_sample_rate.html">hpx/threading_base/tracing_sample_rate.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_data.html">hpx/threading_base/thread_data.hpp</a></li>
 </ul>
 </details></li>
@@ -1725,6 +1726,19 @@ these hooks as no-ops.</p>
 Turn <code class="docutils literal notranslate"><span class="pre">OFF</span></code> when profiling a workload with heavy work stealing where the signal itself is not
 being consumed. The saving applies on Tracy builds; the other backends already treat this hook as
 a no-op.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_TRACING_SAMPLE_RATE">
+<span class="sig-name descname"><span class="pre">HPX_WITH_TRACING_SAMPLE_RATE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_TRACING_SAMPLE_RATE" title="Link to this definition">#</a></dt>
+<dd><p>1-in-N sampling rate for the per-task lifecycle events on Tracy builds. Defaults to <code class="docutils literal notranslate"><span class="pre">1</span></code>
+(every task sampled). This sets the initial rate; the runtime value can be overridden
+via the <code class="docutils literal notranslate"><span class="pre">hpx.tracing.sample_rate</span></code> INI entry (see <span class="xref std std-ref">ini_hpx_tracing</span>). Must be a
+positive integer; the CMake configure step rejects non-integer or non-positive values.
+Only the lifecycle events are sampled - causal events fire unconditionally so the
+causal-chain view stays intact at any rate. <code class="docutils literal notranslate"><span class="pre">task_staged</span></code> is also unconditional
+because it fires before per-task state exists to consult. Other backends already treat
+lifecycle hooks as no-ops.</p>
 </dd></dl>
 
 <dl class="std option">

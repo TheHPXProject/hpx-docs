@@ -31,4 +31,5 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/threading_base/api/thread_num_tss_hpx_get_local_worker_thread_num.rst
    /libs/core/threading_base/api/thread_num_tss_hpx_get_thread_pool_num.rst
    /libs/core/threading_base/api/scoped_annotation_hpx_scoped_annotation.rst
+   /libs/core/threading_base/api/tracing_sample_rate.rst
    /libs/core/threading_base/api/thread_data.rst

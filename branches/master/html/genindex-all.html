@@ -1235,6 +1235,7 @@
 <li class="toctree-l4"><a class="reference internal" href="libs/core/threading_base/api/thread_num_tss_hpx_get_local_worker_thread_num.html">hpx::get_local_worker_thread_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="libs/core/threading_base/api/thread_num_tss_hpx_get_thread_pool_num.html">hpx::get_thread_pool_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="libs/core/threading_base/api/scoped_annotation_hpx_scoped_annotation.html">hpx::scoped_annotation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs/core/threading_base/api/tracing_sample_rate.html">hpx/threading_base/tracing_sample_rate.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="libs/core/threading_base/api/thread_data.html">hpx/threading_base/thread_data.hpp</a></li>
 </ul>
 </details></li>
@@ -2493,6 +2494,8 @@ document.write(`
         <li><a href="manual/building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_CAUSAL_EVENTS">HPX_WITH_TRACING_CAUSAL_EVENTS</a>
 </li>
         <li><a href="manual/building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_LIFECYCLE_EVENTS">HPX_WITH_TRACING_LIFECYCLE_EVENTS</a>
+</li>
+        <li><a href="manual/building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_SAMPLE_RATE">HPX_WITH_TRACING_SAMPLE_RATE</a>
 </li>
         <li><a href="manual/building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_WORK_STEALING_EVENTS">HPX_WITH_TRACING_WORK_STEALING_EVENTS</a>
 </li>
@@ -6399,12 +6402,12 @@ document.write(`
 </li>
       <li><a href="libs/core/resiliency/api/replay_executor.html#_CPPv4I0DpENK3hpx10resiliency12experimental15replay_executor13async_executeEDcRR1FDpRR2Ts">hpx::resiliency::experimental::replay_executor::async_execute (C++ function)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/core/resiliency/api/replay_executor.html#_CPPv4I00DpENK3hpx10resiliency12experimental15replay_executor18bulk_async_executeEDcRR1FRK1SDpRR2Ts">hpx::resiliency::experimental::replay_executor::bulk_async_execute (C++ function)</a>
 </li>
       <li><a href="libs/core/resiliency/api/replay_executor.html#_CPPv4NK3hpx10resiliency12experimental15replay_executor7contextEv">hpx::resiliency::experimental::replay_executor::context (C++ function)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/core/resiliency/api/replay_executor.html#_CPPv4N3hpx10resiliency12experimental15replay_executor5exec_E">hpx::resiliency::experimental::replay_executor::exec_ (C++ member)</a>
 </li>
       <li><a href="libs/core/resiliency/api/replay_executor.html#_CPPv4N3hpx10resiliency12experimental15replay_executor18execution_categoryE">hpx::resiliency::experimental::replay_executor::execution_category (C++ type)</a>
@@ -7608,6 +7611,8 @@ document.write(`
       <li><a href="libs/core/threading_base/api/thread_data.html#_CPPv4N3hpx7threads11thread_data15set_thread_dataENSt6size_tE">hpx::threads::thread_data::set_thread_data (C++ function)</a>
 </li>
       <li><a href="libs/core/threading_base/api/thread_data.html#_CPPv4N3hpx7threads11thread_data14set_timer_dataEN3hpx7tracing15task_timer_dataE">hpx::threads::thread_data::set_timer_data (C++ function)</a>
+</li>
+      <li><a href="libs/core/threading_base/api/thread_data.html#_CPPv4NK3hpx7threads11thread_data21should_emit_lifecycleEv">hpx::threads::thread_data::should_emit_lifecycle (C++ function)</a>
 </li>
       <li><a href="libs/core/threading_base/api/thread_data.html#_CPPv4N3hpx7threads11thread_data10stacksize_E">hpx::threads::thread_data::stacksize_ (C++ member)</a>
 </li>
@@ -10693,6 +10698,13 @@ document.write(`
 
       <ul>
         <li><a href="manual/building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_LIFECYCLE_EVENTS">command line option</a>
+</li>
+      </ul></li>
+      <li>
+    HPX_WITH_TRACING_SAMPLE_RATE
+
+      <ul>
+        <li><a href="manual/building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_SAMPLE_RATE">command line option</a>
 </li>
       </ul></li>
       <li>

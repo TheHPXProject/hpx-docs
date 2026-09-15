@@ -1236,6 +1236,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_num_tss_hpx_get_local_worker_thread_num.html">hpx::get_local_worker_thread_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_num_tss_hpx_get_thread_pool_num.html">hpx::get_thread_pool_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scoped_annotation_hpx_scoped_annotation.html">hpx::scoped_annotation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/tracing_sample_rate.html">hpx/threading_base/tracing_sample_rate.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_data.html">hpx/threading_base/thread_data.hpp</a></li>
 </ul>
 </details></li>
@@ -1572,6 +1573,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-default-configuration-settings">Built-in default configuration settings</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-system-configuration-section">The <code class="docutils literal notranslate"><span class="pre">system</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-configuration-section">The <em>HPX</em> configuration section</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-tracing-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.tracing</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-threadpools-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.threadpools</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-thread-queue-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-components-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.components</span></code> configuration section</a></li>
@@ -1937,6 +1939,32 @@ guard pages or not. This entry is applicable on Linux only and only if
 the <code class="docutils literal notranslate"><span class="pre">HPX_USE_GENERIC_COROUTINE_CONTEXT</span></code> option is not enabled and the
 <code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_GUARD_PAGE</span></code> is set to 1 while configuring the build
 system. It is set by default to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="the-hpx-tracing-configuration-section">
+<h4>The <code class="docutils literal notranslate"><span class="pre">hpx.tracing</span></code> configuration section<a class="headerlink" href="#the-hpx-tracing-configuration-section" title="Link to this heading">#</a></h4>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[hpx.tracing]</span>
+<span class="na">sample_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_TRACING_SAMPLE_RATE:1}</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="ini-hpx-tracing">
+<tbody>
+<tr class="row-odd"><td><p>Property</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.tracing.sample_rate</span></code></p></td>
+<td><p>1-in-N sampling rate for the per-task lifecycle events on Tracy
+builds. Initialized from the CMake option
+<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_SAMPLE_RATE"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_SAMPLE_RATE</span></code></a> (default <code class="docutils literal notranslate"><span class="pre">1</span></code>, every task
+sampled). Values below 1 are clamped to 1. Applied at
+<code class="docutils literal notranslate"><span class="pre">init_global_data</span></code> time; can also be updated from user code via
+<code class="docutils literal notranslate"><span class="pre">hpx::threads::set_tracing_sample_rate(int)</span></code>, in which case each
+worker abandons its current countdown and starts a fresh one on
+the next task creation. Only present on Tracy builds
+(<code class="docutils literal notranslate"><span class="pre">HPX_WITH_TRACY=ON</span></code>).</p></td>
 </tr>
 </tbody>
 </table>
@@ -3903,6 +3931,7 @@ activated.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-default-configuration-settings">Built-in default configuration settings</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-system-configuration-section">The <code class="docutils literal notranslate"><span class="pre">system</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-configuration-section">The <em>HPX</em> configuration section</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-tracing-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.tracing</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-threadpools-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.threadpools</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-thread-queue-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-components-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.components</span></code> configuration section</a></li>

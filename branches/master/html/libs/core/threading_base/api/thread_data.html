@@ -49,7 +49,7 @@
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="threadmanager" href="../../threadmanager/api/full_api.html" />
-    <link rel="prev" title="hpx::scoped_annotation" href="scoped_annotation_hpx_scoped_annotation.html" />
+    <link rel="prev" title="hpx/threading_base/tracing_sample_rate.hpp" href="tracing_sample_rate.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
     <meta name="docbuild:last-update" content="Sep 15, 2026"/>
@@ -1236,6 +1236,7 @@
 <li class="toctree-l4"><a class="reference internal" href="thread_num_tss_hpx_get_local_worker_thread_num.html">hpx::get_local_worker_thread_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="thread_num_tss_hpx_get_thread_pool_num.html">hpx::get_thread_pool_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="scoped_annotation_hpx_scoped_annotation.html">hpx::scoped_annotation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tracing_sample_rate.html">hpx/threading_base/tracing_sample_rate.hpp</a></li>
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">hpx/threading_base/thread_data.hpp</a></li>
 </ul>
 </details></li>
@@ -1589,6 +1590,7 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads11thread_data12set_priorityEK15thread_priority"><code class="docutils literal notranslate"><span class="pre">set_priority()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads11thread_data13is_backgroundEv"><code class="docutils literal notranslate"><span class="pre">is_background()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads11thread_data17set_is_backgroundEv"><code class="docutils literal notranslate"><span class="pre">set_is_background()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads11thread_data21should_emit_lifecycleEv"><code class="docutils literal notranslate"><span class="pre">should_emit_lifecycle()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads11thread_data22interruption_requestedEv"><code class="docutils literal notranslate"><span class="pre">interruption_requested()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads11thread_data20interruption_enabledEv"><code class="docutils literal notranslate"><span class="pre">interruption_enabled()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads11thread_data24set_interruption_enabledEKb"><code class="docutils literal notranslate"><span class="pre">set_interruption_enabled()</span></code></a></li>
@@ -1831,6 +1833,18 @@ document.write(`
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads11thread_data17set_is_backgroundEv">
 <span id="_CPPv3N3hpx7threads11thread_data17set_is_backgroundEv"></span><span id="_CPPv2N3hpx7threads11thread_data17set_is_backgroundEv"></span><span id="hpx::threads::thread_data::set_is_background"></span><span class="target" id="classhpx_1_1threads_1_1thread__data_1a251c8207479de9f3577aa4956ccb04fb"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">set_is_background</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx7threads11thread_data17set_is_backgroundEv" title="Link to this definition">#</a><br /></dt>
 <dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3hpx7threads11thread_data21should_emit_lifecycleEv">
+<span id="_CPPv3NK3hpx7threads11thread_data21should_emit_lifecycleEv"></span><span id="_CPPv2NK3hpx7threads11thread_data21should_emit_lifecycleEv"></span><span id="hpx::threads::thread_data::should_emit_lifecycleCCE"></span><span class="target" id="classhpx_1_1threads_1_1thread__data_1ad8df554b08296c6bcd53fa157dc68d6f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">should_emit_lifecycle</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3hpx7threads11thread_data21should_emit_lifecycleEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>True if this task’s lifecycle events should be emitted.</p>
+<p>On Tracy, reflects the 1/N sample decision made once at ctor and <em>rebind_base</em>; the read is unlocked because no other code path ever writes <em>emit_lifecycle_</em> (unlike <em>state_</em> bits, which are mutated concurrently by <em>interrupt()</em>). On other backends, always true (their hooks are constexpr no-ops).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>true</em> if lifecycle events should be emitted for this task. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3hpx7threads11thread_data22interruption_requestedEv">
@@ -2175,12 +2189,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="scoped_annotation_hpx_scoped_annotation.html"
+       href="tracing_sample_rate.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">hpx::scoped_annotation</p>
+        <p class="prev-next-title">hpx/threading_base/tracing_sample_rate.hpp</p>
       </div>
     </a>
     <a class="right-next"
@@ -2230,6 +2244,7 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads11thread_data12set_priorityEK15thread_priority"><code class="docutils literal notranslate"><span class="pre">set_priority()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads11thread_data13is_backgroundEv"><code class="docutils literal notranslate"><span class="pre">is_background()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads11thread_data17set_is_backgroundEv"><code class="docutils literal notranslate"><span class="pre">set_is_background()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads11thread_data21should_emit_lifecycleEv"><code class="docutils literal notranslate"><span class="pre">should_emit_lifecycle()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads11thread_data22interruption_requestedEv"><code class="docutils literal notranslate"><span class="pre">interruption_requested()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads11thread_data20interruption_enabledEv"><code class="docutils literal notranslate"><span class="pre">interruption_enabled()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads11thread_data24set_interruption_enabledEKb"><code class="docutils literal notranslate"><span class="pre">set_interruption_enabled()</span></code></a></li>

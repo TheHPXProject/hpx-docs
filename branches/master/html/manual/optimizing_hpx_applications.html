@@ -1236,6 +1236,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_num_tss_hpx_get_local_worker_thread_num.html">hpx::get_local_worker_thread_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_num_tss_hpx_get_thread_pool_num.html">hpx::get_thread_pool_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scoped_annotation_hpx_scoped_annotation.html">hpx::scoped_annotation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/tracing_sample_rate.html">hpx/threading_base/tracing_sample_rate.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_data.html">hpx/threading_base/thread_data.hpp</a></li>
 </ul>
 </details></li>
@@ -6065,6 +6066,14 @@ connection check and the event body do not run (argument evaluation at each
 call site is unchanged). These gates affect the Tracy backend, which is the
 only backend that emits these classes today; the APEX, ITT-Notify and empty
 backends already treat all three as no-ops.</p>
+<p><a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_SAMPLE_RATE"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_SAMPLE_RATE</span></code></a> sets the initial 1-in-N sampling
+rate for the per-task lifecycle events instead of gating them off
+entirely. The rate can be overridden at runtime via the
+<code class="docutils literal notranslate"><span class="pre">hpx.tracing.sample_rate</span></code> INI entry (for example
+<code class="docutils literal notranslate"><span class="pre">--hpx:ini=hpx.tracing.sample_rate=10</span></code>); values below 1 are clamped to
+1. Causal events are not sampled and continue to fire every time.
+<code class="docutils literal notranslate"><span class="pre">task_staged</span></code> is also unconditional because it fires before per-task
+state exists to consult.</p>
 <p>Start <code class="docutils literal notranslate"><span class="pre">tracy-profiler</span></code> (or <code class="docutils literal notranslate"><span class="pre">tracy-capture</span></code> for headless capture) before
 or during the run. Tracy discovers instrumented processes via UDP broadcast
 on the local network; no port configuration is required for the common case.</p>
