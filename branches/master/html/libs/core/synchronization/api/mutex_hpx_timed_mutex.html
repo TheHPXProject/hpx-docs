@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>hpx::timed_mutex &#8212; HPX 2.0.0 documentation</title>
+    <title>hpx::timed_mutex &#8212; HPX 2.0.0-rc1 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../../_static/documentation_options.js?v=ce394494"></script>
+    <script src="../../../../_static/documentation_options.js?v=7ec4965c"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -142,8 +142,8 @@
       
     
     
-    <img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0 documentation - Home"/>
-    <script>document.write(`<img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0 documentation - Home"/>`);</script>
+    <img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0-rc1 documentation - Home"/>
+    <script>document.write(`<img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0-rc1 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -553,6 +553,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../full/runtime_components/api/reflect_client.html">hpx/runtime_components/reflect_client.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../full/runtime_components/api/components_fwd.html">hpx/runtime_components/components_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../full/runtime_components/api/new_hpx_new.html">hpx::new_</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../full/runtime_components/api/new_local_new.html">local_new</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../full/runtime_components/api/component_registry.html">hpx/runtime_components/component_registry.hpp</a></li>
 </ul>
 </details></li>
@@ -1582,7 +1583,7 @@ document.write(`
                   
   <section id="hpx-timed-mutex">
 <span id="modules-mutex-hpx-timed-mutex-api"></span><h1>hpx::timed_mutex<a class="headerlink" href="#hpx-timed-mutex" title="Link to this heading">#</a></h1>
-<p>Defined in header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/957641831f216904953d24660ca12c6880fb4a36/libs/core/include_local/include/hpx/mutex.hpp">hpx/mutex.hpp</a>.</p>
+<p>Defined in header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/9ceaa3d5b7a2054afde5294910de63b900c72c51/libs/core/include_local/include/hpx/mutex.hpp">hpx/mutex.hpp</a>.</p>
 <p>See <a class="reference internal" href="../../../../api/public_api.html#public-api"><span class="std std-ref">Public API</span></a> for a list of names and headers that are part of the public
 <em>HPX</em> API.</p>
 <p>See also:</p>
@@ -1594,7 +1595,7 @@ document.write(`
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx11timed_mutexE">
 <span id="_CPPv3N3hpx11timed_mutexE"></span><span id="_CPPv2N3hpx11timed_mutexE"></span><span id="hpx::timed_mutex"></span><span class="target" id="classhpx_1_1timed__mutex"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">timed_mutex</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">private</span></span><span class="w"> </span><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="mutex_hpx_mutex.html#_CPPv4N3hpx5mutexE" title="hpx::mutex"><span class="n"><span class="pre">mutex</span></span></a><a class="headerlink" href="#_CPPv4N3hpx11timed_mutexE" title="Link to this definition">#</a><br /></dt>
-<dd><p>The <em><a class="reference internal" href="#classhpx_1_1timed__mutex"><span class="std std-ref">timed_mutex</span></a></em> class is a synchronization primitive that can be used to protect shared data from being simultaneously accessed by multiple threads. In a manner similar to <em>mutex</em>, <em><a class="reference internal" href="#classhpx_1_1timed__mutex"><span class="std std-ref">timed_mutex</span></a></em> offers exclusive, non-recursive ownership semantics. In addition, <em><a class="reference internal" href="#classhpx_1_1timed__mutex"><span class="std std-ref">timed_mutex</span></a></em> provides the ability to attempt to claim ownership of a <em><a class="reference internal" href="#classhpx_1_1timed__mutex"><span class="std std-ref">timed_mutex</span></a></em> with a timeout via the member functions <em>try_lock_for()</em> and <em>try_lock_until()</em>. The <em><a class="reference internal" href="#classhpx_1_1timed__mutex"><span class="std std-ref">timed_mutex</span></a></em> class satisfies all requirements of and</p>
+<dd><p>The <em><a class="reference internal" href="#classhpx_1_1timed__mutex"><span class="std std-ref">timed_mutex</span></a></em> class is a synchronization primitive that can be used to protect shared data from being simultaneously accessed by multiple threads. In a manner similar to <em>mutex</em>, <em><a class="reference internal" href="#classhpx_1_1timed__mutex"><span class="std std-ref">timed_mutex</span></a></em> offers exclusive, non-recursive ownership semantics. In addition, <em><a class="reference internal" href="#classhpx_1_1timed__mutex"><span class="std std-ref">timed_mutex</span></a></em> provides the ability to attempt to claim ownership of a <em><a class="reference internal" href="#classhpx_1_1timed__mutex"><span class="std std-ref">timed_mutex</span></a></em> with a timeout via the member functions <em>try_lock_for()</em> and <em>try_lock_until()</em>. The <em><a class="reference internal" href="#classhpx_1_1timed__mutex"><span class="std std-ref">timed_mutex</span></a></em> class satisfies all requirements of <a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/TimedMutex">TimedMutex</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/StandardLayoutType">StandardLayoutType</a>. </p>
 <p><em><a class="reference internal" href="#classhpx_1_1timed__mutex"><span class="std std-ref">hpx::timed_mutex</span></a></em> is neither copyable nor movable. </p>
 </dd></dl>
 
