@@ -22,6 +22,7 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
 
    /libs/core/execution/api/future_sender.rst
    /libs/core/execution/api/sender_future.rst
+   /libs/core/execution/api/policy_traits.rst
    /libs/core/execution/api/is_execution_policy.rst
    /libs/core/execution/api/static_chunk_size_hpx_execution_experimental_static_chunk_size.rst
    /libs/core/execution/api/adaptive_static_chunk_size.rst
