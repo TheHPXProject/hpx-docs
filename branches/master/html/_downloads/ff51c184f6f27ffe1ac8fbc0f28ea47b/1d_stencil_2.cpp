@@ -111,8 +111,9 @@ struct stepper
 ///////////////////////////////////////////////////////////////////////////////
 int hpx_main(hpx::program_options::variables_map& vm)
 {
-    std::size_t nx = vm["nx"].as<std::size_t>();    // Number of grid points.
-    std::size_t nt = vm["nt"].as<std::size_t>();    // Number of steps.
+    std::uint64_t nx =
+        vm["nx"].as<std::uint64_t>();    // Number of grid points.
+    std::uint64_t nt = vm["nt"].as<std::uint64_t>();    // Number of steps.
 
     if (vm.count("no-header"))
         header = false;
@@ -152,9 +153,9 @@ int main(int argc, char* argv[])
     // clang-format off
     desc_commandline.add_options()
         ("results", "print generated results (default: false)")
-        ("nx", value<std::size_t>()->default_value(100),
+        ("nx", value<std::uint64_t>()->default_value(100),
          "Local x dimension")
-        ("nt", value<std::size_t>()->default_value(45),
+        ("nt", value<std::uint64_t>()->default_value(45),
          "Number of time steps")
         ("k", value<double>(&k)->default_value(0.5),
          "Heat transfer coefficient (default: 0.5)")
