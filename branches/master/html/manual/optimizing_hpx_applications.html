@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Optimizing HPX applications &#8212; HPX 2.0.0-rc1 documentation</title>
+    <title>Optimizing HPX applications &#8212; HPX 2.0.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=7ec4965c"></script>
+    <script src="../_static/documentation_options.js?v=ce394494"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -52,7 +52,7 @@
     <link rel="prev" title="Debugging HPX applications" href="debugging_hpx_applications.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Sep 18, 2026"/>
+    <meta name="docbuild:last-update" content="Sep 20, 2026"/>
   </head>
   
   
@@ -142,8 +142,8 @@
       
     
     
-    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0-rc1 documentation - Home"/>
-    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0-rc1 documentation - Home"/>`);</script>
+    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0 documentation - Home"/>
+    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -553,7 +553,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/reflect_client.html">hpx/runtime_components/reflect_client.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/components_fwd.html">hpx/runtime_components/components_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/new_hpx_new.html">hpx::new_</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/new_local_new.html">local_new</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/component_registry.html">hpx/runtime_components/component_registry.hpp</a></li>
 </ul>
 </details></li>
@@ -6045,15 +6044,22 @@ instructions on using <a class="reference external" href="http://uo-oaciss.githu
 <p><em>HPX</em> provides integration with the <a class="reference external" href="https://github.com/wolfpld/tracy">Tracy</a> profiler, which offers
 per-thread zone tracking, message logs, and fiber support. Enable it with
 <a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACY"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACY</span></code></a><code class="docutils literal notranslate"><span class="pre">=ON</span></code> during <a class="reference external" href="https://www.cmake.org">CMake</a> configuration.</p>
-<p>Tracy can be supplied via a system install (point <code class="docutils literal notranslate"><span class="pre">Tracy_ROOT</span></code> at the install
-tree) or fetched by CMake at configure time by adding
-<code class="docutils literal notranslate"><span class="pre">HPX_WITH_FETCH_TRACY=ON</span></code>. The version fetched is pinned by
-<code class="docutils literal notranslate"><span class="pre">HPX_WITH_TRACY_TAG</span></code>, which defaults to <code class="docutils literal notranslate"><span class="pre">v0.14.1</span></code>. When Tracy is
-fetched, <em>HPX</em> forces <code class="docutils literal notranslate"><span class="pre">TRACY_ENABLE</span></code>, <code class="docutils literal notranslate"><span class="pre">TRACY_ON_DEMAND</span></code> and
-<code class="docutils literal notranslate"><span class="pre">TRACY_FIBERS</span></code> on the built client. A system-supplied Tracy must have
-been built with the same three options; Tracy 0.14 mangles its exported
-profiler symbol based on the active define set, so a mismatch fails at
-link time rather than producing a silent inconsistency at runtime.</p>
+<p>Tracy is fetched by CMake at configure time from
+<a class="reference external" href="https://github.com/wolfpld/tracy">github.com/wolfpld/tracy</a>. The version
+is pinned by <code class="docutils literal notranslate"><span class="pre">HPX_WITH_TRACY_TAG</span></code> (defaults to <code class="docutils literal notranslate"><span class="pre">v0.14.1</span></code>). <em>HPX</em> forces
+<code class="docutils literal notranslate"><span class="pre">TRACY_ENABLE</span></code>, <code class="docutils literal notranslate"><span class="pre">TRACY_ON_DEMAND</span></code>, <code class="docutils literal notranslate"><span class="pre">TRACY_FIBERS</span></code> and <code class="docutils literal notranslate"><span class="pre">TRACY_STATIC</span></code>
+on the built client so the profiler is always active on-demand, fibers are
+tracked, and TracyClient stays a static library that links cleanly into
+<code class="docutils literal notranslate"><span class="pre">hpx_tracy</span></code> regardless of <code class="docutils literal notranslate"><span class="pre">BUILD_SHARED_LIBS</span></code>. For offline builds
+without GitHub access, point <code class="docutils literal notranslate"><span class="pre">FETCHCONTENT_SOURCE_DIR_TRACY</span></code> at a local
+Tracy source tree and CMake’s FetchContent will use it in place of the
+download.</p>
+<p>On Windows, <em>HPX</em> additionally sets <code class="docutils literal notranslate"><span class="pre">TRACY_DBGHELP_LOCK=HpxDbgHelp</span></code> on
+the built Tracy client so DbgHelp calls from Tracy and from <em>HPX</em>’s own
+symbol lookup share a single mutex (DbgHelp is single-threaded per MSDN).</p>
+<p>Scheduler zones no longer carry callstacks. The captured frames were the
+scheduler-dispatch path itself, identical for every task, and the zone
+name and phase already identify the work.</p>
 <p>To profile a distributed run, additionally enable
 <a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_PARCEL_PROFILING"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_PARCEL_PROFILING</span></code></a><code class="docutils literal notranslate"><span class="pre">=ON</span></code> so per-parcel identifiers are
 carried on the wire and the <code class="docutils literal notranslate"><span class="pre">send_parcel</span></code> / <code class="docutils literal notranslate"><span class="pre">recv_parcel</span></code> /
@@ -6204,7 +6210,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Sep 18, 2026.
+  Last updated on Sep 20, 2026.
   <br/>
 </p>
   </div>
