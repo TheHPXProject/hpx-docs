@@ -7,21 +7,16 @@
     Distributed under the Boost Software License, Version 1.0. (See accompanying
     file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-.. _modules_new_local_new_api:
+.. _modules_hpx/execution/executors/rebind_policy.hpp_api:
 
----------
-local_new
----------
+-----------------------------------------
+hpx/execution/executors/rebind_policy.hpp
+-----------------------------------------
 
-Defined in header hpx/components.hpp.
+Defined in header hpx/execution/executors/rebind_policy.hpp.
 
 See :ref:`public_api` for a list of names and headers that are part of the public
 |hpx| API.
 
-
-See also:
-
-   - :ref:`hpx::new_ <modules_new_hpx_new_api>`
-
-.. doxygenfunction:: local_new
-   :project: hpx
+.. autodoxygenfile:: hpx/execution/executors/rebind_policy.hpp
+   :project: execution
