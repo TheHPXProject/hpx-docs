@@ -1582,6 +1582,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-control">Execution control</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#futures">Futures</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-with-futures">Common pitfalls with futures</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-facilities-for-futures">Extended facilities for futures</a></li>
 </ul>
 </li>
@@ -2201,6 +2202,96 @@ for all the future or shared_future arguments to be ready before executing the c
 <code class="docutils literal notranslate"><span class="pre">hpx::make_ready_future()</span></code> function is used to create a future with a given value. The
 <code class="docutils literal notranslate"><span class="pre">hpx::split_future()</span></code> function is used to split a future of a tuple into a tuple of futures. The last
 line retrieves the value of the second future in the tuple using <code class="docutils literal notranslate"><span class="pre">hpx::get()</span></code> and prints it to the console.</p>
+<section id="common-pitfalls-with-futures">
+<h4>Common pitfalls with futures<a class="headerlink" href="#common-pitfalls-with-futures" title="Link to this heading">#</a></h4>
+<p>A few behaviors of <a class="reference internal" href="../libs/core/futures/api/future_hpx_future.html#modules-future-hpx-future-api"><span class="std std-ref">hpx::future</span></a>, <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a>, and the
+future combinators can be surprising when first using <em>HPX</em>:</p>
+<ul>
+<li><p>The callable passed to the <code class="docutils literal notranslate"><span class="pre">then()</span></code> member function is invoked with the
+predecessor future, not with the unwrapped value. In the common form it
+takes the future (by value or as an rvalue reference) and can call
+<code class="docutils literal notranslate"><span class="pre">get()</span></code> on it:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">hpx</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">async</span><span class="p">([]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">41</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+<span class="n">hpx</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">then</span><span class="p">([](</span><span class="n">hpx</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">fu</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">fu</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// g.get() == 42</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>A continuation that takes the unwrapped value directly does not compile;
+the <em>HPX</em> diagnostics mention <code class="docutils literal notranslate"><span class="pre">continuation_not_callable</span></code> in that case.
+<code class="docutils literal notranslate"><span class="pre">then()</span></code> returns a new future of the callable’s return type, so
+continuations can be chained. If you prefer a continuation that is invoked
+after its dependencies are ready and receives their values,
+<code class="docutils literal notranslate"><span class="pre">hpx::dataflow()</span></code> can be more convenient.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hpx::when_all(f1,</span> <span class="pre">f2)</span></code> combines several futures into a single future
+holding a tuple of futures, here
+<code class="docutils literal notranslate"><span class="pre">hpx::future&lt;hpx::tuple&lt;hpx::future&lt;int&gt;,</span> <span class="pre">hpx::future&lt;double&gt;&gt;&gt;</span></code>.
+Like any other future, that outer future is what a continuation attached
+with <code class="docutils literal notranslate"><span class="pre">then()</span></code> receives. The tuple it yields still contains futures, so
+the inner values have to be unwrapped as well:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">hpx</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">async</span><span class="p">([]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">41</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+<span class="n">hpx</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">async</span><span class="p">([]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mf">1.5</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+
+<span class="n">hpx</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="n">hpx</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="n">hpx</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">when_all</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span><span class="w"> </span><span class="n">f2</span><span class="p">);</span>
+
+<span class="n">hpx</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">all</span><span class="p">.</span><span class="n">then</span><span class="p">([](</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fut</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">tup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fut</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w">               </span><span class="c1">// the tuple of futures</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tup</span><span class="p">).</span><span class="n">get</span><span class="p">();</span><span class="w">     </span><span class="c1">// unwrap the inner futures</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tup</span><span class="p">).</span><span class="n">get</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w">                       </span><span class="c1">// sum.get() == 42.5</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">hpx::split_future()</span></code> takes care of the unpacking step: give it the
+outer future and it returns the tuple of inner futures, ready to be
+waited on individually.</p>
+</li>
+<li><p>Arguments passed normally to <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a> have value semantics.
+A callable that requires a non-const reference to an argument cannot be
+used with that argument passed normally:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="c1">// Does not compile:</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">async</span><span class="p">([](</span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="o">++</span><span class="n">v</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="p">},</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If the callable only needs a value, pass the argument normally. The
+asynchronous operation works with its own copy, so changes to it do not
+affect the original object:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">async</span><span class="p">([](</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="o">++</span><span class="n">v</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="p">},</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+<span class="c1">// f.get() == 6, y == 5</span>
+</pre></div>
+</div>
+<p>If the callable needs to access the original object through a non-const
+reference, explicitly pass a reference using <code class="docutils literal notranslate"><span class="pre">std::ref()</span></code>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">async</span><span class="p">([](</span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="o">++</span><span class="n">v</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="p">},</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ref</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+<span class="c1">// f.get() == 6, x == 6</span>
+</pre></div>
+</div>
+<p>In this case, the asynchronous operation accesses <code class="docutils literal notranslate"><span class="pre">x</span></code> directly rather
+than a copy. The caller must ensure that <code class="docutils literal notranslate"><span class="pre">x</span></code> remains alive for the
+duration of the asynchronous operation and must synchronize concurrent
+accesses to it. For example, wait for the returned future before accessing
+<code class="docutils literal notranslate"><span class="pre">x</span></code> again, or protect accesses with a synchronization primitive such as
+<a class="reference internal" href="../libs/core/synchronization/api/mutex_hpx_mutex.html#modules-mutex-hpx-mutex-api"><span class="std std-ref">hpx::mutex</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">const</span></code> references can be used when the callable only needs read access
+to the argument. When possible, prefer returning the result instead of
+modifying an argument.</p>
+</li>
+</ul>
+</section>
 <section id="extended-facilities-for-futures">
 <span id="extend-futures"></span><h4>Extended facilities for futures<a class="headerlink" href="#extended-facilities-for-futures" title="Link to this heading">#</a></h4>
 <p>Concurrency is about both decomposing and composing the program from the parts
@@ -3491,6 +3582,7 @@ directive.</p></li>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-control">Execution control</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#futures">Futures</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-with-futures">Common pitfalls with futures</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-facilities-for-futures">Extended facilities for futures</a></li>
 </ul>
 </li>
