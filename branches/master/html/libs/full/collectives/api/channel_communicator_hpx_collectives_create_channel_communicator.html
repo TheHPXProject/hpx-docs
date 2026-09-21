@@ -52,7 +52,7 @@
     <link rel="prev" title="hpx::collectives::channel_communicator" href="channel_communicator_hpx_collectives_channel_communicator.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Sep 20, 2026"/>
+    <meta name="docbuild:last-update" content="Sep 21, 2026"/>
   </head>
   
   
@@ -1614,7 +1614,7 @@ document.write(`
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>This function returns a future to a new communicator object usable with the collective operation.</p>
+<dd class="field-even"><p>This function returns a future to a new communicator object usable with the collective operation. The future becomes ready after the local endpoint has been registered. It does not wait for all participating sites to create their communicators.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1637,7 +1637,7 @@ document.write(`
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>This function returns a new communicator object usable with the collective operation.</p>
+<dd class="field-even"><p>This function returns a new communicator object usable with the collective operation. It returns after the local endpoint has been registered and does not wait for all participating sites to create their communicators. It is not a global barrier.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1724,7 +1724,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Sep 20, 2026.
+  Last updated on Sep 21, 2026.
   <br/>
 </p>
   </div>
