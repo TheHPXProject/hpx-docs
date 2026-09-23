@@ -25,5 +25,5 @@ See also:
    - :ref:`hpx::lcos::broadcast_with_index <modules_broadcast_direct_hpx_lcos_broadcast_with_index_api>`
    - :ref:`hpx::lcos::broadcast_post_with_index <modules_broadcast_direct_hpx_lcos_broadcast_post_with_index_api>`
 
-.. doxygenfunction:: hpx::lcos::broadcast
+.. doxygenstruct:: hpx::lcos::broadcast
    :project: hpx
