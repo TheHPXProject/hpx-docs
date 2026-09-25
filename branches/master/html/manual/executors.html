@@ -1015,6 +1015,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/explicit_scheduler_executor.html">hpx/executors/explicit_scheduler_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/std_execution_policy.html">hpx/executors/std_execution_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/exception_list.html">hpx/executors/exception_list.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/parallel_scheduler_hpx_execution_experimental_get_parallel_scheduler.html">hpx::execution::experimental::get_parallel_scheduler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/parallel_scheduler_hpx_execution_experimental_parallel_scheduler.html">hpx::execution::experimental::parallel_scheduler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/parallel_scheduler_hpx_execution_experimental_parallel_scheduler_domain.html">hpx::execution::experimental::parallel_scheduler_domain</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/thread_pool_scheduler.html">hpx/executors/thread_pool_scheduler.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/parallel_executor_aggregated.html">hpx/executors/parallel_executor_aggregated.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/execution_policy_parameters.html">hpx/executors/execution_policy_parameters.hpp</a></li>
@@ -1591,6 +1594,7 @@ document.write(`
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2079-parallel-scheduler">P2079 parallel scheduler</a></li>
 </ul>
             </nav>
         </div>
@@ -2137,6 +2141,35 @@ to trace and debug the execution of parallel algorithms.</p>
 </section>
 </section>
 </section>
+<section id="p2079-parallel-scheduler">
+<span id="parallel-scheduler"></span><h2>P2079 parallel scheduler<a class="headerlink" href="#p2079-parallel-scheduler" title="Link to this heading">#</a></h2>
+<p>C++26 (<a class="reference external" href="https://wg21.link/p2079">P2079</a>)
+exposes <code class="docutils literal notranslate"><span class="pre">std::execution::get_parallel_scheduler()</span></code>. <em>HPX</em> implements this as
+<code class="docutils literal notranslate"><span class="pre">hpx::execution::experimental::get_parallel_scheduler()</span></code>.</p>
+<p>Earlier drafts of the same paper (P2079R2) used the names <code class="docutils literal notranslate"><span class="pre">system_context</span></code> and
+<code class="docutils literal notranslate"><span class="pre">system_scheduler</span></code>. Those public types were dropped. The default backend in
+<em>HPX</em> reuses the default thread pool’s worker threads instead of spawning a
+separate thread pool for the scheduler.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">snd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ex</span><span class="o">::</span><span class="n">schedule</span><span class="p">(</span><span class="n">ex</span><span class="o">::</span><span class="n">get_parallel_scheduler</span><span class="p">())</span><span class="w"> </span><span class="o">|</span>
+<span class="w">        </span><span class="n">ex</span><span class="o">::</span><span class="n">then</span><span class="p">([]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">val</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ex</span><span class="o">::</span><span class="n">sync_wait</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">snd</span><span class="p">)).</span><span class="n">value</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>To bind the scheduler to a named HPX pool created with the resource
+partitioner, pass that pool to <code class="docutils literal notranslate"><span class="pre">get_parallel_scheduler</span></code>. There is no
+need to write a custom <code class="docutils literal notranslate"><span class="pre">parallel_scheduler_backend</span></code> class:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ex</span><span class="o">::</span><span class="n">schedule</span><span class="p">(</span><span class="n">ex</span><span class="o">::</span><span class="n">get_parallel_scheduler</span><span class="p">(</span>
+<span class="w">                     </span><span class="n">hpx</span><span class="o">::</span><span class="n">resource</span><span class="o">::</span><span class="n">get_thread_pool</span><span class="p">(</span><span class="s">&quot;custom&quot;</span><span class="p">)))</span><span class="w"> </span><span class="o">|</span>
+<span class="w">        </span><span class="n">ex</span><span class="o">::</span><span class="n">then</span><span class="p">([]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// runs on the &quot;custom&quot; pool</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="n">ex</span><span class="o">::</span><span class="n">sync_wait</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">named</span><span class="p">));</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">get_thread_pool</span></code> throws <code class="docutils literal notranslate"><span class="pre">hpx::exception</span></code> for an unknown pool name.
+The pool must outlive the scheduler; HPX does not extend the pool’s
+lifetime or diagnose a dangling pool.</p>
+</section>
 </section>
 
 
@@ -2205,6 +2238,7 @@ to trace and debug the execution of parallel algorithms.</p>
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2079-parallel-scheduler">P2079 parallel scheduler</a></li>
 </ul>
   </nav></div>
 

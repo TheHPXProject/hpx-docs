@@ -25,6 +25,9 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/executors/api/explicit_scheduler_executor.rst
    /libs/core/executors/api/std_execution_policy.rst
    /libs/core/executors/api/exception_list.rst
+   /libs/core/executors/api/parallel_scheduler_hpx_execution_experimental_get_parallel_scheduler.rst
+   /libs/core/executors/api/parallel_scheduler_hpx_execution_experimental_parallel_scheduler.rst
+   /libs/core/executors/api/parallel_scheduler_hpx_execution_experimental_parallel_scheduler_domain.rst
    /libs/core/executors/api/thread_pool_scheduler.rst
    /libs/core/executors/api/parallel_executor_aggregated.rst
    /libs/core/executors/api/execution_policy_parameters.rst
