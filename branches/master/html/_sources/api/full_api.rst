@@ -37,7 +37,6 @@ refer to the full documentation below.
    /libs/full/distribution_policies/api/full_api.rst
    /libs/full/execution_distributed/api/full_api.rst
    /libs/full/executors_distributed/api/full_api.rst
-   /libs/full/include/api/full_api.rst
    /libs/full/init_runtime/api/full_api.rst
    /libs/full/naming_base/api/full_api.rst
    /libs/full/parcelset/api/full_api.rst
@@ -71,6 +70,7 @@ refer to the full documentation below.
    /libs/core/filesystem/api/full_api.rst
    /libs/core/functional/api/full_api.rst
    /libs/core/futures/api/full_api.rst
+   /libs/core/include_local/api/full_api.rst
    /libs/core/io_service/api/full_api.rst
    /libs/core/lcos_local/api/full_api.rst
    /libs/core/pack_traversal/api/full_api.rst

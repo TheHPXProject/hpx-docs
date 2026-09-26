@@ -52,7 +52,7 @@
     <link rel="prev" title="CMake options" href="cmake_variables.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Sep 25, 2026"/>
+    <meta name="docbuild:last-update" content="Sep 26, 2026"/>
   </head>
   
   
@@ -499,10 +499,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/full/executors_distributed/api/full_api.html">executors_distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/executors_distributed/api/distribution_policy_executor.html">hpx/executors_distributed/distribution_policy_executor.hpp</a></li>
-</ul>
-</details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/full/include/api/full_api.html">include</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="../libs/full/include/api/sandbox.html">hpx/experimental/sandbox.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/full/init_runtime/api/full_api.html">init_runtime</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1088,6 +1084,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/futures/api/packaged_task_hpx_packaged_task.html">hpx::packaged_task</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/include_local/api/full_api.html">include_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/include_local/api/sandbox_hpx_experimental_sandbox.html">hpx::experimental::sandbox</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/io_service/api/full_api.html">io_service</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/io_service/api/io_service_pool.html">hpx/io_service/io_service_pool.hpp</a></li>
 </ul>
@@ -1627,14 +1627,20 @@ that encodes all the flags needed for a CE-compatible build:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">HPX_WITH_STATIC_LINKING=ON</span></code> — bundles everything into the <code class="docutils literal notranslate"><span class="pre">.a</span></code> archives
 that CE links against.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HPX_WITH_DISTRIBUTED_RUNTIME=OFF</span></code> — local-only runtime. Compiler Explorer
+cannot launch a second locality, so the distributed runtime is omitted from
+this build.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">HPX_WITH_NETWORKING=OFF</span></code> — disables the parcelset so <em>HPX</em> never attempts
 to open a network socket.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">HPX_WITH_FETCH_ASIO=ON</span></code> — downloads Asio via FetchContent, removing the
 need for a system-level Asio installation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HPX_WITH_FETCH_HWLOC=ON</span></code> — fetches hwloc via FetchContent so the CE
+install does not depend on a system hwloc package.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">HPX_WITH_MALLOC=system</span></code> — uses the system allocator; avoids a jemalloc or
 tcmalloc dependency.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">HPX_WITH_TESTS=OFF</span></code>, <code class="docutils literal notranslate"><span class="pre">HPX_WITH_EXAMPLES=OFF</span></code>,
-<code class="docutils literal notranslate"><span class="pre">HPX_WITH_DOCUMENTATION=OFF</span></code> — skips everything that CE does not need.</p></li>
+<code class="docutils literal notranslate"><span class="pre">HPX_WITH_DOCUMENTATION=OFF</span></code>, <code class="docutils literal notranslate"><span class="pre">HPX_WITH_TOOLS=OFF</span></code> — skips everything
+that CE does not need.</p></li>
 </ul>
 <p>The preset produces four static libraries under <code class="docutils literal notranslate"><span class="pre">build/godbolt-minimal/lib/</span></code>:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>libhpx_wrap.a
@@ -1655,22 +1661,29 @@ and is distinct from <code class="docutils literal notranslate"><span class="pre
 <section id="linking-without-cmake">
 <span id="using-hpx-ce-linking"></span><h2>Linking without CMake<a class="headerlink" href="#linking-without-cmake" title="Link to this heading">#</a></h2>
 <p>CE’s backend compiles user code with a raw <code class="docutils literal notranslate"><span class="pre">g++</span></code> or <code class="docutils literal notranslate"><span class="pre">clang++</span></code> invocation.
-The complete set of flags needed is:</p>
+A static <em>HPX</em> install ships one archive per module (<code class="docutils literal notranslate"><span class="pre">libhpx_logging.a</span></code>,
+<code class="docutils literal notranslate"><span class="pre">libhpx_include_local.a</span></code>, and so on) in addition to <code class="docutils literal notranslate"><span class="pre">libhpx_wrap.a</span></code>,
+<code class="docutils literal notranslate"><span class="pre">libhpx_init.a</span></code>, <code class="docutils literal notranslate"><span class="pre">libhpx.a</span></code>, and <code class="docutils literal notranslate"><span class="pre">libhpx_core.a</span></code>. Those module objects
+are not merged into <code class="docutils literal notranslate"><span class="pre">libhpx_core.a</span></code>, so linking only the four umbrella
+libraries leaves symbols such as <code class="docutils literal notranslate"><span class="pre">detect_environment()</span></code> undefined. Group
+every <code class="docutils literal notranslate"><span class="pre">libhpx_*.a</span></code> archive, then add Boost, hwloc, and the usual system
+libraries:</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>g++<span class="w"> </span>-std<span class="o">=</span>c++20<span class="w"> </span>-O2<span class="w"> </span>-o<span class="w"> </span>my_program<span class="w"> </span>my_program.cpp<span class="w">          </span><span class="se">\</span>
 <span class="w">    </span>-isystem<span class="w"> </span>/path/to/hpx/include<span class="w">                           </span><span class="se">\</span>
 <span class="w">    </span>-isystem<span class="w"> </span>/path/to/boost/include<span class="w">                         </span><span class="se">\</span>
 <span class="w">    </span>-L/path/to/hpx/lib<span class="w">                                      </span><span class="se">\</span>
 <span class="w">    </span>-DHPX_APPLICATION_EXPORTS<span class="w">                               </span><span class="se">\</span>
 <span class="w">    </span>-Wl,-wrap<span class="o">=</span>main<span class="w">                                          </span><span class="se">\</span>
-<span class="w">    </span>-lhpx_wrap<span class="w"> </span>-lhpx_init<span class="w"> </span>-lhpx<span class="w"> </span>-lhpx_core<span class="w">                 </span><span class="se">\</span>
+<span class="w">    </span>-Wl,--start-group<span class="w"> </span>/path/to/hpx/lib/libhpx_*.a<span class="w">           </span><span class="se">\</span>
+<span class="w">    </span>-Wl,--end-group<span class="w">                                         </span><span class="se">\</span>
 <span class="w">    </span>-lpthread<span class="w"> </span>-ldl<span class="w"> </span>-lrt
 </pre></div>
 </div>
 <p>Two details here are easy to get wrong:</p>
-<p><strong>Library link order.</strong> The order <code class="docutils literal notranslate"><span class="pre">hpx_wrap</span> <span class="pre">→</span> <span class="pre">hpx_init</span> <span class="pre">→</span> <span class="pre">hpx</span> <span class="pre">→</span> <span class="pre">hpx_core</span></code>
-must be preserved. Reversing it produces undefined-reference errors because
-<code class="docutils literal notranslate"><span class="pre">hpx_wrap</span></code> depends on symbols in <code class="docutils literal notranslate"><span class="pre">hpx_init</span></code>, which depends on the full
-runtime in <code class="docutils literal notranslate"><span class="pre">hpx</span></code>, which in turn depends on the core library.</p>
+<p><strong>Library link order.</strong> Put <code class="docutils literal notranslate"><span class="pre">-Wl,-wrap=main</span></code> and the <code class="docutils literal notranslate"><span class="pre">libhpx_*.a</span></code> group
+on the link line together. <code class="docutils literal notranslate"><span class="pre">--start-group</span></code> / <code class="docutils literal notranslate"><span class="pre">--end-group</span></code> is required
+because the module archives have circular references. Linking only
+<code class="docutils literal notranslate"><span class="pre">-lhpx_wrap</span> <span class="pre">-lhpx_init</span> <span class="pre">-lhpx</span> <span class="pre">-lhpx_core</span></code> is not enough.</p>
 <p><strong>The</strong> <code class="docutils literal notranslate"><span class="pre">-Wl,-wrap=main</span></code> <strong>flag.</strong> Including <code class="docutils literal notranslate"><span class="pre">hpx/hpx_main.hpp</span></code> (see
 <a class="reference internal" href="starting_the_hpx_runtime.html#minimal"><span class="std std-ref">Re-use the main() function as the main HPX entry point</span></a>) works by re-routing control through <em>HPX</em>’s own entry point
 before the user’s <code class="docutils literal notranslate"><span class="pre">main</span></code> is called. On Linux this is implemented via the
@@ -1679,6 +1692,7 @@ command line, not merely in the compile flags. Without it, the <em>HPX</em> runt
 never initialised and all API calls crash at startup. See
 <a class="reference internal" href="starting_the_hpx_runtime.html#hpx-main-implementation-linux"><span class="std std-ref">Linux implementation</span></a> for a detailed explanation of the
 mechanism.</p>
+<p>Windows does not support -Wl,-wrap=main (GNU ld). On Windows, hpx/hpx_main.hpp redefines main as hpx_startup::user_main, so a raw MSVC link of the same snippet uses hpx_wrap.lib, hpx_init.lib, hpx.lib, and hpx_core.lib as the base set, with no wrap option. Add each additional module .lib your program actually needs — for example hpx_include_local.lib when using hpx/experimental/sandbox.hpp — since those symbols are not merged into the four base libraries. Prefer HPX::hpx plus HPX::wrap_main from CMake, which pull in module dependencies automatically. Compiler Explorer Execute runs in a Linux sandbox; the Windows path matters for MSVC compile-only sessions and for local godbolt-minimal builds on Windows.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p><code class="docutils literal notranslate"><span class="pre">-DHPX_APPLICATION_EXPORTS</span></code> must be passed as a preprocessor definition
@@ -1723,8 +1737,11 @@ runtime initialisation.</p>
 </section>
 <section id="the-hpx-experimental-sandbox-hpp-header">
 <span id="using-hpx-ce-sandbox"></span><h2>The <code class="docutils literal notranslate"><span class="pre">hpx/experimental/sandbox.hpp</span></code> header<a class="headerlink" href="#the-hpx-experimental-sandbox-hpp-header" title="Link to this heading">#</a></h2>
-<p><em>HPX</em> ships a header-only toolkit at <code class="docutils literal notranslate"><span class="pre">hpx/experimental/sandbox.hpp</span></code> designed
-specifically for code running in constrained environments. It provides:</p>
+<p><em>HPX</em> ships <code class="docutils literal notranslate"><span class="pre">hpx/experimental/sandbox.hpp</span></code> for code running in constrained
+environments. Timing helpers (<code class="docutils literal notranslate"><span class="pre">measure</span></code>, <code class="docutils literal notranslate"><span class="pre">benchmark</span></code>) are header-only.
+<code class="docutils literal notranslate"><span class="pre">detect_environment()</span></code> and the <code class="docutils literal notranslate"><span class="pre">print()</span></code> members are compiled into
+<code class="docutils literal notranslate"><span class="pre">libhpx_core</span></code> and are available in local-only builds, including
+<code class="docutils literal notranslate"><span class="pre">godbolt-minimal</span></code>. It provides:</p>
 <ul class="simple">
 <li><p><strong>Environment introspection</strong> — <code class="docutils literal notranslate"><span class="pre">hpx::experimental::sandbox::detect_environment()</span></code>
 returns an <code class="docutils literal notranslate"><span class="pre">environment_info</span></code> struct describing the number of physical cores,
@@ -1795,11 +1812,9 @@ this requirement automatically.</p>
 <section id="known-limitations-in-sandboxed-environments">
 <span id="using-hpx-ce-limitations"></span><h2>Known limitations in sandboxed environments<a class="headerlink" href="#known-limitations-in-sandboxed-environments" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><strong>Single locality only.</strong> The distributed runtime can be compiled in
-(<code class="docutils literal notranslate"><span class="pre">HPX_WITH_DISTRIBUTED_RUNTIME=ON</span></code>) and actions on locality 0 work
-normally, but there is no way to launch a second locality from within CE’s
-sandbox. Code that calls <code class="docutils literal notranslate"><span class="pre">hpx::find_all_localities()</span></code> or
-<code class="docutils literal notranslate"><span class="pre">hpx::get_num_localities()</span></code> will always see exactly one locality.</p></li>
+<li><p><strong>Single locality only.</strong> <code class="docutils literal notranslate"><span class="pre">godbolt-minimal</span></code> sets
+<code class="docutils literal notranslate"><span class="pre">HPX_WITH_DISTRIBUTED_RUNTIME=OFF</span></code>. There is no second locality inside CE’s
+sandbox, and distributed APIs are not part of this build.</p></li>
 <li><p><strong>Networking is disabled.</strong> <code class="docutils literal notranslate"><span class="pre">HPX_WITH_NETWORKING=OFF</span></code> means all
 parcelport-dependent functionality (remote actions, distributed data
 structures) is unavailable regardless of what the code requests.</p></li>
@@ -1813,6 +1828,9 @@ for details.</p></li>
 On macOS the linker uses <code class="docutils literal notranslate"><span class="pre">-Wl,-e,_initialize_main</span></code> instead. CE runs Linux
 containers, so this only matters when building the CE integration locally on
 macOS for testing.</p></li>
+<li><p><strong>Windows does not use</strong> <code class="docutils literal notranslate"><span class="pre">-Wl,-wrap=main</span></code>. <code class="docutils literal notranslate"><span class="pre">HPX_WITH_DYNAMIC_HPX_MAIN</span></code>
+is unavailable on Windows, so <code class="docutils literal notranslate"><span class="pre">hpx/hpx_main.hpp</span></code> uses the <code class="docutils literal notranslate"><span class="pre">main</span></code>
+macro instead. Link <code class="docutils literal notranslate"><span class="pre">HPX::wrap_main</span></code> without a GNU wrap flag.</p></li>
 </ul>
 </section>
 </section>
@@ -1901,7 +1919,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Sep 25, 2026.
+  Last updated on Sep 26, 2026.
   <br/>
 </p>
   </div>

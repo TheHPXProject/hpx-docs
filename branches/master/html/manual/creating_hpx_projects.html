@@ -52,7 +52,7 @@
     <link rel="prev" title="Building tests and examples" href="building_tests_examples.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Sep 25, 2026"/>
+    <meta name="docbuild:last-update" content="Sep 26, 2026"/>
   </head>
   
   
@@ -499,10 +499,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/full/executors_distributed/api/full_api.html">executors_distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/executors_distributed/api/distribution_policy_executor.html">hpx/executors_distributed/distribution_policy_executor.hpp</a></li>
-</ul>
-</details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/full/include/api/full_api.html">include</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="../libs/full/include/api/sandbox.html">hpx/experimental/sandbox.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/full/init_runtime/api/full_api.html">init_runtime</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1086,6 +1082,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/futures/api/future_hpx_make_exceptional_future.html">hpx::make_exceptional_future</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/futures/api/future_fwd.html">hpx/futures/future_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/futures/api/packaged_task_hpx_packaged_task.html">hpx::packaged_task</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/include_local/api/full_api.html">include_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/include_local/api/sandbox_hpx_experimental_sandbox.html">hpx::experimental::sandbox</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/io_service/api/full_api.html">io_service</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1901,7 +1901,7 @@ CMake target <code class="docutils literal notranslate"><span class="pre">HPX::w
 executables if you are using the macros described below
 (<a class="reference internal" href="#using-hpx-cmake-macros"><span class="std std-ref">Using macros to create new targets</span></a>). See <a class="reference internal" href="starting_the_hpx_runtime.html#minimal"><span class="std std-ref">Re-use the main() function as the main HPX entry point</span></a> for more information on
 implicitly using <code class="docutils literal notranslate"><span class="pre">main()</span></code> as the entry point. If you want the same wrapping
-behavior without including <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/413cc2036370e78ce593d623bbd79d7fab70926b/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a>, link to
+behavior without including <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/95c58b92b97c6b31f3964ef5ac78918ca828094e/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a>, link to
 the <code class="docutils literal notranslate"><span class="pre">HPX::auto_wrap_main</span></code> target instead. This enables the runtime
 initialization around <code class="docutils literal notranslate"><span class="pre">main()</span></code> unconditionally and is useful for codebases
 where adding the header to <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code> is impractical</p>
@@ -2380,7 +2380,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Sep 25, 2026.
+  Last updated on Sep 26, 2026.
   <br/>
 </p>
   </div>
