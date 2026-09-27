@@ -1588,8 +1588,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-annotating-executor-with-parallel-algorithms">Custom annotating executor with parallel algorithms</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Full example code</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Explanation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Full example code</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Explanation</a></li>
 </ul>
 </li>
 </ul>
@@ -1709,18 +1709,18 @@ benefit.</p></li>
 <span id="executors-real-world"></span><h2>Executors in real-world applications<a class="headerlink" href="#executors-in-real-world-applications" title="Link to this heading">#</a></h2>
 <p>A practical example is the <strong>LULESH</strong> mini-application (a hydrodynamics
 benchmark).</p>
-<figure class="align-left" id="id7">
+<figure class="align-left" id="id8">
 <span id="id3"></span><a class="reference internal image-reference" href="../_images/lulesh_parallel.png"><img alt="../_images/lulesh_parallel.png" src="../_images/lulesh_parallel.png" style="width: 45%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Parallel executor: creates and destroys threads for each loop.</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Parallel executor: creates and destroys threads for each loop.</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<figure class="align-right" id="id8">
+<figure class="align-right" id="id9">
 <span id="id4"></span><a class="reference internal image-reference" href="../_images/lulesh_fork_join.png"><img alt="../_images/lulesh_fork_join.png" src="../_images/lulesh_fork_join.png" style="width: 45%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Fork-join executor: reuses threads across loops.</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Fork-join executor: reuses threads across loops.</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -1728,14 +1728,18 @@ benchmark).</p>
 threads, introducing overhead.</p></li>
 <li><p>With the <strong>fork-join executor</strong>, threads are created once and reused across
 loops, reducing overhead and improving performance.</p></li>
+<li><p>For bulk leaf regions that must not suspend, construct
+<code class="docutils literal notranslate"><span class="pre">fork_join_executor</span></code> with <code class="docutils literal notranslate"><span class="pre">thread_stacksize::nostack</span></code> (bodies must not
+<code class="docutils literal notranslate"><span class="pre">async</span></code> / <code class="docutils literal notranslate"><span class="pre">future::get</span></code> / <code class="docutils literal notranslate"><span class="pre">this_thread::suspend</span></code>; see
+<a class="reference external" href="https://github.com/TheHPXProject/hpx/issues/3348">#3348</a>).</p></li>
 </ul>
 <p>In studies, the fork-join executor achieved significant speedups, in some cases
 more than twice as fast as traditional OpenMP implementations.</p>
-<figure class="align-center" id="id9">
+<figure class="align-center" id="id10">
 <span id="executor-performance-comparison"></span><a class="reference internal image-reference" href="../_images/lulesh_speedup_comparison.png"><img alt="../_images/lulesh_speedup_comparison.png" src="../_images/lulesh_speedup_comparison.png" style="width: 80%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Performance comparison between executors in the LULESH benchmark.</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Performance comparison between executors in the LULESH benchmark.</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1934,8 +1938,8 @@ trace what is happening.</p>
 <p>The following example demonstrates how to use a custom annotating executor with
 <em>HPX</em> parallel algorithms, such as <cite>for_each</cite>.
 This allows you to attach annotations to tasks while executing them in parallel.</p>
-<section id="id5">
-<h4>Full example code<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<section id="id6">
+<h4>Full example code<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/execution.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/hpx_main.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/include/parallel_algorithm.hpp&gt;</span>
@@ -2011,8 +2015,8 @@ This allows you to attach annotations to tasks while executing them in parallel.
 </pre></div>
 </div>
 </section>
-<section id="id6">
-<h4>Explanation<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<section id="id7">
+<h4>Explanation<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
 <p>Similar as before, the first lines pull in the necessary HPX headers for executors,
 asynchronous execution, and annotated functions. The key one here is
 <cite>hpx/threading_base/annotated_function.hpp</cite>, which provides the facility to tag
@@ -2232,8 +2236,8 @@ lifetime or diagnose a dangling pool.</p>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-annotating-executor-with-parallel-algorithms">Custom annotating executor with parallel algorithms</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Full example code</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Explanation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Full example code</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Explanation</a></li>
 </ul>
 </li>
 </ul>

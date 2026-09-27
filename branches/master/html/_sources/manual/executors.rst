@@ -144,6 +144,10 @@ benchmark).
   threads, introducing overhead.
 * With the **fork-join executor**, threads are created once and reused across
   loops, reducing overhead and improving performance.
+* For bulk leaf regions that must not suspend, construct
+  ``fork_join_executor`` with ``thread_stacksize::nostack`` (bodies must not
+  ``async`` / ``future::get`` / ``this_thread::suspend``; see
+  `#3348 <https://github.com/TheHPXProject/hpx/issues/3348>`_).
 
 In studies, the fork-join executor achieved significant speedups, in some cases
 more than twice as fast as traditional OpenMP implementations.
