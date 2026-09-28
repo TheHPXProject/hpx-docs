@@ -28,7 +28,7 @@ See also:
    - :ref:`hpx::collectives::communicator::get_info <modules_create_communicator_hpx_collectives_communicator_get_info_api>`
    - :ref:`hpx::collectives::communicator::is_root <modules_create_communicator_hpx_collectives_communicator_is_root_api>`
 
-.. doxygenfunction:: hpx::collectives::create_communicator(char const *basename, num_sites_arg num_sites=num_sites_arg(), this_site_arg this_site=this_site_arg(), generation_arg generation=generation_arg(), root_site_arg root_site=root_site_arg())
+.. doxygenfunction:: hpx::collectives::create_communicator(char const * basename, num_sites_arg num_sites, this_site_arg this_site, generation_arg generation, root_site_arg root_site)
    :project: hpx
-.. doxygenfunction:: hpx::collectives::create_communicator(hpx::launch::sync_policy policy, char const *basename, num_sites_arg num_sites, this_site_arg this_site, generation_arg generation, root_site_arg root_site)
+.. doxygenfunction:: hpx::collectives::create_communicator(hpx::launch::sync_policy policy, char const * basename, num_sites_arg num_sites, this_site_arg this_site, generation_arg generation, root_site_arg root_site)
    :project: hpx
