@@ -1594,8 +1594,17 @@ release. For patch releases: check out the corresponding
 <code class="docutils literal notranslate"><span class="pre">release-major.minor.X</span></code> branch.</p></li>
 <li><p>Write release notes in <code class="docutils literal notranslate"><span class="pre">docs/sphinx/releases/whats_new_$VERSION.rst</span></code>. Keep
 adding merged PRs and closed issues to this until just before the release is
-made. Use <code class="docutils literal notranslate"><span class="pre">tools/generate_issue_pr_list.sh</span></code> to generate the lists. Add the
-new release notes to the table of contents in <code class="docutils literal notranslate"><span class="pre">docs/sphinx/releases.rst</span></code>.</p></li>
+made. From a checkout with complete history, run
+<code class="docutils literal notranslate"><span class="pre">tools/generate_issue_pr_list.sh</span> <span class="pre">BASE_REF</span> <span class="pre">RELEASE_REF</span></code> to generate the
+lists. Choose and record the previous release or maintenance revision as
+<code class="docutils literal notranslate"><span class="pre">BASE_REF</span></code> and pin <code class="docutils literal notranslate"><span class="pre">RELEASE_REF</span></code> to the release commit (defaults to
+<code class="docutils literal notranslate"><span class="pre">HEAD</span></code>). The generator includes merged PRs present only in the release
+history, even outside the milestone. Review cherry-picked or rebased PRs
+separately and record their landed commits. Closed milestone issues are
+listed independently and are not evidence that a feature was implemented.
+Use <code class="docutils literal notranslate"><span class="pre">--limit</span></code> to print the newest 50 entries after reconciliation. Add
+the new release notes to the table of contents in
+<code class="docutils literal notranslate"><span class="pre">docs/sphinx/releases.rst</span></code>.</p></li>
 <li><p>Build the docs, and proof-read them. Update any documentation that may have
 changed, and correct any typos. Pay special attention to:</p>
 <ul class="simple">

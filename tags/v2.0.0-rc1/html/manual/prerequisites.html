@@ -1674,7 +1674,7 @@ work, but we do not test <em>HPX</em> with other platforms, so please be warned.
 <tbody>
 <tr class="row-even"><td><p><strong>Build System</strong></p></td>
 <td><p><a class="reference external" href="https://www.cmake.org">CMake</a></p></td>
-<td><p>3.20</p></td>
+<td><p>3.18</p></td>
 <td><p>4.1</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Required Libraries</strong></p></td>
@@ -1690,6 +1690,10 @@ work, but we do not test <em>HPX</em> with other platforms, so please be warned.
 </tbody>
 </table>
 </div>
+<p>C++20 module builds (<code class="docutils literal notranslate"><span class="pre">HPX_WITH_CXX_MODULES=ON</span></code>, default <code class="docutils literal notranslate"><span class="pre">OFF</span></code>) require
+CMake 3.28 or newer, a Ninja or Visual Studio generator, and GCC 14+, LLVM
+Clang 16+, or Visual Studio 17.4+. AppleClang is not supported for module
+builds.</p>
 <p>The most important dependencies are <a class="reference external" href="https://www.boost.org/">Boost</a> and <a class="reference external" href="https://www.open-mpi.org/projects/hwloc/">Portable Hardware Locality (HWLOC)</a>. The installation of Boost
 is described in detail in Boost’s <a class="reference external" href="https://www.boost.org/more/getting_started/index.html">Getting Started</a>
 document. A recent version of hwloc is required in order to support thread
