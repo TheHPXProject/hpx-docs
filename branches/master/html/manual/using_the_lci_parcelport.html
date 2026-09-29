@@ -52,7 +52,7 @@
     <link rel="prev" title="Optimizing HPX applications" href="optimizing_hpx_applications.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Sep 28, 2026"/>
+    <meta name="docbuild:last-update" content="Sep 29, 2026"/>
   </head>
   
   
@@ -1178,6 +1178,7 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/serialization/api/full_api.html">serialization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/base_object.html">hpx/serialization/base_object.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/serialization_chunk.html">hpx/serialization/serialization_chunk.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/synchronization/api/full_api.html">synchronization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1577,6 +1578,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-hpx-with-the-lci-parcelport">Build <em>HPX</em> with the LCI parcelport</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-hpx-with-the-lci-parcelport">Run <em>HPX</em> with the LCI parcelport</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-tuning-of-the-lci-parcelport">Performance tuning of the LCI parcelport</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-copy-parcel-chunks-812">Zero-copy parcel chunks (#812)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
 </ul>
             </nav>
@@ -1709,6 +1711,19 @@ prior generation of InfiniBand hardware.</p>
 </dd></dl>
 
 </section>
+<section id="zero-copy-parcel-chunks-812">
+<h2>Zero-copy parcel chunks (#812)<a class="headerlink" href="#zero-copy-parcel-chunks-812" title="Link to this heading">#</a></h2>
+<p>Bitwise-serializable action arguments such as large <code class="docutils literal notranslate"><span class="pre">std::vector&lt;T&gt;</span></code> are
+serialized as a main buffer plus a list of zero-copy pointer chunks when their
+size exceeds <code class="docutils literal notranslate"><span class="pre">hpx.parcel.zero_copy_serialization_threshold</span></code> (see
+<a class="reference external" href="https://github.com/TheHPXProject/hpx/issues/812">Issue #812</a>). The LCI parcelport transmits those chunks from the original
+memory without coalescing them into a single contiguous payload, which is the
+current RDMA-oriented path in <em>HPX</em> after the historical ibverbs/libfabric
+parcelports were removed. TCP and MPI implement the same chunk list (gather
+write / multi-message send). Enable with
+<code class="docutils literal notranslate"><span class="pre">hpx.parcel.lci.zero_copy_optimization=1</span></code> (the default when the parcelport is
+active).</p>
+</section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
 <p>Yan, Jiakun, Hartmut Kaiser, and Marc Snir. <em>Understanding the Communication
@@ -1770,6 +1785,7 @@ Conference for High Performance Computing, Networking, Storage, and Analysis
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-hpx-with-the-lci-parcelport">Build <em>HPX</em> with the LCI parcelport</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-hpx-with-the-lci-parcelport">Run <em>HPX</em> with the LCI parcelport</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-tuning-of-the-lci-parcelport">Performance tuning of the LCI parcelport</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-copy-parcel-chunks-812">Zero-copy parcel chunks (#812)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
 </ul>
   </nav></div>
@@ -1804,7 +1820,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Sep 28, 2026.
+  Last updated on Sep 29, 2026.
   <br/>
 </p>
   </div>
