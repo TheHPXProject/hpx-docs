@@ -1964,9 +1964,11 @@ thread to a later HPX thread that reuses the same stack in the same
 process. On Linux, <code class="docutils literal notranslate"><span class="pre">MADV_DONTNEED</span></code> (mode <code class="docutils literal notranslate"><span class="pre">2</span></code>) faults in fresh zero
 pages on next touch. FreeBSD’s <code class="docutils literal notranslate"><span class="pre">MADV_DONTNEED</span></code> only lowers page
 priority and does <strong>not</strong> scrub residual stack data; <code class="docutils literal notranslate"><span class="pre">MADV_FREE</span></code> is
-not a substitute for that guarantee either. Prefer mode <code class="docutils literal notranslate"><span class="pre">2</span></code> on Linux
-when residual-data behaviour is unacceptable; do not rely on stack
-recycle advice to scrub secrets.</p></td>
+not a substitute for that guarantee either. Even on Linux, mode <code class="docutils literal notranslate"><span class="pre">2</span></code>
+does not sanitize the entire stack: the top page is excluded, a clean
+watermark skips advice, and failed advice leaves old contents in place
+for reuse. Do not rely on any stack recycling mode to scrub secrets;
+clear sensitive data explicitly before its lifetime ends.</p></td>
 </tr>
 </tbody>
 </table>
