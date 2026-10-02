@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Writing distributed applications &#8212; HPX 2.0.0-rc1 documentation</title>
+    <title>Writing distributed applications &#8212; HPX 2.0.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=7ec4965c"></script>
+    <script src="../_static/documentation_options.js?v=ce394494"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -142,8 +142,8 @@
       
     
     
-    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0-rc1 documentation - Home"/>
-    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0-rc1 documentation - Home"/>`);</script>
+    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0 documentation - Home"/>
+    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -550,7 +550,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/components_fwd.html">hpx/runtime_components/components_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/reflect_client.html">hpx/runtime_components/reflect_client.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/new_hpx_new.html">hpx::new_</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/new_local_new.html">local_new</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/full/runtime_distributed/api/full_api.html">runtime_distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1179,6 +1178,7 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/serialization/api/full_api.html">serialization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/base_object.html">hpx/serialization/base_object.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/serialization_chunk.html">hpx/serialization/serialization_chunk.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/synchronization/api/full_api.html">synchronization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1594,9 +1594,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-component-instances">Using component instances</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distributed-channels">Distributed channels</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#registering-channel-components">Registering channel components</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#segmented-containers">Segmented containers</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-segmented-containers">Using segmented containers</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Segmented containers</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Segmented containers</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segmented-iterators-and-segmented-iterator-traits">Segmented iterators and segmented iterator traits</a></li>
@@ -1867,10 +1871,10 @@ extensions added by <em>HPX</em> (light gray) where:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">a</span></code>: an instance of the type <code class="docutils literal notranslate"><span class="pre">action</span></code>,</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: the global address the action is applied to.</p></li>
 </ul>
-<figure class="align-default" id="id8">
+<figure class="align-default" id="id9">
 <span id="figure-hpx-the-api"></span><img alt="../_images/hpx_the_api.png" src="../_images/hpx_the_api.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Overview of the main API exposed by <em>HPX</em>.</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Overview of the main API exposed by <em>HPX</em>.</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>This figure shows that <em>HPX</em> allows the user to <code class="docutils literal notranslate"><span class="pre">post</span></code> actions with a syntax
@@ -2450,6 +2454,91 @@ use them as indicated below:</p>
 <p>We can use the component instances with distribution policies the same way.</p>
 </section>
 </section>
+<section id="distributed-channels">
+<span id="id7"></span><h2>Distributed channels<a class="headerlink" href="#distributed-channels" title="Link to this heading">#</a></h2>
+<p>The local channels described in <a class="reference internal" href="writing_single_node_hpx_applications.html#channel"><span class="std std-ref">Channels</span></a> are also available as
+components. A channel component is created on one <a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a> and can be
+sent to another <a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a> using an action. This example also
+demonstrates how a channel can be used as a range of values:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// channel components need to be registered for each used type (not needed</span>
+<span class="c1">// for hpx::lcos::local::channel)</span>
+<span class="n">HPX_REGISTER_CHANNEL</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">channel_sender</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">lcos</span><span class="o">::</span><span class="n">channel</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
+<span class="w">        </span><span class="n">hpx</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">HPX_PLAIN_ACTION</span><span class="p">(</span><span class="n">channel_sender</span><span class="p">)</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">channel</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// create the channel on this locality</span>
+<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">lcos</span><span class="o">::</span><span class="n">channel</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">find_here</span><span class="p">());</span>
+
+<span class="w">    </span><span class="c1">// pass the channel to a (possibly remote invoked) action</span>
+<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">post</span><span class="p">(</span><span class="n">channel_sender_action</span><span class="p">(),</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">find_here</span><span class="p">(),</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// send some values to the receiver</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">1.2</span><span class="p">,</span><span class="w"> </span><span class="mf">3.4</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0</span><span class="p">};</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
+<span class="w">        </span><span class="n">c</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// explicitly close the communication channel (implicit at destruction)</span>
+<span class="w">    </span><span class="n">c</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="registering-channel-components">
+<span id="register-channel"></span><h3>Registering channel components<a class="headerlink" href="#registering-channel-components" title="Link to this heading">#</a></h3>
+<p>Before a channel component can be created for a given value type, that type has
+to be registered with the <code class="docutils literal notranslate"><span class="pre">HPX_REGISTER_CHANNEL</span></code> macro, as done for
+<code class="docutils literal notranslate"><span class="pre">double</span></code> in the example above. The macro exists in two forms:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">HPX_REGISTER_CHANNEL</span><span class="p">(</span><span class="n">type</span><span class="p">);</span>
+<span class="n">HPX_REGISTER_CHANNEL</span><span class="p">(</span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The macro <code class="docutils literal notranslate"><span class="pre">HPX_REGISTER_CHANNEL</span></code> has to be placed in global namespace.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">name</span></code> argument is used to generate unique C++ identifiers internally, so
+it must be a valid C++ identifier. The one-argument form uses <code class="docutils literal notranslate"><span class="pre">type</span></code> as
+<code class="docutils literal notranslate"><span class="pre">name</span></code>, which means it only works for types whose spelling is itself a valid
+identifier. A written out template type such as <code class="docutils literal notranslate"><span class="pre">std::vector&lt;int&gt;</span></code> contains
+angle brackets and fails to compile with the one-argument form:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// This fails to compile</span>
+<span class="n">HPX_REGISTER_CHANNEL</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>For such types, use the two-argument form and supply an identifier as
+<code class="docutils literal notranslate"><span class="pre">name</span></code>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">HPX_REGISTER_CHANNEL</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">vector_int</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Alternatively, define a type alias and use the one-argument form:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">vector_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="n">HPX_REGISTER_CHANNEL</span><span class="p">(</span><span class="n">vector_type</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In a program consisting of multiple translation units, put the corresponding
+declaration in a header:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">HPX_REGISTER_CHANNEL_DECLARATION</span><span class="p">(</span><span class="n">vector_type</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Include that header where the registered channel type is used, and place the
+matching <code class="docutils literal notranslate"><span class="pre">HPX_REGISTER_CHANNEL</span></code> invocation in exactly one source file. When
+the two-argument forms are used, both invocations must use the same <code class="docutils literal notranslate"><span class="pre">type</span></code>
+and <code class="docutils literal notranslate"><span class="pre">name</span></code> arguments.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The preprocessor splits macro arguments at top-level commas, so a type such
+as <code class="docutils literal notranslate"><span class="pre">std::map&lt;int,</span> <span class="pre">double&gt;</span></code> cannot be passed directly, not even to the
+two-argument form. Define a type alias for such types before registering
+them.</p>
+</div>
+</section>
+</section>
 <section id="segmented-containers">
 <span id="containers"></span><h2>Segmented containers<a class="headerlink" href="#segmented-containers" title="Link to this heading">#</a></h2>
 <p>In parallel programming, there is now a plethora of solutions aimed at
@@ -2550,11 +2639,11 @@ to the segmented container:</p>
 <span class="w">    </span><span class="p">});</span>
 </pre></div>
 </div>
-<section id="id7">
-<h4>Segmented containers<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<section id="id8">
+<h4>Segmented containers<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
 <p><em>HPX</em> provides the following segmented containers:</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id9">
-<caption><span class="caption-number">Table 22 </span><span class="caption-text">Sequence containers</span><a class="headerlink" href="#id9" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id10">
+<caption><span class="caption-number">Table 22 </span><span class="caption-text">Sequence containers</span><a class="headerlink" href="#id10" title="Link to this table">#</a></caption>
 <tbody>
 <tr class="row-odd"><td><p>Name</p></td>
 <td><p>Description</p></td>
@@ -2569,8 +2658,8 @@ to the segmented container:</p>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id10">
-<caption><span class="caption-number">Table 23 </span><span class="caption-text">Unordered associative containers</span><a class="headerlink" href="#id10" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id11">
+<caption><span class="caption-number">Table 23 </span><span class="caption-text">Unordered associative containers</span><a class="headerlink" href="#id11" title="Link to this table">#</a></caption>
 <tbody>
 <tr class="row-odd"><td><p>Name</p></td>
 <td><p>Description</p></td>
@@ -2605,7 +2694,7 @@ performed; When this object is used as an r-value, implicit conversion to
 </div>
 <p>It is sometimes useful not only to iterate element by element, but also segment
 by segment, or simply get a local iterator in order to avoid additional
-construction costs at each deferencing operations. To mitigate this need, the
+construction costs at each dereferencing operations. To mitigate this need, the
 <code class="xref cpp cpp-struct docutils literal notranslate"><span class="pre">hpx::traits::segmented_iterator_traits</span></code> are used.</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">segmented_iterator_traits</span></code> users can uniformly get the iterators
 which specifically iterates over segments (by providing a segmented iterator
@@ -3051,8 +3140,8 @@ operations:</p>
 <p>Unlike segmented containers, a co-array object can only be instantiated within a
 parallel section. Here is the description of the parameters to provide to the
 coarray constructor:</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id11">
-<caption><span class="caption-number">Table 24 </span><span class="caption-text">Parameters of coarray constructor</span><a class="headerlink" href="#id11" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id12">
+<caption><span class="caption-number">Table 24 </span><span class="caption-text">Parameters of coarray constructor</span><a class="headerlink" href="#id12" title="Link to this table">#</a></caption>
 <tbody>
 <tr class="row-odd"><td><p>Parameter</p></td>
 <td><p>Description</p></td>
@@ -3208,9 +3297,13 @@ dimension index” equal to the value returned by <code class="docutils literal 
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-component-instances">Using component instances</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distributed-channels">Distributed channels</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#registering-channel-components">Registering channel components</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#segmented-containers">Segmented containers</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-segmented-containers">Using segmented containers</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Segmented containers</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Segmented containers</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segmented-iterators-and-segmented-iterator-traits">Segmented iterators and segmented iterator traits</a></li>

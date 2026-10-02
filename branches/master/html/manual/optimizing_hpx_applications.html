@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Optimizing HPX applications &#8212; HPX 2.0.0-rc1 documentation</title>
+    <title>Optimizing HPX applications &#8212; HPX 2.0.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=7ec4965c"></script>
+    <script src="../_static/documentation_options.js?v=ce394494"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -142,8 +142,8 @@
       
     
     
-    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0-rc1 documentation - Home"/>
-    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0-rc1 documentation - Home"/>`);</script>
+    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0 documentation - Home"/>
+    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -550,7 +550,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/components_fwd.html">hpx/runtime_components/components_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/reflect_client.html">hpx/runtime_components/reflect_client.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/new_hpx_new.html">hpx::new_</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/new_local_new.html">local_new</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/full/runtime_distributed/api/full_api.html">runtime_distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1179,6 +1178,7 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/serialization/api/full_api.html">serialization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/base_object.html">hpx/serialization/base_object.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/serialization_chunk.html">hpx/serialization/serialization_chunk.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/synchronization/api/full_api.html">synchronization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1891,6 +1891,11 @@ be found in the section <a class="reference internal" href="#counters"><span cla
 health and performance of distributed <em>HPX</em> applications. Inspired by tools like
 <code class="docutils literal notranslate"><span class="pre">htop</span></code> and <code class="docutils literal notranslate"><span class="pre">btop</span></code>, it provides a high-level overview of system utilization,
 network flow, and internal runtime metrics.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">hpx-top.py</span></code> is experimental. It may continue to evolve or be removed in
+a future release.</p>
+</div>
 <figure class="align-center" id="id16">
 <a class="reference internal image-reference" href="../_images/hpx_top.png"><img alt="HPX-Top Dashboard Screenshot" src="../_images/hpx_top.png" style="width: 100%;" />
 </a>
@@ -1915,7 +1920,9 @@ Global Address Space (AGAS), crucial for diagnosing naming service bottlenecks.<
 <h4>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h4>
 <p>HPX-Top is implemented as a Python script that acts as a wrapper around your <em>HPX</em>
 application. It automatically configures the necessary performance counters and
-output formats.</p>
+output formats. The script is installed into the <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory of the
+<em>HPX</em> installation alongside <code class="docutils literal notranslate"><span class="pre">hpxrun.py</span></code>; the examples below use the path
+inside the source tree.</p>
 <p>The tool requires the <code class="docutils literal notranslate"><span class="pre">rich</span></code> Python library for rendering the terminal UI:</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>rich
 </pre></div>
@@ -1944,6 +1951,11 @@ non-blocking background thread to update the TUI.</p>
 performance dashboard designed to identify performance anomalies in real-time.
 While <code class="docutils literal notranslate"><span class="pre">hpx-top</span></code> provides a broad system overview, <code class="docutils literal notranslate"><span class="pre">hpx_stat_viewer</span></code> focuses on
 deep-dive analysis of specific metrics with built-in heuristic alerting.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">hpx_stat_viewer.py</span></code> is experimental. It may continue to evolve or be
+removed in a future release.</p>
+</div>
 <figure class="align-center" id="id17">
 <a class="reference internal image-reference" href="../_images/hpx_stat_viewer.png"><img alt="HPX Smart Telemetry Dashboard Screenshot" src="../_images/hpx_stat_viewer.png" style="width: 100%;" />
 </a>
@@ -1970,7 +1982,9 @@ portable for various terminal environments.</p></li>
 <h4>Usage<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">hpx_stat_viewer.py</span></code> reads HPX counter data from standard input in <code class="docutils literal notranslate"><span class="pre">csv-short</span></code>
 transient format. This allows it to be used for both live monitoring and
-post-mortem analysis of log files.</p>
+post-mortem analysis of log files. Like <code class="docutils literal notranslate"><span class="pre">hpx-top.py</span></code>, it is installed into the
+<code class="docutils literal notranslate"><span class="pre">bin</span></code> directory of the <em>HPX</em> installation; the examples below use the path
+inside the source tree.</p>
 <p>To monitor a live application with smart filtering:</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./your_hpx_app<span class="w"> </span>--hpx:print-counter-interval<span class="o">=</span><span class="m">500</span><span class="w"> </span>--hpx:print-counter-format<span class="o">=</span>csv-short<span class="w"> </span>...<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>python3<span class="w"> </span>tools/hpx_stat_viewer.py<span class="w"> </span>--filter<span class="w"> </span><span class="s2">&quot;threads|utilization&quot;</span>
@@ -1985,8 +1999,7 @@ post-mortem analysis of log files.</p>
 <h4>Technical Details<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
 <p>The dashboard implements a thread-safe parser that handles HPX’s CSV-short format.
 The anomaly detection engine uses a smoothing factor of 0.4 for its EMA calculations,
-balancing responsiveness with stability. It is officially integrated into the HPX installation
-rules under the <code class="docutils literal notranslate"><span class="pre">tools</span></code> component.</p>
+balancing responsiveness with stability.</p>
 </section>
 </section>
 <section id="a-simple-example">

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Writing single-node applications &#8212; HPX 2.0.0-rc1 documentation</title>
+    <title>Writing single-node applications &#8212; HPX 2.0.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=7ec4965c"></script>
+    <script src="../_static/documentation_options.js?v=ce394494"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -142,8 +142,8 @@
       
     
     
-    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0-rc1 documentation - Home"/>
-    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0-rc1 documentation - Home"/>`);</script>
+    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0 documentation - Home"/>
+    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -550,7 +550,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/components_fwd.html">hpx/runtime_components/components_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/reflect_client.html">hpx/runtime_components/reflect_client.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/new_hpx_new.html">hpx::new_</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/new_local_new.html">local_new</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/full/runtime_distributed/api/full_api.html">runtime_distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1179,6 +1178,7 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/serialization/api/full_api.html">serialization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/base_object.html">hpx/serialization/base_object.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/serialization_chunk.html">hpx/serialization/serialization_chunk.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/synchronization/api/full_api.html">synchronization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -2464,38 +2464,8 @@ returns a future which is ready when a value has been set on the channel. The
 launch policy <code class="docutils literal notranslate"><span class="pre">hpx::launch::sync</span></code> can be used to make
 <code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">hpx::lcos::local::channel::get</span></code> block until a value is set and
 return the value directly.</p>
-<p>A channel component is created on one <a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a> and can be sent to
-another <a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a> using an action. This example also demonstrates how a
-channel can be used as a range of values:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// channel components need to be registered for each used type (not needed</span>
-<span class="c1">// for hpx::lcos::local::channel)</span>
-<span class="n">HPX_REGISTER_CHANNEL</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="n">channel_sender</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">lcos</span><span class="o">::</span><span class="n">channel</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
-<span class="w">        </span><span class="n">hpx</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="n">HPX_PLAIN_ACTION</span><span class="p">(</span><span class="n">channel_sender</span><span class="p">)</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="n">channel</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="c1">// create the channel on this locality</span>
-<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">lcos</span><span class="o">::</span><span class="n">channel</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">find_here</span><span class="p">());</span>
-
-<span class="w">    </span><span class="c1">// pass the channel to a (possibly remote invoked) action</span>
-<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">post</span><span class="p">(</span><span class="n">channel_sender_action</span><span class="p">(),</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">find_here</span><span class="p">(),</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
-
-<span class="w">    </span><span class="c1">// send some values to the receiver</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">1.2</span><span class="p">,</span><span class="w"> </span><span class="mf">3.4</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0</span><span class="p">};</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
-<span class="w">        </span><span class="n">c</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
-
-<span class="w">    </span><span class="c1">// explicitly close the communication channel (implicit at destruction)</span>
-<span class="w">    </span><span class="n">c</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<p>Channels can also be used across localities as channel components. See
+<a class="reference internal" href="writing_distributed_hpx_applications.html#distributed-channels"><span class="std std-ref">Distributed channels</span></a> for how to create and register them.</p>
 </section>
 <section id="task-blocks">
 <span id="task-block"></span><h3>Task blocks<a class="headerlink" href="#task-blocks" title="Link to this heading">#</a></h3>
