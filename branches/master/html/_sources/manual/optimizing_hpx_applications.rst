@@ -307,11 +307,6 @@ health and performance of distributed |hpx| applications. Inspired by tools like
 ``htop`` and ``btop``, it provides a high-level overview of system utilization,
 network flow, and internal runtime metrics.
 
-.. note::
-
-   ``hpx-top.py`` is experimental. It may continue to evolve or be removed in
-   a future release.
-
 .. figure:: ../_static/images/hpx_top.png
    :alt: HPX-Top Dashboard Screenshot
    :align: center
@@ -336,9 +331,7 @@ Usage
 
 HPX-Top is implemented as a Python script that acts as a wrapper around your |hpx|
 application. It automatically configures the necessary performance counters and
-output formats. The script is installed into the ``bin`` directory of the
-|hpx| installation alongside ``hpxrun.py``; the examples below use the path
-inside the source tree.
+output formats.
 
 The tool requires the ``rich`` Python library for rendering the terminal UI:
 
@@ -377,11 +370,6 @@ performance dashboard designed to identify performance anomalies in real-time.
 While ``hpx-top`` provides a broad system overview, ``hpx_stat_viewer`` focuses on
 deep-dive analysis of specific metrics with built-in heuristic alerting.
 
-.. note::
-
-   ``hpx_stat_viewer.py`` is experimental. It may continue to evolve or be
-   removed in a future release.
-
 .. figure:: ../_static/images/hpx_stat_viewer.png
    :alt: HPX Smart Telemetry Dashboard Screenshot
    :align: center
@@ -408,9 +396,7 @@ Usage
 
 ``hpx_stat_viewer.py`` reads HPX counter data from standard input in ``csv-short``
 transient format. This allows it to be used for both live monitoring and
-post-mortem analysis of log files. Like ``hpx-top.py``, it is installed into the
-``bin`` directory of the |hpx| installation; the examples below use the path
-inside the source tree.
+post-mortem analysis of log files.
 
 To monitor a live application with smart filtering:
 
@@ -430,7 +416,8 @@ Technical Details
 
 The dashboard implements a thread-safe parser that handles HPX's CSV-short format.
 The anomaly detection engine uses a smoothing factor of 0.4 for its EMA calculations,
-balancing responsiveness with stability.
+balancing responsiveness with stability. It is officially integrated into the HPX installation
+rules under the ``tools`` component.
 
 A simple example
 ----------------

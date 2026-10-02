@@ -21,4 +21,3 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    :maxdepth: 1
 
    /libs/core/serialization/api/base_object.rst
-   /libs/core/serialization/api/serialization_chunk.rst

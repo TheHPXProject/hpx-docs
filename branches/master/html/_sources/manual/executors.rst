@@ -543,6 +543,7 @@ a given parallel algorithm or execution policy.
 * `is_never_blocking_one_way_executor` indicates whether the executor can schedule tasks in a fire-and-forget style without blocking.
 * `is_one_way_executor` indicates support for one-way execution (tasks can be scheduled but no result is returned).
 * `is_two_way_executor` indicates support for two-way execution (tasks return a result or a future).
+
 In all cases, the custom executor inherits the capabilities of the base executor, so it integrates seamlessly with |hpx| algorithms.
 
 This design ensures that `simple_annotating_executor` can be used anywhere its underlying executor could be used, while still
@@ -585,8 +586,7 @@ We then use hpx::for_each with a parallel execution policy and attach our custom
 * hpx::execution::par.on(exec) attaches our custom executor to the algorithm.
 * for_each internally partitions the work across threads and schedules each task using `bulk_async_execute`.
 * Each task is annotated with "for_each_task", visible in debuggers and profilers.
-* The results of the parallel computation are stored in the data vector, demonstrating that the algorithm
-  executed successfully in parallel.
+* The results of the parallel computation are stored in the data vector, demonstrating that the algorithm executed successfully in parallel.
 
 This pattern is especially useful in larger applications with many tasks, as annotations make it much easier
 to trace and debug the execution of parallel algorithms.
@@ -623,54 +623,3 @@ need to write a custom ``parallel_scheduler_backend`` class:
 The pool must outlive the scheduler; HPX does not extend the pool's
 lifetime or diagnose a dangling pool.
 
-Replacing the default backend
------------------------------
-
-Most applications should use the default scheduler or the named-pool overload
-above. A replacement backend is intended for integrations that need
-``get_parallel_scheduler()`` to submit work to another execution service, or
-that need custom resource management, scheduling, or instrumentation that an
-HPX thread pool does not provide.
-
-A replacement derives from ``parallel_scheduler_backend`` and implements
-``schedule``, ``schedule_bulk_chunked``, and ``schedule_bulk_unchunked``. Each
-function receives a type-erased receiver and preallocated scratch storage. The
-backend schedules the requested work and eventually completes the receiver
-exactly once with ``set_value``, ``set_error``, or ``set_stopped``. A bulk
-backend calls the receiver's ``execute`` member for the assigned index ranges
-before delivering the terminal completion.
-
-Install an existing backend object with ``set_parallel_scheduler_backend``:
-
-.. code-block:: c++
-
-   namespace ex = hpx::execution::experimental;
-
-   auto previous = ex::query_parallel_scheduler_backend();
-   ex::set_parallel_scheduler_backend(
-       std::make_shared<my_parallel_scheduler_backend>());
-
-   auto scheduler = ex::get_parallel_scheduler();
-
-   // Restore the process-wide backend after all operations using it finish.
-   ex::set_parallel_scheduler_backend(std::move(previous));
-
-The replacement is process-wide and affects subsequent calls to
-``get_parallel_scheduler()``. Schedulers obtained earlier retain shared
-ownership of their original backend. Do not replace a backend while operations
-using it are in flight.
-
-Libraries that select a backend during initialization can instead call
-``set_parallel_scheduler_backend_factory`` before the first
-``get_parallel_scheduler()`` or ``query_parallel_scheduler_backend()`` call.
-The factory is invoked lazily and its backend is shared by subsequent default
-schedulers. Changing the factory after that backend has been created does not
-replace the active backend; use ``set_parallel_scheduler_backend`` for an
-immediate replacement.
-
-Replacement backends receive a ``parallel_scheduler_receiver_proxy`` for each
-operation. Its ``try_query<P>(query)`` member exposes supported properties from
-the connected receiver's environment. In particular,
-``try_query<inplace_stop_token>(get_stop_token)`` returns the receiver's stop
-token when its environment provides that type. Unsupported query and result
-type combinations return ``std::nullopt``.

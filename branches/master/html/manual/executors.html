@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Executors &#8212; HPX 2.0.0 documentation</title>
+    <title>Executors &#8212; HPX 2.0.0-rc1 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=ce394494"></script>
+    <script src="../_static/documentation_options.js?v=7ec4965c"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -142,8 +142,8 @@
       
     
     
-    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0 documentation - Home"/>
-    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0 documentation - Home"/>`);</script>
+    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0-rc1 documentation - Home"/>
+    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0-rc1 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -550,6 +550,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/components_fwd.html">hpx/runtime_components/components_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/reflect_client.html">hpx/runtime_components/reflect_client.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/new_hpx_new.html">hpx::new_</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/new_local_new.html">local_new</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/full/runtime_distributed/api/full_api.html">runtime_distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1178,7 +1179,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/serialization/api/full_api.html">serialization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/base_object.html">hpx/serialization/base_object.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/serialization_chunk.html">hpx/serialization/serialization_chunk.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/synchronization/api/full_api.html">synchronization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1595,10 +1595,7 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2079-parallel-scheduler">P2079 parallel scheduler</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replacing-the-default-backend">Replacing the default backend</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2079-parallel-scheduler">P2079 parallel scheduler</a></li>
 </ul>
             </nav>
         </div>
@@ -2140,10 +2137,7 @@ task it schedules, while delegating actual execution to the base executor.</p>
 * hpx::execution::par.on(exec) attaches our custom executor to the algorithm.
 * for_each internally partitions the work across threads and schedules each task using <cite>bulk_async_execute</cite>.
 * Each task is annotated with “for_each_task”, visible in debuggers and profilers.
-* The results of the parallel computation are stored in the data vector, demonstrating that the algorithm</p>
-<blockquote>
-<div><p>executed successfully in parallel.</p>
-</div></blockquote>
+* The results of the parallel computation are stored in the data vector, demonstrating that the algorithm executed successfully in parallel.</p>
 <p>This pattern is especially useful in larger applications with many tasks, as annotations make it much easier
 to trace and debug the execution of parallel algorithms.</p>
 </section>
@@ -2177,51 +2171,6 @@ need to write a custom <code class="docutils literal notranslate"><span class="p
 <p><code class="docutils literal notranslate"><span class="pre">get_thread_pool</span></code> throws <code class="docutils literal notranslate"><span class="pre">hpx::exception</span></code> for an unknown pool name.
 The pool must outlive the scheduler; HPX does not extend the pool’s
 lifetime or diagnose a dangling pool.</p>
-<section id="replacing-the-default-backend">
-<h3>Replacing the default backend<a class="headerlink" href="#replacing-the-default-backend" title="Link to this heading">#</a></h3>
-<p>Most applications should use the default scheduler or the named-pool overload
-above. A replacement backend is intended for integrations that need
-<code class="docutils literal notranslate"><span class="pre">get_parallel_scheduler()</span></code> to submit work to another execution service, or
-that need custom resource management, scheduling, or instrumentation that an
-HPX thread pool does not provide.</p>
-<p>A replacement derives from <code class="docutils literal notranslate"><span class="pre">parallel_scheduler_backend</span></code> and implements
-<code class="docutils literal notranslate"><span class="pre">schedule</span></code>, <code class="docutils literal notranslate"><span class="pre">schedule_bulk_chunked</span></code>, and <code class="docutils literal notranslate"><span class="pre">schedule_bulk_unchunked</span></code>. Each
-function receives a type-erased receiver and preallocated scratch storage. The
-backend schedules the requested work and eventually completes the receiver
-exactly once with <code class="docutils literal notranslate"><span class="pre">set_value</span></code>, <code class="docutils literal notranslate"><span class="pre">set_error</span></code>, or <code class="docutils literal notranslate"><span class="pre">set_stopped</span></code>. A bulk
-backend calls the receiver’s <code class="docutils literal notranslate"><span class="pre">execute</span></code> member for the assigned index ranges
-before delivering the terminal completion.</p>
-<p>Install an existing backend object with <code class="docutils literal notranslate"><span class="pre">set_parallel_scheduler_backend</span></code>:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">hpx</span><span class="o">::</span><span class="nn">execution</span><span class="o">::</span><span class="nn">experimental</span><span class="p">;</span>
-
-<span class="k">auto</span><span class="w"> </span><span class="n">previous</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ex</span><span class="o">::</span><span class="n">query_parallel_scheduler_backend</span><span class="p">();</span>
-<span class="n">ex</span><span class="o">::</span><span class="n">set_parallel_scheduler_backend</span><span class="p">(</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">my_parallel_scheduler_backend</span><span class="o">&gt;</span><span class="p">());</span>
-
-<span class="k">auto</span><span class="w"> </span><span class="n">scheduler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ex</span><span class="o">::</span><span class="n">get_parallel_scheduler</span><span class="p">();</span>
-
-<span class="c1">// Restore the process-wide backend after all operations using it finish.</span>
-<span class="n">ex</span><span class="o">::</span><span class="n">set_parallel_scheduler_backend</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">previous</span><span class="p">));</span>
-</pre></div>
-</div>
-<p>The replacement is process-wide and affects subsequent calls to
-<code class="docutils literal notranslate"><span class="pre">get_parallel_scheduler()</span></code>. Schedulers obtained earlier retain shared
-ownership of their original backend. Do not replace a backend while operations
-using it are in flight.</p>
-<p>Libraries that select a backend during initialization can instead call
-<code class="docutils literal notranslate"><span class="pre">set_parallel_scheduler_backend_factory</span></code> before the first
-<code class="docutils literal notranslate"><span class="pre">get_parallel_scheduler()</span></code> or <code class="docutils literal notranslate"><span class="pre">query_parallel_scheduler_backend()</span></code> call.
-The factory is invoked lazily and its backend is shared by subsequent default
-schedulers. Changing the factory after that backend has been created does not
-replace the active backend; use <code class="docutils literal notranslate"><span class="pre">set_parallel_scheduler_backend</span></code> for an
-immediate replacement.</p>
-<p>Replacement backends receive a <code class="docutils literal notranslate"><span class="pre">parallel_scheduler_receiver_proxy</span></code> for each
-operation. Its <code class="docutils literal notranslate"><span class="pre">try_query&lt;P&gt;(query)</span></code> member exposes supported properties from
-the connected receiver’s environment. In particular,
-<code class="docutils literal notranslate"><span class="pre">try_query&lt;inplace_stop_token&gt;(get_stop_token)</span></code> returns the receiver’s stop
-token when its environment provides that type. Unsupported query and result
-type combinations return <code class="docutils literal notranslate"><span class="pre">std::nullopt</span></code>.</p>
-</section>
 </section>
 </section>
 
@@ -2291,10 +2240,7 @@ type combinations return <code class="docutils literal notranslate"><span class=
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2079-parallel-scheduler">P2079 parallel scheduler</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replacing-the-default-backend">Replacing the default backend</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2079-parallel-scheduler">P2079 parallel scheduler</a></li>
 </ul>
   </nav></div>
 
