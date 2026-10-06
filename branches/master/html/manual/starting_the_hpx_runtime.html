@@ -1644,8 +1644,10 @@ can instead link against <code class="docutils literal notranslate"><span class=
 runtime startup path without needing the header-triggered opt-in.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The use of <code class="docutils literal notranslate"><span class="pre">HPX::auto_wrap_main</span></code> is not supported when using the
-native Windows MSVC toolchain.</p>
+<p>When using the native Windows MSVC toolchain, <code class="docutils literal notranslate"><span class="pre">HPX::auto_wrap_main</span></code>
+force-includes <code class="docutils literal notranslate"><span class="pre">hpx/hpx_main.hpp</span></code> into all C++ source files of the
+executable (using <code class="docutils literal notranslate"><span class="pre">/FI</span></code>), as MSVC does not support the weak symbols the
+wrapping relies on elsewhere.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
