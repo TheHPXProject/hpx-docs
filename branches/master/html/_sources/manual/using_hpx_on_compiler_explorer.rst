@@ -195,7 +195,11 @@ To build a program that does not include ``hpx/hpx_main.hpp`` itself, add
 every source file, which is the same as including it at the top of each one.
 When compiling more than one source file this way against a static |hpx|, also
 pass ``/DHPX_AUTO_WRAP_MAIN_FORCE_INCLUDE`` so the default ``main`` comes from
-``hpx_wrap.lib`` once instead of from the header in every source file.
+``hpx_wrap.lib`` once instead of from the header in every source file, and add
+``/SUBSYSTEM:CONSOLE`` to the ``/link`` part. No object file defines ``main``
+then, and without ``/SUBSYSTEM`` the linker can't pick an entry point and fails
+with ``LNK1561``. CMake passes ``/SUBSYSTEM:CONSOLE`` for console executables
+on its own.
 
 Prefer ``HPX::hpx`` plus ``HPX::wrap_main`` or ``HPX::auto_wrap_main`` from
 CMake where possible, since they supply these options and the module libraries
