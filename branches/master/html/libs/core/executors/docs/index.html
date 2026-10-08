@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>executors &#8212; HPX 2.0.0 documentation</title>
+    <title>executors &#8212; HPX 2.0.0-rc1 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../../_static/documentation_options.js?v=ce394494"></script>
+    <script src="../../../../_static/documentation_options.js?v=7ec4965c"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -142,8 +142,8 @@
       
     
     
-    <img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0 documentation - Home"/>
-    <script>document.write(`<img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0 documentation - Home"/>`);</script>
+    <img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0-rc1 documentation - Home"/>
+    <script>document.write(`<img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0-rc1 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -550,6 +550,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../full/runtime_components/api/components_fwd.html">hpx/runtime_components/components_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../full/runtime_components/api/reflect_client.html">hpx/runtime_components/reflect_client.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../full/runtime_components/api/new_hpx_new.html">hpx::new_</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../full/runtime_components/api/new_local_new.html">local_new</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../full/runtime_distributed/api/full_api.html">runtime_distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -978,7 +979,8 @@
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../execution/api/full_api.html">execution</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../execution/api/policy_traits.html">hpx/execution/traits/policy_traits.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../execution/api/policy_traits_policy_traits.html">policy_traits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../execution/api/policy_traits_policy_traits_default.html">policy_traits_default</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../execution/api/is_execution_policy.html">hpx/execution/traits/is_execution_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../execution/api/persistent_auto_chunk_size_hpx_execution_experimental_persistent_auto_chunk_size.html">hpx::execution::experimental::persistent_auto_chunk_size</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../execution/api/num_cores_hpx_execution_experimental_num_cores.html">hpx::execution::experimental::num_cores</a></li>
@@ -1339,7 +1341,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../releases.html">Releases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_2_0_0.html"><em>HPX</em> V2.0.0 (TBD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_2_0_0.html"><em>HPX</em> V2.0.0 (Oct 31, 2026)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_1_11_0.html"><em>HPX</em> V1.11.0 (Jun 30, 2025)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_1_10_0.html"><em>HPX</em> V1.10.0 (May 29, 2024)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_1_9_1.html"><em>HPX</em> V1.9.1 (August 4, 2023)</a></li>
@@ -1594,6 +1596,44 @@ it exposes the following classes and constants:</p>
 <li><p><a class="reference internal" href="../api/execution_policy_hpx_execution_par_unseq.html#modules-execution-policy-hpx-execution-par-unseq-api"><span class="std std-ref">hpx::execution::par_unseq</span></a></p></li>
 <li><p><a class="reference internal" href="../api/execution_policy_hpx_execution_task.html#modules-execution-policy-hpx-execution-task-api"><span class="std std-ref">hpx::execution::task</span></a></p></li>
 </ul>
+<p>When HPX is configured with data-parallel support (<code class="docutils literal notranslate"><span class="pre">HPX_WITH_DATAPAR</span></code>), the
+module additionally provides vectorizing policies. These are not part of the
+generated API reference.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hpx::execution::simd_policy</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx::execution::simd_task_policy</span></code> and
+the object <code class="docutils literal notranslate"><span class="pre">hpx::execution::simd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hpx::execution::par_simd_policy</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx::execution::par_simd_task_policy</span></code>
+and the object <code class="docutils literal notranslate"><span class="pre">hpx::execution::par_simd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hpx::execution::fixed_size_simd_policy&lt;N&gt;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">hpx::execution::fixed_size_simd_task_policy&lt;N&gt;</span></code> and the variable template
+<code class="docutils literal notranslate"><span class="pre">hpx::execution::fixed_size_simd&lt;N&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hpx::execution::par_fixed_size_simd_policy&lt;N&gt;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">hpx::execution::par_fixed_size_simd_task_policy&lt;N&gt;</span></code> and the variable
+template <code class="docutils literal notranslate"><span class="pre">hpx::execution::par_fixed_size_simd&lt;N&gt;</span></code></p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">simd</span></code> and <code class="docutils literal notranslate"><span class="pre">par_simd</span></code> policies vectorize using the native number of
+vector lanes. The <code class="docutils literal notranslate"><span class="pre">fixed_size_simd&lt;N&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">par_fixed_size_simd&lt;N&gt;</span></code>
+policies vectorize using <code class="docutils literal notranslate"><span class="pre">N</span></code> lanes. Rebinding with <code class="docutils literal notranslate"><span class="pre">(task)</span></code>, executors
+or parameters preserves <code class="docutils literal notranslate"><span class="pre">N</span></code>:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">);</span>
+
+<span class="n">hpx</span><span class="o">::</span><span class="n">for_each</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">fixed_size_simd</span><span class="o">&lt;</span><span class="mi">4</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+<span class="w">    </span><span class="p">[](</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+
+<span class="k">auto</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">for_each</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">par_fixed_size_simd</span><span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">task</span><span class="p">),</span>
+<span class="w">    </span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+<span class="n">f</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>With a fixed lane count the vector loop processes only complete packs of <code class="docutils literal notranslate"><span class="pre">N</span></code>
+elements. Alignment checks use the selected pack type.</p>
+<p>A lane count of <code class="docutils literal notranslate"><span class="pre">0</span></code> selects the native number of lanes for the element
+type, which is equivalent to <code class="docutils literal notranslate"><span class="pre">simd</span></code> and <code class="docutils literal notranslate"><span class="pre">par_simd</span></code>.</p>
+<p>A lane count of <code class="docutils literal notranslate"><span class="pre">1</span></code> is semantically scalar. The algorithms execute such a
+policy with scalar semantics, without alignment peeling or a remainder loop,
+and the user-provided function is only invoked with scalar arguments. Use a
+lane count greater than <code class="docutils literal notranslate"><span class="pre">1</span></code> if the function must be invoked with vector
+packs.</p>
 <p>See the <a class="reference internal" href="../api/full_api.html#modules-executors-api"><span class="std std-ref">API reference</span></a> of this module for more
 details.</p>
 </section>

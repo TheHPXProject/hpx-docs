@@ -20,7 +20,8 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
 .. toctree::
    :maxdepth: 1
 
-   /libs/core/execution/api/policy_traits.rst
+   /libs/core/execution/api/policy_traits_policy_traits.rst
+   /libs/core/execution/api/policy_traits_policy_traits_default.rst
    /libs/core/execution/api/is_execution_policy.rst
    /libs/core/execution/api/persistent_auto_chunk_size_hpx_execution_experimental_persistent_auto_chunk_size.rst
    /libs/core/execution/api/num_cores_hpx_execution_experimental_num_cores.rst
