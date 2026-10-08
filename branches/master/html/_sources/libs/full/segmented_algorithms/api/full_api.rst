@@ -37,6 +37,7 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/full/segmented_algorithms/api/adjacent_difference.rst
    /libs/full/segmented_algorithms/api/mismatch.rst
    /libs/full/segmented_algorithms/api/minmax.rst
+   /libs/full/segmented_algorithms/api/merge.rst
    /libs/full/segmented_algorithms/api/transform_inclusive_scan.rst
    /libs/full/segmented_algorithms/api/transform_reduce.rst
    /libs/full/segmented_algorithms/api/copy.rst
