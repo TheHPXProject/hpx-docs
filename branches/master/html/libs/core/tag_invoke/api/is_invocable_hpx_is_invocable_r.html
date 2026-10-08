@@ -514,6 +514,9 @@
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../full/naming_base/api/full_api.html">naming_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../full/naming_base/api/gid_type_hpx_naming_gid_type.html">hpx::naming::gid_type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../full/naming_base/api/address_hpx_naming_address.html">hpx::naming::address</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../full/naming_base/api/id_type_hpx_id_type.html">hpx::id_type</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../full/naming_base/api/unmanaged.html">hpx/naming_base/unmanaged.hpp</a></li>
 </ul>
 </details></li>
@@ -1099,6 +1102,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../lcos_local/api/trigger.html">hpx/lcos_local/trigger.hpp</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../logging/api/full_api.html">logging</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../logging/api/manipulator.html">hpx/logging/manipulator.hpp</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../pack_traversal/api/full_api.html">pack_traversal</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../pack_traversal/api/pack_traversal_async.html">hpx/pack_traversal/pack_traversal_async.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../pack_traversal/api/unwrap_hpx_functional_unwrap.html">hpx::functional::unwrap</a></li>
@@ -1209,6 +1216,7 @@
 </ul>
 </details></li>
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="full_api.html">tag_invoke</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="tag_invoke.html">hpx/functional/tag_invoke.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="invoke_hpx_invoke.html">hpx::invoke</a></li>
 <li class="toctree-l4"><a class="reference internal" href="is_invocable_hpx_is_invocable.html">hpx::is_invocable</a></li>
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">hpx::is_invocable_r</a></li>
@@ -1266,6 +1274,9 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../timing/api/full_api.html">timing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../timing/api/high_resolution_clock_hpx_chrono_high_resolution_clock.html">hpx::chrono::high_resolution_clock</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../timing/api/high_resolution_timer_hpx_chrono_high_resolution_timer.html">hpx::chrono::high_resolution_timer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../timing/api/steady_clock_hpx_chrono_steady_time_point.html">hpx::chrono::steady_time_point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../timing/api/steady_clock_hpx_chrono_steady_duration.html">hpx::chrono::steady_duration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../timing/api/steady_clock_hpx_chrono_null_duration.html">hpx::chrono::null_duration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../topology/api/full_api.html">topology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1284,6 +1295,10 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../tracy/api/full_api.html">tracy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../tracy/api/tracy_tls.html">hpx/tracy/tracy_tls.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../tracy/api/tracy.html">hpx/tracy/tracy.hpp</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../type_support/api/full_api.html">type_support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../type_support/api/identity_hpx_identity.html">hpx::identity</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../util/api/full_api.html">util</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1590,7 +1605,7 @@ document.write(`
                   
   <section id="hpx-is-invocable-r">
 <span id="modules-is-invocable-hpx-is-invocable-r-api"></span><h1>hpx::is_invocable_r<a class="headerlink" href="#hpx-is-invocable-r" title="Link to this heading">#</a></h1>
-<p>Defined in header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/2ec4fe4194c0f9a6ca581efdd7a83a7204855204/libs/core/include_local/include/hpx/type_traits.hpp">hpx/type_traits.hpp</a>.</p>
+<p>Defined in header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/fa2079bebb170d06ad8b85f9cdf104d84e1a1f15/libs/core/include_local/include/hpx/type_traits.hpp">hpx/type_traits.hpp</a>.</p>
 <p>See <a class="reference internal" href="../../../../api/public_api.html#public-api"><span class="std std-ref">Public API</span></a> for a list of names and headers that are part of the public
 <em>HPX</em> API.</p>
 <p>See also:</p>
@@ -1605,11 +1620,7 @@ document.write(`
 <dd><p>Determines whether <em>F</em> can be invoked with the arguments <em>Ts</em>… to yield a result that is convertible to <em>R</em> and the implicit conversion does not bind a reference to a temporary object (since C++23). If <em>R</em> is <em>cv</em> void, the result can be any type. Formally, determines whether <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">INVOKE</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">declval</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">declval</span><span class="o">&lt;</span><span class="n">Ts</span><span class="o">&gt;</span><span class="p">()...)</span>
 </pre></div>
 </div>
- is well-formed when treated as an unevaluated operand, where <em>INVOKE</em> is the operation defined in <em>Callable</em>. Determines whether <em>F</em> can be invoked with the arguments <em>Ts</em>…. Formally, determines whether <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">INVOKE</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">declval</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">declval</span><span class="o">&lt;</span><span class="n">Ts</span><span class="o">&gt;</span><span class="p">()...)</span>
-</pre></div>
-</div>
- is well-formed when treated as an unevaluated operand, where <em>INVOKE</em> is the operation defined in <em>Callable</em>.</p>
-<p>F, R and all types in the parameter pack Ts shall each be a complete type, (possibly cv-qualified) void, or an array of unknown bound. Otherwise, the behavior is undefined. If an instantiation of a template above depends, directly or indirectly, on an incomplete type, and that instantiation could yield a different result if that type were hypothetically completed, the behavior is undefined. </p>
+ is well-formed when treated as an unevaluated operand, where <em>INVOKE</em> is the operation defined in <em>Callable</em>. \copydetail <a class="reference internal" href="is_invocable_hpx_is_invocable.html#structhpx_1_1is__invocable"><span class="std std-ref">is_invocable</span></a></p>
 </dd></dl>
 
 </section>

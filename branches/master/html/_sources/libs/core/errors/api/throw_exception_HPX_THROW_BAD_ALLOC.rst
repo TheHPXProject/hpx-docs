@@ -24,5 +24,5 @@ See also:
    - :ref:`HPX_THROW_EXCEPTION <modules_throw_exception_HPX_THROW_EXCEPTION_api>`
    - :ref:`HPX_THROWS_IF <modules_throw_exception_HPX_THROWS_IF_api>`
 
-.. doxygenfunction:: HPX_THROW_BAD_ALLOC
+.. doxygendefine:: HPX_THROW_BAD_ALLOC
    :project: hpx

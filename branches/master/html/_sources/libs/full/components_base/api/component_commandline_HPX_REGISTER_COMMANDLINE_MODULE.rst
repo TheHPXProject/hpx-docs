@@ -19,5 +19,5 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
 |hpx| API.
 
 
-.. doxygenfunction:: HPX_REGISTER_COMMANDLINE_MODULE
+.. doxygendefine:: HPX_REGISTER_COMMANDLINE_MODULE
    :project: hpx

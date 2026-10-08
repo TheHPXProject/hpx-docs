@@ -27,7 +27,3 @@ See also:
    :project: hpx
 .. doxygenfunction:: hpx::finalize(hpx::chrono::steady_duration shutdown_timeout, hpx::error_code &ec=throws)
    :project: hpx
-.. doxygenfunction:: hpx::finalize(double shutdown_timeout, double localwait, error_code &ec)
-   :project: hpx
-.. doxygenfunction:: hpx::finalize(double shutdown_timeout, error_code &ec)
-   :project: hpx

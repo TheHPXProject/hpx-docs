@@ -19,5 +19,5 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
 |hpx| API.
 
 
-.. doxygenfunction:: HPX_DEFINE_COMPONENT_ACTION
+.. doxygendefine:: HPX_DEFINE_COMPONENT_ACTION
    :project: hpx

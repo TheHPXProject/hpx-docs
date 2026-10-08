@@ -48,7 +48,7 @@
     <link rel="icon" href="../../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="hpx/naming_base/unmanaged.hpp" href="unmanaged.html" />
+    <link rel="next" title="hpx::naming::gid_type" href="gid_type_hpx_naming_gid_type.html" />
     <link rel="prev" title="hpx::disconnect" href="../../init_runtime/api/finalize_hpx_disconnect.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -514,6 +514,9 @@
 </ul>
 </details></li>
 <li class="toctree-l3 current active has-children"><a class="current reference internal" href="#">naming_base</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="gid_type_hpx_naming_gid_type.html">hpx::naming::gid_type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="address_hpx_naming_address.html">hpx::naming::address</a></li>
+<li class="toctree-l4"><a class="reference internal" href="id_type_hpx_id_type.html">hpx::id_type</a></li>
 <li class="toctree-l4"><a class="reference internal" href="unmanaged.html">hpx/naming_base/unmanaged.hpp</a></li>
 </ul>
 </details></li>
@@ -1099,6 +1102,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/lcos_local/api/trigger.html">hpx/lcos_local/trigger.hpp</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/logging/api/full_api.html">logging</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../core/logging/api/manipulator.html">hpx/logging/manipulator.hpp</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/pack_traversal/api/full_api.html">pack_traversal</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/pack_traversal/api/pack_traversal_async.html">hpx/pack_traversal/pack_traversal_async.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/pack_traversal/api/unwrap_hpx_functional_unwrap.html">hpx::functional::unwrap</a></li>
@@ -1209,6 +1216,7 @@
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/tag_invoke/api/full_api.html">tag_invoke</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../core/tag_invoke/api/tag_invoke.html">hpx/functional/tag_invoke.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/tag_invoke/api/invoke_hpx_invoke.html">hpx::invoke</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/tag_invoke/api/is_invocable_hpx_is_invocable.html">hpx::is_invocable</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/tag_invoke/api/is_invocable_hpx_is_invocable_r.html">hpx::is_invocable_r</a></li>
@@ -1266,6 +1274,9 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/timing/api/full_api.html">timing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/timing/api/high_resolution_clock_hpx_chrono_high_resolution_clock.html">hpx::chrono::high_resolution_clock</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/timing/api/high_resolution_timer_hpx_chrono_high_resolution_timer.html">hpx::chrono::high_resolution_timer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../core/timing/api/steady_clock_hpx_chrono_steady_time_point.html">hpx::chrono::steady_time_point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../core/timing/api/steady_clock_hpx_chrono_steady_duration.html">hpx::chrono::steady_duration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../core/timing/api/steady_clock_hpx_chrono_null_duration.html">hpx::chrono::null_duration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/topology/api/full_api.html">topology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1284,6 +1295,10 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/tracy/api/full_api.html">tracy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/tracy/api/tracy_tls.html">hpx/tracy/tracy_tls.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/tracy/api/tracy.html">hpx/tracy/tracy.hpp</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/type_support/api/full_api.html">type_support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../core/type_support/api/identity_hpx_identity.html">hpx::identity</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/util/api/full_api.html">util</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1584,6 +1599,9 @@ document.write(`
 <em>HPX</em> API.</p>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="gid_type_hpx_naming_gid_type.html">hpx::naming::gid_type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="address_hpx_naming_address.html">hpx::naming::address</a></li>
+<li class="toctree-l1"><a class="reference internal" href="id_type_hpx_id_type.html">hpx::id_type</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unmanaged.html">hpx/naming_base/unmanaged.hpp</a></li>
 </ul>
 </div>
@@ -1610,11 +1628,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="unmanaged.html"
+       href="gid_type_hpx_naming_gid_type.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">hpx/naming_base/unmanaged.hpp</p>
+        <p class="prev-next-title">hpx::naming::gid_type</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

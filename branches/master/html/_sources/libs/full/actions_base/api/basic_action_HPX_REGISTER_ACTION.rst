@@ -23,5 +23,5 @@ See also:
 
    - :ref:`HPX_REGISTER_ACTION_DECLARATION <modules_basic_action_HPX_REGISTER_ACTION_DECLARATION_api>`
 
-.. doxygenfunction:: HPX_REGISTER_ACTION
+.. doxygendefine:: HPX_REGISTER_ACTION
    :project: hpx

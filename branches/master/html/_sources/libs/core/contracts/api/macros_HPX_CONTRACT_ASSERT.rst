@@ -24,5 +24,5 @@ See also:
    - :ref:`HPX_PRE <modules_macros_HPX_PRE_api>`
    - :ref:`HPX_POST <modules_macros_HPX_POST_api>`
 
-.. doxygenfunction:: HPX_CONTRACT_ASSERT
+.. doxygendefine:: HPX_CONTRACT_ASSERT
    :project: hpx

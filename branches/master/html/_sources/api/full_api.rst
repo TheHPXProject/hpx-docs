@@ -73,6 +73,7 @@ refer to the full documentation below.
    /libs/core/include_local/api/full_api.rst
    /libs/core/io_service/api/full_api.rst
    /libs/core/lcos_local/api/full_api.rst
+   /libs/core/logging/api/full_api.rst
    /libs/core/pack_traversal/api/full_api.rst
    /libs/core/preprocessor/api/full_api.rst
    /libs/core/resiliency/api/full_api.rst
@@ -92,6 +93,7 @@ refer to the full documentation below.
    /libs/core/topology/api/full_api.rst
    /libs/core/tracing/api/full_api.rst
    /libs/core/tracy/api/full_api.rst
+   /libs/core/type_support/api/full_api.rst
    /libs/core/util/api/full_api.rst
    /components/component_storage/api/full_api.rst
    /components/process/api/full_api.rst

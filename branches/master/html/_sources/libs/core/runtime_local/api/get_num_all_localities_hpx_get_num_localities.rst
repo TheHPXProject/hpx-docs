@@ -27,11 +27,7 @@ See also:
    :project: hpx
 .. doxygenfunction:: hpx::get_num_localities(launch::sync_policy, error_code &ec=throws)
    :project: hpx
-.. doxygenfunction:: hpx::get_num_localities(hpx::launch::sync_policy, error_code &ec)
-   :project: hpx
 .. doxygenfunction:: hpx::get_num_localities(components::component_type t)
    :project: hpx
 .. doxygenfunction:: hpx::get_num_localities(launch::sync_policy, components::component_type t, error_code &ec=throws)
-   :project: hpx
-.. doxygenfunction:: hpx::get_num_localities(hpx::launch::sync_policy, components::component_type type, error_code &ec)
    :project: hpx

@@ -23,5 +23,5 @@ See also:
 
    - :ref:`HPX_ASSERT <modules_macros_HPX_ASSERT_api>`
 
-.. doxygenfunction:: HPX_ASSERT_MSG
+.. doxygendefine:: HPX_ASSERT_MSG
    :project: hpx
