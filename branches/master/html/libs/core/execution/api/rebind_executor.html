@@ -1000,6 +1000,7 @@
 <li class="toctree-l4"><a class="reference internal" href="execution_information.html">hpx/execution/executors/execution_information.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="execution_parameters_fwd.html">hpx/execution/executors/execution_parameters_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dynamic_chunk_size_hpx_execution_experimental_dynamic_chunk_size.html">hpx::execution::experimental::dynamic_chunk_size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="create_rebound_policy.html">hpx/execution/executors/create_rebound_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="collect_chunking_parameters_hpx_execution_experimental_collect_chunking_parameters.html">hpx::execution::experimental::collect_chunking_parameters</a></li>
 <li class="toctree-l4"><a class="reference internal" href="future_sender.html">hpx/execution/algorithms/future_sender.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sender_future.html">hpx/execution/algorithms/sender_future.hpp</a></li>
@@ -1568,9 +1569,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -1586,34 +1585,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv43hpx"><code class="docutils literal notranslate"><span class="pre">hpx</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx9executionE"><code class="docutils literal notranslate"><span class="pre">hpx::execution</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx9execution12experimentalE"><code class="docutils literal notranslate"><span class="pre">hpx::execution::experimental</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I000EN3hpx9execution12experimental17rebind_executor_tE"><code class="docutils literal notranslate"><span class="pre">rebind_executor_t</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx9execution12experimental21create_rebound_policyE"><code class="docutils literal notranslate"><span class="pre">create_rebound_policy</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I000EN3hpx9execution12experimental15rebind_executorE"><code class="docutils literal notranslate"><span class="pre">hpx::execution::experimental::rebind_executor</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx9execution12experimental15rebind_executor4typeE"><code class="docutils literal notranslate"><span class="pre">type</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx9execution12experimental23create_rebound_policy_tE"><code class="docutils literal notranslate"><span class="pre">hpx::execution::experimental::create_rebound_policy_t</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I000ENK3hpx9execution12experimental23create_rebound_policy_tclEDcRR8ExPolicyRR8ExecutorRR10Parameters"><code class="docutils literal notranslate"><span class="pre">operator()()</span></code></a></li>
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I00ENK3hpx9execution12experimental23create_rebound_policy_tclEDcRR8ExPolicyRR8Executor"><code class="docutils literal notranslate"><span class="pre">operator()()</span></code></a></li>
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I00ENK3hpx9execution12experimental23create_rebound_policy_tclEDcRR8ExPolicyRR10Parameters"><code class="docutils literal notranslate"><span class="pre">operator()()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -1628,77 +1599,8 @@ document.write(`
 <p>Defined in header hpx/execution/executors/rebind_executor.hpp.</p>
 <p>See <a class="reference internal" href="../../../../api/public_api.html#public-api"><span class="std std-ref">Public API</span></a> for a list of names and headers that are part of the public
 <em>HPX</em> API.</p>
-<dl class="cpp type">
-<dt class="sig sig-object cpp" id="_CPPv43hpx">
-<span id="_CPPv33hpx"></span><span id="_CPPv23hpx"></span><span id="hpx"></span><span class="target" id="namespacehpx"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">hpx</span></span></span><br /></dt>
-<dd><dl class="cpp type">
-<dt class="sig sig-object cpp" id="_CPPv4N3hpx9executionE">
-<span id="_CPPv3N3hpx9executionE"></span><span id="_CPPv2N3hpx9executionE"></span><span id="hpx::execution"></span><span class="target" id="namespacehpx_1_1execution"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">execution</span></span></span><br /></dt>
-<dd><dl class="cpp type">
-<dt class="sig sig-object cpp" id="_CPPv4N3hpx9execution12experimentalE">
-<span id="_CPPv3N3hpx9execution12experimentalE"></span><span id="_CPPv2N3hpx9execution12experimentalE"></span><span id="hpx::execution::experimental"></span><span class="target" id="namespacehpx_1_1execution_1_1experimental"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">experimental</span></span></span><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
-<dl class="cpp type">
-<dt class="sig sig-object cpp" id="_CPPv4I000EN3hpx9execution12experimental17rebind_executor_tE">
-<span id="_CPPv3I000EN3hpx9execution12experimental17rebind_executor_tE"></span><span id="_CPPv2I000EN3hpx9execution12experimental17rebind_executor_tE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ExPolicy</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Executor</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Parameters</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="rebind__executor_8hpp_1a4b8c55b1c7dcc6dc0bb8a33e6b3af348"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rebind_executor_t</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I000EN3hpx9execution12experimental15rebind_executorE" title="hpx::execution::experimental::rebind_executor"><span class="n"><span class="pre">rebind_executor</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I000EN3hpx9execution12experimental17rebind_executor_tE" title="hpx::execution::experimental::rebind_executor_t::ExPolicy"><span class="n"><span class="pre">ExPolicy</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I000EN3hpx9execution12experimental17rebind_executor_tE" title="hpx::execution::experimental::rebind_executor_t::Executor"><span class="n"><span class="pre">Executor</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I000EN3hpx9execution12experimental17rebind_executor_tE" title="hpx::execution::experimental::rebind_executor_t::Parameters"><span class="n"><span class="pre">Parameters</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><a class="headerlink" href="#_CPPv4I000EN3hpx9execution12experimental17rebind_executor_tE" title="Link to this definition">#</a><br /></dt>
-<dd></dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-variables">Variables</p>
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N3hpx9execution12experimental21create_rebound_policyE">
-<span id="_CPPv3N3hpx9execution12experimental21create_rebound_policyE"></span><span id="_CPPv2N3hpx9execution12experimental21create_rebound_policyE"></span><span id="hpx::execution::experimental::create_rebound_policy__hpx::execution::experimental::create_rebound_policy_t"></span><span class="target" id="rebind__executor_8hpp_1a71ffa6d2ee139c4a477b914424c451f7"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../async_cuda/api/cuda_executor.html#_CPPv4N3hpx9executionE" title="hpx::execution"><span class="n"><span class="pre">execution</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../async_cuda/api/cuda_executor.html#_CPPv4N3hpx9execution12experimentalE" title="hpx::execution::experimental"><span class="n"><span class="pre">experimental</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N3hpx9execution12experimental23create_rebound_policy_tE" title="hpx::execution::experimental::create_rebound_policy_t"><span class="n"><span class="pre">create_rebound_policy_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">create_rebound_policy</span></span></span><a class="headerlink" href="#_CPPv4N3hpx9execution12experimental21create_rebound_policyE" title="Link to this definition">#</a><br /></dt>
-<dd></dd></dl>
-
-</div>
-<dl class="cpp struct">
-<dt class="sig sig-object cpp" id="_CPPv4I000EN3hpx9execution12experimental15rebind_executorE">
-<span id="_CPPv3I000EN3hpx9execution12experimental15rebind_executorE"></span><span id="_CPPv2I000EN3hpx9execution12experimental15rebind_executorE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ExPolicy</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Executor</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Parameters</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structhpx_1_1execution_1_1experimental_1_1rebind__executor"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rebind_executor</span></span></span><a class="headerlink" href="#_CPPv4I000EN3hpx9execution12experimental15rebind_executorE" title="Link to this definition">#</a><br /></dt>
-<dd><div class="docutils container">
-<em>#include &lt;rebind_executor.hpp&gt;</em></div>
-<p>Rebind the type of executor used by an execution policy. The execution category of Executor shall not be weaker than that of ExecutionPolicy. </p>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
-<dl class="cpp type">
-<dt class="sig sig-object cpp" id="_CPPv4N3hpx9execution12experimental15rebind_executor4typeE">
-<span id="_CPPv3N3hpx9execution12experimental15rebind_executor4typeE"></span><span id="_CPPv2N3hpx9execution12experimental15rebind_executor4typeE"></span><span class="target" id="structhpx_1_1execution_1_1experimental_1_1rebind__executor_1a8c1688e48b18541969d8e7dc27a99931"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">type</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">policy_type</span></span><span class="p"><span class="pre">::</span></span><span class="k"><span class="pre">template</span></span><span class="w"> </span><span class="n"><span class="pre">rebind</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">executor_type</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">parameters_type</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><a class="headerlink" href="#_CPPv4N3hpx9execution12experimental15rebind_executor4typeE" title="Link to this definition">#</a><br /></dt>
-<dd><p>The type of the rebound execution policy. </p>
-</dd></dl>
-
-</div>
-</dd></dl>
-
-<dl class="cpp struct">
-<dt class="sig sig-object cpp" id="_CPPv4N3hpx9execution12experimental23create_rebound_policy_tE">
-<span id="_CPPv3N3hpx9execution12experimental23create_rebound_policy_tE"></span><span id="_CPPv2N3hpx9execution12experimental23create_rebound_policy_tE"></span><span id="hpx::execution::experimental::create_rebound_policy_t"></span><span class="target" id="structhpx_1_1execution_1_1experimental_1_1create__rebound__policy__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">create_rebound_policy_t</span></span></span><a class="headerlink" href="#_CPPv4N3hpx9execution12experimental23create_rebound_policy_tE" title="Link to this definition">#</a><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4I000ENK3hpx9execution12experimental23create_rebound_policy_tclEDcRR8ExPolicyRR8ExecutorRR10Parameters">
-<span id="_CPPv3I000ENK3hpx9execution12experimental23create_rebound_policy_tclERR8ExPolicyRR8ExecutorRR10Parameters"></span><span id="_CPPv2I000ENK3hpx9execution12experimental23create_rebound_policy_tclERR8ExPolicyRR8ExecutorRR10Parameters"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ExPolicy</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Executor</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Parameters</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structhpx_1_1execution_1_1experimental_1_1create__rebound__policy__t_1a2bfb59558fef47865e8fe659d7483ba9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="k"><span class="pre">decltype</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">auto</span></span><span class="p"><span class="pre">)</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">()</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I000ENK3hpx9execution12experimental23create_rebound_policy_tclEDcRR8ExPolicyRR8ExecutorRR10Parameters" title="hpx::execution::experimental::create_rebound_policy_t::operator()::ExPolicy"><span class="n"><span class="pre">ExPolicy</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span>, <a class="reference internal" href="#_CPPv4I000ENK3hpx9execution12experimental23create_rebound_policy_tclEDcRR8ExPolicyRR8ExecutorRR10Parameters" title="hpx::execution::experimental::create_rebound_policy_t::operator()::Executor"><span class="n"><span class="pre">Executor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">exec</span></span>, <a class="reference internal" href="#_CPPv4I000ENK3hpx9execution12experimental23create_rebound_policy_tclEDcRR8ExPolicyRR8ExecutorRR10Parameters" title="hpx::execution::experimental::create_rebound_policy_t::operator()::Parameters"><span class="n"><span class="pre">Parameters</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">parameters</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4I000ENK3hpx9execution12experimental23create_rebound_policy_tclEDcRR8ExPolicyRR8ExecutorRR10Parameters" title="Link to this definition">#</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4I00ENK3hpx9execution12experimental23create_rebound_policy_tclEDcRR8ExPolicyRR8Executor">
-<span id="_CPPv3I00ENK3hpx9execution12experimental23create_rebound_policy_tclERR8ExPolicyRR8Executor"></span><span id="_CPPv2I00ENK3hpx9execution12experimental23create_rebound_policy_tclERR8ExPolicyRR8Executor"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ExPolicy</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Executor</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structhpx_1_1execution_1_1experimental_1_1create__rebound__policy__t_1a52e2b172c0273bbc183fe5fb3401c172"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="k"><span class="pre">decltype</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">auto</span></span><span class="p"><span class="pre">)</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">()</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I00ENK3hpx9execution12experimental23create_rebound_policy_tclEDcRR8ExPolicyRR8Executor" title="hpx::execution::experimental::create_rebound_policy_t::operator()::ExPolicy"><span class="n"><span class="pre">ExPolicy</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">policy</span></span>, <a class="reference internal" href="#_CPPv4I00ENK3hpx9execution12experimental23create_rebound_policy_tclEDcRR8ExPolicyRR8Executor" title="hpx::execution::experimental::create_rebound_policy_t::operator()::Executor"><span class="n"><span class="pre">Executor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">exec</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4I00ENK3hpx9execution12experimental23create_rebound_policy_tclEDcRR8ExPolicyRR8Executor" title="Link to this definition">#</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4I00ENK3hpx9execution12experimental23create_rebound_policy_tclEDcRR8ExPolicyRR10Parameters">
-<span id="_CPPv3I00ENK3hpx9execution12experimental23create_rebound_policy_tclERR8ExPolicyRR10Parameters"></span><span id="_CPPv2I00ENK3hpx9execution12experimental23create_rebound_policy_tclERR8ExPolicyRR10Parameters"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ExPolicy</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Parameters</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structhpx_1_1execution_1_1experimental_1_1create__rebound__policy__t_1a259ffd5bdd9d9463363fcfe6a41219be"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="k"><span class="pre">decltype</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">auto</span></span><span class="p"><span class="pre">)</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">()</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I00ENK3hpx9execution12experimental23create_rebound_policy_tclEDcRR8ExPolicyRR10Parameters" title="hpx::execution::experimental::create_rebound_policy_t::operator()::ExPolicy"><span class="n"><span class="pre">ExPolicy</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">policy</span></span>, <a class="reference internal" href="#_CPPv4I00ENK3hpx9execution12experimental23create_rebound_policy_tclEDcRR8ExPolicyRR10Parameters" title="hpx::execution::experimental::create_rebound_policy_t::operator()::Parameters"><span class="n"><span class="pre">Parameters</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">parameters</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4I00ENK3hpx9execution12experimental23create_rebound_policy_tclEDcRR8ExPolicyRR10Parameters" title="Link to this definition">#</a><br /></dt>
-<dd></dd></dl>
-
-</div>
-</dd></dl>
-
-</dd></dl>
-
-</dd></dl>
-
-</dd></dl>
-
+<p>rebind_executor, rebind_executor_t and create_rebound_policy. </p>
+<p>rebind_executor and rebind_executor_t are defined in rebind_policy.hpp, next to the per-axis customization points built on top of them, and create_rebound_policy is defined in create_rebound_policy.hpp. This header includes both, so code that includes it directly keeps getting everything it provided before. </p>
 </section>
 
 
@@ -1736,41 +1638,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv43hpx"><code class="docutils literal notranslate"><span class="pre">hpx</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx9executionE"><code class="docutils literal notranslate"><span class="pre">hpx::execution</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx9execution12experimentalE"><code class="docutils literal notranslate"><span class="pre">hpx::execution::experimental</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I000EN3hpx9execution12experimental17rebind_executor_tE"><code class="docutils literal notranslate"><span class="pre">rebind_executor_t</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx9execution12experimental21create_rebound_policyE"><code class="docutils literal notranslate"><span class="pre">create_rebound_policy</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I000EN3hpx9execution12experimental15rebind_executorE"><code class="docutils literal notranslate"><span class="pre">hpx::execution::experimental::rebind_executor</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx9execution12experimental15rebind_executor4typeE"><code class="docutils literal notranslate"><span class="pre">type</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx9execution12experimental23create_rebound_policy_tE"><code class="docutils literal notranslate"><span class="pre">hpx::execution::experimental::create_rebound_policy_t</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I000ENK3hpx9execution12experimental23create_rebound_policy_tclEDcRR8ExPolicyRR8ExecutorRR10Parameters"><code class="docutils literal notranslate"><span class="pre">operator()()</span></code></a></li>
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I00ENK3hpx9execution12experimental23create_rebound_policy_tclEDcRR8ExPolicyRR8Executor"><code class="docutils literal notranslate"><span class="pre">operator()()</span></code></a></li>
-<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I00ENK3hpx9execution12experimental23create_rebound_policy_tclEDcRR8ExPolicyRR10Parameters"><code class="docutils literal notranslate"><span class="pre">operator()()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

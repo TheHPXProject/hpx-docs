@@ -39,6 +39,7 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/execution/api/execution_information.rst
    /libs/core/execution/api/execution_parameters_fwd.rst
    /libs/core/execution/api/dynamic_chunk_size_hpx_execution_experimental_dynamic_chunk_size.rst
+   /libs/core/execution/api/create_rebound_policy.rst
    /libs/core/execution/api/collect_chunking_parameters_hpx_execution_experimental_collect_chunking_parameters.rst
    /libs/core/execution/api/future_sender.rst
    /libs/core/execution/api/sender_future.rst
