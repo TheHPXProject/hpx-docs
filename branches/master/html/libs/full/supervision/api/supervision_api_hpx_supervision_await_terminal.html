@@ -1645,7 +1645,7 @@ document.write(`
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>below).</p>
+<p>below), and with a <em>hpx::error::invalid_status</em> exception if the runtime on <em>locality</em> starts shutting down first: all of its pending waiters are invalidated as a pre-shutdown step, and any call made afterwards that would have to wait is rejected the same way.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1679,7 +1679,7 @@ document.write(`
 <p>This is the synchronous equivalent of <em>await_terminal</em>(<a class="reference internal" href="../../naming_base/api/id_type_hpx_id_type.html#structhpx_1_1id__type"><span class="std std-ref">hpx::id_type</span></a> const&amp;, <a class="reference internal" href="../../naming_base/api/id_type_hpx_id_type.html#structhpx_1_1id__type"><span class="std std-ref">hpx::id_type</span></a> const&amp;, std::uint64_t).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This call blocks until <em>target</em> reaches a terminal event, its epoch is superseded, or <em>timeout</em> elapses. </p>
+<p>This call blocks until <em>target</em> reaches a terminal event, its epoch is superseded, <em>timeout</em> elapses, or the runtime on <em>locality</em> starts shutting down. </p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1692,7 +1692,7 @@ document.write(`
 </ul>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n">hpx</span></a><span class="p">::</span><a class="reference internal" href="../../../core/errors/api/exception_hpx_exception.html#_CPPv4N3hpx9exceptionE" title="hpx::exception"><span class="n">exception</span></a></span></span> – if <em>locality</em> does not represent a locality, or if <em>target</em> does not represent a valid target, unless <em>ec</em> was not pre-initialized to <em>hpx::throws</em>. Also throws (or sets <em>ec</em> to) a <em>hpx::error::stale_state</em> exception, naming <em>target</em>, <em>epoch</em>, and the epoch that superseded it, if <em>target’s</em> epoch advances past <em>epoch</em> before reaching a terminal event under it. Also throws (or sets <em>ec</em> to) a <em>hpx::error::future_cancelled</em> exception if neither of the above happens before <em>timeout</em> elapses.</p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n">hpx</span></a><span class="p">::</span><a class="reference internal" href="../../../core/errors/api/exception_hpx_exception.html#_CPPv4N3hpx9exceptionE" title="hpx::exception"><span class="n">exception</span></a></span></span> – if <em>locality</em> does not represent a locality, or if <em>target</em> does not represent a valid target, unless <em>ec</em> was not pre-initialized to <em>hpx::throws</em>. Also throws (or sets <em>ec</em> to) a <em>hpx::error::stale_state</em> exception, naming <em>target</em>, <em>epoch</em>, and the epoch that superseded it, if <em>target’s</em> epoch advances past <em>epoch</em> before reaching a terminal event under it. Also throws (or sets <em>ec</em> to) a <em>hpx::error::future_cancelled</em> exception if neither of the above happens before <em>timeout</em> elapses, or a <em>hpx::error::invalid_status</em> exception if the runtime on <em>locality</em> starts shutting down first (see the asynchronous overload).</p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The <em>lifecycle_state</em> recorded for <em>target</em> once it reaches a terminal event under <em>epoch</em>.</p>
@@ -1706,7 +1706,7 @@ document.write(`
 <dd><p>Asynchronously wait for a target actor on the local locality to reach a terminal lifecycle event within a given epoch. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>As for the remote overloads, the returned future becomes exceptional with <em>hpx::error::stale_state</em> if <em>epoch</em> is superseded, or with <em>hpx::error::future_cancelled</em> if <em>timeout</em> elapses first. </p>
+<p>As for the remote overloads, the returned future becomes exceptional with <em>hpx::error::stale_state</em> if <em>epoch</em> is superseded, with <em>hpx::error::future_cancelled</em> if <em>timeout</em> elapses first, or with <em>hpx::error::invalid_status</em> if the local runtime starts shutting down first. </p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1733,7 +1733,7 @@ document.write(`
 <li><p><strong>target</strong> – The id of the supervised entity to wait on. Must refer to a component that is local to this locality. </p></li>
 <li><p><strong>epoch</strong> – The join/generation epoch the caller expects <code class="docutils literal notranslate"><span class="pre">target</span></code> to still be part of. Passing an epoch that no longer matches the target’s current epoch may cause the wait to resolve immediately with a mismatch-related error. </p></li>
 <li><p><strong>timeout</strong> – Optional upper bound on how long to wait before giving up. If not supplied, uses the local supervision manager’s default timeout. </p></li>
-<li><p><strong>ec</strong> – Used to report errors instead of throwing an exception. When <code class="docutils literal notranslate"><span class="pre">target</span></code> does not represent a valid id, <code class="docutils literal notranslate"><span class="pre">hpx::error::bad_parameter</span></code> is reported. If the wait is cancelled due to <code class="docutils literal notranslate"><span class="pre">timeout</span></code> elapsing without a terminal state being reached, <code class="docutils literal notranslate"><span class="pre">hpx::error::future_cancelled</span></code> is reported.</p></li>
+<li><p><strong>ec</strong> – Used to report errors instead of throwing an exception. When <code class="docutils literal notranslate"><span class="pre">target</span></code> does not represent a valid id, <code class="docutils literal notranslate"><span class="pre">hpx::error::bad_parameter</span></code> is reported. If the wait is cancelled due to <code class="docutils literal notranslate"><span class="pre">timeout</span></code> elapsing without a terminal state being reached, <code class="docutils literal notranslate"><span class="pre">hpx::error::future_cancelled</span></code> is reported, and if the local runtime starts shutting down first, <code class="docutils literal notranslate"><span class="pre">hpx::error::invalid_status</span></code> is reported.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
