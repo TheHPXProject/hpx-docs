@@ -1865,12 +1865,9 @@ outstanding waiter for the stale epoch is invalidated. A waiter that
 reaches neither of these outcomes is bounded by <code class="docutils literal notranslate"><span class="pre">timeout</span></code> (or a
 built-in default if <code class="docutils literal notranslate"><span class="pre">timeout</span></code> is left at its sentinel value
 <code class="docutils literal notranslate"><span class="pre">std::chrono::steady_clock::duration::max()</span></code>), after which it is
-swept and invalidated. Waiters still pending when the runtime starts
-shutting down are invalidated with <code class="docutils literal notranslate"><span class="pre">hpx::error::invalid_status</span></code> as a
-pre-shutdown step, while the runtime is still active, and any later call
-that would have to wait is rejected the same way. Dispatch is routed
-locally when <code class="docutils literal notranslate"><span class="pre">target</span></code>’s supervision manager lives on the calling
-locality, and remotely (via a registered distributed action) otherwise.</p>
+swept and invalidated. Dispatch is routed locally when <code class="docutils literal notranslate"><span class="pre">target</span></code>’s
+supervision manager lives on the calling locality, and remotely (via a
+registered distributed action) otherwise.</p>
 </dd></dl>
 
 </section>
