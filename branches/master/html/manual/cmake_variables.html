@@ -1078,6 +1078,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/bind_hpx_placeholders__9.html">hpx::placeholders::_9</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_bind_expression_hpx_is_bind_expression.html">hpx::is_bind_expression</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_placeholder_hpx_is_placeholder.html">hpx::is_placeholder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/get_task_size.html">hpx/functional/traits/get_task_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_fail_hpx_experimental_scope_fail.html">hpx::experimental::scope_fail</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_exit_hpx_experimental_scope_exit.html">hpx::experimental::scope_exit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_success_hpx_experimental_scope_success.html">hpx::experimental::scope_success</a></li>
@@ -1257,6 +1258,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_description.html">hpx/threading_base/thread_description.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scoped_annotation_hpx_scoped_annotation.html">hpx::scoped_annotation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/print.html">hpx/threading_base/print.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/sized_function_hpx_threads_with_task_size.html">hpx::threads::with_task_size</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/annotated_function_hpx_annotated_function.html">hpx::annotated_function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/tracing_sample_rate.html">hpx/threading_base/tracing_sample_rate.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_helpers.html">hpx/threading_base/thread_helpers.hpp</a></li>
@@ -2223,6 +2225,7 @@ includes the comprehensive list.</p>
 <li><p><a class="reference internal" href="#cmdoption-arg-HPX_COROUTINES_WITH_SWAP_CONTEXT_EMULATION-BOOL"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_COROUTINES_WITH_SWAP_CONTEXT_EMULATION:BOOL</span></code></a></p></li>
 <li><p><a class="reference internal" href="#cmdoption-arg-HPX_COROUTINES_WITH_THREAD_SCHEDULE_HINT_RUNS_AS_CHILD-BOOL"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_COROUTINES_WITH_THREAD_SCHEDULE_HINT_RUNS_AS_CHILD:BOOL</span></code></a></p></li>
 <li><p><a class="reference internal" href="#cmdoption-arg-HPX_WITH_COROUTINE_COUNTERS-BOOL"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_COROUTINE_COUNTERS:BOOL</span></code></a></p></li>
+<li><p><a class="reference internal" href="#cmdoption-arg-HPX_WITH_DESTRUCTIVE_INTERFERENCE_SIZE-STRING"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_DESTRUCTIVE_INTERFERENCE_SIZE:STRING</span></code></a></p></li>
 <li><p><a class="reference internal" href="#cmdoption-arg-HPX_WITH_IO_POOL-BOOL"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_IO_POOL:BOOL</span></code></a></p></li>
 <li><p><a class="reference internal" href="#cmdoption-arg-HPX_WITH_MAX_CPU_COUNT-STRING"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_MAX_CPU_COUNT:STRING</span></code></a></p></li>
 <li><p><a class="reference internal" href="#cmdoption-arg-HPX_WITH_MAX_NUMA_DOMAIN_COUNT-STRING"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_MAX_NUMA_DOMAIN_COUNT:STRING</span></code></a></p></li>
@@ -2262,6 +2265,12 @@ includes the comprehensive list.</p>
 <dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_COROUTINE_COUNTERS-BOOL">
 <span class="sig-name descname"><span class="pre">HPX_WITH_COROUTINE_COUNTERS:BOOL</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_COROUTINE_COUNTERS-BOOL" title="Link to this definition">#</a></dt>
 <dd><p>Enable keeping track of coroutine creation and rebind counts (default: OFF)</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_DESTRUCTIVE_INTERFERENCE_SIZE-STRING">
+<span class="sig-name descname"><span class="pre">HPX_WITH_DESTRUCTIVE_INTERFERENCE_SIZE:STRING</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_DESTRUCTIVE_INTERFERENCE_SIZE-STRING" title="Link to this definition">#</a></dt>
+<dd><p>Minimal distance in bytes between data written by different cores, to avoid false sharing (empty: chosen by the target architecture, 128 on x86-64 and ARM64) (default: “”)</p>
 </dd></dl>
 
 <dl class="std option">

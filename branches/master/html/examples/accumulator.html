@@ -1078,6 +1078,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/bind_hpx_placeholders__9.html">hpx::placeholders::_9</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_bind_expression_hpx_is_bind_expression.html">hpx::is_bind_expression</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_placeholder_hpx_is_placeholder.html">hpx::is_placeholder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/get_task_size.html">hpx/functional/traits/get_task_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_fail_hpx_experimental_scope_fail.html">hpx::experimental::scope_fail</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_exit_hpx_experimental_scope_exit.html">hpx::experimental::scope_exit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_success_hpx_experimental_scope_success.html">hpx::experimental::scope_success</a></li>
@@ -1257,6 +1258,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_description.html">hpx/threading_base/thread_description.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scoped_annotation_hpx_scoped_annotation.html">hpx::scoped_annotation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/print.html">hpx/threading_base/print.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/sized_function_hpx_threads_with_task_size.html">hpx::threads::with_task_size</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/annotated_function_hpx_annotated_function.html">hpx::annotated_function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/tracing_sample_rate.html">hpx/threading_base/tracing_sample_rate.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_helpers.html">hpx/threading_base/thread_helpers.hpp</a></li>
@@ -1721,7 +1723,7 @@ names of the two classes in accumulator are:</p>
 <section id="the-server-class">
 <h4>The server class<a class="headerlink" href="#the-server-class" title="Link to this heading">#</a></h4>
 <p>The following code is from
-<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/6fc7f33d946ae8a1172a5708580e3b888a915b11/examples/accumulators/server/accumulator.hpp">server/accumulator.hpp</a>.</p>
+<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/d13eb7506802c25ccf71bf7079b26fd42d83098a/examples/accumulators/server/accumulator.hpp">server/accumulator.hpp</a>.</p>
 <p>All <em>HPX</em> component server classes must inherit publicly from the <em>HPX</em>
 component base class: <a class="reference internal" href="../libs/full/components_base/api/components_base_fwd_hpx_components_component_base.html#modules-components-base-fwd-hpx-components-component-base-api"><span class="std std-ref">hpx::components::component_base</span></a></p>
 <p>The accumulator component inherits from
@@ -1777,7 +1779,7 @@ action type registration code:</p>
 <p>The code above must be placed in the global namespace.</p>
 </div>
 <p>The rest of the registration code is in
-<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/6fc7f33d946ae8a1172a5708580e3b888a915b11/examples/accumulators/accumulator.cpp">accumulator.cpp</a></p>
+<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/d13eb7506802c25ccf71bf7079b26fd42d83098a/examples/accumulators/accumulator.cpp">accumulator.cpp</a></p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">///////////////////////////////////////////////////////////////////////////////</span>
 <span class="c1">// Add factory registration functionality.</span>
 <span class="n">HPX_REGISTER_COMPONENT_MODULE</span><span class="p">()</span>
@@ -1806,7 +1808,7 @@ action type registration code:</p>
 <section id="the-client-class">
 <h4>The client class<a class="headerlink" href="#the-client-class" title="Link to this heading">#</a></h4>
 <p>The following code is from
-<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/6fc7f33d946ae8a1172a5708580e3b888a915b11/examples/accumulators/accumulator.hpp">accumulator.hpp</a></p>
+<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/d13eb7506802c25ccf71bf7079b26fd42d83098a/examples/accumulators/accumulator.hpp">accumulator.hpp</a></p>
 <p>The client class is the primary interface to a component instance. Client classes
 are used to create components:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Create a component on this locality.</span>
@@ -1894,7 +1896,7 @@ returned by <a class="reference internal" href="../libs/full/runtime_distributed
 <section id="id3">
 <h4>The server class<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
 <p>The following code is from
-<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/6fc7f33d946ae8a1172a5708580e3b888a915b11/examples/accumulators/server/template_accumulator.hpp">server/template_accumulator.hpp</a>.</p>
+<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/d13eb7506802c25ccf71bf7079b26fd42d83098a/examples/accumulators/server/template_accumulator.hpp">server/template_accumulator.hpp</a>.</p>
 <p>Similarly to the accumulator example, the component server class
 inherits publicly from <a class="reference internal" href="../libs/full/components_base/api/components_base_fwd_hpx_components_component_base.html#modules-components-base-fwd-hpx-components-component-base-api"><span class="std std-ref">hpx::components::component_base</span></a> and from
 <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::components::locking_hook</span></code> ensuring thread-safe method invocations.</p>
@@ -1989,13 +1991,13 @@ actions and the component for the specified type, using macros to handle boilerp
 <p>The code above must be placed in the global namespace.</p>
 </div>
 <p>Finally, <cite>HPX_REGISTER_COMPONENT_MODULE()</cite> in file
-<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/6fc7f33d946ae8a1172a5708580e3b888a915b11/examples/accumulators/server/template_accumulator.cpp">server/template_accumulator.cpp</a>
+<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/d13eb7506802c25ccf71bf7079b26fd42d83098a/examples/accumulators/server/template_accumulator.cpp">server/template_accumulator.cpp</a>
 adds the factory registration functionality.</p>
 </section>
 <section id="id4">
 <h4>The client class<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
 <p>The client class of the template accumulator can be found in
-<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/6fc7f33d946ae8a1172a5708580e3b888a915b11/examples/accumulators/template_accumulator.hpp">template_accumulator.hpp</a> and is very similar to
+<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/d13eb7506802c25ccf71bf7079b26fd42d83098a/examples/accumulators/template_accumulator.hpp">template_accumulator.hpp</a> and is very similar to
 the client class of the accumulator with the only difference that it uses templates
 and hence can work with different types.</p>
 </section>
@@ -2008,7 +2010,7 @@ and hence can work with different types.</p>
 <section id="id6">
 <h4>The server class<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
 <p>The following code is from
-<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/6fc7f33d946ae8a1172a5708580e3b888a915b11/examples/accumulators/server/template_function_accumulator.hpp">server/template_function_accumulator.hpp</a>.</p>
+<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/d13eb7506802c25ccf71bf7079b26fd42d83098a/examples/accumulators/server/template_function_accumulator.hpp">server/template_function_accumulator.hpp</a>.</p>
 <p>The component server class inherits publicly from <a class="reference internal" href="../libs/full/components_base/api/components_base_fwd_hpx_components_component_base.html#modules-components-base-fwd-hpx-components-component-base-api"><span class="std std-ref">hpx::components::component_base</span></a>.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">template_function_accumulator</span>
 <span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">components</span><span class="o">::</span><span class="n">component_base</span><span class="o">&lt;</span><span class="n">template_function_accumulator</span><span class="o">&gt;</span>
@@ -2090,7 +2092,7 @@ However, actions with template arguments require special type definitions. There
 <p>The code above must be placed in the global namespace.</p>
 </div>
 <p>The rest of the registration code is in
-<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/6fc7f33d946ae8a1172a5708580e3b888a915b11/examples/accumulators/accumulator.cpp">accumulator.cpp</a></p>
+<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/d13eb7506802c25ccf71bf7079b26fd42d83098a/examples/accumulators/accumulator.cpp">accumulator.cpp</a></p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">///////////////////////////////////////////////////////////////////////////////</span>
 <span class="c1">// Add factory registration functionality.</span>
 <span class="n">HPX_REGISTER_COMPONENT_MODULE</span><span class="p">()</span>
@@ -2118,7 +2120,7 @@ However, actions with template arguments require special type definitions. There
 <section id="id7">
 <h4>The client class<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
 <p>The client class of the template accumulator can be found in
-<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/6fc7f33d946ae8a1172a5708580e3b888a915b11/examples/accumulators/template_function_accumulator.hpp">template_function_accumulator.hpp</a> and is very similar
+<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/d13eb7506802c25ccf71bf7079b26fd42d83098a/examples/accumulators/template_function_accumulator.hpp">template_function_accumulator.hpp</a> and is very similar
 to the client class of the accumulator with the only difference that it uses templates
 and hence can work with different types.</p>
 </section>

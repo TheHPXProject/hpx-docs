@@ -1078,6 +1078,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/bind_hpx_placeholders__9.html">hpx::placeholders::_9</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_bind_expression_hpx_is_bind_expression.html">hpx::is_bind_expression</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_placeholder_hpx_is_placeholder.html">hpx::is_placeholder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/get_task_size.html">hpx/functional/traits/get_task_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_fail_hpx_experimental_scope_fail.html">hpx::experimental::scope_fail</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_exit_hpx_experimental_scope_exit.html">hpx::experimental::scope_exit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_success_hpx_experimental_scope_success.html">hpx::experimental::scope_success</a></li>
@@ -1257,6 +1258,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_description.html">hpx/threading_base/thread_description.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scoped_annotation_hpx_scoped_annotation.html">hpx::scoped_annotation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/print.html">hpx/threading_base/print.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/sized_function_hpx_threads_with_task_size.html">hpx::threads::with_task_size</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/annotated_function_hpx_annotated_function.html">hpx::annotated_function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/tracing_sample_rate.html">hpx/threading_base/tracing_sample_rate.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_helpers.html">hpx/threading_base/thread_helpers.hpp</a></li>
@@ -1651,7 +1653,7 @@ list of header files, classes and functions for various distributed computing fe
 provided by <em>HPX</em>.</p>
 <section id="hpx-barrier-hpp">
 <span id="public-distr-api-header-barrier"></span><h2><code class="docutils literal notranslate"><span class="pre">hpx/barrier.hpp</span></code><a class="headerlink" href="#hpx-barrier-hpp" title="Link to this heading">#</a></h2>
-<p>The header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/6fc7f33d946ae8a1172a5708580e3b888a915b11/libs/full/include/include/hpx/barrier.hpp">hpx/barrier.hpp</a> includes
+<p>The header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/d13eb7506802c25ccf71bf7079b26fd42d83098a/libs/full/include/include/hpx/barrier.hpp">hpx/barrier.hpp</a> includes
 a distributed barrier implementation. For information regarding the C++ standard
 library header <a class="reference external" href="http://en.cppreference.com/w/cpp/header/barrier">barrier</a>, see <a class="reference internal" href="public_api.html#public-api"><span class="std std-ref">Public API</span></a>.</p>
 <section id="classes">
@@ -1689,7 +1691,7 @@ library header <a class="reference external" href="http://en.cppreference.com/w/
 </section>
 <section id="hpx-collectives-hpp">
 <span id="public-distr-api-header-collectives"></span><h2><code class="docutils literal notranslate"><span class="pre">hpx/collectives.hpp</span></code><a class="headerlink" href="#hpx-collectives-hpp" title="Link to this heading">#</a></h2>
-<p>The header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/6fc7f33d946ae8a1172a5708580e3b888a915b11/libs/full/include/include/hpx/collectives.hpp">hpx/collectives.hpp</a>
+<p>The header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/d13eb7506802c25ccf71bf7079b26fd42d83098a/libs/full/include/include/hpx/collectives.hpp">hpx/collectives.hpp</a>
 contains definitions and implementations related to the collectives operations.</p>
 <section id="id3">
 <h3>Classes<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
@@ -1782,7 +1784,7 @@ contains definitions and implementations related to the collectives operations.<
 </section>
 <section id="hpx-latch-hpp">
 <span id="public-distr-api-header-latch"></span><h2><code class="docutils literal notranslate"><span class="pre">hpx/latch.hpp</span></code><a class="headerlink" href="#hpx-latch-hpp" title="Link to this heading">#</a></h2>
-<p>The header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/6fc7f33d946ae8a1172a5708580e3b888a915b11/libs/full/include/include/hpx/latch.hpp">hpx/latch.hpp</a> includes
+<p>The header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/d13eb7506802c25ccf71bf7079b26fd42d83098a/libs/full/include/include/hpx/latch.hpp">hpx/latch.hpp</a> includes
 a distributed latch implementation. For information regarding the C++ standard
 library header <a class="reference external" href="http://en.cppreference.com/w/cpp/header/latch">latch</a>, see <a class="reference internal" href="public_api.html#public-api"><span class="std std-ref">Public API</span></a>.</p>
 <section id="id5">
@@ -1828,7 +1830,7 @@ library header <a class="reference external" href="http://en.cppreference.com/w/
 </section>
 <section id="hpx-async-hpp">
 <span id="public-distr-api-header-async"></span><h2><code class="docutils literal notranslate"><span class="pre">hpx/async.hpp</span></code><a class="headerlink" href="#hpx-async-hpp" title="Link to this heading">#</a></h2>
-<p>The header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/6fc7f33d946ae8a1172a5708580e3b888a915b11/libs/full/async_distributed/include/hpx/async.hpp">hpx/async.hpp</a>
+<p>The header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/d13eb7506802c25ccf71bf7079b26fd42d83098a/libs/full/async_distributed/include/hpx/async.hpp">hpx/async.hpp</a>
 includes distributed implementations of
 <a class="reference internal" href="../libs/full/async_distributed/api/async_hpx_async_distributed.html#modules-async-hpx-async-distributed-api"><span class="std std-ref">hpx::async</span></a>,
 <a class="reference internal" href="../libs/full/async_distributed/api/post_hpx_post_distributed.html#modules-post-hpx-post-distributed-api"><span class="std std-ref">hpx::post</span></a>,
@@ -1859,7 +1861,7 @@ For information regarding the C++ standard library header, see <a class="referen
 </section>
 <section id="hpx-components-hpp">
 <span id="public-distr-api-header-components"></span><h2><code class="docutils literal notranslate"><span class="pre">hpx/components.hpp</span></code><a class="headerlink" href="#hpx-components-hpp" title="Link to this heading">#</a></h2>
-<p>The header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/6fc7f33d946ae8a1172a5708580e3b888a915b11/libs/full/include/include/hpx/include/components.hpp">hpx/include/components.hpp</a>
+<p>The header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/d13eb7506802c25ccf71bf7079b26fd42d83098a/libs/full/include/include/hpx/include/components.hpp">hpx/include/components.hpp</a>
 includes the components implementation. A component in <cite>hpx</cite> is a C++ class
 which can be created remotely and for which its member functions can be invoked
 remotely as well. More information about how components can be defined,
@@ -1934,7 +1936,7 @@ accumulator.</p>
 </section>
 <section id="hpx-supervision-dispatch-hpp">
 <span id="public-distr-api-header-supervision-dispatch"></span><h2><code class="docutils literal notranslate"><span class="pre">hpx/supervision_dispatch.hpp</span></code><a class="headerlink" href="#hpx-supervision-dispatch-hpp" title="Link to this heading">#</a></h2>
-<p>The header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/6fc7f33d946ae8a1172a5708580e3b888a915b11/components/supervision_dispatch/include/hpx/supervision_dispatch.hpp">hpx/supervision_dispatch.hpp</a>
+<p>The header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/d13eb7506802c25ccf71bf7079b26fd42d83098a/components/supervision_dispatch/include/hpx/supervision_dispatch.hpp">hpx/supervision_dispatch.hpp</a>
 provides peer discovery, cooperative lifecycle management, failure detection,
 and fenced action dispatch across localities. See
 <a class="reference internal" href="../components/supervision_dispatch/docs/index.html#modules-supervision-dispatch"><span class="std std-ref">Supervision dispatch module</span></a> for the full API reference and
