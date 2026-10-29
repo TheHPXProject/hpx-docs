@@ -1885,6 +1885,11 @@ caller waited for a reply that never came (<a class="reference external" href="h
 armed the timer that resumes it, because the result of registering the
 thread was checked the wrong way round; delayed network operations stayed
 suspended (<a class="reference external" href="https://github.com/TheHPXProject/hpx/issues/7893">Issue #7893</a>, <a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7894">PR #7894</a>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hpx::force_disconnect</span></code> can now be called on any locality, not only on the
+console. On another locality it asks the console to remove the given
+locality and returns the result; before, it failed with
+<code class="docutils literal notranslate"><span class="pre">hpx::error::invalid_status</span></code>. Disconnecting the calling locality itself or
+the console is rejected with <code class="docutils literal notranslate"><span class="pre">hpx::error::bad_parameter</span></code> (<a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7901">PR #7901</a>).</p></li>
 </ul>
 </section>
 <section id="observability-tracing">
@@ -2246,7 +2251,14 @@ about measurements that changed by more than 5%. The runs of the commits
 of the master branch are recorded in the performance history at
 <a class="reference external" href="https://github.com/TheHPXProject/hpx-performance">hpx-performance</a>,
 with graphs of every benchmark over time (<a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/6514">PR #6514</a>,
-<a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7831">PR #7831</a>, <a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7839">PR #7839</a>).</p></li>
+<a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7831">PR #7831</a>, <a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7839">PR #7839</a>). The graphs show the medians over the
+commits of the master branch and list the commits after which a median
+moved by more than 5% (<a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7899">PR #7899</a>), and runs missing from the history
+can be added by hand (<a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7903">PR #7903</a>). Two scheduler reports measure task
+creation, stealing and the waking of idle workers on many cores
+(<a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7888">PR #7888</a>).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">cancel-ci</span></code> label and the <code class="docutils literal notranslate"><span class="pre">/cancel-ci</span></code> comment now also cancel the
+running workflows of pull requests from forks (<a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7228">PR #7228</a>).</p></li>
 <li><p>The pkg-config files can be generated again when the MPI link flags are
 wrapped in <code class="docutils literal notranslate"><span class="pre">$&lt;HOST_LINK:...&gt;</span></code> by FindMPI, which failed the configuration
 with the modules built as object libraries (<a class="reference external" href="https://github.com/TheHPXProject/hpx/issues/7826">Issue #7826</a>,
@@ -2326,36 +2338,10 @@ account for the size of an entry it replaced, and accepted a replacement
 larger than the cache (<a class="reference external" href="https://github.com/TheHPXProject/hpx/issues/7846">Issue #7846</a>, <a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7847">PR #7847</a>). On 64-bit
 Windows an amount of space to free of 2 GiB or more turned negative, so
 that <code class="docutils literal notranslate"><span class="pre">local_cache</span></code> evicted nothing and still stored entries beyond its
-capacity (<a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7889">PR #7889</a>).</p></li>
-<li><p>The ITTNotify backend now emits task lifecycle and work-stealing events when
-ITTNotify is enabled at runtime (<code class="docutils literal notranslate"><span class="pre">--hpx:ini=hpx.use_itt_notify=1</span></code>). This is
-<code class="docutils literal notranslate"><span class="pre">ON</span></code> by default for <code class="docutils literal notranslate"><span class="pre">HPX_WITH_ITTNOTIFY=ON</span></code> builds; pass
-<code class="docutils literal notranslate"><span class="pre">-DHPX_WITH_TRACING_LIFECYCLE_EVENTS=OFF</span></code> and
-<code class="docutils literal notranslate"><span class="pre">-DHPX_WITH_TRACING_WORK_STEALING_EVENTS=OFF</span></code> to the <a class="reference external" href="https://www.cmake.org">CMake</a> configuration
-to get the earlier behavior.</p></li>
-<li><p><strong>Fixed-size SIMD policies</strong>: added <code class="docutils literal notranslate"><span class="pre">hpx::execution::fixed_size_simd&lt;N&gt;</span></code>
-and <code class="docutils literal notranslate"><span class="pre">hpx::execution::par_fixed_size_simd&lt;N&gt;</span></code> (plus their <code class="docutils literal notranslate"><span class="pre">task</span></code>
-variants), which select the number of vector lanes explicitly. Execution
-policy properties, including <code class="docutils literal notranslate"><span class="pre">num_lanes</span></code>, are exposed through
-<code class="docutils literal notranslate"><span class="pre">hpx::execution::policy_traits</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged</span></code> now only applies to other
-workers stealing staged tasks. A worker always converts its own staged
-tasks, even if there are fewer of them than the configured minimum; before,
-such tasks were never run, so any non-zero setting could hang applications.
-The default (<code class="docutils literal notranslate"><span class="pre">0</span></code>) is not affected.</p></li>
-<li><p><strong>Scheduler contention</strong>: the local priority queue scheduler starts stealing
-staged tasks after 30 empty scheduling loop iterations instead of
-<code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span> <span class="pre">/</span> <span class="pre">2</span></code> (100000 by default), but until the latter
-only from workers holding at least 10 staged tasks. Both can be changed with
-the new settings <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.idle_loop_count_steal_staged</span></code> and
-<code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged_early</span></code>. New work items now
-only wake workers that are backing off, and a worker that finds work resets
-its own idle backoff.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">hpx::force_disconnect</span></code> can now be called on any locality, not only on the
-console. On another locality it asks the console to remove the given
-locality and returns the result; before, it failed with
-<code class="docutils literal notranslate"><span class="pre">hpx::error::invalid_status</span></code>. Disconnecting the calling locality itself or
-the console is rejected with <code class="docutils literal notranslate"><span class="pre">hpx::error::bad_parameter</span></code>.</p></li>
+capacity (<a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7889">PR #7889</a>). With the <code class="docutils literal notranslate"><span class="pre">size_entry</span></code> and <code class="docutils literal notranslate"><span class="pre">lfu_entry</span></code>
+policies, <code class="docutils literal notranslate"><span class="pre">local_cache</span></code> discarded entries in the opposite of the
+documented order: the smallest entries instead of the biggest, and the most
+frequently used instead of the least frequently used (<a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7892">PR #7892</a>).</p></li>
 </ul>
 </section>
 <section id="breaking-changes">
@@ -2403,9 +2389,9 @@ large by a factor of the stride.</p></li>
 <section id="closed-issues-and-pull-requests">
 <h2>Closed Issues and Pull Requests<a class="headerlink" href="#closed-issues-and-pull-requests" title="Link to this heading">#</a></h2>
 <p>The lists below were reconciled against release-2.0.X at
-<code class="docutils literal notranslate"><span class="pre">f5bfb8e3a1df4fbb0330aa36ef37e94e03532ab2</span></code>, using the v1.11.0 tag
+<code class="docutils literal notranslate"><span class="pre">1216e04b2d1118972cc66c57ce63de0951922927</span></code>, using the v1.11.0 tag
 (<code class="docutils literal notranslate"><span class="pre">c9b81b401fbe6ba4a0306feff71d18ef01c71b34</span></code>) as the baseline.</p>
-<p>There are 809 merged PRs whose merge commits are reachable from the release
+<p>There are 815 merged PRs whose merge commits are reachable from the release
 and absent from that baseline, including PRs outside milestone 2.0.0. The
 181 closed issues are the milestone inventory; closure does not necessarily
 mean an implementation was delivered. Closed, unmerged PRs are excluded.
@@ -2601,6 +2587,12 @@ below the generated list.</p>
 <section id="merged-pull-requests">
 <h2>Merged pull requests<a class="headerlink" href="#merged-pull-requests" title="Link to this heading">#</a></h2>
 <ul class="simple">
+<li><p><a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7903">PR #7903</a> - Add scripts to backfill the performance history by hand</p></li>
+<li><p><a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7901">PR #7901</a> - Allow hpx::force_disconnect to be called from any locality</p></li>
+<li><p><a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7899">PR #7899</a> - Show the commits and the changes of the medians on the performance history graphs</p></li>
+<li><p><a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7892">PR #7892</a> - Discard entries in the documented order with size_entry and lfu_entry</p></li>
+<li><p><a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7888">PR #7888</a> - Add scheduler throughput and latency performance reports</p></li>
+<li><p><a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7228">PR #7228</a> - CI: Fix cancellation workflow API flags, permissions, and filters</p></li>
 <li><p><a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7896">PR #7896</a> - Mention the Discord server in the README support section</p></li>
 <li><p><a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7894">PR #7894</a> - Fix inverted error check in reschedule_on_thread causing task starvation</p></li>
 <li><p><a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7889">PR #7889</a> - Use size_type for the amount local_cache::free_space has to free</p></li>

@@ -262,6 +262,11 @@ Networking / Parcelport Work
   armed the timer that resumes it, because the result of registering the
   thread was checked the wrong way round; delayed network operations stayed
   suspended (:hpx-issue:`7893`, :hpx-pr:`7894`).
+- ``hpx::force_disconnect`` can now be called on any locality, not only on the
+  console. On another locality it asks the console to remove the given
+  locality and returns the result; before, it failed with
+  ``hpx::error::invalid_status``. Disconnecting the calling locality itself or
+  the console is rejected with ``hpx::error::bad_parameter`` (:hpx-pr:`7901`).
 
 Observability / Tracing
 =======================
@@ -620,7 +625,14 @@ Build / CI Modernization
   of the master branch are recorded in the performance history at
   `hpx-performance <https://github.com/TheHPXProject/hpx-performance>`_,
   with graphs of every benchmark over time (:hpx-pr:`6514`,
-  :hpx-pr:`7831`, :hpx-pr:`7839`).
+  :hpx-pr:`7831`, :hpx-pr:`7839`). The graphs show the medians over the
+  commits of the master branch and list the commits after which a median
+  moved by more than 5% (:hpx-pr:`7899`), and runs missing from the history
+  can be added by hand (:hpx-pr:`7903`). Two scheduler reports measure task
+  creation, stealing and the waking of idle workers on many cores
+  (:hpx-pr:`7888`).
+- The ``cancel-ci`` label and the ``/cancel-ci`` comment now also cancel the
+  running workflows of pull requests from forks (:hpx-pr:`7228`).
 - The pkg-config files can be generated again when the MPI link flags are
   wrapped in ``$<HOST_LINK:...>`` by FindMPI, which failed the configuration
   with the modules built as object libraries (:hpx-issue:`7826`,
@@ -699,37 +711,10 @@ Security / Robustness Fixes
   larger than the cache (:hpx-issue:`7846`, :hpx-pr:`7847`). On 64-bit
   Windows an amount of space to free of 2 GiB or more turned negative, so
   that ``local_cache`` evicted nothing and still stored entries beyond its
-  capacity (:hpx-pr:`7889`).
-
-- The ITTNotify backend now emits task lifecycle and work-stealing events when
-  ITTNotify is enabled at runtime (``--hpx:ini=hpx.use_itt_notify=1``). This is
-  ``ON`` by default for ``HPX_WITH_ITTNOTIFY=ON`` builds; pass
-  ``-DHPX_WITH_TRACING_LIFECYCLE_EVENTS=OFF`` and
-  ``-DHPX_WITH_TRACING_WORK_STEALING_EVENTS=OFF`` to the |cmake|_ configuration
-  to get the earlier behavior.
-- **Fixed-size SIMD policies**: added ``hpx::execution::fixed_size_simd<N>``
-  and ``hpx::execution::par_fixed_size_simd<N>`` (plus their ``task``
-  variants), which select the number of vector lanes explicitly. Execution
-  policy properties, including ``num_lanes``, are exposed through
-  ``hpx::execution::policy_traits``.
-- ``hpx.thread_queue.min_tasks_to_steal_staged`` now only applies to other
-  workers stealing staged tasks. A worker always converts its own staged
-  tasks, even if there are fewer of them than the configured minimum; before,
-  such tasks were never run, so any non-zero setting could hang applications.
-  The default (``0``) is not affected.
-- **Scheduler contention**: the local priority queue scheduler starts stealing
-  staged tasks after 30 empty scheduling loop iterations instead of
-  ``hpx.max_idle_loop_count / 2`` (100000 by default), but until the latter
-  only from workers holding at least 10 staged tasks. Both can be changed with
-  the new settings ``hpx.thread_queue.idle_loop_count_steal_staged`` and
-  ``hpx.thread_queue.min_tasks_to_steal_staged_early``. New work items now
-  only wake workers that are backing off, and a worker that finds work resets
-  its own idle backoff.
-- ``hpx::force_disconnect`` can now be called on any locality, not only on the
-  console. On another locality it asks the console to remove the given
-  locality and returns the result; before, it failed with
-  ``hpx::error::invalid_status``. Disconnecting the calling locality itself or
-  the console is rejected with ``hpx::error::bad_parameter``.
+  capacity (:hpx-pr:`7889`). With the ``size_entry`` and ``lfu_entry``
+  policies, ``local_cache`` discarded entries in the opposite of the
+  documented order: the smallest entries instead of the biggest, and the most
+  frequently used instead of the least frequently used (:hpx-pr:`7892`).
 
 Breaking changes
 ================
@@ -777,10 +762,10 @@ Closed Issues and Pull Requests
 ==================================
 
 The lists below were reconciled against release-2.0.X at
-``f5bfb8e3a1df4fbb0330aa36ef37e94e03532ab2``, using the v1.11.0 tag
+``1216e04b2d1118972cc66c57ce63de0951922927``, using the v1.11.0 tag
 (``c9b81b401fbe6ba4a0306feff71d18ef01c71b34``) as the baseline.
 
-There are 809 merged PRs whose merge commits are reachable from the release
+There are 815 merged PRs whose merge commits are reachable from the release
 and absent from that baseline, including PRs outside milestone 2.0.0. The
 181 closed issues are the milestone inventory; closure does not necessarily
 mean an implementation was delivered. Closed, unmerged PRs are excluded.
@@ -975,6 +960,12 @@ Closed issues
 Merged pull requests
 ====================
 
+* :hpx-pr:`7903` - Add scripts to backfill the performance history by hand
+* :hpx-pr:`7901` - Allow hpx::force_disconnect to be called from any locality
+* :hpx-pr:`7899` - Show the commits and the changes of the medians on the performance history graphs
+* :hpx-pr:`7892` - Discard entries in the documented order with size_entry and lfu_entry
+* :hpx-pr:`7888` - Add scheduler throughput and latency performance reports
+* :hpx-pr:`7228` - CI: Fix cancellation workflow API flags, permissions, and filters
 * :hpx-pr:`7896` - Mention the Discord server in the README support section
 * :hpx-pr:`7894` - Fix inverted error check in reschedule_on_thread causing task starvation
 * :hpx-pr:`7889` - Use size_type for the amount local_cache::free_space has to free
