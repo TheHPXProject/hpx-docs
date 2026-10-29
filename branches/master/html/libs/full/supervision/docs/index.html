@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Supervision module &#8212; HPX 2.0.0-rc1 documentation</title>
+    <title>Supervision module &#8212; HPX 2.0.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../../_static/documentation_options.js?v=7ec4965c"></script>
+    <script src="../../../../_static/documentation_options.js?v=ce394494"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -52,7 +52,7 @@
     <link rel="prev" title="statistics" href="../../statistics/docs/index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Oct 28, 2026"/>
+    <meta name="docbuild:last-update" content="Oct 29, 2026"/>
   </head>
   
   
@@ -142,8 +142,8 @@
       
     
     
-    <img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0-rc1 documentation - Home"/>
-    <script>document.write(`<img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0-rc1 documentation - Home"/>`);</script>
+    <img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0 documentation - Home"/>
+    <script>document.write(`<img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -557,7 +557,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_components/api/components_fwd.html">hpx/runtime_components/components_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_components/api/component_registry.html">hpx/runtime_components/component_registry.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_components/api/new_hpx_new.html">hpx::new_</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../runtime_components/api/new_local_new.html">local_new</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_components/api/reflect_client.html">hpx/runtime_components/reflect_client.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_components/api/component_factory_HPX_REGISTER_COMPONENT.html">HPX_REGISTER_COMPONENT</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_components/api/macros.html">hpx/runtime_components/macros.hpp</a></li>
@@ -1367,7 +1366,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../releases.html">Releases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_2_0_0.html"><em>HPX</em> V2.0.0 (Oct 31, 2026)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_2_0_0.html"><em>HPX</em> V2.0.0 (TBD)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_1_11_0.html"><em>HPX</em> V1.11.0 (Jun 30, 2025)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_1_10_0.html"><em>HPX</em> V1.10.0 (May 29, 2024)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_1_9_1.html"><em>HPX</em> V1.9.1 (August 4, 2023)</a></li>
@@ -1790,6 +1789,22 @@ fire via a retried parcel. If <code class="docutils literal notranslate"><span c
 receives notifications (including the initial state snapshot delivered
 at registration time) whose epoch matches; by default the observer
 receives notifications for every epoch.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">callback</span></code> lives on a locality other than the one tracking
+<code class="docutils literal notranslate"><span class="pre">target</span></code>, and sending a notification to it fails with
+<code class="docutils literal notranslate"><span class="pre">hpx::error::locality_was_disconnected</span></code> (for instance, because that
+locality was killed), the observer is unregistered. Such a failure does
+not change the lifecycle state recorded for <code class="docutils literal notranslate"><span class="pre">target</span></code>, and so does not
+fence dispatch to it. Any other failure to deliver a notification,
+including an exception thrown by <code class="docutils literal notranslate"><span class="pre">callback</span></code> itself, is recorded as
+<code class="docutils literal notranslate"><span class="pre">target</span></code> having failed; the observer stays registered.</p>
+<p>A failed send is told apart from an exception thrown by <code class="docutils literal notranslate"><span class="pre">callback</span></code> by
+the locality the error was raised on: an exception thrown by a remote
+callback carries the callback’s locality. The one case this cannot tell
+apart is a callback that rethrows a
+<code class="docutils literal notranslate"><span class="pre">hpx::error::locality_was_disconnected</span></code> error raised on the locality
+tracking <code class="docutils literal notranslate"><span class="pre">target</span></code> (for instance, from a call it made back to that
+locality). That is taken for a failed send, and the observer is
+unregistered although it is still reachable.</p>
 </dd></dl>
 
 </section>
@@ -2107,7 +2122,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Oct 28, 2026.
+  Last updated on Oct 29, 2026.
   <br/>
 </p>
   </div>
