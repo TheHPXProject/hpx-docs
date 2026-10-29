@@ -27,8 +27,6 @@ See also:
    :project: hpx
 .. doxygenfunction:: hpx::collectives::broadcast_to(communicator comm, T &&local_result, this_site_arg this_site=this_site_arg(), generation_arg generation=generation_arg())
    :project: hpx
-.. doxygenfunction:: hpx::collectives::broadcast_to(communicator comm, generation_arg generation, T &&local_result, this_site_arg this_site=this_site_arg())
-   :project: hpx
 .. doxygenfunction:: hpx::collectives::broadcast_to(hpx::launch::sync_policy policy, char const *basename, T &&local_result, num_sites_arg num_sites=num_sites_arg(), this_site_arg this_site=this_site_arg(), generation_arg generation=generation_arg())
    :project: hpx
 .. doxygenfunction:: hpx::collectives::broadcast_to(hpx::launch::sync_policy policy, communicator comm, T &&local_result, this_site_arg this_site=this_site_arg(), generation_arg generation=generation_arg())
