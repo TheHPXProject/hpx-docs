@@ -1623,7 +1623,6 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-sizes">Task sizes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2079-parallel-scheduler">P2079 parallel scheduler</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replacing-the-default-backend">Replacing the default backend</a></li>
 </ul>
@@ -2178,93 +2177,6 @@ to trace and debug the execution of parallel algorithms.</p>
 </section>
 </section>
 </section>
-<section id="task-sizes">
-<h2>Task sizes<a class="headerlink" href="#task-sizes" title="Link to this heading">#</a></h2>
-<p>A task can tell the scheduler how long it is expected to run. The size is a
-property of the function a task runs, so it is attached to the function:
-<code class="docutils literal notranslate"><span class="pre">hpx::with_task_size&lt;Size&gt;(f)</span></code> and its shorthands <code class="docutils literal notranslate"><span class="pre">hpx::nano_task(f)</span></code>,
-<code class="docutils literal notranslate"><span class="pre">hpx::small_task(f)</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx::medium_task(f)</span></code> and <code class="docutils literal notranslate"><span class="pre">hpx::large_task(f)</span></code>
-return a function that carries one of the sizes of
-<code class="docutils literal notranslate"><span class="pre">hpx::task_size</span></code>. <code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_size_v&lt;F&gt;</span></code> reads it,
-and is <code class="docutils literal notranslate"><span class="pre">task_size::unknown</span></code> for a function without a size.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>As a rule of thumb, a nano task runs for about a nanosecond, a small task
-for up to about 100 nanoseconds, a medium task for about 10 microseconds,
-and a large task for about a millisecond or more: each size stands for a
-hundred times the run time of the one below it, and
-<code class="docutils literal notranslate"><span class="pre">hpx::task_size_duration(size)</span></code> returns it as a <code class="docutils literal notranslate"><span class="pre">std::chrono</span></code>
-duration. Nano is mostly meant for loop bodies, for instance comparing or
-adding builtin types; a task that runs only one of them is never worth a
-thread of its own. A task that calls
-a function many times has a size that follows from the function’s size, a
-hundred nano calls make a small task, a hundred small calls a medium one
-and a hundred medium calls a large one;
-<code class="docutils literal notranslate"><span class="pre">hpx::bulk_task_size(size,</span> <span class="pre">calls)</span></code> computes it. The sizes stand for these
-run times so that the scheduler can make use of them: a size that only
-ordered tasks relative to each other could not be compared with anything
-the scheduler knows, while a known run time can be compared with its own
-costs, for instance the cost of stealing a task (on the order of a
-microsecond) or of waking a worker. This allows decisions like not
-stealing small tasks, or waking a worker only for a large task or for a
-backlog of smaller ones.</p>
-</div>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// a long running task</span>
-<span class="n">hpx</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">async</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">large_task</span><span class="p">(</span><span class="o">&amp;</span><span class="n">simulate</span><span class="p">),</span><span class="w"> </span><span class="n">input</span><span class="p">);</span>
-
-<span class="c1">// a short continuation</span>
-<span class="k">auto</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">then</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">small_task</span><span class="p">([](</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="p">}));</span>
-</pre></div>
-</div>
-<p>The size reaches the scheduler with the thread that runs the function:
-<code class="docutils literal notranslate"><span class="pre">hpx::post</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx::async</span></code>, <code class="docutils literal notranslate"><span class="pre">.then()</span></code>, dataflow and the <code class="docutils literal notranslate"><span class="pre">post</span></code>,
-<code class="docutils literal notranslate"><span class="pre">sync_execute</span></code>, <code class="docutils literal notranslate"><span class="pre">async_execute</span></code> and <code class="docutils literal notranslate"><span class="pre">then_execute</span></code> of
-<code class="docutils literal notranslate"><span class="pre">hpx::execution::parallel_executor</span></code> (and of the executors built on it)
-store it in the <code class="docutils literal notranslate"><span class="pre">thread_schedule_hint</span></code> of the thread they create for the
-function.</p>
-<p>Bulk operations generally don’t pass sizes on: their tasks run the function
-many times, so the size of one call says little about how long such a task
-runs. The exception is hierarchical spawning
-(<code class="docutils literal notranslate"><span class="pre">hpx::execution::parallel_executor_spawn_hierarchically</span></code>), which creates a
-task for each element: these tasks carry the function’s size, and the tasks
-that only spawn them are small. The parallel algorithms pass the size of
-their loop body on to the function they give to the executor, so with
-hierarchical spawning it reaches the tasks running parts of the loop.</p>
-<p>A size given to an executor, a launch policy or a scheduler through their
-<code class="docutils literal notranslate"><span class="pre">thread_schedule_hint</span></code> has no effect: the hint of a thread created for a
-function always gets that function’s size, which is <code class="docutils literal notranslate"><span class="pre">task_size::unknown</span></code> if
-the function has none. The exceptions are
-<code class="docutils literal notranslate"><span class="pre">hpx::execution::experimental::scheduler_executor</span></code> and
-<code class="docutils literal notranslate"><span class="pre">hpx::execution::experimental::explicit_scheduler_executor</span></code>: they create
-their threads through a scheduler before they see the function, so these
-threads have <code class="docutils literal notranslate"><span class="pre">task_size::unknown</span></code> even if the function has a size.</p>
-<p>Wrappers forward the size of the function they wrap. The ones <em>HPX</em> provides
-(<code class="docutils literal notranslate"><span class="pre">hpx::bind</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx::bind_front</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx::bind_back</span></code>,
-<code class="docutils literal notranslate"><span class="pre">hpx::util::deferred_call</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx::annotated_function</span></code> and the wrappers
-the parallel algorithms create around their loop bodies, for instance) do. A
-wrapper of your own can do the same by specializing
-<code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_size</span></code>, the same way wrappers forward annotations with
-<code class="docutils literal notranslate"><span class="pre">hpx::traits::get_function_annotation</span></code>:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span>
-<span class="k">struct</span><span class="w"> </span><span class="nc">my_wrapper</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">F</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
-
-<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="n">Ts</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">ts</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">Ts</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ts</span><span class="p">)...);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
-
-<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">task_size</span><span class="w"> </span><span class="n">Size</span><span class="o">&gt;</span>
-<span class="k">struct</span><span class="w"> </span><span class="nc">hpx</span><span class="o">::</span><span class="n">traits</span><span class="o">::</span><span class="n">get_task_size</span><span class="o">&lt;</span><span class="n">my_wrapper</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Size</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">traits</span><span class="o">::</span><span class="n">get_task_size</span><span class="o">&lt;</span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">Size</span><span class="o">&gt;</span>
-<span class="p">{</span>
-<span class="p">};</span>
-</pre></div>
-</div>
-</section>
 <section id="p2079-parallel-scheduler">
 <span id="parallel-scheduler"></span><h2>P2079 parallel scheduler<a class="headerlink" href="#p2079-parallel-scheduler" title="Link to this heading">#</a></h2>
 <p>C++26 (<a class="reference external" href="https://wg21.link/p2079">P2079</a>)
@@ -2407,7 +2319,6 @@ type combinations return <code class="docutils literal notranslate"><span class=
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-sizes">Task sizes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p2079-parallel-scheduler">P2079 parallel scheduler</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replacing-the-default-backend">Replacing the default backend</a></li>
 </ul>

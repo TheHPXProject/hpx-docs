@@ -1606,14 +1606,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threadsE"><code class="docutils literal notranslate"><span class="pre">hpx::threads</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads9task_sizeE"><code class="docutils literal notranslate"><span class="pre">task_size</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads9task_size7unknownE"><code class="docutils literal notranslate"><span class="pre">unknown</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads9task_size4nanoE"><code class="docutils literal notranslate"><span class="pre">nano</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads9task_size6small_E"><code class="docutils literal notranslate"><span class="pre">small_</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads9task_size6mediumE"><code class="docutils literal notranslate"><span class="pre">medium</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads9task_size5largeE"><code class="docutils literal notranslate"><span class="pre">large</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads18task_size_durationEK9task_size"><code class="docutils literal notranslate"><span class="pre">task_size_duration()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads14bulk_task_sizeEK9task_sizeKNSt6size_tE"><code class="docutils literal notranslate"><span class="pre">bulk_task_size()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traitsE"><code class="docutils literal notranslate"><span class="pre">hpx::traits</span></code></a><ul class="nav section-nav flex-column">
@@ -1654,18 +1651,12 @@ document.write(`
 <dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads9task_sizeE">
 <span id="_CPPv3N3hpx7threads9task_sizeE"></span><span id="_CPPv2N3hpx7threads9task_sizeE"></span><span class="target" id="get__task__size_8hpp_1a55a7b64d124585d7a2f8aeebeacd0694"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">task_size</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint8_t</span></span><a class="headerlink" href="#_CPPv4N3hpx7threads9task_sizeE" title="Link to this definition">#</a><br /></dt>
-<dd><p>The expected run time of a task, a hint the scheduler may use. A task with an unknown size is scheduled as it would be without the hint. The sizes are ordered by run time, see task_size_duration. </p>
+<dd><p>The expected run time of a task, a hint the scheduler may use. A task with an unknown size is scheduled as it would be without the hint. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads9task_size7unknownE">
 <span id="_CPPv3N3hpx7threads9task_size7unknownE"></span><span id="_CPPv2N3hpx7threads9task_size7unknownE"></span><span class="target" id="get__task__size_8hpp_1a55a7b64d124585d7a2f8aeebeacd0694aad921d60486366258809553a3db49a4a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">unknown</span></span></span><a class="headerlink" href="#_CPPv4N3hpx7threads9task_size7unknownE" title="Link to this definition">#</a><br /></dt>
 <dd></dd></dl>
-
-<dl class="cpp enumerator">
-<dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads9task_size4nanoE">
-<span id="_CPPv3N3hpx7threads9task_size4nanoE"></span><span id="_CPPv2N3hpx7threads9task_size4nanoE"></span><span class="target" id="get__task__size_8hpp_1a55a7b64d124585d7a2f8aeebeacd0694a1657ec96792937f71c20c9e1bdc2300f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nano</span></span></span><a class="headerlink" href="#_CPPv4N3hpx7threads9task_size4nanoE" title="Link to this definition">#</a><br /></dt>
-<dd><p>about a nanosecond, mostly for loop bodies </p>
-</dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads9task_size6small_E">
@@ -1683,21 +1674,6 @@ document.write(`
 <span id="_CPPv3N3hpx7threads9task_size5largeE"></span><span id="_CPPv2N3hpx7threads9task_size5largeE"></span><span class="target" id="get__task__size_8hpp_1a55a7b64d124585d7a2f8aeebeacd0694aafacdb0a401ccdf6b48551bbc00e8a74"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">large</span></span></span><a class="headerlink" href="#_CPPv4N3hpx7threads9task_size5largeE" title="Link to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
-</dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads18task_size_durationEK9task_size">
-<span id="_CPPv3N3hpx7threads18task_size_durationEK9task_size"></span><span id="_CPPv2N3hpx7threads18task_size_durationEK9task_size"></span><span id="hpx::threads::task_size_duration__task_sizeCCE"></span><span class="target" id="get__task__size_8hpp_1a3593f0499af0fcbd61416b3cb55fa07d"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">nanoseconds</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">task_size_duration</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3hpx7threads9task_sizeE" title="hpx::threads::task_size"><span class="n"><span class="pre">task_size</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">size</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx7threads18task_size_durationEK9task_size" title="Link to this definition">#</a><br /></dt>
-<dd><p>The run time a task of the given <code class="docutils literal notranslate"><span class="pre">size</span></code> stands for. Each size stands for a hundred times the run time of the one below it: nano about 1 ns, small up to about 100 ns, medium about 10 us, large about 1 ms or more. An unknown size gives a duration of zero. Callers should rely on std::chrono arithmetic only, not on the unit or the count of the returned duration, which may change once tasks can carry real run times. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads14bulk_task_sizeEK9task_sizeKNSt6size_tE">
-<span id="_CPPv3N3hpx7threads14bulk_task_sizeEK9task_sizeKNSt6size_tE"></span><span id="_CPPv2N3hpx7threads14bulk_task_sizeEK9task_sizeKNSt6size_tE"></span><span id="hpx::threads::bulk_task_size__task_sizeC.std::sCCE"></span><span class="target" id="get__task__size_8hpp_1a4ec612425c5a32263cb7f7ee2300b9a2"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3hpx7threads9task_sizeE" title="hpx::threads::task_size"><span class="n"><span class="pre">task_size</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bulk_task_size</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3hpx7threads9task_sizeE" title="hpx::threads::task_size"><span class="n"><span class="pre">task_size</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">size</span></span>, <a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">calls</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx7threads14bulk_task_sizeEK9task_sizeKNSt6size_tE" title="Link to this definition">#</a><br /></dt>
-<dd><p>The size of a task that calls a function of the given <code class="docutils literal notranslate"><span class="pre">size</span></code> <code class="docutils literal notranslate"><span class="pre">calls</span></code> times, for instance a hundred nano calls make a small task, a hundred small calls a medium one and a hundred medium calls a large one. The size of a task calling a function of unknown size is unknown. </p>
 </dd></dl>
 
 </div>
@@ -1782,14 +1758,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threadsE"><code class="docutils literal notranslate"><span class="pre">hpx::threads</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads9task_sizeE"><code class="docutils literal notranslate"><span class="pre">task_size</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads9task_size7unknownE"><code class="docutils literal notranslate"><span class="pre">unknown</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads9task_size4nanoE"><code class="docutils literal notranslate"><span class="pre">nano</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads9task_size6small_E"><code class="docutils literal notranslate"><span class="pre">small_</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads9task_size6mediumE"><code class="docutils literal notranslate"><span class="pre">medium</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads9task_size5largeE"><code class="docutils literal notranslate"><span class="pre">large</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads18task_size_durationEK9task_size"><code class="docutils literal notranslate"><span class="pre">task_size_duration()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads14bulk_task_sizeEK9task_sizeKNSt6size_tE"><code class="docutils literal notranslate"><span class="pre">bulk_task_size()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traitsE"><code class="docutils literal notranslate"><span class="pre">hpx::traits</span></code></a><ul class="nav section-nav flex-column">
