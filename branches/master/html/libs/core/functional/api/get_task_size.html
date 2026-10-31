@@ -52,7 +52,7 @@
     <link rel="prev" title="hpx::invoke_fused_r" href="invoke_fused_hpx_invoke_fused_r.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Oct 30, 2026"/>
+    <meta name="docbuild:last-update" content="Oct 31, 2026"/>
   </head>
   
   
@@ -1619,9 +1619,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traitsE"><code class="docutils literal notranslate"><span class="pre">hpx::traits</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_N7threads9task_sizeEEN3hpx6traits15get_task_size_vE"><code class="docutils literal notranslate"><span class="pre">get_task_size_v</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_N7threads9task_sizeE0EN3hpx6traits13get_task_sizeE"><code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_size</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits13get_task_size4callERK1F"><code class="docutils literal notranslate"><span class="pre">call()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits13get_task_size5valueE"><code class="docutils literal notranslate"><span class="pre">value</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_N7threads9task_sizeEEN3hpx6traits13get_task_sizeE"><code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_size&lt;</span> <span class="pre">F,</span> <span class="pre">Size</span> <span class="pre">&gt;</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1691,7 +1693,7 @@ document.write(`
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads18task_size_durationEK9task_size">
 <span id="_CPPv3N3hpx7threads18task_size_durationEK9task_size"></span><span id="_CPPv2N3hpx7threads18task_size_durationEK9task_size"></span><span id="hpx::threads::task_size_duration__task_sizeCCE"></span><span class="target" id="get__task__size_8hpp_1a3593f0499af0fcbd61416b3cb55fa07d"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">nanoseconds</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">task_size_duration</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3hpx7threads9task_sizeE" title="hpx::threads::task_size"><span class="n"><span class="pre">task_size</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">size</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx7threads18task_size_durationEK9task_size" title="Link to this definition">#</a><br /></dt>
-<dd><p>The run time a task of the given <code class="docutils literal notranslate"><span class="pre">size</span></code> stands for. Each size stands for a hundred times the run time of the one below it: nano about 1 ns, small up to about 100 ns, medium about 10 us, large about 1 ms or more. An unknown size gives a duration of zero. Callers should rely on std::chrono arithmetic only, not on the unit or the count of the returned duration, which may change once tasks can carry real run times. </p>
+<dd><p>The run time a task of the given <code class="docutils literal notranslate"><span class="pre">size</span></code> stands for. Each size stands for a hundred times the run time of the one below it: nano about 1 ns, small about 100 ns, medium about 10 us, large about 1 ms or more. An unknown size gives a duration of zero. Callers should rely on std::chrono arithmetic only, not on the unit or the count of the returned duration, which may change once tasks can carry real run times. </p>
 </dd></dl>
 
 <dl class="cpp function">
@@ -1718,6 +1720,14 @@ document.write(`
 <dt class="sig sig-object cpp" id="_CPPv4I0_N7threads9task_sizeE0EN3hpx6traits13get_task_sizeE">
 <span id="_CPPv3I0_N7threads9task_sizeE0EN3hpx6traits13get_task_sizeE"></span><span id="_CPPv2I0_N7threads9task_sizeE0EN3hpx6traits13get_task_sizeE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">F</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../coroutines/api/thread_enums.html#_CPPv4N3hpx7threadsE" title="hpx::threads"><span class="n"><span class="pre">threads</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N3hpx7threads9task_sizeE" title="hpx::threads::task_size"><span class="n"><span class="pre">task_size</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Size</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../coroutines/api/thread_enums.html#_CPPv4N3hpx7threadsE" title="hpx::threads"><span class="n"><span class="pre">threads</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N3hpx7threads9task_sizeE" title="hpx::threads::task_size"><span class="n"><span class="pre">task_size</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N3hpx7threads9task_size7unknownE" title="hpx::threads::task_size::unknown"><span class="n"><span class="pre">unknown</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Enable</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structhpx_1_1traits_1_1get__task__size"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_task_size</span></span></span><a class="headerlink" href="#_CPPv4I0_N7threads9task_sizeE0EN3hpx6traits13get_task_sizeE" title="Link to this definition">#</a><br /></dt>
 <dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx6traits13get_task_size4callERK1F">
+<span id="_CPPv3N3hpx6traits13get_task_size4callERK1F"></span><span id="_CPPv2N3hpx6traits13get_task_size4callERK1F"></span><span id="hpx::traits::get_task_size::call__FCRCE"></span><span class="target" id="structhpx_1_1traits_1_1get__task__size_1a2e19e1172ac528345bcffd78f8d40c9c"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><a class="reference internal" href="../../coroutines/api/thread_enums.html#_CPPv4N3hpx7threadsE" title="hpx::threads"><span class="n"><span class="pre">threads</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N3hpx7threads9task_sizeE" title="hpx::threads::task_size"><span class="n"><span class="pre">task_size</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">call</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0_N7threads9task_sizeE0EN3hpx6traits13get_task_sizeE" title="hpx::traits::get_task_size::F"><span class="n"><span class="pre">F</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx6traits13get_task_size4callERK1F" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx6traits13get_task_size5valueE">
@@ -1725,6 +1735,12 @@ document.write(`
 <dd></dd></dl>
 
 </div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4I0_N7threads9task_sizeEEN3hpx6traits13get_task_sizeE">
+<span id="_CPPv3I0_N7threads9task_sizeEEN3hpx6traits13get_task_sizeE"></span><span id="_CPPv2I0_N7threads9task_sizeEEN3hpx6traits13get_task_sizeE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">F</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../coroutines/api/thread_enums.html#_CPPv4N3hpx7threadsE" title="hpx::threads"><span class="n"><span class="pre">threads</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N3hpx7threads9task_sizeE" title="hpx::threads::task_size"><span class="n"><span class="pre">task_size</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Size</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structhpx_1_1traits_1_1get__task__size_3_01_f_00_01_size_01_4"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_task_size</span></span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_N7threads9task_sizeEEN3hpx6traits13get_task_sizeE" title="hpx::traits::get_task_size::F"><span class="n"><span class="pre">F</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_N7threads9task_sizeEEN3hpx6traits13get_task_sizeE" title="hpx::traits::get_task_size::Size"><span class="n"><span class="pre">Size</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../compute_local/api/vector.html#_CPPv4N3hpx6traitsE" title="hpx::traits"><span class="n"><span class="pre">traits</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4I0_N7threads9task_sizeE0EN3hpx6traits13get_task_sizeE" title="hpx::traits::get_task_size"><span class="n"><span class="pre">get_task_size</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">remove_cvref_t</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_N7threads9task_sizeEEN3hpx6traits13get_task_sizeE" title="hpx::traits::get_task_size::F"><span class="n"><span class="pre">F</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_N7threads9task_sizeEEN3hpx6traits13get_task_sizeE" title="hpx::traits::get_task_size::Size"><span class="n"><span class="pre">Size</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4I0_N7threads9task_sizeEEN3hpx6traits13get_task_sizeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>Subclassed by hpx::traits::get_task_size&lt; hpx::detail::bound&lt; F, Ts… &gt;, Size &gt;, hpx::traits::get_task_size&lt; hpx::detail::bound_back&lt; F, Ts… &gt;, Size &gt;, hpx::traits::get_task_size&lt; hpx::detail::bound_front&lt; F, Ts… &gt;, Size &gt;</p>
 </dd></dl>
 
 </dd></dl>
@@ -1795,9 +1811,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traitsE"><code class="docutils literal notranslate"><span class="pre">hpx::traits</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_N7threads9task_sizeEEN3hpx6traits15get_task_size_vE"><code class="docutils literal notranslate"><span class="pre">get_task_size_v</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_N7threads9task_sizeE0EN3hpx6traits13get_task_sizeE"><code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_size</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits13get_task_size4callERK1F"><code class="docutils literal notranslate"><span class="pre">call()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits13get_task_size5valueE"><code class="docutils literal notranslate"><span class="pre">value</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_N7threads9task_sizeEEN3hpx6traits13get_task_sizeE"><code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_size&lt;</span> <span class="pre">F,</span> <span class="pre">Size</span> <span class="pre">&gt;</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1835,7 +1853,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Oct 30, 2026.
+  Last updated on Oct 31, 2026.
   <br/>
 </p>
   </div>

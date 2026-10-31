@@ -52,7 +52,7 @@
     <link rel="prev" title="Configuring and tuning the thread schedulers" href="thread_scheduler_configuration.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Oct 30, 2026"/>
+    <meta name="docbuild:last-update" content="Oct 31, 2026"/>
   </head>
   
   
@@ -2185,12 +2185,15 @@ property of the function a task runs, so it is attached to the function:
 <code class="docutils literal notranslate"><span class="pre">hpx::with_task_size&lt;Size&gt;(f)</span></code> and its shorthands <code class="docutils literal notranslate"><span class="pre">hpx::nano_task(f)</span></code>,
 <code class="docutils literal notranslate"><span class="pre">hpx::small_task(f)</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx::medium_task(f)</span></code> and <code class="docutils literal notranslate"><span class="pre">hpx::large_task(f)</span></code>
 return a function that carries one of the sizes of
-<code class="docutils literal notranslate"><span class="pre">hpx::task_size</span></code>. <code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_size_v&lt;F&gt;</span></code> reads it,
-and is <code class="docutils literal notranslate"><span class="pre">task_size::unknown</span></code> for a function without a size.</p>
+<code class="docutils literal notranslate"><span class="pre">hpx::task_size</span></code>. <code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_size_v&lt;F&gt;</span></code> reads it from
+the type of a function, and is <code class="docutils literal notranslate"><span class="pre">task_size::unknown</span></code> for a function without a
+size. <code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_size&lt;F&gt;::call(f)</span></code> reads it from the function
+object <code class="docutils literal notranslate"><span class="pre">f</span></code>, which also finds the size of a function stored in an
+<code class="docutils literal notranslate"><span class="pre">hpx::function</span></code> or an <code class="docutils literal notranslate"><span class="pre">hpx::move_only_function</span></code>, known at run time only.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>As a rule of thumb, a nano task runs for about a nanosecond, a small task
-for up to about 100 nanoseconds, a medium task for about 10 microseconds,
+for about 100 nanoseconds, a medium task for about 10 microseconds,
 and a large task for about a millisecond or more: each size stands for a
 hundred times the run time of the one below it, and
 <code class="docutils literal notranslate"><span class="pre">hpx::task_size_duration(size)</span></code> returns it as a <code class="docutils literal notranslate"><span class="pre">std::chrono</span></code>
@@ -2217,19 +2220,26 @@ backlog of smaller ones.</p>
 </pre></div>
 </div>
 <p>The size reaches the scheduler with the thread that runs the function:
-<code class="docutils literal notranslate"><span class="pre">hpx::post</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx::async</span></code>, <code class="docutils literal notranslate"><span class="pre">.then()</span></code>, dataflow and the <code class="docutils literal notranslate"><span class="pre">post</span></code>,
+<code class="docutils literal notranslate"><span class="pre">hpx::post</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx::async</span></code>, <code class="docutils literal notranslate"><span class="pre">.then()</span></code>, dataflow, <code class="docutils literal notranslate"><span class="pre">hpx::thread</span></code>,
+<code class="docutils literal notranslate"><span class="pre">hpx::run_as_hpx_thread</span></code> and the <code class="docutils literal notranslate"><span class="pre">post</span></code>,
 <code class="docutils literal notranslate"><span class="pre">sync_execute</span></code>, <code class="docutils literal notranslate"><span class="pre">async_execute</span></code> and <code class="docutils literal notranslate"><span class="pre">then_execute</span></code> of
 <code class="docutils literal notranslate"><span class="pre">hpx::execution::parallel_executor</span></code> (and of the executors built on it)
 store it in the <code class="docutils literal notranslate"><span class="pre">thread_schedule_hint</span></code> of the thread they create for the
 function.</p>
-<p>Bulk operations generally don’t pass sizes on: their tasks run the function
-many times, so the size of one call says little about how long such a task
-runs. The exception is hierarchical spawning
-(<code class="docutils literal notranslate"><span class="pre">hpx::execution::parallel_executor_spawn_hierarchically</span></code>), which creates a
-task for each element: these tasks carry the function’s size, and the tasks
-that only spawn them are small. The parallel algorithms pass the size of
-their loop body on to the function they give to the executor, so with
-hierarchical spawning it reaches the tasks running parts of the loop.</p>
+<p>The tasks of bulk operations run the function many times, so their size is
+derived from the function’s size with <code class="docutils literal notranslate"><span class="pre">hpx::bulk_task_size</span></code>:
+<code class="docutils literal notranslate"><span class="pre">hpx::execution::parallel_executor</span></code> and the bulk operations of
+<code class="docutils literal notranslate"><span class="pre">hpx::execution::experimental::thread_pool_scheduler</span></code> (which the scheduler
+executors use as well) give each of their worker tasks the size of the share
+of the elements it runs. For <code class="docutils literal notranslate"><span class="pre">bulk_chunked</span></code>, which passes a range of
+elements to each call, the function’s size is still the size of its work for
+one element, not for a whole range. Hierarchical spawning
+(<code class="docutils literal notranslate"><span class="pre">hpx::execution::parallel_executor_spawn_hierarchically</span></code>) creates a task
+for each element instead: these tasks carry the function’s size, and the
+tasks that only spawn them are small. The parallel algorithms run their loop
+body in chunks, and the function they give to the executor has the size of
+a chunk, derived from the size of the loop body and the number of iterations
+in a chunk. A loop body without a size gives tasks without a size.</p>
 <p>A size given to an executor, a launch policy or a scheduler through their
 <code class="docutils literal notranslate"><span class="pre">thread_schedule_hint</span></code> has no effect: the hint of a thread created for a
 function always gets that function’s size, which is <code class="docutils literal notranslate"><span class="pre">task_size::unknown</span></code> if
@@ -2244,7 +2254,8 @@ threads have <code class="docutils literal notranslate"><span class="pre">task_s
 the parallel algorithms create around their loop bodies, for instance) do. A
 wrapper of your own can do the same by specializing
 <code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_size</span></code>, the same way wrappers forward annotations with
-<code class="docutils literal notranslate"><span class="pre">hpx::traits::get_function_annotation</span></code>:</p>
+<code class="docutils literal notranslate"><span class="pre">hpx::traits::get_function_annotation</span></code>. It derives from the specialization
+for the wrapped function, which gives it <code class="docutils literal notranslate"><span class="pre">value</span></code>, and forwards <code class="docutils literal notranslate"><span class="pre">call</span></code>:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">my_wrapper</span>
 <span class="p">{</span>
@@ -2261,6 +2272,11 @@ wrapper of your own can do the same by specializing
 <span class="k">struct</span><span class="w"> </span><span class="nc">hpx</span><span class="o">::</span><span class="n">traits</span><span class="o">::</span><span class="n">get_task_size</span><span class="o">&lt;</span><span class="n">my_wrapper</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Size</span><span class="o">&gt;</span>
 <span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">traits</span><span class="o">::</span><span class="n">get_task_size</span><span class="o">&lt;</span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">Size</span><span class="o">&gt;</span>
 <span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">task_size</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span>
+<span class="w">        </span><span class="n">my_wrapper</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">traits</span><span class="o">::</span><span class="n">get_task_size</span><span class="o">&lt;</span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">Size</span><span class="o">&gt;::</span><span class="n">call</span><span class="p">(</span><span class="n">w</span><span class="p">.</span><span class="n">f</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
 </div>
@@ -2445,7 +2461,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Oct 30, 2026.
+  Last updated on Oct 31, 2026.
   <br/>
 </p>
   </div>
