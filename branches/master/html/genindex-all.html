@@ -1011,7 +1011,6 @@
 <li class="toctree-l4"><a class="reference internal" href="libs/core/execution/api/execution.html">hpx/execution/executors/execution.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="libs/core/execution/api/num_cores_hpx_execution_experimental_num_cores.html">hpx::execution::experimental::num_cores</a></li>
 <li class="toctree-l4"><a class="reference internal" href="libs/core/execution/api/create_rebound_policy.html">hpx/execution/executors/create_rebound_policy.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="libs/core/execution/api/task_size_chunk_size_hpx_execution_experimental_task_size_chunk_size.html">hpx::execution::experimental::task_size_chunk_size</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="libs/core/execution_base/api/full_api.html">execution_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -2467,8 +2466,6 @@ document.write(`
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_SYCL-BOOL">HPX_WITH_SYCL:BOOL</a>
 </li>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_SYCL_FLAGS-STRING">HPX_WITH_SYCL_FLAGS:STRING</a>
-</li>
-        <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_TASK_SIZE_DEFAULT_PARAMETERS-BOOL">HPX_WITH_TASK_SIZE_DEFAULT_PARAMETERS:BOOL</a>
 </li>
         <li><a href="manual/building_hpx.html#cmdoption-arg-HPX_WITH_TESTS">HPX_WITH_TESTS</a>
 </li>
@@ -4859,12 +4856,6 @@ document.write(`
 </li>
       <li><a href="libs/core/execution_base/api/is_executor_parameters.html#_CPPv4I0EN3hpx9execution12experimental34extract_invokes_testing_function_vE">hpx::execution::experimental::extract_invokes_testing_function_v (C++ member)</a>
 </li>
-      <li><a href="libs/core/execution_base/api/is_executor_parameters.html#_CPPv4I00EN3hpx9execution12experimental22extract_uses_task_sizeE">hpx::execution::experimental::extract_uses_task_size (C++ struct)</a>
-</li>
-      <li><a href="libs/core/execution_base/api/is_executor_parameters.html#_CPPv4I0EN3hpx9execution12experimental22extract_uses_task_sizeINSt17reference_wrapperI10ParametersEEEE">hpx::execution::experimental::extract_uses_task_size&lt;::std::reference_wrapper&lt;Parameters&gt;&gt; (C++ struct)</a>
-</li>
-      <li><a href="libs/core/execution_base/api/is_executor_parameters.html#_CPPv4I0EN3hpx9execution12experimental24extract_uses_task_size_vE">hpx::execution::experimental::extract_uses_task_size_v (C++ member)</a>
-</li>
       <li><a href="libs/core/execution/api/execution_parameters_fwd.html#_CPPv4N3hpx9execution12experimental14get_chunk_sizeE">hpx::execution::experimental::get_chunk_size (C++ member)</a>
 </li>
       <li><a href="libs/core/execution/api/execution_parameters_fwd.html#_CPPv4N3hpx9execution12experimental16get_chunk_size_tE">hpx::execution::experimental::get_chunk_size_t (C++ struct)</a>
@@ -5092,8 +5083,6 @@ document.write(`
       <li><a href="libs/core/execution/api/execution_information.html#_CPPv4I00ENK3hpx9execution12experimental20set_scheduler_mode_tclEvRR8ExecutorRK4Mode">hpx::execution::experimental::set_scheduler_mode_t::operator() (C++ function)</a>, <a href="libs/core/execution/api/execution_information.html#_CPPv4I00ENK3hpx9execution12experimental20set_scheduler_mode_tclEvRR8ExecutorRK4Mode">[1]</a>
 </li>
       <li><a href="libs/core/execution/api/static_chunk_size_hpx_execution_experimental_static_chunk_size.html#_CPPv4N3hpx9execution12experimental17static_chunk_sizeE">hpx::execution::experimental::static_chunk_size (C++ struct)</a>
-</li>
-      <li><a href="libs/core/execution/api/task_size_chunk_size_hpx_execution_experimental_task_size_chunk_size.html#_CPPv4N3hpx9execution12experimental20task_size_chunk_sizeE">hpx::execution::experimental::task_size_chunk_size (C++ struct)</a>
 </li>
       <li><a href="libs/core/executors/api/thread_pool_scheduler.html#_CPPv4I0EN3hpx9execution12experimental18thread_pool_domainE">hpx::execution::experimental::thread_pool_domain (C++ struct)</a>
 </li>
@@ -6531,10 +6520,10 @@ document.write(`
 </li>
       <li><a href="libs/core/resiliency/api/replicate_executor.html#_CPPv4N3hpx10resiliency12experimental18replicate_executor16replicate_count_E">hpx::resiliency::experimental::replicate_executor::replicate_count_ (C++ member)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/core/resiliency/api/replicate_executor.html#_CPPv4I000EN3hpx10resiliency12experimental18replicate_executor18replicate_executorERR13BaseExecutor_NSt6size_tERR1VRR1F">hpx::resiliency::experimental::replicate_executor::replicate_executor (C++ function)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/core/resiliency/api/replicate_executor.html#_CPPv4N3hpx10resiliency12experimental18replicate_executor10validator_E">hpx::resiliency::experimental::replicate_executor::validator_ (C++ member)</a>
 </li>
       <li><a href="libs/core/resiliency/api/replicate_executor.html#_CPPv4N3hpx10resiliency12experimental18replicate_executor6voter_E">hpx::resiliency::experimental::replicate_executor::voter_ (C++ member)</a>
@@ -10688,13 +10677,6 @@ document.write(`
 
       <ul>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_SYCL_FLAGS-STRING">command line option</a>
-</li>
-      </ul></li>
-      <li>
-    HPX_WITH_TASK_SIZE_DEFAULT_PARAMETERS:BOOL
-
-      <ul>
-        <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_TASK_SIZE_DEFAULT_PARAMETERS-BOOL">command line option</a>
 </li>
       </ul></li>
       <li>

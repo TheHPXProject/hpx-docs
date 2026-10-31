@@ -1012,7 +1012,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/execution.html">hpx/execution/executors/execution.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/num_cores_hpx_execution_experimental_num_cores.html">hpx::execution::experimental::num_cores</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/create_rebound_policy.html">hpx/execution/executors/create_rebound_policy.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/task_size_chunk_size_hpx_execution_experimental_task_size_chunk_size.html">hpx::execution::experimental::task_size_chunk_size</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/execution_base/api/full_api.html">execution_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -3523,14 +3522,6 @@ of the initial block is proportional to <code class="docutils literal notranslat
 parameter defines the minimum block size. The default minimal chunk size is 1.
 This executor parameter type is equivalent to OpenMP’s GUIDED scheduling
 directive.</p></li>
-<li><p><a class="reference internal" href="../libs/core/execution/api/task_size_chunk_size_hpx_execution_experimental_task_size_chunk_size.html#modules-task-size-chunk-size-hpx-execution-experimental-task-size-chunk-size-api"><span class="std std-ref">hpx::execution::experimental::task_size_chunk_size</span></a>: The run
-time of one loop iteration is taken from the task size of the loop body
-(see <a class="reference internal" href="executors.html#task-sizes"><span class="std std-ref">Task sizes</span></a>), nothing is measured. The loop runs on as many
-cores as can be given a number of chunks (8 by default) of at least a
-minimal run time each (2.5 microseconds by default), at least on one; a
-loop that ends up as a single chunk on a single core runs on the calling
-thread. A loop body without a size is chunked as with the default executor
-parameters.</p></li>
 </ul>
 </section>
 </section>
