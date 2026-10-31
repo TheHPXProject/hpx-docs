@@ -1012,6 +1012,7 @@
 <li class="toctree-l4"><a class="reference internal" href="libs/core/execution/api/execution.html">hpx/execution/executors/execution.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="libs/core/execution/api/num_cores_hpx_execution_experimental_num_cores.html">hpx::execution::experimental::num_cores</a></li>
 <li class="toctree-l4"><a class="reference internal" href="libs/core/execution/api/create_rebound_policy.html">hpx/execution/executors/create_rebound_policy.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs/core/execution/api/task_size_chunk_size_hpx_execution_experimental_task_size_chunk_size.html">hpx::execution::experimental::task_size_chunk_size</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="libs/core/execution_base/api/full_api.html">execution_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -3811,6 +3812,12 @@ document.write(`
 </li>
       <li><a href="libs/core/execution_base/api/is_executor_parameters.html#_CPPv4I0EN3hpx9execution12experimental34extract_invokes_testing_function_vE">hpx::execution::experimental::extract_invokes_testing_function_v (C++ member)</a>
 </li>
+      <li><a href="libs/core/execution_base/api/is_executor_parameters.html#_CPPv4I00EN3hpx9execution12experimental22extract_uses_task_sizeE">hpx::execution::experimental::extract_uses_task_size (C++ struct)</a>
+</li>
+      <li><a href="libs/core/execution_base/api/is_executor_parameters.html#_CPPv4I0EN3hpx9execution12experimental22extract_uses_task_sizeINSt17reference_wrapperI10ParametersEEEE">hpx::execution::experimental::extract_uses_task_size&lt;::std::reference_wrapper&lt;Parameters&gt;&gt; (C++ struct)</a>
+</li>
+      <li><a href="libs/core/execution_base/api/is_executor_parameters.html#_CPPv4I0EN3hpx9execution12experimental24extract_uses_task_size_vE">hpx::execution::experimental::extract_uses_task_size_v (C++ member)</a>
+</li>
       <li><a href="libs/core/execution/api/execution_parameters_fwd.html#_CPPv4N3hpx9execution12experimental14get_chunk_sizeE">hpx::execution::experimental::get_chunk_size (C++ member)</a>
 </li>
       <li><a href="libs/core/execution/api/execution_parameters_fwd.html#_CPPv4N3hpx9execution12experimental16get_chunk_size_tE">hpx::execution::experimental::get_chunk_size_t (C++ struct)</a>
@@ -4038,6 +4045,8 @@ document.write(`
       <li><a href="libs/core/execution/api/execution_information.html#_CPPv4I00ENK3hpx9execution12experimental20set_scheduler_mode_tclEvRR8ExecutorRK4Mode">hpx::execution::experimental::set_scheduler_mode_t::operator() (C++ function)</a>, <a href="libs/core/execution/api/execution_information.html#_CPPv4I00ENK3hpx9execution12experimental20set_scheduler_mode_tclEvRR8ExecutorRK4Mode">[1]</a>
 </li>
       <li><a href="libs/core/execution/api/static_chunk_size_hpx_execution_experimental_static_chunk_size.html#_CPPv4N3hpx9execution12experimental17static_chunk_sizeE">hpx::execution::experimental::static_chunk_size (C++ struct)</a>
+</li>
+      <li><a href="libs/core/execution/api/task_size_chunk_size_hpx_execution_experimental_task_size_chunk_size.html#_CPPv4N3hpx9execution12experimental20task_size_chunk_sizeE">hpx::execution::experimental::task_size_chunk_size (C++ struct)</a>
 </li>
       <li><a href="libs/core/executors/api/thread_pool_scheduler.html#_CPPv4I0EN3hpx9execution12experimental18thread_pool_domainE">hpx::execution::experimental::thread_pool_domain (C++ struct)</a>
 </li>
@@ -5293,12 +5302,12 @@ document.write(`
 </li>
       <li><a href="libs/core/algorithms/api/reduce_hpx_reduce.html#_CPPv4I0000EN3hpx6reduceEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy1TEERR8ExPolicy7FwdIter7FwdIter1TRR1F">hpx::reduce (C++ function)</a>, <a href="libs/core/algorithms/api/reduce_hpx_reduce.html#_CPPv4I000EN3hpx6reduceE1T7FwdIter7FwdIter1TRR1F">[1]</a>, <a href="libs/core/algorithms/api/reduce_hpx_reduce.html#_CPPv4I000EN3hpx6reduceEN4util6detail18algorithm_result_tI8ExPolicy1TEERR8ExPolicy7FwdIter7FwdIter1T">[2]</a>, <a href="libs/core/algorithms/api/reduce_hpx_reduce.html#_CPPv4I00EN3hpx6reduceE1T7FwdIter7FwdIter1T">[3]</a>, <a href="libs/core/algorithms/api/reduce_hpx_reduce.html#_CPPv4I00EN3hpx6reduceEN3hpx8parallel4util6detail16algorithm_resultI8ExPolicyNSt15iterator_traitsI7FwdIterE10value_typeEE4typeERR8ExPolicy7FwdIter7FwdIter">[4]</a>, <a href="libs/core/algorithms/api/reduce_hpx_reduce.html#_CPPv4I0EN3hpx6reduceENSt15iterator_traitsI7FwdIterE10value_typeE7FwdIter7FwdIter">[5]</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/core/algorithms/api/reduce_deterministic_hpx_reduce_deterministic.html#_CPPv4I0000EN3hpx20reduce_deterministicEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy1TEERR8ExPolicy7FwdIter7FwdIter1TRR1F">hpx::reduce_deterministic (C++ function)</a>, <a href="libs/core/algorithms/api/reduce_deterministic_hpx_reduce_deterministic.html#_CPPv4I000EN3hpx20reduce_deterministicE1T7FwdIter7FwdIter1TRR1F">[1]</a>, <a href="libs/core/algorithms/api/reduce_deterministic_hpx_reduce_deterministic.html#_CPPv4I000EN3hpx20reduce_deterministicEN4util6detail18algorithm_result_tI8ExPolicy1TEERR8ExPolicy7FwdIter7FwdIter1T">[2]</a>, <a href="libs/core/algorithms/api/reduce_deterministic_hpx_reduce_deterministic.html#_CPPv4I00EN3hpx20reduce_deterministicE1T7FwdIter7FwdIter1T">[3]</a>, <a href="libs/core/algorithms/api/reduce_deterministic_hpx_reduce_deterministic.html#_CPPv4I00EN3hpx20reduce_deterministicEN3hpx8parallel4util6detail16algorithm_resultI8ExPolicyNSt15iterator_traitsI7FwdIterE10value_typeEE4typeERR8ExPolicy7FwdIter7FwdIter">[4]</a>, <a href="libs/core/algorithms/api/reduce_deterministic_hpx_reduce_deterministic.html#_CPPv4I0EN3hpx20reduce_deterministicENSt15iterator_traitsI7FwdIterE10value_typeE7FwdIter7FwdIter">[5]</a>
 </li>
       <li><a href="libs/core/functional/api/reference_wrapper_hpx_ref.html#_CPPv4I0EN3hpx3refE17reference_wrapperI1TE17reference_wrapperI1TE">hpx::ref (C++ function)</a>, <a href="libs/core/functional/api/reference_wrapper_hpx_ref.html#_CPPv4I0EN3hpx3refE17reference_wrapperI1TER1T">[1]</a>, <a href="libs/core/functional/api/reference_wrapper_hpx_ref.html#_CPPv4I0EN3hpx3refE17reference_wrapperI1TERR1T">[2]</a>, <a href="libs/core/functional/api/reference_wrapper_hpx_ref.html#_CPPv4I0EN3hpx3refEvRRK1T">[3]</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/core/functional/api/reference_wrapper_hpx_reference_wrapper.html#_CPPv4I0EN3hpx17reference_wrapperE17reference_wrapperI1TER1T">hpx::reference_wrapper (C++ function)</a>
 </li>
       <li><a href="libs/core/runtime_local/api/runtime_local_fwd_hpx_register_on_exit.html#_CPPv4N3hpx16register_on_exitERKN3hpx8functionIFvvEEE">hpx::register_on_exit (C++ function)</a>
@@ -9632,6 +9641,13 @@ document.write(`
 
       <ul>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_SYCL_FLAGS-STRING">command line option</a>
+</li>
+      </ul></li>
+      <li>
+    HPX_WITH_TASK_SIZE_DEFAULT_PARAMETERS:BOOL
+
+      <ul>
+        <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_TASK_SIZE_DEFAULT_PARAMETERS-BOOL">command line option</a>
 </li>
       </ul></li>
       <li>
