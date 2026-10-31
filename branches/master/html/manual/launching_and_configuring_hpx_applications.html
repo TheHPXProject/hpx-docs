@@ -2097,6 +2097,7 @@ how they work together.</p>
 <span class="na">max_thread_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_THREAD_QUEUE_MAX_THREAD_COUNT:1000}</span>
 <span class="na">min_tasks_to_steal_pending</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_THREAD_QUEUE_MIN_TASKS_TO_STEAL_PENDING:0}</span>
 <span class="na">min_tasks_to_steal_staged</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_THREAD_QUEUE_MIN_TASKS_TO_STEAL_STAGED:0}</span>
+<span class="na">min_tasks_to_steal_pending_early</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_THREAD_QUEUE_MIN_TASKS_TO_STEAL_PENDING_EARLY:4}</span>
 <span class="na">min_tasks_to_steal_staged_early</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_THREAD_QUEUE_MIN_TASKS_TO_STEAL_STAGED_EARLY:10}</span>
 <span class="na">idle_loop_count_steal_staged</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_IDLE_LOOP_COUNT_STEAL_STAGED:30}</span>
 <span class="na">min_add_new_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_THREAD_QUEUE_MIN_ADD_NEW_COUNT:10}</span>
@@ -2126,13 +2127,22 @@ steal them. The default is to allow stealing always. Values larger than
 <code class="docutils literal notranslate"><span class="pre">1</span></code> can leave threads queued behind a long running <em>HPX</em> thread
 indefinitely, see <a class="reference internal" href="thread_scheduler_configuration.html#thread-scheduler-pending-steal"><span class="std std-ref">Stealing pending threads</span></a>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_pending_early</span></code></p></td>
+<td><p>The value of this property defines the number of pending <em>HPX</em> threads
+that have to be available before other worker threads are allowed to
+steal them (local priority queue scheduler only, normal priority
+threads only, not in fast idle mode). This avoids that all idle worker
+threads contend on the few threads a worker has just converted. The
+minimum is ignored for a worker that doesn’t get to its few threads.
+<code class="docutils literal notranslate"><span class="pre">0</span></code> turns this off. See <a class="reference internal" href="thread_scheduler_configuration.html#thread-scheduler-pending-steal"><span class="std std-ref">Stealing pending threads</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged</span></code></p></td>
 <td><p>The value of this property defines the number of staged <em>HPX</em> tasks that
 need to be available before other worker threads are allowed to steal
 them. The default is to allow stealing always. A worker thread always
 converts its own staged tasks.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.idle_loop_count_steal_staged</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.idle_loop_count_steal_staged</span></code></p></td>
 <td><p>The value of this property defines the number of consecutive empty
 scheduling loop iterations after which a worker thread starts stealing
 staged <em>HPX</em> tasks from other worker threads (local priority queue
@@ -2142,46 +2152,45 @@ away, the work-requesting schedulers do not steal staged tasks). It has
 no effect if fast idle mode is on, which steals staged tasks right away.
 See <a class="reference internal" href="thread_scheduler_configuration.html#thread-scheduler-staged-steal"><span class="std std-ref">Stealing staged tasks</span></a>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged_early</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged_early</span></code></p></td>
 <td><p>The value of this property defines the number of staged <em>HPX</em> tasks that
 need to be available before other worker threads are allowed to steal
-them shortly after running out of work, i.e. after
-<code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.idle_loop_count_steal_staged</span></code> iterations (local
-priority queue scheduler only). Worker threads that have been idle for
-<code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span> <span class="pre">/</span> <span class="pre">2</span></code> iterations steal staged tasks
-regardless. Leaving a few staged tasks to the worker thread they were
-placed on keeps them close to the data in that core’s caches.</p></td>
+them (local priority queue scheduler only, not in fast idle mode).
+Leaving a few staged tasks to the worker thread they were placed on
+keeps them close to the data in that core’s caches. The minimum is
+ignored for a worker that doesn’t get to its few staged tasks. See
+<a class="reference internal" href="thread_scheduler_configuration.html#thread-scheduler-staged-steal"><span class="std std-ref">Stealing staged tasks</span></a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_add_new_count</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_add_new_count</span></code></p></td>
 <td><p>The value of this property defines the minimal number of staged tasks
 converted into <em>HPX</em> threads at a time, see
 <a class="reference internal" href="thread_scheduler_configuration.html#thread-scheduler-conversion"><span class="std std-ref">Converting staged tasks</span></a>. It is limited to
 <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.max_add_new_count</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.max_add_new_count</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.max_add_new_count</span></code></p></td>
 <td><p>The value of this property defines the maximal number of staged tasks
 converted into <em>HPX</em> threads at a time, both when a worker thread
 converts its own tasks and when it steals staged tasks.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_delete_count</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_delete_count</span></code></p></td>
 <td><p>The value of this property defines the minimal number of terminated
 <em>HPX</em> threads to clean up at a time, see
 <a class="reference internal" href="thread_scheduler_configuration.html#thread-scheduler-recycling"><span class="std std-ref">Thread object management</span></a>. It is limited to
 <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.max_delete_count</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.max_delete_count</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.max_delete_count</span></code></p></td>
 <td><p>The value of this property defines the maximal number of terminated
 <em>HPX</em> threads to clean up at a time.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.max_terminated_threads</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.max_terminated_threads</span></code></p></td>
 <td><p>The value of this property defines the number of terminated <em>HPX</em>
 threads in a queue above which all of them are cleaned up.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.init_threads_count</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.init_threads_count</span></code></p></td>
 <td><p>The value of this property defines the number of <em>HPX</em> thread objects
 each queue creates when its worker thread starts.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.cached_threads_count</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.cached_threads_count</span></code></p></td>
 <td><p>The value of this property defines the maximal number of cleaned up
 <em>HPX</em> thread objects each queue keeps for reuse per stack size.</p></td>
 </tr>

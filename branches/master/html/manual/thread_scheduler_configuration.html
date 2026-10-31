@@ -1688,7 +1688,8 @@ tasks but no pending threads, the worker converts them first.</p></li>
 <li><p>the pending queues of other workers (stealing pending threads), if stealing
 is enabled (see <a class="reference internal" href="#thread-scheduler-pending-steal"><span class="std std-ref">Stealing pending threads</span></a>). Workers that have a
 high priority queue try each victim’s high priority queue before its normal
-queue.</p></li>
+queue. A worker only steals normal priority threads from workers that have
+several of them, unless their owner doesn’t get to them.</p></li>
 <li><p>the low priority queue (shared by all worker threads of the pool).</p></li>
 </ol>
 <p>If none of these yields an <em>HPX</em> thread, the iteration is empty: the idle loop
@@ -1707,18 +1708,18 @@ phases (default values in parentheses):</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>from the first one</p></td>
-<td><p>Steals pending threads from any worker that has at least
-<code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_pending</span></code> (0) of them.</p></td>
+<td><p>Steals pending threads, but only from workers that have at least
+<code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_pending_early</span></code> (4) of them, or
+that don’t get to the few they have (see
+<a class="reference internal" href="#thread-scheduler-pending-steal"><span class="std std-ref">Stealing pending threads</span></a>).</p></td>
 </tr>
 <tr class="row-odd"><td><p>after <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.idle_loop_count_steal_staged</span></code> (30)</p></td>
 <td><p>Also steals staged tasks, but only from workers that have at least
-<code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged_early</span></code> (10) of them.</p></td>
+<code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged_early</span></code> (10) of them, or
+that don’t get to the few they have (see
+<a class="reference internal" href="#thread-scheduler-staged-steal"><span class="std std-ref">Stealing staged tasks</span></a>).</p></td>
 </tr>
-<tr class="row-even"><td><p>after <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span> <span class="pre">/</span> <span class="pre">2</span></code> (100000)</p></td>
-<td><p>Steals staged tasks from any worker that has at least
-<code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged</span></code> (0) of them.</p></td>
-</tr>
-<tr class="row-odd"><td><p>after <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code> (200000)</p></td>
+<tr class="row-even"><td><p>after <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code> (200000)</p></td>
 <td><p>Goes to sleep for a while (idle backoff, see
 <a class="reference internal" href="#thread-scheduler-idle-backoff"><span class="std std-ref">Idle backoff</span></a>), then starts counting again.</p></td>
 </tr>
@@ -1727,8 +1728,9 @@ phases (default values in parentheses):</p>
 </div>
 <p>Fast idle mode (see <a class="reference internal" href="#thread-scheduler-modes"><span class="std std-ref">Scheduler modes</span></a>, always on for the
 work-requesting schedulers) shortens this: a worker steals staged tasks from the
-first empty iteration, and <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged_early</span></code>
-does not apply (<code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_pending</span></code> and
+first empty iteration, and <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_pending_early</span></code>
+and <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged_early</span></code> do not apply
+(<code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_pending</span></code> and
 <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged</span></code> still do). The idle loop count
 grows by <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span> <span class="pre">/</span> <span class="pre">1024</span></code> with each iteration that did not
 find work to steal, so a worker thread goes to sleep after about 1024 such
@@ -1739,12 +1741,29 @@ idle, a worker thread also does background work, such as polling the network
 </section>
 <section id="stealing-pending-threads">
 <span id="thread-scheduler-pending-steal"></span><h2>Stealing pending threads<a class="headerlink" href="#stealing-pending-threads" title="Link to this heading">#</a></h2>
-<p>Settings: <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_pending</span></code>.</p>
+<p>Settings: <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_pending</span></code>,
+<code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_pending_early</span></code>.</p>
 <p>A worker steals one pending thread at a time from another worker’s queue.
 <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_pending</span></code> is the minimum number of
 pending threads a victim must have; the default (<code class="docutils literal notranslate"><span class="pre">0</span></code>) allows stealing from
 any worker that has a pending thread. The work-requesting schedulers apply the
 same minimum when they answer a steal request.</p>
+<p>When a worker converts a batch of staged tasks, all workers that are idle at
+that moment find the new pending threads and pop them one by one from the same
+queue. This contention can slow all of them down so much that they go idle
+together again, convert the next batch together, and so on, in lock step. With
+the local priority queue scheduler, a worker therefore steals pending threads
+only from workers that have at least
+<code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_pending_early</span></code> (4) of them. This only
+applies to the normal queues, not to high priority threads, and not in fast
+idle mode. Set <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_pending_early=0</span></code> to turn
+this off.</p>
+<p>The threads queued behind a long running <em>HPX</em> thread still have to be
+stolen. A worker that finds a victim’s queue short but not empty 16 times in a
+row ignores the minimum for that victim: its owner evidently doesn’t get to
+these threads (finding the queue empty starts over). A worker that was just
+woken up because new work arrived (see <a class="reference internal" href="#thread-scheduler-idle-backoff"><span class="std std-ref">Idle backoff</span></a>)
+ignores the minimum for its first steal.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Setting <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_pending</span></code> to a value larger
@@ -1765,16 +1784,20 @@ own queue (at most <code class="docutils literal notranslate"><span class="pre">
 Staged tasks are cheaper to steal than pending threads and they take load off
 the victim’s pending queue.</p>
 <p>With the local priority queue scheduler, a worker starts stealing staged tasks
-after <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.idle_loop_count_steal_staged</span></code> (30) empty iterations.
-Until it has been idle for <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span> <span class="pre">/</span> <span class="pre">2</span></code> iterations, it only
-steals from workers that have at least
-<code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged_early</span></code> (10) staged tasks. A
-worker with only a few staged tasks will convert them soon itself, and leaving
-them there keeps them on the worker they were placed on, close to the data in
-its caches. After <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span> <span class="pre">/</span> <span class="pre">2</span></code> iterations, it steals from
-any worker that has at least <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged</span></code>
-(0) of them. The local and shared priority schedulers steal staged tasks right
-away; the work-requesting schedulers do not steal staged tasks (see
+after <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.idle_loop_count_steal_staged</span></code> (30) empty iterations
+(at most <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span> <span class="pre">/</span> <span class="pre">2</span></code>). It only steals from workers that
+have at least <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged_early</span></code> (10) staged
+tasks. A worker with only a few staged tasks will convert them soon itself, and
+leaving them there keeps them on the worker they were placed on, close to the
+data in its caches. If it doesn’t get to them, they are stolen anyway: all
+thieves count how often they find a victim’s few staged tasks in a row (16
+looks divided by the number of staged tasks are needed, finding none starts
+over), and the thief that completes the count steals a single task, ignoring
+the minimum. A worker that was just woken up because new work arrived (see
+<a class="reference internal" href="#thread-scheduler-idle-backoff"><span class="std std-ref">Idle backoff</span></a>) ignores the minimum for its first steal.
+<code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged</span></code> (0) always applies. The local
+and shared priority schedulers steal staged tasks right away; the
+work-requesting schedulers do not steal staged tasks (see
 <a class="reference internal" href="#thread-scheduler-matrix"><span class="std std-ref">Which scheduler uses which setting</span></a>).</p>
 <p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged</span></code> only applies to stealing; a
 worker always converts its own staged tasks.</p>
@@ -1806,15 +1829,16 @@ worker thread sleeps until new work arrives for it, but at most for
 2<sup>n</sup> microseconds, where n counts the number of times it went to sleep
 since it last found work or was woken up by new work, and never longer than <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>
 (1000 microseconds). Afterwards it starts counting empty iterations from zero
-again. Creating new work wakes a sleeping worker thread. This requires
-<code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_MANAGER_IDLE_BACKOFF=ON</span></code> (the default) and the
-<code class="docutils literal notranslate"><span class="pre">enable_idle_backoff</span></code> scheduler mode (on by default).</p>
-<p><code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code> also determines when the staged task stealing
-restrictions are lifted (after half of it, see
-<a class="reference internal" href="#thread-scheduler-staged-steal"><span class="std std-ref">Stealing staged tasks</span></a>). Lowering it makes idle worker threads go
-to sleep sooner, which saves energy and leaves the processing units to other
-processes, but it also makes them steal staged tasks from any worker sooner
-and wake up later when new work arrives.</p>
+again. This requires <code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_MANAGER_IDLE_BACKOFF=ON</span></code> (the default)
+and the <code class="docutils literal notranslate"><span class="pre">enable_idle_backoff</span></code> scheduler mode (on by default).</p>
+<p>Creating new work wakes the sleeping worker threads. A worker thread woken this
+way may steal once without the early minima (see
+<a class="reference internal" href="#thread-scheduler-pending-steal"><span class="std std-ref">Stealing pending threads</span></a> and <a class="reference internal" href="#thread-scheduler-staged-steal"><span class="std std-ref">Stealing staged tasks</span></a>),
+so that it finds the new work even if it was placed on a worker that has a few
+tasks only.</p>
+<p>Lowering <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code> makes idle worker threads go to sleep
+sooner, which saves energy and leaves the processing units to other processes,
+but it also makes them wake up later when new work arrives.</p>
 </section>
 <section id="background-work">
 <span id="thread-scheduler-background-work"></span><h2>Background work<a class="headerlink" href="#background-work" title="Link to this heading">#</a></h2>
@@ -1913,7 +1937,7 @@ they exit.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fast_idle_mode</span></code> (<code class="docutils literal notranslate"><span class="pre">0x8</span></code>)</p></td>
 <td><p>off (always on for the work-requesting schedulers)</p></td>
-<td><p>Idle workers steal staged tasks right away, without the early minimum,
+<td><p>Idle workers steal staged tasks right away, without the early minima,
 and go to sleep sooner (see <a class="reference internal" href="#thread-scheduler-find-work"><span class="std std-ref">How a worker thread finds work</span></a>).</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">enable_elasticity</span></code> (<code class="docutils literal notranslate"><span class="pre">0x10</span></code>)</p></td>
@@ -1971,42 +1995,49 @@ parcelports for their own thread pools).</p></td>
 <td><p>no (no stealing)</p></td>
 <td><p>no</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">min_tasks_to_steal_staged</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">min_tasks_to_steal_pending_early</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">min_tasks_to_steal_staged</span></code></p></td>
 <td><p>yes</p></td>
 <td><p>yes</p></td>
 <td><p>no</p></td>
 <td><p>no</p></td>
 <td><p>no</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">idle_loop_count_steal_staged</span></code>, <code class="docutils literal notranslate"><span class="pre">min_tasks_to_steal_staged_early</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">idle_loop_count_steal_staged</span></code>, <code class="docutils literal notranslate"><span class="pre">min_tasks_to_steal_staged_early</span></code></p></td>
 <td><p>yes</p></td>
 <td><p>no (steals staged tasks right away)</p></td>
 <td><p>no (does not steal staged tasks)</p></td>
 <td><p>no</p></td>
 <td><p>no</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max_thread_count</span></code>, <code class="docutils literal notranslate"><span class="pre">min_add_new_count</span></code>, <code class="docutils literal notranslate"><span class="pre">max_add_new_count</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max_thread_count</span></code>, <code class="docutils literal notranslate"><span class="pre">min_add_new_count</span></code>, <code class="docutils literal notranslate"><span class="pre">max_add_new_count</span></code></p></td>
 <td><p>yes</p></td>
 <td><p>yes</p></td>
 <td><p>yes</p></td>
 <td><p>yes</p></td>
 <td><p>no</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">init_threads_count</span></code>, <code class="docutils literal notranslate"><span class="pre">cached_threads_count</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">init_threads_count</span></code>, <code class="docutils literal notranslate"><span class="pre">cached_threads_count</span></code></p></td>
 <td><p>yes</p></td>
 <td><p>yes</p></td>
 <td><p>yes</p></td>
 <td><p>yes</p></td>
 <td><p>no</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">min_delete_count</span></code>, <code class="docutils literal notranslate"><span class="pre">max_delete_count</span></code>, <code class="docutils literal notranslate"><span class="pre">max_terminated_threads</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">min_delete_count</span></code>, <code class="docutils literal notranslate"><span class="pre">max_delete_count</span></code>, <code class="docutils literal notranslate"><span class="pre">max_terminated_threads</span></code></p></td>
 <td><p>yes</p></td>
 <td><p>yes</p></td>
 <td><p>yes</p></td>
 <td><p>yes</p></td>
 <td><p>yes (different batch sizes)</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx.max_busy_loop_count</span></code>,
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx.max_busy_loop_count</span></code>,
 <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx.max_background_threads</span></code></p></td>
 <td><p>yes</p></td>
 <td><p>yes</p></td>
@@ -2014,7 +2045,7 @@ parcelports for their own thread pools).</p></td>
 <td><p>yes</p></td>
 <td><p>yes</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.numa_sensitive</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.numa_sensitive</span></code></p></td>
 <td><p>yes</p></td>
 <td><p>yes</p></td>
 <td><p>no</p></td>
@@ -2028,18 +2059,21 @@ parcelports for their own thread pools).</p></td>
 <section id="dependencies-between-settings">
 <h2>Dependencies between settings<a class="headerlink" href="#dependencies-between-settings" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.idle_loop_count_steal_staged</span></code> takes effect only if it is
-smaller than <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span> <span class="pre">/</span> <span class="pre">2</span></code>. If it is not,
-<code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged_early</span></code> has no effect either.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.idle_loop_count_steal_staged</span></code> is limited to
+<code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span> <span class="pre">/</span> <span class="pre">2</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged_early</span></code> and
-<code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged</span></code> both apply until
-<code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span> <span class="pre">/</span> <span class="pre">2</span></code> empty iterations; the larger of the two
-counts. Afterwards only <code class="docutils literal notranslate"><span class="pre">min_tasks_to_steal_staged</span></code> applies.</p></li>
+<code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged</span></code> both apply; the larger of the
+two counts. When the thieves find that a victim doesn’t get to its few
+staged tasks, or a worker was just woken up, only
+<code class="docutils literal notranslate"><span class="pre">min_tasks_to_steal_staged</span></code> applies.</p></li>
+<li><p>Likewise, <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_pending_early</span></code> and
+<code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_pending</span></code> both apply, and only the
+former is lifted for a victim that doesn’t get to its few pending threads.</p></li>
 <li><p>Fast idle mode lifts all the early stealing restrictions and makes workers
 reach <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code> (and go to sleep) after about 1024 empty
 iterations.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code> determines both when stealing restrictions end
-(half of it) and when worker threads go to sleep.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code> determines when worker threads go to sleep, and
+limits <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.idle_loop_count_steal_staged</span></code>.</p></li>
 <li><p>The conversion batch size is limited by <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.max_thread_count</span></code>
 as well as by <code class="docutils literal notranslate"><span class="pre">min_add_new_count</span></code> and <code class="docutils literal notranslate"><span class="pre">max_add_new_count</span></code>;
 <code class="docutils literal notranslate"><span class="pre">min_add_new_count</span></code> is limited to <code class="docutils literal notranslate"><span class="pre">max_add_new_count</span></code>.</p></li>
@@ -2064,8 +2098,9 @@ was built with <code class="docutils literal notranslate"><span class="pre">HPX_
 <tbody>
 <tr class="row-even"><td><p>Many short tasks created on a few worker threads, the other workers are
 idle or the throughput varies a lot between runs.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">idle_loop_count_steal_staged</span></code>, <code class="docutils literal notranslate"><span class="pre">max_add_new_count</span></code> (larger
-batches per steal).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">min_tasks_to_steal_pending_early</span></code> (contention on the creating
+worker’s queue), <code class="docutils literal notranslate"><span class="pre">idle_loop_count_steal_staged</span></code>, <code class="docutils literal notranslate"><span class="pre">max_add_new_count</span></code>
+(larger batches per steal).</p></td>
 </tr>
 <tr class="row-odd"><td><p>Work placed on specific worker threads (for instance with an executor
 that uses thread placement hints) ends up on other workers, cache
@@ -2074,7 +2109,8 @@ locality suffers.</p></td>
 <code class="docutils literal notranslate"><span class="pre">idle_loop_count_steal_staged</span></code> (raise it).</p></td>
 </tr>
 <tr class="row-even"><td><p>Threads woken up while one worker runs a long task are delayed.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">min_tasks_to_steal_pending</span></code> (keep it at 0).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">min_tasks_to_steal_pending</span></code> (keep it at 0),
+<code class="docutils literal notranslate"><span class="pre">min_tasks_to_steal_pending_early</span></code> (lower it).</p></td>
 </tr>
 <tr class="row-odd"><td><p>Idle worker threads use too much CPU time.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code> (lower it), <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>
