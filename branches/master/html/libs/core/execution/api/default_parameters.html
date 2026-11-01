@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>hpx/execution/executors/default_parameters.hpp &#8212; HPX 2.0.0 documentation</title>
+    <title>hpx/execution/executors/default_parameters.hpp &#8212; HPX 2.0.0-rc1 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../../_static/documentation_options.js?v=ce394494"></script>
+    <script src="../../../../_static/documentation_options.js?v=7ec4965c"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -142,8 +142,8 @@
       
     
     
-    <img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0 documentation - Home"/>
-    <script>document.write(`<img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0 documentation - Home"/>`);</script>
+    <img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0-rc1 documentation - Home"/>
+    <script>document.write(`<img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0-rc1 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -557,6 +557,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../full/runtime_components/api/components_fwd.html">hpx/runtime_components/components_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../full/runtime_components/api/component_registry.html">hpx/runtime_components/component_registry.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../full/runtime_components/api/new_hpx_new.html">hpx::new_</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../full/runtime_components/api/new_local_new.html">local_new</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../full/runtime_components/api/reflect_client.html">hpx/runtime_components/reflect_client.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../full/runtime_components/api/component_factory_HPX_REGISTER_COMPONENT.html">HPX_REGISTER_COMPONENT</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../full/runtime_components/api/macros.html">hpx/runtime_components/macros.hpp</a></li>
@@ -1012,6 +1013,7 @@
 <li class="toctree-l4"><a class="reference internal" href="execution.html">hpx/execution/executors/execution.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="num_cores_hpx_execution_experimental_num_cores.html">hpx::execution::experimental::num_cores</a></li>
 <li class="toctree-l4"><a class="reference internal" href="create_rebound_policy.html">hpx/execution/executors/create_rebound_policy.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="task_size_chunk_size_hpx_execution_experimental_task_size_chunk_size.html">hpx::execution::experimental::task_size_chunk_size</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../execution_base/api/full_api.html">execution_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1366,7 +1368,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../releases.html">Releases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_2_0_0.html"><em>HPX</em> V2.0.0 (TBD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_2_0_0.html"><em>HPX</em> V2.0.0 (Oct 31, 2026)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_1_11_0.html"><em>HPX</em> V1.11.0 (Jun 30, 2025)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_1_10_0.html"><em>HPX</em> V1.10.0 (May 29, 2024)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_1_9_1.html"><em>HPX</em> V1.9.1 (August 4, 2023)</a></li>
@@ -1648,13 +1650,17 @@ document.write(`
 <p>Loop iterations are divided into pieces of size <em>chunk_size</em> and then assigned to threads. If <em>chunk_size</em> is not specified, the iterations are evenly (if possible) divided contiguously among the threads.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This executor parameters type is equivalent to OpenMP’s STATIC scheduling directive. </p>
+<p>This executor parameters type is equivalent to OpenMP’s STATIC scheduling directive.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If HPX was configured with HPX_WITH_TASK_SIZE_DEFAULT_PARAMETERS, this type is derived from <em><a class="reference internal" href="task_size_chunk_size_hpx_execution_experimental_task_size_chunk_size.html#structhpx_1_1execution_1_1experimental_1_1task__size__chunk__size"><span class="std std-ref">task_size_chunk_size</span></a>:</em> a loop body that has a task size (see <em>hpx::task_size</em>) is chunked based on it, all others as described above. </p>
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx9execution12experimental18default_parameters18default_parametersEv">
-<span id="_CPPv3N3hpx9execution12experimental18default_parameters18default_parametersEv"></span><span id="_CPPv2N3hpx9execution12experimental18default_parameters18default_parametersEv"></span><span id="hpx::execution::experimental::default_parameters::default_parameters"></span><span class="target" id="structhpx_1_1execution_1_1experimental_1_1default__parameters_1ac844191fab1b6f815825770913ccf954"></span><span class="sig-name descname"><span class="n"><span class="pre">default_parameters</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N3hpx9execution12experimental18default_parameters18default_parametersEv" title="Link to this definition">#</a><br /></dt>
+<span id="_CPPv3N3hpx9execution12experimental18default_parameters18default_parametersEv"></span><span id="_CPPv2N3hpx9execution12experimental18default_parameters18default_parametersEv"></span><span id="hpx::execution::experimental::default_parameters::default_parametersCE"></span><span class="target" id="structhpx_1_1execution_1_1experimental_1_1default__parameters_1a87c7e25464fdb23068226e5a3251b594"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">default_parameters</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N3hpx9execution12experimental18default_parameters18default_parametersEv" title="Link to this definition">#</a><br /></dt>
 <dd><p>Construct a <em><a class="reference internal" href="#structhpx_1_1execution_1_1experimental_1_1default__parameters"><span class="std std-ref">default_parameters</span></a></em> executor parameters object</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Launching and configuring HPX applications &#8212; HPX 2.0.0 documentation</title>
+    <title>Launching and configuring HPX applications &#8212; HPX 2.0.0-rc1 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=ce394494"></script>
+    <script src="../_static/documentation_options.js?v=7ec4965c"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -142,8 +142,8 @@
       
     
     
-    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0 documentation - Home"/>
-    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0 documentation - Home"/>`);</script>
+    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0-rc1 documentation - Home"/>
+    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0-rc1 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -557,6 +557,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/components_fwd.html">hpx/runtime_components/components_fwd.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/component_registry.html">hpx/runtime_components/component_registry.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/new_hpx_new.html">hpx::new_</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/new_local_new.html">local_new</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/reflect_client.html">hpx/runtime_components/reflect_client.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/component_factory_HPX_REGISTER_COMPONENT.html">HPX_REGISTER_COMPONENT</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/runtime_components/api/macros.html">hpx/runtime_components/macros.hpp</a></li>
@@ -1012,6 +1013,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/execution.html">hpx/execution/executors/execution.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/num_cores_hpx_execution_experimental_num_cores.html">hpx::execution::experimental::num_cores</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/create_rebound_policy.html">hpx/execution/executors/create_rebound_policy.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/task_size_chunk_size_hpx_execution_experimental_task_size_chunk_size.html">hpx::execution::experimental::task_size_chunk_size</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/execution_base/api/full_api.html">execution_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1366,7 +1368,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases.html">Releases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_0_0.html"><em>HPX</em> V2.0.0 (TBD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_0_0.html"><em>HPX</em> V2.0.0 (Oct 31, 2026)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_1_11_0.html"><em>HPX</em> V1.11.0 (Jun 30, 2025)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_1_10_0.html"><em>HPX</em> V1.10.0 (May 29, 2024)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_1_9_1.html"><em>HPX</em> V1.9.1 (August 4, 2023)</a></li>
@@ -1610,6 +1612,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-tracing-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.tracing</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-threadpools-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.threadpools</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-thread-queue-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue</span></code> configuration section</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-task-size-chunk-size-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.task_size_chunk_size</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-components-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.components</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-parcel-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.parcel</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-agas-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.agas</span></code> configuration section</a></li>
@@ -2193,6 +2196,35 @@ each queue creates when its worker thread starts.</p></td>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.cached_threads_count</span></code></p></td>
 <td><p>The value of this property defines the maximal number of cleaned up
 <em>HPX</em> thread objects each queue keeps for reuse per stack size.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="the-hpx-task-size-chunk-size-configuration-section">
+<h4>The <code class="docutils literal notranslate"><span class="pre">hpx.task_size_chunk_size</span></code> configuration section<a class="headerlink" href="#the-hpx-task-size-chunk-size-configuration-section" title="Link to this heading">#</a></h4>
+<p>The entries of this section replace the defaults of the executor parameters
+<code class="docutils literal notranslate"><span class="pre">hpx::execution::experimental::task_size_chunk_size</span></code>, see
+<a class="reference internal" href="executors.html#task-sizes"><span class="std std-ref">Task sizes</span></a>, for instance with the values the benchmark
+<code class="docutils literal notranslate"><span class="pre">task_size_chunk_size_sweep_test</span></code> prints for a machine. They are empty by
+default, which stands for the defaults compiled into <em>HPX</em>.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[hpx.task_size_chunk_size]</span>
+<span class="na">min_chunk_time_us</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_TASK_SIZE_CHUNK_SIZE_MIN_CHUNK_TIME_US}</span>
+<span class="na">chunks_per_core</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_TASK_SIZE_CHUNK_SIZE_CHUNKS_PER_CORE}</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="ini-hpx-task-size-chunk-size">
+<tbody>
+<tr class="row-odd"><td><p>Property</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.task_size_chunk_size.min_chunk_time_us</span></code></p></td>
+<td><p>The value of this property defines the minimal run time of a chunk, in
+microseconds, up to <code class="docutils literal notranslate"><span class="pre">1000000</span></code> (one second). The default is <code class="docutils literal notranslate"><span class="pre">2.5</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.task_size_chunk_size.chunks_per_core</span></code></p></td>
+<td><p>The value of this property defines the number of chunks each core gets
+for load balancing, from <code class="docutils literal notranslate"><span class="pre">1</span></code> up to <code class="docutils literal notranslate"><span class="pre">1024</span></code>. The default is <code class="docutils literal notranslate"><span class="pre">8</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4120,6 +4152,7 @@ activated.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-tracing-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.tracing</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-threadpools-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.threadpools</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-thread-queue-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue</span></code> configuration section</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-task-size-chunk-size-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.task_size_chunk_size</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-components-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.components</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-parcel-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.parcel</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-agas-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.agas</span></code> configuration section</a></li>

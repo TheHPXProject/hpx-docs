@@ -43,3 +43,4 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/execution/api/execution.rst
    /libs/core/execution/api/num_cores_hpx_execution_experimental_num_cores.rst
    /libs/core/execution/api/create_rebound_policy.rst
+   /libs/core/execution/api/task_size_chunk_size_hpx_execution_experimental_task_size_chunk_size.rst
