@@ -1,0 +1,28 @@
+
+..
+    Copyright (C) 2022-2026 Dimitra Karatza
+    Copyright (C) 2022-2026 The STE||AR Group
+
+    SPDX-License-Identifier: BSL-1.0
+    Distributed under the Boost Software License, Version 1.0. (See accompanying
+    file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+
+.. _modules_steady_clock_hpx_chrono_steady_time_point_api:
+
+------------------------------
+hpx::chrono::steady_time_point
+------------------------------
+
+Defined in header :hpx-header:`libs/core/include_local/include,hpx/chrono.hpp`.
+
+See :ref:`public_api` for a list of names and headers that are part of the public
+|hpx| API.
+
+
+See also:
+
+   - :ref:`hpx::chrono::steady_duration <modules_steady_clock_hpx_chrono_steady_duration_api>`
+   - :ref:`hpx::chrono::null_duration <modules_steady_clock_hpx_chrono_null_duration_api>`
+
+.. doxygenclass:: hpx::chrono::steady_time_point
+   :project: hpx

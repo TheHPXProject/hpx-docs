@@ -56,18 +56,18 @@ struct partition_data
     partition_data(std::size_t size, double initial_value)
       : data_(size)
     {
-        double base_value = double(initial_value * size);
-        for (std::size_t i = 0; i != size; ++i)
+        double base_value = initial_value * double(size);
+        for (std::ptrdiff_t i = 0; i != static_cast<std::ptrdiff_t>(size); ++i)
             data_[i] = base_value + double(i);
     }
 
     double& operator[](std::size_t idx)
     {
-        return data_[idx];
+        return data_[static_cast<std::ptrdiff_t>(idx)];
     }
     double operator[](std::size_t idx) const
     {
-        return data_[idx];
+        return data_[static_cast<std::ptrdiff_t>(idx)];
     }
 
     std::size_t size() const
@@ -155,10 +155,9 @@ struct stepper
 ///////////////////////////////////////////////////////////////////////////////
 int hpx_main(hpx::program_options::variables_map& vm)
 {
-    std::uint64_t np = vm["np"].as<std::uint64_t>();    // Number of partitions.
-    std::uint64_t nx =
-        vm["nx"].as<std::uint64_t>();    // Number of grid points.
-    std::uint64_t nt = vm["nt"].as<std::uint64_t>();    // Number of steps.
+    std::size_t np = vm["np"].as<std::size_t>();    // Number of partitions.
+    std::size_t nx = vm["nx"].as<std::size_t>();    // Number of grid points.
+    std::size_t nt = vm["nt"].as<std::size_t>();    // Number of steps.
 
     if (vm.count("no-header"))
         header = false;
@@ -195,11 +194,11 @@ int main(int argc, char* argv[])
     // clang-format off
     desc_commandline.add_options()
         ("results", "print generated results (default: false)")
-        ("nx", po::value<std::uint64_t>()->default_value(10),
+        ("nx", po::value<std::size_t>()->default_value(10),
          "Local x dimension (of each partition)")
-        ("nt", po::value<std::uint64_t>()->default_value(45),
+        ("nt", po::value<std::size_t>()->default_value(45),
          "Number of time steps")
-        ("np", po::value<std::uint64_t>()->default_value(10),
+        ("np", po::value<std::size_t>()->default_value(10),
          "Number of partitions")
         ("k", po::value<double>(&k)->default_value(0.5),
          "Heat transfer coefficient (default: 0.5)")

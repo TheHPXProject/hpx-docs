@@ -1,4 +1,4 @@
-//  Copyright (c) 2014 Hartmut Kaiser
+//  Copyright (c) 2014-2025 Hartmut Kaiser
 //
 //  SPDX-License-Identifier: BSL-1.0
 //  Distributed under the Boost Software License, Version 1.0. (See accompanying
@@ -15,8 +15,6 @@
 #include <hpx/hpx_init.hpp>
 #include <hpx/modules/type_support.hpp>
 #include <hpx/serialization.hpp>
-
-#include <boost/shared_array.hpp>
 
 #include <cstddef>
 #include <cstdint>
@@ -77,8 +75,8 @@ public:
       , size_(size)
       , min_index_(0)
     {
-        double base_value = double(initial_value * size);
-        for (std::size_t i = 0; i != size; ++i)
+        double base_value = initial_value * double(size);
+        for (std::ptrdiff_t i = 0; i != static_cast<std::ptrdiff_t>(size); ++i)
             data_[i] = base_value + double(i);
     }
 
@@ -121,7 +119,7 @@ private:
     friend class hpx::serialization::access;
 
     template <typename Archive>
-    void serialize(Archive& ar, const unsigned int)
+    void serialize(Archive& ar, unsigned int const)
     {
         // clang-format off
         ar & data_ & size_ & min_index_;
@@ -374,10 +372,9 @@ stepper::space stepper::do_work(std::size_t np, std::size_t nx, std::size_t nt)
 ///////////////////////////////////////////////////////////////////////////////
 int hpx_main(hpx::program_options::variables_map& vm)
 {
-    std::uint64_t np = vm["np"].as<std::uint64_t>();    // Number of partitions.
-    std::uint64_t nx =
-        vm["nx"].as<std::uint64_t>();    // Number of grid points.
-    std::uint64_t nt = vm["nt"].as<std::uint64_t>();    // Number of steps.
+    std::size_t np = vm["np"].as<std::size_t>();    // Number of partitions.
+    std::size_t nx = vm["nx"].as<std::size_t>();    // Number of grid points.
+    std::size_t nt = vm["nt"].as<std::size_t>();    // Number of steps.
 
     if (vm.count("no-header"))
         header = false;
@@ -433,10 +430,10 @@ int main(int argc, char* argv[])
     options_description desc_commandline;
     desc_commandline.add_options()(
         "results", "print generated results (default: false)")("nx",
-        value<std::uint64_t>()->default_value(10),
+        value<std::size_t>()->default_value(10),
         "Local x dimension (of each partition)")("nt",
-        value<std::uint64_t>()->default_value(45),
-        "Number of time steps")("np", value<std::uint64_t>()->default_value(10),
+        value<std::size_t>()->default_value(45),
+        "Number of time steps")("np", value<std::size_t>()->default_value(10),
         "Number of partitions")("k", value<double>(&k)->default_value(0.5),
         "Heat transfer coefficient (default: 0.5)")("dt",
         value<double>(&dt)->default_value(1.0),

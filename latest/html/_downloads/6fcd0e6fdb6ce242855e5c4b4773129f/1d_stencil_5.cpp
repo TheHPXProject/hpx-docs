@@ -1,4 +1,4 @@
-//  Copyright (c) 2014 Hartmut Kaiser
+//  Copyright (c) 2014-2025 Hartmut Kaiser
 //
 //  SPDX-License-Identifier: BSL-1.0
 //  Distributed under the Boost Software License, Version 1.0. (See accompanying
@@ -20,12 +20,8 @@
 #if !defined(HPX_COMPUTE_DEVICE_CODE)
 #include <hpx/hpx.hpp>
 #include <hpx/hpx_init.hpp>
-
-#if !defined(HPX_HAVE_CXX17_SHARED_PTR_ARRAY)
-#include <boost/shared_array.hpp>
-#else
-#include <memory>
-#endif
+#include <hpx/modules/type_support.hpp>
+#include <hpx/serialization.hpp>
 
 #include <cstddef>
 #include <cstdint>
@@ -58,11 +54,11 @@ inline std::size_t idx(std::size_t i, int dir, std::size_t size)
 struct partition_data
 {
 private:
-#if defined(HPX_HAVE_CXX17_SHARED_PTR_ARRAY)
-    typedef std::shared_ptr<double[]> buffer_type;
-#else
-    typedef boost::shared_array<double> buffer_type;
-#endif
+    // This example runs on a single locality, so it does not actually exercise
+    // serialization at runtime. We still use serialize_buffer here because
+    // action arguments must remain serializable and the ownership semantics of
+    // the partition buffer are explicit with this type.
+    typedef hpx::serialization::serialize_buffer<double> buffer_type;
 
 public:
     partition_data()
@@ -71,27 +67,27 @@ public:
     }
 
     explicit partition_data(std::size_t size)
-      : data_(new double[size])
+      : data_(new double[size], size, buffer_type::take)
       , size_(size)
     {
     }
 
     partition_data(std::size_t size, double initial_value)
-      : data_(new double[size])
+      : data_(new double[size], size, buffer_type::take)
       , size_(size)
     {
-        double base_value = double(initial_value * size);
-        for (std::size_t i = 0; i != size; ++i)
+        double base_value = initial_value * double(size);
+        for (std::ptrdiff_t i = 0; i != static_cast<std::ptrdiff_t>(size); ++i)
             data_[i] = base_value + double(i);
     }
 
     double& operator[](std::size_t idx)
     {
-        return data_[idx];
+        return data_[static_cast<std::ptrdiff_t>(idx)];
     }
     double operator[](std::size_t idx) const
     {
-        return data_[idx];
+        return data_[static_cast<std::ptrdiff_t>(idx)];
     }
 
     std::size_t size() const
@@ -100,14 +96,15 @@ public:
     }
 
 private:
-    // Serialization support: even if all of the code below runs on one
-    // locality only, we need to provide an (empty) implementation for the
-    // serialization as all arguments passed to actions have to support this.
+    // Serialization support is required even though 1d_stencil_5 itself is not
+    // a fully distributed example and does not rely on serialization during
+    // execution. Action arguments still need to provide serialization support.
     friend class hpx::serialization::access;
 
     template <typename Archive>
-    void serialize(Archive&, const unsigned int) const
+    void serialize(Archive& ar, unsigned int const)
     {
+        ar & data_ & size_;
     }
 
 private:
@@ -274,10 +271,10 @@ struct stepper
     space do_work(std::size_t np, std::size_t nx, std::size_t nt);
 };
 
-// Global functions can be exposed as actions as well. That allows to invoke
+// Static member functions can be exposed as actions as well. That allows to invoke
 // those remotely. The macro HPX_PLAIN_ACTION() defines a new action type
-// 'heat_part_action' which wraps the global function heat_part(). It can be
-// used to call that function on a given locality.
+// 'heat_part_action' which wraps the static member function
+// stepper::heat_part(). It can be used to call that function on a given locality.
 HPX_PLAIN_ACTION(stepper::heat_part, heat_part_action)
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -321,10 +318,9 @@ stepper::space stepper::do_work(std::size_t np, std::size_t nx, std::size_t nt)
 ///////////////////////////////////////////////////////////////////////////////
 int hpx_main(hpx::program_options::variables_map& vm)
 {
-    std::uint64_t np = vm["np"].as<std::uint64_t>();    // Number of partitions.
-    std::uint64_t nx =
-        vm["nx"].as<std::uint64_t>();    // Number of grid points.
-    std::uint64_t nt = vm["nt"].as<std::uint64_t>();    // Number of steps.
+    std::size_t np = vm["np"].as<std::size_t>();    // Number of partitions.
+    std::size_t nx = vm["nx"].as<std::size_t>();    // Number of grid points.
+    std::size_t nt = vm["nt"].as<std::size_t>();    // Number of steps.
 
     if (vm.count("no-header"))
         header = false;
@@ -367,10 +363,10 @@ int main(int argc, char* argv[])
     options_description desc_commandline;
     desc_commandline.add_options()(
         "results", "print generated results (default: false)")("nx",
-        value<std::uint64_t>()->default_value(10),
+        value<std::size_t>()->default_value(10),
         "Local x dimension (of each partition)")("nt",
-        value<std::uint64_t>()->default_value(45),
-        "Number of time steps")("np", value<std::uint64_t>()->default_value(10),
+        value<std::size_t>()->default_value(45),
+        "Number of time steps")("np", value<std::size_t>()->default_value(10),
         "Number of partitions")("k", value<double>(&k)->default_value(0.5),
         "Heat transfer coefficient (default: 0.5)")("dt",
         value<double>(&dt)->default_value(1.0),

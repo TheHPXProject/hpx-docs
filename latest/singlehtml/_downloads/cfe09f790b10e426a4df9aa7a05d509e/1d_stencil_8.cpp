@@ -1,4 +1,4 @@
-//  Copyright (c) 2014-2022 Hartmut Kaiser
+//  Copyright (c) 2014-2025 Hartmut Kaiser
 //
 //  SPDX-License-Identifier: BSL-1.0
 //  Distributed under the Boost Software License, Version 1.0. (See accompanying
@@ -16,8 +16,6 @@
 #include <hpx/modules/collectives.hpp>
 #include <hpx/modules/type_support.hpp>
 #include <hpx/serialization.hpp>
-
-#include <boost/shared_array.hpp>
 
 #include "print_time_results.hpp"
 
@@ -145,8 +143,8 @@ public:
       , size_(size)
       , min_index_(0)
     {
-        double base_value = double(initial_value * size);
-        for (std::size_t i = 0; i != size; ++i)
+        double base_value = initial_value * double(size);
+        for (std::ptrdiff_t i = 0; i != static_cast<std::ptrdiff_t>(size); ++i)
             data_[i] = base_value + double(i);
     }
 
@@ -191,7 +189,7 @@ private:
     friend class hpx::serialization::access;
 
     template <typename Archive>
-    void serialize(Archive& ar, const unsigned int)
+    void serialize(Archive& ar, unsigned int const)
     {
         // clang-format off
         ar & data_ & size_ & min_index_;
@@ -629,13 +627,13 @@ stepper_server::space stepper_server::do_work(
         {
             next[0].then([sem, t](partition&&) {
                 // inform semaphore about new lower limit
-                sem->signal(t);
+                sem->signal(static_cast<std::int64_t>(t));
             });
         }
 
         // suspend if the tree has become too deep, the continuation above
         // will resume this thread once the computation has caught up
-        sem->wait(t);
+        sem->wait(static_cast<std::int64_t>(t));
     }
 
     return U_[nt % 2];
@@ -643,7 +641,7 @@ stepper_server::space stepper_server::do_work(
 
 ///////////////////////////////////////////////////////////////////////////////
 void do_all_work(
-    std::uint64_t nt, std::uint64_t nx, std::uint64_t np, std::uint64_t nd)
+    std::size_t nt, std::size_t nx, std::size_t np, std::uint64_t nd)
 {
     std::vector<hpx::id_type> localities = hpx::find_all_localities();
     std::size_t nl = localities.size();    // Number of localities
@@ -722,10 +720,9 @@ void do_all_work(
 ///////////////////////////////////////////////////////////////////////////////
 int hpx_main(hpx::program_options::variables_map& vm)
 {
-    std::uint64_t nt = vm["nt"].as<std::uint64_t>();    // Number of steps.
-    std::uint64_t nx =
-        vm["nx"].as<std::uint64_t>();    // Number of grid points.
-    std::uint64_t np = vm["np"].as<std::uint64_t>();    // Number of partitions.
+    std::size_t nt = vm["nt"].as<std::size_t>();    // Number of steps.
+    std::size_t nx = vm["nx"].as<std::size_t>();    // Number of grid points.
+    std::size_t np = vm["np"].as<std::size_t>();    // Number of partitions.
     std::uint64_t nd =
         vm["nd"].as<std::uint64_t>();    // Max depth of dep tree.
 
@@ -746,12 +743,12 @@ int main(int argc, char* argv[])
     options_description desc_commandline;
     desc_commandline.add_options()(
         "results", "print generated results (default: false)")("nx",
-        value<std::uint64_t>()->default_value(10),
+        value<std::size_t>()->default_value(10),
         "Local x dimension (of each partition)")("nt",
-        value<std::uint64_t>()->default_value(45),
+        value<std::size_t>()->default_value(45),
         "Number of time steps")("nd", value<std::uint64_t>()->default_value(10),
         "Number of time steps to allow the dependency tree to grow to")("np",
-        value<std::uint64_t>()->default_value(10),
+        value<std::size_t>()->default_value(10),
         "Number of partitions")("k", value<double>(&k)->default_value(0.5),
         "Heat transfer coefficient (default: 0.5)")("dt",
         value<double>(&dt)->default_value(1.0),
