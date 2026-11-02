@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Building HPX &#8212; HPX 2.0.0 documentation</title>
+    <title>Building HPX &#8212; HPX 2.1.0-trunk documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=ce394494"></script>
+    <script src="../_static/documentation_options.js?v=0df519e6"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -142,8 +142,8 @@
       
     
     
-    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0 documentation - Home"/>
-    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0 documentation - Home"/>`);</script>
+    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.1.0-trunk documentation - Home"/>
+    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.1.0-trunk documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -200,6 +200,7 @@
 <li class="toctree-l2"><a class="reference internal" href="running_on_batch_systems.html">Running on batch systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="debugging_hpx_applications.html">Debugging <em>HPX</em> applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimizing_hpx_applications.html">Optimizing <em>HPX</em> applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiling_and_tracing.html">Profiling and tracing <em>HPX</em> applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using_the_lci_parcelport.html">Using the LCI parcelport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using_the_lcw_parcelport.html">Using the LCW parcelport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hpx_runtime_and_resources.html"><em>HPX</em> runtime and resources</a></li>
@@ -1368,8 +1369,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases.html">Releases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_0_0.html"><em>HPX</em> V2.0.0 (Oct 31, 2026)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_1_0.html"><em>HPX</em> V2.1.0 (TBD)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_1_11_0.html"><em>HPX</em> V1.11.0 (Jun 30, 2025)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_0_0.html"><em>HPX</em> V2.0.0 (Oct 31, 2026)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_1_10_0.html"><em>HPX</em> V1.10.0 (May 29, 2024)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_1_9_1.html"><em>HPX</em> V1.9.1 (August 4, 2023)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_1_9_0.html"><em>HPX</em> V1.9.0 (May 2, 2023)</a></li>
@@ -1716,20 +1718,22 @@ applications. In particular, it provides information about individual tasks in t
 <dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_TRACY">
 <span class="sig-name descname"><span class="pre">HPX_WITH_TRACY</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_TRACY" title="Link to this definition">#</a></dt>
 <dd><p>Enable <a class="reference external" href="https://github.com/wolfpld/tracy">Tracy</a> integration. Tracy shows task lifecycle, work stealing, suspension, and (with
-<a class="reference internal" href="#cmdoption-arg-HPX_WITH_PARCEL_PROFILING"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_PARCEL_PROFILING</span></code></a>) distributed parcel events. See <a class="reference internal" href="optimizing_hpx_applications.html#optimizing-with-tracy"><span class="std std-ref">Tracy integration</span></a> for
+<a class="reference internal" href="#cmdoption-arg-HPX_WITH_PARCEL_PROFILING"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_PARCEL_PROFILING</span></code></a>) distributed parcel events. See <a class="reference internal" href="profiling_and_tracing.html#optimizing-with-tracy"><span class="std std-ref">Tracy</span></a> for
 build and attach instructions.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_ITTNOTIFY">
 <span class="sig-name descname"><span class="pre">HPX_WITH_ITTNOTIFY</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_ITTNOTIFY" title="Link to this definition">#</a></dt>
-<dd><p>Enable <a class="reference external" href="https://github.com/intel/ittapi">Intel ITT API</a> integration. Requires VTune or any other Intel ITT API
-provider; point <code class="docutils literal notranslate"><span class="pre">Amplifier_ROOT</span></code> at the install (the name is legacy;
-it accepts any ITTNotify installation). Task lifecycle and work-stealing
-events are emitted as well, see <a class="reference internal" href="#cmdoption-arg-HPX_WITH_TRACING_LIFECYCLE_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_LIFECYCLE_EVENTS</span></code></a>
-and <a class="reference internal" href="#cmdoption-arg-HPX_WITH_TRACING_WORK_STEALING_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_WORK_STEALING_EVENTS</span></code></a>; they are only emitted
-when ITTNotify is enabled at runtime with
-<code class="docutils literal notranslate"><span class="pre">--hpx:ini=hpx.use_itt_notify=1</span></code>.</p>
+<dd><p>Enable <a class="reference external" href="https://github.com/intel/ittapi">Intel ITT API</a> integration. Building needs only the ITT API header
+and library, for example from the open-source <code class="docutils literal notranslate"><span class="pre">ittapi</span></code> project; point
+<code class="docutils literal notranslate"><span class="pre">Amplifier_ROOT</span></code> at the install (the name is historical, any ITT API
+installation works). To view the events you need a tool that reads them,
+such as Intel VTune. Task lifecycle and work-stealing events are emitted as
+well, see <a class="reference internal" href="#cmdoption-arg-HPX_WITH_TRACING_LIFECYCLE_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_LIFECYCLE_EVENTS</span></code></a> and
+<a class="reference internal" href="#cmdoption-arg-HPX_WITH_TRACING_WORK_STEALING_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_WORK_STEALING_EVENTS</span></code></a>. No events are emitted
+unless ITTNotify is enabled at runtime with
+<code class="docutils literal notranslate"><span class="pre">--hpx:ini=hpx.use_itt_notify=1</span></code>. See <a class="reference internal" href="profiling_and_tracing.html#profiling-with-itt"><span class="std std-ref">Intel ITT API and VTune</span></a>.</p>
 </dd></dl>
 
 <dl class="std option">
@@ -1747,8 +1751,7 @@ enabled. Defaults to <code class="docutils literal notranslate"><span class="pre
 deleted). Defaults to <code class="docutils literal notranslate"><span class="pre">ON</span></code>. Turn <code class="docutils literal notranslate"><span class="pre">OFF</span></code> to compile out the per-task hooks and their runtime
 connection check when profiling a workload where only causal or work-stealing events matter. The
 saving applies on Tracy and ITTNotify builds; the other backends already treat these hooks as
-no-ops. On ITTNotify builds, turning this <code class="docutils literal notranslate"><span class="pre">OFF</span></code> restores the earlier behavior of not emitting
-these events.</p>
+no-ops. On ITTNotify builds, turning this <code class="docutils literal notranslate"><span class="pre">OFF</span></code> means no task lifecycle events are emitted.</p>
 </dd></dl>
 
 <dl class="std option">
@@ -1767,8 +1770,8 @@ these hooks as no-ops.</p>
 <dd><p>Emit the work-stealing signal when a worker steals a task from another worker. Defaults to <code class="docutils literal notranslate"><span class="pre">ON</span></code>.
 Turn <code class="docutils literal notranslate"><span class="pre">OFF</span></code> when profiling a workload with heavy work stealing where the signal itself is not
 being consumed. The saving applies on Tracy and ITTNotify builds; the other backends already
-treat this hook as a no-op. On ITTNotify builds, turning this <code class="docutils literal notranslate"><span class="pre">OFF</span></code> restores the earlier
-behavior of not emitting this event.</p>
+treat this hook as a no-op. On ITTNotify builds, turning this <code class="docutils literal notranslate"><span class="pre">OFF</span></code> means no work-stealing
+events are emitted.</p>
 </dd></dl>
 
 <dl class="std option">
@@ -1776,7 +1779,8 @@ behavior of not emitting this event.</p>
 <span class="sig-name descname"><span class="pre">HPX_WITH_TRACING_SAMPLE_RATE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_TRACING_SAMPLE_RATE" title="Link to this definition">#</a></dt>
 <dd><p>1-in-N sampling rate for the per-task lifecycle events on Tracy builds. Defaults to <code class="docutils literal notranslate"><span class="pre">1</span></code>
 (every task sampled). This sets the initial rate; the runtime value can be overridden
-via the <code class="docutils literal notranslate"><span class="pre">hpx.tracing.sample_rate</span></code> INI entry (see <span class="xref std std-ref">ini_hpx_tracing</span>). Must be a
+via the <code class="docutils literal notranslate"><span class="pre">hpx.tracing.sample_rate</span></code> INI entry (see
+<a class="reference internal" href="launching_and_configuring_hpx_applications.html#ini-hpx-tracing"><span class="std std-ref">the hpx.tracing section</span></a>). Must be a
 positive integer; the CMake configure step rejects non-integer or non-positive values.
 Only the lifecycle events are sampled - causal events fire unconditionally so the
 causal-chain view stays intact at any rate. <code class="docutils literal notranslate"><span class="pre">task_staged</span></code> is also unconditional
