@@ -2072,8 +2072,10 @@ join apart from a later re-join of the same locality. Note that
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision6server13peer_snapshotE">
 <span id="_CPPv3N3hpx11supervision6server13peer_snapshotE"></span><span id="_CPPv2N3hpx11supervision6server13peer_snapshotE"></span><span id="hpx::supervision::server::peer_snapshot"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../api/server_registry.html#_CPPv4N3hpx11supervisionE" title="hpx::supervision"><span class="n"><span class="pre">supervision</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../api/server_registry.html#_CPPv4N3hpx11supervision6serverE" title="hpx::supervision::server"><span class="n"><span class="pre">server</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">peer_snapshot</span></span></span><br /></dt>
-<dd><p>Plain-data view of a single joined peer: <code class="docutils literal notranslate"><span class="pre">peer_locality</span></code> and
-<code class="docutils literal notranslate"><span class="pre">join_epoch</span></code>.</p>
+<dd><p>Plain-data view of a single joined peer: <code class="docutils literal notranslate"><span class="pre">peer_locality</span></code>,
+<code class="docutils literal notranslate"><span class="pre">join_epoch</span></code> and <code class="docutils literal notranslate"><span class="pre">generation</span></code>. <code class="docutils literal notranslate"><span class="pre">generation</span></code> identifies the registry
+entry itself, a peer that is left and joined again gets a new one even if
+its <code class="docutils literal notranslate"><span class="pre">join_epoch</span></code> is the same.</p>
 </dd></dl>
 
 </section>
