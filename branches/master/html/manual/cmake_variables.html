@@ -200,6 +200,7 @@
 <li class="toctree-l2"><a class="reference internal" href="running_on_batch_systems.html">Running on batch systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="debugging_hpx_applications.html">Debugging <em>HPX</em> applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimizing_hpx_applications.html">Optimizing <em>HPX</em> applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiling_and_tracing.html">Profiling and tracing <em>HPX</em> applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using_the_lci_parcelport.html">Using the LCI parcelport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using_the_lcw_parcelport.html">Using the LCW parcelport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hpx_runtime_and_resources.html"><em>HPX</em> runtime and resources</a></li>
@@ -2864,12 +2865,12 @@ platform.</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-Amplifier_ROOT-PATH">
 <span class="sig-name descname"><span class="pre">Amplifier_ROOT:PATH</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-Amplifier_ROOT-PATH" title="Link to this definition">#</a></dt>
-<dd><p>Specifies where to look for one of the tools of the Intel Parallel Studio
-product, either Intel Amplifier or Intel Inspector. This should be
-set if the CMake variable <code class="docutils literal notranslate"><span class="pre">HPX_USE_ITT_NOTIFY</span></code> is set to <code class="docutils literal notranslate"><span class="pre">ON</span></code>. Enabling
-ITT support in <em>HPX</em> will integrate any application with the mentioned Intel
-tools, which customizes the generated information for your application and
-improves the generated diagnostics.</p>
+<dd><p>Specifies where to look for an installation of the <a class="reference external" href="https://github.com/intel/ittapi">Intel ITT API</a> (the
+<code class="docutils literal notranslate"><span class="pre">ittnotify.h</span></code> header and the <code class="docutils literal notranslate"><span class="pre">ittnotify</span></code> library). Set this when
+<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_ITTNOTIFY"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_ITTNOTIFY</span></code></a> is <code class="docutils literal notranslate"><span class="pre">ON</span></code> and the library is not installed in
+a standard location. The name is historical: any installation of the ITT
+API works, for example a build of the open-source <code class="docutils literal notranslate"><span class="pre">ittapi</span></code> project or
+the copy that ships with Intel VTune. See <a class="reference internal" href="profiling_and_tracing.html#profiling-with-itt"><span class="std std-ref">Intel ITT API and VTune</span></a>.</p>
 </dd></dl>
 
 <p>In addition, some of the examples may need the following variables:</p>
