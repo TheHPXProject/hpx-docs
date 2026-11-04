@@ -23,30 +23,6 @@ refer to the full documentation below.
 .. toctree::
    :maxdepth: 1
    
-   /libs/full/actions/api/full_api.rst
-   /libs/full/actions_base/api/full_api.rst
-   /libs/full/agas/api/full_api.rst
-   /libs/full/agas_base/api/full_api.rst
-   /libs/full/async_colocated/api/full_api.rst
-   /libs/full/async_distributed/api/full_api.rst
-   /libs/full/checkpoint/api/full_api.rst
-   /libs/full/collectives/api/full_api.rst
-   /libs/full/components/api/full_api.rst
-   /libs/full/components_base/api/full_api.rst
-   /libs/full/compute/api/full_api.rst
-   /libs/full/distribution_policies/api/full_api.rst
-   /libs/full/execution_distributed/api/full_api.rst
-   /libs/full/executors_distributed/api/full_api.rst
-   /libs/full/init_runtime/api/full_api.rst
-   /libs/full/naming_base/api/full_api.rst
-   /libs/full/parcelset/api/full_api.rst
-   /libs/full/parcelset_base/api/full_api.rst
-   /libs/full/plugin_factories/api/full_api.rst
-   /libs/full/resiliency_distributed/api/full_api.rst
-   /libs/full/runtime_components/api/full_api.rst
-   /libs/full/runtime_distributed/api/full_api.rst
-   /libs/full/segmented_algorithms/api/full_api.rst
-   /libs/full/supervision/api/full_api.rst
    /libs/core/algorithms/api/full_api.rst
    /libs/core/asio/api/full_api.rst
    /libs/core/assertion/api/full_api.rst
@@ -95,6 +71,30 @@ refer to the full documentation below.
    /libs/core/tracy/api/full_api.rst
    /libs/core/type_support/api/full_api.rst
    /libs/core/util/api/full_api.rst
+   /libs/full/actions/api/full_api.rst
+   /libs/full/actions_base/api/full_api.rst
+   /libs/full/agas/api/full_api.rst
+   /libs/full/agas_base/api/full_api.rst
+   /libs/full/async_colocated/api/full_api.rst
+   /libs/full/async_distributed/api/full_api.rst
+   /libs/full/checkpoint/api/full_api.rst
+   /libs/full/collectives/api/full_api.rst
+   /libs/full/components/api/full_api.rst
+   /libs/full/components_base/api/full_api.rst
+   /libs/full/compute/api/full_api.rst
+   /libs/full/distribution_policies/api/full_api.rst
+   /libs/full/execution_distributed/api/full_api.rst
+   /libs/full/executors_distributed/api/full_api.rst
+   /libs/full/init_runtime/api/full_api.rst
+   /libs/full/naming_base/api/full_api.rst
+   /libs/full/parcelset/api/full_api.rst
+   /libs/full/parcelset_base/api/full_api.rst
+   /libs/full/plugin_factories/api/full_api.rst
+   /libs/full/resiliency_distributed/api/full_api.rst
+   /libs/full/runtime_components/api/full_api.rst
+   /libs/full/runtime_distributed/api/full_api.rst
+   /libs/full/segmented_algorithms/api/full_api.rst
+   /libs/full/supervision/api/full_api.rst
    /components/component_storage/api/full_api.rst
    /components/process/api/full_api.rst
    /components/supervision_dispatch/api/full_api.rst
