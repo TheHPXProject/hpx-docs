@@ -52,7 +52,7 @@
     <link rel="prev" title="Configuring and tuning the thread schedulers" href="thread_scheduler_configuration.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Nov 05, 2026"/>
+    <meta name="docbuild:last-update" content="Nov 06, 2026"/>
   </head>
   
   
@@ -1118,6 +1118,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_communicator.html">hpx::collectives::create_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_local_communicator.html">hpx::collectives::create_local_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_hierarchical_communicator.html">hpx::collectives::create_hierarchical_communicator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_hierarchical_communicator.html">hpx::collectives::hierarchical_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_set_info.html">hpx::collectives::communicator::set_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_get_info.html">hpx::collectives::communicator::get_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_is_root.html">hpx::collectives::communicator::is_root</a></li>
@@ -2196,6 +2197,22 @@ the type of a function, and is <code class="docutils literal notranslate"><span 
 size. <code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_size&lt;F&gt;::call(f)</span></code> reads it from the function
 object <code class="docutils literal notranslate"><span class="pre">f</span></code>, which also finds the size of a function stored in an
 <code class="docutils literal notranslate"><span class="pre">hpx::function</span></code> or an <code class="docutils literal notranslate"><span class="pre">hpx::move_only_function</span></code>, known at run time only.</p>
+<p>If the compiler supports C++26 reflection and annotations, a class type can
+also give its size with an annotation:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="p">[[</span><span class="o">=</span><span class="n">hpx</span><span class="o">::</span><span class="n">task_size</span><span class="o">::</span><span class="n">large</span><span class="p">]]</span><span class="w"> </span><span class="n">solver_step</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">hpx</span><span class="o">::</span><span class="n">post</span><span class="p">(</span><span class="n">solver_step</span><span class="p">{});</span><span class="w">    </span><span class="c1">// runs as a large task</span>
+</pre></div>
+</div>
+<p>A size given with <code class="docutils literal notranslate"><span class="pre">hpx::with_task_size</span></code> wins over the annotation. Only class
+types can have one, and a lambda has none, so it stays <code class="docutils literal notranslate"><span class="pre">task_size::unknown</span></code>.
+Annotations are not inherited: a class derived from an annotated class has no
+size unless it is annotated itself. Two different sizes on one type are a
+compile-time error when the size of that type is read, for example when it is
+posted.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>As a rule of thumb, a nano task runs for about a nanosecond, a small task
@@ -2545,7 +2562,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Nov 05, 2026.
+  Last updated on Nov 06, 2026.
   <br/>
 </p>
   </div>
