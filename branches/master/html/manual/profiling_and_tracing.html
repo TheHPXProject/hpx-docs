@@ -1027,7 +1027,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/apex.html">hpx/tracing/backends/apex.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/ittnotify.html">hpx/tracing/backends/ittnotify.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/tracy.html">hpx/tracing/backends/tracy.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/empty_lock_context.html">hpx/tracing/backends/empty_lock_context.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/empty.html">hpx/tracing/backends/empty.hpp</a></li>
 </ul>
 </details></li>
@@ -1119,7 +1118,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_communicator.html">hpx::collectives::create_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_local_communicator.html">hpx::collectives::create_local_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_hierarchical_communicator.html">hpx::collectives::create_hierarchical_communicator</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_hierarchical_communicator.html">hpx::collectives::hierarchical_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_set_info.html">hpx::collectives::communicator::set_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_get_info.html">hpx::collectives::communicator::get_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_is_root.html">hpx::collectives::communicator::is_root</a></li>
@@ -1679,13 +1677,13 @@ them when you configure <em>HPX</em> with <a class="reference external" href="ht
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/wolfpld/tracy">Tracy</a></p></td>
 <td><p><a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACY"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACY</span></code></a></p></td>
 <td><p>Task zones and fibers, task lifecycle, futures and continuations, work
-stealing, parcels, locks (optional)</p></td>
+stealing, parcels, locks</p></td>
 <td><p>The Tracy profiler (Linux, Windows, macOS)</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://github.com/intel/ittapi">Intel ITT API</a></p></td>
 <td><p><a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_ITTNOTIFY"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_ITTNOTIFY</span></code></a></p></td>
-<td><p>Tasks, task lifecycle, work stealing, markers, locks (optional),
-performance counters</p></td>
+<td><p>Tasks, task lifecycle, work stealing, markers, locks, performance
+counters</p></td>
 <td><p>Intel VTune</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://uo-oaciss.github.io/apex">APEX</a></p></td>
@@ -1808,8 +1806,7 @@ program runs on (for example <code class="docutils literal notranslate"><span cl
 <p>Because the client runs in on-demand mode, it records events only while a
 profiler is connected. Events from before the connection are not part of the
 trace. Task zones that started before the connection are not recorded, and
-locks that were created before it record no lock events (lock events also need
-<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_LOCK_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_LOCK_EVENTS</span></code></a>).</p>
+locks that were created before it record no lock events.</p>
 <p>To record a short program from its start, type the address and click
 <em>Connect</em> before you start the program. The profiler keeps trying to connect
 until the program is running. Also set <code class="docutils literal notranslate"><span class="pre">TRACY_NO_EXIT=1</span></code> for such programs:
@@ -1972,11 +1969,9 @@ never sampled.</p>
 <ul class="simple">
 <li><p><strong>Frames</strong>: calls to <code class="docutils literal notranslate"><span class="pre">hpx::tracing::frame_mark</span></code> in your code split the
 timeline into frames (see <a class="reference internal" href="#tracy-own-code"><span class="std std-ref">Instrumenting your own code</span></a>).</p></li>
-<li><p><strong>Locks</strong>: if <em>HPX</em> was built with <a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_LOCK_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_LOCK_EVENTS</span></code></a>
-set to <code class="docutils literal notranslate"><span class="pre">ON</span></code> (the default is <code class="docutils literal notranslate"><span class="pre">OFF</span></code>), <code class="docutils literal notranslate"><span class="pre">hpx::mutex</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx::spinlock</span></code>
-and <code class="docutils literal notranslate"><span class="pre">hpx::util::spinlock</span></code> are reported to Tracy as locks, which the
-profiler draws on the timeline. Only locks that were created while a
-profiler was connected record lock events.</p></li>
+<li><p><strong>Locks</strong>: <code class="docutils literal notranslate"><span class="pre">hpx::mutex</span></code> and <code class="docutils literal notranslate"><span class="pre">hpx::spinlock</span></code> are reported to Tracy as
+locks, which the profiler draws on the timeline. Only locks that were created
+while a profiler was connected record lock events.</p></li>
 <li><p><strong>Application information</strong>: the <em>HPX</em> version and build configuration are
 sent to Tracy as application information, which the profiler keeps with the
 trace.</p></li>
@@ -2039,25 +2034,19 @@ synchronized. See the Tracy manual for details.</p>
 <section id="reducing-the-overhead">
 <span id="tracy-overhead"></span><h3>Reducing the overhead<a class="headerlink" href="#reducing-the-overhead" title="Link to this heading">#</a></h3>
 <p>When no profiler is connected, most tracing hooks only check whether a
-profiler is connected and return. While a profiler is connected,
+profiler is connected and return. Creating or destroying an <code class="docutils literal notranslate"><span class="pre">hpx::mutex</span></code> or
+<code class="docutils literal notranslate"><span class="pre">hpx::spinlock</span></code> still registers it with Tracy. While a profiler is connected,
 <em>HPX</em> sends a few messages for every task, and each message records a call
 stack. For programs with many small tasks this can slow down the run. There are
 two ways to reduce it.</p>
 <p>Event classes can be compiled out one by one:
 <a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_LIFECYCLE_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_LIFECYCLE_EVENTS</span></code></a>,
-<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_CAUSAL_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_CAUSAL_EVENTS</span></code></a>,
-<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_WORK_STEALING_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_WORK_STEALING_EVENTS</span></code></a> and
-<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_LOCK_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_LOCK_EVENTS</span></code></a>. The first three are <code class="docutils literal notranslate"><span class="pre">ON</span></code> by default,
-lock events are <code class="docutils literal notranslate"><span class="pre">OFF</span></code>. Turning one <code class="docutils literal notranslate"><span class="pre">OFF</span></code> makes its hooks empty, so neither
-the connection check nor the event itself runs. The arguments at each call
-site are still evaluated. The lifecycle, work stealing and lock options apply
-to the Tracy and ITT backends, the causal option to the Tracy backend only.</p>
-<p>Lock events are <code class="docutils literal notranslate"><span class="pre">OFF</span></code> by default because they cost time even when no
-profiler is connected. With <a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_LOCK_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_LOCK_EVENTS</span></code></a> set to
-<code class="docutils literal notranslate"><span class="pre">ON</span></code>, creating or destroying an <code class="docutils literal notranslate"><span class="pre">hpx::mutex</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx::spinlock</span></code> or
-<code class="docutils literal notranslate"><span class="pre">hpx::util::spinlock</span></code> registers it with Tracy. Every future holds a lock, so
-this costs time for every future, and the memory used grows with the number of
-locks created.</p>
+<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_CAUSAL_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_CAUSAL_EVENTS</span></code></a> and
+<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_WORK_STEALING_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_WORK_STEALING_EVENTS</span></code></a>. All three are <code class="docutils literal notranslate"><span class="pre">ON</span></code> by
+default. Turning one <code class="docutils literal notranslate"><span class="pre">OFF</span></code> makes its hooks empty, so neither the connection
+check nor the event itself runs. The arguments at each call site are still
+evaluated. The lifecycle and work stealing options apply to the Tracy and ITT
+backends, the causal option to the Tracy backend only.</p>
 <p>Instead of turning lifecycle events off, you can sample them.
 <a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_SAMPLE_RATE"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_SAMPLE_RATE</span></code></a> sets the default rate: with a rate of N,
 only one task in N sends lifecycle and work stealing messages. The default is
@@ -2186,9 +2175,8 @@ every task is recorded.</p></li>
 for each call to <code class="docutils literal notranslate"><span class="pre">hpx::tracing::frame_mark</span></code>.</p></li>
 <li><p><strong>Events</strong>: <code class="docutils literal notranslate"><span class="pre">HPX_TRACING_MARK_EVENT</span></code> records an ITT event that lasts until
 the end of the scope.</p></li>
-<li><p><strong>Locks</strong>: <code class="docutils literal notranslate"><span class="pre">hpx::mutex</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx::spinlock</span></code> and <code class="docutils literal notranslate"><span class="pre">hpx::util::spinlock</span></code> are
-reported through the ITT synchronization API. Controlled by
-<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_LOCK_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_LOCK_EVENTS</span></code></a>, which is <code class="docutils literal notranslate"><span class="pre">OFF</span></code> by default.</p></li>
+<li><p><strong>Locks</strong>: <code class="docutils literal notranslate"><span class="pre">hpx::mutex</span></code> and <code class="docutils literal notranslate"><span class="pre">hpx::spinlock</span></code> are reported through the ITT
+synchronization API.</p></li>
 <li><p><strong>Counters</strong>: performance counters printed with <code class="docutils literal notranslate"><span class="pre">--hpx:print-counter</span></code> are
 reported as ITT counters.</p></li>
 <li><p><strong>Thread names</strong>: the names of the OS threads that <em>HPX</em> starts.</p></li>
