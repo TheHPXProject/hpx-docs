@@ -1027,6 +1027,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/tracing/api/apex.html">hpx/tracing/backends/apex.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/tracing/api/ittnotify.html">hpx/tracing/backends/ittnotify.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/tracing/api/tracy.html">hpx/tracing/backends/tracy.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../core/tracing/api/empty_lock_context.html">hpx/tracing/backends/empty_lock_context.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/tracing/api/empty.html">hpx/tracing/backends/empty.hpp</a></li>
 </ul>
 </details></li>
@@ -1118,6 +1119,7 @@
 <li class="toctree-l4"><a class="reference internal" href="create_communicator_hpx_collectives_create_communicator.html">hpx::collectives::create_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="create_communicator_hpx_collectives_create_local_communicator.html">hpx::collectives::create_local_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="create_communicator_hpx_collectives_create_hierarchical_communicator.html">hpx::collectives::create_hierarchical_communicator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="create_communicator_hpx_collectives_hierarchical_communicator.html">hpx::collectives::hierarchical_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="create_communicator_hpx_collectives_communicator_set_info.html">hpx::collectives::communicator::set_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="create_communicator_hpx_collectives_communicator_get_info.html">hpx::collectives::communicator::get_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="create_communicator_hpx_collectives_communicator_is_root.html">hpx::collectives::communicator::is_root</a></li>
@@ -1643,7 +1645,7 @@ document.write(`
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx11collectives27flat_fallback_threshold_argE">
 <span id="_CPPv3N3hpx11collectives27flat_fallback_threshold_argE"></span><span id="_CPPv2N3hpx11collectives27flat_fallback_threshold_argE"></span><span class="target" id="argument__types_8hpp_1a221fc892611410d3cf511a206cab23be"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">collectives</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">flat_fallback_threshold_arg</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">detail</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">argument_type</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">detail</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">flat_fallback_threshold_tag</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">16</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N3hpx11collectives27flat_fallback_threshold_argE" title="Link to this definition">#</a><br /></dt>
-<dd><p>The site-count threshold below which a hierarchical_communicator collapses to a single flat communicator spanning all sites. At small site counts, flat collectives outperform hierarchical composition because tree-walking overhead exceeds the synchronization-depth benefit. Pass 0 to disable the fallback and always build a tree. </p>
+<dd><p>The site-count threshold below which a <a class="reference internal" href="create_communicator_hpx_collectives_hierarchical_communicator.html#structhpx_1_1collectives_1_1hierarchical__communicator"><span class="std std-ref">hierarchical_communicator</span></a> collapses to a single flat communicator spanning all sites. At small site counts, flat collectives outperform hierarchical composition because tree-walking overhead exceeds the synchronization-depth benefit. Pass 0 to disable the fallback. The communicator is still a single flat communicator if the arity is not smaller than the number of sites. </p>
 </dd></dl>
 
 </section>

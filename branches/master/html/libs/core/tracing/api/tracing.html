@@ -1027,6 +1027,7 @@
 <li class="toctree-l4"><a class="reference internal" href="apex.html">hpx/tracing/backends/apex.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ittnotify.html">hpx/tracing/backends/ittnotify.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tracy.html">hpx/tracing/backends/tracy.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="empty_lock_context.html">hpx/tracing/backends/empty_lock_context.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="empty.html">hpx/tracing/backends/empty.hpp</a></li>
 </ul>
 </details></li>
@@ -1118,6 +1119,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../full/collectives/api/create_communicator_hpx_collectives_create_communicator.html">hpx::collectives::create_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../full/collectives/api/create_communicator_hpx_collectives_create_local_communicator.html">hpx::collectives::create_local_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../full/collectives/api/create_communicator_hpx_collectives_create_hierarchical_communicator.html">hpx::collectives::create_hierarchical_communicator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../full/collectives/api/create_communicator_hpx_collectives_hierarchical_communicator.html">hpx::collectives::hierarchical_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../full/collectives/api/create_communicator_hpx_collectives_communicator_set_info.html">hpx::collectives::communicator::set_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../full/collectives/api/create_communicator_hpx_collectives_communicator_get_info.html">hpx::collectives::communicator::get_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../full/collectives/api/create_communicator_hpx_collectives_communicator_is_root.html">hpx::collectives::communicator::is_root</a></li>
@@ -1716,7 +1718,7 @@ document.write(`
 <dd><div class="docutils container">
 <em>#include &lt;tracing.hpp&gt;</em></div>
 <p>Context for annotating lock acquisitions and releases. </p>
-<p>This struct is used to provide tracing annotations for synchronization primitives such as spinlocks and mutexes. It registers the creation, acquisition, and release of locks to the active tracing backend. </p>
+<p>This struct is used to provide tracing annotations for synchronization primitives such as spinlocks and mutexes. With HPX_WITH_TRACING_LOCK_EVENTS=ON, it registers the creation, acquisition, and release of locks with the Tracy or ITT backend. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">

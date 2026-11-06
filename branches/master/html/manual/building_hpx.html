@@ -1027,6 +1027,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/apex.html">hpx/tracing/backends/apex.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/ittnotify.html">hpx/tracing/backends/ittnotify.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/tracy.html">hpx/tracing/backends/tracy.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/empty_lock_context.html">hpx/tracing/backends/empty_lock_context.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/empty.html">hpx/tracing/backends/empty.hpp</a></li>
 </ul>
 </details></li>
@@ -1118,6 +1119,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_communicator.html">hpx::collectives::create_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_local_communicator.html">hpx::collectives::create_local_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_hierarchical_communicator.html">hpx::collectives::create_hierarchical_communicator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_hierarchical_communicator.html">hpx::collectives::hierarchical_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_set_info.html">hpx::collectives::communicator::set_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_get_info.html">hpx::collectives::communicator::get_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_is_root.html">hpx::collectives::communicator::is_root</a></li>
@@ -1736,7 +1738,8 @@ and library, for example from the open-source <code class="docutils literal notr
 installation works). To view the events you need a tool that reads them,
 such as Intel VTune. Task lifecycle and work-stealing events are emitted as
 well, see <a class="reference internal" href="#cmdoption-arg-HPX_WITH_TRACING_LIFECYCLE_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_LIFECYCLE_EVENTS</span></code></a> and
-<a class="reference internal" href="#cmdoption-arg-HPX_WITH_TRACING_WORK_STEALING_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_WORK_STEALING_EVENTS</span></code></a>. No events are emitted
+<a class="reference internal" href="#cmdoption-arg-HPX_WITH_TRACING_WORK_STEALING_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_WORK_STEALING_EVENTS</span></code></a>. Lock events need
+<a class="reference internal" href="#cmdoption-arg-HPX_WITH_TRACING_LOCK_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_LOCK_EVENTS</span></code></a>. No events are emitted
 unless ITTNotify is enabled at runtime with
 <code class="docutils literal notranslate"><span class="pre">--hpx:ini=hpx.use_itt_notify=1</span></code>. See <a class="reference internal" href="profiling_and_tracing.html#profiling-with-itt"><span class="std std-ref">Intel ITT API and VTune</span></a>.</p>
 </dd></dl>
@@ -1777,6 +1780,18 @@ Turn <code class="docutils literal notranslate"><span class="pre">OFF</span></co
 being consumed. The saving applies on Tracy and ITTNotify builds; the other backends already
 treat this hook as a no-op. On ITTNotify builds, turning this <code class="docutils literal notranslate"><span class="pre">OFF</span></code> means no work-stealing
 events are emitted.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_TRACING_LOCK_EVENTS">
+<span class="sig-name descname"><span class="pre">HPX_WITH_TRACING_LOCK_EVENTS</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_TRACING_LOCK_EVENTS" title="Link to this definition">#</a></dt>
+<dd><p>Emit lock events for <code class="docutils literal notranslate"><span class="pre">hpx::mutex</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx::spinlock</span></code> and <code class="docutils literal notranslate"><span class="pre">hpx::util::spinlock</span></code>, so that the
+profiler can show when a lock is taken and released. Defaults to <code class="docutils literal notranslate"><span class="pre">OFF</span></code>. With this <code class="docutils literal notranslate"><span class="pre">ON</span></code> on
+Tracy builds, every lock is registered with Tracy when it is created, even when no profiler is
+connected. Every future holds a lock, so this slows down programs with many small tasks, and
+the memory used grows with the number of locks created. On ITTNotify builds, lock events are
+only sent when ITTNotify is enabled at runtime. With this <code class="docutils literal notranslate"><span class="pre">OFF</span></code>, locks have no tracing code at
+all. Applies to Tracy and ITTNotify builds; the other backends do not record locks.</p>
 </dd></dl>
 
 <dl class="std option">
