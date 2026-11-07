@@ -828,6 +828,7 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/io_service/api/full_api.html">io_service</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/io_service/api/io_service_pool.html">hpx/io_service/io_service_pool.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/io_service/api/schedule_timer.html">hpx/io_service/schedule_timer.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/lcos_local/api/full_api.html">lcos_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -3616,7 +3617,8 @@ which then only determine the initial placement of a thread.</p>
 <span class="sig-name descname"><span class="pre">--hpx:numa-sensitive</span></span><span class="sig-prename descclassname"> <span class="pre">[arg]</span></span><a class="headerlink" href="#cmdoption-hpx-numa-sensitive" title="Link to this definition">#</a></dt>
 <dd><p>Controls NUMA-sensitive work stealing. The default and the value used when
 the option is given without an argument are both <code class="docutils literal notranslate"><span class="pre">1</span></code>. For the local,
-local-priority, and ABP-priority schedulers the allowed values are:</p>
+local-priority, ABP-priority, and local-workrequesting schedulers the allowed
+values are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: all workers may steal across NUMA domains;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">1</span></code>: only boundary workers may steal from the nearest NUMA domains;</p></li>
@@ -3624,8 +3626,7 @@ local-priority, and ABP-priority schedulers the allowed values are:</p>
 </ul>
 <p>The static, static-priority, and shared-priority schedulers do not distinguish
 boundary workers. They allow cross-domain stealing for levels <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code>
-and disable it for level <code class="docutils literal notranslate"><span class="pre">2</span></code>. Work-requesting schedulers currently ignore
-this option.</p>
+and disable it for level <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
 </dd></dl>
 
 </section>

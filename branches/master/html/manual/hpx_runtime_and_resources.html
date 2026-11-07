@@ -828,6 +828,7 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/io_service/api/full_api.html">io_service</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/io_service/api/io_service_pool.html">hpx/io_service/io_service_pool.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/io_service/api/schedule_timer.html">hpx/io_service/schedule_timer.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/lcos_local/api/full_api.html">lcos_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1727,11 +1728,12 @@ threads; the number of high priority queues can be specified on the command line
 using <a class="reference internal" href="launching_and_configuring_hpx_applications.html#cmdoption-hpx-high-priority-threads"><code class="xref std std-option docutils literal notranslate"><span class="pre">--hpx:high-priority-threads</span></code></a>. High priority threads are executed
 by the first OS threads before any other work is executed. When a queue is empty
 work will be taken from high priority queues first. There is one low priority
-queue from which threads will be scheduled only when there is no other work. For
-this scheduling policy there is an option to turn on NUMA sensitivity using the
-command line option <a class="reference internal" href="launching_and_configuring_hpx_applications.html#cmdoption-hpx-numa-sensitive"><code class="xref std std-option docutils literal notranslate"><span class="pre">--hpx:numa-sensitive</span></code></a>. When NUMA sensitivity
-is turned on work stealing is done from queues associated with the same NUMA
-domain first, only after that work is stolen from other NUMA domains.</p>
+queue from which threads will be scheduled only when there is no other work.
+The command line option <a class="reference internal" href="launching_and_configuring_hpx_applications.html#cmdoption-hpx-numa-sensitive"><code class="xref std std-option docutils literal notranslate"><span class="pre">--hpx:numa-sensitive</span></code></a> controls NUMA-sensitive
+work stealing for this policy. The scheduler checks queues in the same NUMA
+domain first. At level <code class="docutils literal notranslate"><span class="pre">0</span></code> all workers may then steal across NUMA domains. At
+the default level <code class="docutils literal notranslate"><span class="pre">1</span></code> only boundary workers may steal from the nearest NUMA
+domains. At level <code class="docutils literal notranslate"><span class="pre">2</span></code> workers may not steal across NUMA domains.</p>
 <p>This scheduler can be used with two underlying queuing policies (FIFO:
 first-in-first-out, and LIFO: last-in-first-out). In order to use the LIFO
 policy use the command line option
@@ -1753,6 +1755,10 @@ core. This core now (whenever it is not busy with other work) either responds to
 the original core by sending back work or passes the request on to the next
 possible core in the system. In general, this scheme avoids contention on the
 work queues as those are always accessed by their own cores only.</p>
+<p>Requests first try workers in the same NUMA domain. At level <code class="docutils literal notranslate"><span class="pre">0</span></code> all workers
+may request work across NUMA domains. At the default level <code class="docutils literal notranslate"><span class="pre">1</span></code> only boundary
+workers may request work from the nearest NUMA domains. At level <code class="docutils literal notranslate"><span class="pre">2</span></code> workers
+may not request work across NUMA domains.</p>
 </section>
 </section>
 <section id="the-hpx-resource-partitioner">
