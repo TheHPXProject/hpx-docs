@@ -52,7 +52,7 @@
     <link rel="prev" title="init_runtime_local" href="../../init_runtime_local/docs/index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Nov 07, 2026"/>
+    <meta name="docbuild:last-update" content="Nov 08, 2026"/>
   </head>
   
   
@@ -353,6 +353,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../algorithms/api/task_block_hpx_experimental_define_task_block.html">hpx::experimental::define_task_block</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../algorithms/api/task_block_hpx_experimental_define_task_block_restore_thread.html">hpx::experimental::define_task_block_restore_thread</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../algorithms/api/task_group_hpx_experimental_task_group.html">hpx::experimental::task_group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../algorithms/api/spmd_block.html">hpx/parallel/spmd_block.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../algorithms/api/run_on_all_hpx_experimental_run_on_all.html">hpx::experimental::run_on_all</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../algorithms/api/remove_copy_hpx_ranges_remove_copy.html">hpx::ranges::remove_copy</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../algorithms/api/remove_copy_hpx_ranges_remove_copy_if.html">hpx::ranges::remove_copy_if</a></li>
@@ -828,6 +829,7 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../api/full_api.html">io_service</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../api/io_service_pool.html">hpx/io_service/io_service_pool.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/schedule_timer.html">hpx/io_service/schedule_timer.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../lcos_local/api/full_api.html">lcos_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1624,6 +1626,24 @@ document.write(`
 <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::threads::detail::io_service_thread_pool</span></code> wraps
 <a class="reference internal" href="../api/io_service_pool.html#_CPPv4N3hpx4util15io_service_poolE" title="hpx::util::io_service_pool"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::util::io_service_pool</span></code></a> into an interface derived from
 <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">hpx::threads::detail::thread_pool_base</span></code>.</p>
+<p>The module also provides sender-based timers. The
+<a href="#id2"><span class="problematic" id="id3">:hpx:function:`hpx::io::experimental::schedule_timer_after`</span></a> and
+<a href="#id4"><span class="problematic" id="id5">:hpx:function:`hpx::io::experimental::schedule_timer_at`</span></a> functions create
+senders that complete on an <code class="docutils literal notranslate"><span class="pre">asio::io_context</span></code>. Timer expiry produces
+<code class="docutils literal notranslate"><span class="pre">set_value</span></code>, cancellation through the receiver’s stop token produces
+<code class="docutils literal notranslate"><span class="pre">set_stopped</span></code>, and other timer errors produce <code class="docutils literal notranslate"><span class="pre">set_error</span></code>. The I/O context
+must be run until the operation completes.</p>
+<p>Connecting a timer sender allocates shared operation state and an Asio timer.
+Callback storage may allocate as well. Applications creating timers in a hot
+loop should account for these allocations.</p>
+<p>The following example creates a sender that completes after one second:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">asio</span><span class="o">::</span><span class="n">io_context</span><span class="w"> </span><span class="n">context</span><span class="p">;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">sender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">experimental</span><span class="o">::</span><span class="n">schedule_timer_after</span><span class="p">(</span>
+<span class="w">    </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">seconds</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>The sender can be composed with the other sender algorithms in HPX. Starting
+the sender does not itself run the I/O context.</p>
 <p>See the <a class="reference internal" href="../api/full_api.html#modules-io-service-api"><span class="std std-ref">API reference</span></a> of this module for more
 details.</p>
 </section>
@@ -1692,7 +1712,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Nov 07, 2026.
+  Last updated on Nov 08, 2026.
   <br/>
 </p>
   </div>
