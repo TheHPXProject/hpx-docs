@@ -25,7 +25,6 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/algorithms/api/task_block_hpx_experimental_define_task_block.rst
    /libs/core/algorithms/api/task_block_hpx_experimental_define_task_block_restore_thread.rst
    /libs/core/algorithms/api/task_group_hpx_experimental_task_group.rst
-   /libs/core/algorithms/api/spmd_block.rst
    /libs/core/algorithms/api/run_on_all_hpx_experimental_run_on_all.rst
    /libs/core/algorithms/api/remove_copy_hpx_ranges_remove_copy.rst
    /libs/core/algorithms/api/remove_copy_hpx_ranges_remove_copy_if.rst
