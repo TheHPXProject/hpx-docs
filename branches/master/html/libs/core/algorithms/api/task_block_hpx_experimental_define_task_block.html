@@ -353,6 +353,7 @@
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">hpx::experimental::define_task_block</a></li>
 <li class="toctree-l4"><a class="reference internal" href="task_block_hpx_experimental_define_task_block_restore_thread.html">hpx::experimental::define_task_block_restore_thread</a></li>
 <li class="toctree-l4"><a class="reference internal" href="task_group_hpx_experimental_task_group.html">hpx::experimental::task_group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spmd_block.html">hpx/parallel/spmd_block.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="run_on_all_hpx_experimental_run_on_all.html">hpx::experimental::run_on_all</a></li>
 <li class="toctree-l4"><a class="reference internal" href="remove_copy_hpx_ranges_remove_copy.html">hpx::ranges::remove_copy</a></li>
 <li class="toctree-l4"><a class="reference internal" href="remove_copy_hpx_ranges_remove_copy_if.html">hpx::ranges::remove_copy_if</a></li>
@@ -1614,6 +1615,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I00EN3hpx12experimental17define_task_blockEvRR9SchedulerRR1F"><code class="docutils literal notranslate"><span class="pre">define_task_block()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN3hpx12experimental17define_task_blockEvRR1F"><code class="docutils literal notranslate"><span class="pre">define_task_block()</span></code></a></li>
 </ul>
             </nav>
@@ -1628,7 +1630,7 @@ document.write(`
                   
   <section id="hpx-experimental-define-task-block">
 <span id="modules-task-block-hpx-experimental-define-task-block-api"></span><h1>hpx::experimental::define_task_block<a class="headerlink" href="#hpx-experimental-define-task-block" title="Link to this heading">#</a></h1>
-<p>Defined in header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/916f037f88997890e969bf40f2586d4cd8bec733/libs/core/include_local/include/hpx/task_block.hpp">hpx/task_block.hpp</a>.</p>
+<p>Defined in header <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/bc88ff5b83923d73016870931be33d443e0b6349/libs/core/include_local/include/hpx/task_block.hpp">hpx/task_block.hpp</a>.</p>
 <p>See <a class="reference internal" href="../../../../api/public_api.html#public-api"><span class="std std-ref">Public API</span></a> for a list of names and headers that are part of the public
 <em>HPX</em> API.</p>
 <p>See also:</p>
@@ -1646,9 +1648,35 @@ Potential matches:
 </p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="w"> </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ExPolicy</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">define_task_block</span><span class="p">(</span><span class="n">ExPolicy</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">F</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">f</span><span class="p">)</span>
 <span class="o">-</span><span class="w"> </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">define_task_block</span><span class="p">(</span><span class="n">F</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">f</span><span class="p">)</span>
+<span class="o">-</span><span class="w"> </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Scheduler</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">define_task_block</span><span class="p">(</span><span class="n">Scheduler</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">sched</span><span class="p">,</span><span class="w"> </span><span class="n">F</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I00EN3hpx12experimental17define_task_blockEvRR9SchedulerRR1F">
+<span id="_CPPv3I00EN3hpx12experimental17define_task_blockERR9SchedulerRR1F"></span><span id="_CPPv2I00EN3hpx12experimental17define_task_blockERR9SchedulerRR1F"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Scheduler</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">F</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacehpx_1_1experimental_1ac1b9f1ba85c11fbf0e3462993518fd39"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">experimental</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">define_task_block</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I00EN3hpx12experimental17define_task_blockEvRR9SchedulerRR1F" title="hpx::experimental::define_task_block::Scheduler"><span class="n"><span class="pre">Scheduler</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">sched</span></span>, <a class="reference internal" href="#_CPPv4I00EN3hpx12experimental17define_task_blockEvRR9SchedulerRR1F" title="hpx::experimental::define_task_block::F"><span class="n"><span class="pre">F</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">f</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I00EN3hpx12experimental17define_task_blockEvRR9SchedulerRR1F" title="Link to this definition">#</a><br /></dt>
+<dd><p>Constructs a <em><a class="reference internal" href="task_block_hpx_experimental_task_block.html#classhpx_1_1experimental_1_1task__block"><span class="std std-ref">task_block</span></a></em>, tr, and invokes the expression <em>f(tr)</em> on the user-provided object, <em>f</em>, using the given P2300 scheduler <em>sched</em>. This version uses the P2300 scheduler for task scheduling within the block.</p>
+<p>
+Postcondition: All tasks spawned from <em>f</em> have finished execution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Scheduler</strong> – The type of the P2300 scheduler to use (deduced). </p></li>
+<li><p><strong>F</strong> – The type of the user defined function to invoke inside the define_task_block (deduced). <em>F</em> shall be MoveConstructible.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>sched</strong> – The P2300 scheduler to use for the scheduling of the iterations. </p></li>
+<li><p><strong>f</strong> – The user defined function to invoke inside the task block. Given an lvalue <em>tr</em> of type <em><a class="reference internal" href="task_block_hpx_experimental_task_block.html#classhpx_1_1experimental_1_1task__block"><span class="std std-ref">task_block</span></a></em>, the expression, (void)f(tr), shall be well-formed.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><a class="reference internal" href="../../errors/api/exception_list.html#_CPPv4N3hpx14exception_listE" title="hpx::exception_list"><span class="n">exception_list</span></a></span></span> – specified in Exception Handling. </p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4I0EN3hpx12experimental17define_task_blockEvRR1F">
 <span id="_CPPv3I0EN3hpx12experimental17define_task_blockERR1F"></span><span id="_CPPv2I0EN3hpx12experimental17define_task_blockERR1F"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">F</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespacehpx_1_1experimental_1ab7abf2ead7a6e4537afe4b52a44ea97d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">experimental</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">define_task_block</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0EN3hpx12experimental17define_task_blockEvRR1F" title="hpx::experimental::define_task_block::F"><span class="n"><span class="pre">F</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">f</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3hpx12experimental17define_task_blockEvRR1F" title="Link to this definition">#</a><br /></dt>
@@ -1719,6 +1747,7 @@ Postcondition: All tasks spawned from <em>f</em> have finished execution. A call
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I00EN3hpx12experimental17define_task_blockEvRR9SchedulerRR1F"><code class="docutils literal notranslate"><span class="pre">define_task_block()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN3hpx12experimental17define_task_blockEvRR1F"><code class="docutils literal notranslate"><span class="pre">define_task_block()</span></code></a></li>
 </ul>
   </nav></div>

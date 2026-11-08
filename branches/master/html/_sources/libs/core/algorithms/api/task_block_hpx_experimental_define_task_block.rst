@@ -27,5 +27,7 @@ See also:
 
 .. doxygenfunction:: hpx::experimental::define_task_block(ExPolicy && policy, F && f)
    :project: hpx
+.. doxygenfunction:: hpx::experimental::define_task_block(Scheduler && sched, F && f)
+   :project: hpx
 .. doxygenfunction:: hpx::experimental::define_task_block(F && f)
    :project: hpx
