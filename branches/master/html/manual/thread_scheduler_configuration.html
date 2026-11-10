@@ -1622,6 +1622,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stealing-staged-tasks">Stealing staged tasks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-staged-tasks">Converting staged tasks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thread-scheduler-idle-backoff">Idle backoff</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#waking-up-worker-threads">Waking up worker threads</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-work">Background work</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thread-object-management">Thread object management</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numa-domains">NUMA domains</a></li>
@@ -1837,22 +1838,62 @@ other workers can steal it cheaply. <code class="docutils literal notranslate"><
 </section>
 <section id="thread-scheduler-idle-backoff">
 <span id="idle-backoff"></span><h2>Idle backoff<a class="headerlink" href="#thread-scheduler-idle-backoff" title="Link to this heading">#</a></h2>
-<p>Settings: <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>.</p>
+<p>Settings: <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>,
+<code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx.idle_backoff_steal_check_interval</span></code>.</p>
 <p>After <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code> (200000) consecutive empty iterations, a
 worker thread sleeps until new work arrives for it, but at most for
 2<sup>n</sup> microseconds, where n counts the number of times it went to sleep
-since it last found work or was woken up by new work, and never longer than <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>
-(1000 microseconds). Afterwards it starts counting empty iterations from zero
-again. This requires <code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_MANAGER_IDLE_BACKOFF=ON</span></code> (the default)
-and the <code class="docutils literal notranslate"><span class="pre">enable_idle_backoff</span></code> scheduler mode (on by default).</p>
-<p>Creating new work wakes the sleeping worker threads. A worker thread woken this
-way may steal once without the early minima (see
-<a class="reference internal" href="#thread-scheduler-pending-steal"><span class="std std-ref">Stealing pending threads</span></a> and <a class="reference internal" href="#thread-scheduler-staged-steal"><span class="std std-ref">Stealing staged tasks</span></a>),
-so that it finds the new work even if it was placed on a worker that has a few
-tasks only.</p>
+since it last found work or was woken up by new work, and never longer than
+<code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code> (1000 microseconds). Afterwards it starts
+counting empty iterations from zero again. This requires
+<code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_MANAGER_IDLE_BACKOFF=ON</span></code> (the default) and the
+<code class="docutils literal notranslate"><span class="pre">enable_idle_backoff</span></code> scheduler mode (on by default).</p>
+<p>Periods shorter than <code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code> (50 microseconds) are spent
+spinning instead of sleeping: a timed wait lasts at least as long as the
+operating system takes to wake the thread up again (a millisecond or more on
+Windows, the timer slack of 50 microseconds on Linux), so a short sleep would
+be a long one. A spinning worker thread leaves the spin as soon as it sees
+work. It looks at its own queues in every round of the spin, and at the queues
+it may steal from every <code class="docutils literal notranslate"><span class="pre">hpx.idle_backoff_steal_check_interval</span></code> (8)
+microseconds, since that reads the queue of every victim. The spin counts
+rounds instead of reading the clock; the number of rounds per microsecond is
+measured once at startup.</p>
+<p>Creating new work wakes the sleeping worker threads; the local priority queue
+scheduler wakes at most one of them for a nano or small task (see
+<a class="reference internal" href="#thread-scheduler-wake-up"><span class="std std-ref">Waking up worker threads</span></a>). A worker thread woken this way may steal once
+without the early minima (see <a class="reference internal" href="#thread-scheduler-pending-steal"><span class="std std-ref">Stealing pending threads</span></a> and
+<a class="reference internal" href="#thread-scheduler-staged-steal"><span class="std std-ref">Stealing staged tasks</span></a>), so that it finds the new work even if it
+was placed on a worker that has a few tasks only.</p>
 <p>Lowering <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code> makes idle worker threads go to sleep
 sooner, which saves energy and leaves the processing units to other processes,
-but it also makes them wake up later when new work arrives.</p>
+but it also makes them wake up later when new work arrives. Raising
+<code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code> makes them react sooner after short idle periods,
+at the cost of more busy processing units.</p>
+</section>
+<section id="waking-up-worker-threads">
+<span id="thread-scheduler-wake-up"></span><h2>Waking up worker threads<a class="headerlink" href="#waking-up-worker-threads" title="Link to this heading">#</a></h2>
+<p>Settings: <code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code>.</p>
+<p>When new work is created, the local priority queue scheduler decides by the
+size of the task (see <a class="reference internal" href="executors.html#task-sizes"><span class="std std-ref">Task sizes</span></a>) which sleeping worker threads to wake
+up. Medium, large and unsized tasks and threads with a priority other than
+normal wake up the sleeping worker threads as described above. A nano or small
+task is usually done before a sleeping worker thread has woken up, so:</p>
+<ul class="simple">
+<li><p>a task placed on another worker thread wakes up that worker thread only, and
+only if it sleeps;</p></li>
+<li><p>a task a worker thread places on itself wakes up no other worker thread as
+long as an idle worker thread spins (see <code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code>):
+that worker thread may steal it, else the creating worker thread runs it
+once it is done with its current <em>HPX</em> thread. If no idle worker thread
+spins, it wakes up one sleeping worker thread;</p></li>
+<li><p>a task that round-robin placement put on the creating worker thread wakes up
+one sleeping worker thread, since its creator may wait for it without
+yielding.</p></li>
+</ul>
+<p>A worker thread that goes to sleep and new work created at the same time can
+miss each other; the worker thread then sleeps until its backoff period ends
+(at most <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>) and finds the work then, unless
+another worker thread has run it in the meantime.</p>
 </section>
 <section id="background-work">
 <span id="thread-scheduler-background-work"></span><h2>Background work<a class="headerlink" href="#background-work" title="Link to this heading">#</a></h2>
@@ -2052,7 +2093,9 @@ parcelports for their own thread pools).</p></td>
 <td><p>yes (different batch sizes)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx.max_busy_loop_count</span></code>,
-<code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx.max_background_threads</span></code></p></td>
+<code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code>,
+<code class="docutils literal notranslate"><span class="pre">hpx.idle_backoff_steal_check_interval</span></code>,
+<code class="docutils literal notranslate"><span class="pre">hpx.max_background_threads</span></code></p></td>
 <td><p>yes</p></td>
 <td><p>yes</p></td>
 <td><p>yes</p></td>
@@ -2088,6 +2131,9 @@ reach <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_
 iterations.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code> determines when worker threads go to sleep, and
 limits <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.idle_loop_count_steal_staged</span></code>.</p></li>
+<li><p>Idle backoff periods shorter than <code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code> are spent
+spinning; if it is larger than <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>, idle worker
+threads never sleep.</p></li>
 <li><p>The conversion batch size is limited by <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.max_thread_count</span></code>
 as well as by <code class="docutils literal notranslate"><span class="pre">min_add_new_count</span></code> and <code class="docutils literal notranslate"><span class="pre">max_add_new_count</span></code>;
 <code class="docutils literal notranslate"><span class="pre">min_add_new_count</span></code> is limited to <code class="docutils literal notranslate"><span class="pre">max_add_new_count</span></code>.</p></li>
@@ -2128,11 +2174,11 @@ locality suffers.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Idle worker threads use too much CPU time.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code> (lower it), <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>
-(raise it), fast idle mode.</p></td>
+(raise it), <code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code> (lower it), fast idle mode.</p></td>
 </tr>
 <tr class="row-even"><td><p>Idle worker threads react slowly to new work.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code> (lower it), <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code>
-(raise it).</p></td>
+(raise it), <code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code> (raise it).</p></td>
 </tr>
 <tr class="row-odd"><td><p>Applications creating very many short <em>HPX</em> threads spend a lot of time
 allocating thread objects.</p></td>
@@ -2196,6 +2242,7 @@ allocating thread objects.</p></td>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stealing-staged-tasks">Stealing staged tasks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-staged-tasks">Converting staged tasks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thread-scheduler-idle-backoff">Idle backoff</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#waking-up-worker-threads">Waking up worker threads</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-work">Background work</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thread-object-management">Thread object management</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numa-domains">NUMA domains</a></li>

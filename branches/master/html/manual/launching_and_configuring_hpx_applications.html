@@ -1817,6 +1817,8 @@ loaded from.</p></td>
 <span class="na">max_idle_loop_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_MAX_IDLE_LOOP_COUNT:&lt;hpx_idle_loop_count_max&gt;}</span>
 <span class="na">max_busy_loop_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_MAX_BUSY_LOOP_COUNT:&lt;hpx_busy_loop_count_max&gt;}</span>
 <span class="na">max_idle_backoff_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_MAX_IDLE_BACKOFF_TIME:&lt;hpx_idle_backoff_time_max&gt;}</span>
+<span class="na">min_idle_backoff_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_MIN_IDLE_BACKOFF_TIME:&lt;hpx_idle_backoff_time_min&gt;}</span>
+<span class="na">idle_backoff_steal_check_interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_IDLE_BACKOFF_STEAL_CHECK_INTERVAL:&lt;hpx_idle_backoff_steal_check_interval&gt;}</span>
 <span class="na">default_scheduler_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_DEFAULT_SCHEDULER_MODE}</span>
 <span class="na">exception_verbosity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_EXCEPTION_VERBOSITY:2}</span>
 <span class="na">trace_depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_TRACE_DEPTH:20}</span>
@@ -1951,6 +1953,27 @@ iterations, see <a class="reference internal" href="thread_scheduler_configurati
 applicable only if <code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_MANAGER_IDLE_BACKOFF</span></code> is set
 during configuration in <a class="reference external" href="https://www.cmake.org">CMake</a>. By default this is defined by the
 preprocessor constant <code class="docutils literal notranslate"><span class="pre">HPX_IDLE_BACKOFF_TIME_MAX</span></code> (<code class="docutils literal notranslate"><span class="pre">1000</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code></p></td>
+<td><p>This setting defines the shortest idle backoff period (in
+microseconds) a worker thread sleeps for; shorter periods are spent
+spinning instead, since a timed wait lasts at least as long as the
+operating system takes to wake the thread up again, see
+<a class="reference internal" href="thread_scheduler_configuration.html#thread-scheduler-idle-backoff"><span class="std std-ref">Idle backoff</span></a>. Values above
+<code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code> make idle worker threads spin and never
+sleep. This setting is applicable only if
+<code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_MANAGER_IDLE_BACKOFF</span></code> is set during configuration in
+<a class="reference external" href="https://www.cmake.org">CMake</a>. By default this is defined by the preprocessor constant
+<code class="docutils literal notranslate"><span class="pre">HPX_IDLE_BACKOFF_TIME_MIN</span></code> (<code class="docutils literal notranslate"><span class="pre">50</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.idle_backoff_steal_check_interval</span></code></p></td>
+<td><p>This setting defines how often (in microseconds) a spinning worker
+thread looks at the queues it may steal from; it looks at its own
+queues in every round of the spin, see
+<a class="reference internal" href="thread_scheduler_configuration.html#thread-scheduler-idle-backoff"><span class="std std-ref">Idle backoff</span></a>. This setting is applicable only if
+<code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_MANAGER_IDLE_BACKOFF</span></code> is set during configuration in
+<a class="reference external" href="https://www.cmake.org">CMake</a>. By default this is defined by the preprocessor constant
+<code class="docutils literal notranslate"><span class="pre">HPX_IDLE_BACKOFF_STEAL_CHECK_INTERVAL</span></code> (<code class="docutils literal notranslate"><span class="pre">8</span></code>).</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.default_scheduler_mode</span></code></p></td>
 <td><p>This setting defines the scheduler mode of the default thread pool as a
