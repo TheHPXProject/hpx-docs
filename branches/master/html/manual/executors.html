@@ -2211,8 +2211,11 @@ also give its size with an annotation:</p>
 <span class="n">hpx</span><span class="o">::</span><span class="n">post</span><span class="p">(</span><span class="n">solver_step</span><span class="p">{});</span><span class="w">    </span><span class="c1">// runs as a large task</span>
 </pre></div>
 </div>
-<p>A size given with <code class="docutils literal notranslate"><span class="pre">hpx::with_task_size</span></code> wins over the annotation. Only class
-types can have one, and a lambda has none, so it stays <code class="docutils literal notranslate"><span class="pre">task_size::unknown</span></code>.
+<p>A size given with <code class="docutils literal notranslate"><span class="pre">hpx::with_task_size</span></code> wins over the annotation. For a task
+posted directly, only an annotation on a class type is read: a function
+pointer stays <code class="docutils literal notranslate"><span class="pre">task_size::unknown</span></code> even if the function is annotated, and so
+does a lambda. An annotation on a function is read by the actions listed
+below.
 Annotations are not inherited: a class derived from an annotated class has no
 size unless it is annotated itself. Two different sizes on one type are a
 compile-time error when the size of that type is read, for example when it is
@@ -2359,7 +2362,10 @@ for the wrapped function, which gives it <code class="docutils literal notransla
 action that binds a function given a size with <code class="docutils literal notranslate"><span class="pre">hpx::with_task_size</span></code> has
 that size unless <code class="docutils literal notranslate"><span class="pre">HPX_ACTION_HAS_TASK_SIZE</span></code> overrides it. The size is known
 from the type of the action on every locality, so it is not sent along with
-the action.</p>
+the action. In builds with C++26 reflection, <code class="docutils literal notranslate"><span class="pre">HPX_ACTION_HAS_TASK_SIZE</span></code> has
+no effect yet on a component action defined with
+<code class="docutils literal notranslate"><span class="pre">HPX_DEFINE_COMPONENT_ACTION</span></code> or <code class="docutils literal notranslate"><span class="pre">HPX_COMPONENT_ACTION</span></code>, see
+<a class="reference external" href="https://github.com/TheHPXProject/hpx/issues/8019">Issue #8019</a>.</p>
 <p>Like <code class="docutils literal notranslate"><span class="pre">HPX_ACTION_HAS_PRIORITY</span></code>, <code class="docutils literal notranslate"><span class="pre">HPX_ACTION_HAS_TASK_SIZE</span></code> has to be
 visible wherever the action is registered or invoked, as each locality reads
 the size when it creates the thread for the action. Put it next to
@@ -2385,6 +2391,31 @@ the compiler does not diagnose.</p>
 <span class="n">HPX_REGISTER_ACTION</span><span class="p">(</span><span class="n">get_value_action</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>If the compiler supports C++26 reflection and annotations, an annotation on
+the function gives its action a size as well:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="o">=</span><span class="n">hpx</span><span class="o">::</span><span class="n">task_size</span><span class="o">::</span><span class="n">small_</span><span class="p">]]</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">update_counter</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<span class="n">HPX_PLAIN_ACTION</span><span class="p">(</span><span class="n">update_counter</span><span class="p">,</span><span class="w"> </span><span class="n">update_counter_action</span><span class="p">)</span>
+
+<span class="n">hpx</span><span class="o">::</span><span class="n">post</span><span class="o">&lt;</span><span class="n">update_counter_action</span><span class="o">&gt;</span><span class="p">(</span><span class="n">locality</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">    </span><span class="c1">// runs as a small task</span>
+</pre></div>
+</div>
+<p>This works for the actions of <code class="docutils literal notranslate"><span class="pre">HPX_PLAIN_ACTION</span></code>,
+<code class="docutils literal notranslate"><span class="pre">HPX_DEFINE_PLAIN_ACTION</span></code>, <code class="docutils literal notranslate"><span class="pre">HPX_DEFINE_COMPONENT_ACTION</span></code> and
+<code class="docutils literal notranslate"><span class="pre">HPX_COMPONENT_ACTION</span></code>, for <code class="docutils literal notranslate"><span class="pre">hpx::async&lt;^^f&gt;</span></code> and the other functions that
+take a reflected function, and for actions made with
+<code class="docutils literal notranslate"><span class="pre">hpx::actions::make_action_t</span></code> from a function pointer.
+<code class="docutils literal notranslate"><span class="pre">HPX_ACTION_HAS_TASK_SIZE</span></code> and <code class="docutils literal notranslate"><span class="pre">hpx::with_task_size</span></code> win over the
+annotation, except that <code class="docutils literal notranslate"><span class="pre">HPX_ACTION_HAS_TASK_SIZE</span></code> is not seen yet for
+<code class="docutils literal notranslate"><span class="pre">HPX_DEFINE_COMPONENT_ACTION</span></code> and <code class="docutils literal notranslate"><span class="pre">HPX_COMPONENT_ACTION</span></code> (see above), so
+for those the annotation is used. <code class="docutils literal notranslate"><span class="pre">task_size::unknown</span></code> counts as no
+annotation. Two different sizes on one function are a compile-time error when
+the size of an action that binds it is read. Actions made from a member
+function pointer, for instance <code class="docutils literal notranslate"><span class="pre">make_action_t&lt;decltype(&amp;C::f),</span> <span class="pre">&amp;C::f&gt;</span></code>, do
+not read annotations. Give an explicit specialization of an annotated function
+template the same annotation as the template. With Clang it also gets the
+annotation of the template, so a different size is a compile-time error. Each
+source file reads the annotation from the declarations it sees, so put it on
+the declaration in the header.</p>
 </section>
 <section id="p2079-parallel-scheduler">
 <span id="parallel-scheduler"></span><h2>P2079 parallel scheduler<a class="headerlink" href="#p2079-parallel-scheduler" title="Link to this heading">#</a></h2>
