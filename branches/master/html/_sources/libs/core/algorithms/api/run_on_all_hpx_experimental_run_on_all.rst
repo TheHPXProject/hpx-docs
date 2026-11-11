@@ -21,5 +21,7 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
 
 .. doxygenfunction:: hpx::experimental::run_on_all(ExPolicy && policy, T && t, Ts &&... ts)
    :project: hpx
+.. doxygenfunction:: hpx::experimental::run_on_all(Scheduler && sched, T && t, Ts &&... ts)
+   :project: hpx
 .. doxygenfunction:: hpx::experimental::run_on_all(T && t, Ts &&... ts)
    :project: hpx
