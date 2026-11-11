@@ -1346,6 +1346,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/testing_hpx_supervision_testing_suspend_heartbeat_for_testing.html">hpx::supervision::testing::suspend_heartbeat_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/testing_hpx_supervision_testing_failure_detection_sweep_in_flight_for_testing.html">hpx::supervision::testing::failure_detection_sweep_in_flight_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/testing_hpx_supervision_testing_stop_background_loops.html">hpx::supervision::testing::stop_background_loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_fenced_hook_for_testing.html">hpx::supervision::testing::set_evict_fenced_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_lifecycle_mirror_hook_for_testing.html">hpx::supervision::testing::set_lifecycle_mirror_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_peer_hook_for_testing.html">hpx::supervision::testing::set_evict_peer_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/testing_hpx_supervision_testing_evict_peers_waiting_for_mirrors_for_testing.html">hpx::supervision::testing::evict_peers_waiting_for_mirrors_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/dispatch_api_hpx_supervision_init.html">hpx::supervision::init</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/dispatch_api_hpx_supervision_finalize.html">hpx::supervision::finalize</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../components/supervision_dispatch/api/dispatch_api_hpx_supervision_is_initialized.html">hpx::supervision::is_initialized</a></li>
@@ -1758,7 +1762,7 @@ call, whatever the operation, as described in the next section:</p>
 </pre></div>
 </div>
 <p>The complete program is
-<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/88925dfc0c20d00f0557041d9d7b76fd46eb2959/libs/full/collectives/examples/hierarchical_collectives.cpp">hierarchical_collectives.cpp</a>. It
+<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/c41788f6dddc7bb23d47e5b4a17dc53d5d2758a9/libs/full/collectives/examples/hierarchical_collectives.cpp">hierarchical_collectives.cpp</a>. It
 runs <code class="docutils literal notranslate"><span class="pre">hpx_main</span></code> on all localities, so start it on several localities, for
 example with <code class="docutils literal notranslate"><span class="pre">hpxrun.py</span> <span class="pre">-l</span> <span class="pre">4</span> <span class="pre">-t</span> <span class="pre">1</span> <span class="pre">bin/hierarchical_collectives</span> <span class="pre">--</span> <span class="pre">--arity=2</span></code>.</p>
 <p>A few rules apply to all hierarchical collectives:</p>

@@ -1346,6 +1346,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_suspend_heartbeat_for_testing.html">hpx::supervision::testing::suspend_heartbeat_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_failure_detection_sweep_in_flight_for_testing.html">hpx::supervision::testing::failure_detection_sweep_in_flight_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_stop_background_loops.html">hpx::supervision::testing::stop_background_loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_fenced_hook_for_testing.html">hpx::supervision::testing::set_evict_fenced_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_lifecycle_mirror_hook_for_testing.html">hpx::supervision::testing::set_lifecycle_mirror_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_peer_hook_for_testing.html">hpx::supervision::testing::set_evict_peer_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_evict_peers_waiting_for_mirrors_for_testing.html">hpx::supervision::testing::evict_peers_waiting_for_mirrors_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_init.html">hpx::supervision::init</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_finalize.html">hpx::supervision::finalize</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_is_initialized.html">hpx::supervision::is_initialized</a></li>
@@ -1975,6 +1979,15 @@ never sampled.</p>
 <ul class="simple">
 <li><p><strong>Frames</strong>: calls to <code class="docutils literal notranslate"><span class="pre">hpx::tracing::frame_mark</span></code> in your code split the
 timeline into frames (see <a class="reference internal" href="#tracy-own-code"><span class="std std-ref">Instrumenting your own code</span></a>).</p></li>
+<li><p><strong>Plots</strong>: performance counters printed with <code class="docutils literal notranslate"><span class="pre">--hpx:print-counter</span></code> (or
+<code class="docutils literal notranslate"><span class="pre">--hpx:print-counter-reset</span></code>) are sent to Tracy as plots, one plot per
+counter, named with the full counter name (for example
+<code class="docutils literal notranslate"><span class="pre">/runtime{locality#0/total}/uptime</span></code>). One name can match several counters,
+for example one for each worker thread, and each gets its own plot. A value
+is added each time <em>HPX</em> queries the counter, by default once at shutdown.
+Use <code class="docutils literal notranslate"><span class="pre">--hpx:print-counter-interval</span></code> to get more than one value. This also
+works with <code class="docutils literal notranslate"><span class="pre">--hpx:print-counter-destination=none</span></code>, which prints nothing.
+Histogram counters and other counters with several values are not sent.</p></li>
 <li><p><strong>Locks</strong>: if <em>HPX</em> was built with <a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_LOCK_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_LOCK_EVENTS</span></code></a>
 set to <code class="docutils literal notranslate"><span class="pre">ON</span></code> (the default is <code class="docutils literal notranslate"><span class="pre">OFF</span></code>), <code class="docutils literal notranslate"><span class="pre">hpx::mutex</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx::spinlock</span></code>
 and <code class="docutils literal notranslate"><span class="pre">hpx::util::spinlock</span></code> are reported to Tracy as locks, which the

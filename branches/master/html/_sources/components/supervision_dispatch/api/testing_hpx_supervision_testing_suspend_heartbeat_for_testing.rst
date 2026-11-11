@@ -26,6 +26,10 @@ See also:
    - :ref:`hpx::supervision::testing::last_join_locality <modules_testing_hpx_supervision_testing_last_join_locality_api>`
    - :ref:`hpx::supervision::testing::failure_detection_sweep_in_flight_for_testing <modules_testing_hpx_supervision_testing_failure_detection_sweep_in_flight_for_testing_api>`
    - :ref:`hpx::supervision::testing::stop_background_loops <modules_testing_hpx_supervision_testing_stop_background_loops_api>`
+   - :ref:`hpx::supervision::testing::set_evict_fenced_hook_for_testing <modules_testing_hpx_supervision_testing_set_evict_fenced_hook_for_testing_api>`
+   - :ref:`hpx::supervision::testing::set_lifecycle_mirror_hook_for_testing <modules_testing_hpx_supervision_testing_set_lifecycle_mirror_hook_for_testing_api>`
+   - :ref:`hpx::supervision::testing::set_evict_peer_hook_for_testing <modules_testing_hpx_supervision_testing_set_evict_peer_hook_for_testing_api>`
+   - :ref:`hpx::supervision::testing::evict_peers_waiting_for_mirrors_for_testing <modules_testing_hpx_supervision_testing_evict_peers_waiting_for_mirrors_for_testing_api>`
 
 .. doxygenfunction:: hpx::supervision::testing::suspend_heartbeat_for_testing
    :project: hpx

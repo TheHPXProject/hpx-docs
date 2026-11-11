@@ -1346,6 +1346,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_suspend_heartbeat_for_testing.html">hpx::supervision::testing::suspend_heartbeat_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_failure_detection_sweep_in_flight_for_testing.html">hpx::supervision::testing::failure_detection_sweep_in_flight_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_stop_background_loops.html">hpx::supervision::testing::stop_background_loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_fenced_hook_for_testing.html">hpx::supervision::testing::set_evict_fenced_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_lifecycle_mirror_hook_for_testing.html">hpx::supervision::testing::set_lifecycle_mirror_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_peer_hook_for_testing.html">hpx::supervision::testing::set_evict_peer_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_evict_peers_waiting_for_mirrors_for_testing.html">hpx::supervision::testing::evict_peers_waiting_for_mirrors_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_init.html">hpx::supervision::init</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_finalize.html">hpx::supervision::finalize</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_is_initialized.html">hpx::supervision::is_initialized</a></li>
@@ -1617,6 +1621,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#breaking-changes">Breaking changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supervision-module">Supervision Module</a></li>
 </ul>
             </nav>
         </div>
@@ -1652,6 +1657,18 @@ need to use the corresponding <code class="docutils literal notranslate"><span c
 copyable search values in their asynchronous operation state. Noncopyable
 lvalues, including arrays, are borrowed and must remain valid until the
 returned future becomes ready, even if the future is discarded.</p></li>
+</ul>
+</section>
+<section id="supervision-module">
+<h2>Supervision Module<a class="headerlink" href="#supervision-module" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>A peer fenced by failure detection is now removed from the registry, so
+<code class="docutils literal notranslate"><span class="pre">snapshot_peers()</span></code> no longer lists it; its fence is kept
+(<a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/7922">PR #7922</a>). That removal no longer drops a peer that came back with a
+new epoch while it was being removed, which left the peer unmonitored, and
+the eviction a terminal lifecycle notification schedules no longer removes
+a peer that started a newer epoch meanwhile (<a class="reference external" href="https://github.com/TheHPXProject/hpx/issues/7924">Issue #7924</a>,
+<a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/8027">PR #8027</a>).</p></li>
 </ul>
 </section>
 </section>
@@ -1702,6 +1719,7 @@ returned future becomes ready, even if the future is discarded.</p></li>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#breaking-changes">Breaking changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supervision-module">Supervision Module</a></li>
 </ul>
   </nav></div>
 

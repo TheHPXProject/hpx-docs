@@ -1346,6 +1346,10 @@
 <li class="toctree-l4"><a class="reference internal" href="components/supervision_dispatch/api/testing_hpx_supervision_testing_suspend_heartbeat_for_testing.html">hpx::supervision::testing::suspend_heartbeat_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="components/supervision_dispatch/api/testing_hpx_supervision_testing_failure_detection_sweep_in_flight_for_testing.html">hpx::supervision::testing::failure_detection_sweep_in_flight_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="components/supervision_dispatch/api/testing_hpx_supervision_testing_stop_background_loops.html">hpx::supervision::testing::stop_background_loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_fenced_hook_for_testing.html">hpx::supervision::testing::set_evict_fenced_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="components/supervision_dispatch/api/testing_hpx_supervision_testing_set_lifecycle_mirror_hook_for_testing.html">hpx::supervision::testing::set_lifecycle_mirror_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_peer_hook_for_testing.html">hpx::supervision::testing::set_evict_peer_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="components/supervision_dispatch/api/testing_hpx_supervision_testing_evict_peers_waiting_for_mirrors_for_testing.html">hpx::supervision::testing::evict_peers_waiting_for_mirrors_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="components/supervision_dispatch/api/dispatch_api_hpx_supervision_init.html">hpx::supervision::init</a></li>
 <li class="toctree-l4"><a class="reference internal" href="components/supervision_dispatch/api/dispatch_api_hpx_supervision_finalize.html">hpx::supervision::finalize</a></li>
 <li class="toctree-l4"><a class="reference internal" href="components/supervision_dispatch/api/dispatch_api_hpx_supervision_is_initialized.html">hpx::supervision::is_initialized</a></li>
@@ -5365,8 +5369,6 @@ document.write(`
 </li>
       <li><a href="libs/core/algorithms/api/uninitialized_fill_hpx_ranges_uninitialized_fill_n.html#_CPPv4I0000EN3hpx6ranges20uninitialized_fill_nEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy7FwdIterEERR8ExPolicy7FwdIter4SizeRK1T">hpx::ranges::uninitialized_fill_n (C++ function)</a>, <a href="libs/core/algorithms/api/uninitialized_fill_hpx_ranges_uninitialized_fill_n.html#_CPPv4I000EN3hpx6ranges20uninitialized_fill_nE7FwdIter7FwdIter4SizeRK1T">[1]</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/core/algorithms/api/uninitialized_move_hpx_ranges_uninitialized_move.html#_CPPv4I00000EN3hpx6ranges18uninitialized_moveEN8parallel4util6detail16algorithm_resultI8ExPolicyN8parallel4util13in_out_resultI8FwdIter18FwdIter2EEE4typeERR8ExPolicy8FwdIter15Sent18FwdIter25Sent2">hpx::ranges::uninitialized_move (C++ function)</a>, <a href="libs/core/algorithms/api/uninitialized_move_hpx_ranges_uninitialized_move.html#_CPPv4I0000EN3hpx6ranges18uninitialized_moveEN3hpx8parallel4util13in_out_resultI6InIter7FwdIterEE6InIter5Sent17FwdIter5Sent2">[1]</a>, <a href="libs/core/algorithms/api/uninitialized_move_hpx_ranges_uninitialized_move.html#_CPPv4I000EN3hpx6ranges18uninitialized_moveEN8parallel4util6detail16algorithm_resultI8ExPolicyN3hpx8parallel4util13in_out_resultIN3hpx6traits12range_traitsI4Rng1E13iterator_typeEN3hpx6traits12range_traitsI4Rng2E13iterator_typeEEEE4typeERR8ExPolicyRR4Rng1RR4Rng2">[2]</a>, <a href="libs/core/algorithms/api/uninitialized_move_hpx_ranges_uninitialized_move.html#_CPPv4I00EN3hpx6ranges18uninitialized_moveEN3hpx8parallel4util13in_out_resultIN3hpx6traits12range_traitsI4Rng1E13iterator_typeEN3hpx6traits12range_traitsI4Rng2E13iterator_typeEEERR4Rng1RR4Rng2">[3]</a>
 </li>
       <li><a href="libs/core/algorithms/api/uninitialized_move_hpx_ranges_uninitialized_move_n.html#_CPPv4I00000EN3hpx6ranges20uninitialized_move_nEN8parallel4util6detail16algorithm_resultI8ExPolicyN8parallel4util13in_out_resultI8FwdIter18FwdIter2EEE4typeERR8ExPolicy8FwdIter14Size8FwdIter25Sent2">hpx::ranges::uninitialized_move_n (C++ function)</a>, <a href="libs/core/algorithms/api/uninitialized_move_hpx_ranges_uninitialized_move_n.html#_CPPv4I0000EN3hpx6ranges20uninitialized_move_nEN3hpx8parallel4util13in_out_resultI6InIter7FwdIterEE6InIter4Size7FwdIter5Sent2">[1]</a>
@@ -5375,6 +5377,8 @@ document.write(`
 </li>
       <li><a href="libs/core/algorithms/api/uninitialized_value_construct_hpx_ranges_uninitialized_value_construct_n.html#_CPPv4I000EN3hpx6ranges31uninitialized_value_construct_nEN3hpx8parallel4util6detail18algorithm_result_tI8ExPolicy7FwdIterEERR8ExPolicy7FwdIter4Size">hpx::ranges::uninitialized_value_construct_n (C++ function)</a>, <a href="libs/core/algorithms/api/uninitialized_value_construct_hpx_ranges_uninitialized_value_construct_n.html#_CPPv4I00EN3hpx6ranges31uninitialized_value_construct_nE7FwdIter7FwdIter4Size">[1]</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/core/algorithms/api/unique_hpx_ranges_unique.html#_CPPv4I00000EN3hpx6ranges6uniqueEN8parallel4util6detail16algorithm_resultI8ExPolicy10subrange_tI7FwdIter4SentEE4typeERR8ExPolicy7FwdIter4SentRR4PredRR4Proj">hpx::ranges::unique (C++ function)</a>, <a href="libs/core/algorithms/api/unique_hpx_ranges_unique.html#_CPPv4I0000EN3hpx6ranges6uniqueE10subrange_tI7FwdIter4SentE7FwdIter4SentRR4PredRR4Proj">[1]</a>, <a href="libs/core/algorithms/api/unique_hpx_ranges_unique.html#_CPPv4I0000EN3hpx6ranges6uniqueEN8parallel4util6detail16algorithm_resultI8ExPolicy10subrange_tINSt6ranges10iterator_tI3RngEENSt6ranges10iterator_tI3RngEEEEERR8ExPolicyRR3RngRR4PredRR4Proj">[2]</a>, <a href="libs/core/algorithms/api/unique_hpx_ranges_unique.html#_CPPv4I000EN3hpx6ranges6uniqueE10subrange_tINSt6ranges10iterator_tI3RngEENSt6ranges10iterator_tI3RngEEERR3RngRR4PredRR4Proj">[3]</a>
 </li>
       <li><a href="libs/core/algorithms/api/unique_hpx_ranges_unique_copy.html#_CPPv4I000000EN3hpx6ranges11unique_copyEN8parallel4util6detail16algorithm_resultI8ExPolicy18unique_copy_resultI7FwdIter1OEE4typeERR8ExPolicy7FwdIter4Sent1ORR4PredRR4Proj">hpx::ranges::unique_copy (C++ function)</a>, <a href="libs/core/algorithms/api/unique_hpx_ranges_unique_copy.html#_CPPv4I00000EN3hpx6ranges11unique_copyE18unique_copy_resultI6InIter1OE6InIter4Sent1ORR4PredRR4Proj">[1]</a>, <a href="libs/core/algorithms/api/unique_hpx_ranges_unique_copy.html#_CPPv4I00000EN3hpx6ranges11unique_copyEN8parallel4util6detail16algorithm_resultI8ExPolicy18unique_copy_resultINSt6ranges10iterator_tI3RngEE1OEEERR8ExPolicyRR3Rng1ORR4PredRR4Proj">[2]</a>, <a href="libs/core/algorithms/api/unique_hpx_ranges_unique_copy.html#_CPPv4I0000EN3hpx6ranges11unique_copyE18unique_copy_resultINSt6ranges10iterator_tI3RngEE1OERR3Rng1ORR4PredRR4Proj">[3]</a>
@@ -6133,6 +6137,8 @@ document.write(`
 </li>
       <li><a href="components/supervision_dispatch/api/registry_hpx_supervision_registry.html#_CPPv4N3hpx11supervision8registryE">hpx::supervision::registry (C++ class)</a>, <a href="components/supervision_dispatch/docs/index.html#_CPPv4N3hpx11supervision8registryE">[1]</a>
 </li>
+      <li><a href="components/supervision_dispatch/docs/index.html#_CPPv4NK3hpx11supervision8registry12evict_fencedERKN3hpx7id_typeENSt8uint64_tE">hpx::supervision::registry::evict_fenced (C++ function)</a>
+</li>
       <li><a href="components/supervision_dispatch/docs/index.html#_CPPv4NK3hpx11supervision8registry12get_localityEv">hpx::supervision::registry::get_locality (C++ function)</a>
 </li>
       <li><a href="components/supervision_dispatch/docs/index.html#_CPPv4NK3hpx11supervision8registry4joinEN3hpx6launch11sync_policyERKN3hpx7id_typeERN3hpx10error_codeE">hpx::supervision::registry::join (C++ function)</a>, <a href="components/supervision_dispatch/docs/index.html#_CPPv4NK3hpx11supervision8registry4joinERKN3hpx7id_typeE">[1]</a>
@@ -6167,13 +6173,15 @@ document.write(`
 </li>
       <li><a href="components/supervision_dispatch/api/server_registry.html#_CPPv4N3hpx11supervision6server8registryE">hpx::supervision::server::registry (C++ class)</a>
 </li>
+      <li><a href="components/supervision_dispatch/api/server_registry.html#_CPPv4N3hpx11supervision6server8registry14any_generationE">hpx::supervision::server::registry::any_generation (C++ member)</a>
+</li>
       <li><a href="components/supervision_dispatch/api/server_registry.html#_CPPv4N3hpx11supervision6server8registry12cleanup_peerERKN3hpx7id_typeERKN3hpx7id_typeERKN3hpx7id_typeEb">hpx::supervision::server::registry::cleanup_peer (C++ function)</a>
 </li>
       <li><a href="components/supervision_dispatch/api/server_registry.html#_CPPv4N3hpx11supervision6server8registry5cond_E">hpx::supervision::server::registry::cond_ (C++ member)</a>
 </li>
       <li><a href="components/supervision_dispatch/api/server_registry.html#_CPPv4N3hpx11supervision6server8registry12evict_fencedERKN3hpx7id_typeENSt8uint64_tE">hpx::supervision::server::registry::evict_fenced (C++ function)</a>
 </li>
-      <li><a href="components/supervision_dispatch/api/server_registry.html#_CPPv4N3hpx11supervision6server8registry10evict_peerERKN3hpx7id_typeENSt8uint64_tEN3hpx7id_typeEb">hpx::supervision::server::registry::evict_peer (C++ function)</a>
+      <li><a href="components/supervision_dispatch/api/server_registry.html#_CPPv4N3hpx11supervision6server8registry10evict_peerERKN3hpx7id_typeENSt8uint64_tENSt8uint64_tEN3hpx7id_typeEb">hpx::supervision::server::registry::evict_peer (C++ function)</a>
 </li>
       <li><a href="components/supervision_dispatch/api/server_registry.html#_CPPv4N3hpx11supervision6server8registry4joinERKN3hpx7id_typeE">hpx::supervision::server::registry::join (C++ function)</a>
 </li>
@@ -6189,6 +6197,8 @@ document.write(`
 </li>
       <li><a href="components/supervision_dispatch/api/server_registry.html#_CPPv4N3hpx11supervision6server8registry10peer_entry13evict_pendingE">hpx::supervision::server::registry::peer_entry::evict_pending (C++ member)</a>
 </li>
+      <li><a href="components/supervision_dispatch/api/server_registry.html#_CPPv4N3hpx11supervision6server8registry10peer_entry19evict_pending_epochE">hpx::supervision::server::registry::peer_entry::evict_pending_epoch (C++ member)</a>
+</li>
       <li><a href="components/supervision_dispatch/api/server_registry.html#_CPPv4N3hpx11supervision6server8registry10peer_entry29evict_preserve_terminal_stateE">hpx::supervision::server::registry::peer_entry::evict_preserve_terminal_state (C++ member)</a>
 </li>
       <li><a href="components/supervision_dispatch/api/server_registry.html#_CPPv4N3hpx11supervision6server8registry10peer_entry10generationE">hpx::supervision::server::registry::peer_entry::generation (C++ member)</a>
@@ -6196,6 +6206,10 @@ document.write(`
       <li><a href="components/supervision_dispatch/api/server_registry.html#_CPPv4N3hpx11supervision6server8registry10peer_entry10join_epochE">hpx::supervision::server::registry::peer_entry::join_epoch (C++ member)</a>
 </li>
       <li><a href="components/supervision_dispatch/api/server_registry.html#_CPPv4N3hpx11supervision6server8registry10peer_entry18lifecycle_observerE">hpx::supervision::server::registry::peer_entry::lifecycle_observer (C++ member)</a>
+</li>
+      <li><a href="components/supervision_dispatch/api/server_registry.html#_CPPv4N3hpx11supervision6server8registry10peer_entry15mirror_sequenceE">hpx::supervision::server::registry::peer_entry::mirror_sequence (C++ member)</a>
+</li>
+      <li><a href="components/supervision_dispatch/api/server_registry.html#_CPPv4N3hpx11supervision6server8registry10peer_entry17mirrors_in_flightE">hpx::supervision::server::registry::peer_entry::mirrors_in_flight (C++ member)</a>
 </li>
       <li><a href="components/supervision_dispatch/api/server_registry.html#_CPPv4N3hpx11supervision6server8registry10peer_entry10peer_entryERKN3hpx7id_typeE">hpx::supervision::server::registry::peer_entry::peer_entry (C++ function)</a>
 </li>
@@ -6375,13 +6389,21 @@ document.write(`
 </li>
       <li><a href="libs/full/supervision/api/supervision_manager_hpx_supervision_supervision_manager.html#_CPPv4N3hpx11supervision19supervision_managerE">hpx::supervision::supervision_manager (C++ class)</a>
 </li>
+      <li><a href="components/supervision_dispatch/api/testing_hpx_supervision_testing_evict_peers_waiting_for_mirrors_for_testing.html#_CPPv4N3hpx11supervision7testing43evict_peers_waiting_for_mirrors_for_testingEv">hpx::supervision::testing::evict_peers_waiting_for_mirrors_for_testing (C++ function)</a>, <a href="components/supervision_dispatch/docs/index.html#_CPPv4N3hpx11supervision7testing43evict_peers_waiting_for_mirrors_for_testingEv">[1]</a>
+</li>
       <li><a href="components/supervision_dispatch/api/testing_hpx_supervision_testing_failure_detection_sweep_in_flight_for_testing.html#_CPPv4N3hpx11supervision7testing45failure_detection_sweep_in_flight_for_testingEv">hpx::supervision::testing::failure_detection_sweep_in_flight_for_testing (C++ function)</a>, <a href="components/supervision_dispatch/docs/index.html#_CPPv4N3hpx11supervision7testing45failure_detection_sweep_in_flight_for_testingEv">[1]</a>
 </li>
       <li><a href="components/supervision_dispatch/api/testing_hpx_supervision_testing_last_join_locality.html#_CPPv4N3hpx11supervision7testing18last_join_localityEv">hpx::supervision::testing::last_join_locality (C++ function)</a>, <a href="components/supervision_dispatch/docs/index.html#_CPPv4N3hpx11supervision7testing18last_join_localityEv">[1]</a>
 </li>
       <li><a href="components/supervision_dispatch/api/testing_hpx_supervision_testing_local_snapshot_peers.html#_CPPv4N3hpx11supervision7testing20local_snapshot_peersEv">hpx::supervision::testing::local_snapshot_peers (C++ function)</a>, <a href="components/supervision_dispatch/docs/index.html#_CPPv4N3hpx11supervision7testing20local_snapshot_peersEv">[1]</a>
 </li>
+      <li><a href="components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_fenced_hook_for_testing.html#_CPPv4N3hpx11supervision7testing33set_evict_fenced_hook_for_testingEN3hpx8functionIFvvEEE">hpx::supervision::testing::set_evict_fenced_hook_for_testing (C++ function)</a>, <a href="components/supervision_dispatch/docs/index.html#_CPPv4N3hpx11supervision7testing33set_evict_fenced_hook_for_testingEN3hpx8functionIFvvEEE">[1]</a>
+</li>
+      <li><a href="components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_peer_hook_for_testing.html#_CPPv4N3hpx11supervision7testing31set_evict_peer_hook_for_testingEN3hpx8functionIFvvEEE">hpx::supervision::testing::set_evict_peer_hook_for_testing (C++ function)</a>, <a href="components/supervision_dispatch/docs/index.html#_CPPv4N3hpx11supervision7testing31set_evict_peer_hook_for_testingEN3hpx8functionIFvvEEE">[1]</a>
+</li>
       <li><a href="components/supervision_dispatch/api/testing_hpx_supervision_testing_set_failure_detection_poll_timeout_for_testing.html#_CPPv4N3hpx11supervision7testing46set_failure_detection_poll_timeout_for_testingERKN3hpx6chrono15steady_durationE">hpx::supervision::testing::set_failure_detection_poll_timeout_for_testing (C++ function)</a>, <a href="components/supervision_dispatch/docs/index.html#_CPPv4N3hpx11supervision7testing46set_failure_detection_poll_timeout_for_testingERKN3hpx6chrono15steady_durationE">[1]</a>
+</li>
+      <li><a href="components/supervision_dispatch/api/testing_hpx_supervision_testing_set_lifecycle_mirror_hook_for_testing.html#_CPPv4N3hpx11supervision7testing37set_lifecycle_mirror_hook_for_testingEN3hpx8functionIFvvEEE">hpx::supervision::testing::set_lifecycle_mirror_hook_for_testing (C++ function)</a>, <a href="components/supervision_dispatch/docs/index.html#_CPPv4N3hpx11supervision7testing37set_lifecycle_mirror_hook_for_testingEN3hpx8functionIFvvEEE">[1]</a>
 </li>
       <li><a href="libs/full/supervision/api/testing_hpx_supervision_testing_set_register_observer_snapshot_hook.html#_CPPv4N3hpx11supervision7testing35set_register_observer_snapshot_hookENSt8functionIFvvEEE">hpx::supervision::testing::set_register_observer_snapshot_hook (C++ function)</a>
 </li>
