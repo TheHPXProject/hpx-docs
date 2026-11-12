@@ -2366,10 +2366,7 @@ for the wrapped function, which gives it <code class="docutils literal notransla
 action that binds a function given a size with <code class="docutils literal notranslate"><span class="pre">hpx::with_task_size</span></code> has
 that size unless <code class="docutils literal notranslate"><span class="pre">HPX_ACTION_HAS_TASK_SIZE</span></code> overrides it. The size is known
 from the type of the action on every locality, so it is not sent along with
-the action. In builds with C++26 reflection, <code class="docutils literal notranslate"><span class="pre">HPX_ACTION_HAS_TASK_SIZE</span></code> has
-no effect yet on a component action defined with
-<code class="docutils literal notranslate"><span class="pre">HPX_DEFINE_COMPONENT_ACTION</span></code> or <code class="docutils literal notranslate"><span class="pre">HPX_COMPONENT_ACTION</span></code>, see
-<a class="reference external" href="https://github.com/TheHPXProject/hpx/issues/8019">Issue #8019</a>.</p>
+the action.</p>
 <p>Like <code class="docutils literal notranslate"><span class="pre">HPX_ACTION_HAS_PRIORITY</span></code>, <code class="docutils literal notranslate"><span class="pre">HPX_ACTION_HAS_TASK_SIZE</span></code> has to be
 visible wherever the action is registered or invoked, as each locality reads
 the size when it creates the thread for the action. Put it next to
@@ -2409,17 +2406,14 @@ the function gives its action a size as well:</p>
 take a reflected function, and for actions made with
 <code class="docutils literal notranslate"><span class="pre">hpx::actions::make_action_t</span></code> from a function pointer.
 <code class="docutils literal notranslate"><span class="pre">HPX_ACTION_HAS_TASK_SIZE</span></code> and <code class="docutils literal notranslate"><span class="pre">hpx::with_task_size</span></code> win over the
-annotation, except that <code class="docutils literal notranslate"><span class="pre">HPX_ACTION_HAS_TASK_SIZE</span></code> is not seen yet for
-<code class="docutils literal notranslate"><span class="pre">HPX_DEFINE_COMPONENT_ACTION</span></code> and <code class="docutils literal notranslate"><span class="pre">HPX_COMPONENT_ACTION</span></code> (see above), so
-for those the annotation is used. <code class="docutils literal notranslate"><span class="pre">task_size::unknown</span></code> counts as no
-annotation. Two different sizes on one function are a compile-time error when
-the size of an action that binds it is read. Actions made from a member
-function pointer, for instance <code class="docutils literal notranslate"><span class="pre">make_action_t&lt;decltype(&amp;C::f),</span> <span class="pre">&amp;C::f&gt;</span></code>, do
-not read annotations. Give an explicit specialization of an annotated function
-template the same annotation as the template. With Clang it also gets the
-annotation of the template, so a different size is a compile-time error. Each
-source file reads the annotation from the declarations it sees, so put it on
-the declaration in the header.</p>
+annotation. <code class="docutils literal notranslate"><span class="pre">task_size::unknown</span></code> counts as no annotation. Two different
+sizes on one function are a compile-time error when the size of an action that
+binds it is read. Actions made from a member function pointer, for instance
+<code class="docutils literal notranslate"><span class="pre">make_action_t&lt;decltype(&amp;C::f),</span> <span class="pre">&amp;C::f&gt;</span></code>, do not read annotations. Give an
+explicit specialization of an annotated function template the same annotation
+as the template. With Clang it also gets the annotation of the template, so a
+different size is a compile-time error. Each source file reads the annotation
+from the declarations it sees, so put it on the declaration in the header.</p>
 </section>
 <section id="p2079-parallel-scheduler">
 <span id="parallel-scheduler"></span><h2>P2079 parallel scheduler<a class="headerlink" href="#p2079-parallel-scheduler" title="Link to this heading">#</a></h2>
