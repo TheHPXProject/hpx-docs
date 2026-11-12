@@ -38,7 +38,6 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/functional/api/move_only_function_hpx_move_only_function.rst
    /libs/core/functional/api/is_placeholder_hpx_is_placeholder.rst
    /libs/core/functional/api/is_bind_expression_hpx_is_bind_expression.rst
-   /libs/core/functional/api/get_task_size.rst
    /libs/core/functional/api/scope_exit_hpx_experimental_scope_exit.rst
    /libs/core/functional/api/scope_success_hpx_experimental_scope_success.rst
    /libs/core/functional/api/scope_fail_hpx_experimental_scope_fail.rst

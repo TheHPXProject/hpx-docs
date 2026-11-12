@@ -802,7 +802,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/move_only_function_hpx_move_only_function.html">hpx::move_only_function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_placeholder_hpx_is_placeholder.html">hpx::is_placeholder</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_bind_expression_hpx_is_bind_expression.html">hpx::is_bind_expression</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/get_task_size.html">hpx/functional/traits/get_task_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_exit_hpx_experimental_scope_exit.html">hpx::experimental::scope_exit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_success_hpx_experimental_scope_success.html">hpx::experimental::scope_success</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_fail_hpx_experimental_scope_fail.html">hpx::experimental::scope_fail</a></li>
@@ -966,6 +965,7 @@
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/thread_support/api/full_api.html">thread_support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/task_size.html">hpx/thread_support/task_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/unlock_guard_hpx_unlock_guard.html">hpx::unlock_guard</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/spinlock.html">hpx/thread_support/spinlock.hpp</a></li>
 </ul>
@@ -1948,14 +1948,14 @@ CMake target <code class="docutils literal notranslate"><span class="pre">HPX::w
 executables if you are using the macros described below
 (<a class="reference internal" href="#using-hpx-cmake-macros"><span class="std std-ref">Using macros to create new targets</span></a>). See <a class="reference internal" href="starting_the_hpx_runtime.html#minimal"><span class="std std-ref">Re-use the main() function as the main HPX entry point</span></a> for more information on
 implicitly using <code class="docutils literal notranslate"><span class="pre">main()</span></code> as the entry point. If you want the same wrapping
-behavior without including <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/d8f44c37a9c6a70374230d47284b9b1f2c503e59/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a>, link to
+behavior without including <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/dfa8c891248b971fb681f305b32a922f8f1f6480/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a>, link to
 the <code class="docutils literal notranslate"><span class="pre">HPX::auto_wrap_main</span></code> target instead. This enables the runtime
 initialization around <code class="docutils literal notranslate"><span class="pre">main()</span></code> unconditionally and is useful for codebases
 where adding the header to <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code> is impractical</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When using the native Windows MSVC toolchain, <code class="docutils literal notranslate"><span class="pre">HPX::auto_wrap_main</span></code>
-force-includes <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/d8f44c37a9c6a70374230d47284b9b1f2c503e59/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a> into all C++
+force-includes <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/dfa8c891248b971fb681f305b32a922f8f1f6480/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a> into all C++
 source files of the executable (using <code class="docutils literal notranslate"><span class="pre">/FI</span></code>), as MSVC does not support
 the weak symbols the wrapping relies on elsewhere.</p>
 </div>

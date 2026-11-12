@@ -802,7 +802,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/move_only_function_hpx_move_only_function.html">hpx::move_only_function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_placeholder_hpx_is_placeholder.html">hpx::is_placeholder</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_bind_expression_hpx_is_bind_expression.html">hpx::is_bind_expression</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/get_task_size.html">hpx/functional/traits/get_task_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_exit_hpx_experimental_scope_exit.html">hpx::experimental::scope_exit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_success_hpx_experimental_scope_success.html">hpx::experimental::scope_success</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_fail_hpx_experimental_scope_fail.html">hpx::experimental::scope_fail</a></li>
@@ -966,6 +965,7 @@
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/thread_support/api/full_api.html">thread_support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/task_size.html">hpx/thread_support/task_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/unlock_guard_hpx_unlock_guard.html">hpx::unlock_guard</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/spinlock.html">hpx/thread_support/spinlock.hpp</a></li>
 </ul>
@@ -1657,6 +1657,14 @@ need to use the corresponding <code class="docutils literal notranslate"><span c
 copyable search values in their asynchronous operation state. Noncopyable
 lvalues, including arrays, are borrowed and must remain valid until the
 returned future becomes ready, even if the future is discarded.</p></li>
+<li><p>The task size facilities (<code class="docutils literal notranslate"><span class="pre">hpx::threads::task_size</span></code>,
+<code class="docutils literal notranslate"><span class="pre">hpx::task_size_duration</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx::bulk_task_size</span></code>,
+<code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_size</span></code> and <code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_size_for</span></code>) moved
+from the <code class="docutils literal notranslate"><span class="pre">functional</span></code> module to the <code class="docutils literal notranslate"><span class="pre">thread_support</span></code> module. Their names
+are unchanged. Code that included
+<code class="docutils literal notranslate"><span class="pre">hpx/functional/traits/get_task_size.hpp</span></code> directly has to include
+<code class="docutils literal notranslate"><span class="pre">hpx/modules/thread_support.hpp</span></code> instead; <code class="docutils literal notranslate"><span class="pre">hpx/functional.hpp</span></code> and
+<code class="docutils literal notranslate"><span class="pre">hpx/modules/functional.hpp</span></code> still provide them.</p></li>
 </ul>
 </section>
 <section id="supervision-module">

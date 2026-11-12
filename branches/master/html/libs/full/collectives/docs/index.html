@@ -802,7 +802,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/functional/api/move_only_function_hpx_move_only_function.html">hpx::move_only_function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/functional/api/is_placeholder_hpx_is_placeholder.html">hpx::is_placeholder</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/functional/api/is_bind_expression_hpx_is_bind_expression.html">hpx::is_bind_expression</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../core/functional/api/get_task_size.html">hpx/functional/traits/get_task_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/functional/api/scope_exit_hpx_experimental_scope_exit.html">hpx::experimental::scope_exit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/functional/api/scope_success_hpx_experimental_scope_success.html">hpx::experimental::scope_success</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/functional/api/scope_fail_hpx_experimental_scope_fail.html">hpx::experimental::scope_fail</a></li>
@@ -966,6 +965,7 @@
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/thread_support/api/full_api.html">thread_support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../core/thread_support/api/task_size.html">hpx/thread_support/task_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/thread_support/api/unlock_guard_hpx_unlock_guard.html">hpx::unlock_guard</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/thread_support/api/spinlock.html">hpx/thread_support/spinlock.hpp</a></li>
 </ul>
@@ -1762,7 +1762,7 @@ call, whatever the operation, as described in the next section:</p>
 </pre></div>
 </div>
 <p>The complete program is
-<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/d8f44c37a9c6a70374230d47284b9b1f2c503e59/libs/full/collectives/examples/hierarchical_collectives.cpp">hierarchical_collectives.cpp</a>. It
+<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/dfa8c891248b971fb681f305b32a922f8f1f6480/libs/full/collectives/examples/hierarchical_collectives.cpp">hierarchical_collectives.cpp</a>. It
 runs <code class="docutils literal notranslate"><span class="pre">hpx_main</span></code> on all localities, so start it on several localities, for
 example with <code class="docutils literal notranslate"><span class="pre">hpxrun.py</span> <span class="pre">-l</span> <span class="pre">4</span> <span class="pre">-t</span> <span class="pre">1</span> <span class="pre">bin/hierarchical_collectives</span> <span class="pre">--</span> <span class="pre">--arity=2</span></code>.</p>
 <p>A few rules apply to all hierarchical collectives:</p>
