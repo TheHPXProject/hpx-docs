@@ -1813,6 +1813,28 @@ invocations (here <code class="docutils literal notranslate"><span class="pre">s
 to comprise a globally unique C++ identifier representing the action. This is
 used for serialization purposes.</p>
 </div>
+<p>A global function can also be invoked without defining an action type for it
+by passing a pointer to the function as the template argument of <code class="docutils literal notranslate"><span class="pre">hpx::async</span></code>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">app</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">hpx</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">async</span><span class="o">&lt;&amp;</span><span class="n">app</span><span class="o">::</span><span class="n">square</span><span class="o">&gt;</span><span class="p">(</span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This creates the action for <code class="docutils literal notranslate"><span class="pre">app::square</span></code> internally. It relies on the action
+being registered automatically, which is the default. If <em>HPX</em> was configured
+with <code class="docutils literal notranslate"><span class="pre">HPX_WITH_AUTOMATIC_SERIALIZATION_REGISTRATION=OFF</span></code>, use
+<a class="reference internal" href="../libs/full/actions_base/api/macros.html#c.HPX_PLAIN_ACTION" title="HPX_PLAIN_ACTION"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_PLAIN_ACTION</span></code></a> instead. The target can be an <code class="docutils literal notranslate"><span class="pre">hpx::id_type</span></code> or a
+distribution policy, but not a client.</p>
+<p>The action is registered by the executable that instantiates
+<code class="docutils literal notranslate"><span class="pre">hpx::async&lt;&amp;app::square&gt;</span></code>. A locality can only run the action if it was
+registered there too, so this works only if all localities run the same
+executable.</p>
 <p>For member functions of objects which have been registered with AGAS
 (e.g., ‘components’), a different registration macro
 <a class="reference internal" href="../libs/full/actions_base/api/component_action_HPX_DEFINE_COMPONENT_ACTION.html#c.HPX_DEFINE_COMPONENT_ACTION" title="HPX_DEFINE_COMPONENT_ACTION"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_DEFINE_COMPONENT_ACTION</span></code></a> has to be utilized. Any component needs
@@ -1860,6 +1882,17 @@ functions, they should still be manageable.</p>
 <p>The most important macro invocation is the <a class="reference internal" href="../libs/full/actions_base/api/component_action_HPX_DEFINE_COMPONENT_ACTION.html#c.HPX_DEFINE_COMPONENT_ACTION" title="HPX_DEFINE_COMPONENT_ACTION"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_DEFINE_COMPONENT_ACTION</span></code></a> in the header file
 as this defines the action type we need to invoke the member function. For a
 complete example of a simple component action see <a class="reference download internal" download="" href="../_downloads/7b08f088c4a0239d9ff79cffe9cab53c/component_in_executable.cpp"><code class="xref download docutils literal notranslate"><span class="pre">component_in_executable.cpp</span></code></a>.</p>
+<p>Member functions of components can also be invoked without defining an action
+type for them, the same way as global functions:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">hpx</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">async</span><span class="o">&lt;&amp;</span><span class="n">app</span><span class="o">::</span><span class="n">some_component</span><span class="o">::</span><span class="n">some_member_function</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">        </span><span class="n">component_id</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">&quot;42&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>The component itself still has to be registered using
+<a class="reference internal" href="../libs/full/runtime_components/api/component_factory_HPX_REGISTER_COMPONENT.html#c.HPX_REGISTER_COMPONENT" title="HPX_REGISTER_COMPONENT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_REGISTER_COMPONENT</span></code></a>, only the action macros are not needed. In
+addition to an <code class="docutils literal notranslate"><span class="pre">hpx::id_type</span></code> or a distribution policy, the target can also be
+a client of the component.</p>
 </section>
 <section id="reflection-based-component-actions-experimental">
 <span id="reflection-based-component-actions"></span><h3>Reflection-based component actions (experimental)<a class="headerlink" href="#reflection-based-component-actions-experimental" title="Link to this heading">#</a></h3>
