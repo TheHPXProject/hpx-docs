@@ -735,6 +735,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/policy_traits_policy_traits_default.html">policy_traits_default</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/is_execution_policy.html">hpx/execution/traits/is_execution_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/future_sender.html">hpx/execution/algorithms/future_sender.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/run_loop.html">hpx/execution/algorithms/run_loop.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/sender_future.html">hpx/execution/algorithms/sender_future.hpp</a></li>
 </ul>
 </details></li>
@@ -966,8 +967,10 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/thread_support/api/full_api.html">thread_support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/task_size.html">hpx/thread_support/task_size.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/stack_size.html">hpx/thread_support/stack_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/unlock_guard_hpx_unlock_guard.html">hpx::unlock_guard</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/spinlock.html">hpx/thread_support/spinlock.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/thread_enums.html">hpx/thread_support/thread_enums.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/threading/api/full_api.html">threading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1713,13 +1716,12 @@ timeline while the program runs. <em>HPX</em> shows each of its tasks to Tracy a
 fiber, so you can follow a task across worker threads.</p>
 <section id="building-hpx-with-tracy">
 <h3>Building <em>HPX</em> with Tracy<a class="headerlink" href="#building-hpx-with-tracy" title="Link to this heading">#</a></h3>
-<p>Configure <em>HPX</em> with <a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACY"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACY</span></code></a><code class="docutils literal notranslate"><span class="pre">=ON</span></code>. To get readable task
-names, also set <code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_DEBUG_INFO=ON</span></code> (see
+<p>Configure <em>HPX</em> with <a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACY"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACY</span></code></a><code class="docutils literal notranslate"><span class="pre">=ON</span></code>. A Tracy build always
+stores thread descriptions, so task names need no further CMake options (see
 <a class="reference internal" href="#tracy-task-names"><span class="std std-ref">Naming your tasks</span></a>):</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>-S<span class="w"> </span>hpx<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-G<span class="w"> </span>Ninja<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>RelWithDebInfo<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-DHPX_WITH_TRACY<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-DHPX_WITH_THREAD_DEBUG_INFO<span class="o">=</span>ON
+<span class="w">    </span>-DHPX_WITH_TRACY<span class="o">=</span>ON
 <span class="gp">$ </span>cmake<span class="w"> </span>--build<span class="w"> </span>build
 </pre></div>
 </div>
@@ -1771,11 +1773,12 @@ need to install first. The release page also has prebuilt profiler binaries.</p>
 </section>
 <section id="naming-your-tasks">
 <span id="tracy-task-names"></span><h3>Naming your tasks<a class="headerlink" href="#naming-your-tasks" title="Link to this heading">#</a></h3>
-<p>Tracy labels each task with its <em>HPX</em> thread description. <em>HPX</em> stores these
-descriptions only when it is built with <code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_DEBUG_INFO=ON</span></code>.
-Without this option every task is called <code class="docutils literal notranslate"><span class="pre">&lt;unknown&gt;</span></code>. The option also turns
-on other per-task debug data (target address, parent reference, thread phase),
-which adds work to every task.</p>
+<p>Tracy labels each task with its <em>HPX</em> thread description. A Tracy build always
+stores these descriptions, as ITT and APEX builds do, so you do not need
+<code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_DEBUG_INFO</span></code> for task names. That option adds other per-task
+debug data (target address, parent reference, thread phase) and is needed only
+for those, for example to see the thread phase as the zone value. Storing the
+descriptions adds some work to every task, also when no profiler is connected.</p>
 <p>When descriptions are stored, a task gets its name from:</p>
 <ul class="simple">
 <li><p>the name given with <code class="docutils literal notranslate"><span class="pre">hpx::annotated_function</span></code> (from <code class="docutils literal notranslate"><span class="pre">hpx/functional.hpp</span></code>)
@@ -1855,8 +1858,9 @@ example <code class="docutils literal notranslate"><span class="pre">idle_callba
 executors, and <code class="docutils literal notranslate"><span class="pre">send_parcel</span></code> / <code class="docutils literal notranslate"><span class="pre">recv_parcel</span></code> / <code class="docutils literal notranslate"><span class="pre">parcel_scheduled</span></code> in the
 parcel layer.</p>
 <p>The zones that <em>HPX</em> opens do not record call stacks. For task zones the call
-stack would show the same scheduler frames for every task. Messages do record
-call stacks (see <a class="reference internal" href="#messages">Messages</a>).</p>
+stack would show the same scheduler frames for every task. Messages record
+call stacks only if <a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_MESSAGE_CALLSTACKS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_MESSAGE_CALLSTACKS</span></code></a> is <code class="docutils literal notranslate"><span class="pre">ON</span></code>
+(see <a class="reference internal" href="#messages">Messages</a>).</p>
 </section>
 <section id="task-fibers">
 <h4>Task fibers<a class="headerlink" href="#task-fibers" title="Link to this heading">#</a></h4>
@@ -1873,10 +1877,12 @@ one name.</p>
 <h4>Messages<a class="headerlink" href="#messages" title="Link to this heading">#</a></h4>
 <p><em>HPX</em> sends short text messages for important events. They appear as marks on
 the timeline and in the <em>Messages</em> window of the profiler, where you can search
-them. On platforms where Tracy can collect call stacks, each message also
-records the call stack where it was sent, up to 10 frames deep. In the
-messages, <code class="docutils literal notranslate"><span class="pre">&lt;id&gt;</span></code> is the address of the <em>HPX</em> thread and <code class="docutils literal notranslate"><span class="pre">W&lt;n&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">W#&lt;n&gt;</span></code>
-is the number of a worker thread.</p>
+them. With <a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_MESSAGE_CALLSTACKS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_MESSAGE_CALLSTACKS</span></code></a> set to <code class="docutils literal notranslate"><span class="pre">ON</span></code>, each
+message also records the call stack where it was sent, up to 10 frames deep,
+on platforms where Tracy can collect call stacks. The option is <code class="docutils literal notranslate"><span class="pre">OFF</span></code> by
+default, because a call stack makes every message slower. In the messages,
+<code class="docutils literal notranslate"><span class="pre">&lt;id&gt;</span></code> is the address of the <em>HPX</em> thread and <code class="docutils literal notranslate"><span class="pre">W&lt;n&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">W#&lt;n&gt;</span></code> is the
+number of a worker thread.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Message</p></th>
@@ -2056,9 +2062,11 @@ synchronized. See the Tracy manual for details.</p>
 <span id="tracy-overhead"></span><h3>Reducing the overhead<a class="headerlink" href="#reducing-the-overhead" title="Link to this heading">#</a></h3>
 <p>When no profiler is connected, most tracing hooks only check whether a
 profiler is connected and return. While a profiler is connected,
-<em>HPX</em> sends a few messages for every task, and each message records a call
-stack. For programs with many small tasks this can slow down the run. There are
-two ways to reduce it.</p>
+<em>HPX</em> sends a few messages for every task. For programs with many small tasks
+this can slow down the run. If you turned on
+<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_MESSAGE_CALLSTACKS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_MESSAGE_CALLSTACKS</span></code></a>, turn it off again, because a
+call stack makes every message slower. Beyond that, there are two ways to
+reduce the cost.</p>
 <p>Event classes can be compiled out one by one:
 <a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_LIFECYCLE_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_LIFECYCLE_EVENTS</span></code></a>,
 <a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_CAUSAL_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_CAUSAL_EVENTS</span></code></a>,
@@ -2152,9 +2160,9 @@ in <code class="docutils literal notranslate"><span class="pre">lib</span></code
 installation of the ITT API works. Intel VTune also ships the ITT API. To use that
 copy, set <code class="docutils literal notranslate"><span class="pre">Amplifier_ROOT</span></code> to the folder of the Intel VTune installation that
 contains <code class="docutils literal notranslate"><span class="pre">include/ittnotify.h</span></code>.</p>
-<p>The ITT backend always stores thread descriptions, so you do not need
-<code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_DEBUG_INFO</span></code> to get task names. Name your tasks as described
-in <a class="reference internal" href="#tracy-task-names"><span class="std std-ref">Naming your tasks</span></a>.</p>
+<p>Like the Tracy backend, the ITT backend always stores thread descriptions, so
+you do not need <code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_DEBUG_INFO</span></code> to get task names. Name your
+tasks as described in <a class="reference internal" href="#tracy-task-names"><span class="std std-ref">Naming your tasks</span></a>.</p>
 </section>
 <section id="enabling-the-events-at-runtime">
 <h3>Enabling the events at runtime<a class="headerlink" href="#enabling-the-events-at-runtime" title="Link to this heading">#</a></h3>

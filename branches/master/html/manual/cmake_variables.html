@@ -735,6 +735,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/policy_traits_policy_traits_default.html">policy_traits_default</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/is_execution_policy.html">hpx/execution/traits/is_execution_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/future_sender.html">hpx/execution/algorithms/future_sender.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/run_loop.html">hpx/execution/algorithms/run_loop.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/sender_future.html">hpx/execution/algorithms/sender_future.hpp</a></li>
 </ul>
 </details></li>
@@ -966,8 +967,10 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/thread_support/api/full_api.html">thread_support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/task_size.html">hpx/thread_support/task_size.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/stack_size.html">hpx/thread_support/stack_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/unlock_guard_hpx_unlock_guard.html">hpx::unlock_guard</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/spinlock.html">hpx/thread_support/spinlock.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/thread_enums.html">hpx/thread_support/thread_enums.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/threading/api/full_api.html">threading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -2227,7 +2230,7 @@ includes the comprehensive list.</p>
 <span id="thread-manager"></span><h2>Thread Manager options<a class="headerlink" href="#thread-manager-options" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#cmdoption-arg-HPX_COROUTINES_WITH_SWAP_CONTEXT_EMULATION-BOOL"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_COROUTINES_WITH_SWAP_CONTEXT_EMULATION:BOOL</span></code></a></p></li>
-<li><p><a class="reference internal" href="#cmdoption-arg-HPX_COROUTINES_WITH_THREAD_SCHEDULE_HINT_RUNS_AS_CHILD-BOOL"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_COROUTINES_WITH_THREAD_SCHEDULE_HINT_RUNS_AS_CHILD:BOOL</span></code></a></p></li>
+<li><p><a class="reference internal" href="#cmdoption-arg-HPX_THREAD_SUPPORT_WITH_THREAD_SCHEDULE_HINT_RUNS_AS_CHILD-BOOL"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_THREAD_SUPPORT_WITH_THREAD_SCHEDULE_HINT_RUNS_AS_CHILD:BOOL</span></code></a></p></li>
 <li><p><a class="reference internal" href="#cmdoption-arg-HPX_WITH_COROUTINE_COUNTERS-BOOL"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_COROUTINE_COUNTERS:BOOL</span></code></a></p></li>
 <li><p><a class="reference internal" href="#cmdoption-arg-HPX_WITH_DESTRUCTIVE_INTERFERENCE_SIZE-STRING"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_DESTRUCTIVE_INTERFERENCE_SIZE:STRING</span></code></a></p></li>
 <li><p><a class="reference internal" href="#cmdoption-arg-HPX_WITH_IO_POOL-BOOL"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_IO_POOL:BOOL</span></code></a></p></li>
@@ -2261,8 +2264,8 @@ includes the comprehensive list.</p>
 </dd></dl>
 
 <dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-arg-HPX_COROUTINES_WITH_THREAD_SCHEDULE_HINT_RUNS_AS_CHILD-BOOL">
-<span class="sig-name descname"><span class="pre">HPX_COROUTINES_WITH_THREAD_SCHEDULE_HINT_RUNS_AS_CHILD:BOOL</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_COROUTINES_WITH_THREAD_SCHEDULE_HINT_RUNS_AS_CHILD-BOOL" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object std" id="cmdoption-arg-HPX_THREAD_SUPPORT_WITH_THREAD_SCHEDULE_HINT_RUNS_AS_CHILD-BOOL">
+<span class="sig-name descname"><span class="pre">HPX_THREAD_SUPPORT_WITH_THREAD_SCHEDULE_HINT_RUNS_AS_CHILD:BOOL</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_THREAD_SUPPORT_WITH_THREAD_SCHEDULE_HINT_RUNS_AS_CHILD-BOOL" title="Link to this definition">#</a></dt>
 <dd><p>Futures attempt to run associated threads directly if those have not been started (default: OFF)</p>
 </dd></dl>
 
@@ -2648,7 +2651,7 @@ includes the comprehensive list.</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_THREAD_DEBUG_INFO-BOOL">
 <span class="sig-name descname"><span class="pre">HPX_WITH_THREAD_DEBUG_INFO:BOOL</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_THREAD_DEBUG_INFO-BOOL" title="Link to this definition">#</a></dt>
-<dd><p>Enable thread debugging information (default: OFF, implicitly enabled in debug builds)</p>
+<dd><p>Enable thread debugging information: thread descriptions, target address, parent reference, phase information and minimal deadlock detection (default: OFF). The APEX, ITTNotify and Tracy backends enable thread descriptions on their own.</p>
 </dd></dl>
 
 <dl class="std option">

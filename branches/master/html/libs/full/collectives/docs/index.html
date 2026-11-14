@@ -735,6 +735,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/execution/api/policy_traits_policy_traits_default.html">policy_traits_default</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/execution/api/is_execution_policy.html">hpx/execution/traits/is_execution_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/execution/api/future_sender.html">hpx/execution/algorithms/future_sender.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../core/execution/api/run_loop.html">hpx/execution/algorithms/run_loop.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/execution/api/sender_future.html">hpx/execution/algorithms/sender_future.hpp</a></li>
 </ul>
 </details></li>
@@ -966,8 +967,10 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/thread_support/api/full_api.html">thread_support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/thread_support/api/task_size.html">hpx/thread_support/task_size.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../core/thread_support/api/stack_size.html">hpx/thread_support/stack_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/thread_support/api/unlock_guard_hpx_unlock_guard.html">hpx::unlock_guard</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/thread_support/api/spinlock.html">hpx/thread_support/spinlock.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../core/thread_support/api/thread_enums.html">hpx/thread_support/thread_enums.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/threading/api/full_api.html">threading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1762,7 +1765,7 @@ call, whatever the operation, as described in the next section:</p>
 </pre></div>
 </div>
 <p>The complete program is
-<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/000d565a8a5e62d536bb112f3fcc29aaebd349d2/libs/full/collectives/examples/hierarchical_collectives.cpp">hierarchical_collectives.cpp</a>. It
+<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/5d6175b36fa0bd7965a1634233ce2601b10c440c/libs/full/collectives/examples/hierarchical_collectives.cpp">hierarchical_collectives.cpp</a>. It
 runs <code class="docutils literal notranslate"><span class="pre">hpx_main</span></code> on all localities, so start it on several localities, for
 example with <code class="docutils literal notranslate"><span class="pre">hpxrun.py</span> <span class="pre">-l</span> <span class="pre">4</span> <span class="pre">-t</span> <span class="pre">1</span> <span class="pre">bin/hierarchical_collectives</span> <span class="pre">--</span> <span class="pre">--arity=2</span></code>.</p>
 <p>A few rules apply to all hierarchical collectives:</p>

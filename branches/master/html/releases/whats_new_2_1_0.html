@@ -735,6 +735,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/policy_traits_policy_traits_default.html">policy_traits_default</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/is_execution_policy.html">hpx/execution/traits/is_execution_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/future_sender.html">hpx/execution/algorithms/future_sender.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/run_loop.html">hpx/execution/algorithms/run_loop.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/sender_future.html">hpx/execution/algorithms/sender_future.hpp</a></li>
 </ul>
 </details></li>
@@ -966,8 +967,10 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/thread_support/api/full_api.html">thread_support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/task_size.html">hpx/thread_support/task_size.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/stack_size.html">hpx/thread_support/stack_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/unlock_guard_hpx_unlock_guard.html">hpx::unlock_guard</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/spinlock.html">hpx/thread_support/spinlock.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/thread_enums.html">hpx/thread_support/thread_enums.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/threading/api/full_api.html">threading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1665,6 +1668,18 @@ are unchanged. Code that included
 <code class="docutils literal notranslate"><span class="pre">hpx/functional/traits/get_task_size.hpp</span></code> directly has to include
 <code class="docutils literal notranslate"><span class="pre">hpx/modules/thread_support.hpp</span></code> instead; <code class="docutils literal notranslate"><span class="pre">hpx/functional.hpp</span></code> and
 <code class="docutils literal notranslate"><span class="pre">hpx/modules/functional.hpp</span></code> still provide them.</p></li>
+<li><p>The thread enumerations (<code class="docutils literal notranslate"><span class="pre">hpx::threads::thread_schedule_state</span></code>,
+<code class="docutils literal notranslate"><span class="pre">thread_restart_state</span></code>, <code class="docutils literal notranslate"><span class="pre">thread_priority</span></code>, <code class="docutils literal notranslate"><span class="pre">thread_stacksize</span></code>, the
+scheduling hints and <code class="docutils literal notranslate"><span class="pre">thread_schedule_hint</span></code>) moved from the <code class="docutils literal notranslate"><span class="pre">coroutines</span></code>
+module to the <code class="docutils literal notranslate"><span class="pre">thread_support</span></code> module. Their names are unchanged.
+<code class="docutils literal notranslate"><span class="pre">hpx::threads::thread_state</span></code> stays in <code class="docutils literal notranslate"><span class="pre">coroutines</span></code>. Code that included
+<code class="docutils literal notranslate"><span class="pre">hpx/coroutines/thread_enums.hpp</span></code> directly for the enumerations has to
+include <code class="docutils literal notranslate"><span class="pre">hpx/modules/thread_support.hpp</span></code> instead.</p></li>
+<li><p>The CMake option <code class="docutils literal notranslate"><span class="pre">HPX_COROUTINES_WITH_THREAD_SCHEDULE_HINT_RUNS_AS_CHILD</span></code>
+is now <code class="docutils literal notranslate"><span class="pre">HPX_THREAD_SUPPORT_WITH_THREAD_SCHEDULE_HINT_RUNS_AS_CHILD</span></code>, and the
+macro it defines is now
+<code class="docutils literal notranslate"><span class="pre">HPX_THREAD_SUPPORT_HAVE_THREAD_SCHEDULE_HINT_RUNS_AS_CHILD</span></code>. The old option
+name is still accepted with a deprecation warning.</p></li>
 </ul>
 </section>
 <section id="supervision-module">
