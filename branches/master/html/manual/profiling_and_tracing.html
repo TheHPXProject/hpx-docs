@@ -735,6 +735,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/policy_traits_policy_traits_default.html">policy_traits_default</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/is_execution_policy.html">hpx/execution/traits/is_execution_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/future_sender.html">hpx/execution/algorithms/future_sender.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/run_loop.html">hpx/execution/algorithms/run_loop.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/sender_future.html">hpx/execution/algorithms/sender_future.hpp</a></li>
 </ul>
 </details></li>
@@ -1715,13 +1716,12 @@ timeline while the program runs. <em>HPX</em> shows each of its tasks to Tracy a
 fiber, so you can follow a task across worker threads.</p>
 <section id="building-hpx-with-tracy">
 <h3>Building <em>HPX</em> with Tracy<a class="headerlink" href="#building-hpx-with-tracy" title="Link to this heading">#</a></h3>
-<p>Configure <em>HPX</em> with <a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACY"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACY</span></code></a><code class="docutils literal notranslate"><span class="pre">=ON</span></code>. To get readable task
-names, also set <code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_DEBUG_INFO=ON</span></code> (see
+<p>Configure <em>HPX</em> with <a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACY"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACY</span></code></a><code class="docutils literal notranslate"><span class="pre">=ON</span></code>. A Tracy build always
+stores thread descriptions, so task names need no further CMake options (see
 <a class="reference internal" href="#tracy-task-names"><span class="std std-ref">Naming your tasks</span></a>):</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>-S<span class="w"> </span>hpx<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-G<span class="w"> </span>Ninja<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>RelWithDebInfo<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-DHPX_WITH_TRACY<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-DHPX_WITH_THREAD_DEBUG_INFO<span class="o">=</span>ON
+<span class="w">    </span>-DHPX_WITH_TRACY<span class="o">=</span>ON
 <span class="gp">$ </span>cmake<span class="w"> </span>--build<span class="w"> </span>build
 </pre></div>
 </div>
@@ -1773,11 +1773,12 @@ need to install first. The release page also has prebuilt profiler binaries.</p>
 </section>
 <section id="naming-your-tasks">
 <span id="tracy-task-names"></span><h3>Naming your tasks<a class="headerlink" href="#naming-your-tasks" title="Link to this heading">#</a></h3>
-<p>Tracy labels each task with its <em>HPX</em> thread description. <em>HPX</em> stores these
-descriptions only when it is built with <code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_DEBUG_INFO=ON</span></code>.
-Without this option every task is called <code class="docutils literal notranslate"><span class="pre">&lt;unknown&gt;</span></code>. The option also turns
-on other per-task debug data (target address, parent reference, thread phase),
-which adds work to every task.</p>
+<p>Tracy labels each task with its <em>HPX</em> thread description. A Tracy build always
+stores these descriptions, as ITT and APEX builds do, so you do not need
+<code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_DEBUG_INFO</span></code> for task names. That option adds other per-task
+debug data (target address, parent reference, thread phase) and is needed only
+for those, for example to see the thread phase as the zone value. Storing the
+descriptions adds some work to every task, also when no profiler is connected.</p>
 <p>When descriptions are stored, a task gets its name from:</p>
 <ul class="simple">
 <li><p>the name given with <code class="docutils literal notranslate"><span class="pre">hpx::annotated_function</span></code> (from <code class="docutils literal notranslate"><span class="pre">hpx/functional.hpp</span></code>)
@@ -2154,9 +2155,9 @@ in <code class="docutils literal notranslate"><span class="pre">lib</span></code
 installation of the ITT API works. Intel VTune also ships the ITT API. To use that
 copy, set <code class="docutils literal notranslate"><span class="pre">Amplifier_ROOT</span></code> to the folder of the Intel VTune installation that
 contains <code class="docutils literal notranslate"><span class="pre">include/ittnotify.h</span></code>.</p>
-<p>The ITT backend always stores thread descriptions, so you do not need
-<code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_DEBUG_INFO</span></code> to get task names. Name your tasks as described
-in <a class="reference internal" href="#tracy-task-names"><span class="std std-ref">Naming your tasks</span></a>.</p>
+<p>Like the Tracy backend, the ITT backend always stores thread descriptions, so
+you do not need <code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_DEBUG_INFO</span></code> to get task names. Name your
+tasks as described in <a class="reference internal" href="#tracy-task-names"><span class="std std-ref">Naming your tasks</span></a>.</p>
 </section>
 <section id="enabling-the-events-at-runtime">
 <h3>Enabling the events at runtime<a class="headerlink" href="#enabling-the-events-at-runtime" title="Link to this heading">#</a></h3>
