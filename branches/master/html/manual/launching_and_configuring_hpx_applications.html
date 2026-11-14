@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Launching and configuring HPX applications &#8212; HPX 2.1.0-trunk documentation</title>
+    <title>Launching and configuring HPX applications &#8212; HPX 2.0.1-rc1 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=0df519e6"></script>
+    <script src="../_static/documentation_options.js?v=dabc1245"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -142,8 +142,8 @@
       
     
     
-    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.1.0-trunk documentation - Home"/>
-    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.1.0-trunk documentation - Home"/>`);</script>
+    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.1-rc1 documentation - Home"/>
+    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.1-rc1 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -200,7 +200,6 @@
 <li class="toctree-l2"><a class="reference internal" href="running_on_batch_systems.html">Running on batch systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="debugging_hpx_applications.html">Debugging <em>HPX</em> applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimizing_hpx_applications.html">Optimizing <em>HPX</em> applications</a></li>
-<li class="toctree-l2"><a class="reference internal" href="profiling_and_tracing.html">Profiling and tracing <em>HPX</em> applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using_the_lci_parcelport.html">Using the LCI parcelport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using_the_lcw_parcelport.html">Using the LCW parcelport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hpx_runtime_and_resources.html"><em>HPX</em> runtime and resources</a></li>
@@ -353,7 +352,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_define_task_block.html">hpx::experimental::define_task_block</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_define_task_block_restore_thread.html">hpx::experimental::define_task_block_restore_thread</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/task_group_hpx_experimental_task_group.html">hpx::experimental::task_group</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/spmd_block.html">hpx/parallel/spmd_block.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/run_on_all_hpx_experimental_run_on_all.html">hpx::experimental::run_on_all</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/remove_copy_hpx_ranges_remove_copy.html">hpx::ranges::remove_copy</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/remove_copy_hpx_ranges_remove_copy_if.html">hpx::ranges::remove_copy_if</a></li>
@@ -399,7 +397,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/swap_ranges_hpx_ranges_swap_ranges.html">hpx::ranges::swap_ranges</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/merge_hpx_ranges_merge.html">hpx::ranges::merge</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/merge_hpx_ranges_inplace_merge.html">hpx::ranges::inplace_merge</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/contains.html">hpx/parallel/container_algorithms/contains.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/equal_hpx_ranges_equal.html">hpx::ranges::equal</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_ranges_experimental_for_loop.html">hpx::ranges::experimental::for_loop</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_ranges_experimental_for_loop_strided.html">hpx::ranges::experimental::for_loop_strided</a></li>
@@ -735,7 +732,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/policy_traits_policy_traits_default.html">policy_traits_default</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/is_execution_policy.html">hpx/execution/traits/is_execution_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/future_sender.html">hpx/execution/algorithms/future_sender.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/run_loop.html">hpx/execution/algorithms/run_loop.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/sender_future.html">hpx/execution/algorithms/sender_future.hpp</a></li>
 </ul>
 </details></li>
@@ -803,6 +799,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/move_only_function_hpx_move_only_function.html">hpx::move_only_function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_placeholder_hpx_is_placeholder.html">hpx::is_placeholder</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_bind_expression_hpx_is_bind_expression.html">hpx::is_bind_expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/get_task_size.html">hpx/functional/traits/get_task_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_exit_hpx_experimental_scope_exit.html">hpx::experimental::scope_exit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_success_hpx_experimental_scope_success.html">hpx::experimental::scope_success</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_fail_hpx_experimental_scope_fail.html">hpx::experimental::scope_fail</a></li>
@@ -829,7 +826,6 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/io_service/api/full_api.html">io_service</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/io_service/api/io_service_pool.html">hpx/io_service/io_service_pool.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/io_service/api/schedule_timer.html">hpx/io_service/schedule_timer.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/lcos_local/api/full_api.html">lcos_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -966,11 +962,8 @@
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/thread_support/api/full_api.html">thread_support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/task_size.html">hpx/thread_support/task_size.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/stack_size.html">hpx/thread_support/stack_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/unlock_guard_hpx_unlock_guard.html">hpx::unlock_guard</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/spinlock.html">hpx/thread_support/spinlock.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/thread_enums.html">hpx/thread_support/thread_enums.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/threading/api/full_api.html">threading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1032,7 +1025,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/apex.html">hpx/tracing/backends/apex.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/ittnotify.html">hpx/tracing/backends/ittnotify.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/tracy.html">hpx/tracing/backends/tracy.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/empty_lock_context.html">hpx/tracing/backends/empty_lock_context.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/empty.html">hpx/tracing/backends/empty.hpp</a></li>
 </ul>
 </details></li>
@@ -1124,7 +1116,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_communicator.html">hpx::collectives::create_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_local_communicator.html">hpx::collectives::create_local_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_hierarchical_communicator.html">hpx::collectives::create_hierarchical_communicator</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_hierarchical_communicator.html">hpx::collectives::hierarchical_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_set_info.html">hpx::collectives::communicator::set_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_get_info.html">hpx::collectives::communicator::get_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_is_root.html">hpx::collectives::communicator::is_root</a></li>
@@ -1298,7 +1289,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/is_partitioned.html">hpx/parallel/segmented_algorithms/is_partitioned.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/transform.html">hpx/parallel/segmented_algorithms/transform.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/all_any_none.html">hpx/parallel/segmented_algorithms/all_any_none.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/sort.html">hpx/parallel/segmented_algorithms/sort.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/fill.html">hpx/parallel/segmented_algorithms/fill.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/merge.html">hpx/parallel/segmented_algorithms/merge.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/equal.html">hpx/parallel/segmented_algorithms/equal.hpp</a></li>
@@ -1349,10 +1339,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_suspend_heartbeat_for_testing.html">hpx::supervision::testing::suspend_heartbeat_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_failure_detection_sweep_in_flight_for_testing.html">hpx::supervision::testing::failure_detection_sweep_in_flight_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_stop_background_loops.html">hpx::supervision::testing::stop_background_loops</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_fenced_hook_for_testing.html">hpx::supervision::testing::set_evict_fenced_hook_for_testing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_lifecycle_mirror_hook_for_testing.html">hpx::supervision::testing::set_lifecycle_mirror_hook_for_testing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_peer_hook_for_testing.html">hpx::supervision::testing::set_evict_peer_hook_for_testing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_evict_peers_waiting_for_mirrors_for_testing.html">hpx::supervision::testing::evict_peers_waiting_for_mirrors_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_init.html">hpx::supervision::init</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_finalize.html">hpx::supervision::finalize</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_is_initialized.html">hpx::supervision::is_initialized</a></li>
@@ -1386,7 +1372,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases.html">Releases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_1_0.html"><em>HPX</em> V2.1.0 (TBD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_0_1.html"><em>HPX</em> V2.0.1 (TBD)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_1_11_0.html"><em>HPX</em> V1.11.0 (Jun 30, 2025)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_0_0.html"><em>HPX</em> V2.0.0 (Oct 31, 2026)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_1_10_0.html"><em>HPX</em> V1.10.0 (May 29, 2024)</a></li>
@@ -1824,14 +1810,11 @@ loaded from.</p></td>
 <span class="na">max_idle_loop_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_MAX_IDLE_LOOP_COUNT:&lt;hpx_idle_loop_count_max&gt;}</span>
 <span class="na">max_busy_loop_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_MAX_BUSY_LOOP_COUNT:&lt;hpx_busy_loop_count_max&gt;}</span>
 <span class="na">max_idle_backoff_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_MAX_IDLE_BACKOFF_TIME:&lt;hpx_idle_backoff_time_max&gt;}</span>
-<span class="na">min_idle_backoff_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_MIN_IDLE_BACKOFF_TIME:&lt;hpx_idle_backoff_time_min&gt;}</span>
-<span class="na">idle_backoff_steal_check_interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_IDLE_BACKOFF_STEAL_CHECK_INTERVAL:&lt;hpx_idle_backoff_steal_check_interval&gt;}</span>
 <span class="na">default_scheduler_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_DEFAULT_SCHEDULER_MODE}</span>
 <span class="na">exception_verbosity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_EXCEPTION_VERBOSITY:2}</span>
 <span class="na">trace_depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_TRACE_DEPTH:20}</span>
 <span class="na">handle_signals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_HANDLE_SIGNALS:1}</span>
 <span class="na">handle_failed_new</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_HANDLE_FAILED_NEW:1}</span>
-<span class="na">use_itt_notify</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_HAVE_ITTNOTIFY:0}</span>
 
 <span class="k">[hpx.stacks]</span>
 <span class="na">small_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_SMALL_STACK_SIZE:&lt;hpx_small_stack_size&gt;}</span>
@@ -1961,27 +1944,6 @@ applicable only if <code class="docutils literal notranslate"><span class="pre">
 during configuration in <a class="reference external" href="https://www.cmake.org">CMake</a>. By default this is defined by the
 preprocessor constant <code class="docutils literal notranslate"><span class="pre">HPX_IDLE_BACKOFF_TIME_MAX</span></code> (<code class="docutils literal notranslate"><span class="pre">1000</span></code>).</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code></p></td>
-<td><p>This setting defines the shortest idle backoff period (in
-microseconds) a worker thread sleeps for; shorter periods are spent
-spinning instead, since a timed wait lasts at least as long as the
-operating system takes to wake the thread up again, see
-<a class="reference internal" href="thread_scheduler_configuration.html#thread-scheduler-idle-backoff"><span class="std std-ref">Idle backoff</span></a>. Values above
-<code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code> make idle worker threads spin and never
-sleep. This setting is applicable only if
-<code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_MANAGER_IDLE_BACKOFF</span></code> is set during configuration in
-<a class="reference external" href="https://www.cmake.org">CMake</a>. By default this is defined by the preprocessor constant
-<code class="docutils literal notranslate"><span class="pre">HPX_IDLE_BACKOFF_TIME_MIN</span></code> (<code class="docutils literal notranslate"><span class="pre">50</span></code>).</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.idle_backoff_steal_check_interval</span></code></p></td>
-<td><p>This setting defines how often (in microseconds) a spinning worker
-thread looks at the queues it may steal from; it looks at its own
-queues in every round of the spin, see
-<a class="reference internal" href="thread_scheduler_configuration.html#thread-scheduler-idle-backoff"><span class="std std-ref">Idle backoff</span></a>. This setting is applicable only if
-<code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_MANAGER_IDLE_BACKOFF</span></code> is set during configuration in
-<a class="reference external" href="https://www.cmake.org">CMake</a>. By default this is defined by the preprocessor constant
-<code class="docutils literal notranslate"><span class="pre">HPX_IDLE_BACKOFF_STEAL_CHECK_INTERVAL</span></code> (<code class="docutils literal notranslate"><span class="pre">8</span></code>).</p></td>
-</tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.default_scheduler_mode</span></code></p></td>
 <td><p>This setting defines the scheduler mode of the default thread pool as a
 number (the bitwise or of the values of
@@ -2018,45 +1980,37 @@ The default is <code class="docutils literal notranslate"><span class="pre">1</s
 when generating a core-dump on segmentation faults or similar signals
 is desired.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.use_itt_notify</span></code></p></td>
-<td><p>This setting defines whether <em>HPX</em> sends events to the Intel ITT API
-at runtime. The default is <code class="docutils literal notranslate"><span class="pre">0</span></code> (off), and can be changed with the
-environment variable <code class="docutils literal notranslate"><span class="pre">HPX_HAVE_ITTNOTIFY</span></code>. Set it to <code class="docutils literal notranslate"><span class="pre">1</span></code>, for
-example with <code class="docutils literal notranslate"><span class="pre">--hpx:ini=hpx.use_itt_notify=1</span></code>, to record events.
-Only present when <em>HPX</em> was built with
-<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_ITTNOTIFY"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_ITTNOTIFY</span></code></a><code class="docutils literal notranslate"><span class="pre">=ON</span></code>. See <a class="reference internal" href="profiling_and_tracing.html#profiling-with-itt"><span class="std std-ref">Intel ITT API and VTune</span></a>.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.stacks.small_size</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.stacks.small_size</span></code></p></td>
 <td><p>This is initialized to the small stack size to be used by <em>HPX</em> threads.
 Set by default to the value of the compile time preprocessor constant
 <code class="docutils literal notranslate"><span class="pre">HPX_SMALL_STACK_SIZE</span></code> (defaults to <code class="docutils literal notranslate"><span class="pre">0x8000</span></code>). This value is used for
 all <em>HPX</em> threads by default, except for the thread running <code class="docutils literal notranslate"><span class="pre">hpx_main</span></code>
 (which runs on a large stack).</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.stacks.medium_size</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.stacks.medium_size</span></code></p></td>
 <td><p>This is initialized to the medium stack size to be used by <em>HPX</em> threads.
 Set by default to the value of the compile time preprocessor constant
 <code class="docutils literal notranslate"><span class="pre">HPX_MEDIUM_STACK_SIZE</span></code> (defaults to <code class="docutils literal notranslate"><span class="pre">0x20000</span></code>).</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.stacks.large_size</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.stacks.large_size</span></code></p></td>
 <td><p>This is initialized to the large stack size to be used by <em>HPX</em> threads.
 Set by default to the value of the compile time preprocessor constant
 <code class="docutils literal notranslate"><span class="pre">HPX_LARGE_STACK_SIZE</span></code> (defaults to <code class="docutils literal notranslate"><span class="pre">0x200000</span></code>). This setting is used
 by default for the thread running <code class="docutils literal notranslate"><span class="pre">hpx_main</span></code> only.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.stacks.huge_size</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.stacks.huge_size</span></code></p></td>
 <td><p>This is initialized to the huge stack size to be used by <em>HPX</em> threads.
 Set by default to the value of the compile time preprocessor constant
 <code class="docutils literal notranslate"><span class="pre">HPX_HUGE_STACK_SIZE</span></code> (defaults to <code class="docutils literal notranslate"><span class="pre">0x2000000</span></code>).</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.stacks.use_guard_pages</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.stacks.use_guard_pages</span></code></p></td>
 <td><p>This entry controls whether the coroutine library will generate stack
 guard pages or not. This entry is applicable on Linux only and only if
 the <code class="docutils literal notranslate"><span class="pre">HPX_USE_GENERIC_COROUTINE_CONTEXT</span></code> option is not enabled and the
 <code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_GUARD_PAGE</span></code> is set to 1 while configuring the build
 system. It is set by default to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.stacks.unbind_on_reset</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.stacks.unbind_on_reset</span></code></p></td>
 <td><p>Controls how recycled mmap’d coroutine stacks are advised when an HPX
 thread terminates (Linux/FreeBSD with <code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_STACK_MMAP=ON</span></code>;
 not used on Apple Silicon, which allocates stacks via <code class="docutils literal notranslate"><span class="pre">calloc</span></code>).
@@ -2197,29 +2151,23 @@ them. The default is to allow stealing always. A worker thread always
 converts its own staged tasks.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.idle_loop_count_steal_staged</span></code></p></td>
-<td><p>The value of this property defines the idle-loop counter value after
-which a worker thread starts stealing staged <em>HPX</em> tasks from other
-worker threads (local priority queue and work-requesting schedulers
-only; values above <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span> <span class="pre">/</span> <span class="pre">2</span></code> are limited to it).
-The counter normally advances once per empty scheduling loop iteration.
-In fast idle mode it advances by <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span> <span class="pre">/</span> <span class="pre">1024</span></code> per
-empty iteration, so a small threshold may be passed in one iteration.
-The local and shared priority schedulers steal staged tasks right away.
-The local priority queue scheduler bypasses this threshold in fast idle
-mode because it steals directly while scanning victim queues. A
-work-requesting scheduler instead carries the threshold result in its
-request, so fast idle mode accelerates the counter without bypassing the
-check. See <a class="reference internal" href="thread_scheduler_configuration.html#thread-scheduler-staged-steal"><span class="std std-ref">Stealing staged tasks</span></a>.</p></td>
+<td><p>The value of this property defines the number of consecutive empty
+scheduling loop iterations after which a worker thread starts stealing
+staged <em>HPX</em> tasks from other worker threads (local priority queue
+scheduler only; values above <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span> <span class="pre">/</span> <span class="pre">2</span></code> are limited
+to it. The local and shared priority schedulers steal staged tasks right
+away, the work-requesting schedulers do not steal staged tasks). It has
+no effect if fast idle mode is on, which steals staged tasks right away.
+See <a class="reference internal" href="thread_scheduler_configuration.html#thread-scheduler-staged-steal"><span class="std std-ref">Stealing staged tasks</span></a>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_tasks_to_steal_staged_early</span></code></p></td>
 <td><p>The value of this property defines the number of staged <em>HPX</em> tasks that
 need to be available before other worker threads are allowed to steal
-them (local priority queue and work-requesting schedulers only). Fast
-idle mode disables this minimum for the local priority queue scheduler,
-but not for work-requesting schedulers. Leaving a few staged tasks to
-the worker thread they were placed on keeps them close to the data in
-that core’s caches. The minimum is ignored for a worker that doesn’t get
-to its few staged tasks. See <a class="reference internal" href="thread_scheduler_configuration.html#thread-scheduler-staged-steal"><span class="std std-ref">Stealing staged tasks</span></a>.</p></td>
+them (local priority queue scheduler only, not in fast idle mode).
+Leaving a few staged tasks to the worker thread they were placed on
+keeps them close to the data in that core’s caches. The minimum is
+ignored for a worker that doesn’t get to its few staged tasks. See
+<a class="reference internal" href="thread_scheduler_configuration.html#thread-scheduler-staged-steal"><span class="std std-ref">Stealing staged tasks</span></a>.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.min_add_new_count</span></code></p></td>
 <td><p>The value of this property defines the minimal number of staged tasks
@@ -3655,8 +3603,7 @@ which then only determine the initial placement of a thread.</p>
 <span class="sig-name descname"><span class="pre">--hpx:numa-sensitive</span></span><span class="sig-prename descclassname"> <span class="pre">[arg]</span></span><a class="headerlink" href="#cmdoption-hpx-numa-sensitive" title="Link to this definition">#</a></dt>
 <dd><p>Controls NUMA-sensitive work stealing. The default and the value used when
 the option is given without an argument are both <code class="docutils literal notranslate"><span class="pre">1</span></code>. For the local,
-local-priority, ABP-priority, and local-workrequesting schedulers the allowed
-values are:</p>
+local-priority, and ABP-priority schedulers the allowed values are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: all workers may steal across NUMA domains;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">1</span></code>: only boundary workers may steal from the nearest NUMA domains;</p></li>
@@ -3664,7 +3611,8 @@ values are:</p>
 </ul>
 <p>The static, static-priority, and shared-priority schedulers do not distinguish
 boundary workers. They allow cross-domain stealing for levels <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code>
-and disable it for level <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
+and disable it for level <code class="docutils literal notranslate"><span class="pre">2</span></code>. Work-requesting schedulers currently ignore
+this option.</p>
 </dd></dl>
 
 </section>
