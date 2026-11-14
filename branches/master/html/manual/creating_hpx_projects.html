@@ -735,7 +735,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/policy_traits_policy_traits_default.html">policy_traits_default</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/is_execution_policy.html">hpx/execution/traits/is_execution_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/future_sender.html">hpx/execution/algorithms/future_sender.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/run_loop.html">hpx/execution/algorithms/run_loop.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/sender_future.html">hpx/execution/algorithms/sender_future.hpp</a></li>
 </ul>
 </details></li>
@@ -1951,14 +1950,14 @@ CMake target <code class="docutils literal notranslate"><span class="pre">HPX::w
 executables if you are using the macros described below
 (<a class="reference internal" href="#using-hpx-cmake-macros"><span class="std std-ref">Using macros to create new targets</span></a>). See <a class="reference internal" href="starting_the_hpx_runtime.html#minimal"><span class="std std-ref">Re-use the main() function as the main HPX entry point</span></a> for more information on
 implicitly using <code class="docutils literal notranslate"><span class="pre">main()</span></code> as the entry point. If you want the same wrapping
-behavior without including <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/5d6175b36fa0bd7965a1634233ce2601b10c440c/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a>, link to
+behavior without including <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/0d2af6ca78141d66b3530224fb44d035da28fa16/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a>, link to
 the <code class="docutils literal notranslate"><span class="pre">HPX::auto_wrap_main</span></code> target instead. This enables the runtime
 initialization around <code class="docutils literal notranslate"><span class="pre">main()</span></code> unconditionally and is useful for codebases
 where adding the header to <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code> is impractical</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When using the native Windows MSVC toolchain, <code class="docutils literal notranslate"><span class="pre">HPX::auto_wrap_main</span></code>
-force-includes <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/5d6175b36fa0bd7965a1634233ce2601b10c440c/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a> into all C++
+force-includes <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/0d2af6ca78141d66b3530224fb44d035da28fa16/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a> into all C++
 source files of the executable (using <code class="docutils literal notranslate"><span class="pre">/FI</span></code>), as MSVC does not support
 the weak symbols the wrapping relies on elsewhere.</p>
 </div>
