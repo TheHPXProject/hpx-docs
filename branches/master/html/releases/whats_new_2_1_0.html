@@ -1186,6 +1186,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/components_base_fwd_hpx_components_component.html">hpx::components::component</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/components_base_fwd_hpx_components_component_base.html">hpx::components::component_base</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/get_lva.html">hpx/components_base/get_lva.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/component_registered_elsewhere.html">hpx/components_base/traits/component_registered_elsewhere.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/managed_component_base.html">hpx/components_base/server/managed_component_base.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/migration_support.html">hpx/components_base/server/migration_support.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/fixed_component_base.html">hpx/components_base/server/fixed_component_base.hpp</a></li>
@@ -1640,7 +1641,7 @@ document.write(`
 <span id="hpx-2-1-0"></span><h1><em>HPX</em> V2.1.0 (TBD)<a class="headerlink" href="#hpx-v2-1-0-tbd" title="Link to this heading">#</a></h1>
 <section id="breaking-changes">
 <h2>Breaking changes<a class="headerlink" href="#breaking-changes" title="Link to this heading">#</a></h2>
-<ul class="simple">
+<ul>
 <li><p>The execution-policy overloads of <code class="docutils literal notranslate"><span class="pre">hpx::ranges::all_of</span></code>, <code class="docutils literal notranslate"><span class="pre">any_of</span></code>,
 <code class="docutils literal notranslate"><span class="pre">none_of</span></code>, <code class="docutils literal notranslate"><span class="pre">count</span></code>, <code class="docutils literal notranslate"><span class="pre">count_if</span></code>, <code class="docutils literal notranslate"><span class="pre">contains</span></code>, <code class="docutils literal notranslate"><span class="pre">equal</span></code>,
 <code class="docutils literal notranslate"><span class="pre">starts_with</span></code>, <code class="docutils literal notranslate"><span class="pre">ends_with</span></code>, <code class="docutils literal notranslate"><span class="pre">contains_subrange</span></code>, <code class="docutils literal notranslate"><span class="pre">is_partitioned</span></code>,
@@ -1680,6 +1681,26 @@ is now <code class="docutils literal notranslate"><span class="pre">HPX_THREAD_S
 macro it defines is now
 <code class="docutils literal notranslate"><span class="pre">HPX_THREAD_SUPPORT_HAVE_THREAD_SCHEDULE_HINT_RUNS_AS_CHILD</span></code>. The old option
 name is still accepted with a deprecation warning.</p></li>
+<li><p>A component type has to be registered in exactly one module. Registering a
+component that a library already registers and has marked as such is now a
+compile time error (<a class="reference external" href="https://github.com/TheHPXProject/hpx/issues/8075">Issue #8075</a>). Before, this went unnoticed on Linux
+and failed only at run time on Windows with <code class="docutils literal notranslate"><span class="pre">duplicate_component_id</span></code>. In
+particular, <code class="docutils literal notranslate"><span class="pre">partitioned_vector</span></code> and <code class="docutils literal notranslate"><span class="pre">coarray</span></code> for <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>,
+<code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code> and <code class="docutils literal notranslate"><span class="pre">std::string</span></code> are predefined by the
+<code class="docutils literal notranslate"><span class="pre">partitioned_vector</span></code> library when <em>HPX</em> is linked dynamically, and
+applications that register one of these types unconditionally no longer
+compile. Register them only if <em>HPX</em> is linked statically:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#if defined(HPX_HAVE_STATIC_LINKING)</span>
+<span class="n">HPX_REGISTER_PARTITIONED_VECTOR</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+<p>Libraries that register components on behalf of their users can mark them
+with <code class="docutils literal notranslate"><span class="pre">HPX_COMPONENT_REGISTERED_ELSEWHERE</span></code> in the part of their headers
+that is visible to their users only (not while compiling the library
+itself), which turns a second registration of these components into a
+compile time error as well.</p>
+</li>
 </ul>
 </section>
 <section id="supervision-module">
