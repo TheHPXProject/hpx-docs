@@ -1658,8 +1658,9 @@ are checked according to <code class="docutils literal notranslate"><span class=
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span><span class="w"> </span><span class="o">-</span><span class="n">DHPX_WITH_CONTRACTS</span><span class="o">=</span><span class="n">ON</span><span class="w"> </span><span class="o">-</span><span class="n">DHPX_CONTRACTS_WITH_ASSERTS_AS_CONTRACT_ASSERTS</span><span class="o">=</span><span class="n">ON</span>
 </pre></div>
 </div>
-<p>Select the evaluation mode used when native contracts are not available:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span><span class="w"> </span><span class="o">-</span><span class="n">DHPX_WITH_CONTRACTS</span><span class="o">=</span><span class="n">ON</span><span class="w"> </span><span class="o">-</span><span class="n">DHPX_WITH_CONTRACTS_MODE</span><span class="o">=</span><span class="n">ENFORCE</span><span class="o">|</span><span class="n">QUICK_ENFORCE</span><span class="o">|</span><span class="n">OBSERVE</span><span class="o">|</span><span class="n">IGNORE</span>
+<p>Select the evaluation mode used when native contracts are not available
+(<code class="docutils literal notranslate"><span class="pre">ENFORCE</span></code>, <code class="docutils literal notranslate"><span class="pre">QUICK_ENFORCE</span></code>, <code class="docutils literal notranslate"><span class="pre">OBSERVE</span></code> or <code class="docutils literal notranslate"><span class="pre">IGNORE</span></code>):</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span><span class="w"> </span><span class="o">-</span><span class="n">DHPX_WITH_CONTRACTS</span><span class="o">=</span><span class="n">ON</span><span class="w"> </span><span class="o">-</span><span class="n">DHPX_WITH_CONTRACTS_MODE</span><span class="o">=</span><span class="n">OBSERVE</span>
 </pre></div>
 </div>
 <p>Contract assertions work even when contracts are disabled:</p>
