@@ -25,6 +25,7 @@ See also:
    - :ref:`hpx::collectives::create_communicator <modules_create_communicator_hpx_collectives_create_communicator_api>`
    - :ref:`hpx::collectives::create_local_communicator <modules_create_communicator_hpx_collectives_create_local_communicator_api>`
    - :ref:`hpx::collectives::create_hierarchical_communicator <modules_create_communicator_hpx_collectives_create_hierarchical_communicator_api>`
+   - :ref:`hpx::collectives::hierarchical_communicator <modules_create_communicator_hpx_collectives_hierarchical_communicator_api>`
    - :ref:`hpx::collectives::communicator::get_info <modules_create_communicator_hpx_collectives_communicator_get_info_api>`
    - :ref:`hpx::collectives::communicator::is_root <modules_create_communicator_hpx_collectives_communicator_is_root_api>`
 

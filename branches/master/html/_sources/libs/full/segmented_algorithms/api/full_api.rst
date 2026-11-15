@@ -27,6 +27,7 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/full/segmented_algorithms/api/is_partitioned.rst
    /libs/full/segmented_algorithms/api/transform.rst
    /libs/full/segmented_algorithms/api/all_any_none.rst
+   /libs/full/segmented_algorithms/api/sort.rst
    /libs/full/segmented_algorithms/api/fill.rst
    /libs/full/segmented_algorithms/api/merge.rst
    /libs/full/segmented_algorithms/api/equal.rst
