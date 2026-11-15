@@ -41,10 +41,9 @@ Enable contract-enhanced assertions (optional, native contracts only)::
 
     cmake -DHPX_WITH_CONTRACTS=ON -DHPX_CONTRACTS_WITH_ASSERTS_AS_CONTRACT_ASSERTS=ON
 
-Select the evaluation mode used when native contracts are not available
-(``ENFORCE``, ``QUICK_ENFORCE``, ``OBSERVE`` or ``IGNORE``)::
+Select the evaluation mode used when native contracts are not available::
 
-    cmake -DHPX_WITH_CONTRACTS=ON -DHPX_WITH_CONTRACTS_MODE=OBSERVE
+    cmake -DHPX_WITH_CONTRACTS=ON -DHPX_WITH_CONTRACTS_MODE=ENFORCE|QUICK_ENFORCE|OBSERVE|IGNORE
 
 Contract assertions work even when contracts are disabled::
 
