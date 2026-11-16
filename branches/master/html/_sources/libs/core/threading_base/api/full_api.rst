@@ -36,3 +36,4 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/threading_base/api/thread_num_tss_hpx_get_local_worker_thread_num.rst
    /libs/core/threading_base/api/thread_num_tss_hpx_get_thread_pool_num.rst
    /libs/core/threading_base/api/threading_base_fwd.rst
+   /libs/core/threading_base/api/stack_sized_function_hpx_threads_with_stack_size.rst
