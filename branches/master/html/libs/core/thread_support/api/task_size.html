@@ -924,6 +924,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../runtime_local/api/custom_exception_info.html">hpx/runtime_local/custom_exception_info.hpp</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../schedulers/api/full_api.html">schedulers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../schedulers/api/local_priority_tuned_scheduler.html">hpx/schedulers/local_priority_tuned_scheduler.hpp</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../serialization/api/full_api.html">serialization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../serialization/api/serialization_chunk.html">hpx/serialization/serialization_chunk.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../serialization/api/base_object.html">hpx/serialization/base_object.hpp</a></li>
@@ -993,6 +997,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../threading_base/api/annotated_function_hpx_annotated_function.html">hpx::annotated_function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../threading_base/api/register_thread.html">hpx/threading_base/register_thread.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../threading_base/api/sized_function_hpx_threads_with_task_size.html">hpx::threads::with_task_size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../threading_base/api/scheduling_policy.html">hpx/threading_base/scheduling_policy.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../threading_base/api/scheduler_tuning.html">hpx/threading_base/scheduler_tuning.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../threading_base/api/print.html">hpx/threading_base/print.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../threading_base/api/thread_description.html">hpx/threading_base/thread_description.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../threading_base/api/thread_helpers.html">hpx/threading_base/thread_helpers.hpp</a></li>
@@ -1640,6 +1646,7 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads9task_size5largeE"><code class="docutils literal notranslate"><span class="pre">large</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads18get_task_size_nameEK9task_size"><code class="docutils literal notranslate"><span class="pre">get_task_size_name()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads18task_size_durationEK9task_size"><code class="docutils literal notranslate"><span class="pre">task_size_duration()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads14bulk_task_sizeEK9task_sizeKNSt6size_tE"><code class="docutils literal notranslate"><span class="pre">bulk_task_size()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads18combined_task_sizeEK9task_sizeK9task_size"><code class="docutils literal notranslate"><span class="pre">combined_task_size()</span></code></a></li>
@@ -1763,6 +1770,12 @@ document.write(`
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads18get_task_size_nameEK9task_size">
+<span id="_CPPv3N3hpx7threads18get_task_size_nameEK9task_size"></span><span id="_CPPv2N3hpx7threads18get_task_size_nameEK9task_size"></span><span id="hpx::threads::get_task_size_name__task_sizeCCE"></span><span class="target" id="task__size_8hpp_1aa7460e4709045443cc5479a27f2df175"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">get_task_size_name</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3hpx7threads9task_sizeE" title="hpx::threads::task_size"><span class="n"><span class="pre">task_size</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">size</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx7threads18get_task_size_nameEK9task_size" title="Link to this definition">#</a><br /></dt>
+<dd><p>The name of the given task <code class="docutils literal notranslate"><span class="pre">size</span></code>, as used in the configuration: “unknown”, “nano”, “small”, “medium” or “large”. </p>
+</dd></dl>
+
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads18task_size_durationEK9task_size">
 <span id="_CPPv3N3hpx7threads18task_size_durationEK9task_size"></span><span id="_CPPv2N3hpx7threads18task_size_durationEK9task_size"></span><span id="hpx::threads::task_size_duration__task_sizeCCE"></span><span class="target" id="task__size_8hpp_1a3593f0499af0fcbd61416b3cb55fa07d"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">nanoseconds</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">task_size_duration</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3hpx7threads9task_sizeE" title="hpx::threads::task_size"><span class="n"><span class="pre">task_size</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">size</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx7threads18task_size_durationEK9task_size" title="Link to this definition">#</a><br /></dt>
@@ -2064,6 +2077,7 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads9task_size5largeE"><code class="docutils literal notranslate"><span class="pre">large</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads18get_task_size_nameEK9task_size"><code class="docutils literal notranslate"><span class="pre">get_task_size_name()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads18task_size_durationEK9task_size"><code class="docutils literal notranslate"><span class="pre">task_size_duration()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads14bulk_task_sizeEK9task_sizeKNSt6size_tE"><code class="docutils literal notranslate"><span class="pre">bulk_task_size()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads18combined_task_sizeEK9task_sizeK9task_size"><code class="docutils literal notranslate"><span class="pre">combined_task_size()</span></code></a></li>

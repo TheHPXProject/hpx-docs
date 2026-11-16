@@ -56,6 +56,7 @@ refer to the full documentation below.
    /libs/core/resiliency/api/full_api.rst
    /libs/core/runtime_configuration/api/full_api.rst
    /libs/core/runtime_local/api/full_api.rst
+   /libs/core/schedulers/api/full_api.rst
    /libs/core/serialization/api/full_api.rst
    /libs/core/synchronization/api/full_api.rst
    /libs/core/tag_invoke/api/full_api.rst

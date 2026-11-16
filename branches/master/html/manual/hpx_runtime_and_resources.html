@@ -924,6 +924,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/runtime_local/api/custom_exception_info.html">hpx/runtime_local/custom_exception_info.hpp</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/schedulers/api/full_api.html">schedulers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/schedulers/api/local_priority_tuned_scheduler.html">hpx/schedulers/local_priority_tuned_scheduler.hpp</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/serialization/api/full_api.html">serialization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/serialization_chunk.html">hpx/serialization/serialization_chunk.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/base_object.html">hpx/serialization/base_object.hpp</a></li>
@@ -993,6 +997,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/annotated_function_hpx_annotated_function.html">hpx::annotated_function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/register_thread.html">hpx/threading_base/register_thread.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/sized_function_hpx_threads_with_task_size.html">hpx::threads::with_task_size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scheduling_policy.html">hpx/threading_base/scheduling_policy.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scheduler_tuning.html">hpx/threading_base/scheduler_tuning.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/print.html">hpx/threading_base/print.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_description.html">hpx/threading_base/thread_description.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_helpers.html">hpx/threading_base/thread_helpers.hpp</a></li>
@@ -1630,6 +1636,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hpx-thread-scheduling-policies"><em>HPX</em> thread scheduling policies</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#priority-local-scheduling-policy-default-policy">Priority local scheduling policy (default policy)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuned-priority-local-scheduling-policy">Tuned priority local scheduling policy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-priority-scheduling-policy">Static priority scheduling policy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-scheduling-policy">Local scheduling policy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-scheduling-policy">Static scheduling policy</a></li>
@@ -1686,6 +1693,23 @@ steal across NUMA domains.</p>
 enabled using the LIFO (last-in-first-out) policy. This is not the default
 policy and must be invoked using the command line option
 <a class="reference internal" href="launching_and_configuring_hpx_applications.html#cmdoption-hpx-queuing"><code class="xref std std-option docutils literal notranslate"><span class="pre">--hpx:queuing</span></code></a><code class="docutils literal notranslate"><span class="pre">local-priority-lifo</span></code>.</p>
+</section>
+<section id="tuned-priority-local-scheduling-policy">
+<h3>Tuned priority local scheduling policy<a class="headerlink" href="#tuned-priority-local-scheduling-policy" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>invoke using: <a class="reference internal" href="launching_and_configuring_hpx_applications.html#cmdoption-hpx-queuing"><code class="xref std std-option docutils literal notranslate"><span class="pre">--hpx:queuing</span></code></a><code class="docutils literal notranslate"><span class="pre">local-priority-tuned-fifo</span></code></p></li>
+</ul>
+<p>This scheduler places, queues and steals threads like the priority local
+scheduling policy (with FIFO queueing), but takes the rules that decide whom to
+wake up for new threads and what an idle worker thread does next from a
+tunable scheduling policy. The numbers and switches of these rules are
+settings that a <em>tuner</em> may change while the scheduler runs. The tuner is
+selected with <code class="docutils literal notranslate"><span class="pre">hpx.scheduler_tuner</span></code> (see <span class="xref std std-ref">ini_hpx</span>); the default,
+<code class="docutils literal notranslate"><span class="pre">static</span></code>, keeps the configured values, so that the scheduler decides like
+the priority local scheduling policy. The settings of the rules are listed in
+<span class="xref std std-ref">ini_hpx_scheduler_policy</span>. Applications can register their own tuners
+with <code class="docutils literal notranslate"><span class="pre">hpx::threads::policies::register_scheduler_tuner</span></code> before the runtime
+is started.</p>
 </section>
 <section id="static-priority-scheduling-policy">
 <h3>Static priority scheduling policy<a class="headerlink" href="#static-priority-scheduling-policy" title="Link to this heading">#</a></h3>
@@ -2062,6 +2086,7 @@ folder for examples of advanced resource partitioner usage:
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hpx-thread-scheduling-policies"><em>HPX</em> thread scheduling policies</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#priority-local-scheduling-policy-default-policy">Priority local scheduling policy (default policy)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuned-priority-local-scheduling-policy">Tuned priority local scheduling policy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-priority-scheduling-policy">Static priority scheduling policy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-scheduling-policy">Local scheduling policy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-scheduling-policy">Static scheduling policy</a></li>
