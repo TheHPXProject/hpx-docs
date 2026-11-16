@@ -43,4 +43,5 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/execution/api/policy_traits_policy_traits_default.rst
    /libs/core/execution/api/is_execution_policy.rst
    /libs/core/execution/api/future_sender.rst
+   /libs/core/execution/api/run_loop.rst
    /libs/core/execution/api/sender_future.rst

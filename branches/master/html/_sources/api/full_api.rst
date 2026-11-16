@@ -58,6 +58,7 @@ refer to the full documentation below.
    /libs/core/serialization/api/full_api.rst
    /libs/core/synchronization/api/full_api.rst
    /libs/core/tag_invoke/api/full_api.rst
+   /libs/core/testing/api/full_api.rst
    /libs/core/thread_pool_util/api/full_api.rst
    /libs/core/thread_support/api/full_api.rst
    /libs/core/threading/api/full_api.rst

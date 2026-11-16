@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>contracts &#8212; HPX 2.0.0 documentation</title>
+    <title>contracts &#8212; HPX 2.0.1-rc1 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../../_static/documentation_options.js?v=ce394494"></script>
+    <script src="../../../../_static/documentation_options.js?v=dabc1245"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -142,8 +142,8 @@
       
     
     
-    <img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.0 documentation - Home"/>
-    <script>document.write(`<img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.0 documentation - Home"/>`);</script>
+    <img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.1-rc1 documentation - Home"/>
+    <script>document.write(`<img src="../../../../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.1-rc1 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -732,6 +732,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../execution/api/policy_traits_policy_traits_default.html">policy_traits_default</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../execution/api/is_execution_policy.html">hpx/execution/traits/is_execution_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../execution/api/future_sender.html">hpx/execution/algorithms/future_sender.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../execution/api/run_loop.html">hpx/execution/algorithms/run_loop.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../execution/api/sender_future.html">hpx/execution/algorithms/sender_future.hpp</a></li>
 </ul>
 </details></li>
@@ -951,6 +952,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../tag_invoke/api/tag_invoke.html">hpx/functional/tag_invoke.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../tag_invoke/api/is_invocable_hpx_is_invocable.html">hpx::is_invocable</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../tag_invoke/api/is_invocable_hpx_is_invocable_r.html">hpx::is_invocable_r</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../testing/api/full_api.html">testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../testing/api/performance.html">hpx/testing/performance.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../thread_pool_util/api/full_api.html">thread_pool_util</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1368,8 +1373,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../releases.html">Releases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_2_0_0.html"><em>HPX</em> V2.0.0 (Oct 31, 2026)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_2_0_1.html"><em>HPX</em> V2.0.1 (TBD)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_1_11_0.html"><em>HPX</em> V1.11.0 (Jun 30, 2025)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_2_0_0.html"><em>HPX</em> V2.0.0 (Oct 31, 2026)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_1_10_0.html"><em>HPX</em> V1.10.0 (May 29, 2024)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_1_9_1.html"><em>HPX</em> V1.9.1 (August 4, 2023)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../releases/whats_new_1_9_0.html"><em>HPX</em> V1.9.0 (May 2, 2023)</a></li>
@@ -1634,23 +1640,32 @@ and compiler capabilities.</p>
 <a class="reference internal" href="../api/macros_HPX_POST.html#c.HPX_POST" title="HPX_POST"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_POST</span></code></a>, and <a class="reference internal" href="../api/macros_HPX_CONTRACT_ASSERT.html#c.HPX_CONTRACT_ASSERT" title="HPX_CONTRACT_ASSERT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_CONTRACT_ASSERT</span></code></a>. These macros
 automatically adapt their behavior based on compiler capabilities:</p>
 <ul class="simple">
-<li><p>When C++26 native contracts are available (<code class="docutils literal notranslate"><span class="pre">__cpp_contracts</span></code> defined),
-they map to standard contract syntax</p></li>
-<li><p>When <code class="docutils literal notranslate"><span class="pre">HPX_WITH_CX26_CONTRACTS=OFF</span></code>, preconditions and postconditions become
-no-ops while contract assertions remain available as enhanced assertions</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">HPX_WITH_CONTRACTS=OFF</span></code> (the default), preconditions and
+postconditions become no-ops and contract assertions fall back to
+<a class="reference internal" href="../../assertion/api/macros_HPX_ASSERT.html#c.HPX_ASSERT" title="HPX_ASSERT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_ASSERT</span></code></a>, even if native C++26 contracts are available</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">HPX_WITH_CONTRACTS=ON</span></code> and C++26 native contracts are available
+(<code class="docutils literal notranslate"><span class="pre">__cpp_contracts</span></code> defined), they map to standard contract syntax</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">HPX_WITH_CONTRACTS=ON</span></code> and native contracts are not available,
+preconditions and postconditions become no-ops while contract assertions
+are checked according to <code class="docutils literal notranslate"><span class="pre">HPX_WITH_CONTRACTS_MODE</span></code></p></li>
 </ul>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h2>
 <p>Enable contracts in CMake:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span><span class="w"> </span><span class="o">-</span><span class="n">DHPX_WITH_CXX26_CONTRACTS</span><span class="o">=</span><span class="n">ON</span><span class="w"> </span><span class="o">-</span><span class="n">DCMAKE_CXX_STANDARD</span><span class="o">=</span><span class="mi">26</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span><span class="w"> </span><span class="o">-</span><span class="n">DHPX_WITH_CONTRACTS</span><span class="o">=</span><span class="n">ON</span><span class="w"> </span><span class="o">-</span><span class="n">DHPX_WITH_CXX_STANDARD</span><span class="o">=</span><span class="mi">26</span>
 </pre></div>
 </div>
-<p>Enable contract-enhanced assertions (optional):</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span><span class="w"> </span><span class="o">-</span><span class="n">DHPX_WITH_CXX26_CONTRACTS</span><span class="o">=</span><span class="n">ON</span><span class="w"> </span><span class="o">-</span><span class="n">DHPX_CONTRACTS_WITH_ASSERTS_AS_CONTRACT_ASSERTS</span><span class="o">=</span><span class="n">ON</span>
+<p>Enable contract-enhanced assertions (optional, native contracts only):</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span><span class="w"> </span><span class="o">-</span><span class="n">DHPX_WITH_CONTRACTS</span><span class="o">=</span><span class="n">ON</span><span class="w"> </span><span class="o">-</span><span class="n">DHPX_CONTRACTS_WITH_ASSERTS_AS_CONTRACT_ASSERTS</span><span class="o">=</span><span class="n">ON</span>
+</pre></div>
+</div>
+<p>Select the evaluation mode used when native contracts are not available
+(<code class="docutils literal notranslate"><span class="pre">ENFORCE</span></code>, <code class="docutils literal notranslate"><span class="pre">QUICK_ENFORCE</span></code>, <code class="docutils literal notranslate"><span class="pre">OBSERVE</span></code> or <code class="docutils literal notranslate"><span class="pre">IGNORE</span></code>):</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span><span class="w"> </span><span class="o">-</span><span class="n">DHPX_WITH_CONTRACTS</span><span class="o">=</span><span class="n">ON</span><span class="w"> </span><span class="o">-</span><span class="n">DHPX_WITH_CONTRACTS_MODE</span><span class="o">=</span><span class="n">OBSERVE</span>
 </pre></div>
 </div>
 <p>Contract assertions work even when contracts are disabled:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span><span class="w"> </span><span class="o">-</span><span class="n">DHPX_WITH_CXX26_CONTRACTS</span><span class="o">=</span><span class="n">OFF</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">HPX_CONTRACT_ASSERT</span><span class="w"> </span><span class="n">still</span><span class="w"> </span><span class="n">maps</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">HPX_ASSERT</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span><span class="w"> </span><span class="o">-</span><span class="n">DHPX_WITH_CONTRACTS</span><span class="o">=</span><span class="n">OFF</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">HPX_CONTRACT_ASSERT</span><span class="w"> </span><span class="n">maps</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">HPX_ASSERT</span>
 </pre></div>
 </div>
 </section>
@@ -1680,7 +1695,7 @@ without requiring changes to assertion code. The transformation occurs in the
 contracts module (<code class="docutils literal notranslate"><span class="pre">contracts.hpp</span></code>) where the <code class="docutils literal notranslate"><span class="pre">HPX_ASSERT</span></code> macro is
 overridden to use <code class="docutils literal notranslate"><span class="pre">HPX_CONTRACT_ASSERT</span></code> when <code class="docutils literal notranslate"><span class="pre">HPX_WITH_ASSERTS_AS_CONTRACT_ASSERTS=ON</span></code>:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">HPX_WITH_CXX26_CONTRACTS=ON</span></code> - Contracts module is enabled</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HPX_WITH_CONTRACTS=ON</span></code> and native contracts available - Contracts are enabled</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">HPX_CONTRACTS_WITH_ASSERTS_AS_CONTRACT_ASSERTS=ON</span></code> - Assertion enhancement is enabled</p></li>
 </ul>
 <p>The implementation works by redefining <code class="docutils literal notranslate"><span class="pre">HPX_ASSERT</span></code> in <code class="docutils literal notranslate"><span class="pre">contracts.hpp</span></code> to
@@ -1717,7 +1732,8 @@ semantics when available.</p>
 <h2>Design Philosophy<a class="headerlink" href="#design-philosophy" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt><strong>HPX_CONTRACT_ASSERT</strong>: Enhanced assertion mechanism</dt><dd><p>Available even when <code class="docutils literal notranslate"><span class="pre">HPX_WITH_CONTRACTS=OFF</span></code> because it provides value
-as an enhanced assertion. Maps to <a class="reference internal" href="../../assertion/api/macros_HPX_ASSERT.html#c.HPX_ASSERT" title="HPX_ASSERT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_ASSERT</span></code></a> in all configurations.</p>
+as an enhanced assertion. Maps to <a class="reference internal" href="../../assertion/api/macros_HPX_ASSERT.html#c.HPX_ASSERT" title="HPX_ASSERT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_ASSERT</span></code></a> when contracts are
+disabled (or <code class="docutils literal notranslate"><span class="pre">HPX_WITH_CONTRACTS_MODE=IGNORE</span></code>).</p>
 </dd>
 <dt><strong>HPX_PRE/HPX_POST</strong>: True contract syntax</dt><dd><p>Represent language-level contract semantics. When contracts are enabled but
 native C++26 contracts are not available, these become no-ops to maintain
