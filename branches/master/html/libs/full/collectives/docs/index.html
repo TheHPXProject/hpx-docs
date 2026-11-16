@@ -992,6 +992,7 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/threading_base/api/full_api.html">threading_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/threading_base/api/scoped_annotation_hpx_scoped_annotation.html">hpx::scoped_annotation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../core/threading_base/api/set_thread_state.html">hpx/threading_base/set_thread_state.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/threading_base/api/thread_data.html">hpx/threading_base/thread_data.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/threading_base/api/thread_pool_base.html">hpx/threading_base/thread_pool_base.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/threading_base/api/annotated_function_hpx_annotated_function.html">hpx::annotated_function</a></li>
@@ -1777,7 +1778,7 @@ call, whatever the operation, as described in the next section:</p>
 </pre></div>
 </div>
 <p>The complete program is
-<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/70316ed411f939e27f7d358f30c828e0ca14e57e/libs/full/collectives/examples/hierarchical_collectives.cpp">hierarchical_collectives.cpp</a>. It
+<a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/2de7d8546d6e45f630d4e34525b8b4d94811eb89/libs/full/collectives/examples/hierarchical_collectives.cpp">hierarchical_collectives.cpp</a>. It
 runs <code class="docutils literal notranslate"><span class="pre">hpx_main</span></code> on all localities, so start it on several localities, for
 example with <code class="docutils literal notranslate"><span class="pre">hpxrun.py</span> <span class="pre">-l</span> <span class="pre">4</span> <span class="pre">-t</span> <span class="pre">1</span> <span class="pre">bin/hierarchical_collectives</span> <span class="pre">--</span> <span class="pre">--arity=2</span></code>.</p>
 <p>A few rules apply to all hierarchical collectives:</p>

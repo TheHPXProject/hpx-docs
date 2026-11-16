@@ -21,6 +21,7 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    :maxdepth: 1
 
    /libs/core/threading_base/api/scoped_annotation_hpx_scoped_annotation.rst
+   /libs/core/threading_base/api/set_thread_state.rst
    /libs/core/threading_base/api/thread_data.rst
    /libs/core/threading_base/api/thread_pool_base.rst
    /libs/core/threading_base/api/annotated_function_hpx_annotated_function.rst
