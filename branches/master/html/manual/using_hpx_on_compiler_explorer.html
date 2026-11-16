@@ -1954,8 +1954,8 @@ for details.</p></li>
 On macOS the linker uses <code class="docutils literal notranslate"><span class="pre">-Wl,-e,_initialize_main</span></code> instead. CE runs Linux
 containers, so this only matters when building the CE integration locally on
 macOS for testing.</p></li>
-<li><p><strong>Windows does not use</strong> <code class="docutils literal notranslate"><span class="pre">-Wl,-wrap=main</span></code>. <code class="docutils literal notranslate"><span class="pre">HPX_WITH_DYNAMIC_HPX_MAIN</span></code>
-is unavailable on Windows, so <code class="docutils literal notranslate"><span class="pre">hpx/hpx_main.hpp</span></code> uses the <code class="docutils literal notranslate"><span class="pre">main</span></code>
+<li><p><strong>Windows does not use</strong> <code class="docutils literal notranslate"><span class="pre">-Wl,-wrap=main</span></code>. The Windows linker has no
+equivalent of <code class="docutils literal notranslate"><span class="pre">--wrap</span></code>, so <code class="docutils literal notranslate"><span class="pre">hpx/hpx_main.hpp</span></code> uses the <code class="docutils literal notranslate"><span class="pre">main</span></code>
 macro instead. Link <code class="docutils literal notranslate"><span class="pre">HPX::wrap_main</span></code> without a GNU wrap flag.</p></li>
 </ul>
 </section>

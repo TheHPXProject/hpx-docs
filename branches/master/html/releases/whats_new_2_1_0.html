@@ -1711,6 +1711,15 @@ that is visible to their users only (not while compiling the library
 itself), which turns a second registration of these components into a
 compile time error as well.</p>
 </li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">HPX_WITH_DYNAMIC_HPX_MAIN</span></code> CMake option has been removed
+(<a class="reference external" href="https://github.com/TheHPXProject/hpx/issues/8071">Issue #8071</a>, <a class="reference external" href="https://github.com/TheHPXProject/hpx/pull/8081">PR #8081</a>). On Linux and macOS the program’s entry
+point is now always redirected at link time, all other platforms keep
+renaming <code class="docutils literal notranslate"><span class="pre">main()</span></code> with a macro. <code class="docutils literal notranslate"><span class="pre">HPX_HAVE_DYNAMIC_HPX_MAIN</span></code> is no longer
+defined and <code class="docutils literal notranslate"><span class="pre">HPX_WITH_DYNAMIC_HPX_MAIN</span></code> is no longer exported to dependent
+CMake projects. On Linux and macOS, code that includes
+<code class="docutils literal notranslate"><span class="pre">hpx/hpx_main.hpp</span></code> has to link <code class="docutils literal notranslate"><span class="pre">HPX::wrap_main</span></code> (or
+<code class="docutils literal notranslate"><span class="pre">HPX::auto_wrap_main</span></code>), which was previously avoidable by setting the
+option to <code class="docutils literal notranslate"><span class="pre">OFF</span></code>.</p></li>
 </ul>
 </section>
 <section id="supervision-module">
