@@ -17,7 +17,7 @@ List of supported releases
 .. toctree::
    :maxdepth: 1
 
-   releases/whats_new_2_1_0
+   releases/whats_new_2_0_1
    releases/whats_new_1_11_0
 
 
