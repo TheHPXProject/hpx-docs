@@ -953,6 +953,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/condition_variable_hpx_condition_variable.html">hpx::condition_variable</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/condition_variable_hpx_condition_variable_any.html">hpx::condition_variable_any</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/condition_variable_hpx_cv_status.html">hpx::cv_status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/channel_mpsc.html">hpx/synchronization/channel_mpsc.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/counting_semaphore_hpx_counting_semaphore.html">hpx::counting_semaphore</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/no_mutex_hpx_no_mutex.html">hpx::no_mutex</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/event.html">hpx/synchronization/event.hpp</a></li>
@@ -1365,6 +1366,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_fenced_hook_for_testing.html">hpx::supervision::testing::set_evict_fenced_hook_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_lifecycle_mirror_hook_for_testing.html">hpx::supervision::testing::set_lifecycle_mirror_hook_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_peer_hook_for_testing.html">hpx::supervision::testing::set_evict_peer_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_lifecycle_observer_hook_for_testing.html">hpx::supervision::testing::set_lifecycle_observer_hook_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_evict_peers_waiting_for_mirrors_for_testing.html">hpx::supervision::testing::evict_peers_waiting_for_mirrors_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_init.html">hpx::supervision::init</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_finalize.html">hpx::supervision::finalize</a></li>
@@ -2103,15 +2105,18 @@ next sweep evicts it if its shadow is still terminal. A lifecycle event that
 arrives after the peer was removed is not mirrored at all, so the tombstone
 stays in place and the peer has to be joined again, as after any other
 eviction.</p>
-<p>This assumes that the shadow is changed only through this registry’s
-mirroring, which holds for a remote peer joined by a single registry;
-discovery never joins the own locality. It does not hold for a registry that
-joined its own locality, whose lifecycle events update the shadow directly,
-before the observer that mirrors them runs, nor for several registries on one
-locality joining the same peer, which share its shadow. There, a new epoch
-that starts after the eviction checked the shadow can go unnoticed, and the
-peer is removed although its shadow is active again, staying unmonitored
-until it is joined again (<a class="reference external" href="https://github.com/TheHPXProject/hpx/issues/8030">Issue #8030</a>).</p>
+<p>The shadow can also change before the observer that mirrors a lifecycle
+event runs: a registry that joined its own locality shares the shadow with
+the peer’s own lifecycle events, and several registries on one locality
+joining the same peer share it with each other’s mirroring. So, right before
+it removes the peer, the eviction checks the shadow again and removes the peer
+only if the shadow is still exactly the terminal state it checked first. A new
+epoch that changed the shadow before that second check is therefore seen even
+if its event was not mirrored yet, and the peer stays joined and monitored
+(<a class="reference external" href="https://github.com/TheHPXProject/hpx/issues/8030">Issue #8030</a>). A new epoch that changes the shadow after the second
+check, and whose event is not being mirrored yet when the peer is removed,
+overlaps the eviction and ends exactly as if it had started right after it:
+its event is not mirrored, and the peer has to be joined again.</p>
 </section>
 <section id="what-this-does-and-does-not-cover">
 <h3>What this does and does not cover<a class="headerlink" href="#what-this-does-and-does-not-cover" title="Link to this heading">#</a></h3>
