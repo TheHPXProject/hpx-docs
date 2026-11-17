@@ -953,6 +953,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/condition_variable_hpx_condition_variable.html">hpx::condition_variable</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/condition_variable_hpx_condition_variable_any.html">hpx::condition_variable_any</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/condition_variable_hpx_cv_status.html">hpx::cv_status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/channel_mpsc.html">hpx/synchronization/channel_mpsc.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/counting_semaphore_hpx_counting_semaphore.html">hpx::counting_semaphore</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/no_mutex_hpx_no_mutex.html">hpx::no_mutex</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/event.html">hpx/synchronization/event.hpp</a></li>
@@ -1964,14 +1965,14 @@ CMake target <code class="docutils literal notranslate"><span class="pre">HPX::w
 executables if you are using the macros described below
 (<a class="reference internal" href="#using-hpx-cmake-macros"><span class="std std-ref">Using macros to create new targets</span></a>). See <a class="reference internal" href="starting_the_hpx_runtime.html#minimal"><span class="std std-ref">Re-use the main() function as the main HPX entry point</span></a> for more information on
 implicitly using <code class="docutils literal notranslate"><span class="pre">main()</span></code> as the entry point. If you want the same wrapping
-behavior without including <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/52804e03f4e7eec194ec6b5bfba7288628af5653/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a>, link to
+behavior without including <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/aabec893cbe6c59e4e0ecb44fcf29bc0cf7feb48/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a>, link to
 the <code class="docutils literal notranslate"><span class="pre">HPX::auto_wrap_main</span></code> target instead. This enables the runtime
 initialization around <code class="docutils literal notranslate"><span class="pre">main()</span></code> unconditionally and is useful for codebases
 where adding the header to <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code> is impractical</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When using the native Windows MSVC toolchain, <code class="docutils literal notranslate"><span class="pre">HPX::auto_wrap_main</span></code>
-force-includes <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/52804e03f4e7eec194ec6b5bfba7288628af5653/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a> into all C++
+force-includes <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/aabec893cbe6c59e4e0ecb44fcf29bc0cf7feb48/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a> into all C++
 source files of the executable (using <code class="docutils literal notranslate"><span class="pre">/FI</span></code>), as MSVC does not support
 the weak symbols the wrapping relies on elsewhere.</p>
 </div>
@@ -2128,7 +2129,7 @@ Please also consult the CMake documentation <a class="reference external" href="
 <section id="using-hpx-with-makefile">
 <span id="makefile"></span><h2>Using <em>HPX</em> with Makefile<a class="headerlink" href="#using-hpx-with-makefile" title="Link to this heading">#</a></h2>
 <p>A basic project building with <em>HPX</em> is through creating makefiles. On Linux and
-macOS, applications that include <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/52804e03f4e7eec194ec6b5bfba7288628af5653/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a>
+macOS, applications that include <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/aabec893cbe6c59e4e0ecb44fcf29bc0cf7feb48/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a>
 have to link <code class="docutils literal notranslate"><span class="pre">libhpx_wrap.a</span></code> and redirect the program’s entry point when
 linking.</p>
 <section id="how-to-build-hpx-applications-with-makefile">

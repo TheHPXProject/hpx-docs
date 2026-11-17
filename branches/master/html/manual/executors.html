@@ -953,6 +953,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/condition_variable_hpx_condition_variable.html">hpx::condition_variable</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/condition_variable_hpx_condition_variable_any.html">hpx::condition_variable_any</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/condition_variable_hpx_cv_status.html">hpx::cv_status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/channel_mpsc.html">hpx/synchronization/channel_mpsc.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/counting_semaphore_hpx_counting_semaphore.html">hpx::counting_semaphore</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/no_mutex_hpx_no_mutex.html">hpx::no_mutex</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/event.html">hpx/synchronization/event.hpp</a></li>
@@ -2420,16 +2421,17 @@ the function gives its action a size as well:</p>
 <code class="docutils literal notranslate"><span class="pre">HPX_DEFINE_PLAIN_ACTION</span></code>, <code class="docutils literal notranslate"><span class="pre">HPX_DEFINE_COMPONENT_ACTION</span></code> and
 <code class="docutils literal notranslate"><span class="pre">HPX_COMPONENT_ACTION</span></code>, for <code class="docutils literal notranslate"><span class="pre">hpx::async&lt;^^f&gt;</span></code> and the other functions that
 take a reflected function, and for actions made with
-<code class="docutils literal notranslate"><span class="pre">hpx::actions::make_action_t</span></code> from a function pointer.
+<code class="docutils literal notranslate"><span class="pre">hpx::actions::make_action_t</span></code> from a function or member function pointer,
+which includes <code class="docutils literal notranslate"><span class="pre">hpx::async&lt;&amp;f&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">hpx::async&lt;&amp;C::f&gt;</span></code>.
 <code class="docutils literal notranslate"><span class="pre">HPX_ACTION_HAS_TASK_SIZE</span></code> and <code class="docutils literal notranslate"><span class="pre">hpx::with_task_size</span></code> win over the
 annotation. <code class="docutils literal notranslate"><span class="pre">task_size::unknown</span></code> counts as no annotation. Two different
 sizes on one function are a compile-time error when the size of an action that
-binds it is read. Actions made from a member function pointer, for instance
-<code class="docutils literal notranslate"><span class="pre">make_action_t&lt;decltype(&amp;C::f),</span> <span class="pre">&amp;C::f&gt;</span></code>, do not read annotations. Give an
-explicit specialization of an annotated function template the same annotation
-as the template. With Clang it also gets the annotation of the template, so a
-different size is a compile-time error. Each source file reads the annotation
-from the declarations it sees, so put it on the declaration in the header.</p>
+binds it is read. An action made from a pointer to a specialization of a member
+function template does not read annotations. Give an explicit specialization of
+an annotated free function template the same annotation as the template. With
+Clang it also gets the annotation of the template, so a different size is a
+compile-time error. Each source file reads the annotation from the declarations
+it sees, so put it on the declaration in the header.</p>
 </section>
 <section id="p2079-parallel-scheduler">
 <span id="parallel-scheduler"></span><h2>P2079 parallel scheduler<a class="headerlink" href="#p2079-parallel-scheduler" title="Link to this heading">#</a></h2>
