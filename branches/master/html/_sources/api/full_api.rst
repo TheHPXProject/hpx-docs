@@ -48,6 +48,7 @@ refer to the full documentation below.
    /libs/core/futures/api/full_api.rst
    /libs/core/include_local/api/full_api.rst
    /libs/core/io_service/api/full_api.rst
+   /libs/core/iterator_support/api/full_api.rst
    /libs/core/lcos_local/api/full_api.rst
    /libs/core/logging/api/full_api.rst
    /libs/core/pack_traversal/api/full_api.rst
@@ -55,6 +56,7 @@ refer to the full documentation below.
    /libs/core/resiliency/api/full_api.rst
    /libs/core/runtime_configuration/api/full_api.rst
    /libs/core/runtime_local/api/full_api.rst
+   /libs/core/schedulers/api/full_api.rst
    /libs/core/serialization/api/full_api.rst
    /libs/core/synchronization/api/full_api.rst
    /libs/core/tag_invoke/api/full_api.rst
