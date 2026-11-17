@@ -953,7 +953,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../libs/core/synchronization/api/condition_variable_hpx_condition_variable.html">hpx::condition_variable</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../libs/core/synchronization/api/condition_variable_hpx_condition_variable_any.html">hpx::condition_variable_any</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../libs/core/synchronization/api/condition_variable_hpx_cv_status.html">hpx::cv_status</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../libs/core/synchronization/api/channel_mpsc.html">hpx/synchronization/channel_mpsc.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../libs/core/synchronization/api/counting_semaphore_hpx_counting_semaphore.html">hpx::counting_semaphore</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../libs/core/synchronization/api/no_mutex_hpx_no_mutex.html">hpx::no_mutex</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../libs/core/synchronization/api/event.html">hpx/synchronization/event.hpp</a></li>
@@ -1366,7 +1365,6 @@
 <li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_set_evict_fenced_hook_for_testing.html">hpx::supervision::testing::set_evict_fenced_hook_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_set_lifecycle_mirror_hook_for_testing.html">hpx::supervision::testing::set_lifecycle_mirror_hook_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_set_evict_peer_hook_for_testing.html">hpx::supervision::testing::set_evict_peer_hook_for_testing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_set_lifecycle_observer_hook_for_testing.html">hpx::supervision::testing::set_lifecycle_observer_hook_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="testing_hpx_supervision_testing_evict_peers_waiting_for_mirrors_for_testing.html">hpx::supervision::testing::evict_peers_waiting_for_mirrors_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dispatch_api_hpx_supervision_init.html">hpx::supervision::init</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dispatch_api_hpx_supervision_finalize.html">hpx::supervision::finalize</a></li>
@@ -1859,11 +1857,7 @@ document.write(`
 <li><p>it arrived after the removal, in which case it is not mirrored at all, so the tombstone stays in place and the peer has to join again to be monitored, as after any other eviction.</p></li>
 </ul>
 </p>
-<p>The local state can also change before the lifecycle observer runs: a registry that joined its own locality shares that state with the peer’s own lifecycle events, and several registries on one locality joining the same peer share it with each other’s mirroring. To cover that, the local state is queried a second time after the terminal check, and the entry is removed only if it is still the state the terminal check saw (same epoch, event sequence number, and event). So for every change of the local state whose observer has not announced a mirroring by the time the entry is removed:<ul class="simple">
-<li><p>if it happened before the second query, that query sees it, and this call backs off, leaving the entry and its observers in place;</p></li>
-<li><p>if it happened after the second query, it overlaps this call and is treated as if it happened after the removal: its notification is not mirrored, and the peer has to join again to be monitored. For a registry that joined its own locality, the local state then reflects the peer’s newer lifecycle instead of the tombstone, exactly as if the peer had started that lifecycle right after this call returned.</p></li>
-</ul>
-</p>
+<p>This assumes that the peer’s local supervision state is changed only through this registry’s mirroring, which holds for a remote peer joined by a single registry (discovery never joins the own locality). It does not hold for a registry that joined its own locality, whose lifecycle events change that state directly, nor for several registries on one locality joining the same peer, which share that state (see #8030).</p>
 <p>No lock is held while the local supervision state is queried or while the observers are unregistered on the peer’s locality.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

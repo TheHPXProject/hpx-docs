@@ -953,7 +953,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../libs/core/synchronization/api/condition_variable_hpx_condition_variable.html">hpx::condition_variable</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../libs/core/synchronization/api/condition_variable_hpx_condition_variable_any.html">hpx::condition_variable_any</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../libs/core/synchronization/api/condition_variable_hpx_cv_status.html">hpx::cv_status</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../libs/core/synchronization/api/channel_mpsc.html">hpx/synchronization/channel_mpsc.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../libs/core/synchronization/api/counting_semaphore_hpx_counting_semaphore.html">hpx::counting_semaphore</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../libs/core/synchronization/api/no_mutex_hpx_no_mutex.html">hpx::no_mutex</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../libs/core/synchronization/api/event.html">hpx/synchronization/event.hpp</a></li>
@@ -1366,7 +1365,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../api/testing_hpx_supervision_testing_set_evict_fenced_hook_for_testing.html">hpx::supervision::testing::set_evict_fenced_hook_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/testing_hpx_supervision_testing_set_lifecycle_mirror_hook_for_testing.html">hpx::supervision::testing::set_lifecycle_mirror_hook_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/testing_hpx_supervision_testing_set_evict_peer_hook_for_testing.html">hpx::supervision::testing::set_evict_peer_hook_for_testing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../api/testing_hpx_supervision_testing_set_lifecycle_observer_hook_for_testing.html">hpx::supervision::testing::set_lifecycle_observer_hook_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/testing_hpx_supervision_testing_evict_peers_waiting_for_mirrors_for_testing.html">hpx::supervision::testing::evict_peers_waiting_for_mirrors_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/dispatch_api_hpx_supervision_init.html">hpx::supervision::init</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/dispatch_api_hpx_supervision_finalize.html">hpx::supervision::finalize</a></li>
@@ -1712,7 +1710,6 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx11supervision7testing33set_evict_fenced_hook_for_testingEN3hpx8functionIFvvEEE"><code class="docutils literal notranslate"><span class="pre">set_evict_fenced_hook_for_testing</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx11supervision7testing37set_lifecycle_mirror_hook_for_testingEN3hpx8functionIFvvEEE"><code class="docutils literal notranslate"><span class="pre">set_lifecycle_mirror_hook_for_testing</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx11supervision7testing31set_evict_peer_hook_for_testingEN3hpx8functionIFvvEEE"><code class="docutils literal notranslate"><span class="pre">set_evict_peer_hook_for_testing</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx11supervision7testing39set_lifecycle_observer_hook_for_testingEN3hpx8functionIFvvEEE"><code class="docutils literal notranslate"><span class="pre">set_lifecycle_observer_hook_for_testing</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx11supervision7testing43evict_peers_waiting_for_mirrors_for_testingEv"><code class="docutils literal notranslate"><span class="pre">evict_peers_waiting_for_mirrors_for_testing</span></code></a></li>
 </ul>
 </li>
@@ -2079,13 +2076,10 @@ no-op if that entry is gone, or the peer’s state is no longer
 terminal. Fire-and-forget. If a lifecycle event of the peer is being
 mirrored, or was mirrored, while the call checks the terminal state,
 it does not remove anything; the failure-detection loop calls it again
-on its next sweep. It also checks the local state a second time before
-the removal, so a new epoch that changed the state before then, for
-instance one a registry that joined its own locality published
-directly, keeps the peer even if it was not mirrored yet. A new epoch
-that changes the state after that check, and is not being mirrored
-yet, ends as if it started right after the removal: it is not
-mirrored, and the peer has to be joined again, see the manual.</p>
+on its next sweep. This assumes the peer’s local supervision state is
+changed only through this registry’s mirroring, which does not hold
+for a registry that joined its own locality, or for several
+registries joining the same peer, see the manual.</p>
 </dd></dl>
 
 <dl class="cpp function">
@@ -2283,11 +2277,6 @@ unit tests for this module deterministic:</p>
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision7testing39set_lifecycle_observer_hook_for_testingEN3hpx8functionIFvvEEE">
-<span id="_CPPv3N3hpx11supervision7testing39set_lifecycle_observer_hook_for_testingEN3hpx8functionIFvvEEE"></span><span id="_CPPv2N3hpx11supervision7testing39set_lifecycle_observer_hook_for_testingEN3hpx8functionIFvvEEE"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../api/server_registry.html#_CPPv4N3hpx11supervisionE" title="hpx::supervision"><span class="n"><span class="pre">supervision</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">testing</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">set_lifecycle_observer_hook_for_testing</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../../libs/core/functional/api/function_hpx_function.html#_CPPv4I0_bEN3hpx8functionE" title="hpx::function"><span class="n"><span class="pre">function</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">hook</span></span><span class="sig-paren">)</span><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx11supervision7testing43evict_peers_waiting_for_mirrors_for_testingEv">
 <span id="_CPPv3N3hpx11supervision7testing43evict_peers_waiting_for_mirrors_for_testingEv"></span><span id="_CPPv2N3hpx11supervision7testing43evict_peers_waiting_for_mirrors_for_testingEv"></span><span id="hpx::supervision::testing::evict_peers_waiting_for_mirrors_for_testing"></span><a class="reference internal" href="../../../libs/core/coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../api/server_registry.html#_CPPv4N3hpx11supervisionE" title="hpx::supervision"><span class="n"><span class="pre">supervision</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">testing</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">evict_peers_waiting_for_mirrors_for_testing</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
 <dd></dd></dl>
@@ -2419,7 +2408,6 @@ builds on.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx11supervision7testing33set_evict_fenced_hook_for_testingEN3hpx8functionIFvvEEE"><code class="docutils literal notranslate"><span class="pre">set_evict_fenced_hook_for_testing</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx11supervision7testing37set_lifecycle_mirror_hook_for_testingEN3hpx8functionIFvvEEE"><code class="docutils literal notranslate"><span class="pre">set_lifecycle_mirror_hook_for_testing</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx11supervision7testing31set_evict_peer_hook_for_testingEN3hpx8functionIFvvEEE"><code class="docutils literal notranslate"><span class="pre">set_evict_peer_hook_for_testing</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx11supervision7testing39set_lifecycle_observer_hook_for_testingEN3hpx8functionIFvvEEE"><code class="docutils literal notranslate"><span class="pre">set_lifecycle_observer_hook_for_testing</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx11supervision7testing43evict_peers_waiting_for_mirrors_for_testingEv"><code class="docutils literal notranslate"><span class="pre">evict_peers_waiting_for_mirrors_for_testing</span></code></a></li>
 </ul>
 </li>
