@@ -626,6 +626,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_cuda/api/cublas_executor.html">hpx/async_cuda/cublas_executor.hpp</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/async_local/api/full_api.html">async_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html">hpx::async</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_post.html">hpx::post</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/async_mpi/api/full_api.html">async_mpi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_mpi/api/mpi_executor.html">hpx/async_mpi/mpi_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_mpi/api/transform_mpi.html">hpx/async_mpi/transform_mpi.hpp</a></li>
@@ -2433,6 +2438,38 @@ an annotated free function template the same annotation as the template. With
 Clang it also gets the annotation of the template, so a different size is a
 compile-time error. Each source file reads the annotation from the declarations
 it sees, so put it on the declaration in the header.</p>
+<p>A plain function can also be passed to <code class="docutils literal notranslate"><span class="pre">hpx::async</span></code> and <code class="docutils literal notranslate"><span class="pre">hpx::post</span></code> as a
+template argument. It then runs locally, as with <code class="docutils literal notranslate"><span class="pre">hpx::async(&amp;f,</span> <span class="pre">...)</span></code>, and
+its size comes from <code class="docutils literal notranslate"><span class="pre">hpx::traits::task_size_of</span></code> instead of a wrapper:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">update_counter</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">hpx</span><span class="o">::</span><span class="n">traits</span><span class="o">::</span><span class="n">task_size_of</span><span class="o">&lt;&amp;</span><span class="n">update_counter</span><span class="o">&gt;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">task_size</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">task_size</span><span class="o">::</span><span class="n">small_</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">hpx</span><span class="o">::</span><span class="n">post</span><span class="o">&lt;&amp;</span><span class="n">update_counter</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">    </span><span class="c1">// runs as a small task</span>
+<span class="n">hpx</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">async</span><span class="o">&lt;&amp;</span><span class="n">update_counter</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>A launch policy or an executor can come first, as for <code class="docutils literal notranslate"><span class="pre">hpx::async</span></code>:
+<code class="docutils literal notranslate"><span class="pre">hpx::async&lt;&amp;f&gt;(hpx::launch::async,</span> <span class="pre">...)</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx::async&lt;&amp;f&gt;(exec,</span> <span class="pre">...)</span></code> and
+<code class="docutils literal notranslate"><span class="pre">hpx::post&lt;&amp;f&gt;(exec,</span> <span class="pre">...)</span></code>. An overloaded function is picked with
+<code class="docutils literal notranslate"><span class="pre">static_cast</span></code>, for instance <code class="docutils literal notranslate"><span class="pre">hpx::async&lt;static_cast&lt;int</span> <span class="pre">(*)(int)&gt;(&amp;f)&gt;(1)</span></code>.
+If the compiler supports C++26 reflection and annotations, a function that
+<code class="docutils literal notranslate"><span class="pre">task_size_of</span></code> is not specialized for has the size of its annotation. Put the
+specialization next to the declaration of the function, so that every source
+file that calls it sees it.</p>
+<p>A first argument that is a launch policy, an executor, an <code class="docutils literal notranslate"><span class="pre">hpx::id_type</span></code>, a
+distribution policy or a client is never passed to <code class="docutils literal notranslate"><span class="pre">f</span></code>. With an
+<code class="docutils literal notranslate"><span class="pre">hpx::id_type</span></code> or a distribution policy, <code class="docutils literal notranslate"><span class="pre">hpx::async&lt;&amp;f&gt;</span></code> calls <code class="docutils literal notranslate"><span class="pre">f</span></code> as an
+action on that target (see <a class="reference internal" href="writing_distributed_hpx_applications.html#action-type-definition"><span class="std std-ref">Action type definition</span></a>). The action gets its
+size as other actions do, <code class="docutils literal notranslate"><span class="pre">task_size_of</span></code> is used for local calls only.
+<code class="docutils literal notranslate"><span class="pre">hpx::post&lt;&amp;f&gt;</span></code> with one of these, and either of them with a client, does not
+compile. After a launch policy, an <code class="docutils literal notranslate"><span class="pre">hpx::id_type</span></code> or a distribution policy
+also makes <code class="docutils literal notranslate"><span class="pre">hpx::async&lt;&amp;f&gt;</span></code> call <code class="docutils literal notranslate"><span class="pre">f</span></code> as an action. After an executor, every
+argument is passed to <code class="docutils literal notranslate"><span class="pre">f</span></code>, a remote target too.</p>
 </section>
 <section id="p2079-parallel-scheduler">
 <span id="parallel-scheduler"></span><h2>P2079 parallel scheduler<a class="headerlink" href="#p2079-parallel-scheduler" title="Link to this heading">#</a></h2>

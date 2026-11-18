@@ -626,6 +626,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_cuda/api/cublas_executor.html">hpx/async_cuda/cublas_executor.hpp</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/async_local/api/full_api.html">async_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html">hpx::async</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_post.html">hpx::post</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/async_mpi/api/full_api.html">async_mpi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_mpi/api/mpi_executor.html">hpx/async_mpi/mpi_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_mpi/api/transform_mpi.html">hpx/async_mpi/transform_mpi.hpp</a></li>
@@ -1656,7 +1661,7 @@ document.write(`
 <p>This example extends the <a class="reference internal" href="fibonacci_local.html#examples-fibonacci-local"><span class="std std-ref">previous example</span></a> by
 introducing <a class="reference internal" href="../terminology.html#term-Action"><span class="xref std std-term">actions</span></a>: functions that can be run remotely. In this
 example, however, we will still only run the action locally. The mechanism to
-execute <a class="reference internal" href="../terminology.html#term-Action"><span class="xref std std-term">actions</span></a> stays the same: <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a>. Later
+execute <a class="reference internal" href="../terminology.html#term-Action"><span class="xref std std-term">actions</span></a> stays the same: <a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html#modules-async-function-pointer-hpx-async-api"><span class="std std-ref">hpx::async</span></a>. Later
 examples will demonstrate running actions on remote <a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">localities</span></a>
 (e.g. <a class="reference internal" href="hello_world.html#examples-hello-world"><span class="std std-ref">Remote execution with actions</span></a>).</p>
 <section id="setup">
@@ -1800,7 +1805,7 @@ result of the function <code class="docutils literal notranslate"><span class="p
 the <a class="reference internal" href="fibonacci_local.html#examples-fibonacci-local"><span class="std std-ref">previous example</span></a>. First, <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(n</span> <span class="pre">&lt;</span> <span class="pre">2)</span></code>,
 meaning n is 0 or 1, then we return 0 or 1 (recall the first element of the
 Fibonacci sequence is 0 and the second is 1). If n is larger than 1 we spawn two
-tasks using <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a>. Each of these futures represents an
+tasks using <a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html#modules-async-function-pointer-hpx-async-api"><span class="std std-ref">hpx::async</span></a>. Each of these futures represents an
 asynchronous, recursive call to <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code>. As previously we wait for both
 futures to finish computing, get the results, add them together, and return that
 value as our result. The recursive call tree will continue until n is equal to 0

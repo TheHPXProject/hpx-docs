@@ -626,6 +626,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_cuda/api/cublas_executor.html">hpx/async_cuda/cublas_executor.hpp</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/async_local/api/full_api.html">async_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html">hpx::async</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_post.html">hpx::post</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/async_mpi/api/full_api.html">async_mpi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_mpi/api/mpi_executor.html">hpx/async_mpi/mpi_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_mpi/api/transform_mpi.html">hpx/async_mpi/transform_mpi.hpp</a></li>
@@ -1977,7 +1982,7 @@ fire-and-forget method.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If you think you will like to synchronize your tasks later on, we suggest you use
-<a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a> which provides synchronization options, while <a class="reference internal" href="../libs/core/async_base/api/post_hpx_post.html#modules-post-hpx-post-api"><span class="std std-ref">hpx::post</span></a>
+<a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html#modules-async-function-pointer-hpx-async-api"><span class="std std-ref">hpx::async</span></a> which provides synchronization options, while <a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_post.html#modules-async-function-pointer-hpx-post-api"><span class="std std-ref">hpx::post</span></a>
 explicitly states that there is no return value or way to synchronize with the function
 execution. Synchronization options are listed below.</p>
 </div>
@@ -2004,7 +2009,7 @@ execution. Synchronization options are listed below.</p>
 <span class="c1">// code after completion of task</span>
 </pre></div>
 </div>
-<p>The <cite>get()</cite> function can be used to ensure that the task created with <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a>
+<p>The <cite>get()</cite> function can be used to ensure that the task created with <a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html#modules-async-function-pointer-hpx-async-api"><span class="std std-ref">hpx::async</span></a>
 is completed before the code continues executing beyond that point.</p>
 </section>
 <section id="multiple-tasks-synchronization">
@@ -2125,8 +2130,8 @@ to the desired variable.</p>
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>If you have nested tasks, you can simply use nested <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a> or
-<a class="reference internal" href="../libs/core/async_base/api/post_hpx_post.html#modules-post-hpx-post-api"><span class="std std-ref">hpx::post</span></a> calls. The implementation is similar if you want to take
+<p>If you have nested tasks, you can simply use nested <a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html#modules-async-function-pointer-hpx-async-api"><span class="std std-ref">hpx::async</span></a> or
+<a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_post.html#modules-async-function-pointer-hpx-post-api"><span class="std std-ref">hpx::post</span></a> calls. The implementation is similar if you want to take
 care of synchronization:</p>
 <p>OpenMP code:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp taskwait</span>
@@ -2179,7 +2184,7 @@ care of synchronization:</p>
 <span class="c1">// code after yielding</span>
 </pre></div>
 </div>
-<p>After creating a task using <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a>, <a class="reference internal" href="../libs/core/threading/api/thread_hpx_this_thread_yield.html#modules-thread-hpx-this-thread-yield-api"><span class="std std-ref">hpx::this_thread::yield</span></a>
+<p>After creating a task using <a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html#modules-async-function-pointer-hpx-async-api"><span class="std std-ref">hpx::async</span></a>, <a class="reference internal" href="../libs/core/threading/api/thread_hpx_this_thread_yield.html#modules-thread-hpx-this-thread-yield-api"><span class="std std-ref">hpx::this_thread::yield</span></a>
 can be used to reschedule the execution of threads, allowing other threads to run.</p>
 </section>
 <section id="task-group">
@@ -2327,7 +2332,7 @@ equivalent counterpart in <em>HPX</em>.</p>
 <span class="n">hpx</span><span class="o">::</span><span class="n">wait_all</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">async</span><span class="p">(</span><span class="n">task1</span><span class="p">),</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">async</span><span class="p">(</span><span class="n">task2</span><span class="p">),</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">async</span><span class="p">(</span><span class="n">task3</span><span class="p">));</span>
 </pre></div>
 </div>
-<p>To convert <cite>tbb::parallel_invoke</cite> to <em>HPX</em>, we use <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a> to asynchronously
+<p>To convert <cite>tbb::parallel_invoke</cite> to <em>HPX</em>, we use <a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html#modules-async-function-pointer-hpx-async-api"><span class="std std-ref">hpx::async</span></a> to asynchronously
 execute each task, which returns a future representing the result of each task.
 We then pass these futures to <a class="reference internal" href="../libs/core/async_combinators/api/when_all_hpx_when_all.html#modules-when-all-hpx-when-all-api"><span class="std std-ref">hpx::when_all</span></a>, which waits for all the futures
 to complete before returning.</p>

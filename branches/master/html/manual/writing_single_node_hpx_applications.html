@@ -626,6 +626,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_cuda/api/cublas_executor.html">hpx/async_cuda/cublas_executor.hpp</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/async_local/api/full_api.html">async_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html">hpx::async</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_post.html">hpx::post</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/async_mpi/api/full_api.html">async_mpi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_mpi/api/mpi_executor.html">hpx/async_mpi/mpi_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_mpi/api/transform_mpi.html">hpx/async_mpi/transform_mpi.hpp</a></li>
@@ -2272,7 +2277,7 @@ for all the future or shared_future arguments to be ready before executing the c
 line retrieves the value of the second future in the tuple using <code class="docutils literal notranslate"><span class="pre">hpx::get()</span></code> and prints it to the console.</p>
 <section id="common-pitfalls-with-futures">
 <h4>Common pitfalls with futures<a class="headerlink" href="#common-pitfalls-with-futures" title="Link to this heading">#</a></h4>
-<p>A few behaviors of <a class="reference internal" href="../libs/core/futures/api/future_hpx_future.html#modules-future-hpx-future-api"><span class="std std-ref">hpx::future</span></a>, <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a>, and the
+<p>A few behaviors of <a class="reference internal" href="../libs/core/futures/api/future_hpx_future.html#modules-future-hpx-future-api"><span class="std std-ref">hpx::future</span></a>, <a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html#modules-async-function-pointer-hpx-async-api"><span class="std std-ref">hpx::async</span></a>, and the
 future combinators can be surprising when first using <em>HPX</em>:</p>
 <ul>
 <li><p>The callable passed to the <code class="docutils literal notranslate"><span class="pre">then()</span></code> member function is invoked with the
@@ -2316,7 +2321,7 @@ the inner values have to be unwrapped as well:</p>
 outer future and it returns the tuple of inner futures, ready to be
 waited on individually.</p>
 </li>
-<li><p>Arguments passed normally to <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a> have value semantics.
+<li><p>Arguments passed normally to <a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html#modules-async-function-pointer-hpx-async-api"><span class="std std-ref">hpx::async</span></a> have value semantics.
 A callable that requires a non-const reference to an argument cannot be
 used with that argument passed normally:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
@@ -2384,7 +2389,7 @@ futures:</p>
 <a class="reference external" href="http://en.cppreference.com/w/cpp/thread/future">std::future</a> (as proposed by <a class="reference external" href="http://wg21.link/n4313">N4313</a>). This
 proposal introduces the following key asynchronous operations to
 <a class="reference internal" href="../libs/core/futures/api/future_hpx_future.html#modules-future-hpx-future-api"><span class="std std-ref">hpx::future</span></a>, <a class="reference internal" href="../libs/core/futures/api/future_hpx_shared_future.html#modules-future-hpx-shared-future-api"><span class="std std-ref">hpx::shared_future</span></a> and
-<a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a>,
+<a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html#modules-async-function-pointer-hpx-async-api"><span class="std std-ref">hpx::async</span></a>,
 which enhance and enrich these facilities.</p>
 <div class="pst-scrollable-table-container"><table class="table" id="id12">
 <caption><span class="caption-number">Table 10 </span><span class="caption-text">Facilities extending <code class="docutils literal notranslate"><span class="pre">std::future</span></code></span><a class="headerlink" href="#id12" title="Link to this table">#</a></caption>

@@ -626,6 +626,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_cuda/api/cublas_executor.html">hpx/async_cuda/cublas_executor.hpp</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/async_local/api/full_api.html">async_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html">hpx::async</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_post.html">hpx::post</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/async_mpi/api/full_api.html">async_mpi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_mpi/api/mpi_executor.html">hpx/async_mpi/mpi_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_mpi/api/transform_mpi.html">hpx/async_mpi/transform_mpi.hpp</a></li>
@@ -1808,7 +1813,7 @@ asynchronous. To understand what is happening we have to look inside the
 meaning n is 0 or 1, then we return 0 or 1 (recall the first element of the
 Fibonacci sequence is 0 and the second is 1). If n is larger than 1 we spawn two
 new tasks whose results are contained in <code class="docutils literal notranslate"><span class="pre">n1</span></code> and <code class="docutils literal notranslate"><span class="pre">n2</span></code>. This is done using
-<a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a> which takes as arguments a function (function pointer,
+<a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html#modules-async-function-pointer-hpx-async-api"><span class="std std-ref">hpx::async</span></a> which takes as arguments a function (function pointer,
 object or lambda) and the arguments to the function. Instead of returning a
 <code class="docutils literal notranslate"><span class="pre">std::uint64_t</span></code> like <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code> does, <code class="docutils literal notranslate"><span class="pre">hpx::async</span></code> returns a future of a
 <code class="docutils literal notranslate"><span class="pre">std::uint64_t</span></code>, i.e. <code class="docutils literal notranslate"><span class="pre">hpx::future&lt;std::uint64_t&gt;</span></code>. Each of these futures

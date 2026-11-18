@@ -29,6 +29,7 @@ refer to the full documentation below.
    /libs/core/async_base/api/full_api.rst
    /libs/core/async_combinators/api/full_api.rst
    /libs/core/async_cuda/api/full_api.rst
+   /libs/core/async_local/api/full_api.rst
    /libs/core/async_mpi/api/full_api.rst
    /libs/core/async_sycl/api/full_api.rst
    /libs/core/cache/api/full_api.rst

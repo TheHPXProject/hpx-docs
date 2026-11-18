@@ -626,6 +626,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_cuda/api/cublas_executor.html">hpx/async_cuda/cublas_executor.hpp</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/async_local/api/full_api.html">async_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html">hpx::async</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_post.html">hpx::post</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/async_mpi/api/full_api.html">async_mpi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_mpi/api/mpi_executor.html">hpx/async_mpi/mpi_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_mpi/api/transform_mpi.html">hpx/async_mpi/transform_mpi.hpp</a></li>
@@ -1685,7 +1690,7 @@ cancelable.</p></li>
 composed. The helper functions <a class="reference internal" href="../libs/core/async_combinators/api/wait_all_hpx_wait_all.html#modules-wait-all-hpx-wait-all-api"><span class="std std-ref">hpx::wait_all</span></a>,
 <a class="reference internal" href="../libs/core/async_combinators/api/wait_any_hpx_wait_any.html#modules-wait-any-hpx-wait-any-api"><span class="std std-ref">hpx::wait_any</span></a>, and <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::wait_n</span></code> can be used to wait for
 more than one future at a time.</p></li>
-<li><p><em>HPX</em> now exposes <a class="reference internal" href="../libs/core/async_sycl/api/sycl_executor.html#_CPPv4I0DpEN3hpx5applyEbRR8ExecutorRRN3hpx4sycl12experimental13sycl_executor20queue_function_ptr_tIDp2TsEEDpRR2Ts" title="hpx::apply"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::apply</span></code></a> and <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a> as the
+<li><p><em>HPX</em> now exposes <a class="reference internal" href="../libs/core/async_sycl/api/sycl_executor.html#_CPPv4I0DpEN3hpx5applyEbRR8ExecutorRRN3hpx4sycl12experimental13sycl_executor20queue_function_ptr_tIDp2TsEEDpRR2Ts" title="hpx::apply"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::apply</span></code></a> and <a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html#modules-async-function-pointer-hpx-async-api"><span class="std std-ref">hpx::async</span></a> as the
 preferred way of creating (or invoking) any deferred work. These functions are
 usable with various types of functions, function objects, and actions and
 provide a uniform way to spawn deferred tasks.</p></li>
@@ -1698,7 +1703,7 @@ user can write is own types of continuations. It can be used to execute any
 function as an continuation of a particular action.</p></li>
 <li><p>Reworked the action invocation API to be fully conformant to normal functions.
 Actions can now be invoked using <a class="reference internal" href="../libs/core/async_sycl/api/sycl_executor.html#_CPPv4I0DpEN3hpx5applyEbRR8ExecutorRRN3hpx4sycl12experimental13sycl_executor20queue_function_ptr_tIDp2TsEEDpRR2Ts" title="hpx::apply"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">hpx::apply</span></code></a>,
-<a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a>, or using the <code class="docutils literal notranslate"><span class="pre">operator()</span></code> implemented on actions.
+<a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html#modules-async-function-pointer-hpx-async-api"><span class="std std-ref">hpx::async</span></a>, or using the <code class="docutils literal notranslate"><span class="pre">operator()</span></code> implemented on actions.
 Actions themselves can now be cheaply instantiated as they do not have any
 members anymore.</p></li>
 <li><p>Reworked the lazy action invocation API. Actions can now be directly bound

@@ -626,6 +626,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_cuda/api/cublas_executor.html">hpx/async_cuda/cublas_executor.hpp</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/async_local/api/full_api.html">async_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html">hpx::async</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_post.html">hpx::post</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/async_mpi/api/full_api.html">async_mpi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_mpi/api/mpi_executor.html">hpx/async_mpi/mpi_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_mpi/api/transform_mpi.html">hpx/async_mpi/transform_mpi.hpp</a></li>
@@ -2083,7 +2088,7 @@ epoch it actually occurred in. No round trip is initiated by the joining
 side to “check in” on a peer; synchronization is entirely push-driven by
 whichever locality actually observes the peer’s own state changing.</p>
 <p>If the mirrored event is terminal (<code class="docutils literal notranslate"><span class="pre">completed</span></code> or <code class="docutils literal notranslate"><span class="pre">failed</span></code>), the
-callback additionally schedules - via <a class="reference internal" href="../libs/core/async_base/api/post_hpx_post.html#modules-post-hpx-post-api"><span class="std std-ref">hpx::post()</span></a>, deferred rather than
+callback additionally schedules - via <a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_post.html#modules-async-function-pointer-hpx-post-api"><span class="std std-ref">hpx::post()</span></a>, deferred rather than
 inline, since the callback itself does not hold the registry’s lock - the
 peer’s eviction from <code class="docutils literal notranslate"><span class="pre">peers_</span></code>. Once evicted, the peer no longer appears in
 <a class="reference internal" href="../components/supervision_dispatch/docs/index.html#_CPPv4NK3hpx11supervision8registry14snapshot_peersEv" title="hpx::supervision::registry::snapshot_peers"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">registry::snapshot_peers()</span></code></a>, and its observer registrations are
@@ -2258,7 +2263,7 @@ the sections above).</p></li>
 <li><p><strong>Colocated dispatch and authoritative re-check (target’s locality).</strong>
 If the local check does not reject, <a class="reference internal" href="../components/supervision_dispatch/api/dispatch_work_hpx_supervision_dispatch_work.html#modules-dispatch-work-hpx-supervision-dispatch-work-api"><span class="std std-ref">dispatch_work()</span></a> wraps the caller’s
 action in a generated <a class="reference internal" href="../components/supervision_dispatch/docs/index.html#_CPPv4I000DpEN3hpx11supervision13fenced_actionE" title="hpx::supervision::fenced_action"><code class="xref cpp cpp-struct docutils literal notranslate"><span class="pre">fenced_action</span></code></a> and dispatches it via
-<a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a> to <code class="docutils literal notranslate"><span class="pre">hpx::colocated(target)</span></code> - i.e. it runs on the same
+<a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html#modules-async-function-pointer-hpx-async-api"><span class="std std-ref">hpx::async</span></a> to <code class="docutils literal notranslate"><span class="pre">hpx::colocated(target)</span></code> - i.e. it runs on the same
 locality that hosts <code class="docutils literal notranslate"><span class="pre">target</span></code> and owns its authoritative supervision
 state. The action body that actually runs there is
 <a class="reference internal" href="../components/supervision_dispatch/api/dispatch_work_hpx_supervision_invoke_fenced_action.html#modules-dispatch-work-hpx-supervision-invoke-fenced-action-api"><span class="std std-ref">invoke_fenced_action()</span></a>, which performs a <em>second</em>
@@ -2331,7 +2336,7 @@ action’s own arguments (<code class="docutils literal notranslate"><span class
 forwarded to <code class="docutils literal notranslate"><span class="pre">Action</span></code> verbatim).</p></li>
 </ol>
 <p>Both a template-argument form and an instance-argument form are available for
-<a class="reference internal" href="../components/supervision_dispatch/api/dispatch_work_hpx_supervision_dispatch_work.html#modules-dispatch-work-hpx-supervision-dispatch-work-api"><span class="std std-ref">dispatch_work()</span></a>, mirroring the two ways <a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a> can be called:</p>
+<a class="reference internal" href="../components/supervision_dispatch/api/dispatch_work_hpx_supervision_dispatch_work.html#modules-dispatch-work-hpx-supervision-dispatch-work-api"><span class="std std-ref">dispatch_work()</span></a>, mirroring the two ways <a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html#modules-async-function-pointer-hpx-async-api"><span class="std std-ref">hpx::async</span></a> can be called:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Action specified as an explicit template argument (as above):</span>
 <span class="n">hpx</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="n">result_type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span>
 <span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">supervision</span><span class="o">::</span><span class="n">dispatch_work</span><span class="o">&lt;</span><span class="n">Action</span><span class="o">&gt;</span><span class="p">(</span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">epoch</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">...);</span>
@@ -2349,7 +2354,7 @@ behavior (same two-check admission flow, same exception on fencing, same
 argument forwarding to <code class="docutils literal notranslate"><span class="pre">Action</span></code>). It exists purely so that call sites
 already holding an action instance - rather than naming the action type
 directly – don’t need an extra step to obtain one, the same convenience
-<a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a> itself offers by accepting either an action type or an action
+<a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html#modules-async-function-pointer-hpx-async-api"><span class="std std-ref">hpx::async</span></a> itself offers by accepting either an action type or an action
 instance.</p>
 <p>A further overload, <code class="docutils literal notranslate"><span class="pre">dispatch_work(Action,</span> <span class="pre">discovered_peer</span> <span class="pre">const&amp;,</span>
 <span class="pre">args...)</span></code>, takes a peer returned by <code class="docutils literal notranslate"><span class="pre">discover_and_join()</span></code> in place of an

@@ -626,6 +626,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_cuda/api/cublas_executor.html">hpx/async_cuda/cublas_executor.hpp</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/async_local/api/full_api.html">async_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html">hpx::async</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_post.html">hpx::post</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/async_mpi/api/full_api.html">async_mpi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_mpi/api/mpi_executor.html">hpx/async_mpi/mpi_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_mpi/api/transform_mpi.html">hpx/async_mpi/transform_mpi.hpp</a></li>
@@ -1939,8 +1944,8 @@ a single macro instead of the three-step process described above:</p>
 </pre></div>
 </div>
 <p>The resulting <code class="docutils literal notranslate"><span class="pre">some_member_action</span></code> type can be used exactly like an action
-type created with <a class="reference internal" href="../libs/full/actions_base/api/component_action_HPX_DEFINE_COMPONENT_ACTION.html#c.HPX_DEFINE_COMPONENT_ACTION" title="HPX_DEFINE_COMPONENT_ACTION"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_DEFINE_COMPONENT_ACTION</span></code></a>, with <a class="reference internal" href="../libs/core/async_base/api/post_hpx_post.html#modules-post-hpx-post-api"><span class="std std-ref">hpx::post</span></a>,
-<a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a>, and <a class="reference internal" href="../libs/core/async_base/api/sync_hpx_sync.html#modules-sync-hpx-sync-api"><span class="std std-ref">hpx::sync</span></a>, or by invoking it directly. No
+type created with <a class="reference internal" href="../libs/full/actions_base/api/component_action_HPX_DEFINE_COMPONENT_ACTION.html#c.HPX_DEFINE_COMPONENT_ACTION" title="HPX_DEFINE_COMPONENT_ACTION"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_DEFINE_COMPONENT_ACTION</span></code></a>, with <a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_post.html#modules-async-function-pointer-hpx-post-api"><span class="std std-ref">hpx::post</span></a>,
+<a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html#modules-async-function-pointer-hpx-async-api"><span class="std std-ref">hpx::async</span></a>, and <a class="reference internal" href="../libs/core/async_base/api/sync_hpx_sync.html#modules-sync-hpx-sync-api"><span class="std std-ref">hpx::sync</span></a>, or by invoking it directly. No
 separate registration step is required in the source file.</p>
 </section>
 <section id="action-invocation">
