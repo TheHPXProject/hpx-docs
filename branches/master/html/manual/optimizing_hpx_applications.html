@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Optimizing HPX applications &#8212; HPX 2.0.1-rc1 documentation</title>
+    <title>Optimizing HPX applications &#8212; HPX 2.1.0-trunk documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=dabc1245"></script>
+    <script src="../_static/documentation_options.js?v=0df519e6"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -48,11 +48,11 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Using the LCI parcelport" href="using_the_lci_parcelport.html" />
+    <link rel="next" title="Profiling and tracing HPX applications" href="profiling_and_tracing.html" />
     <link rel="prev" title="Debugging HPX applications" href="debugging_hpx_applications.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Nov 17, 2026"/>
+    <meta name="docbuild:last-update" content="Nov 18, 2026"/>
   </head>
   
   
@@ -142,8 +142,8 @@
       
     
     
-    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.1-rc1 documentation - Home"/>
-    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.1-rc1 documentation - Home"/>`);</script>
+    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.1.0-trunk documentation - Home"/>
+    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.1.0-trunk documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -200,6 +200,7 @@
 <li class="toctree-l2"><a class="reference internal" href="running_on_batch_systems.html">Running on batch systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="debugging_hpx_applications.html">Debugging <em>HPX</em> applications</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Optimizing <em>HPX</em> applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiling_and_tracing.html">Profiling and tracing <em>HPX</em> applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using_the_lci_parcelport.html">Using the LCI parcelport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using_the_lcw_parcelport.html">Using the LCW parcelport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hpx_runtime_and_resources.html"><em>HPX</em> runtime and resources</a></li>
@@ -352,6 +353,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_define_task_block.html">hpx::experimental::define_task_block</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_define_task_block_restore_thread.html">hpx::experimental::define_task_block_restore_thread</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/task_group_hpx_experimental_task_group.html">hpx::experimental::task_group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/spmd_block.html">hpx/parallel/spmd_block.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/run_on_all_hpx_experimental_run_on_all.html">hpx::experimental::run_on_all</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/remove_copy_hpx_ranges_remove_copy.html">hpx::ranges::remove_copy</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/remove_copy_hpx_ranges_remove_copy_if.html">hpx::ranges::remove_copy_if</a></li>
@@ -397,6 +399,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/swap_ranges_hpx_ranges_swap_ranges.html">hpx::ranges::swap_ranges</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/merge_hpx_ranges_merge.html">hpx::ranges::merge</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/merge_hpx_ranges_inplace_merge.html">hpx::ranges::inplace_merge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/contains.html">hpx/parallel/container_algorithms/contains.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/equal_hpx_ranges_equal.html">hpx::ranges::equal</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_ranges_experimental_for_loop.html">hpx::ranges::experimental::for_loop</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_ranges_experimental_for_loop_strided.html">hpx::ranges::experimental::for_loop_strided</a></li>
@@ -800,7 +803,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/move_only_function_hpx_move_only_function.html">hpx::move_only_function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_placeholder_hpx_is_placeholder.html">hpx::is_placeholder</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_bind_expression_hpx_is_bind_expression.html">hpx::is_bind_expression</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/get_task_size.html">hpx/functional/traits/get_task_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_exit_hpx_experimental_scope_exit.html">hpx::experimental::scope_exit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_success_hpx_experimental_scope_success.html">hpx::experimental::scope_success</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_fail_hpx_experimental_scope_fail.html">hpx::experimental::scope_fail</a></li>
@@ -827,6 +829,11 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/io_service/api/full_api.html">io_service</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/io_service/api/io_service_pool.html">hpx/io_service/io_service_pool.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/io_service/api/schedule_timer.html">hpx/io_service/schedule_timer.hpp</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/iterator_support/api/full_api.html">iterator_support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/iterator_support/api/iterator_dereference_task_size.html">hpx/iterator_support/traits/iterator_dereference_task_size.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/lcos_local/api/full_api.html">lcos_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -917,6 +924,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/runtime_local/api/custom_exception_info.html">hpx/runtime_local/custom_exception_info.hpp</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/schedulers/api/full_api.html">schedulers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/schedulers/api/local_priority_tuned_scheduler.html">hpx/schedulers/local_priority_tuned_scheduler.hpp</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/serialization/api/full_api.html">serialization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/serialization_chunk.html">hpx/serialization/serialization_chunk.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/base_object.html">hpx/serialization/base_object.hpp</a></li>
@@ -942,6 +953,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/condition_variable_hpx_condition_variable.html">hpx::condition_variable</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/condition_variable_hpx_condition_variable_any.html">hpx::condition_variable_any</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/condition_variable_hpx_cv_status.html">hpx::cv_status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/channel_mpsc.html">hpx/synchronization/channel_mpsc.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/counting_semaphore_hpx_counting_semaphore.html">hpx::counting_semaphore</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/no_mutex_hpx_no_mutex.html">hpx::no_mutex</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/event.html">hpx/synchronization/event.hpp</a></li>
@@ -963,8 +975,11 @@
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/thread_support/api/full_api.html">thread_support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/task_size.html">hpx/thread_support/task_size.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/stack_size.html">hpx/thread_support/stack_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/unlock_guard_hpx_unlock_guard.html">hpx::unlock_guard</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/spinlock.html">hpx/thread_support/spinlock.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/thread_enums.html">hpx/thread_support/thread_enums.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/threading/api/full_api.html">threading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -978,11 +993,14 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/threading_base/api/full_api.html">threading_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scoped_annotation_hpx_scoped_annotation.html">hpx::scoped_annotation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/set_thread_state.html">hpx/threading_base/set_thread_state.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_data.html">hpx/threading_base/thread_data.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_pool_base.html">hpx/threading_base/thread_pool_base.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/annotated_function_hpx_annotated_function.html">hpx::annotated_function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/register_thread.html">hpx/threading_base/register_thread.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/sized_function_hpx_threads_with_task_size.html">hpx::threads::with_task_size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scheduling_policy.html">hpx/threading_base/scheduling_policy.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scheduler_tuning.html">hpx/threading_base/scheduler_tuning.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/print.html">hpx/threading_base/print.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_description.html">hpx/threading_base/thread_description.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_helpers.html">hpx/threading_base/thread_helpers.hpp</a></li>
@@ -991,6 +1009,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_num_tss_hpx_get_local_worker_thread_num.html">hpx::get_local_worker_thread_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_num_tss_hpx_get_thread_pool_num.html">hpx::get_thread_pool_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/threading_base_fwd.html">hpx/threading_base/threading_base_fwd.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/stack_sized_function_hpx_threads_with_stack_size.html">hpx::threads::with_stack_size</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/threadmanager/api/full_api.html">threadmanager</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1026,6 +1045,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/apex.html">hpx/tracing/backends/apex.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/ittnotify.html">hpx/tracing/backends/ittnotify.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/tracy.html">hpx/tracing/backends/tracy.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/empty_lock_context.html">hpx/tracing/backends/empty_lock_context.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/empty.html">hpx/tracing/backends/empty.hpp</a></li>
 </ul>
 </details></li>
@@ -1117,6 +1137,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_communicator.html">hpx::collectives::create_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_local_communicator.html">hpx::collectives::create_local_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_hierarchical_communicator.html">hpx::collectives::create_hierarchical_communicator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_hierarchical_communicator.html">hpx::collectives::hierarchical_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_set_info.html">hpx::collectives::communicator::set_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_get_info.html">hpx::collectives::communicator::get_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_is_root.html">hpx::collectives::communicator::is_root</a></li>
@@ -1178,6 +1199,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/components_base_fwd_hpx_components_component.html">hpx::components::component</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/components_base_fwd_hpx_components_component_base.html">hpx::components::component_base</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/get_lva.html">hpx/components_base/get_lva.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/component_registered_elsewhere.html">hpx/components_base/traits/component_registered_elsewhere.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/managed_component_base.html">hpx/components_base/server/managed_component_base.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/migration_support.html">hpx/components_base/server/migration_support.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/fixed_component_base.html">hpx/components_base/server/fixed_component_base.hpp</a></li>
@@ -1290,6 +1312,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/is_partitioned.html">hpx/parallel/segmented_algorithms/is_partitioned.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/transform.html">hpx/parallel/segmented_algorithms/transform.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/all_any_none.html">hpx/parallel/segmented_algorithms/all_any_none.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/sort.html">hpx/parallel/segmented_algorithms/sort.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/fill.html">hpx/parallel/segmented_algorithms/fill.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/merge.html">hpx/parallel/segmented_algorithms/merge.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/equal.html">hpx/parallel/segmented_algorithms/equal.hpp</a></li>
@@ -1340,6 +1363,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_suspend_heartbeat_for_testing.html">hpx::supervision::testing::suspend_heartbeat_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_failure_detection_sweep_in_flight_for_testing.html">hpx::supervision::testing::failure_detection_sweep_in_flight_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_stop_background_loops.html">hpx::supervision::testing::stop_background_loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_fenced_hook_for_testing.html">hpx::supervision::testing::set_evict_fenced_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_lifecycle_mirror_hook_for_testing.html">hpx::supervision::testing::set_lifecycle_mirror_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_peer_hook_for_testing.html">hpx::supervision::testing::set_evict_peer_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_lifecycle_observer_hook_for_testing.html">hpx::supervision::testing::set_lifecycle_observer_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_evict_peers_waiting_for_mirrors_for_testing.html">hpx::supervision::testing::evict_peers_waiting_for_mirrors_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_init.html">hpx::supervision::init</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_finalize.html">hpx::supervision::finalize</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_is_initialized.html">hpx::supervision::is_initialized</a></li>
@@ -1373,7 +1401,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases.html">Releases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_0_1.html"><em>HPX</em> V2.0.1 (TBD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_1_0.html"><em>HPX</em> V2.1.0 (TBD)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_1_11_0.html"><em>HPX</em> V1.11.0 (Jun 30, 2025)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_0_0.html"><em>HPX</em> V2.0.0 (Oct 31, 2026)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_1_10_0.html"><em>HPX</em> V1.10.0 (May 29, 2024)</a></li>
@@ -1642,7 +1670,6 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apex-integration">APEX integration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tracy-integration">Tracy integration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
             </nav>
         </div>
@@ -1800,8 +1827,8 @@ names. Performance counter names can contain two types of wildcard characters:</
 </ul>
 <p>A wildcard character has a meaning which is very close to usual file name
 wildcard matching rules implemented by common shells (like bash).</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id13">
-<caption><span class="caption-number">Table 25 </span><span class="caption-text">Wildcard characters in the performance counter type</span><a class="headerlink" href="#id13" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id11">
+<caption><span class="caption-number">Table 25 </span><span class="caption-text">Wildcard characters in the performance counter type</span><a class="headerlink" href="#id11" title="Link to this table">#</a></caption>
 <tbody>
 <tr class="row-odd"><td><p>Wildcard</p></td>
 <td><p>Description</p></td>
@@ -1820,8 +1847,8 @@ specified within the square brackets.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id14">
-<caption><span class="caption-number">Table 26 </span><span class="caption-text">Wildcard characters in the performance counter instance name</span><a class="headerlink" href="#id14" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id12">
+<caption><span class="caption-number">Table 26 </span><span class="caption-text">Wildcard characters in the performance counter instance name</span><a class="headerlink" href="#id12" title="Link to this table">#</a></caption>
 <tbody>
 <tr class="row-odd"><td><p>Wildcard</p></td>
 <td><p>Description</p></td>
@@ -1854,8 +1881,8 @@ to performance counters allows one to list existing counters, and query existing
 counters once at application termination or repeatedly after a constant time
 interval.</p>
 <p>The following table summarizes the available command line options:</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id15">
-<caption><span class="caption-number">Table 27 </span><span class="caption-text"><em>HPX</em> Command Line Options Related to Performance Counters</span><a class="headerlink" href="#id15" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id13">
+<caption><span class="caption-number">Table 27 </span><span class="caption-text"><em>HPX</em> Command Line Options Related to Performance Counters</span><a class="headerlink" href="#id13" title="Link to this table">#</a></caption>
 <tbody>
 <tr class="row-odd"><td><p>Command line option</p></td>
 <td><p>Description</p></td>
@@ -1932,11 +1959,11 @@ network flow, and internal runtime metrics.</p>
 <p><code class="docutils literal notranslate"><span class="pre">hpx-top.py</span></code> is experimental. It may continue to evolve or be removed in
 a future release.</p>
 </div>
-<figure class="align-center" id="id16">
+<figure class="align-center" id="id14">
 <a class="reference internal image-reference" href="../_images/hpx_top.png"><img alt="HPX-Top Dashboard Screenshot" src="../_images/hpx_top.png" style="width: 100%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">HPX-Top Real-time Performance Dashboard</span><a class="headerlink" href="#id16" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">HPX-Top Real-time Performance Dashboard</span><a class="headerlink" href="#id14" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="features">
@@ -1992,11 +2019,11 @@ deep-dive analysis of specific metrics with built-in heuristic alerting.</p>
 <p><code class="docutils literal notranslate"><span class="pre">hpx_stat_viewer.py</span></code> is experimental. It may continue to evolve or be
 removed in a future release.</p>
 </div>
-<figure class="align-center" id="id17">
+<figure class="align-center" id="id15">
 <a class="reference internal image-reference" href="../_images/hpx_stat_viewer.png"><img alt="HPX Smart Telemetry Dashboard Screenshot" src="../_images/hpx_stat_viewer.png" style="width: 100%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">HPX Smart Telemetry Dashboard with Anomaly Detection</span><a class="headerlink" href="#id17" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">HPX Smart Telemetry Dashboard with Anomaly Detection</span><a class="headerlink" href="#id15" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="id6">
@@ -2694,8 +2721,8 @@ actual value but also provides information about:</p>
 counters. These counters expose critical information about different modules of
 the runtime system. They can help determine system bottlenecks and fine-tune
 system and application performance.</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id18">
-<caption><span class="caption-number">Table 28 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> performance counter <code class="docutils literal notranslate"><span class="pre">/agas/count/&lt;agas_service&gt;</span></code></span><a class="headerlink" href="#id18" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id16">
+<caption><span class="caption-number">Table 28 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> performance counter <code class="docutils literal notranslate"><span class="pre">/agas/count/&lt;agas_service&gt;</span></code></span><a class="headerlink" href="#id16" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -2738,74 +2765,74 @@ service since its creation.</p></td>
 </tbody>
 </table>
 </div>
+<div class="pst-scrollable-table-container"><table class="table" id="id17">
+<caption><span class="caption-number">Table 29 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> performance counter <code class="docutils literal notranslate"><span class="pre">/agas/&lt;agas_service_category&gt;/count</span></code></span><a class="headerlink" href="#id17" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Counter type</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/agas/&lt;agas_service_category&gt;/count</span></code></p>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;agas_service_category&gt;</span></code> is one of the following: <code class="docutils literal notranslate"><span class="pre">primary</span></code>,
+<code class="docutils literal notranslate"><span class="pre">locality</span></code>, <code class="docutils literal notranslate"><span class="pre">component</span></code> or <code class="docutils literal notranslate"><span class="pre">symbol</span></code></p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Counter instance formatting</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;agas_instance&gt;/total</span></code></p>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;agas_instance&gt;</span></code> is the name of the <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> service to query.
+Currently, this value will be <code class="docutils literal notranslate"><span class="pre">locality#0</span></code> where <code class="docutils literal notranslate"><span class="pre">0</span></code> is the root
+<a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a> (the id of the <a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a> hosting the <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a>
+service). Except for <code class="docutils literal notranslate"><span class="pre">&lt;agas_service_category&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">primary</span></code> or
+<code class="docutils literal notranslate"><span class="pre">symbol</span></code> for which the value for <code class="docutils literal notranslate"><span class="pre">*</span></code> can be any <a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a> id
+(only the primary and symbol <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> service components live on all
+localities, whereas all other <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> services are available on
+<code class="docutils literal notranslate"><span class="pre">locality#0</span></code> only).</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Description</p></td>
+<td><p>Returns the overall total number of invocations of all <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a>
+services provided by the given <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> service category since its
+creation.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id18">
+<caption><span class="caption-number">Table 30 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> performance counter <code class="docutils literal notranslate"><span class="pre">/agas/&lt;agas_service_category&gt;/count</span></code></span><a class="headerlink" href="#id18" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Counter type</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/agas/&lt;agas_service_category&gt;/count</span></code></p>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;agas_service_category&gt;</span></code> is one of the following: <code class="docutils literal notranslate"><span class="pre">primary</span></code>,
+<code class="docutils literal notranslate"><span class="pre">locality</span></code>, <code class="docutils literal notranslate"><span class="pre">component</span></code> or <code class="docutils literal notranslate"><span class="pre">symbol</span></code></p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Counter instance formatting</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;agas_instance&gt;/total</span></code></p>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;agas_instance&gt;</span></code> is the name of the <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> service to query.
+Currently, this value will be <code class="docutils literal notranslate"><span class="pre">locality#0</span></code> where <code class="docutils literal notranslate"><span class="pre">0</span></code> is the root
+<a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a> (the id of the <a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a> hosting the <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a>
+service). Except for <code class="docutils literal notranslate"><span class="pre">&lt;agas_service_category&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">primary</span></code> or
+<code class="docutils literal notranslate"><span class="pre">symbol</span></code> for which the value for <code class="docutils literal notranslate"><span class="pre">*</span></code> can be any <a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a> id
+(only the primary and symbol <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> service components live on all
+localities, whereas all other <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> services are available on
+<code class="docutils literal notranslate"><span class="pre">locality#0</span></code> only).</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Description</p></td>
+<td><p>Returns the overall total number of invocations of all <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a>
+services provided by the given <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> service category since its
+creation.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="pst-scrollable-table-container"><table class="table" id="id19">
-<caption><span class="caption-number">Table 29 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> performance counter <code class="docutils literal notranslate"><span class="pre">/agas/&lt;agas_service_category&gt;/count</span></code></span><a class="headerlink" href="#id19" title="Link to this table">#</a></caption>
-<colgroup>
-<col style="width: 20.0%" />
-<col style="width: 80.0%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Counter type</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">/agas/&lt;agas_service_category&gt;/count</span></code></p>
-<p>where <code class="docutils literal notranslate"><span class="pre">&lt;agas_service_category&gt;</span></code> is one of the following: <code class="docutils literal notranslate"><span class="pre">primary</span></code>,
-<code class="docutils literal notranslate"><span class="pre">locality</span></code>, <code class="docutils literal notranslate"><span class="pre">component</span></code> or <code class="docutils literal notranslate"><span class="pre">symbol</span></code></p>
-</td>
-</tr>
-<tr class="row-even"><td><p>Counter instance formatting</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">&lt;agas_instance&gt;/total</span></code></p>
-<p>where <code class="docutils literal notranslate"><span class="pre">&lt;agas_instance&gt;</span></code> is the name of the <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> service to query.
-Currently, this value will be <code class="docutils literal notranslate"><span class="pre">locality#0</span></code> where <code class="docutils literal notranslate"><span class="pre">0</span></code> is the root
-<a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a> (the id of the <a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a> hosting the <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a>
-service). Except for <code class="docutils literal notranslate"><span class="pre">&lt;agas_service_category&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">primary</span></code> or
-<code class="docutils literal notranslate"><span class="pre">symbol</span></code> for which the value for <code class="docutils literal notranslate"><span class="pre">*</span></code> can be any <a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a> id
-(only the primary and symbol <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> service components live on all
-localities, whereas all other <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> services are available on
-<code class="docutils literal notranslate"><span class="pre">locality#0</span></code> only).</p>
-</td>
-</tr>
-<tr class="row-odd"><td><p>Description</p></td>
-<td><p>Returns the overall total number of invocations of all <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a>
-services provided by the given <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> service category since its
-creation.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="pst-scrollable-table-container"><table class="table" id="id20">
-<caption><span class="caption-number">Table 30 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> performance counter <code class="docutils literal notranslate"><span class="pre">/agas/&lt;agas_service_category&gt;/count</span></code></span><a class="headerlink" href="#id20" title="Link to this table">#</a></caption>
-<colgroup>
-<col style="width: 20.0%" />
-<col style="width: 80.0%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Counter type</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">/agas/&lt;agas_service_category&gt;/count</span></code></p>
-<p>where <code class="docutils literal notranslate"><span class="pre">&lt;agas_service_category&gt;</span></code> is one of the following: <code class="docutils literal notranslate"><span class="pre">primary</span></code>,
-<code class="docutils literal notranslate"><span class="pre">locality</span></code>, <code class="docutils literal notranslate"><span class="pre">component</span></code> or <code class="docutils literal notranslate"><span class="pre">symbol</span></code></p>
-</td>
-</tr>
-<tr class="row-even"><td><p>Counter instance formatting</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">&lt;agas_instance&gt;/total</span></code></p>
-<p>where <code class="docutils literal notranslate"><span class="pre">&lt;agas_instance&gt;</span></code> is the name of the <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> service to query.
-Currently, this value will be <code class="docutils literal notranslate"><span class="pre">locality#0</span></code> where <code class="docutils literal notranslate"><span class="pre">0</span></code> is the root
-<a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a> (the id of the <a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a> hosting the <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a>
-service). Except for <code class="docutils literal notranslate"><span class="pre">&lt;agas_service_category&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">primary</span></code> or
-<code class="docutils literal notranslate"><span class="pre">symbol</span></code> for which the value for <code class="docutils literal notranslate"><span class="pre">*</span></code> can be any <a class="reference internal" href="../terminology.html#term-Locality"><span class="xref std std-term">locality</span></a> id
-(only the primary and symbol <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> service components live on all
-localities, whereas all other <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> services are available on
-<code class="docutils literal notranslate"><span class="pre">locality#0</span></code> only).</p>
-</td>
-</tr>
-<tr class="row-odd"><td><p>Description</p></td>
-<td><p>Returns the overall total number of invocations of all <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a>
-services provided by the given <a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> service category since its
-creation.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="pst-scrollable-table-container"><table class="table" id="id21">
-<caption><span class="caption-number">Table 31 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> performance counter <code class="docutils literal notranslate"><span class="pre">agas/time/&lt;agas_service&gt;</span></code></span><a class="headerlink" href="#id21" title="Link to this table">#</a></caption>
+<caption><span class="caption-number">Table 31 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> performance counter <code class="docutils literal notranslate"><span class="pre">agas/time/&lt;agas_service&gt;</span></code></span><a class="headerlink" href="#id19" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -2848,8 +2875,8 @@ since its creation (in nanoseconds).</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id22">
-<caption><span class="caption-number">Table 32 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> performance counter <cite>/agas/&lt;agas_service_category&gt;/time`</cite></span><a class="headerlink" href="#id22" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id20">
+<caption><span class="caption-number">Table 32 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> performance counter <cite>/agas/&lt;agas_service_category&gt;/time`</cite></span><a class="headerlink" href="#id20" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -2881,8 +2908,8 @@ nanoseconds).</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id23">
-<caption><span class="caption-number">Table 33 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> performance counter <code class="docutils literal notranslate"><span class="pre">/agas/count/entries</span></code></span><a class="headerlink" href="#id23" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id21">
+<caption><span class="caption-number">Table 33 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> performance counter <code class="docutils literal notranslate"><span class="pre">/agas/count/entries</span></code></span><a class="headerlink" href="#id21" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -2905,8 +2932,8 @@ the specified <a class="reference internal" href="../terminology.html#term-Local
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id24">
-<caption><span class="caption-number">Table 34 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> performance counter <code class="docutils literal notranslate"><span class="pre">/agas/count/&lt;cache_statistics&gt;</span></code></span><a class="headerlink" href="#id24" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id22">
+<caption><span class="caption-number">Table 34 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> performance counter <code class="docutils literal notranslate"><span class="pre">/agas/count/&lt;cache_statistics&gt;</span></code></span><a class="headerlink" href="#id22" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -2933,8 +2960,8 @@ in the <a class="reference internal" href="../terminology.html#term-AGAS"><span 
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id25">
-<caption><span class="caption-number">Table 35 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> performance counter <code class="docutils literal notranslate"><span class="pre">/agas/count/&lt;full_cache_statistics&gt;</span></code></span><a class="headerlink" href="#id25" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id23">
+<caption><span class="caption-number">Table 35 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> performance counter <code class="docutils literal notranslate"><span class="pre">/agas/count/&lt;full_cache_statistics&gt;</span></code></span><a class="headerlink" href="#id23" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -2960,8 +2987,8 @@ the <a class="reference internal" href="../terminology.html#term-AGAS"><span cla
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id26">
-<caption><span class="caption-number">Table 36 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> performance counter <code class="docutils literal notranslate"><span class="pre">/agas/time/&lt;full_cache_statistics&gt;</span></code></span><a class="headerlink" href="#id26" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id24">
+<caption><span class="caption-number">Table 36 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-AGAS"><span class="xref std std-term">AGAS</span></a> performance counter <code class="docutils literal notranslate"><span class="pre">/agas/time/&lt;full_cache_statistics&gt;</span></code></span><a class="headerlink" href="#id24" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -2988,8 +3015,8 @@ the <a class="reference internal" href="../terminology.html#term-AGAS"><span cla
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id27">
-<caption><span class="caption-number">Table 37 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/data/count/&lt;connection_type&gt;/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id27" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id25">
+<caption><span class="caption-number">Table 37 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/data/count/&lt;connection_type&gt;/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id25" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3028,8 +3055,8 @@ The corresponding cmake configuration constant is
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id28">
-<caption><span class="caption-number">Table 38 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/data/time/&lt;connection_type&gt;/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id28" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id26">
+<caption><span class="caption-number">Table 38 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/data/time/&lt;connection_type&gt;/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id26" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3069,8 +3096,8 @@ The corresponding cmake configuration constant is
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id29">
-<caption><span class="caption-number">Table 39 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/serialize/count/&lt;connection_type&gt;/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id29" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id27">
+<caption><span class="caption-number">Table 39 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/serialize/count/&lt;connection_type&gt;/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id27" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3115,8 +3142,8 @@ bytes transmitted for the given action only.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id30">
-<caption><span class="caption-number">Table 40 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/serialize/time/&lt;connection_type&gt;/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id30" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id28">
+<caption><span class="caption-number">Table 40 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/serialize/time/&lt;connection_type&gt;/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id28" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3161,8 +3188,8 @@ time for the given action only.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id31">
-<caption><span class="caption-number">Table 41 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/parcels/count/routed</span></code></span><a class="headerlink" href="#id31" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id29">
+<caption><span class="caption-number">Table 41 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/parcels/count/routed</span></code></span><a class="headerlink" href="#id29" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3199,8 +3226,8 @@ parcels for the given action only.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id32">
-<caption><span class="caption-number">Table 42 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/parcels/count/&lt;connection_type&gt;/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id32" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id30">
+<caption><span class="caption-number">Table 42 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/parcels/count/&lt;connection_type&gt;/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id30" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3239,8 +3266,8 @@ The corresponding cmake configuration constant is
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id33">
-<caption><span class="caption-number">Table 43 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/messages/count/&lt;connection_type&gt;/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id33" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id31">
+<caption><span class="caption-number">Table 43 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/messages/count/&lt;connection_type&gt;/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id31" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3279,8 +3306,8 @@ The corresponding cmake configuration constant is
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id34">
-<caption><span class="caption-number">Table 44 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/parcelport/count/&lt;connection_type&gt;/zero_copy_chunks/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id34" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id32">
+<caption><span class="caption-number">Table 44 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/parcelport/count/&lt;connection_type&gt;/zero_copy_chunks/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id32" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3319,8 +3346,8 @@ The corresponding cmake configuration constant is
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id35">
-<caption><span class="caption-number">Table 45 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/parcelport/count-max/&lt;connection_type&gt;/zero_copy_chunks/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id35" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id33">
+<caption><span class="caption-number">Table 45 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/parcelport/count-max/&lt;connection_type&gt;/zero_copy_chunks/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id33" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3359,8 +3386,8 @@ The corresponding cmake configuration constant is
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id36">
-<caption><span class="caption-number">Table 46 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/parcelport/size/&lt;connection_type&gt;/zero_copy_chunks/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id36" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id34">
+<caption><span class="caption-number">Table 46 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/parcelport/size/&lt;connection_type&gt;/zero_copy_chunks/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id34" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3399,8 +3426,8 @@ The corresponding cmake configuration constant is
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id37">
-<caption><span class="caption-number">Table 47 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/parcelport/size-max/&lt;connection_type&gt;/zero_copy_chunks/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id37" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id35">
+<caption><span class="caption-number">Table 47 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/parcelport/size-max/&lt;connection_type&gt;/zero_copy_chunks/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id35" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3439,8 +3466,8 @@ The corresponding cmake configuration constant is
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id38">
-<caption><span class="caption-number">Table 48 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/parcelport/count/&lt;connection_type&gt;/&lt;cache_statistics&gt;</span></code></span><a class="headerlink" href="#id38" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id36">
+<caption><span class="caption-number">Table 48 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/parcelport/count/&lt;connection_type&gt;/&lt;cache_statistics&gt;</span></code></span><a class="headerlink" href="#id36" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3479,8 +3506,8 @@ The corresponding cmake configuration constant is
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id39">
-<caption><span class="caption-number">Table 49 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/parcelport/count/&lt;connection_type&gt;/cache-reservation-failures</span></code></span><a class="headerlink" href="#id39" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id37">
+<caption><span class="caption-number">Table 49 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/parcelport/count/&lt;connection_type&gt;/cache-reservation-failures</span></code></span><a class="headerlink" href="#id37" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3523,8 +3550,8 @@ The corresponding cmake configuration constant is
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id40">
-<caption><span class="caption-number">Table 50 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counters <code class="docutils literal notranslate"><span class="pre">/parcelport/count/&lt;connection_type&gt;/cache-connections</span></code> and <code class="docutils literal notranslate"><span class="pre">/parcelport/count/&lt;connection_type&gt;/cache-max-connections</span></code></span><a class="headerlink" href="#id40" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id38">
+<caption><span class="caption-number">Table 50 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counters <code class="docutils literal notranslate"><span class="pre">/parcelport/count/&lt;connection_type&gt;/cache-connections</span></code> and <code class="docutils literal notranslate"><span class="pre">/parcelport/count/&lt;connection_type&gt;/cache-max-connections</span></code></span><a class="headerlink" href="#id38" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3566,8 +3593,8 @@ The corresponding cmake configuration constant is
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id41">
-<caption><span class="caption-number">Table 51 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/parcelqueue/length/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id41" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id39">
+<caption><span class="caption-number">Table 51 </span><span class="caption-text"><a class="reference internal" href="../terminology.html#term-Parcel"><span class="xref std std-term">Parcel</span></a> layer performance counter <code class="docutils literal notranslate"><span class="pre">/parcelqueue/length/&lt;operation&gt;</span></code></span><a class="headerlink" href="#id39" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3592,8 +3619,8 @@ identifying the <a class="reference internal" href="../terminology.html#term-Loc
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id42">
-<caption><span class="caption-number">Table 52 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/cumulative</span></code></span><a class="headerlink" href="#id42" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id40">
+<caption><span class="caption-number">Table 52 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/cumulative</span></code></span><a class="headerlink" href="#id40" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3638,8 +3665,8 @@ constant <code class="docutils literal notranslate"><span class="pre">HPX_WITH_T
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id43">
-<caption><span class="caption-number">Table 53 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/average</span></code></span><a class="headerlink" href="#id43" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id41">
+<caption><span class="caption-number">Table 53 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/average</span></code></span><a class="headerlink" href="#id41" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3683,8 +3710,8 @@ of measure for this counter is nanosecond [ns].</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id44">
-<caption><span class="caption-number">Table 54 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/average-overhead</span></code></span><a class="headerlink" href="#id44" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id42">
+<caption><span class="caption-number">Table 54 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/average-overhead</span></code></span><a class="headerlink" href="#id42" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3729,8 +3756,8 @@ unit of measure for this counter is nanosecond [ns].</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id45">
-<caption><span class="caption-number">Table 55 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/cumulative-phases</span></code></span><a class="headerlink" href="#id45" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id43">
+<caption><span class="caption-number">Table 55 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/cumulative-phases</span></code></span><a class="headerlink" href="#id43" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3774,8 +3801,8 @@ nanosecond [ns].</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id46">
-<caption><span class="caption-number">Table 56 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/average-phase</span></code></span><a class="headerlink" href="#id46" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id44">
+<caption><span class="caption-number">Table 56 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/average-phase</span></code></span><a class="headerlink" href="#id44" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3820,8 +3847,8 @@ unit of measure for this counter is nanosecond [ns].</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id47">
-<caption><span class="caption-number">Table 57 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/average-phase-overhead</span></code></span><a class="headerlink" href="#id47" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id45">
+<caption><span class="caption-number">Table 57 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/average-phase-overhead</span></code></span><a class="headerlink" href="#id45" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3866,8 +3893,8 @@ unit of measure for this counter is nanosecond [ns].</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id48">
-<caption><span class="caption-number">Table 58 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/overall</span></code></span><a class="headerlink" href="#id48" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id46">
+<caption><span class="caption-number">Table 58 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/overall</span></code></span><a class="headerlink" href="#id46" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3910,8 +3937,8 @@ nanosecond [ns].</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id49">
-<caption><span class="caption-number">Table 59 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/cumulative</span></code></span><a class="headerlink" href="#id49" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id47">
+<caption><span class="caption-number">Table 59 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/cumulative</span></code></span><a class="headerlink" href="#id47" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -3954,8 +3981,8 @@ is available only if the configuration time constants
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id50">
-<caption><span class="caption-number">Table 60 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/cumulative-overheads</span></code></span><a class="headerlink" href="#id50" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id48">
+<caption><span class="caption-number">Table 60 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/cumulative-overheads</span></code></span><a class="headerlink" href="#id48" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4000,8 +4027,8 @@ The unit of measure for this counter is nanosecond [ns].</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id51">
-<caption><span class="caption-number">Table 61 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">threads/count/instantaneous/&lt;thread-state&gt;</span></code></span><a class="headerlink" href="#id51" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id49">
+<caption><span class="caption-number">Table 61 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">threads/count/instantaneous/&lt;thread-state&gt;</span></code></span><a class="headerlink" href="#id49" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4047,8 +4074,8 @@ name is <code class="docutils literal notranslate"><span class="pre">worker-thre
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id52">
-<caption><span class="caption-number">Table 62 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">threads/wait-time/&lt;thread-state&gt;</span></code></span><a class="headerlink" href="#id52" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id50">
+<caption><span class="caption-number">Table 62 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">threads/wait-time/&lt;thread-state&gt;</span></code></span><a class="headerlink" href="#id50" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4102,8 +4129,8 @@ nanosecond [ns].</p>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id53">
-<caption><span class="caption-number">Table 63 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/idle-rate</span></code></span><a class="headerlink" href="#id53" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id51">
+<caption><span class="caption-number">Table 63 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/idle-rate</span></code></span><a class="headerlink" href="#id51" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4142,8 +4169,8 @@ configuration time constant <code class="docutils literal notranslate"><span cla
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id54">
-<caption><span class="caption-number">Table 64 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/creation-idle-rate</span></code></span><a class="headerlink" href="#id54" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id52">
+<caption><span class="caption-number">Table 64 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/creation-idle-rate</span></code></span><a class="headerlink" href="#id52" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4183,8 +4210,8 @@ counter is available only if the configuration time constants
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id55">
-<caption><span class="caption-number">Table 65 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/cleanup-idle-rate</span></code></span><a class="headerlink" href="#id55" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id53">
+<caption><span class="caption-number">Table 65 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/cleanup-idle-rate</span></code></span><a class="headerlink" href="#id53" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4225,8 +4252,8 @@ configuration time constants <code class="docutils literal notranslate"><span cl
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id56">
-<caption><span class="caption-number">Table 66 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threadqueue/length</span></code></span><a class="headerlink" href="#id56" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id54">
+<caption><span class="caption-number">Table 66 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threadqueue/length</span></code></span><a class="headerlink" href="#id54" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4262,8 +4289,8 @@ on the given <a class="reference internal" href="../terminology.html#term-Locali
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id57">
-<caption><span class="caption-number">Table 67 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/stack-unbinds</span></code></span><a class="headerlink" href="#id57" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id55">
+<caption><span class="caption-number">Table 67 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/stack-unbinds</span></code></span><a class="headerlink" href="#id55" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4288,8 +4315,8 @@ not available on Windows based platforms.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id58">
-<caption><span class="caption-number">Table 68 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/stack-recycles</span></code></span><a class="headerlink" href="#id58" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id56">
+<caption><span class="caption-number">Table 68 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/stack-recycles</span></code></span><a class="headerlink" href="#id56" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4312,8 +4339,8 @@ based) number identifying the <a class="reference internal" href="../terminology
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id59">
-<caption><span class="caption-number">Table 69 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/stolen-from-pending</span></code></span><a class="headerlink" href="#id59" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id57">
+<caption><span class="caption-number">Table 69 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/stolen-from-pending</span></code></span><a class="headerlink" href="#id57" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4342,8 +4369,8 @@ on). This counter is available only if the configuration time constant
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id60">
-<caption><span class="caption-number">Table 70 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/pending-misses</span></code></span><a class="headerlink" href="#id60" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id58">
+<caption><span class="caption-number">Table 70 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/pending-misses</span></code></span><a class="headerlink" href="#id58" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4382,8 +4409,8 @@ time constant <code class="docutils literal notranslate"><span class="pre">HPX_W
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id61">
-<caption><span class="caption-number">Table 71 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/pending-accesses</span></code></span><a class="headerlink" href="#id61" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id59">
+<caption><span class="caption-number">Table 71 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/pending-accesses</span></code></span><a class="headerlink" href="#id59" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4422,8 +4449,8 @@ time constant <code class="docutils literal notranslate"><span class="pre">HPX_W
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id62">
-<caption><span class="caption-number">Table 72 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/stolen-from-staged</span></code></span><a class="headerlink" href="#id62" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id60">
+<caption><span class="caption-number">Table 72 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/stolen-from-staged</span></code></span><a class="headerlink" href="#id60" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4462,8 +4489,8 @@ counter is available only if the configuration time constant
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id63">
-<caption><span class="caption-number">Table 73 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/stolen-to-pending</span></code></span><a class="headerlink" href="#id63" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id61">
+<caption><span class="caption-number">Table 73 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/stolen-to-pending</span></code></span><a class="headerlink" href="#id61" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4502,8 +4529,8 @@ available only if the configuration time constant
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id64">
-<caption><span class="caption-number">Table 74 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/stolen-to-staged</span></code></span><a class="headerlink" href="#id64" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id62">
+<caption><span class="caption-number">Table 74 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/stolen-to-staged</span></code></span><a class="headerlink" href="#id62" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4543,8 +4570,8 @@ counter is available only if the configuration time constant
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id65">
-<caption><span class="caption-number">Table 75 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/objects</span></code></span><a class="headerlink" href="#id65" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id63">
+<caption><span class="caption-number">Table 75 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/count/objects</span></code></span><a class="headerlink" href="#id63" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4577,8 +4604,8 @@ does not reflect the number of actually executed (retired) <em>HPX</em>-threads.
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id66">
-<caption><span class="caption-number">Table 76 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/scheduler/utilization/instantaneous</span></code></span><a class="headerlink" href="#id66" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id64">
+<caption><span class="caption-number">Table 76 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/scheduler/utilization/instantaneous</span></code></span><a class="headerlink" href="#id64" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4609,8 +4636,8 @@ id (given by <code class="docutils literal notranslate"><span class="pre">*</spa
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id67">
-<caption><span class="caption-number">Table 77 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/idle-loop-count/instantaneous</span></code></span><a class="headerlink" href="#id67" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id65">
+<caption><span class="caption-number">Table 77 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/idle-loop-count/instantaneous</span></code></span><a class="headerlink" href="#id65" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4645,8 +4672,8 @@ pool-name is specified the counter refers to the ‘default’ pool.</p>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id68">
-<caption><span class="caption-number">Table 78 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/busy-loop-count/instantaneous</span></code></span><a class="headerlink" href="#id68" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id66">
+<caption><span class="caption-number">Table 78 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/busy-loop-count/instantaneous</span></code></span><a class="headerlink" href="#id66" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4682,8 +4709,8 @@ worker thread or the accumulated value for all worker threads.</p></td>
 </table>
 </div>
 <hr class="docutils" />
-<div class="pst-scrollable-table-container"><table class="table" id="id69">
-<caption><span class="caption-number">Table 79 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/background-work-duration</span></code></span><a class="headerlink" href="#id69" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id67">
+<caption><span class="caption-number">Table 79 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/background-work-duration</span></code></span><a class="headerlink" href="#id67" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4722,8 +4749,8 @@ unit of measure for this counter is nanosecond [ns].</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id70">
-<caption><span class="caption-number">Table 80 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/background-overhead</span></code></span><a class="headerlink" href="#id70" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id68">
+<caption><span class="caption-number">Table 80 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/background-overhead</span></code></span><a class="headerlink" href="#id68" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4761,8 +4788,8 @@ unit of measure displayed for this counter is 0.1%.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id71">
-<caption><span class="caption-number">Table 81 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/background-send-duration</span></code></span><a class="headerlink" href="#id71" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id69">
+<caption><span class="caption-number">Table 81 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/background-send-duration</span></code></span><a class="headerlink" href="#id69" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4805,8 +4832,8 @@ parcelport only.</p>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id72">
-<caption><span class="caption-number">Table 82 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/background-send-overhead</span></code></span><a class="headerlink" href="#id72" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id70">
+<caption><span class="caption-number">Table 82 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/background-send-overhead</span></code></span><a class="headerlink" href="#id70" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4847,8 +4874,8 @@ parcelport only.</p>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id73">
-<caption><span class="caption-number">Table 83 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/background-receive-duration</span></code></span><a class="headerlink" href="#id73" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id71">
+<caption><span class="caption-number">Table 83 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/time/background-receive-duration</span></code></span><a class="headerlink" href="#id71" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4891,8 +4918,8 @@ parcelport only.</p>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id74">
-<caption><span class="caption-number">Table 84 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/background-receive-overhead</span></code></span><a class="headerlink" href="#id74" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id72">
+<caption><span class="caption-number">Table 84 </span><span class="caption-text">Thread manager performance counter <code class="docutils literal notranslate"><span class="pre">/threads/background-receive-overhead</span></code></span><a class="headerlink" href="#id72" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4933,8 +4960,8 @@ parcelport only.</p>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id75">
-<caption><span class="caption-number">Table 85 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/count/component</span></code></span><a class="headerlink" href="#id75" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id73">
+<caption><span class="caption-number">Table 85 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/count/component</span></code></span><a class="headerlink" href="#id73" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4963,8 +4990,8 @@ second parameter to the macro <a class="reference internal" href="../libs/full/r
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id76">
-<caption><span class="caption-number">Table 86 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/count/action-invocation</span></code></span><a class="headerlink" href="#id76" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id74">
+<caption><span class="caption-number">Table 86 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/count/action-invocation</span></code></span><a class="headerlink" href="#id74" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -4996,8 +5023,8 @@ to the macro <a class="reference internal" href="../libs/full/actions_base/api/b
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id77">
-<caption><span class="caption-number">Table 87 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/count/remote-action-invocation</span></code></span><a class="headerlink" href="#id77" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id75">
+<caption><span class="caption-number">Table 87 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/count/remote-action-invocation</span></code></span><a class="headerlink" href="#id75" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5027,8 +5054,8 @@ to the macro <a class="reference internal" href="../libs/full/actions_base/api/b
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id78">
-<caption><span class="caption-number">Table 88 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/uptime</span></code></span><a class="headerlink" href="#id78" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id76">
+<caption><span class="caption-number">Table 88 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/uptime</span></code></span><a class="headerlink" href="#id76" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5052,8 +5079,8 @@ number identifying the <a class="reference internal" href="../terminology.html#t
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id79">
-<caption><span class="caption-number">Table 89 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/memory/virtual</span></code></span><a class="headerlink" href="#id79" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id77">
+<caption><span class="caption-number">Table 89 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/memory/virtual</span></code></span><a class="headerlink" href="#id77" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5077,8 +5104,8 @@ referenced <a class="reference internal" href="../terminology.html#term-Locality
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id80">
-<caption><span class="caption-number">Table 90 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/memory/resident</span></code></span><a class="headerlink" href="#id80" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id78">
+<caption><span class="caption-number">Table 90 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/memory/resident</span></code></span><a class="headerlink" href="#id78" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5102,8 +5129,8 @@ referenced <a class="reference internal" href="../terminology.html#term-Locality
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id81">
-<caption><span class="caption-number">Table 91 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/memory/total</span></code></span><a class="headerlink" href="#id81" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id79">
+<caption><span class="caption-number">Table 91 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/memory/total</span></code></span><a class="headerlink" href="#id79" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5132,8 +5159,8 @@ Windows systems only.</p>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id82">
-<caption><span class="caption-number">Table 92 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/io/read_bytes_issued</span></code></span><a class="headerlink" href="#id82" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id80">
+<caption><span class="caption-number">Table 92 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/io/read_bytes_issued</span></code></span><a class="headerlink" href="#id80" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5159,8 +5186,8 @@ through the /proc file system.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id83">
-<caption><span class="caption-number">Table 93 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/io/write_bytes_issued</span></code></span><a class="headerlink" href="#id83" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id81">
+<caption><span class="caption-number">Table 93 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/io/write_bytes_issued</span></code></span><a class="headerlink" href="#id81" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5186,8 +5213,8 @@ through the /proc file system.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id84">
-<caption><span class="caption-number">Table 94 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/io/read_syscalls</span></code></span><a class="headerlink" href="#id84" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id82">
+<caption><span class="caption-number">Table 94 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/io/read_syscalls</span></code></span><a class="headerlink" href="#id82" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5212,8 +5239,8 @@ related data through the /proc file system.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id85">
-<caption><span class="caption-number">Table 95 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/io/write_syscalls</span></code></span><a class="headerlink" href="#id85" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id83">
+<caption><span class="caption-number">Table 95 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/io/write_syscalls</span></code></span><a class="headerlink" href="#id83" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5238,8 +5265,8 @@ related data through the /proc file system.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id86">
-<caption><span class="caption-number">Table 96 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/io/read_bytes_transferred</span></code></span><a class="headerlink" href="#id86" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id84">
+<caption><span class="caption-number">Table 96 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/io/read_bytes_transferred</span></code></span><a class="headerlink" href="#id84" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5264,8 +5291,8 @@ related data through the /proc file system.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id87">
-<caption><span class="caption-number">Table 97 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/io/write_bytes_transferred</span></code></span><a class="headerlink" href="#id87" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id85">
+<caption><span class="caption-number">Table 97 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/io/write_bytes_transferred</span></code></span><a class="headerlink" href="#id85" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5290,8 +5317,8 @@ related data through the /proc file system.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id88">
-<caption><span class="caption-number">Table 98 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/io/write_bytes_cancelled</span></code></span><a class="headerlink" href="#id88" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id86">
+<caption><span class="caption-number">Table 98 </span><span class="caption-text">General performance counter <code class="docutils literal notranslate"><span class="pre">/runtime/io/write_bytes_cancelled</span></code></span><a class="headerlink" href="#id86" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5317,8 +5344,8 @@ related data through the /proc file system.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id89">
-<caption><span class="caption-number">Table 99 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/papi/&lt;papi_event&gt;</span></code></span><a class="headerlink" href="#id89" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id87">
+<caption><span class="caption-number">Table 99 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/papi/&lt;papi_event&gt;</span></code></span><a class="headerlink" href="#id87" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5359,8 +5386,8 @@ constant <code class="docutils literal notranslate"><span class="pre">HPX_WITH_P
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id90">
-<caption><span class="caption-number">Table 100 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/statistics/average</span></code></span><a class="headerlink" href="#id90" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id88">
+<caption><span class="caption-number">Table 100 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/statistics/average</span></code></span><a class="headerlink" href="#id88" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5390,8 +5417,8 @@ The default value is <code class="docutils literal notranslate"><span class="pre
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id91">
-<caption><span class="caption-number">Table 101 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/statistics/rolling_average</span></code></span><a class="headerlink" href="#id91" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id89">
+<caption><span class="caption-number">Table 101 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/statistics/rolling_average</span></code></span><a class="headerlink" href="#id89" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5423,8 +5450,8 @@ be reset during evaluation <code class="docutils literal notranslate"><span clas
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id92">
-<caption><span class="caption-number">Table 102 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/statistics/stddev</span></code></span><a class="headerlink" href="#id92" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id90">
+<caption><span class="caption-number">Table 102 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/statistics/stddev</span></code></span><a class="headerlink" href="#id90" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5454,8 +5481,8 @@ The default value is <code class="docutils literal notranslate"><span class="pre
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id93">
-<caption><span class="caption-number">Table 103 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/statistics/rolling_stddev</span></code></span><a class="headerlink" href="#id93" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id91">
+<caption><span class="caption-number">Table 103 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/statistics/rolling_stddev</span></code></span><a class="headerlink" href="#id91" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5487,8 +5514,8 @@ during evaluation <code class="docutils literal notranslate"><span class="pre">1
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id94">
-<caption><span class="caption-number">Table 104 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/statistics/median</span></code></span><a class="headerlink" href="#id94" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id92">
+<caption><span class="caption-number">Table 104 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/statistics/median</span></code></span><a class="headerlink" href="#id92" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5518,8 +5545,8 @@ The default value is <code class="docutils literal notranslate"><span class="pre
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id95">
-<caption><span class="caption-number">Table 105 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/statistics/max</span></code></span><a class="headerlink" href="#id95" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id93">
+<caption><span class="caption-number">Table 105 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/statistics/max</span></code></span><a class="headerlink" href="#id93" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5548,8 +5575,8 @@ The default value is <code class="docutils literal notranslate"><span class="pre
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id96">
-<caption><span class="caption-number">Table 106 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/statistics/rolling_max</span></code></span><a class="headerlink" href="#id96" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id94">
+<caption><span class="caption-number">Table 106 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/statistics/rolling_max</span></code></span><a class="headerlink" href="#id94" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5581,8 +5608,8 @@ during evaluation <code class="docutils literal notranslate"><span class="pre">1
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id97">
-<caption><span class="caption-number">Table 107 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/statistics/min</span></code></span><a class="headerlink" href="#id97" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id95">
+<caption><span class="caption-number">Table 107 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/statistics/min</span></code></span><a class="headerlink" href="#id95" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5611,8 +5638,8 @@ The default value is <code class="docutils literal notranslate"><span class="pre
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id98">
-<caption><span class="caption-number">Table 108 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/statistics/rolling_min</span></code></span><a class="headerlink" href="#id98" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id96">
+<caption><span class="caption-number">Table 108 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/statistics/rolling_min</span></code></span><a class="headerlink" href="#id96" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5644,8 +5671,8 @@ during evaluation <code class="docutils literal notranslate"><span class="pre">1
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id99">
-<caption><span class="caption-number">Table 109 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/add</span></code></span><a class="headerlink" href="#id99" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id97">
+<caption><span class="caption-number">Table 109 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/add</span></code></span><a class="headerlink" href="#id97" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5666,8 +5693,8 @@ accessed. Any wildcards in the counter names will be expanded.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id100">
-<caption><span class="caption-number">Table 110 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/subtract</span></code></span><a class="headerlink" href="#id100" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id98">
+<caption><span class="caption-number">Table 110 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/subtract</span></code></span><a class="headerlink" href="#id98" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5688,8 +5715,8 @@ accessed. Any wildcards in the counter names will be expanded.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id101">
-<caption><span class="caption-number">Table 111 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/multiply</span></code></span><a class="headerlink" href="#id101" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id99">
+<caption><span class="caption-number">Table 111 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/multiply</span></code></span><a class="headerlink" href="#id99" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5710,8 +5737,8 @@ accessed. Any wildcards in the counter names will be expanded.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id102">
-<caption><span class="caption-number">Table 112 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/divide</span></code></span><a class="headerlink" href="#id102" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id100">
+<caption><span class="caption-number">Table 112 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/divide</span></code></span><a class="headerlink" href="#id100" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5732,8 +5759,8 @@ accessed. Any wildcards in the counter names will be expanded.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id103">
-<caption><span class="caption-number">Table 113 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/mean</span></code></span><a class="headerlink" href="#id103" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id101">
+<caption><span class="caption-number">Table 113 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/mean</span></code></span><a class="headerlink" href="#id101" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5754,8 +5781,8 @@ accessed. Any wildcards in the counter names will be expanded.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id104">
-<caption><span class="caption-number">Table 114 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/variance</span></code></span><a class="headerlink" href="#id104" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id102">
+<caption><span class="caption-number">Table 114 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/variance</span></code></span><a class="headerlink" href="#id102" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5776,8 +5803,8 @@ accessed. Any wildcards in the counter names will be expanded.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id105">
-<caption><span class="caption-number">Table 115 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/median</span></code></span><a class="headerlink" href="#id105" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id103">
+<caption><span class="caption-number">Table 115 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/median</span></code></span><a class="headerlink" href="#id103" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5798,8 +5825,8 @@ accessed. Any wildcards in the counter names will be expanded.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id106">
-<caption><span class="caption-number">Table 116 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/min</span></code></span><a class="headerlink" href="#id106" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id104">
+<caption><span class="caption-number">Table 116 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/min</span></code></span><a class="headerlink" href="#id104" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5820,8 +5847,8 @@ accessed. Any wildcards in the counter names will be expanded.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id107">
-<caption><span class="caption-number">Table 117 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/max</span></code></span><a class="headerlink" href="#id107" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id105">
+<caption><span class="caption-number">Table 117 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/max</span></code></span><a class="headerlink" href="#id105" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5842,8 +5869,8 @@ accessed. Any wildcards in the counter names will be expanded.</p></td>
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id108">
-<caption><span class="caption-number">Table 118 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/count</span></code></span><a class="headerlink" href="#id108" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id106">
+<caption><span class="caption-number">Table 118 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/arithmetics/count</span></code></span><a class="headerlink" href="#id106" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5889,8 +5916,8 @@ equivalent to specifying both counters separately to <code class="docutils liter
 </pre></div>
 </div>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id109">
-<caption><span class="caption-number">Table 119 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/coalescing/count/parcels</span></code></span><a class="headerlink" href="#id109" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id107">
+<caption><span class="caption-number">Table 119 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/coalescing/count/parcels</span></code></span><a class="headerlink" href="#id107" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5920,8 +5947,8 @@ to the macro <a class="reference internal" href="../libs/full/actions_base/api/b
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id110">
-<caption><span class="caption-number">Table 120 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/coalescing/count/messages</span></code></span><a class="headerlink" href="#id110" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id108">
+<caption><span class="caption-number">Table 120 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/coalescing/count/messages</span></code></span><a class="headerlink" href="#id108" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5951,8 +5978,8 @@ to the macro <a class="reference internal" href="../libs/full/actions_base/api/b
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id111">
-<caption><span class="caption-number">Table 121 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/coalescing/count/average-parcels-per-message</span></code></span><a class="headerlink" href="#id111" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id109">
+<caption><span class="caption-number">Table 121 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/coalescing/count/average-parcels-per-message</span></code></span><a class="headerlink" href="#id109" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -5983,8 +6010,8 @@ to the macro <a class="reference internal" href="../libs/full/actions_base/api/b
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id112">
-<caption><span class="caption-number">Table 122 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/coalescing/time/average-parcel-arrival</span></code></span><a class="headerlink" href="#id112" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id110">
+<caption><span class="caption-number">Table 122 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/coalescing/time/average-parcel-arrival</span></code></span><a class="headerlink" href="#id110" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -6015,8 +6042,8 @@ to the macro <a class="reference internal" href="../libs/full/actions_base/api/b
 </tbody>
 </table>
 </div>
-<div class="pst-scrollable-table-container"><table class="table" id="id113">
-<caption><span class="caption-number">Table 123 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/coalescing/time/parcel-arrival-histogram</span></code></span><a class="headerlink" href="#id113" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id111">
+<caption><span class="caption-number">Table 123 </span><span class="caption-text">Performance counter <code class="docutils literal notranslate"><span class="pre">/coalescing/time/parcel-arrival-histogram</span></code></span><a class="headerlink" href="#id111" title="Link to this table">#</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -6083,75 +6110,11 @@ macros <code class="xref c c-macro docutils literal notranslate"><span class="pr
 </section>
 <section id="apex-integration">
 <h2>APEX integration<a class="headerlink" href="#apex-integration" title="Link to this heading">#</a></h2>
-<p><em>HPX</em> provides integration with <a class="reference external" href="http://uo-oaciss.github.io/apex">APEX</a>, which is a framework for application
-profiling using task timers and various performance counters Huck <em>et al.</em><a class="footnote-reference brackets" href="#footcite-2015-apex" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.
-It can be added as a <code class="docutils literal notranslate"><span class="pre">git</span></code> submodule by turning on the option <a class="reference internal" href="cmake_variables.html#cmdoption-arg-HPX_WITH_APEX-BOOL"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_APEX:BOOL</span></code></a>
-during <a class="reference external" href="https://www.cmake.org">CMake</a> configuration. <a class="reference external" href="https://www.cs.uoregon.edu/research/tau/home.php">TAU</a> is an optional dependency when using APEX.</p>
-<p>To build <em>HPX</em> with <a class="reference external" href="http://uo-oaciss.github.io/apex">APEX</a>, add <a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_APEX"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_APEX</span></code></a><code class="docutils literal notranslate"><span class="pre">=ON</span></code>, and,
-optionally, <code class="docutils literal notranslate"><span class="pre">Tau_ROOT=$PATH_TO_TAU</span></code> to your <a class="reference external" href="https://www.cmake.org">CMake</a> configuration. In
-addition, you can override the tag used for <a class="reference external" href="http://uo-oaciss.github.io/apex">APEX</a> with the
-<code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_APEX_TAG</span></code> option. Please see the <a class="reference external" href="https://uo-oaciss.github.io/apex/usage/#hpx-louisiana-state-university">APEX <em>HPX</em> documentation</a> for detailed
-instructions on using <a class="reference external" href="http://uo-oaciss.github.io/apex">APEX</a> with <em>HPX</em>.</p>
+<p>The <a class="reference external" href="http://uo-oaciss.github.io/apex">APEX</a> integration is described in <a class="reference internal" href="profiling_and_tracing.html#profiling-with-apex"><span class="std std-ref">APEX</span></a>.</p>
 </section>
 <section id="tracy-integration">
-<span id="optimizing-with-tracy"></span><h2>Tracy integration<a class="headerlink" href="#tracy-integration" title="Link to this heading">#</a></h2>
-<p><em>HPX</em> provides integration with the <a class="reference external" href="https://github.com/wolfpld/tracy">Tracy</a> profiler, which offers
-per-thread zone tracking, message logs, and fiber support. Enable it with
-<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACY"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACY</span></code></a><code class="docutils literal notranslate"><span class="pre">=ON</span></code> during <a class="reference external" href="https://www.cmake.org">CMake</a> configuration.</p>
-<p>Tracy is fetched by CMake at configure time from
-<a class="reference external" href="https://github.com/wolfpld/tracy">github.com/wolfpld/tracy</a>. The version
-is pinned by <code class="docutils literal notranslate"><span class="pre">HPX_WITH_TRACY_TAG</span></code> (defaults to <code class="docutils literal notranslate"><span class="pre">v0.14.1</span></code>). <em>HPX</em> forces
-<code class="docutils literal notranslate"><span class="pre">TRACY_ENABLE</span></code>, <code class="docutils literal notranslate"><span class="pre">TRACY_ON_DEMAND</span></code>, <code class="docutils literal notranslate"><span class="pre">TRACY_FIBERS</span></code> and <code class="docutils literal notranslate"><span class="pre">TRACY_STATIC</span></code>
-on the built client so the profiler is always active on-demand, fibers are
-tracked, and TracyClient stays a static library that links cleanly into
-<code class="docutils literal notranslate"><span class="pre">hpx_tracy</span></code> regardless of <code class="docutils literal notranslate"><span class="pre">BUILD_SHARED_LIBS</span></code>. For offline builds
-without GitHub access, point <code class="docutils literal notranslate"><span class="pre">FETCHCONTENT_SOURCE_DIR_TRACY</span></code> at a local
-Tracy source tree and CMake’s FetchContent will use it in place of the
-download.</p>
-<p>On Windows, <em>HPX</em> additionally sets <code class="docutils literal notranslate"><span class="pre">TRACY_DBGHELP_LOCK=HpxDbgHelp</span></code> on
-the built Tracy client so DbgHelp calls from Tracy and from <em>HPX</em>’s own
-symbol lookup share a single mutex (DbgHelp is single-threaded per MSDN).</p>
-<p>Scheduler zones no longer carry callstacks. The captured frames were the
-scheduler-dispatch path itself, identical for every task, and the zone
-name and phase already identify the work.</p>
-<p>To profile a distributed run, additionally enable
-<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_PARCEL_PROFILING"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_PARCEL_PROFILING</span></code></a><code class="docutils literal notranslate"><span class="pre">=ON</span></code> so per-parcel identifiers are
-carried on the wire and the <code class="docutils literal notranslate"><span class="pre">send_parcel</span></code> / <code class="docutils literal notranslate"><span class="pre">recv_parcel</span></code> /
-<code class="docutils literal notranslate"><span class="pre">parcel_scheduled</span></code> events can be correlated across localities by parcel id.</p>
-<p>Event classes can be compiled out individually to reduce the tracing cost
-when only a subset of the timeline is being investigated:
-<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_LIFECYCLE_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_LIFECYCLE_EVENTS</span></code></a>,
-<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_CAUSAL_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_CAUSAL_EVENTS</span></code></a>, and
-<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_WORK_STEALING_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_WORK_STEALING_EVENTS</span></code></a>. All three default to <code class="docutils literal notranslate"><span class="pre">ON</span></code>; turning
-one off compiles the wrapper for that class to a no-op, so the runtime
-connection check and the event body do not run (argument evaluation at each
-call site is unchanged). The lifecycle and work-stealing gates affect the
-Tracy and ITT-Notify backends; the causal gate affects the Tracy backend
-only. On ITT-Notify builds these events are only emitted when ITT-Notify is
-enabled at runtime with <code class="docutils literal notranslate"><span class="pre">--hpx:ini=hpx.use_itt_notify=1</span></code>. The APEX and
-empty backends already treat all three as no-ops.</p>
-<p><a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_SAMPLE_RATE"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_SAMPLE_RATE</span></code></a> sets the initial 1-in-N sampling
-rate for the per-task lifecycle events instead of gating them off
-entirely. The rate can be overridden at runtime via the
-<code class="docutils literal notranslate"><span class="pre">hpx.tracing.sample_rate</span></code> INI entry (for example
-<code class="docutils literal notranslate"><span class="pre">--hpx:ini=hpx.tracing.sample_rate=10</span></code>); values below 1 are clamped to
-1. Causal events are not sampled and continue to fire every time.
-<code class="docutils literal notranslate"><span class="pre">task_staged</span></code> is also unconditional because it fires before per-task
-state exists to consult.</p>
-<p>Start <code class="docutils literal notranslate"><span class="pre">tracy-profiler</span></code> (or <code class="docutils literal notranslate"><span class="pre">tracy-capture</span></code> for headless capture) before
-or during the run. Tracy discovers instrumented processes via UDP broadcast
-on the local network; no port configuration is required for the common case.</p>
-</section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
-<div class="docutils container" id="id12">
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="footcite-2015-apex" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">2</a><span class="fn-bracket">]</span></span>
-<p>K. A. Huck, A. Porterfield, N Chaimov, H. Kaiser, A. D. Malony, T. Sterling, and R. Fowler. <em>An autonomic performance environment for exascale</em>. Supercomputing Frontiers and Innovations, 2015.</p>
-</aside>
-</aside>
-</div>
+<h2>Tracy integration<a class="headerlink" href="#tracy-integration" title="Link to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://github.com/wolfpld/tracy">Tracy</a> integration is described in <a class="reference internal" href="profiling_and_tracing.html#optimizing-with-tracy"><span class="std std-ref">Tracy</span></a>.</p>
 </section>
 </section>
 
@@ -6176,11 +6139,11 @@ on the local network; no port configuration is required for the common case.</p>
       </div>
     </a>
     <a class="right-next"
-       href="using_the_lci_parcelport.html"
+       href="profiling_and_tracing.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Using the LCI parcelport</p>
+        <p class="prev-next-title">Profiling and tracing <em>HPX</em> applications</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -6232,7 +6195,6 @@ on the local network; no port configuration is required for the common case.</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apex-integration">APEX integration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tracy-integration">Tracy integration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
   </nav></div>
 
@@ -6266,7 +6228,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Nov 17, 2026.
+  Last updated on Nov 18, 2026.
   <br/>
 </p>
   </div>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Configuring and tuning the thread schedulers &#8212; HPX 2.0.1-rc1 documentation</title>
+    <title>Configuring and tuning the thread schedulers &#8212; HPX 2.1.0-trunk documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=dabc1245"></script>
+    <script src="../_static/documentation_options.js?v=0df519e6"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -52,7 +52,7 @@
     <link rel="prev" title="HPX runtime and resources" href="hpx_runtime_and_resources.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Nov 17, 2026"/>
+    <meta name="docbuild:last-update" content="Nov 18, 2026"/>
   </head>
   
   
@@ -142,8 +142,8 @@
       
     
     
-    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.1-rc1 documentation - Home"/>
-    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.1-rc1 documentation - Home"/>`);</script>
+    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.1.0-trunk documentation - Home"/>
+    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.1.0-trunk documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -200,6 +200,7 @@
 <li class="toctree-l2"><a class="reference internal" href="running_on_batch_systems.html">Running on batch systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="debugging_hpx_applications.html">Debugging <em>HPX</em> applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimizing_hpx_applications.html">Optimizing <em>HPX</em> applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiling_and_tracing.html">Profiling and tracing <em>HPX</em> applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using_the_lci_parcelport.html">Using the LCI parcelport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using_the_lcw_parcelport.html">Using the LCW parcelport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hpx_runtime_and_resources.html"><em>HPX</em> runtime and resources</a></li>
@@ -352,6 +353,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_define_task_block.html">hpx::experimental::define_task_block</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_define_task_block_restore_thread.html">hpx::experimental::define_task_block_restore_thread</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/task_group_hpx_experimental_task_group.html">hpx::experimental::task_group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/spmd_block.html">hpx/parallel/spmd_block.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/run_on_all_hpx_experimental_run_on_all.html">hpx::experimental::run_on_all</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/remove_copy_hpx_ranges_remove_copy.html">hpx::ranges::remove_copy</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/remove_copy_hpx_ranges_remove_copy_if.html">hpx::ranges::remove_copy_if</a></li>
@@ -397,6 +399,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/swap_ranges_hpx_ranges_swap_ranges.html">hpx::ranges::swap_ranges</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/merge_hpx_ranges_merge.html">hpx::ranges::merge</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/merge_hpx_ranges_inplace_merge.html">hpx::ranges::inplace_merge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/contains.html">hpx/parallel/container_algorithms/contains.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/equal_hpx_ranges_equal.html">hpx::ranges::equal</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_ranges_experimental_for_loop.html">hpx::ranges::experimental::for_loop</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_ranges_experimental_for_loop_strided.html">hpx::ranges::experimental::for_loop_strided</a></li>
@@ -800,7 +803,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/move_only_function_hpx_move_only_function.html">hpx::move_only_function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_placeholder_hpx_is_placeholder.html">hpx::is_placeholder</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_bind_expression_hpx_is_bind_expression.html">hpx::is_bind_expression</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/get_task_size.html">hpx/functional/traits/get_task_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_exit_hpx_experimental_scope_exit.html">hpx::experimental::scope_exit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_success_hpx_experimental_scope_success.html">hpx::experimental::scope_success</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_fail_hpx_experimental_scope_fail.html">hpx::experimental::scope_fail</a></li>
@@ -827,6 +829,11 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/io_service/api/full_api.html">io_service</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/io_service/api/io_service_pool.html">hpx/io_service/io_service_pool.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/io_service/api/schedule_timer.html">hpx/io_service/schedule_timer.hpp</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/iterator_support/api/full_api.html">iterator_support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/iterator_support/api/iterator_dereference_task_size.html">hpx/iterator_support/traits/iterator_dereference_task_size.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/lcos_local/api/full_api.html">lcos_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -917,6 +924,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/runtime_local/api/custom_exception_info.html">hpx/runtime_local/custom_exception_info.hpp</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/schedulers/api/full_api.html">schedulers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/schedulers/api/local_priority_tuned_scheduler.html">hpx/schedulers/local_priority_tuned_scheduler.hpp</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/serialization/api/full_api.html">serialization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/serialization_chunk.html">hpx/serialization/serialization_chunk.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/base_object.html">hpx/serialization/base_object.hpp</a></li>
@@ -942,6 +953,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/condition_variable_hpx_condition_variable.html">hpx::condition_variable</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/condition_variable_hpx_condition_variable_any.html">hpx::condition_variable_any</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/condition_variable_hpx_cv_status.html">hpx::cv_status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/channel_mpsc.html">hpx/synchronization/channel_mpsc.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/counting_semaphore_hpx_counting_semaphore.html">hpx::counting_semaphore</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/no_mutex_hpx_no_mutex.html">hpx::no_mutex</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/event.html">hpx/synchronization/event.hpp</a></li>
@@ -963,8 +975,11 @@
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/thread_support/api/full_api.html">thread_support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/task_size.html">hpx/thread_support/task_size.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/stack_size.html">hpx/thread_support/stack_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/unlock_guard_hpx_unlock_guard.html">hpx::unlock_guard</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/spinlock.html">hpx/thread_support/spinlock.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/thread_enums.html">hpx/thread_support/thread_enums.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/threading/api/full_api.html">threading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -978,11 +993,14 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/threading_base/api/full_api.html">threading_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scoped_annotation_hpx_scoped_annotation.html">hpx::scoped_annotation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/set_thread_state.html">hpx/threading_base/set_thread_state.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_data.html">hpx/threading_base/thread_data.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_pool_base.html">hpx/threading_base/thread_pool_base.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/annotated_function_hpx_annotated_function.html">hpx::annotated_function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/register_thread.html">hpx/threading_base/register_thread.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/sized_function_hpx_threads_with_task_size.html">hpx::threads::with_task_size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scheduling_policy.html">hpx/threading_base/scheduling_policy.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scheduler_tuning.html">hpx/threading_base/scheduler_tuning.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/print.html">hpx/threading_base/print.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_description.html">hpx/threading_base/thread_description.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_helpers.html">hpx/threading_base/thread_helpers.hpp</a></li>
@@ -991,6 +1009,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_num_tss_hpx_get_local_worker_thread_num.html">hpx::get_local_worker_thread_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_num_tss_hpx_get_thread_pool_num.html">hpx::get_thread_pool_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/threading_base_fwd.html">hpx/threading_base/threading_base_fwd.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/stack_sized_function_hpx_threads_with_stack_size.html">hpx::threads::with_stack_size</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/threadmanager/api/full_api.html">threadmanager</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1026,6 +1045,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/apex.html">hpx/tracing/backends/apex.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/ittnotify.html">hpx/tracing/backends/ittnotify.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/tracy.html">hpx/tracing/backends/tracy.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/empty_lock_context.html">hpx/tracing/backends/empty_lock_context.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/empty.html">hpx/tracing/backends/empty.hpp</a></li>
 </ul>
 </details></li>
@@ -1117,6 +1137,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_communicator.html">hpx::collectives::create_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_local_communicator.html">hpx::collectives::create_local_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_hierarchical_communicator.html">hpx::collectives::create_hierarchical_communicator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_hierarchical_communicator.html">hpx::collectives::hierarchical_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_set_info.html">hpx::collectives::communicator::set_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_get_info.html">hpx::collectives::communicator::get_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_is_root.html">hpx::collectives::communicator::is_root</a></li>
@@ -1178,6 +1199,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/components_base_fwd_hpx_components_component.html">hpx::components::component</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/components_base_fwd_hpx_components_component_base.html">hpx::components::component_base</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/get_lva.html">hpx/components_base/get_lva.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/component_registered_elsewhere.html">hpx/components_base/traits/component_registered_elsewhere.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/managed_component_base.html">hpx/components_base/server/managed_component_base.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/migration_support.html">hpx/components_base/server/migration_support.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/fixed_component_base.html">hpx/components_base/server/fixed_component_base.hpp</a></li>
@@ -1290,6 +1312,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/is_partitioned.html">hpx/parallel/segmented_algorithms/is_partitioned.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/transform.html">hpx/parallel/segmented_algorithms/transform.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/all_any_none.html">hpx/parallel/segmented_algorithms/all_any_none.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/sort.html">hpx/parallel/segmented_algorithms/sort.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/fill.html">hpx/parallel/segmented_algorithms/fill.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/merge.html">hpx/parallel/segmented_algorithms/merge.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/equal.html">hpx/parallel/segmented_algorithms/equal.hpp</a></li>
@@ -1340,6 +1363,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_suspend_heartbeat_for_testing.html">hpx::supervision::testing::suspend_heartbeat_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_failure_detection_sweep_in_flight_for_testing.html">hpx::supervision::testing::failure_detection_sweep_in_flight_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_stop_background_loops.html">hpx::supervision::testing::stop_background_loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_fenced_hook_for_testing.html">hpx::supervision::testing::set_evict_fenced_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_lifecycle_mirror_hook_for_testing.html">hpx::supervision::testing::set_lifecycle_mirror_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_peer_hook_for_testing.html">hpx::supervision::testing::set_evict_peer_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_lifecycle_observer_hook_for_testing.html">hpx::supervision::testing::set_lifecycle_observer_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_evict_peers_waiting_for_mirrors_for_testing.html">hpx::supervision::testing::evict_peers_waiting_for_mirrors_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_init.html">hpx::supervision::init</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_finalize.html">hpx::supervision::finalize</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_is_initialized.html">hpx::supervision::is_initialized</a></li>
@@ -1373,7 +1401,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases.html">Releases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_0_1.html"><em>HPX</em> V2.0.1 (TBD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_1_0.html"><em>HPX</em> V2.1.0 (TBD)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_1_11_0.html"><em>HPX</em> V1.11.0 (Jun 30, 2025)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_0_0.html"><em>HPX</em> V2.0.0 (Oct 31, 2026)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_1_10_0.html"><em>HPX</em> V1.10.0 (May 29, 2024)</a></li>
@@ -1616,6 +1644,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stealing-staged-tasks">Stealing staged tasks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-staged-tasks">Converting staged tasks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thread-scheduler-idle-backoff">Idle backoff</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#waking-up-worker-threads">Waking up worker threads</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-work">Background work</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thread-object-management">Thread object management</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numa-domains">NUMA domains</a></li>
@@ -1831,22 +1860,72 @@ other workers can steal it cheaply. <code class="docutils literal notranslate"><
 </section>
 <section id="thread-scheduler-idle-backoff">
 <span id="idle-backoff"></span><h2>Idle backoff<a class="headerlink" href="#thread-scheduler-idle-backoff" title="Link to this heading">#</a></h2>
-<p>Settings: <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>.</p>
+<p>Settings: <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>,
+<code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx.idle_backoff_steal_check_interval</span></code>.</p>
 <p>After <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code> (200000) consecutive empty iterations, a
 worker thread sleeps until new work arrives for it, but at most for
 2<sup>n</sup> microseconds, where n counts the number of times it went to sleep
-since it last found work or was woken up by new work, and never longer than <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>
-(1000 microseconds). Afterwards it starts counting empty iterations from zero
-again. This requires <code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_MANAGER_IDLE_BACKOFF=ON</span></code> (the default)
-and the <code class="docutils literal notranslate"><span class="pre">enable_idle_backoff</span></code> scheduler mode (on by default).</p>
-<p>Creating new work wakes the sleeping worker threads. A worker thread woken this
-way may steal once without the early minima (see
-<a class="reference internal" href="#thread-scheduler-pending-steal"><span class="std std-ref">Stealing pending threads</span></a> and <a class="reference internal" href="#thread-scheduler-staged-steal"><span class="std std-ref">Stealing staged tasks</span></a>),
-so that it finds the new work even if it was placed on a worker that has a few
-tasks only.</p>
+since it last found work or was woken up by new work, and never longer than
+<code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code> (1000 microseconds). Afterwards it starts
+counting empty iterations from zero again. This requires
+<code class="docutils literal notranslate"><span class="pre">HPX_WITH_THREAD_MANAGER_IDLE_BACKOFF=ON</span></code> (the default) and the
+<code class="docutils literal notranslate"><span class="pre">enable_idle_backoff</span></code> scheduler mode (on by default).</p>
+<p>Periods shorter than <code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code> (50 microseconds) are spent
+spinning instead of sleeping: a timed wait lasts at least as long as the
+operating system takes to wake the thread up again (a millisecond or more on
+Windows, the timer slack of 50 microseconds on Linux), so a short sleep would
+be a long one. A spinning worker thread leaves the spin as soon as it sees
+work. It looks at its own queues in every round of the spin, and at the queues
+it may steal from every <code class="docutils literal notranslate"><span class="pre">hpx.idle_backoff_steal_check_interval</span></code> (8)
+microseconds, since that reads the queue of every victim. The spin counts
+rounds instead of reading the clock; the number of rounds per microsecond is
+measured once at startup.</p>
+<p>One idle worker thread of a pool doesn’t sleep: a worker thread that would go
+to sleep becomes the sentinel if no other one is, and spins through its period
+instead. It looks at its own queues in every round, and at the queues it may
+steal from right after new work was created anywhere, otherwise every
+<code class="docutils literal notranslate"><span class="pre">hpx.idle_backoff_steal_check_interval</span></code> microseconds. New work is then found
+within a round of the spin instead of after a wake up, which takes a few
+microseconds on Linux and a millisecond or more on Windows. The sentinel isn’t
+counted as a spinning worker thread when deciding whom to wake up (see
+<a class="reference internal" href="#thread-scheduler-wake-up"><span class="std std-ref">Waking up worker threads</span></a>). It keeps one processing unit busy while the
+pool is idle.</p>
+<p>Creating new work wakes the sleeping worker threads; the local priority queue
+scheduler wakes at most one of them for a nano or small task (see
+<a class="reference internal" href="#thread-scheduler-wake-up"><span class="std std-ref">Waking up worker threads</span></a>). A worker thread woken this way may steal once
+without the early minima (see <a class="reference internal" href="#thread-scheduler-pending-steal"><span class="std std-ref">Stealing pending threads</span></a> and
+<a class="reference internal" href="#thread-scheduler-staged-steal"><span class="std std-ref">Stealing staged tasks</span></a>), so that it finds the new work even if it
+was placed on a worker that has a few tasks only.</p>
 <p>Lowering <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code> makes idle worker threads go to sleep
 sooner, which saves energy and leaves the processing units to other processes,
-but it also makes them wake up later when new work arrives.</p>
+but it also makes them wake up later when new work arrives. Raising
+<code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code> makes them react sooner after short idle periods,
+at the cost of more busy processing units.</p>
+</section>
+<section id="waking-up-worker-threads">
+<span id="thread-scheduler-wake-up"></span><h2>Waking up worker threads<a class="headerlink" href="#waking-up-worker-threads" title="Link to this heading">#</a></h2>
+<p>Settings: <code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code>.</p>
+<p>When new work is created, the local priority queue scheduler decides by the
+size of the task (see <a class="reference internal" href="executors.html#task-sizes"><span class="std std-ref">Task sizes</span></a>) which sleeping worker threads to wake
+up. Medium, large and unsized tasks and threads with a priority other than
+normal wake up the sleeping worker threads as described above. A nano or small
+task is usually done before a sleeping worker thread has woken up, so:</p>
+<ul class="simple">
+<li><p>a task placed on another worker thread wakes up that worker thread only, and
+only if it sleeps;</p></li>
+<li><p>a task a worker thread places on itself wakes up no other worker thread as
+long as an idle worker thread spins (see <code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code>):
+that worker thread may steal it, else the creating worker thread runs it
+once it is done with its current <em>HPX</em> thread. If no idle worker thread
+spins, it wakes up one sleeping worker thread;</p></li>
+<li><p>a task that round-robin placement put on the creating worker thread wakes up
+one sleeping worker thread, since its creator may wait for it without
+yielding.</p></li>
+</ul>
+<p>A worker thread that goes to sleep and new work created at the same time can
+miss each other; the worker thread then sleeps until its backoff period ends
+(at most <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>) and finds the work then, unless
+another worker thread has run it in the meantime.</p>
 </section>
 <section id="background-work">
 <span id="thread-scheduler-background-work"></span><h2>Background work<a class="headerlink" href="#background-work" title="Link to this heading">#</a></h2>
@@ -2046,7 +2125,9 @@ parcelports for their own thread pools).</p></td>
 <td><p>yes (different batch sizes)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx.max_busy_loop_count</span></code>,
-<code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx.max_background_threads</span></code></p></td>
+<code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code>,
+<code class="docutils literal notranslate"><span class="pre">hpx.idle_backoff_steal_check_interval</span></code>,
+<code class="docutils literal notranslate"><span class="pre">hpx.max_background_threads</span></code></p></td>
 <td><p>yes</p></td>
 <td><p>yes</p></td>
 <td><p>yes</p></td>
@@ -2082,6 +2163,9 @@ reach <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_
 iterations.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code> determines when worker threads go to sleep, and
 limits <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.idle_loop_count_steal_staged</span></code>.</p></li>
+<li><p>Idle backoff periods shorter than <code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code> are spent
+spinning; if it is larger than <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>, idle worker
+threads never sleep.</p></li>
 <li><p>The conversion batch size is limited by <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue.max_thread_count</span></code>
 as well as by <code class="docutils literal notranslate"><span class="pre">min_add_new_count</span></code> and <code class="docutils literal notranslate"><span class="pre">max_add_new_count</span></code>;
 <code class="docutils literal notranslate"><span class="pre">min_add_new_count</span></code> is limited to <code class="docutils literal notranslate"><span class="pre">max_add_new_count</span></code>.</p></li>
@@ -2122,11 +2206,11 @@ locality suffers.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Idle worker threads use too much CPU time.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code> (lower it), <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>
-(raise it), fast idle mode.</p></td>
+(raise it), <code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code> (lower it), fast idle mode.</p></td>
 </tr>
 <tr class="row-even"><td><p>Idle worker threads react slowly to new work.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code> (lower it), <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_loop_count</span></code>
-(raise it).</p></td>
+(raise it), <code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code> (raise it).</p></td>
 </tr>
 <tr class="row-odd"><td><p>Applications creating very many short <em>HPX</em> threads spend a lot of time
 allocating thread objects.</p></td>
@@ -2190,6 +2274,7 @@ allocating thread objects.</p></td>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stealing-staged-tasks">Stealing staged tasks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-staged-tasks">Converting staged tasks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thread-scheduler-idle-backoff">Idle backoff</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#waking-up-worker-threads">Waking up worker threads</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-work">Background work</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thread-object-management">Thread object management</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numa-domains">NUMA domains</a></li>
@@ -2230,7 +2315,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Nov 17, 2026.
+  Last updated on Nov 18, 2026.
   <br/>
 </p>
   </div>

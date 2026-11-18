@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Building HPX &#8212; HPX 2.0.1-rc1 documentation</title>
+    <title>Building HPX &#8212; HPX 2.1.0-trunk documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=dabc1245"></script>
+    <script src="../_static/documentation_options.js?v=0df519e6"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -52,7 +52,7 @@
     <link rel="prev" title="Getting HPX" href="getting_hpx.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Nov 17, 2026"/>
+    <meta name="docbuild:last-update" content="Nov 18, 2026"/>
   </head>
   
   
@@ -142,8 +142,8 @@
       
     
     
-    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.1-rc1 documentation - Home"/>
-    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.1-rc1 documentation - Home"/>`);</script>
+    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.1.0-trunk documentation - Home"/>
+    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.1.0-trunk documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -200,6 +200,7 @@
 <li class="toctree-l2"><a class="reference internal" href="running_on_batch_systems.html">Running on batch systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="debugging_hpx_applications.html">Debugging <em>HPX</em> applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimizing_hpx_applications.html">Optimizing <em>HPX</em> applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiling_and_tracing.html">Profiling and tracing <em>HPX</em> applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using_the_lci_parcelport.html">Using the LCI parcelport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using_the_lcw_parcelport.html">Using the LCW parcelport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hpx_runtime_and_resources.html"><em>HPX</em> runtime and resources</a></li>
@@ -352,6 +353,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_define_task_block.html">hpx::experimental::define_task_block</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_define_task_block_restore_thread.html">hpx::experimental::define_task_block_restore_thread</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/task_group_hpx_experimental_task_group.html">hpx::experimental::task_group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/spmd_block.html">hpx/parallel/spmd_block.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/run_on_all_hpx_experimental_run_on_all.html">hpx::experimental::run_on_all</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/remove_copy_hpx_ranges_remove_copy.html">hpx::ranges::remove_copy</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/remove_copy_hpx_ranges_remove_copy_if.html">hpx::ranges::remove_copy_if</a></li>
@@ -397,6 +399,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/swap_ranges_hpx_ranges_swap_ranges.html">hpx::ranges::swap_ranges</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/merge_hpx_ranges_merge.html">hpx::ranges::merge</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/merge_hpx_ranges_inplace_merge.html">hpx::ranges::inplace_merge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/contains.html">hpx/parallel/container_algorithms/contains.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/equal_hpx_ranges_equal.html">hpx::ranges::equal</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_ranges_experimental_for_loop.html">hpx::ranges::experimental::for_loop</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/for_loop_hpx_ranges_experimental_for_loop_strided.html">hpx::ranges::experimental::for_loop_strided</a></li>
@@ -800,7 +803,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/move_only_function_hpx_move_only_function.html">hpx::move_only_function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_placeholder_hpx_is_placeholder.html">hpx::is_placeholder</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_bind_expression_hpx_is_bind_expression.html">hpx::is_bind_expression</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/get_task_size.html">hpx/functional/traits/get_task_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_exit_hpx_experimental_scope_exit.html">hpx::experimental::scope_exit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_success_hpx_experimental_scope_success.html">hpx::experimental::scope_success</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_fail_hpx_experimental_scope_fail.html">hpx::experimental::scope_fail</a></li>
@@ -827,6 +829,11 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/io_service/api/full_api.html">io_service</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/io_service/api/io_service_pool.html">hpx/io_service/io_service_pool.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/io_service/api/schedule_timer.html">hpx/io_service/schedule_timer.hpp</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/iterator_support/api/full_api.html">iterator_support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/iterator_support/api/iterator_dereference_task_size.html">hpx/iterator_support/traits/iterator_dereference_task_size.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/lcos_local/api/full_api.html">lcos_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -917,6 +924,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/runtime_local/api/custom_exception_info.html">hpx/runtime_local/custom_exception_info.hpp</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/schedulers/api/full_api.html">schedulers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/schedulers/api/local_priority_tuned_scheduler.html">hpx/schedulers/local_priority_tuned_scheduler.hpp</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/serialization/api/full_api.html">serialization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/serialization_chunk.html">hpx/serialization/serialization_chunk.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/base_object.html">hpx/serialization/base_object.hpp</a></li>
@@ -942,6 +953,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/condition_variable_hpx_condition_variable.html">hpx::condition_variable</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/condition_variable_hpx_condition_variable_any.html">hpx::condition_variable_any</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/condition_variable_hpx_cv_status.html">hpx::cv_status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/channel_mpsc.html">hpx/synchronization/channel_mpsc.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/counting_semaphore_hpx_counting_semaphore.html">hpx::counting_semaphore</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/no_mutex_hpx_no_mutex.html">hpx::no_mutex</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/event.html">hpx/synchronization/event.hpp</a></li>
@@ -963,8 +975,11 @@
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/thread_support/api/full_api.html">thread_support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/task_size.html">hpx/thread_support/task_size.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/stack_size.html">hpx/thread_support/stack_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/unlock_guard_hpx_unlock_guard.html">hpx::unlock_guard</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/spinlock.html">hpx/thread_support/spinlock.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/thread_enums.html">hpx/thread_support/thread_enums.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/threading/api/full_api.html">threading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -978,11 +993,14 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/threading_base/api/full_api.html">threading_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scoped_annotation_hpx_scoped_annotation.html">hpx::scoped_annotation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/set_thread_state.html">hpx/threading_base/set_thread_state.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_data.html">hpx/threading_base/thread_data.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_pool_base.html">hpx/threading_base/thread_pool_base.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/annotated_function_hpx_annotated_function.html">hpx::annotated_function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/register_thread.html">hpx/threading_base/register_thread.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/sized_function_hpx_threads_with_task_size.html">hpx::threads::with_task_size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scheduling_policy.html">hpx/threading_base/scheduling_policy.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scheduler_tuning.html">hpx/threading_base/scheduler_tuning.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/print.html">hpx/threading_base/print.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_description.html">hpx/threading_base/thread_description.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_helpers.html">hpx/threading_base/thread_helpers.hpp</a></li>
@@ -991,6 +1009,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_num_tss_hpx_get_local_worker_thread_num.html">hpx::get_local_worker_thread_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_num_tss_hpx_get_thread_pool_num.html">hpx::get_thread_pool_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/threading_base_fwd.html">hpx/threading_base/threading_base_fwd.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/stack_sized_function_hpx_threads_with_stack_size.html">hpx::threads::with_stack_size</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/threadmanager/api/full_api.html">threadmanager</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1026,6 +1045,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/apex.html">hpx/tracing/backends/apex.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/ittnotify.html">hpx/tracing/backends/ittnotify.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/tracy.html">hpx/tracing/backends/tracy.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/empty_lock_context.html">hpx/tracing/backends/empty_lock_context.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/empty.html">hpx/tracing/backends/empty.hpp</a></li>
 </ul>
 </details></li>
@@ -1117,6 +1137,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_communicator.html">hpx::collectives::create_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_local_communicator.html">hpx::collectives::create_local_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_hierarchical_communicator.html">hpx::collectives::create_hierarchical_communicator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_hierarchical_communicator.html">hpx::collectives::hierarchical_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_set_info.html">hpx::collectives::communicator::set_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_get_info.html">hpx::collectives::communicator::get_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_is_root.html">hpx::collectives::communicator::is_root</a></li>
@@ -1178,6 +1199,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/components_base_fwd_hpx_components_component.html">hpx::components::component</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/components_base_fwd_hpx_components_component_base.html">hpx::components::component_base</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/get_lva.html">hpx/components_base/get_lva.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/component_registered_elsewhere.html">hpx/components_base/traits/component_registered_elsewhere.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/managed_component_base.html">hpx/components_base/server/managed_component_base.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/migration_support.html">hpx/components_base/server/migration_support.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/fixed_component_base.html">hpx/components_base/server/fixed_component_base.hpp</a></li>
@@ -1290,6 +1312,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/is_partitioned.html">hpx/parallel/segmented_algorithms/is_partitioned.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/transform.html">hpx/parallel/segmented_algorithms/transform.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/all_any_none.html">hpx/parallel/segmented_algorithms/all_any_none.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/sort.html">hpx/parallel/segmented_algorithms/sort.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/fill.html">hpx/parallel/segmented_algorithms/fill.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/merge.html">hpx/parallel/segmented_algorithms/merge.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/equal.html">hpx/parallel/segmented_algorithms/equal.hpp</a></li>
@@ -1340,6 +1363,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_suspend_heartbeat_for_testing.html">hpx::supervision::testing::suspend_heartbeat_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_failure_detection_sweep_in_flight_for_testing.html">hpx::supervision::testing::failure_detection_sweep_in_flight_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_stop_background_loops.html">hpx::supervision::testing::stop_background_loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_fenced_hook_for_testing.html">hpx::supervision::testing::set_evict_fenced_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_lifecycle_mirror_hook_for_testing.html">hpx::supervision::testing::set_lifecycle_mirror_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_peer_hook_for_testing.html">hpx::supervision::testing::set_evict_peer_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_lifecycle_observer_hook_for_testing.html">hpx::supervision::testing::set_lifecycle_observer_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_evict_peers_waiting_for_mirrors_for_testing.html">hpx::supervision::testing::evict_peers_waiting_for_mirrors_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_init.html">hpx::supervision::init</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_finalize.html">hpx::supervision::finalize</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/dispatch_api_hpx_supervision_is_initialized.html">hpx::supervision::is_initialized</a></li>
@@ -1373,7 +1401,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases.html">Releases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_0_1.html"><em>HPX</em> V2.0.1 (TBD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_1_0.html"><em>HPX</em> V2.1.0 (TBD)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_1_11_0.html"><em>HPX</em> V1.11.0 (Jun 30, 2025)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_0_0.html"><em>HPX</em> V2.0.0 (Oct 31, 2026)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_1_10_0.html"><em>HPX</em> V1.10.0 (May 29, 2024)</a></li>
@@ -1722,20 +1750,23 @@ applications. In particular, it provides information about individual tasks in t
 <dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_TRACY">
 <span class="sig-name descname"><span class="pre">HPX_WITH_TRACY</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_TRACY" title="Link to this definition">#</a></dt>
 <dd><p>Enable <a class="reference external" href="https://github.com/wolfpld/tracy">Tracy</a> integration. Tracy shows task lifecycle, work stealing, suspension, and (with
-<a class="reference internal" href="#cmdoption-arg-HPX_WITH_PARCEL_PROFILING"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_PARCEL_PROFILING</span></code></a>) distributed parcel events. See <a class="reference internal" href="optimizing_hpx_applications.html#optimizing-with-tracy"><span class="std std-ref">Tracy integration</span></a> for
+<a class="reference internal" href="#cmdoption-arg-HPX_WITH_PARCEL_PROFILING"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_PARCEL_PROFILING</span></code></a>) distributed parcel events. See <a class="reference internal" href="profiling_and_tracing.html#optimizing-with-tracy"><span class="std std-ref">Tracy</span></a> for
 build and attach instructions.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_ITTNOTIFY">
 <span class="sig-name descname"><span class="pre">HPX_WITH_ITTNOTIFY</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_ITTNOTIFY" title="Link to this definition">#</a></dt>
-<dd><p>Enable <a class="reference external" href="https://github.com/intel/ittapi">Intel ITT API</a> integration. Requires VTune or any other Intel ITT API
-provider; point <code class="docutils literal notranslate"><span class="pre">Amplifier_ROOT</span></code> at the install (the name is legacy;
-it accepts any ITTNotify installation). Task lifecycle and work-stealing
-events are emitted as well, see <a class="reference internal" href="#cmdoption-arg-HPX_WITH_TRACING_LIFECYCLE_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_LIFECYCLE_EVENTS</span></code></a>
-and <a class="reference internal" href="#cmdoption-arg-HPX_WITH_TRACING_WORK_STEALING_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_WORK_STEALING_EVENTS</span></code></a>; they are only emitted
-when ITTNotify is enabled at runtime with
-<code class="docutils literal notranslate"><span class="pre">--hpx:ini=hpx.use_itt_notify=1</span></code>.</p>
+<dd><p>Enable <a class="reference external" href="https://github.com/intel/ittapi">Intel ITT API</a> integration. Building needs only the ITT API header
+and library, for example from the open-source <code class="docutils literal notranslate"><span class="pre">ittapi</span></code> project; point
+<code class="docutils literal notranslate"><span class="pre">Amplifier_ROOT</span></code> at the install (the name is historical, any ITT API
+installation works). To view the events you need a tool that reads them,
+such as Intel VTune. Task lifecycle and work-stealing events are emitted as
+well, see <a class="reference internal" href="#cmdoption-arg-HPX_WITH_TRACING_LIFECYCLE_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_LIFECYCLE_EVENTS</span></code></a> and
+<a class="reference internal" href="#cmdoption-arg-HPX_WITH_TRACING_WORK_STEALING_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_WORK_STEALING_EVENTS</span></code></a>. Lock events need
+<a class="reference internal" href="#cmdoption-arg-HPX_WITH_TRACING_LOCK_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_LOCK_EVENTS</span></code></a>. No events are emitted
+unless ITTNotify is enabled at runtime with
+<code class="docutils literal notranslate"><span class="pre">--hpx:ini=hpx.use_itt_notify=1</span></code>. See <a class="reference internal" href="profiling_and_tracing.html#profiling-with-itt"><span class="std std-ref">Intel ITT API and VTune</span></a>.</p>
 </dd></dl>
 
 <dl class="std option">
@@ -1753,8 +1784,7 @@ enabled. Defaults to <code class="docutils literal notranslate"><span class="pre
 deleted). Defaults to <code class="docutils literal notranslate"><span class="pre">ON</span></code>. Turn <code class="docutils literal notranslate"><span class="pre">OFF</span></code> to compile out the per-task hooks and their runtime
 connection check when profiling a workload where only causal or work-stealing events matter. The
 saving applies on Tracy and ITTNotify builds; the other backends already treat these hooks as
-no-ops. On ITTNotify builds, turning this <code class="docutils literal notranslate"><span class="pre">OFF</span></code> restores the earlier behavior of not emitting
-these events.</p>
+no-ops. On ITTNotify builds, turning this <code class="docutils literal notranslate"><span class="pre">OFF</span></code> means no task lifecycle events are emitted.</p>
 </dd></dl>
 
 <dl class="std option">
@@ -1773,8 +1803,33 @@ these hooks as no-ops.</p>
 <dd><p>Emit the work-stealing signal when a worker steals a task from another worker. Defaults to <code class="docutils literal notranslate"><span class="pre">ON</span></code>.
 Turn <code class="docutils literal notranslate"><span class="pre">OFF</span></code> when profiling a workload with heavy work stealing where the signal itself is not
 being consumed. The saving applies on Tracy and ITTNotify builds; the other backends already
-treat this hook as a no-op. On ITTNotify builds, turning this <code class="docutils literal notranslate"><span class="pre">OFF</span></code> restores the earlier
-behavior of not emitting this event.</p>
+treat this hook as a no-op. On ITTNotify builds, turning this <code class="docutils literal notranslate"><span class="pre">OFF</span></code> means no work-stealing
+events are emitted.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_TRACING_LOCK_EVENTS">
+<span class="sig-name descname"><span class="pre">HPX_WITH_TRACING_LOCK_EVENTS</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_TRACING_LOCK_EVENTS" title="Link to this definition">#</a></dt>
+<dd><p>Emit lock events for <code class="docutils literal notranslate"><span class="pre">hpx::mutex</span></code>, <code class="docutils literal notranslate"><span class="pre">hpx::spinlock</span></code> and <code class="docutils literal notranslate"><span class="pre">hpx::util::spinlock</span></code>, so that the
+profiler can show when a lock is taken and released. Defaults to <code class="docutils literal notranslate"><span class="pre">OFF</span></code>. With this <code class="docutils literal notranslate"><span class="pre">ON</span></code> on
+Tracy builds, every lock is registered with Tracy when it is created, even when no profiler is
+connected. Every future holds a lock, so this slows down programs with many small tasks, and
+the memory used grows with the number of locks created. On ITTNotify builds, lock events are
+only sent when ITTNotify is enabled at runtime. With this <code class="docutils literal notranslate"><span class="pre">OFF</span></code>, locks have no tracing code at
+all. Applies to Tracy and ITTNotify builds; the other backends do not record locks.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_TRACING_MESSAGE_CALLSTACKS">
+<span class="sig-name descname"><span class="pre">HPX_WITH_TRACING_MESSAGE_CALLSTACKS</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_TRACING_MESSAGE_CALLSTACKS" title="Link to this definition">#</a></dt>
+<dd><p>Record the call stack, up to 10 frames deep, with every message that <em>HPX</em> sends to Tracy.
+Defaults to <code class="docutils literal notranslate"><span class="pre">OFF</span></code>, because a call stack makes every message slower while a profiler is
+connected, and <em>HPX</em> sends a few messages for every task. If Tracy is configured with
+<code class="docutils literal notranslate"><span class="pre">-DTRACY_NO_CALLSTACK=ON</span></code>, messages have no call stacks even with this <code class="docutils literal notranslate"><span class="pre">ON</span></code>. If Tracy was
+built with <code class="docutils literal notranslate"><span class="pre">TRACY_NO_CALLSTACK</span></code> but <em>HPX</em> is not compiled with that define, for example
+because a <code class="docutils literal notranslate"><span class="pre">tracy::tracy</span></code> target defined before <em>HPX</em> is configured does not carry it, a
+Debug Tracy server asserts on these messages and a Release server usually shows them without
+a call stack. Applies to Tracy builds only.</p>
 </dd></dl>
 
 <dl class="std option">
@@ -1782,7 +1837,8 @@ behavior of not emitting this event.</p>
 <span class="sig-name descname"><span class="pre">HPX_WITH_TRACING_SAMPLE_RATE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_TRACING_SAMPLE_RATE" title="Link to this definition">#</a></dt>
 <dd><p>1-in-N sampling rate for the per-task lifecycle events on Tracy builds. Defaults to <code class="docutils literal notranslate"><span class="pre">1</span></code>
 (every task sampled). This sets the initial rate; the runtime value can be overridden
-via the <code class="docutils literal notranslate"><span class="pre">hpx.tracing.sample_rate</span></code> INI entry (see <span class="xref std std-ref">ini_hpx_tracing</span>). Must be a
+via the <code class="docutils literal notranslate"><span class="pre">hpx.tracing.sample_rate</span></code> INI entry (see
+<a class="reference internal" href="launching_and_configuring_hpx_applications.html#ini-hpx-tracing"><span class="std std-ref">the hpx.tracing section</span></a>). Must be a
 positive integer; the CMake configure step rejects non-integer or non-positive values.
 Only the lifecycle events are sampled - causal events fire unconditionally so the
 causal-chain view stays intact at any rate. <code class="docutils literal notranslate"><span class="pre">task_staged</span></code> is also unconditional
@@ -2168,7 +2224,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Nov 17, 2026.
+  Last updated on Nov 18, 2026.
   <br/>
 </p>
   </div>
