@@ -31,3 +31,5 @@ See also:
    :project: hpx
 .. doxygenfunction:: hpx::collectives::broadcast_to(hpx::launch::sync_policy policy, communicator comm, T && local_result, this_site_arg this_site, generation_arg generation)
    :project: hpx
+.. doxygenfunction:: hpx::collectives::broadcast_to(hpx::launch::sync_policy policy, communicator comm, T && local_result, generation_arg generation, this_site_arg this_site)
+   :project: hpx
