@@ -1717,7 +1717,10 @@ settings that a <em>tuner</em> may change while the scheduler runs. The tuner is
 selected with <code class="docutils literal notranslate"><span class="pre">hpx.scheduler_tuner</span></code> (see <span class="xref std std-ref">ini_hpx</span>); the default,
 <code class="docutils literal notranslate"><span class="pre">static</span></code>, keeps the configured values, so that the scheduler decides like
 the priority local scheduling policy. The settings of the rules are listed in
-<span class="xref std std-ref">ini_hpx_scheduler_policy</span>. Applications can register their own tuners
+<span class="xref std std-ref">ini_hpx_scheduler_policy</span>. A tuner reads and changes each setting as its
+type (<code class="docutils literal notranslate"><span class="pre">hpx::threads::policies::tuning_parameter_type</span></code>): switches, counts and
+sizes as <code class="docutils literal notranslate"><span class="pre">std::uint32_t</span></code>, the idle backoff times (in microseconds) as
+<code class="docutils literal notranslate"><span class="pre">float</span></code>. Applications can register their own tuners
 with <code class="docutils literal notranslate"><span class="pre">hpx::threads::policies::register_scheduler_tuner</span></code> before the runtime
 is started.</p>
 </section>
