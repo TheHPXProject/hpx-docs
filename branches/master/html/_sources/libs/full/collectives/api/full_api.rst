@@ -24,7 +24,6 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/full/collectives/api/create_communicator_hpx_collectives_create_communicator.rst
    /libs/full/collectives/api/create_communicator_hpx_collectives_create_local_communicator.rst
    /libs/full/collectives/api/create_communicator_hpx_collectives_create_hierarchical_communicator.rst
-   /libs/full/collectives/api/create_communicator_hpx_collectives_hierarchical_communicator.rst
    /libs/full/collectives/api/create_communicator_hpx_collectives_communicator_set_info.rst
    /libs/full/collectives/api/create_communicator_hpx_collectives_communicator_get_info.rst
    /libs/full/collectives/api/create_communicator_hpx_collectives_communicator_is_root.rst

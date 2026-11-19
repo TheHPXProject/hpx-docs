@@ -39,7 +39,6 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/synchronization/api/condition_variable_hpx_condition_variable.rst
    /libs/core/synchronization/api/condition_variable_hpx_condition_variable_any.rst
    /libs/core/synchronization/api/condition_variable_hpx_cv_status.rst
-   /libs/core/synchronization/api/channel_mpsc.rst
    /libs/core/synchronization/api/counting_semaphore_hpx_counting_semaphore.rst
    /libs/core/synchronization/api/no_mutex_hpx_no_mutex.rst
    /libs/core/synchronization/api/event.rst
