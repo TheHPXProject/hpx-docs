@@ -21,7 +21,7 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    :maxdepth: 1
 
    /libs/core/async_base/api/sync_hpx_sync.rst
-   /libs/core/async_base/api/launch_policy_hpx_launch.rst
    /libs/core/async_base/api/post_hpx_post.rst
-   /libs/core/async_base/api/dataflow_hpx_dataflow.rst
+   /libs/core/async_base/api/launch_policy_hpx_launch.rst
    /libs/core/async_base/api/async_hpx_async.rst
+   /libs/core/async_base/api/dataflow_hpx_dataflow.rst
