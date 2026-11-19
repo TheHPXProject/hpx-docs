@@ -27,3 +27,5 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    :project: hpx
 .. doxygenfunction:: hpx::collectives::all_reduce(hpx::launch::sync_policy policy, communicator comm, T && result, F && op, this_site_arg this_site, generation_arg generation)
    :project: hpx
+.. doxygenfunction:: hpx::collectives::all_reduce(hpx::launch::sync_policy policy, communicator comm, T && result, F && op, generation_arg generation, this_site_arg this_site)
+   :project: hpx
