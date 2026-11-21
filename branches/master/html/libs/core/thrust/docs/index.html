@@ -1221,6 +1221,8 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../serialization/api/full_api.html">serialization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../serialization/api/serialization_chunk.html">hpx/serialization/serialization_chunk.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../serialization/api/base_object.html">hpx/serialization/base_object.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../serialization/api/output_archive.html">hpx/serialization/output_archive.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../serialization/api/input_archive.html">hpx/serialization/input_archive.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../synchronization/api/full_api.html">synchronization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1651,6 +1653,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asynchronous-execution-with-futures">Asynchronous Execution with Futures</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#serialization">Serialization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pooled-memory">Pooled Memory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-requirements">Build Requirements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
 </ul>
@@ -1725,6 +1729,59 @@ algorithm syntax.</p>
 </div>
 </section>
 </section>
+<section id="serialization">
+<h2>Serialization<a class="headerlink" href="#serialization" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">hpx/thrust/serialization/host_vector.hpp</span></code>,
+<code class="docutils literal notranslate"><span class="pre">hpx/thrust/serialization/universal_vector.hpp</span></code> and
+<code class="docutils literal notranslate"><span class="pre">hpx/thrust/serialization/device_vector.hpp</span></code> make <code class="docutils literal notranslate"><span class="pre">thrust::host_vector</span></code>,
+<code class="docutils literal notranslate"><span class="pre">thrust::universal_vector</span></code> and <code class="docutils literal notranslate"><span class="pre">thrust::device_vector</span></code> serializable, e.g.
+as action arguments.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">host_vector</span></code> and <code class="docutils literal notranslate"><span class="pre">universal_vector</span></code> are serialized from their own
+memory, like a <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> (zero-copy chunks included).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">device_vector</span></code>: data at or above the zero-copy threshold is sent as a
+zero-copy chunk of the device memory itself if the parcelport moves device
+memory itself, otherwise through pinned host staging buffers with
+asynchronous copies. Smaller data is copied into the archive. The data must
+be complete (the kernels writing it finished) when the vector is
+serialized. A <code class="docutils literal notranslate"><span class="pre">device_vector</span></code> whose memory is pinned host memory (see
+below) is sent from and received into its own memory, without staging
+copies.</p></li>
+</ul>
+</section>
+<section id="pooled-memory">
+<h2>Pooled Memory<a class="headerlink" href="#pooled-memory" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">hpx/thrust/allocator.hpp</span></code> provides <code class="docutils literal notranslate"><span class="pre">hpx::thrust::pooled_allocator&lt;T&gt;</span></code>
+and <code class="docutils literal notranslate"><span class="pre">hpx::thrust::device_vector&lt;T&gt;</span></code>, a <code class="docutils literal notranslate"><span class="pre">thrust::device_vector</span></code> using it.
+Allocating device or pinned host memory takes long, and the network has to
+register every new buffer before it moves data from or into it. The allocator
+takes memory from pools that keep deallocated memory for reuse, so buffers are
+allocated and registered once. Deallocated memory is reused right away: no
+device work may use it anymore when its vector is destroyed.</p>
+<p>The configuration entry <code class="docutils literal notranslate"><span class="pre">hpx.thrust.memory</span></code> (or the environment variable
+<code class="docutils literal notranslate"><span class="pre">HPX_THRUST_MEMORY</span></code>) selects the memory:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">device</span></code> (the default)</dt><dd><p>Device memory.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">pinned</span></code></dt><dd><p>Pinned (page-locked) host memory. The network sends it from and receives
+it into its place, without staging copies, but device kernels work on it
+slower than on device memory, also on integrated GPUs (measured on an
+NVIDIA GB10).</p>
+</dd>
+</dl>
+<p>Each pool keeps at most <code class="docutils literal notranslate"><span class="pre">hpx.thrust.max_cached</span></code> (<code class="docutils literal notranslate"><span class="pre">HPX_THRUST_MAX_CACHED</span></code>)
+bytes for reuse (by default an eighth of the device’s memory, at least 256 MiB
+of pinned memory).
+<code class="docutils literal notranslate"><span class="pre">hpx::thrust::release_cached_memory()</span></code> frees the kept memory; the pools do
+that themselves if an allocation runs out of memory.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/thrust/allocator.hpp&gt;</span>
+
+<span class="n">hpx</span><span class="o">::</span><span class="n">thrust</span><span class="o">::</span><span class="n">device_vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
+<span class="c1">// the same as</span>
+<span class="n">thrust</span><span class="o">::</span><span class="n">device_vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">thrust</span><span class="o">::</span><span class="n">pooled_allocator</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">w</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
 <section id="build-requirements">
 <h2>Build Requirements<a class="headerlink" href="#build-requirements" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -1794,6 +1851,8 @@ algorithm syntax.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asynchronous-execution-with-futures">Asynchronous Execution with Futures</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#serialization">Serialization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pooled-memory">Pooled Memory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-requirements">Build Requirements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
 </ul>
