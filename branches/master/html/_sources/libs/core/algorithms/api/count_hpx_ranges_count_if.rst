@@ -23,9 +23,9 @@ See also:
 
    - :ref:`hpx::ranges::count <modules_count_hpx_ranges_count_api>`
 
-.. doxygenfunction:: hpx::ranges::count_if(ExPolicy && policy, Rng && rng, F f, Proj proj)
+.. doxygenfunction:: hpx::ranges::count_if(ExPolicy && policy, Rng && rng, F && f, Proj && proj)
    :project: hpx
-.. doxygenfunction:: hpx::ranges::count_if(ExPolicy && policy, Iter first, Sent last, F f, Proj proj)
+.. doxygenfunction:: hpx::ranges::count_if(ExPolicy && policy, Iter first, Sent last, F && f, Proj && proj)
    :project: hpx
 .. doxygenfunction:: hpx::ranges::count_if(Rng && rng, F && f, Proj && proj)
    :project: hpx

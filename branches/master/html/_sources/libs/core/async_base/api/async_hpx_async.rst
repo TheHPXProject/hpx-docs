@@ -24,10 +24,6 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
 
 .. doxygenfunction:: hpx::async(F && f, Ts &&... ts)
    :project: hpx
-.. doxygenfunction:: hpx::async(Ts &&... ts)
-   :project: hpx
-.. doxygenfunction:: hpx::async(Where && where, Ts &&... ts)
-   :project: hpx
 .. doxygenfunction:: hpx::async(F && f, Ts &&... ts)
    :project: hpx
 .. doxygenfunction:: hpx::async(Executor && exec, hpx::sycl::experimental::sycl_executor::queue_function_ptr_t< Ts... > && f, Ts &&... ts)
