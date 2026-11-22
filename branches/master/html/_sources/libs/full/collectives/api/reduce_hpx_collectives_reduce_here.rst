@@ -31,3 +31,5 @@ See also:
    :project: hpx
 .. doxygenfunction:: hpx::collectives::reduce_here(hpx::launch::sync_policy, communicator comm, T && result, F && op, this_site_arg this_site, generation_arg generation)
    :project: hpx
+.. doxygenfunction:: hpx::collectives::reduce_here(hpx::launch::sync_policy, communicator comm, T && result, F && op, generation_arg generation, this_site_arg this_site)
+   :project: hpx
