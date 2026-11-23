@@ -2660,6 +2660,9 @@ equivalent CMake variable is <code class="docutils literal notranslate"><span cl
 <span class="na">max_background_threads</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="s">${HPX_PARCEL_MPI_MAX_BACKGROUND_THREADS:$[hpx.parcel.max_background_threads]}</span>
 <span class="na">ack_handshake</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0</span>
 <span class="na">max_header_receives</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_HAVE_PARCELPORT_MPI_MAX_HEADER_RECEIVES:0}</span>
+<span class="na">device_memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_HAVE_PARCELPORT_MPI_DEVICE_MEMORY:1}</span>
+<span class="na">send_device_memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_HAVE_PARCELPORT_MPI_SEND_DEVICE_MEMORY:1}</span>
+<span class="na">receive_device_memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">${HPX_HAVE_PARCELPORT_MPI_RECEIVE_DEVICE_MEMORY:1}</span>
 </pre></div>
 </div>
 <div class="pst-scrollable-table-container"><table class="table" id="ini-hpx-parcel-mpi">
@@ -2767,6 +2770,26 @@ buffers pre-posted for incoming parcel headers. The default is taken
 from <code class="docutils literal notranslate"><span class="pre">HPX_HAVE_PARCELPORT_MPI_MAX_HEADER_RECEIVES</span></code> (<code class="docutils literal notranslate"><span class="pre">0</span></code> if not
 defined). A value of <code class="docutils literal notranslate"><span class="pre">0</span></code> automatically sizes the pool based on the
 communicator size: <code class="docutils literal notranslate"><span class="pre">min(64,</span> <span class="pre">max(16,</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">communicator_size))</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.parcel.mpi.device_memory</span></code></p></td>
+<td><p>This property defines whether the MPI parcelport sends and receives
+device (GPU) memory directly, if the MPI library supports it (CUDA- or
+ROCm-aware MPI, see <code class="docutils literal notranslate"><span class="pre">HPX_WITH_PARCELPORT_CUDA_SUPPORT</span></code> and
+<code class="docutils literal notranslate"><span class="pre">HPX_WITH_PARCELPORT_HIP_SUPPORT</span></code>). Otherwise device data is staged
+through pinned host memory. The default is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.parcel.mpi.send_device_memory</span></code></p></td>
+<td><p>This property defines whether the MPI parcelport sends device memory
+directly (if <code class="docutils literal notranslate"><span class="pre">hpx.parcel.mpi.device_memory</span></code> allows it). Set it to
+<code class="docutils literal notranslate"><span class="pre">0</span></code> on systems where the network card reads device memory much slower
+than host memory (e.g. if it is not attached to the same PCIe switch as
+the GPU): the data is then copied to pinned host memory first. The
+default is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.parcel.mpi.receive_device_memory</span></code></p></td>
+<td><p>This property defines whether the MPI parcelport receives into device
+memory directly (if <code class="docutils literal notranslate"><span class="pre">hpx.parcel.mpi.device_memory</span></code> allows it),
+whatever memory the sender sent the data from. The default is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
