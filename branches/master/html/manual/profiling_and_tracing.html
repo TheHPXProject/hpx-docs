@@ -1892,10 +1892,9 @@ named <code class="docutils literal notranslate"><span class="pre">&lt;descripti
 You can follow a task on its fiber row when it moves from one worker to
 another. The color of a zone on a fiber row depends on the worker it ran on, so
 a change of color means that the task moved.</p>
-<p><em>HPX</em> reuses thread objects. A later task with the same description that reuses
-the same thread object appears on the same fiber row, so a fiber row can show
-more than one task, one after the other, all with that description. A task with
-a different description gets its own fiber row.</p>
+<p><em>HPX</em> reuses thread objects. A later task that reuses the same thread object
+appears on the same fiber row, so a fiber row can show more than one task under
+one name.</p>
 </section>
 <section id="messages">
 <h4>Messages<a class="headerlink" href="#messages" title="Link to this heading">#</a></h4>
