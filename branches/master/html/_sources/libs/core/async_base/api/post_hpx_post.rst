@@ -24,5 +24,9 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
 
 .. doxygenfunction:: hpx::post(F && f, Ts &&... ts)
    :project: hpx
+.. doxygenfunction:: hpx::post(Ts &&... ts)
+   :project: hpx
+.. doxygenfunction:: hpx::post(Executor && exec, Ts &&... ts)
+   :project: hpx
 .. doxygenfunction:: hpx::post(Action && action, Target && target, Ts &&... ts)
    :project: hpx

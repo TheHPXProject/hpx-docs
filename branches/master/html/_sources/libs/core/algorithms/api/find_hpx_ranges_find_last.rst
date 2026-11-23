@@ -29,5 +29,11 @@ See also:
    - :ref:`hpx::ranges::find_last_if <modules_find_hpx_ranges_find_last_if_api>`
    - :ref:`hpx::ranges::find_last_if_not <modules_find_hpx_ranges_find_last_if_not_api>`
 
-.. doxygenfunction:: hpx::ranges::find_last
+.. doxygenfunction:: hpx::ranges::find_last(ExPolicy && policy, Iter first, Sent last, T const & val, Proj && proj)
+   :project: hpx
+.. doxygenfunction:: hpx::ranges::find_last(ExPolicy && policy, Rng && rng, T const & val, Proj && proj)
+   :project: hpx
+.. doxygenfunction:: hpx::ranges::find_last(Iter first, Sent last, T const & val, Proj && proj)
+   :project: hpx
+.. doxygenfunction:: hpx::ranges::find_last(Rng && rng, T const & val, Proj && proj)
    :project: hpx

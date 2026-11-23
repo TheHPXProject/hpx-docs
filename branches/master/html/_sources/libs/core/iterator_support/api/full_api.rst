@@ -21,3 +21,4 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    :maxdepth: 1
 
    /libs/core/iterator_support/api/iterator_range.rst
+   /libs/core/iterator_support/api/iterator_dereference_task_size.rst

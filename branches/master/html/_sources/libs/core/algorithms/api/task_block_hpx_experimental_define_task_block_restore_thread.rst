@@ -27,5 +27,7 @@ See also:
 
 .. doxygenfunction:: hpx::experimental::define_task_block_restore_thread(ExPolicy && policy, F && f)
    :project: hpx
+.. doxygenfunction:: hpx::experimental::define_task_block_restore_thread(Scheduler && sched, F && f)
+   :project: hpx
 .. doxygenfunction:: hpx::experimental::define_task_block_restore_thread(F && f)
    :project: hpx
