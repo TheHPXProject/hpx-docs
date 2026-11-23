@@ -20,7 +20,6 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
 .. toctree::
    :maxdepth: 1
 
-   /libs/core/algorithms/api/spmd_block.rst
    /libs/core/algorithms/api/task_block_hpx_experimental_task_canceled_exception.rst
    /libs/core/algorithms/api/task_block_hpx_experimental_task_block.rst
    /libs/core/algorithms/api/task_block_hpx_experimental_define_task_block.rst
@@ -93,7 +92,6 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/algorithms/api/count_hpx_ranges_count.rst
    /libs/core/algorithms/api/count_hpx_ranges_count_if.rst
    /libs/core/algorithms/api/adjacent_find_hpx_ranges_adjacent_find.rst
-   /libs/core/algorithms/api/contains.rst
    /libs/core/algorithms/api/inclusive_scan_hpx_ranges_inclusive_scan.rst
    /libs/core/algorithms/api/set_intersection_hpx_ranges_set_intersection.rst
    /libs/core/algorithms/api/set_difference_hpx_ranges_set_difference.rst

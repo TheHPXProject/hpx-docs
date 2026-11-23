@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Writing distributed applications &#8212; HPX 2.1.0-trunk documentation</title>
+    <title>Writing distributed applications &#8212; HPX 2.0.1-rc1 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=0df519e6"></script>
+    <script src="../_static/documentation_options.js?v=dabc1245"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -142,8 +142,8 @@
       
     
     
-    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.1.0-trunk documentation - Home"/>
-    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.1.0-trunk documentation - Home"/>`);</script>
+    <img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-light" alt="HPX 2.0.1-rc1 documentation - Home"/>
+    <script>document.write(`<img src="../_static/HPX_STELLAR_blue.png" class="logo__image only-dark" alt="HPX 2.0.1-rc1 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -200,7 +200,6 @@
 <li class="toctree-l2"><a class="reference internal" href="running_on_batch_systems.html">Running on batch systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="debugging_hpx_applications.html">Debugging <em>HPX</em> applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimizing_hpx_applications.html">Optimizing <em>HPX</em> applications</a></li>
-<li class="toctree-l2"><a class="reference internal" href="profiling_and_tracing.html">Profiling and tracing <em>HPX</em> applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using_the_lci_parcelport.html">Using the LCI parcelport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using_the_lcw_parcelport.html">Using the LCW parcelport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hpx_runtime_and_resources.html"><em>HPX</em> runtime and resources</a></li>
@@ -461,7 +460,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_communicator.html">hpx::collectives::create_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_local_communicator.html">hpx::collectives::create_local_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_create_hierarchical_communicator.html">hpx::collectives::create_hierarchical_communicator</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_hierarchical_communicator.html">hpx::collectives::hierarchical_communicator</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_set_info.html">hpx::collectives::communicator::set_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_get_info.html">hpx::collectives::communicator::get_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/collectives/api/create_communicator_hpx_collectives_communicator_is_root.html">hpx::collectives::communicator::is_root</a></li>
@@ -483,7 +481,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/agas_interface.html">hpx/components_base/agas_interface.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/component_type.html">hpx/components_base/component_type.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/get_lva.html">hpx/components_base/get_lva.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/component_registered_elsewhere.html">hpx/components_base/traits/component_registered_elsewhere.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/fixed_component_base.html">hpx/components_base/server/fixed_component_base.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/migration_support.html">hpx/components_base/server/migration_support.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/components_base/api/managed_component_base.html">hpx/components_base/server/managed_component_base.hpp</a></li>
@@ -608,7 +605,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/is_sorted.html">hpx/parallel/segmented_algorithms/is_sorted.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/mismatch.html">hpx/parallel/segmented_algorithms/mismatch.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/all_any_none.html">hpx/parallel/segmented_algorithms/all_any_none.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/sort.html">hpx/parallel/segmented_algorithms/sort.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/copy.html">hpx/parallel/segmented_algorithms/copy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/for_each.html">hpx/parallel/segmented_algorithms/for_each.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/full/segmented_algorithms/api/is_partitioned.html">hpx/parallel/segmented_algorithms/is_partitioned.hpp</a></li>
@@ -632,7 +628,6 @@
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/algorithms/api/full_api.html">algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/spmd_block.html">hpx/parallel/spmd_block.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_task_canceled_exception.html">hpx::experimental::task_canceled_exception</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_task_block.html">hpx::experimental::task_block</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/task_block_hpx_experimental_define_task_block.html">hpx::experimental::define_task_block</a></li>
@@ -705,7 +700,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/count_hpx_ranges_count.html">hpx::ranges::count</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/count_hpx_ranges_count_if.html">hpx::ranges::count_if</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/adjacent_find_hpx_ranges_adjacent_find.html">hpx::ranges::adjacent_find</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/contains.html">hpx/parallel/container_algorithms/contains.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/inclusive_scan_hpx_ranges_inclusive_scan.html">hpx::ranges::inclusive_scan</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/set_intersection_hpx_ranges_set_intersection.html">hpx::ranges::set_intersection</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/algorithms/api/set_difference_hpx_ranges_set_difference.html">hpx::ranges::set_difference</a></li>
@@ -910,11 +904,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_cuda/api/cuda_executor.html">hpx/async_cuda/cuda_executor.hpp</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/async_local/api/full_api.html">async_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html">hpx::async</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_post.html">hpx::post</a></li>
-</ul>
-</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/async_mpi/api/full_api.html">async_mpi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_mpi/api/mpi_executor.html">hpx/async_mpi/mpi_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/async_mpi/api/transform_mpi.html">hpx/async_mpi/transform_mpi.hpp</a></li>
@@ -1091,6 +1080,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/bind_back_hpx_bind_back.html">hpx::bind_back</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/move_only_function_hpx_move_only_function.html">hpx::move_only_function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_bind_expression_hpx_is_bind_expression.html">hpx::is_bind_expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/get_task_size.html">hpx/functional/traits/get_task_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/is_placeholder_hpx_is_placeholder.html">hpx::is_placeholder</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_exit_hpx_experimental_scope_exit.html">hpx::experimental::scope_exit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/functional/api/scope_success_hpx_experimental_scope_success.html">hpx::experimental::scope_success</a></li>
@@ -1117,13 +1107,11 @@
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/io_service/api/full_api.html">io_service</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/io_service/api/schedule_timer.html">hpx/io_service/schedule_timer.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/io_service/api/io_service_pool.html">hpx/io_service/io_service_pool.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/iterator_support/api/full_api.html">iterator_support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/iterator_support/api/iterator_range.html">hpx/iterator_support/iterator_range.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/iterator_support/api/iterator_dereference_task_size.html">hpx/iterator_support/traits/iterator_dereference_task_size.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/lcos_local/api/full_api.html">lcos_local</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1214,15 +1202,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/runtime_local/api/thread_hooks.html">hpx/runtime_local/thread_hooks.hpp</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/schedulers/api/full_api.html">schedulers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/schedulers/api/local_priority_tuned_scheduler.html">hpx/schedulers/local_priority_tuned_scheduler.hpp</a></li>
-</ul>
-</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/serialization/api/full_api.html">serialization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/serialization_chunk.html">hpx/serialization/serialization_chunk.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/base_object.html">hpx/serialization/base_object.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/output_archive.html">hpx/serialization/output_archive.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/serialization/api/input_archive.html">hpx/serialization/input_archive.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/synchronization/api/full_api.html">synchronization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1239,7 +1221,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/sliding_semaphore.html">hpx/synchronization/sliding_semaphore.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/spinlock_hpx_spinlock.html">hpx::spinlock</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/latch_hpx_latch.html">hpx::latch</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/channel_mpsc.html">hpx/synchronization/channel_mpsc.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/no_mutex_hpx_no_mutex.html">hpx::no_mutex</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/mutex_hpx_mutex.html">hpx::mutex</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/synchronization/api/mutex_hpx_timed_mutex.html">hpx::timed_mutex</a></li>
@@ -1267,9 +1248,6 @@
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/thread_support/api/full_api.html">thread_support</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/thread_enums.html">hpx/thread_support/thread_enums.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/task_size.html">hpx/thread_support/task_size.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/stack_size.html">hpx/thread_support/stack_size.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/unlock_guard_hpx_unlock_guard.html">hpx::unlock_guard</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/thread_support/api/spinlock.html">hpx/thread_support/spinlock.hpp</a></li>
 </ul>
@@ -1285,14 +1263,11 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/threading_base/api/full_api.html">threading_base</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/annotated_function_hpx_annotated_function.html">hpx::annotated_function</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scheduling_policy.html">hpx/threading_base/scheduling_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_description.html">hpx/threading_base/thread_description.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scheduler_tuning.html">hpx/threading_base/scheduler_tuning.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/print.html">hpx/threading_base/print.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/register_thread.html">hpx/threading_base/register_thread.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_helpers.html">hpx/threading_base/thread_helpers.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/threading_base_fwd.html">hpx/threading_base/threading_base_fwd.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/stack_sized_function_hpx_threads_with_stack_size.html">hpx::threads::with_stack_size</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scoped_annotation_hpx_scoped_annotation.html">hpx::scoped_annotation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/tracing_sample_rate.html">hpx/threading_base/tracing_sample_rate.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_data.html">hpx/threading_base/thread_data.hpp</a></li>
@@ -1335,7 +1310,6 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/tracing/api/full_api.html">tracing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/tracing.html">hpx/tracing/tracing.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/apex.html">hpx/tracing/backends/apex.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/empty_lock_context.html">hpx/tracing/backends/empty_lock_context.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/empty.html">hpx/tracing/backends/empty.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/ittnotify.html">hpx/tracing/backends/ittnotify.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/tracing/api/tracy.html">hpx/tracing/backends/tracy.hpp</a></li>
@@ -1409,7 +1383,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases.html">Releases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_1_0.html"><em>HPX</em> V2.1.0 (TBD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_0_1.html"><em>HPX</em> V2.0.1 (TBD)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_1_11_0.html"><em>HPX</em> V1.11.0 (Jun 30, 2025)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_2_0_0.html"><em>HPX</em> V2.0.0 (Oct 31, 2026)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/whats_new_1_10_0.html"><em>HPX</em> V1.10.0 (May 29, 2024)</a></li>
@@ -1839,28 +1813,6 @@ invocations (here <code class="docutils literal notranslate"><span class="pre">s
 to comprise a globally unique C++ identifier representing the action. This is
 used for serialization purposes.</p>
 </div>
-<p>A global function can also be invoked without defining an action type for it
-by passing a pointer to the function as the template argument of <code class="docutils literal notranslate"><span class="pre">hpx::async</span></code>:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">app</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="n">hpx</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">async</span><span class="o">&lt;&amp;</span><span class="n">app</span><span class="o">::</span><span class="n">square</span><span class="o">&gt;</span><span class="p">(</span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>This creates the action for <code class="docutils literal notranslate"><span class="pre">app::square</span></code> internally. It relies on the action
-being registered automatically, which is the default. If <em>HPX</em> was configured
-with <code class="docutils literal notranslate"><span class="pre">HPX_WITH_AUTOMATIC_SERIALIZATION_REGISTRATION=OFF</span></code>, use
-<a class="reference internal" href="../libs/full/actions_base/api/macros.html#c.HPX_PLAIN_ACTION" title="HPX_PLAIN_ACTION"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_PLAIN_ACTION</span></code></a> instead. The target can be an <code class="docutils literal notranslate"><span class="pre">hpx::id_type</span></code> or a
-distribution policy, but not a client.</p>
-<p>The action is registered by the executable that instantiates
-<code class="docutils literal notranslate"><span class="pre">hpx::async&lt;&amp;app::square&gt;</span></code>. A locality can only run the action if it was
-registered there too, so this works only if all localities run the same
-executable.</p>
 <p>For member functions of objects which have been registered with AGAS
 (e.g., ‘components’), a different registration macro
 <a class="reference internal" href="../libs/full/actions_base/api/component_action_HPX_DEFINE_COMPONENT_ACTION.html#c.HPX_DEFINE_COMPONENT_ACTION" title="HPX_DEFINE_COMPONENT_ACTION"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_DEFINE_COMPONENT_ACTION</span></code></a> has to be utilized. Any component needs
@@ -1908,17 +1860,6 @@ functions, they should still be manageable.</p>
 <p>The most important macro invocation is the <a class="reference internal" href="../libs/full/actions_base/api/component_action_HPX_DEFINE_COMPONENT_ACTION.html#c.HPX_DEFINE_COMPONENT_ACTION" title="HPX_DEFINE_COMPONENT_ACTION"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_DEFINE_COMPONENT_ACTION</span></code></a> in the header file
 as this defines the action type we need to invoke the member function. For a
 complete example of a simple component action see <a class="reference download internal" download="" href="../_downloads/7b08f088c4a0239d9ff79cffe9cab53c/component_in_executable.cpp"><code class="xref download docutils literal notranslate"><span class="pre">component_in_executable.cpp</span></code></a>.</p>
-<p>Member functions of components can also be invoked without defining an action
-type for them, the same way as global functions:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">hpx</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">async</span><span class="o">&lt;&amp;</span><span class="n">app</span><span class="o">::</span><span class="n">some_component</span><span class="o">::</span><span class="n">some_member_function</span><span class="o">&gt;</span><span class="p">(</span>
-<span class="w">        </span><span class="n">component_id</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">&quot;42&quot;</span><span class="p">));</span>
-</pre></div>
-</div>
-<p>The component itself still has to be registered using
-<a class="reference internal" href="../libs/full/runtime_components/api/component_factory_HPX_REGISTER_COMPONENT.html#c.HPX_REGISTER_COMPONENT" title="HPX_REGISTER_COMPONENT"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_REGISTER_COMPONENT</span></code></a>, only the action macros are not needed. In
-addition to an <code class="docutils literal notranslate"><span class="pre">hpx::id_type</span></code> or a distribution policy, the target can also be
-a client of the component.</p>
 </section>
 <section id="reflection-based-component-actions-experimental">
 <span id="reflection-based-component-actions"></span><h3>Reflection-based component actions (experimental)<a class="headerlink" href="#reflection-based-component-actions-experimental" title="Link to this heading">#</a></h3>
@@ -1947,8 +1888,8 @@ a single macro instead of the three-step process described above:</p>
 </pre></div>
 </div>
 <p>The resulting <code class="docutils literal notranslate"><span class="pre">some_member_action</span></code> type can be used exactly like an action
-type created with <a class="reference internal" href="../libs/full/actions_base/api/component_action_HPX_DEFINE_COMPONENT_ACTION.html#c.HPX_DEFINE_COMPONENT_ACTION" title="HPX_DEFINE_COMPONENT_ACTION"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_DEFINE_COMPONENT_ACTION</span></code></a>, with <a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_post.html#modules-async-function-pointer-hpx-post-api"><span class="std std-ref">hpx::post</span></a>,
-<a class="reference internal" href="../libs/core/async_local/api/async_function_pointer_hpx_async.html#modules-async-function-pointer-hpx-async-api"><span class="std std-ref">hpx::async</span></a>, and <a class="reference internal" href="../libs/core/async_base/api/sync_hpx_sync.html#modules-sync-hpx-sync-api"><span class="std std-ref">hpx::sync</span></a>, or by invoking it directly. No
+type created with <a class="reference internal" href="../libs/full/actions_base/api/component_action_HPX_DEFINE_COMPONENT_ACTION.html#c.HPX_DEFINE_COMPONENT_ACTION" title="HPX_DEFINE_COMPONENT_ACTION"><code class="xref c c-macro docutils literal notranslate"><span class="pre">HPX_DEFINE_COMPONENT_ACTION</span></code></a>, with <a class="reference internal" href="../libs/core/async_base/api/post_hpx_post.html#modules-post-hpx-post-api"><span class="std std-ref">hpx::post</span></a>,
+<a class="reference internal" href="../libs/core/async_base/api/async_hpx_async.html#modules-async-hpx-async-api"><span class="std std-ref">hpx::async</span></a>, and <a class="reference internal" href="../libs/core/async_base/api/sync_hpx_sync.html#modules-sync-hpx-sync-api"><span class="std std-ref">hpx::sync</span></a>, or by invoking it directly. No
 separate registration step is required in the source file.</p>
 </section>
 <section id="action-invocation">
@@ -2668,20 +2609,13 @@ reimplemented:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">begin</span></code>, <code class="docutils literal notranslate"><span class="pre">cbegin</span></code>, <code class="docutils literal notranslate"><span class="pre">end</span></code>, <code class="docutils literal notranslate"><span class="pre">cend</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">size</span></code></p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">partitioned_vector</span></code> and <code class="docutils literal notranslate"><span class="pre">coarray</span></code> for <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code>
-and <code class="docutils literal notranslate"><span class="pre">std::string</span></code> are predefined by the <em>HPX</em> library. Any other element type
-has to be registered with <code class="docutils literal notranslate"><span class="pre">HPX_REGISTER_PARTITIONED_VECTOR</span></code> (or
-<code class="docutils literal notranslate"><span class="pre">HPX_REGISTER_COARRAY</span></code>) in exactly one module of the application. The
-predefined types have to be registered only if <em>HPX</em> is linked statically;
-registering them again when <em>HPX</em> is linked dynamically is a compile time error.</p>
 <p>An example of how to use the <code class="docutils literal notranslate"><span class="pre">partitioned_vector</span></code> container would be:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/include/partitioned_vector.hpp&gt;</span>
 
-<span class="c1">// partitioned_vector&lt;double&gt; is predefined by HPX, it has to be registered</span>
-<span class="c1">// only if HPX is linked statically</span>
-<span class="cp">#if defined(HPX_HAVE_STATIC_LINKING)</span>
+<span class="c1">// The following code generates all necessary boiler plate to enable the</span>
+<span class="c1">// remote creation of &#39;partitioned_vector&#39; segments</span>
+<span class="c1">//</span>
 <span class="n">HPX_REGISTER_PARTITIONED_VECTOR</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
-<span class="cp">#endif</span>
 
 <span class="c1">// By default, the number of segments is equal to the current number of</span>
 <span class="c1">// localities</span>
@@ -2695,11 +2629,10 @@ with distribution policies would be:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/include/partitioned_vector.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/modules/runtime_distributed.hpp&gt;</span>
 
-<span class="c1">// partitioned_vector&lt;double&gt; is predefined by HPX, it has to be registered</span>
-<span class="c1">// only if HPX is linked statically</span>
-<span class="cp">#if defined(HPX_HAVE_STATIC_LINKING)</span>
+<span class="c1">// The following code generates all necessary boiler plate to enable the</span>
+<span class="c1">// remote creation of &#39;partitioned_vector&#39; segments</span>
+<span class="c1">//</span>
 <span class="n">HPX_REGISTER_PARTITIONED_VECTOR</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
-<span class="cp">#endif</span>
 
 <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">num_segments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">hpx</span><span class="o">::</span><span class="n">id_type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">locs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">find_all_localities</span><span class="p">();</span>
@@ -2720,11 +2653,10 @@ constructor. To overcome this problem, it is possible to assign a symbolic name
 to the segmented container:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/include/partitioned_vector.hpp&gt;</span>
 
-<span class="c1">// partitioned_vector&lt;double&gt; is predefined by HPX, it has to be registered</span>
-<span class="c1">// only if HPX is linked statically</span>
-<span class="cp">#if defined(HPX_HAVE_STATIC_LINKING)</span>
+<span class="c1">// The following code generates all necessary boiler plate to enable the</span>
+<span class="c1">// remote creation of &#39;partitioned_vector&#39; segments</span>
+<span class="c1">//</span>
 <span class="n">HPX_REGISTER_PARTITIONED_VECTOR</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
-<span class="cp">#endif</span>
 
 <span class="n">hpx</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fserver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">async</span><span class="p">(</span>
 <span class="w">  </span><span class="p">[](){</span>
@@ -2816,11 +2748,10 @@ as a parameter), or get the local begin/end iterators of the nearest
 local segment (by providing a per-segment iterator as a parameter):</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/include/partitioned_vector.hpp&gt;</span>
 
-<span class="c1">// partitioned_vector&lt;double&gt; is predefined by HPX, it has to be registered</span>
-<span class="c1">// only if HPX is linked statically</span>
-<span class="cp">#if defined(HPX_HAVE_STATIC_LINKING)</span>
+<span class="c1">// The following code generates all necessary boiler plate to enable the</span>
+<span class="c1">// remote creation of &#39;partitioned_vector&#39; segments</span>
+<span class="c1">//</span>
 <span class="n">HPX_REGISTER_PARTITIONED_VECTOR</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
-<span class="cp">#endif</span>
 
 <span class="k">using</span><span class="w"> </span><span class="n">iterator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">partitioned_vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="n">traits</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">traits</span><span class="o">::</span><span class="n">segmented_iterator_traits</span><span class="o">&lt;</span><span class="n">iterator</span><span class="o">&gt;</span><span class="p">;</span>
@@ -2999,11 +2930,10 @@ the expression <code class="docutils literal notranslate"><span class="pre">v[k]
 <p>By default, the <code class="docutils literal notranslate"><span class="pre">partitioned_vector</span></code> class integrates 1-D views of its segments:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/include/partitioned_vector.hpp&gt;</span>
 
-<span class="c1">// partitioned_vector&lt;double&gt; is predefined by HPX, it has to be registered</span>
-<span class="c1">// only if HPX is linked statically</span>
-<span class="cp">#if defined(HPX_HAVE_STATIC_LINKING)</span>
+<span class="c1">// The following code generates all necessary boiler plate to enable the</span>
+<span class="c1">// remote creation of &#39;partitioned_vector&#39; segments</span>
+<span class="c1">//</span>
 <span class="n">HPX_REGISTER_PARTITIONED_VECTOR</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
-<span class="cp">#endif</span>
 
 <span class="k">using</span><span class="w"> </span><span class="n">iterator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">partitioned_vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="n">traits</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">traits</span><span class="o">::</span><span class="n">segmented_iterator_traits</span><span class="o">&lt;</span><span class="n">iterator</span><span class="o">&gt;</span><span class="p">;</span>
@@ -3036,11 +2966,10 @@ operation).</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/components/containers/partitioned_vector/partitioned_vector_view.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/include/partitioned_vector.hpp&gt;</span>
 
-<span class="c1">// partitioned_vector&lt;double&gt; is predefined by HPX, it has to be registered</span>
-<span class="c1">// only if HPX is linked statically</span>
-<span class="cp">#if defined(HPX_HAVE_STATIC_LINKING)</span>
+<span class="c1">// The following code generates all necessary boiler plate to enable the</span>
+<span class="c1">// remote creation of &#39;partitioned_vector&#39; segments</span>
+<span class="c1">//</span>
 <span class="n">HPX_REGISTER_PARTITIONED_VECTOR</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
-<span class="cp">#endif</span>
 
 <span class="k">using</span><span class="w"> </span><span class="n">Vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">partitioned_vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="n">View_2D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">partitioned_vector_view</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">;</span>
@@ -3074,11 +3003,10 @@ operation).</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/components/containers/partitioned_vector/partitioned_vector_view.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/include/partitioned_vector.hpp&gt;</span>
 
-<span class="c1">// partitioned_vector&lt;int&gt; is predefined by HPX, it has to be registered</span>
-<span class="c1">// only if HPX is linked statically</span>
-<span class="cp">#if defined(HPX_HAVE_STATIC_LINKING)</span>
+<span class="c1">// The following code generates all necessary boiler plate to enable the</span>
+<span class="c1">// remote creation of &#39;partitioned_vector&#39; segments</span>
+<span class="c1">//</span>
 <span class="n">HPX_REGISTER_PARTITIONED_VECTOR</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
-<span class="cp">#endif</span>
 
 <span class="k">using</span><span class="w"> </span><span class="n">Vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">partitioned_vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="n">View_3D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">partitioned_vector_view</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">;</span>
@@ -3238,11 +3166,10 @@ operations:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/components/containers/coarray/coarray.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/modules/collectives.hpp&gt;</span>
 
-<span class="c1">// coarray&lt;double&gt; is predefined by HPX, it has to be registered only if</span>
-<span class="c1">// HPX is linked statically</span>
-<span class="cp">#if defined(HPX_HAVE_STATIC_LINKING)</span>
+<span class="c1">// The following code generates all necessary boiler plate to enable the</span>
+<span class="c1">// co-creation of &#39;coarray&#39;</span>
+<span class="c1">//</span>
 <span class="n">HPX_REGISTER_COARRAY</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
-<span class="cp">#endif</span>
 
 <span class="c1">// Parallel section (suppose &#39;block&#39; an spmd_block instance)</span>
 <span class="p">{</span>
@@ -3312,11 +3239,10 @@ involves potential remote data transfers.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/components/containers/coarray/coarray.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/modules/collectives.hpp&gt;</span>
 
-<span class="c1">// coarray&lt;double&gt; is predefined by HPX, it has to be registered only if</span>
-<span class="c1">// HPX is linked statically</span>
-<span class="cp">#if defined(HPX_HAVE_STATIC_LINKING)</span>
+<span class="c1">// The following code generates all necessary boiler plate to enable the</span>
+<span class="c1">// co-creation of &#39;coarray&#39;</span>
+<span class="c1">//</span>
 <span class="n">HPX_REGISTER_COARRAY</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
-<span class="cp">#endif</span>
 
 <span class="c1">// Parallel section (suppose &#39;block&#39; an spmd_block instance)</span>
 <span class="p">{</span>

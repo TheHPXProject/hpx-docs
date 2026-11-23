@@ -76,11 +76,6 @@ used CMake options.
    Enable support for CUDA. Use ``CMAKE_CUDA_COMPILER`` to set the CUDA compiler. This is a standard
    |cmake|_ variable, like ``CMAKE_CXX_COMPILER``.
 
-   |hpx|'s sender/receiver support is based on stdexec, which supports clang and nvc++ as CUDA
-   compilers, but not nvcc. |hpx| applies its own patches to the stdexec version it fetches, which
-   lets nvcc compile the |hpx| headers on a best-effort basis, but not with MSVC as the host
-   compiler. On Windows, use clang as the CUDA compiler instead, see :ref:`windows_cuda`.
-
 .. option:: HPX_WITH_PARCELPORT_MPI
 
    Enable the MPI parcelport. This enables the use of MPI for the networking operations in the HPX runtime.
@@ -112,16 +107,13 @@ used CMake options.
 
 .. option:: HPX_WITH_ITTNOTIFY
 
-   Enable |ittnotify|_ integration. Building needs only the ITT API header
-   and library, for example from the open-source ``ittapi`` project; point
-   ``Amplifier_ROOT`` at the install (the name is historical, any ITT API
-   installation works). To view the events you need a tool that reads them,
-   such as |vtune|. Task lifecycle and work-stealing events are emitted as
-   well, see :option:`HPX_WITH_TRACING_LIFECYCLE_EVENTS` and
-   :option:`HPX_WITH_TRACING_WORK_STEALING_EVENTS`. Lock events need
-   :option:`HPX_WITH_TRACING_LOCK_EVENTS`. No events are emitted
-   unless ITTNotify is enabled at runtime with
-   ``--hpx:ini=hpx.use_itt_notify=1``. See :ref:`profiling_with_itt`.
+   Enable |ittnotify|_ integration. Requires VTune or any other |ittnotify|
+   provider; point ``Amplifier_ROOT`` at the install (the name is legacy;
+   it accepts any ITTNotify installation). Task lifecycle and work-stealing
+   events are emitted as well, see :option:`HPX_WITH_TRACING_LIFECYCLE_EVENTS`
+   and :option:`HPX_WITH_TRACING_WORK_STEALING_EVENTS`; they are only emitted
+   when ITTNotify is enabled at runtime with
+   ``--hpx:ini=hpx.use_itt_notify=1``.
 
 .. option:: HPX_WITH_PARCEL_PROFILING
 
@@ -135,7 +127,8 @@ used CMake options.
    deleted). Defaults to ``ON``. Turn ``OFF`` to compile out the per-task hooks and their runtime
    connection check when profiling a workload where only causal or work-stealing events matter. The
    saving applies on Tracy and ITTNotify builds; the other backends already treat these hooks as
-   no-ops. On ITTNotify builds, turning this ``OFF`` means no task lifecycle events are emitted.
+   no-ops. On ITTNotify builds, turning this ``OFF`` restores the earlier behavior of not emitting
+   these events.
 
 .. option:: HPX_WITH_TRACING_CAUSAL_EVENTS
 
@@ -150,36 +143,14 @@ used CMake options.
    Emit the work-stealing signal when a worker steals a task from another worker. Defaults to ``ON``.
    Turn ``OFF`` when profiling a workload with heavy work stealing where the signal itself is not
    being consumed. The saving applies on Tracy and ITTNotify builds; the other backends already
-   treat this hook as a no-op. On ITTNotify builds, turning this ``OFF`` means no work-stealing
-   events are emitted.
-
-.. option:: HPX_WITH_TRACING_LOCK_EVENTS
-
-   Emit lock events for ``hpx::mutex``, ``hpx::spinlock`` and ``hpx::util::spinlock``, so that the
-   profiler can show when a lock is taken and released. Defaults to ``OFF``. With this ``ON`` on
-   Tracy builds, every lock is registered with Tracy when it is created, even when no profiler is
-   connected. Every future holds a lock, so this slows down programs with many small tasks, and
-   the memory used grows with the number of locks created. On ITTNotify builds, lock events are
-   only sent when ITTNotify is enabled at runtime. With this ``OFF``, locks have no tracing code at
-   all. Applies to Tracy and ITTNotify builds; the other backends do not record locks.
-
-.. option:: HPX_WITH_TRACING_MESSAGE_CALLSTACKS
-
-   Record the call stack, up to 10 frames deep, with every message that |hpx| sends to Tracy.
-   Defaults to ``OFF``, because a call stack makes every message slower while a profiler is
-   connected, and |hpx| sends a few messages for every task. If Tracy is configured with
-   ``-DTRACY_NO_CALLSTACK=ON``, messages have no call stacks even with this ``ON``. If Tracy was
-   built with ``TRACY_NO_CALLSTACK`` but |hpx| is not compiled with that define, for example
-   because a ``tracy::tracy`` target defined before |hpx| is configured does not carry it, a
-   Debug Tracy server asserts on these messages and a Release server usually shows them without
-   a call stack. Applies to Tracy builds only.
+   treat this hook as a no-op. On ITTNotify builds, turning this ``OFF`` restores the earlier
+   behavior of not emitting this event.
 
 .. option:: HPX_WITH_TRACING_SAMPLE_RATE
 
    1-in-N sampling rate for the per-task lifecycle events on Tracy builds. Defaults to ``1``
    (every task sampled). This sets the initial rate; the runtime value can be overridden
-   via the ``hpx.tracing.sample_rate`` INI entry (see
-   :ref:`the hpx.tracing section <ini_hpx_tracing>`). Must be a
+   via the ``hpx.tracing.sample_rate`` INI entry (see :ref:`ini_hpx_tracing`). Must be a
    positive integer; the CMake configure step rejects non-integer or non-positive values.
    Only the lifecycle events are sampled - causal events fire unconditionally so the
    causal-chain view stays intact at any rate. ``task_staged`` is also unconditional
@@ -269,8 +240,6 @@ Some of the available presets include:
 * ``debug``: Debug build with symbols and debug-optimized settings.
 * ``performance``: Build optimized for performance analysis with APEX profiling.
 * ``cuda``: Build with CUDA support (requires CUDA toolkit).
-* ``windows-clang-cuda``: Build with CUDA support on Windows, using clang as the C++ and CUDA
-  compiler (experimental, see :ref:`windows_cuda`).
 * ``sycl``: Build with SYCL support (requires compatible compiler).
 * ``sanitizer-address``: Build with AddressSanitizer enabled.
 
@@ -485,75 +454,3 @@ To build |hpx| under Windows 10 x64 with Visual Studio 2015:
   .. figure:: ../_static/images/vs_build_output.png
 
      Visual Studio build output.
-
-.. _windows_cuda:
-
-Building with CUDA on Windows (experimental)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-nvcc can't compile the |hpx| headers that use stdexec (the sender/receiver support, and with it
-the CUDA executors and the Thrust integration) with MSVC as the host compiler. On Windows, |hpx|
-can instead be built with clang as the CUDA compiler. |cmake|_ requires the same clang front end
-for all languages, so clang (``clang++``, with its GNU-like command line) compiles the C++ sources
-too, using the MSVC ABI and standard library. This requires the Ninja generator: the Visual Studio
-generators always compile CUDA sources with nvcc.
-
-.. warning::
-
-   Building |hpx| with CUDA on Windows is experimental. It requires:
-
-   * clang 22.1 or newer (as included with Visual Studio 2026),
-   * CUDA 13.4 or newer, with CCCL 3.4 or newer,
-   * the standard library and Windows SDK of Visual Studio 2026, as far as the CUDA version
-     supports them (the standard library of Visual Studio 2022, MSVC 14.44, doesn't compile with
-     clang in CUDA mode),
-   * Ninja.
-
-   |cmake|_ checks the versions of clang, CUDA and CCCL.
-
-The toolchain file ``cmake/toolchains/Windows-Clang-CUDA.cmake`` selects the compilers: by default
-the newest clang of an LLVM installation or a Visual Studio installation (set ``HPX_CLANG_ROOT`` to
-the directory containing ``bin/clang.exe`` to choose another one), and the CUDA toolkit given by
-``CUDAToolkit_ROOT`` or the ``CUDA_PATH`` environment variable. Configure and build |hpx| from a
-Visual Studio developer command prompt (x64), which provides the standard library and the Windows
-SDK:
-
-.. code-block:: bat
-
-   cmake -G Ninja -S hpx -B build ^
-       -DCMAKE_TOOLCHAIN_FILE=cmake/toolchains/Windows-Clang-CUDA.cmake ^
-       -DHPX_WITH_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=89
-   cmake --build build
-
-The ``windows-clang-cuda`` preset does the same (``cmake --preset windows-clang-cuda``). Set
-``CMAKE_CUDA_ARCHITECTURES`` to the architecture of your GPU (89 in the example above), the default
-is 75. The value ``native`` doesn't work with clang on Windows.
-
-When the dependencies come from vcpkg, use vcpkg's toolchain file and let it load the |hpx| one:
-
-.. code-block:: bat
-
-   -DCMAKE_TOOLCHAIN_FILE=<vcpkg>/scripts/buildsystems/vcpkg.cmake ^
-   -DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=%CD%/hpx/cmake/toolchains/Windows-Clang-CUDA.cmake
-
-To build in Visual Studio, open the |hpx| source directory as a folder (*File > Open > Folder*),
-which uses ``CMakePresets.json``, and select the ``windows-clang-cuda`` configuration. Local
-settings go into a ``CMakeUserPresets.json`` next to it, for example:
-
-.. code-block:: json
-
-   {
-       "version": 4,
-       "configurePresets": [
-           {
-               "name": "my-windows-clang-cuda",
-               "inherits": "windows-clang-cuda",
-               "toolchainFile": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake",
-               "cacheVariables": {
-                   "VCPKG_CHAINLOAD_TOOLCHAIN_FILE": "${sourceDir}/cmake/toolchains/Windows-Clang-CUDA.cmake",
-                   "VCPKG_TARGET_TRIPLET": "x64-windows",
-                   "CMAKE_CUDA_ARCHITECTURES": "89"
-               }
-           }
-       ]
-   }
