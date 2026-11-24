@@ -2321,6 +2321,8 @@ document.write(`
 </li>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_DESTRUCTIVE_INTERFERENCE_SIZE-STRING">HPX_WITH_DESTRUCTIVE_INTERFERENCE_SIZE:STRING</a>
 </li>
+        <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_DEVICE_CONDUIT_UCX-BOOL">HPX_WITH_DEVICE_CONDUIT_UCX:BOOL</a>
+</li>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_DISABLED_SIGNAL_EXCEPTION_HANDLERS-BOOL">HPX_WITH_DISABLED_SIGNAL_EXCEPTION_HANDLERS:BOOL</a>
 </li>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_DISTRIBUTED_RUNTIME-BOOL">HPX_WITH_DISTRIBUTED_RUNTIME:BOOL</a>
@@ -4114,13 +4116,13 @@ document.write(`
 </li>
       <li><a href="libs/full/runtime_distributed/api/server_runtime_support.html#_CPPv4N3hpx10components6server15runtime_support22pre_startup_functions_E">hpx::components::server::runtime_support::pre_startup_functions_ (C++ member)</a>
 </li>
-      <li><a href="libs/full/runtime_distributed/api/server_runtime_support.html#_CPPv4N3hpx10components6server15runtime_support28remove_from_connection_cacheERKN6naming8gid_typeERKN9parcelset14endpoints_typeE">hpx::components::server::runtime_support::remove_from_connection_cache (C++ function)</a>
+      <li><a href="libs/full/runtime_distributed/api/server_runtime_support.html#_CPPv4N3hpx10components6server15runtime_support28remove_from_connection_cacheERKN6naming8gid_typeERKN9parcelset14endpoints_typeEb">hpx::components::server::runtime_support::remove_from_connection_cache (C++ function)</a>
 </li>
       <li><a href="libs/full/runtime_distributed/api/server_runtime_support.html#_CPPv4N3hpx10components6server15runtime_support15remove_localityERKN3hpx7id_typeER10error_code">hpx::components::server::runtime_support::remove_locality (C++ function)</a>
 </li>
-      <li><a href="libs/full/runtime_distributed/api/server_runtime_support.html#_CPPv4N3hpx10components6server15runtime_support37remove_locality_from_connection_cacheERKN3hpx6naming8gid_typeEb">hpx::components::server::runtime_support::remove_locality_from_connection_cache (C++ function)</a>
+      <li><a href="libs/full/runtime_distributed/api/server_runtime_support.html#_CPPv4N3hpx10components6server15runtime_support37remove_locality_from_connection_cacheERKN3hpx6naming8gid_typeEbb">hpx::components::server::runtime_support::remove_locality_from_connection_cache (C++ function)</a>
 </li>
-      <li><a href="libs/full/runtime_distributed/api/server_runtime_support.html#_CPPv4N3hpx10components6server15runtime_support45remove_locality_from_console_connection_cacheERKN3hpx6naming8gid_typeE">hpx::components::server::runtime_support::remove_locality_from_console_connection_cache (C++ function)</a>
+      <li><a href="libs/full/runtime_distributed/api/server_runtime_support.html#_CPPv4N3hpx10components6server15runtime_support45remove_locality_from_console_connection_cacheERKN3hpx6naming8gid_typeEb">hpx::components::server::runtime_support::remove_locality_from_console_connection_cache (C++ function)</a>
 </li>
       <li><a href="libs/full/runtime_distributed/api/server_runtime_support.html#_CPPv4N3hpx10components6server15runtime_support15runtime_supportERN3hpx4util21runtime_configurationE">hpx::components::server::runtime_support::runtime_support (C++ function)</a>
 </li>
@@ -6896,14 +6898,14 @@ document.write(`
 </li>
       <li><a href="libs/core/runtime_local/api/runtime_local.html#_CPPv4N3hpx7runtime23get_notification_policyEPKcN13runtime_local14os_thread_typeE">hpx::runtime::get_notification_policy (C++ function)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/core/runtime_local/api/runtime_local.html#_CPPv4NK3hpx7runtime18get_num_localitiesEN3hpx6launch11sync_policyER10error_code">hpx::runtime::get_num_localities (C++ function)</a>, <a href="libs/core/runtime_local/api/runtime_local.html#_CPPv4NK3hpx7runtime18get_num_localitiesEv">[1]</a>
 </li>
       <li><a href="libs/core/runtime_local/api/runtime_local.html#_CPPv4NK3hpx7runtime22get_num_worker_threadsEv">hpx::runtime::get_num_worker_threads (C++ function)</a>
 </li>
       <li><a href="libs/core/runtime_local/api/runtime_local.html#_CPPv4NK3hpx7runtime18get_os_thread_dataERKNSt6stringE">hpx::runtime::get_os_thread_data (C++ function)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/core/runtime_local/api/runtime_local.html#_CPPv4NK3hpx7runtime9get_stateEv">hpx::runtime::get_state (C++ function)</a>
 </li>
       <li><a href="libs/core/runtime_local/api/runtime_local.html#_CPPv4N3hpx7runtime17get_system_uptimeEv">hpx::runtime::get_system_uptime (C++ function)</a>
@@ -7272,6 +7274,12 @@ document.write(`
 </li>
       <li><a href="libs/core/serialization/api/input_archive.html#_CPPv4N3hpx13serialization13input_archive17load_binary_chunkEN6detail17fundamental_typesEPvKNSt6size_tEKbK12chunk_memory">hpx::serialization::input_archive::load_binary_chunk (C++ function)</a>
 </li>
+      <li><a href="libs/core/serialization/api/input_archive.html#_CPPv4N3hpx13serialization13input_archive26load_with_device_transportEPvKNSt6size_tEKb">hpx::serialization::input_archive::load_with_device_transport (C++ function)</a>
+</li>
+      <li><a href="libs/core/serialization/api/input_archive.html#_CPPv4N3hpx13serialization13input_archive25next_chunk_from_transportEv">hpx::serialization::input_archive::next_chunk_from_transport (C++ function)</a>
+</li>
+      <li><a href="libs/core/serialization/api/input_archive.html#_CPPv4N3hpx13serialization13input_archive12next_marker_E">hpx::serialization::input_archive::next_marker_ (C++ member)</a>
+</li>
       <li><a href="libs/core/serialization/api/base_object.html#_CPPv4I00EN3hpx13serializationanER13input_archiveR13input_archive16base_object_typeI1D1BE">hpx::serialization::operator&amp; (C++ function)</a>, <a href="libs/core/serialization/api/base_object.html#_CPPv4I00EN3hpx13serializationanER14output_archiveR14output_archive16base_object_typeI1D1BE">[1]</a>
 </li>
       <li><a href="libs/core/serialization/api/base_object.html#_CPPv4I00EN3hpx13serializationlsER14output_archiveR14output_archive16base_object_typeI1D1BE">hpx::serialization::operator&lt;&lt; (C++ function)</a>
@@ -7313,6 +7321,8 @@ document.write(`
       <li><a href="libs/core/serialization/api/output_archive.html#_CPPv4N3hpx13serialization14output_archive11save_binaryEN6detail17fundamental_typesEPKvKNSt6size_tE">hpx::serialization::output_archive::save_binary (C++ function)</a>
 </li>
       <li><a href="libs/core/serialization/api/output_archive.html#_CPPv4N3hpx13serialization14output_archive17save_binary_chunkEN6detail17fundamental_typesEPKvKNSt6size_tEK12chunk_memory">hpx::serialization::output_archive::save_binary_chunk (C++ function)</a>
+</li>
+      <li><a href="libs/core/serialization/api/output_archive.html#_CPPv4N3hpx13serialization14output_archive26save_with_device_transportEPKvKNSt6size_tEK12chunk_memory">hpx::serialization::output_archive::save_with_device_transport (C++ function)</a>
 </li>
       <li><a href="libs/core/serialization/api/serialization_chunk.html#_CPPv4N3hpx13serialization19serialization_chunkE">hpx::serialization::serialization_chunk (C++ struct)</a>
 </li>
@@ -10716,6 +10726,13 @@ document.write(`
 
       <ul>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_DESTRUCTIVE_INTERFERENCE_SIZE-STRING">command line option</a>
+</li>
+      </ul></li>
+      <li>
+    HPX_WITH_DEVICE_CONDUIT_UCX:BOOL
+
+      <ul>
+        <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_DEVICE_CONDUIT_UCX-BOOL">command line option</a>
 </li>
       </ul></li>
       <li>

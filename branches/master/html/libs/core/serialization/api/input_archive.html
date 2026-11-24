@@ -1667,8 +1667,11 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx13serialization13input_archive11current_posEv"><code class="docutils literal notranslate"><span class="pre">current_pos()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx13serialization13input_archive11load_binaryEN6detail17fundamental_typesEPvKNSt6size_tE"><code class="docutils literal notranslate"><span class="pre">load_binary()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx13serialization13input_archive17load_binary_chunkEN6detail17fundamental_typesEPvKNSt6size_tEKbK12chunk_memory"><code class="docutils literal notranslate"><span class="pre">load_binary_chunk()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx13serialization13input_archive25next_chunk_from_transportEv"><code class="docutils literal notranslate"><span class="pre">next_chunk_from_transport()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx13serialization13input_archive26load_with_device_transportEPvKNSt6size_tEKb"><code class="docutils literal notranslate"><span class="pre">load_with_device_transport()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx13serialization13input_archive7buffer_E"><code class="docutils literal notranslate"><span class="pre">buffer_</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx13serialization13input_archive9filtered_E"><code class="docutils literal notranslate"><span class="pre">filtered_</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx13serialization13input_archive12next_marker_E"><code class="docutils literal notranslate"><span class="pre">next_marker_</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1808,6 +1811,20 @@ document.write(`
 </dl>
 </dd></dl>
 
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx13serialization13input_archive25next_chunk_from_transportEv">
+<span id="_CPPv3N3hpx13serialization13input_archive25next_chunk_from_transportEv"></span><span id="_CPPv2N3hpx13serialization13input_archive25next_chunk_from_transportEv"></span><span id="hpx::serialization::input_archive::next_chunk_from_transport"></span><span class="target" id="structhpx_1_1serialization_1_1input__archive_1a24611e4444e34df00e17b34f6e2ccf85"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">next_chunk_from_transport</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx13serialization13input_archive25next_chunk_from_transportEv" title="Link to this definition">#</a><br /></dt>
+<dd><p>Whether the data of the next zero-copy chunk arrives through the archive’s device transport (see detail::device_chunk_transport): then it is received into the memory handed to load_binary_chunk, device or host memory, after the de-serialization (as with zero-copy receive), also if the parcelport doesn’t receive zero-copy chunks. An object asks this before choosing where its data goes, it then calls load_binary_chunk with allow_zero_copy_receive. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx13serialization13input_archive26load_with_device_transportEPvKNSt6size_tEKb">
+<span id="_CPPv3N3hpx13serialization13input_archive26load_with_device_transportEPvKNSt6size_tEKb"></span><span id="_CPPv2N3hpx13serialization13input_archive26load_with_device_transportEPvKNSt6size_tEKb"></span><span id="hpx::serialization::input_archive::load_with_device_transport__voidP.std::sC.bC"></span><span class="target" id="structhpx_1_1serialization_1_1input__archive_1a5a71e90b6115cc760968b8d2c9a310bd"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">load_with_device_transport</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">address</span></span>, <a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">allow_zero_copy_receive</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx13serialization13input_archive26load_with_device_transportEPvKNSt6size_tEKb" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
@@ -1819,6 +1836,11 @@ document.write(`
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx13serialization13input_archive9filtered_E">
 <span id="_CPPv3N3hpx13serialization13input_archive9filtered_E"></span><span id="_CPPv2N3hpx13serialization13input_archive9filtered_E"></span><span id="hpx::serialization::input_archive::filtered___b"></span><span class="target" id="structhpx_1_1serialization_1_1input__archive_1ac40b7752335645e6343d656abfbbca14"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">filtered_</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><a class="headerlink" href="#_CPPv4N3hpx13serialization13input_archive9filtered_E" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx13serialization13input_archive12next_marker_E">
+<span id="_CPPv3N3hpx13serialization13input_archive12next_marker_E"></span><span id="_CPPv2N3hpx13serialization13input_archive12next_marker_E"></span><span id="hpx::serialization::input_archive::next_marker___i"></span><span class="target" id="structhpx_1_1serialization_1_1input__archive_1ae03ce1613b8e595e821f0489af4d465e"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">next_marker_</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="o"><span class="pre">-</span></span><span class="m"><span class="pre">1</span></span><a class="headerlink" href="#_CPPv4N3hpx13serialization13input_archive12next_marker_E" title="Link to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 </div>
@@ -1904,8 +1926,11 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx13serialization13input_archive11current_posEv"><code class="docutils literal notranslate"><span class="pre">current_pos()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx13serialization13input_archive11load_binaryEN6detail17fundamental_typesEPvKNSt6size_tE"><code class="docutils literal notranslate"><span class="pre">load_binary()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx13serialization13input_archive17load_binary_chunkEN6detail17fundamental_typesEPvKNSt6size_tEKbK12chunk_memory"><code class="docutils literal notranslate"><span class="pre">load_binary_chunk()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx13serialization13input_archive25next_chunk_from_transportEv"><code class="docutils literal notranslate"><span class="pre">next_chunk_from_transport()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx13serialization13input_archive26load_with_device_transportEPvKNSt6size_tEKb"><code class="docutils literal notranslate"><span class="pre">load_with_device_transport()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx13serialization13input_archive7buffer_E"><code class="docutils literal notranslate"><span class="pre">buffer_</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx13serialization13input_archive9filtered_E"><code class="docutils literal notranslate"><span class="pre">filtered_</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx13serialization13input_archive12next_marker_E"><code class="docutils literal notranslate"><span class="pre">next_marker_</span></code></a></li>
 </ul>
 </li>
 </ul>
