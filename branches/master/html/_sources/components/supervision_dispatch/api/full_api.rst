@@ -36,7 +36,6 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /components/supervision_dispatch/api/testing_hpx_supervision_testing_set_lifecycle_mirror_hook_for_testing.rst
    /components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_peer_hook_for_testing.rst
    /components/supervision_dispatch/api/testing_hpx_supervision_testing_set_lifecycle_observer_hook_for_testing.rst
-   /components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_peer_wait_hook_for_testing.rst
    /components/supervision_dispatch/api/testing_hpx_supervision_testing_evict_peers_waiting_for_mirrors_for_testing.rst
    /components/supervision_dispatch/api/discovery_hpx_supervision_discover_peers.rst
    /components/supervision_dispatch/api/discovery_hpx_supervision_fan_out_join.rst

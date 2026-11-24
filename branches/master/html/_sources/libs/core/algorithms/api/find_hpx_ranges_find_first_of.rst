@@ -29,11 +29,5 @@ See also:
    - :ref:`hpx::ranges::find_last_if <modules_find_hpx_ranges_find_last_if_api>`
    - :ref:`hpx::ranges::find_last_if_not <modules_find_hpx_ranges_find_last_if_not_api>`
 
-.. doxygenfunction:: hpx::ranges::find_first_of(ExPolicy && policy, Rng1 && rng1, Rng2 && rng2, Pred && op, Proj1 && proj1, Proj2 && proj2)
-   :project: hpx
-.. doxygenfunction:: hpx::ranges::find_first_of(ExPolicy && policy, Iter1 first1, Sent1 last1, Iter2 first2, Sent2 last2, Pred && op, Proj1 && proj1, Proj2 && proj2)
-   :project: hpx
-.. doxygenfunction:: hpx::ranges::find_first_of(Rng1 && rng1, Rng2 && rng2, Pred && op, Proj1 && proj1, Proj2 && proj2)
-   :project: hpx
-.. doxygenfunction:: hpx::ranges::find_first_of(Iter1 first1, Sent1 last1, Iter2 first2, Sent2 last2, Pred && op, Proj1 && proj1, Proj2 && proj2)
+.. doxygenfunction:: hpx::ranges::find_first_of
    :project: hpx

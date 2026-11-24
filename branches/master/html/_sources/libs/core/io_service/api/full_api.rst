@@ -20,5 +20,4 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
 .. toctree::
    :maxdepth: 1
 
-   /libs/core/io_service/api/schedule_timer.rst
    /libs/core/io_service/api/io_service_pool.rst
