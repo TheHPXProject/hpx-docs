@@ -1717,8 +1717,8 @@ stealing, parcels, locks (optional)</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://github.com/intel/ittapi">Intel ITT API</a></p></td>
 <td><p><a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_ITTNOTIFY"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_ITTNOTIFY</span></code></a></p></td>
-<td><p>Tasks, task lifecycle, work stealing, markers, parcels, locks
-(optional), performance counters</p></td>
+<td><p>Tasks, task lifecycle, work stealing, markers, locks (optional),
+performance counters</p></td>
 <td><p>Intel VTune</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://uo-oaciss.github.io/apex">APEX</a></p></td>
@@ -2230,18 +2230,6 @@ every task is recorded.</p></li>
 <li><p><strong>Work stealing</strong>: a <code class="docutils literal notranslate"><span class="pre">work_stolen</span></code> marker with the metadata <code class="docutils literal notranslate"><span class="pre">thief</span></code>,
 <code class="docutils literal notranslate"><span class="pre">victim</span></code> and <code class="docutils literal notranslate"><span class="pre">task</span></code>. Controlled by
 <a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_TRACING_WORK_STEALING_EVENTS"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_TRACING_WORK_STEALING_EVENTS</span></code></a>.</p></li>
-<li><p><strong>Parcels</strong>: the parcel layer records the events <code class="docutils literal notranslate"><span class="pre">send_parcel</span></code>,
-<code class="docutils literal notranslate"><span class="pre">recv_parcel</span></code> and <code class="docutils literal notranslate"><span class="pre">parcel_scheduled</span></code> (see <em>Events</em> below). With
-<a class="reference internal" href="building_hpx.html#cmdoption-arg-HPX_WITH_PARCEL_PROFILING"><code class="xref std std-option docutils literal notranslate"><span class="pre">HPX_WITH_PARCEL_PROFILING</span></code></a><code class="docutils literal notranslate"><span class="pre">=ON</span></code>, <em>HPX</em> also records a marker
-for each parcel: <code class="docutils literal notranslate"><span class="pre">parcel_send</span></code> when its write completed, <code class="docutils literal notranslate"><span class="pre">parcel_recv</span></code>
-when it arrived, and <code class="docutils literal notranslate"><span class="pre">parcel_scheduled</span></code> when its action was put on the
-scheduler later than the receive. Each marker has the parcel id as the
-metadata <code class="docutils literal notranslate"><span class="pre">parcel_id_msb</span></code> and <code class="docutils literal notranslate"><span class="pre">parcel_id_lsb</span></code>. <code class="docutils literal notranslate"><span class="pre">parcel_send</span></code> also has
-<code class="docutils literal notranslate"><span class="pre">size</span></code> and <code class="docutils literal notranslate"><span class="pre">target_locality</span></code>, <code class="docutils literal notranslate"><span class="pre">parcel_recv</span></code> has <code class="docutils literal notranslate"><span class="pre">source_locality</span></code>,
-and <code class="docutils literal notranslate"><span class="pre">parcel_scheduled</span></code> has <code class="docutils literal notranslate"><span class="pre">source_locality</span></code> and <code class="docutils literal notranslate"><span class="pre">source_thread</span></code>. A
-locality that is not known yet is left out. To follow a parcel, match the id
-of a <code class="docutils literal notranslate"><span class="pre">parcel_send</span></code> marker with a <code class="docutils literal notranslate"><span class="pre">parcel_recv</span></code> marker in the trace of the
-other locality, using both halves of the id.</p></li>
 <li><p><strong>Markers</strong>: <code class="docutils literal notranslate"><span class="pre">os_thread_sleep</span></code> when a worker finds no work, and a marker
 for each call to <code class="docutils literal notranslate"><span class="pre">hpx::tracing::frame_mark</span></code>.</p></li>
 <li><p><strong>Events</strong>: <code class="docutils literal notranslate"><span class="pre">HPX_TRACING_MARK_EVENT</span></code> records an ITT event that lasts until
@@ -2253,7 +2241,8 @@ reported through the ITT synchronization API. Controlled by
 reported as ITT counters.</p></li>
 <li><p><strong>Thread names</strong>: the names of the OS threads that <em>HPX</em> starts.</p></li>
 </ul>
-<p>The ITT backend does not record futures and continuations.</p>
+<p>The ITT backend does not record futures and continuations, and it does not
+record parcel events.</p>
 </section>
 </section>
 <section id="profiling-with-apex">
