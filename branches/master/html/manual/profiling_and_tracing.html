@@ -1381,6 +1381,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_lifecycle_mirror_hook_for_testing.html">hpx::supervision::testing::set_lifecycle_mirror_hook_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_peer_hook_for_testing.html">hpx::supervision::testing::set_evict_peer_hook_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_lifecycle_observer_hook_for_testing.html">hpx::supervision::testing::set_lifecycle_observer_hook_for_testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_set_evict_peer_wait_hook_for_testing.html">hpx::supervision::testing::set_evict_peer_wait_hook_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/testing_hpx_supervision_testing_evict_peers_waiting_for_mirrors_for_testing.html">hpx::supervision::testing::evict_peers_waiting_for_mirrors_for_testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/discovery_hpx_supervision_discover_peers.html">hpx::supervision::discover_peers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../components/supervision_dispatch/api/discovery_hpx_supervision_fan_out_join.html">hpx::supervision::fan_out_join</a></li>
@@ -1890,8 +1891,12 @@ call stacks only if <a class="reference internal" href="building_hpx.html#cmdopt
 <p>Each task, except stackless (<code class="docutils literal notranslate"><span class="pre">nostack</span></code>) tasks, also runs on a fiber row,
 named <code class="docutils literal notranslate"><span class="pre">&lt;description&gt;_&lt;id&gt;</span></code>, where the id is the address of the <em>HPX</em> thread.
 You can follow a task on its fiber row when it moves from one worker to
-another. The color of a zone on a fiber row depends on the worker it ran on, so
-a change of color means that the task moved.</p>
+another. On the fiber row, the zone of the task lasts from the first time it
+starts or resumes while the profiler is connected until it completes. While the
+task is suspended, a zone named after the reason, for example
+<code class="docutils literal notranslate"><span class="pre">future_data_base::wait</span></code>, lies inside it, from the suspension until the task
+runs again, possibly on another worker. A short zone at its end marks when the
+task got a worker again.</p>
 <p><em>HPX</em> reuses thread objects. A later task with the same description that reuses
 the same thread object appears on the same fiber row, so a fiber row can show
 more than one task, one after the other, all with that description. A task with
@@ -1971,7 +1976,9 @@ messages <code class="docutils literal notranslate"><span class="pre">Task</span
 the message is the address of the shared state of the future, so you can search
 for the same address on the producer side and on the consumer side. If a task
 is running when the message is sent, the message is also added to the text of
-its zone on the fiber row.</p>
+its zone on the fiber row, but not while an <code class="docutils literal notranslate"><span class="pre">HPX_TRACING_MARK_EVENT</span></code> zone,
+including one that <em>HPX</em> itself opens, is open inside it, as Tracy accepts zone
+text only for the innermost open zone.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Message</p></th>
