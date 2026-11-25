@@ -33,6 +33,7 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/synchronization/api/sliding_semaphore.rst
    /libs/core/synchronization/api/spinlock_hpx_spinlock.rst
    /libs/core/synchronization/api/latch_hpx_latch.rst
+   /libs/core/synchronization/api/channel_mpsc.rst
    /libs/core/synchronization/api/no_mutex_hpx_no_mutex.rst
    /libs/core/synchronization/api/mutex_hpx_mutex.rst
    /libs/core/synchronization/api/mutex_hpx_timed_mutex.rst

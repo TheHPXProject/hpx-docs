@@ -22,3 +22,5 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
 
    /libs/core/serialization/api/serialization_chunk.rst
    /libs/core/serialization/api/base_object.rst
+   /libs/core/serialization/api/output_archive.rst
+   /libs/core/serialization/api/input_archive.rst
