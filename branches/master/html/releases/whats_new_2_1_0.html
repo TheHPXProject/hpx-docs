@@ -1303,7 +1303,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_num_tss_hpx_get_local_worker_thread_num.html">hpx::get_local_worker_thread_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_num_tss_hpx_get_thread_pool_num.html">hpx::get_thread_pool_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_pool_base.html">hpx/threading_base/thread_pool_base.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scheduler_base.html">hpx/threading_base/scheduler_base.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/threadmanager/api/full_api.html">threadmanager</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1736,20 +1735,6 @@ CMake projects. On Linux and macOS, code that includes
 <code class="docutils literal notranslate"><span class="pre">hpx/hpx_main.hpp</span></code> has to link <code class="docutils literal notranslate"><span class="pre">HPX::wrap_main</span></code> (or
 <code class="docutils literal notranslate"><span class="pre">HPX::auto_wrap_main</span></code>), which was previously avoidable by setting the
 option to <code class="docutils literal notranslate"><span class="pre">OFF</span></code>.</p></li>
-<li><p>Every binary built against <em>HPX</em> now refers to the symbol
-<code class="docutils literal notranslate"><span class="pre">hpx_check_version_2_1_0</span></code> of the core library, on all platforms. On
-platforms with SONAMEs (not Windows and Android), the SONAME of the <em>HPX</em>
-libraries now holds the full version as well (for instance
-<code class="docutils literal notranslate"><span class="pre">libhpx.so.2.1.0</span></code> instead of <code class="docutils literal notranslate"><span class="pre">libhpx.so.2</span></code>); <code class="docutils literal notranslate"><span class="pre">libhpx_core</span></code> had no
-version in its SONAME before. <em>HPX</em> keeps no ABI compatibility between
-releases: a binary built against one release no longer starts with the
-libraries of another one, instead of running with a mismatched ABI.
-Binaries built against earlier releases don’t carry this check, and the
-libraries of those releases still find the new core library under its
-unversioned name: remove an earlier installation before installing this
-release into the same location, and rebuild the binaries built against it.
-Defining <code class="docutils literal notranslate"><span class="pre">HPX_NO_VERSION_CHECK</span></code> before including any <em>HPX</em> header leaves
-out the reference to the symbol.</p></li>
 </ul>
 </section>
 <section id="supervision-module">

@@ -1303,7 +1303,6 @@
 <li class="toctree-l4"><a class="reference internal" href="thread_num_tss_hpx_get_local_worker_thread_num.html">hpx::get_local_worker_thread_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="thread_num_tss_hpx_get_thread_pool_num.html">hpx::get_thread_pool_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="thread_pool_base.html">hpx/threading_base/thread_pool_base.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="scheduler_base.html">hpx/threading_base/scheduler_base.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../threadmanager/api/full_api.html">threadmanager</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1775,7 +1774,7 @@ document.write(`
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads8policies11wake_action3allE">
 <span id="_CPPv3N3hpx7threads8policies11wake_action3allE"></span><span id="_CPPv2N3hpx7threads8policies11wake_action3allE"></span><span class="target" id="scheduling__policy_8hpp_1a0d867722d693567efc68a77b900b8827aa181a603769c1f98ad927e7367c7aa51"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">all</span></span></span><a class="headerlink" href="#_CPPv4N3hpx7threads8policies11wake_action3allE" title="Link to this definition">#</a><br /></dt>
-<dd><p>as for threads of other sizes (<a class="reference internal" href="scheduler_base.html#structhpx_1_1threads_1_1policies_1_1scheduler__base_1ae1310738dfb0fe7e3c46b4b367f97b66"><span class="std std-ref">scheduler_base::do_some_work</span></a>) </p>
+<dd><p>as for threads of other sizes (scheduler_base::do_some_work) </p>
 </dd></dl>
 
 </dd></dl>
@@ -1904,7 +1903,7 @@ document.write(`
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads8policies17scheduling_policy24register_wake_parametersER27scheduler_tuning_parametersRK33scheduling_policy_init_parameters">
 <span id="_CPPv3N3hpx7threads8policies17scheduling_policy24register_wake_parametersER27scheduler_tuning_parametersRK33scheduling_policy_init_parameters"></span><span id="_CPPv2N3hpx7threads8policies17scheduling_policy24register_wake_parametersER27scheduler_tuning_parametersRK33scheduling_policy_init_parameters"></span><span id="hpx::threads::policies::scheduling_policy::register_wake_parameters__scheduler_tuning_parametersR.scheduling_policy_init_parametersCR"></span><span class="target" id="classhpx_1_1threads_1_1policies_1_1scheduling__policy_1a174a8de1521396238a40f3e4652f2538"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">register_wake_parameters</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="scheduler_tuning.html#_CPPv4N3hpx7threads8policies27scheduler_tuning_parametersE" title="hpx::threads::policies::scheduler_tuning_parameters"><span class="n"><span class="pre">scheduler_tuning_parameters</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">parameters</span></span>, <a class="reference internal" href="#_CPPv4N3hpx7threads8policies33scheduling_policy_init_parametersE" title="hpx::threads::policies::scheduling_policy_init_parameters"><span class="n"><span class="pre">scheduling_policy_init_parameters</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">policy_init</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx7threads8policies17scheduling_policy24register_wake_parametersER27scheduler_tuning_parametersRK33scheduling_policy_init_parameters" title="Link to this definition">#</a><br /></dt>
-<dd><p>Register the settings of the rules for new threads (1 to 4), with the values of the given configuration. Done only by schedulers that wake up workers for nano and small threads themselves (see <a class="reference internal" href="scheduler_base.html#structhpx_1_1threads_1_1policies_1_1scheduler__base_1aec6379efaf544fb98dc1bf3ba3362bda"><span class="std std-ref">scheduler_base::wakes_up_for</span></a>). </p>
+<dd><p>Register the settings of the rules for new threads (1 to 4), with the values of the given configuration. Done only by schedulers that wake up workers for nano and small threads themselves (see scheduler_base::wakes_up_for). </p>
 </dd></dl>
 
 <dl class="cpp function">
@@ -1937,7 +1936,7 @@ document.write(`
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads8policies17scheduling_policy28calibration_pauses_per_roundE">
 <span id="_CPPv3N3hpx7threads8policies17scheduling_policy28calibration_pauses_per_roundE"></span><span id="_CPPv2N3hpx7threads8policies17scheduling_policy28calibration_pauses_per_roundE"></span><span id="hpx::threads::policies::scheduling_policy::calibration_pauses_per_round__std::uint32_t"></span><span class="target" id="classhpx_1_1threads_1_1policies_1_1scheduling__policy_1a14b4dcb090c7d8ca59ee68a07a5c7124"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">calibration_pauses_per_round</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">16</span></span><a class="headerlink" href="#_CPPv4N3hpx7threads8policies17scheduling_policy28calibration_pauses_per_roundE" title="Link to this definition">#</a><br /></dt>
-<dd><p>The pause instructions of a spin round the spin rate is measured with, and of the rounds of the schedulers that don’t tune them (see <a class="reference internal" href="scheduler_base.html#structhpx_1_1threads_1_1policies_1_1scheduler__base"><span class="std std-ref">scheduler_base</span></a>). </p>
+<dd><p>The pause instructions of a spin round the spin rate is measured with, and of the rounds of the schedulers that don’t tune them (see scheduler_base). </p>
 </dd></dl>
 
 </div>

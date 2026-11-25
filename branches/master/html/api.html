@@ -1303,7 +1303,6 @@
 <li class="toctree-l4"><a class="reference internal" href="libs/core/threading_base/api/thread_num_tss_hpx_get_local_worker_thread_num.html">hpx::get_local_worker_thread_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="libs/core/threading_base/api/thread_num_tss_hpx_get_thread_pool_num.html">hpx::get_thread_pool_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="libs/core/threading_base/api/thread_pool_base.html">hpx/threading_base/thread_pool_base.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="libs/core/threading_base/api/scheduler_base.html">hpx/threading_base/scheduler_base.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="libs/core/threadmanager/api/full_api.html">threadmanager</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1660,16 +1659,7 @@ remove or break existing APIs, but only after a deprecation period of at least
 two minor releases. In rare cases do we outright remove old and unused
 functionality without a deprecation period.</p>
 <p>We do not provide any ABI compatibility guarantees between any versions, debug
-and release builds, and builds with different C++ standards. Every binary
-built against <em>HPX</em> therefore refers to a symbol of the core library that names
-the full version (for instance <code class="docutils literal notranslate"><span class="pre">hpx_check_version_2_1_0</span></code>), and on platforms
-with SONAMEs (Linux, macOS and other Unix systems, but not Android) the shared
-libraries of <em>HPX</em> carry the full version in their SONAME (for instance
-<code class="docutils literal notranslate"><span class="pre">libhpx.so.2.1.0</span></code>): an application built against one release does not start
-with the libraries of another release, it has to be rebuilt. This protects
-only binaries built against <em>HPX</em> V2.1.0 or later. Remove an installation of
-an earlier release before installing <em>HPX</em> into the same location, and rebuild
-the binaries built against it.</p>
+and release builds, and builds with different C++ standards.</p>
 <p>The public API of <em>HPX</em> is presented below. Clicking on a name brings you to the
 full documentation for the class or function. Including the header specified in
 a heading brings in the features listed under that heading.</p>

@@ -38,4 +38,3 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/threading_base/api/thread_num_tss_hpx_get_local_worker_thread_num.rst
    /libs/core/threading_base/api/thread_num_tss_hpx_get_thread_pool_num.rst
    /libs/core/threading_base/api/thread_pool_base.rst
-   /libs/core/threading_base/api/scheduler_base.rst

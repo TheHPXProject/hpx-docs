@@ -1303,7 +1303,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../core/threading_base/api/thread_num_tss_hpx_get_local_worker_thread_num.html">hpx::get_local_worker_thread_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/threading_base/api/thread_num_tss_hpx_get_thread_pool_num.html">hpx::get_thread_pool_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../core/threading_base/api/thread_pool_base.html">hpx/threading_base/thread_pool_base.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../core/threading_base/api/scheduler_base.html">hpx/threading_base/scheduler_base.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../../core/threadmanager/api/full_api.html">threadmanager</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1667,7 +1666,6 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4lcos8base_lco13set_exceptionERKNSt13exception_ptrE"><code class="docutils literal notranslate"><span class="pre">set_exception()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4lcos8base_lco7connectERKN3hpx7id_typeE"><code class="docutils literal notranslate"><span class="pre">connect()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4lcos8base_lco10disconnectERKN3hpx7id_typeE"><code class="docutils literal notranslate"><span class="pre">disconnect()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx4lcos8base_lco18get_receive_deviceEv"><code class="docutils literal notranslate"><span class="pre">get_receive_device()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4lcos8base_lcoD0Ev"><code class="docutils literal notranslate"><span class="pre">~base_lco()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4lcos8base_lco17set_event_nonvirtEv"><code class="docutils literal notranslate"><span class="pre">set_event_nonvirt()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4lcos8base_lco21set_exception_nonvirtERKNSt13exception_ptrE"><code class="docutils literal notranslate"><span class="pre">set_exception_nonvirt()</span></code></a></li>
@@ -1679,7 +1677,6 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traitsE"><code class="docutils literal notranslate"><span class="pre">hpx::traits</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1774,11 +1771,6 @@ document.write(`
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK3hpx4lcos8base_lco18get_receive_deviceEv">
-<span id="_CPPv3NK3hpx4lcos8base_lco18get_receive_deviceEv"></span><span id="_CPPv2NK3hpx4lcos8base_lco18get_receive_deviceEv"></span><span id="hpx::lcos::base_lco::get_receive_deviceC"></span><span class="target" id="classhpx_1_1lcos_1_1base__lco_1afadb1626bd2fc7f48486e181d7170f68"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_receive_device</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3hpx4lcos8base_lco18get_receive_deviceEv" title="Link to this definition">#</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx4lcos8base_lcoD0Ev">
 <span id="_CPPv3N3hpx4lcos8base_lcoD0Ev"></span><span id="_CPPv2N3hpx4lcos8base_lcoD0Ev"></span><span id="hpx::lcos::base_lco::~base_lco"></span><span class="target" id="classhpx_1_1lcos_1_1base__lco_1a7df0967c92b25c8d936a1b26e25df020"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~base_lco</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx4lcos8base_lcoD0Ev" title="Link to this definition">#</a><br /></dt>
 <dd><p>Destructor, needs to be virtual to allow for clean destruction of derived objects </p>
@@ -1848,11 +1840,6 @@ document.write(`
 
 </dd></dl>
 
-<dl class="cpp type">
-<dt class="sig sig-object cpp" id="_CPPv4N3hpx6traitsE">
-<span id="_CPPv3N3hpx6traitsE"></span><span id="_CPPv2N3hpx6traitsE"></span><span id="hpx::traits"></span><span class="target" id="namespacehpx_1_1traits"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">traits</span></span></span><br /></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 </section>
@@ -1919,7 +1906,6 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4lcos8base_lco13set_exceptionERKNSt13exception_ptrE"><code class="docutils literal notranslate"><span class="pre">set_exception()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4lcos8base_lco7connectERKN3hpx7id_typeE"><code class="docutils literal notranslate"><span class="pre">connect()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4lcos8base_lco10disconnectERKN3hpx7id_typeE"><code class="docutils literal notranslate"><span class="pre">disconnect()</span></code></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx4lcos8base_lco18get_receive_deviceEv"><code class="docutils literal notranslate"><span class="pre">get_receive_device()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4lcos8base_lcoD0Ev"><code class="docutils literal notranslate"><span class="pre">~base_lco()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4lcos8base_lco17set_event_nonvirtEv"><code class="docutils literal notranslate"><span class="pre">set_event_nonvirt()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx4lcos8base_lco21set_exception_nonvirtERKNSt13exception_ptrE"><code class="docutils literal notranslate"><span class="pre">set_exception_nonvirt()</span></code></a></li>
@@ -1931,7 +1917,6 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traitsE"><code class="docutils literal notranslate"><span class="pre">hpx::traits</span></code></a></li>
 </ul>
 </li>
 </ul>
