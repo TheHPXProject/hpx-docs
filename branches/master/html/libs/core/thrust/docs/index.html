@@ -1303,6 +1303,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../threading_base/api/thread_num_tss_hpx_get_local_worker_thread_num.html">hpx::get_local_worker_thread_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../threading_base/api/thread_num_tss_hpx_get_thread_pool_num.html">hpx::get_thread_pool_num</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../threading_base/api/thread_pool_base.html">hpx/threading_base/thread_pool_base.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../threading_base/api/scheduler_base.html">hpx/threading_base/scheduler_base.hpp</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../threadmanager/api/full_api.html">threadmanager</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1656,7 +1657,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asynchronous-execution-with-futures">Asynchronous Execution with Futures</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#serialization">Serialization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#serialization">Serialization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#several-gpus-per-locality">Several GPUs per Locality</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pooled-memory">Pooled Memory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-requirements">Build Requirements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
@@ -1756,6 +1760,58 @@ the vector is serialized. A <code class="docutils literal notranslate"><span cla
 memory (see below) is sent from and received into its own memory, without
 staging copies.</p></li>
 </ul>
+<section id="several-gpus-per-locality">
+<h3>Several GPUs per Locality<a class="headerlink" href="#several-gpus-per-locality" title="Link to this heading">#</a></h3>
+<p>A <code class="docutils literal notranslate"><span class="pre">device_vector</span></code> is sent from the GPU its memory is on, whatever GPU is
+current. It is received on</p>
+<ol class="arabic simple">
+<li><p>the GPU the memory of the receiving vector is on, if it has memory (a
+vector deserialized into an existing object),</p></li>
+<li><p>for an argument of an action, the GPU of the target of the component the
+action is invoked on: a component names its target with a <code class="docutils literal notranslate"><span class="pre">get_target()</span></code>
+member function returning, for instance, an
+<code class="docutils literal notranslate"><span class="pre">hpx::cuda::experimental::target</span></code>, or with a specialization of
+<code class="docutils literal notranslate"><span class="pre">hpx::traits::component_target</span></code>,</p></li>
+<li><p>for the result of a remote call, the GPU of the default target
+(<code class="docutils literal notranslate"><span class="pre">hpx::cuda::experimental::get_default_target()</span></code>) of the locality that
+made the call. All threads share the default target: set it before making
+calls, not while calls are in flight,</p></li>
+<li><p>else the GPU current on the thread that decodes the parcel.</p></li>
+</ol>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/include/components.hpp&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/modules/async_cuda.hpp&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/modules/thrust.hpp&gt;</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">partition</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">components</span><span class="o">::</span><span class="n">component_base</span><span class="o">&lt;</span><span class="n">partition</span><span class="o">&gt;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">partition</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">partition</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">device</span><span class="p">)</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">target_</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// device_vector arguments of the actions of this component are</span>
+<span class="w">    </span><span class="c1">// received on this GPU</span>
+<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">cuda</span><span class="o">::</span><span class="n">experimental</span><span class="o">::</span><span class="n">target</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">get_target</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">target_</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">set</span><span class="p">(</span><span class="n">thrust</span><span class="o">::</span><span class="n">device_vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">data</span><span class="p">);</span>
+<span class="w">    </span><span class="n">HPX_DEFINE_COMPONENT_ACTION</span><span class="p">(</span><span class="n">partition</span><span class="p">,</span><span class="w"> </span><span class="n">set</span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">cuda</span><span class="o">::</span><span class="n">experimental</span><span class="o">::</span><span class="n">target</span><span class="w"> </span><span class="n">target_</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>A target stands for the GPU its <code class="docutils literal notranslate"><span class="pre">native_handle().get_device()</span></code> returns if
+that is an integer (see <code class="docutils literal notranslate"><span class="pre">hpx::traits::target_device</span></code>); other targets, for
+instance <code class="docutils literal notranslate"><span class="pre">hpx::compute::host::target</span></code>, stand for none. Results are received
+on the default target’s GPU only if their type holds device data
+(<code class="docutils literal notranslate"><span class="pre">hpx::traits::has_device_data</span></code>, true for <code class="docutils literal notranslate"><span class="pre">thrust::device_vector</span></code>):
+specialize it for other result types holding device vectors, for instance a
+<code class="docutils literal notranslate"><span class="pre">struct</span></code> with a <code class="docutils literal notranslate"><span class="pre">device_vector</span></code> member.</p>
+</section>
 </section>
 <section id="pooled-memory">
 <h2>Pooled Memory<a class="headerlink" href="#pooled-memory" title="Link to this heading">#</a></h2>
@@ -1859,7 +1915,10 @@ that themselves if an allocation runs out of memory.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asynchronous-execution-with-futures">Asynchronous Execution with Futures</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#serialization">Serialization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#serialization">Serialization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#several-gpus-per-locality">Several GPUs per Locality</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pooled-memory">Pooled Memory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-requirements">Build Requirements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
