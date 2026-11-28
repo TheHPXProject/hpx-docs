@@ -42,6 +42,7 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/execution/api/collect_chunking_parameters_hpx_execution_experimental_collect_chunking_parameters.rst
    /libs/core/execution/api/auto_chunk_size_hpx_execution_experimental_auto_chunk_size.rst
    /libs/core/execution/api/create_rebound_policy.rst
+   /libs/core/execution/api/get_min_chunk_time_hpx_execution_experimental_get_min_chunk_time.rst
    /libs/core/execution/api/execution.rst
    /libs/core/execution/api/task_size_chunk_size_hpx_execution_experimental_task_size_chunk_size.rst
    /libs/core/execution/api/execution_parameters_fwd.rst
