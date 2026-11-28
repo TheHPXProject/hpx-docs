@@ -23,7 +23,6 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/threading_base/api/annotated_function_hpx_annotated_function.rst
    /libs/core/threading_base/api/scheduling_policy.rst
    /libs/core/threading_base/api/thread_description.rst
-   /libs/core/threading_base/api/with_annotations_hpx_threads_with_annotations.rst
    /libs/core/threading_base/api/scheduler_tuning.rst
    /libs/core/threading_base/api/print.rst
    /libs/core/threading_base/api/register_thread.rst

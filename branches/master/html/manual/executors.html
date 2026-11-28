@@ -1023,7 +1023,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/collect_chunking_parameters_hpx_execution_experimental_collect_chunking_parameters.html">hpx::execution::experimental::collect_chunking_parameters</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/auto_chunk_size_hpx_execution_experimental_auto_chunk_size.html">hpx::execution::experimental::auto_chunk_size</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/create_rebound_policy.html">hpx/execution/executors/create_rebound_policy.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/get_min_chunk_time_hpx_execution_experimental_get_min_chunk_time.html">hpx::execution::experimental::get_min_chunk_time</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/execution.html">hpx/execution/executors/execution.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/task_size_chunk_size_hpx_execution_experimental_task_size_chunk_size.html">hpx::execution::experimental::task_size_chunk_size</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/execution_parameters_fwd.html">hpx/execution/executors/execution_parameters_fwd.hpp</a></li>
@@ -1057,11 +1056,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/parallel_executor_aggregated.html">hpx/executors/parallel_executor_aggregated.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/thread_pool_continues_on_sender.html">hpx/executors/thread_pool_continues_on_sender.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/execution_policy_annotation.html">hpx/executors/execution_policy_annotation.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/shared_suspending_fork_join_executor.html">hpx/executors/shared_suspending_fork_join_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/thread_pool_scheduler.html">hpx/executors/thread_pool_scheduler.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/executor_scheduler.html">hpx/executors/executor_scheduler.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/exception_list.html">hpx/executors/exception_list.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/suspending_fork_join_executor.html">hpx/executors/suspending_fork_join_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/scheduler_executor.html">hpx/executors/scheduler_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/explicit_scheduler_executor.html">hpx/executors/explicit_scheduler_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/parallel_scheduler_hpx_execution_experimental_get_parallel_scheduler.html">hpx::execution::experimental::get_parallel_scheduler</a></li>
@@ -1291,7 +1288,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/annotated_function_hpx_annotated_function.html">hpx::annotated_function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scheduling_policy.html">hpx/threading_base/scheduling_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_description.html">hpx/threading_base/thread_description.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/with_annotations_hpx_threads_with_annotations.html">hpx::threads::with_annotations</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scheduler_tuning.html">hpx/threading_base/scheduler_tuning.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/print.html">hpx/threading_base/print.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/register_thread.html">hpx/threading_base/register_thread.hpp</a></li>
@@ -1658,7 +1654,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-executors-in-hpx">Main Executors in <em>HPX</em></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-executor">Parallel Executor</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-join-executor">Fork-Join Executor</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suspending-fork-join-executor">Suspending Fork-Join Executor</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-executor">Sequential Executor</a></li>
 </ul>
 </li>
@@ -1715,7 +1710,7 @@ API.</p>
 </section>
 <section id="main-executors-in-hpx">
 <span id="executors-main"></span><h2>Main Executors in <em>HPX</em><a class="headerlink" href="#main-executors-in-hpx" title="Link to this heading">#</a></h2>
-<p><em>HPX</em> provides multiple executors. Below are some of the most commonly used:</p>
+<p><em>HPX</em> provides multiple executors. Below are three of the most commonly used:</p>
 <section id="parallel-executor">
 <h3>Parallel Executor<a class="headerlink" href="#parallel-executor" title="Link to this heading">#</a></h3>
 <ul class="simple">
@@ -1755,114 +1750,6 @@ thread creation/destruction.</p></li>
 <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">data</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 
 <span class="n">hpx</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">experimental</span><span class="o">::</span><span class="n">fork_join_executor</span><span class="w"> </span><span class="n">exec</span><span class="p">;</span>
-
-<span class="n">hpx</span><span class="o">::</span><span class="n">for_each</span><span class="p">(</span>
-<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">par</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="n">exec</span><span class="p">),</span>
-<span class="w">    </span><span class="n">data</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
-<span class="w">    </span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">);</span>
-</pre></div>
-</div>
-</section>
-<section id="suspending-fork-join-executor">
-<h3>Suspending Fork-Join Executor<a class="headerlink" href="#suspending-fork-join-executor" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Does the same job as the fork-join executor, but its waiting threads spin
-only for a short time (the spin duration, 20 microseconds by default) and
-then suspend until the next parallel region starts or the current one has
-finished.</p></li>
-<li><p>Other work can run on the cores of an idle executor, and idle cores can go
-to sleep.</p></li>
-<li><p>Constexpr default constructible; the worker threads are created on first
-use. Copies made on an HPX thread share the worker threads of the original.</p></li>
-<li><p>The calling thread takes part in the parallel regions if it runs on one of
-the executor’s PUs; otherwise it suspends until the region has finished.</p></li>
-<li><p>A region wakes at most one worker thread per index, so a loop that the
-executor parameters (for instance <code class="docutils literal notranslate"><span class="pre">task_size_chunk_size</span></code>) give few cores
-and chunks wakes only that many. <code class="docutils literal notranslate"><span class="pre">sync_execute</span></code> runs a single task on the
-calling thread; the parallel algorithms use it for a loop that gets one
-core and one chunk.</p></li>
-</ul>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/execution.hpp&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/algorithm.hpp&gt;</span>
-
-<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">data</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-
-<span class="n">hpx</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">experimental</span><span class="o">::</span><span class="n">suspending_fork_join_executor</span><span class="w"> </span><span class="n">exec</span><span class="p">;</span>
-
-<span class="n">hpx</span><span class="o">::</span><span class="n">for_each</span><span class="p">(</span>
-<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">par</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="n">exec</span><span class="p">),</span>
-<span class="w">    </span><span class="n">data</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
-<span class="w">    </span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">);</span>
-</pre></div>
-</div>
-<p>A <code class="docutils literal notranslate"><span class="pre">suspending_fork_join_executor</span></code> can’t be used from several threads at the
-same time or from inside one of its own parallel regions (nested
-parallelism). <code class="docutils literal notranslate"><span class="pre">shared_suspending_fork_join_executor</span></code> can:</p>
-<ul class="simple">
-<li><p>All <code class="docutils literal notranslate"><span class="pre">shared_suspending_fork_join_executor</span></code> objects with the same
-configuration (priority, stack size, loop schedule and spin duration) share
-one set of worker threads per thread pool. It is created when an <em>HPX</em>
-thread of the pool uses such an executor first, and stopped when the
-runtime starts to shut down.</p></li>
-<li><p>A parallel region runs on these worker threads if they are free. If they are
-busy, because they run a region for another thread or because the region is
-started from inside one of their regions, the region runs through a
-<code class="docutils literal notranslate"><span class="pre">parallel_executor</span></code> instead: one task for each worker thread of the pool,
-each with a contiguous range of the indices. The same happens if the calling
-thread is not an <em>HPX</em> thread, and once the worker threads were stopped.</p></li>
-<li><p>Exceptions are reported by whichever executor ran the region: the first
-exception from the worker threads, or an <code class="docutils literal notranslate"><span class="pre">hpx::exception_list</span></code> from the
-<code class="docutils literal notranslate"><span class="pre">parallel_executor</span></code>.</p></li>
-<li><p>As with <code class="docutils literal notranslate"><span class="pre">suspending_fork_join_executor</span></code>, asynchronous calls
-(<code class="docutils literal notranslate"><span class="pre">bulk_async_execute</span></code>, <code class="docutils literal notranslate"><span class="pre">async_invoke</span></code>) run the region before they
-return a ready future.</p></li>
-<li><p>Single tasks (<code class="docutils literal notranslate"><span class="pre">sync_execute</span></code>, <code class="docutils literal notranslate"><span class="pre">async_execute</span></code>, <code class="docutils literal notranslate"><span class="pre">then_execute</span></code>,
-<code class="docutils literal notranslate"><span class="pre">post</span></code>) and continuations (<code class="docutils literal notranslate"><span class="pre">bulk_then_execute</span></code>) run as a
-<code class="docutils literal notranslate"><span class="pre">parallel_executor</span></code> runs them.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">with_processing_units_count</span></code> and <code class="docutils literal notranslate"><span class="pre">with_first_core</span></code> limit the regions
-to the given number of worker threads, starting at the given one; the
-other worker threads are not woken. <code class="docutils literal notranslate"><span class="pre">with_priority</span></code> and
-<code class="docutils literal notranslate"><span class="pre">with_stacksize</span></code> select the shared worker threads with that priority or
-stack size.</p></li>
-<li><p>The properties (also <code class="docutils literal notranslate"><span class="pre">with_hint</span></code> and <code class="docutils literal notranslate"><span class="pre">with_annotation</span></code>) apply as well
-to the <code class="docutils literal notranslate"><span class="pre">parallel_executor</span></code> that runs the single tasks, the
-continuations and the regions that fall back, and that a task policy uses
-(see below). The worker threads get the priority <code class="docutils literal notranslate"><span class="pre">bound</span></code> if the
-priority is <code class="docutils literal notranslate"><span class="pre">default_</span></code> (as it is by default), so that they stay on their
-cores, while the tasks of the <code class="docutils literal notranslate"><span class="pre">parallel_executor</span></code> can be stolen.</p></li>
-<li><p>A hint with <code class="docutils literal notranslate"><span class="pre">thread_sharing_hint::do_not_combine_tasks</span></code> says that the
-iterations depend on each other: each iteration then runs as a task of its
-own on the <code class="docutils literal notranslate"><span class="pre">parallel_executor</span></code>. The algorithms that need a task for each
-of their parts (the uninitialized algorithms, <code class="docutils literal notranslate"><span class="pre">spmd_block</span></code>) use the
-<code class="docutils literal notranslate"><span class="pre">parallel_executor</span></code> right away.</p></li>
-<li><p>Copies never own worker threads, so the executor can be a <code class="docutils literal notranslate"><span class="pre">constexpr</span></code>
-variable. Its configuration can be serialized, for instance as the
-executor of a policy sent to another locality.</p></li>
-</ul>
-<p>If <em>HPX</em> is configured with
-<code class="docutils literal notranslate"><span class="pre">HPX_WITH_SUSPENDING_FORK_JOIN_EXECUTOR_AS_DEFAULT=ON</span></code> (default: <code class="docutils literal notranslate"><span class="pre">OFF</span></code>),
-<code class="docutils literal notranslate"><span class="pre">shared_suspending_fork_join_executor</span></code> is the executor of the parallel
-execution policies <code class="docutils literal notranslate"><span class="pre">par</span></code> and <code class="docutils literal notranslate"><span class="pre">par_unseq</span></code>, instead of
-<code class="docutils literal notranslate"><span class="pre">parallel_executor</span></code>. The task policies <code class="docutils literal notranslate"><span class="pre">par(task)</span></code> and
-<code class="docutils literal notranslate"><span class="pre">par_unseq(task)</span></code> keep using <code class="docutils literal notranslate"><span class="pre">parallel_executor</span></code>: they run an algorithm
-asynchronously, which the worker threads of a fork-join executor can’t do.
-For the same reason, mapping a policy with a
-<code class="docutils literal notranslate"><span class="pre">shared_suspending_fork_join_executor</span></code> to a task policy (<code class="docutils literal notranslate"><span class="pre">to_task</span></code>, as in
-<code class="docutils literal notranslate"><span class="pre">par(task)</span></code> or <code class="docutils literal notranslate"><span class="pre">par.on(exec)(task)</span></code>) gives it a <code class="docutils literal notranslate"><span class="pre">parallel_executor</span></code>.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/execution.hpp&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;hpx/algorithm.hpp&gt;</span>
-
-<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">data</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-
-<span class="c1">// can be used by any number of threads, also from inside the loop body</span>
-<span class="k">constexpr</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">experimental</span><span class="o">::</span><span class="n">shared_suspending_fork_join_executor</span>
-<span class="w">    </span><span class="n">exec</span><span class="p">;</span>
 
 <span class="n">hpx</span><span class="o">::</span><span class="n">for_each</span><span class="p">(</span>
 <span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">par</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="n">exec</span><span class="p">),</span>
@@ -2438,30 +2325,6 @@ constructor replace these defaults for one loop, the configuration entries
 <code class="docutils literal notranslate"><span class="pre">task_size_chunk_size_sweep_test</span></code> measures loops of different sizes with
 many pairs of these values and prints the pair that suits a machine best, in
 the form of these configuration entries.</p>
-<p>The default minimal run time suits <code class="docutils literal notranslate"><span class="pre">parallel_executor</span></code>, which starts a task
-and a future for each chunk. An executor that starts chunks with less
-overhead can ask for a minimal run time of its own
-(<code class="docutils literal notranslate"><span class="pre">hpx::execution::experimental::get_min_chunk_time</span></code>), which replaces the
-default for its loops (a value given to the constructor still wins). The
-executors of <em>HPX</em> ask for the value configured with
-<code class="docutils literal notranslate"><span class="pre">hpx.task_size_chunk_size.&lt;executor&gt;.min_chunk_time_us</span></code>, or for one number
-of worker threads with
-<code class="docutils literal notranslate"><span class="pre">hpx.task_size_chunk_size.&lt;executor&gt;.&lt;pool</span> <span class="pre">size&gt;.min_chunk_time_us</span></code>, where
-<code class="docutils literal notranslate"><span class="pre">&lt;executor&gt;</span></code> is <code class="docutils literal notranslate"><span class="pre">parallel</span></code> for <code class="docutils literal notranslate"><span class="pre">parallel_executor</span></code>, <code class="docutils literal notranslate"><span class="pre">fork_join</span></code> for
-<code class="docutils literal notranslate"><span class="pre">fork_join_executor</span></code>, <code class="docutils literal notranslate"><span class="pre">suspending_fork_join</span></code> for
-<code class="docutils literal notranslate"><span class="pre">suspending_fork_join_executor</span></code> and <code class="docutils literal notranslate"><span class="pre">shared_suspending_fork_join</span></code> for
-<code class="docutils literal notranslate"><span class="pre">shared_suspending_fork_join_executor</span></code>:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[hpx.task_size_chunk_size.fork_join]</span>
-<span class="na">min_chunk_time_us</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0.5</span>
-
-<span class="k">[hpx.task_size_chunk_size.fork_join.32]</span>
-<span class="na">min_chunk_time_us</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0.8</span>
-</pre></div>
-</div>
-<p>Without such an entry, the executor’s loops use the default. These entries
-are not predefined, so on the command line (<code class="docutils literal notranslate"><span class="pre">--hpx:ini</span></code>) they need a <code class="docutils literal notranslate"><span class="pre">!</span></code>
-after the key, for instance
-<code class="docutils literal notranslate"><span class="pre">--hpx:ini=hpx.task_size_chunk_size.fork_join.min_chunk_time_us!=0.5</span></code>.</p>
 <p>If <em>HPX</em> is configured with <code class="docutils literal notranslate"><span class="pre">HPX_WITH_TASK_SIZE_DEFAULT_PARAMETERS=ON</span></code>, the
 default executor parameters (<code class="docutils literal notranslate"><span class="pre">default_parameters</span></code>, used by <code class="docutils literal notranslate"><span class="pre">par</span></code> and by
 the executors unless other parameters are given) are derived from
@@ -2740,7 +2603,6 @@ type combinations return <code class="docutils literal notranslate"><span class=
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-executors-in-hpx">Main Executors in <em>HPX</em></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-executor">Parallel Executor</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-join-executor">Fork-Join Executor</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suspending-fork-join-executor">Suspending Fork-Join Executor</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-executor">Sequential Executor</a></li>
 </ul>
 </li>

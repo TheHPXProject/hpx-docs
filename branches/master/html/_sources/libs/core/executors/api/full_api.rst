@@ -42,11 +42,9 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/executors/api/parallel_executor_aggregated.rst
    /libs/core/executors/api/thread_pool_continues_on_sender.rst
    /libs/core/executors/api/execution_policy_annotation.rst
-   /libs/core/executors/api/shared_suspending_fork_join_executor.rst
    /libs/core/executors/api/thread_pool_scheduler.rst
    /libs/core/executors/api/executor_scheduler.rst
    /libs/core/executors/api/exception_list.rst
-   /libs/core/executors/api/suspending_fork_join_executor.rst
    /libs/core/executors/api/scheduler_executor.rst
    /libs/core/executors/api/explicit_scheduler_executor.rst
    /libs/core/executors/api/parallel_scheduler_hpx_execution_experimental_get_parallel_scheduler.rst

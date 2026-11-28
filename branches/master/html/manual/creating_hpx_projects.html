@@ -1023,7 +1023,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/collect_chunking_parameters_hpx_execution_experimental_collect_chunking_parameters.html">hpx::execution::experimental::collect_chunking_parameters</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/auto_chunk_size_hpx_execution_experimental_auto_chunk_size.html">hpx::execution::experimental::auto_chunk_size</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/create_rebound_policy.html">hpx/execution/executors/create_rebound_policy.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/get_min_chunk_time_hpx_execution_experimental_get_min_chunk_time.html">hpx::execution::experimental::get_min_chunk_time</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/execution.html">hpx/execution/executors/execution.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/task_size_chunk_size_hpx_execution_experimental_task_size_chunk_size.html">hpx::execution::experimental::task_size_chunk_size</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/execution/api/execution_parameters_fwd.html">hpx/execution/executors/execution_parameters_fwd.hpp</a></li>
@@ -1057,11 +1056,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/parallel_executor_aggregated.html">hpx/executors/parallel_executor_aggregated.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/thread_pool_continues_on_sender.html">hpx/executors/thread_pool_continues_on_sender.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/execution_policy_annotation.html">hpx/executors/execution_policy_annotation.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/shared_suspending_fork_join_executor.html">hpx/executors/shared_suspending_fork_join_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/thread_pool_scheduler.html">hpx/executors/thread_pool_scheduler.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/executor_scheduler.html">hpx/executors/executor_scheduler.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/exception_list.html">hpx/executors/exception_list.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/suspending_fork_join_executor.html">hpx/executors/suspending_fork_join_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/scheduler_executor.html">hpx/executors/scheduler_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/explicit_scheduler_executor.html">hpx/executors/explicit_scheduler_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/executors/api/parallel_scheduler_hpx_execution_experimental_get_parallel_scheduler.html">hpx::execution::experimental::get_parallel_scheduler</a></li>
@@ -1291,7 +1288,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/annotated_function_hpx_annotated_function.html">hpx::annotated_function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scheduling_policy.html">hpx/threading_base/scheduling_policy.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/thread_description.html">hpx/threading_base/thread_description.hpp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/with_annotations_hpx_threads_with_annotations.html">hpx::threads::with_annotations</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/scheduler_tuning.html">hpx/threading_base/scheduler_tuning.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/print.html">hpx/threading_base/print.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/threading_base/api/register_thread.html">hpx/threading_base/register_thread.hpp</a></li>
@@ -1982,14 +1978,14 @@ CMake target <code class="docutils literal notranslate"><span class="pre">HPX::w
 executables if you are using the macros described below
 (<a class="reference internal" href="#using-hpx-cmake-macros"><span class="std std-ref">Using macros to create new targets</span></a>). See <a class="reference internal" href="starting_the_hpx_runtime.html#minimal"><span class="std std-ref">Re-use the main() function as the main HPX entry point</span></a> for more information on
 implicitly using <code class="docutils literal notranslate"><span class="pre">main()</span></code> as the entry point. If you want the same wrapping
-behavior without including <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/809634088c45c9f18650b552485b4f013f5baa9d/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a>, link to
+behavior without including <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/39256b1ef0c7adc23535b5a524c9fa8d9e8ef087/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a>, link to
 the <code class="docutils literal notranslate"><span class="pre">HPX::auto_wrap_main</span></code> target instead. This enables the runtime
 initialization around <code class="docutils literal notranslate"><span class="pre">main()</span></code> unconditionally and is useful for codebases
 where adding the header to <code class="docutils literal notranslate"><span class="pre">main.cpp</span></code> is impractical</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When using the native Windows MSVC toolchain, <code class="docutils literal notranslate"><span class="pre">HPX::auto_wrap_main</span></code>
-force-includes <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/809634088c45c9f18650b552485b4f013f5baa9d/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a> into all C++
+force-includes <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/39256b1ef0c7adc23535b5a524c9fa8d9e8ef087/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a> into all C++
 source files of the executable (using <code class="docutils literal notranslate"><span class="pre">/FI</span></code>), as MSVC does not support
 the weak symbols the wrapping relies on elsewhere.</p>
 </div>
@@ -2146,7 +2142,7 @@ Please also consult the CMake documentation <a class="reference external" href="
 <section id="using-hpx-with-makefile">
 <span id="makefile"></span><h2>Using <em>HPX</em> with Makefile<a class="headerlink" href="#using-hpx-with-makefile" title="Link to this heading">#</a></h2>
 <p>A basic project building with <em>HPX</em> is through creating makefiles. On Linux and
-macOS, applications that include <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/809634088c45c9f18650b552485b4f013f5baa9d/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a>
+macOS, applications that include <a class="reference external" href="http://github.com/TheHPXProject/hpx/blob/39256b1ef0c7adc23535b5a524c9fa8d9e8ef087/wrap/include/hpx/hpx_main.hpp">hpx/hpx_main.hpp</a>
 have to link <code class="docutils literal notranslate"><span class="pre">libhpx_wrap.a</span></code> and redirect the program’s entry point when
 linking.</p>
 <section id="how-to-build-hpx-applications-with-makefile">
