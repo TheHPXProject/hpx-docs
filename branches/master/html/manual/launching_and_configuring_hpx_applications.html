@@ -52,7 +52,7 @@
     <link rel="prev" title="Starting the HPX runtime" href="starting_the_hpx_runtime.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Nov 26, 2026"/>
+    <meta name="docbuild:last-update" content="Nov 27, 2026"/>
   </head>
   
   
@@ -1659,6 +1659,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-hip-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.hip</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-threadpools-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.threadpools</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-scheduler-policy-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.scheduler_policy</span></code> configuration section</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-idle-tuning-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.idle_tuning</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-thread-queue-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-task-size-chunk-size-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.task_size_chunk_size</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-components-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.components</span></code> configuration section</a></li>
@@ -2255,6 +2256,46 @@ creating worker thread wakes up a sleeping worker thread.</p></td>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.scheduler_policy.free_pass_after_wake</span></code></p></td>
 <td><p>If <code class="docutils literal notranslate"><span class="pre">1</span></code>, a worker thread woken up by new work may steal once without
 the early minima (see <a class="reference internal" href="thread_scheduler_configuration.html#thread-scheduler-pending-steal"><span class="std std-ref">Stealing pending threads</span></a>).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="the-hpx-idle-tuning-configuration-section">
+<h4>The <code class="docutils literal notranslate"><span class="pre">hpx.idle_tuning</span></code> configuration section<a class="headerlink" href="#the-hpx-idle-tuning-configuration-section" title="Link to this heading">#</a></h4>
+<p>The entries of this section give the idle settings of a thread pool by its
+scheduler, the scheduler’s tuner and the pool’s number of worker threads, for
+instance values measured for a machine. A pool takes the entries of
+<code class="docutils literal notranslate"><span class="pre">hpx.idle_tuning.&lt;scheduler&gt;.&lt;tuner&gt;.&lt;number</span> <span class="pre">of</span> <span class="pre">workers&gt;</span></code>, else those of
+<code class="docutils literal notranslate"><span class="pre">hpx.idle_tuning.&lt;scheduler&gt;.&lt;tuner&gt;</span></code>, else <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code>
+and <code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code>. The scheduler is named as
+<a class="reference internal" href="#cmdoption-hpx-queuing"><code class="xref std std-option docutils literal notranslate"><span class="pre">--hpx:queuing</span></code></a> names it; the tuner is <code class="docutils literal notranslate"><span class="pre">hpx.scheduler_tuner</span></code> for the
+<code class="docutils literal notranslate"><span class="pre">local-priority-tuned-fifo</span></code> scheduler and <code class="docutils literal notranslate"><span class="pre">none</span></code> for all others. The
+section is empty by default, so that every pool uses the plain settings. Values
+that are not a number or are negative are ignored. The entries are usually
+given in a configuration file (<a class="reference internal" href="#cmdoption-hpx-config"><code class="xref std std-option docutils literal notranslate"><span class="pre">--hpx:config</span></code></a>); on the command line
+they are new entries and need the <code class="docutils literal notranslate"><span class="pre">!</span></code> that forces one, for instance
+<code class="docutils literal notranslate"><span class="pre">--hpx:ini=hpx.idle_tuning.local-priority-fifo.none.min_idle_backoff_time!=60</span></code>.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[hpx.idle_tuning.local-priority-fifo.none]</span>
+<span class="na">max_idle_backoff_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1000</span>
+<span class="na">min_idle_backoff_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">50</span>
+
+<span class="k">[hpx.idle_tuning.local-priority-fifo.none.32]</span>
+<span class="na">min_idle_backoff_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">60</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="ini-hpx-idle-tuning">
+<tbody>
+<tr class="row-odd"><td><p>Property</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.idle_tuning.&lt;scheduler&gt;.&lt;tuner&gt;[.&lt;number</span> <span class="pre">of</span> <span class="pre">workers&gt;].max_idle_backoff_time</span></code></p></td>
+<td><p>The value of this property replaces <code class="docutils literal notranslate"><span class="pre">hpx.max_idle_backoff_time</span></code> for the
+pools it applies to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.idle_tuning.&lt;scheduler&gt;.&lt;tuner&gt;[.&lt;number</span> <span class="pre">of</span> <span class="pre">workers&gt;].min_idle_backoff_time</span></code></p></td>
+<td><p>The value of this property replaces <code class="docutils literal notranslate"><span class="pre">hpx.min_idle_backoff_time</span></code> for the
+pools it applies to.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4364,6 +4405,7 @@ activated.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-hip-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.hip</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-threadpools-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.threadpools</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-scheduler-policy-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.scheduler_policy</span></code> configuration section</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-idle-tuning-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.idle_tuning</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-thread-queue-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.thread_queue</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-task-size-chunk-size-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.task_size_chunk_size</span></code> configuration section</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hpx-components-configuration-section">The <code class="docutils literal notranslate"><span class="pre">hpx.components</span></code> configuration section</a></li>
@@ -4433,7 +4475,7 @@ By The HPX project
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Nov 26, 2026.
+  Last updated on Nov 27, 2026.
   <br/>
 </p>
   </div>
