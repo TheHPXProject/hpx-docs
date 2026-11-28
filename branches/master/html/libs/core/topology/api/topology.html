@@ -1023,6 +1023,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../execution/api/collect_chunking_parameters_hpx_execution_experimental_collect_chunking_parameters.html">hpx::execution::experimental::collect_chunking_parameters</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../execution/api/auto_chunk_size_hpx_execution_experimental_auto_chunk_size.html">hpx::execution::experimental::auto_chunk_size</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../execution/api/create_rebound_policy.html">hpx/execution/executors/create_rebound_policy.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../execution/api/get_min_chunk_time_hpx_execution_experimental_get_min_chunk_time.html">hpx::execution::experimental::get_min_chunk_time</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../execution/api/execution.html">hpx/execution/executors/execution.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../execution/api/task_size_chunk_size_hpx_execution_experimental_task_size_chunk_size.html">hpx::execution::experimental::task_size_chunk_size</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../execution/api/execution_parameters_fwd.html">hpx/execution/executors/execution_parameters_fwd.hpp</a></li>
@@ -1056,9 +1057,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../executors/api/parallel_executor_aggregated.html">hpx/executors/parallel_executor_aggregated.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../executors/api/thread_pool_continues_on_sender.html">hpx/executors/thread_pool_continues_on_sender.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../executors/api/execution_policy_annotation.html">hpx/executors/execution_policy_annotation.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../executors/api/shared_suspending_fork_join_executor.html">hpx/executors/shared_suspending_fork_join_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../executors/api/thread_pool_scheduler.html">hpx/executors/thread_pool_scheduler.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../executors/api/executor_scheduler.html">hpx/executors/executor_scheduler.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../executors/api/exception_list.html">hpx/executors/exception_list.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../executors/api/suspending_fork_join_executor.html">hpx/executors/suspending_fork_join_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../executors/api/scheduler_executor.html">hpx/executors/scheduler_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../executors/api/explicit_scheduler_executor.html">hpx/executors/explicit_scheduler_executor.hpp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../executors/api/parallel_scheduler_hpx_execution_experimental_get_parallel_scheduler.html">hpx::execution::experimental::get_parallel_scheduler</a></li>
@@ -1679,6 +1682,13 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads24hpx_hwloc_bitmap_wrapperlsERNSt7ostreamEPK24hpx_hwloc_bitmap_wrapper"><code class="docutils literal notranslate"><span class="pre">operator&lt;&lt;</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads10cache_infoE"><code class="docutils literal notranslate"><span class="pre">hpx::threads::cache_info</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads10cache_info4sizeE"><code class="docutils literal notranslate"><span class="pre">size</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads10cache_info9line_sizeE"><code class="docutils literal notranslate"><span class="pre">line_size</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads10cache_info5coresE"><code class="docutils literal notranslate"><span class="pre">cores</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads10cache_info3pusE"><code class="docutils literal notranslate"><span class="pre">pus</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads8topologyE"><code class="docutils literal notranslate"><span class="pre">hpx::threads::topology</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads8topology8topologyEv"><code class="docutils literal notranslate"><span class="pre">topology()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads8topology8topologyERK8topology"><code class="docutils literal notranslate"><span class="pre">topology()</span></code></a></li>
@@ -1711,6 +1721,7 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads8topology15get_core_numberENSt6size_tER10error_code"><code class="docutils literal notranslate"><span class="pre">get_core_number()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads8topology13get_pu_numberENSt6size_tENSt6size_tER10error_code"><code class="docutils literal notranslate"><span class="pre">get_pu_number()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads8topology14get_cache_sizeE14mask_cref_typei"><code class="docutils literal notranslate"><span class="pre">get_cache_size()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads8topology14get_cache_infoENSt6size_tEi"><code class="docutils literal notranslate"><span class="pre">get_cache_info()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads8topology16get_cpubind_maskER10error_code"><code class="docutils literal notranslate"><span class="pre">get_cpubind_mask()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads8topology16get_cpubind_maskERNSt6threadER10error_code"><code class="docutils literal notranslate"><span class="pre">get_cpubind_mask()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads8topology17cpuset_to_nodesetE14mask_cref_type"><code class="docutils literal notranslate"><span class="pre">cpuset_to_nodeset()</span></code></a></li>
@@ -1925,6 +1936,41 @@ document.write(`
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads24hpx_hwloc_bitmap_wrapperlsERNSt7ostreamEPK24hpx_hwloc_bitmap_wrapper">
 <span id="_CPPv3N3hpx7threads24hpx_hwloc_bitmap_wrapperlsERNSt7ostreamEPK24hpx_hwloc_bitmap_wrapper"></span><span id="_CPPv2N3hpx7threads24hpx_hwloc_bitmap_wrapperlsERNSt7ostreamEPK24hpx_hwloc_bitmap_wrapper"></span><span id="hpx::threads::hpx_hwloc_bitmap_wrapper::lshift-operator__osR.hpx_hwloc_bitmap_wrapperCP"></span><span class="target" id="structhpx_1_1threads_1_1hpx__hwloc__bitmap__wrapper_1aba9a4d7cb9178f3451ec6dab5da8b0dc"></span><span class="k"><span class="pre">friend</span></span><span class="w"> </span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">os</span></span>, <a class="reference internal" href="#_CPPv4N3hpx7threads24hpx_hwloc_bitmap_wrapperE" title="hpx::threads::hpx_hwloc_bitmap_wrapper"><span class="n"><span class="pre">hpx_hwloc_bitmap_wrapper</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">bmp</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx7threads24hpx_hwloc_bitmap_wrapperlsERNSt7ostreamEPK24hpx_hwloc_bitmap_wrapper" title="Link to this definition">#</a><br /></dt>
 <dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads10cache_infoE">
+<span id="_CPPv3N3hpx7threads10cache_infoE"></span><span id="_CPPv2N3hpx7threads10cache_infoE"></span><span id="hpx::threads::cache_info"></span><span class="target" id="structhpx_1_1threads_1_1cache__info"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cache_info</span></span></span><a class="headerlink" href="#_CPPv4N3hpx7threads10cache_infoE" title="Link to this definition">#</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;topology.hpp&gt;</em></div>
+<p>The cache of one level above a processing unit (see <a class="reference internal" href="#structhpx_1_1threads_1_1topology_1a14435bec5e6f9c98d8fc9f79652555f4"><span class="std std-ref">topology::get_cache_info</span></a>). </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads10cache_info4sizeE">
+<span id="_CPPv3N3hpx7threads10cache_info4sizeE"></span><span id="_CPPv2N3hpx7threads10cache_info4sizeE"></span><span id="hpx::threads::cache_info::size__std::s"></span><span class="target" id="structhpx_1_1threads_1_1cache__info_1a21c34b1804f13fff927bf69c82a9b8ff"></span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N3hpx7threads10cache_info4sizeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>The size of the cache in bytes, 0 if the processing unit has no cache of the level. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads10cache_info9line_sizeE">
+<span id="_CPPv3N3hpx7threads10cache_info9line_sizeE"></span><span id="_CPPv2N3hpx7threads10cache_info9line_sizeE"></span><span id="hpx::threads::cache_info::line_size__std::s"></span><span class="target" id="structhpx_1_1threads_1_1cache__info_1a2a4b7e5fcbaafbf8628bdfa558da1389"></span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">line_size</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N3hpx7threads10cache_info9line_sizeE" title="Link to this definition">#</a><br /></dt>
+<dd><p>The size of a cache line in bytes. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads10cache_info5coresE">
+<span id="_CPPv3N3hpx7threads10cache_info5coresE"></span><span id="_CPPv2N3hpx7threads10cache_info5coresE"></span><span id="hpx::threads::cache_info::cores__std::s"></span><span class="target" id="structhpx_1_1threads_1_1cache__info_1aae1a45982f13b1fab6f726e8f97562b6"></span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cores</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N3hpx7threads10cache_info5coresE" title="Link to this definition">#</a><br /></dt>
+<dd><p>The number of cores that share the cache. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads10cache_info3pusE">
+<span id="_CPPv3N3hpx7threads10cache_info3pusE"></span><span id="_CPPv2N3hpx7threads10cache_info3pusE"></span><span id="hpx::threads::cache_info::pus__std::s"></span><span class="target" id="structhpx_1_1threads_1_1cache__info_1a3e137bccab546d929f587ee51e7d0d3e"></span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pus</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N3hpx7threads10cache_info3pusE" title="Link to this definition">#</a><br /></dt>
+<dd><p>The number of processing units that share the cache. </p>
+</dd></dl>
 
 </div>
 </dd></dl>
@@ -2204,6 +2250,20 @@ document.write(`
 <dt class="sig sig-object cpp" id="_CPPv4NK3hpx7threads8topology14get_cache_sizeE14mask_cref_typei">
 <span id="_CPPv3NK3hpx7threads8topology14get_cache_sizeE14mask_cref_typei"></span><span id="_CPPv2NK3hpx7threads8topology14get_cache_sizeE14mask_cref_typei"></span><span id="hpx::threads::topology::get_cache_size__mask_cref_type.iC"></span><span class="target" id="structhpx_1_1threads_1_1topology_1a6da6ee52b07dcea4e1aeefe9105b60d8"></span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_cache_size</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">mask_cref_type</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">mask</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">level</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3hpx7threads8topology14get_cache_sizeE14mask_cref_typei" title="Link to this definition">#</a><br /></dt>
 <dd><p>Return the size of the cache associated with the given mask. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3hpx7threads8topology14get_cache_infoENSt6size_tEi">
+<span id="_CPPv3NK3hpx7threads8topology14get_cache_infoENSt6size_tEi"></span><span id="_CPPv2NK3hpx7threads8topology14get_cache_infoENSt6size_tEi"></span><span id="hpx::threads::topology::get_cache_info__std::s.iC"></span><span class="target" id="structhpx_1_1threads_1_1topology_1a14435bec5e6f9c98d8fc9f79652555f4"></span><a class="reference internal" href="#_CPPv4N3hpx7threads10cache_infoE" title="hpx::threads::cache_info"><span class="n"><span class="pre">cache_info</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_cache_info</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_pu</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">level</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3hpx7threads8topology14get_cache_infoENSt6size_tEi" title="Link to this definition">#</a><br /></dt>
+<dd><p>Return the cache of the given level (1 to 5; level 1 is the data or unified L1, not the instruction cache) above the given processing unit: its size, the size of its lines, and the number of cores and processing units that share it, so that a core’s share of a cache is its size divided by its cores. All members are 0 if the processing unit has no cache of the level, or if the level or the processing unit don’t exist.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_pu</strong> – [in] The number of the processing unit (as for get_pu_number). </p></li>
+<li><p><strong>level</strong> – [in] The level of the cache, 1 to 5. </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="cpp function">
@@ -2581,6 +2641,13 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads24hpx_hwloc_bitmap_wrapperlsERNSt7ostreamEPK24hpx_hwloc_bitmap_wrapper"><code class="docutils literal notranslate"><span class="pre">operator&lt;&lt;</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads10cache_infoE"><code class="docutils literal notranslate"><span class="pre">hpx::threads::cache_info</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads10cache_info4sizeE"><code class="docutils literal notranslate"><span class="pre">size</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads10cache_info9line_sizeE"><code class="docutils literal notranslate"><span class="pre">line_size</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads10cache_info5coresE"><code class="docutils literal notranslate"><span class="pre">cores</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads10cache_info3pusE"><code class="docutils literal notranslate"><span class="pre">pus</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads8topologyE"><code class="docutils literal notranslate"><span class="pre">hpx::threads::topology</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads8topology8topologyEv"><code class="docutils literal notranslate"><span class="pre">topology()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads8topology8topologyERK8topology"><code class="docutils literal notranslate"><span class="pre">topology()</span></code></a></li>
@@ -2613,6 +2680,7 @@ document.write(`
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads8topology15get_core_numberENSt6size_tER10error_code"><code class="docutils literal notranslate"><span class="pre">get_core_number()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads8topology13get_pu_numberENSt6size_tENSt6size_tER10error_code"><code class="docutils literal notranslate"><span class="pre">get_pu_number()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads8topology14get_cache_sizeE14mask_cref_typei"><code class="docutils literal notranslate"><span class="pre">get_cache_size()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads8topology14get_cache_infoENSt6size_tEi"><code class="docutils literal notranslate"><span class="pre">get_cache_info()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads8topology16get_cpubind_maskER10error_code"><code class="docutils literal notranslate"><span class="pre">get_cpubind_mask()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads8topology16get_cpubind_maskERNSt6threadER10error_code"><code class="docutils literal notranslate"><span class="pre">get_cpubind_mask()</span></code></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads8topology17cpuset_to_nodesetE14mask_cref_type"><code class="docutils literal notranslate"><span class="pre">cpuset_to_nodeset()</span></code></a></li>
