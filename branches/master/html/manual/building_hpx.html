@@ -1332,6 +1332,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/timing/api/steady_clock_hpx_chrono_null_duration.html">hpx::chrono::null_duration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/timing/api/high_resolution_timer_hpx_chrono_high_resolution_timer.html">hpx::chrono::high_resolution_timer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/timing/api/high_resolution_clock_hpx_chrono_high_resolution_clock.html">hpx::chrono::high_resolution_clock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/timing/api/durations_hpx_chrono_picoseconds.html">hpx::chrono::picoseconds</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/topology/api/full_api.html">topology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1888,6 +1889,20 @@ high as the number of cores on a system including virtual cores such as hyperthr
 <span class="sig-name descname"><span class="pre">HPX_WITH_CXX_STANDARD</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_CXX_STANDARD" title="Link to this definition">#</a></dt>
 <dd><p>Set a specific C++ standard version e.g. <code class="docutils literal notranslate"><span class="pre">HPX_WITH_CXX_STANDARD=23</span></code>.
 The default and minimum value is <code class="docutils literal notranslate"><span class="pre">20</span></code>. Possible values are <code class="docutils literal notranslate"><span class="pre">20</span></code>, <code class="docutils literal notranslate"><span class="pre">23</span></code>, or <code class="docutils literal notranslate"><span class="pre">26</span></code>.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-HPX_WITH_DATAPAR_BACKEND">
+<span class="sig-name descname"><span class="pre">HPX_WITH_DATAPAR_BACKEND</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-arg-HPX_WITH_DATAPAR_BACKEND" title="Link to this definition">#</a></dt>
+<dd><p>Select the library the data-parallel (vectorized) algorithms use, that is, the algorithms
+called with the execution policies <code class="docutils literal notranslate"><span class="pre">simd</span></code>, <code class="docutils literal notranslate"><span class="pre">par_simd</span></code>, <code class="docutils literal notranslate"><span class="pre">fixed_size_simd&lt;N&gt;</span></code> and
+<code class="docutils literal notranslate"><span class="pre">par_fixed_size_simd&lt;N&gt;</span></code>. Possible values are <code class="docutils literal notranslate"><span class="pre">STD_EXPERIMENTAL_SIMD</span></code> (<code class="docutils literal notranslate"><span class="pre">&lt;experimental/simd&gt;</span></code>
+from libstdc++), <code class="docutils literal notranslate"><span class="pre">EVE</span></code>, <code class="docutils literal notranslate"><span class="pre">VC</span></code>, <code class="docutils literal notranslate"><span class="pre">SVE</span></code>, <code class="docutils literal notranslate"><span class="pre">EMULATE</span></code> and <code class="docutils literal notranslate"><span class="pre">NONE</span></code> (the default, no
+data-parallel support).</p>
+<p><code class="docutils literal notranslate"><span class="pre">EMULATE</span></code> uses <em>HPX</em>’s own emulation of <code class="docutils literal notranslate"><span class="pre">std::experimental::simd</span></code> and is meant for platforms
+without a vectorization library, for instance MSVC, mainly to build and test the data-parallel
+algorithms. It runs each operation on a pack as a loop over the lanes, so the data-parallel
+algorithms are usually slower with it than with the <code class="docutils literal notranslate"><span class="pre">seq</span></code> and <code class="docutils literal notranslate"><span class="pre">par</span></code> policies.</p>
 </dd></dl>
 
 <dl class="std option">

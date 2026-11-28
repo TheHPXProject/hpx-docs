@@ -1332,6 +1332,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/timing/api/steady_clock_hpx_chrono_null_duration.html">hpx::chrono::null_duration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/timing/api/high_resolution_timer_hpx_chrono_high_resolution_timer.html">hpx::chrono::high_resolution_timer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/timing/api/high_resolution_clock_hpx_chrono_high_resolution_clock.html">hpx::chrono::high_resolution_clock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/timing/api/durations_hpx_chrono_picoseconds.html">hpx::chrono::picoseconds</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/topology/api/full_api.html">topology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -2429,6 +2430,43 @@ instead of being spread over all cores:</p>
 <span class="w">    </span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">hpx</span><span class="o">::</span><span class="n">nano_task</span><span class="p">([](</span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="p">}));</span>
 </pre></div>
 </div>
+<p>A size stands for a range of run times a hundred times wide: a loop body of a
+quarter of a nanosecond is nano, and so is one of 30 nanoseconds.
+<code class="docutils literal notranslate"><span class="pre">hpx::timed_task(f,</span> <span class="pre">time)</span></code> gives a function the run time of one of its calls
+instead, as any <code class="docutils literal notranslate"><span class="pre">std::chrono</span></code> duration, also one below a nanosecond
+(<code class="docutils literal notranslate"><span class="pre">hpx::chrono::picoseconds</span></code>). The function has the size its time falls into,
+so the scheduler sees a size as before, and <code class="docutils literal notranslate"><span class="pre">task_size_chunk_size</span></code> takes the
+time itself as the run time of one iteration. For a loop body the time is that
+of one element of the loop, whatever the execution policy.
+<code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_time</span></code> reads the time, which is zero for a function
+that gives none:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// adding two doubles takes about a quarter of a nanosecond</span>
+<span class="n">hpx</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">hpx</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">par</span><span class="p">.</span><span class="n">with</span><span class="p">(</span>
+<span class="w">                   </span><span class="n">hpx</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">experimental</span><span class="o">::</span><span class="n">task_size_chunk_size</span><span class="p">()),</span>
+<span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">hpx</span><span class="o">::</span><span class="n">timed_task</span><span class="p">([](</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">duration</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">nano</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)));</span>
+</pre></div>
+</div>
+<p>The algorithms give the operations of the library that do little more than
+move their operands the run time of the bytes they read and write, at
+<code class="docutils literal notranslate"><span class="pre">hpx.task_size_chunk_size.copy_bytes_per_ns</span></code> (16 bytes in a nanosecond by
+default, each byte read and written, so copying a double takes half a
+nanosecond): copying and moving trivially copyable elements, <code class="docutils literal notranslate"><span class="pre">fill</span></code>,
+<code class="docutils literal notranslate"><span class="pre">iota</span></code>, <code class="docutils literal notranslate"><span class="pre">swap_ranges</span></code> and <code class="docutils literal notranslate"><span class="pre">reverse</span></code> on builtin elements, and the builtin
+arithmetic function objects (<code class="docutils literal notranslate"><span class="pre">std::plus</span></code>, <code class="docutils literal notranslate"><span class="pre">std::minus</span></code>,
+<code class="docutils literal notranslate"><span class="pre">std::multiplies</span></code>, <code class="docutils literal notranslate"><span class="pre">std::negate</span></code> and the bitwise ones) and comparisons
+(<code class="docutils literal notranslate"><span class="pre">std::less</span></code>, <code class="docutils literal notranslate"><span class="pre">std::equal_to</span></code> and the like, also those of <code class="docutils literal notranslate"><span class="pre">std::ranges</span></code>
+and <code class="docutils literal notranslate"><span class="pre">hpx::ranges</span></code>) called with builtin elements, counting the elements an
+algorithm reads and, for <code class="docutils literal notranslate"><span class="pre">transform</span></code>, <code class="docutils literal notranslate"><span class="pre">adjacent_difference</span></code> and
+<code class="docutils literal notranslate"><span class="pre">merge</span></code>, the element it writes: adding two doubles into a third takes three
+quarters of a nanosecond, comparing two chars an eighth of the time of
+comparing two doubles. An algorithm whose work for an element costs more
+than its bytes multiplies them by a factor measured on one core: 1.5 for
+<code class="docutils literal notranslate"><span class="pre">count</span></code>, <code class="docutils literal notranslate"><span class="pre">find</span></code>, <code class="docutils literal notranslate"><span class="pre">replace</span></code> and <code class="docutils literal notranslate"><span class="pre">reduce</span></code>, 3 for <code class="docutils literal notranslate"><span class="pre">remove</span></code>, 4 for
+<code class="docutils literal notranslate"><span class="pre">unique</span></code>, 6 for <code class="docutils literal notranslate"><span class="pre">merge</span></code> and 8 for <code class="docutils literal notranslate"><span class="pre">minmax_element</span></code> (whose comparisons
+decide what to do with an element, a branch that mispredicts on unordered
+data). Consecutive loops over the same data are then sized alike. Logical operations, <code class="docutils literal notranslate"><span class="pre">std::divides</span></code> and <code class="docutils literal notranslate"><span class="pre">std::modulus</span></code> stay nano.</p>
 <p>By default, <code class="docutils literal notranslate"><span class="pre">task_size_chunk_size</span></code> makes chunks of at least 2.5
 microseconds and gives each core 8 of them. Values given to its
 constructor replace these defaults for one loop, the configuration entries
@@ -2502,7 +2540,9 @@ threads have <code class="docutils literal notranslate"><span class="pre">task_s
 the parallel algorithms create around their loop bodies, for instance) do. A
 wrapper of your own can do the same by specializing
 <code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_size</span></code>, the same way wrappers forward annotations with
-<code class="docutils literal notranslate"><span class="pre">hpx::traits::get_function_annotation</span></code>. It derives from the specialization
+<code class="docutils literal notranslate"><span class="pre">hpx::traits::get_function_annotation</span></code>; a time given with
+<code class="docutils literal notranslate"><span class="pre">hpx::timed_task</span></code> is forwarded by specializing <code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_time</span></code>
+the same way. It derives from the specialization
 for the wrapped function, which gives it <code class="docutils literal notranslate"><span class="pre">value</span></code>, and forwards <code class="docutils literal notranslate"><span class="pre">call</span></code>:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">F</span><span class="o">&gt;</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">my_wrapper</span>

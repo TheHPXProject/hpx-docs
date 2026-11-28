@@ -25,3 +25,4 @@ See :ref:`public_api` for a list of names and headers that are part of the publi
    /libs/core/timing/api/steady_clock_hpx_chrono_null_duration.rst
    /libs/core/timing/api/high_resolution_timer_hpx_chrono_high_resolution_timer.rst
    /libs/core/timing/api/high_resolution_clock_hpx_chrono_high_resolution_clock.rst
+   /libs/core/timing/api/durations_hpx_chrono_picoseconds.rst

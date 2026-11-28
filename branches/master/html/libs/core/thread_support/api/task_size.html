@@ -1332,6 +1332,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../timing/api/steady_clock_hpx_chrono_null_duration.html">hpx::chrono::null_duration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../timing/api/high_resolution_timer_hpx_chrono_high_resolution_timer.html">hpx::chrono::high_resolution_timer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../timing/api/high_resolution_clock_hpx_chrono_high_resolution_clock.html">hpx::chrono::high_resolution_clock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../timing/api/durations_hpx_chrono_picoseconds.html">hpx::chrono::picoseconds</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../topology/api/full_api.html">topology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1655,6 +1656,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c.HPX_TASK_SIZE_BUILTIN_OPERATION"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_BUILTIN_OPERATION</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c.HPX_TASK_SIZE_MEMORY_BOUND_OPERATION"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c.HPX_TASK_SIZE_BUILTIN_RANGES_OPERATION"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_BUILTIN_RANGES_OPERATION</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv43hpx"><code class="docutils literal notranslate"><span class="pre">hpx</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threadsE"><code class="docutils literal notranslate"><span class="pre">hpx::threads</span></code></a><ul class="nav section-nav flex-column">
@@ -1670,6 +1672,13 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads18task_size_durationEK9task_size"><code class="docutils literal notranslate"><span class="pre">task_size_duration()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads14bulk_task_sizeEK9task_sizeKNSt6size_tE"><code class="docutils literal notranslate"><span class="pre">bulk_task_size()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads18combined_task_sizeEK9task_sizeK9task_size"><code class="docutils literal notranslate"><span class="pre">combined_task_size()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads21task_size_of_durationEKN3hpx6chrono11picosecondsE"><code class="docutils literal notranslate"><span class="pre">task_size_of_duration()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads18task_size_and_timeE"><code class="docutils literal notranslate"><span class="pre">hpx::threads::task_size_and_time</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads18task_size_and_timecv9task_sizeEv"><code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">task_size()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads18task_size_and_time4sizeE"><code class="docutils literal notranslate"><span class="pre">size</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads18task_size_and_time4timeE"><code class="docutils literal notranslate"><span class="pre">time</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traitsE"><code class="docutils literal notranslate"><span class="pre">hpx::traits</span></code></a><ul class="nav section-nav flex-column">
@@ -1692,6 +1701,20 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE6bit_or"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_BUILTIN_OPERATION()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE7bit_xor"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_BUILTIN_OPERATION()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE7bit_not"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_BUILTIN_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE4plus"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE5minus"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE10multiplies"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE6negate"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_and"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE6bit_or"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_xor"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_not"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE8equal_to"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE12not_equal_to"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE4less"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7greater"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE10less_equal"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE13greater_equal"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits38HPX_TASK_SIZE_BUILTIN_RANGES_OPERATIONE8equal_to"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_BUILTIN_RANGES_OPERATION()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits38HPX_TASK_SIZE_BUILTIN_RANGES_OPERATIONE12not_equal_to"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_BUILTIN_RANGES_OPERATION()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits38HPX_TASK_SIZE_BUILTIN_RANGES_OPERATIONE4less"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_BUILTIN_RANGES_OPERATION()</span></code></a></li>
@@ -1706,6 +1729,11 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_N7threads9task_sizeEEN3hpx6traits13get_task_sizeE"><code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_size&lt;</span> <span class="pre">F,</span> <span class="pre">Size</span> <span class="pre">&gt;</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I00EN3hpx6traits13get_task_timeE"><code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_time</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits13get_task_time4callERK1F"><code class="docutils literal notranslate"><span class="pre">call()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN3hpx6traits13get_task_timeE"><code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_time&lt;</span> <span class="pre">F</span> <span class="pre">&gt;</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I_DaEN3hpx6traits12task_size_ofE"><code class="docutils literal notranslate"><span class="pre">hpx::traits::task_size_of</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits12task_size_of5valueE"><code class="docutils literal notranslate"><span class="pre">value</span></code></a></li>
 </ul>
@@ -1717,6 +1745,7 @@ document.write(`
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN3hpx6traits32is_transparent_builtin_operationE"><code class="docutils literal notranslate"><span class="pre">hpx::traits::is_transparent_builtin_operation</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN3hpx6traits26is_typed_builtin_operationE"><code class="docutils literal notranslate"><span class="pre">hpx::traits::is_typed_builtin_operation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN3hpx6traits33is_memory_bound_builtin_operationE"><code class="docutils literal notranslate"><span class="pre">hpx::traits::is_memory_bound_builtin_operation</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1742,6 +1771,11 @@ document.write(`
 <dl class="cpp macro">
 <dt class="sig sig-object cpp" id="c.HPX_TASK_SIZE_BUILTIN_OPERATION">
 <span class="target" id="task__size_8hpp_1a1efa7277592367b7a8df4bfa5bc661da"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_TASK_SIZE_BUILTIN_OPERATION</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">op</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_TASK_SIZE_BUILTIN_OPERATION" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.HPX_TASK_SIZE_MEMORY_BOUND_OPERATION">
+<span class="target" id="task__size_8hpp_1a5d4de9aa8f6558ff2665a8bc918fe997"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">op</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.HPX_TASK_SIZE_MEMORY_BOUND_OPERATION" title="Link to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp macro">
@@ -1819,7 +1853,42 @@ document.write(`
 <dd><p>The size of a task that does work of the size <code class="docutils literal notranslate"><span class="pre">first</span></code> and then work of the size <code class="docutils literal notranslate"><span class="pre">second</span></code>, for instance dereferencing an iterator and calling a function with the element. It is unknown if either size is unknown, otherwise it is the larger one: the sizes are a hundred times apart, so the smaller one hardly adds to the larger one. </p>
 </dd></dl>
 
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads21task_size_of_durationEKN3hpx6chrono11picosecondsE">
+<span id="_CPPv3N3hpx7threads21task_size_of_durationEKN3hpx6chrono11picosecondsE"></span><span id="_CPPv2N3hpx7threads21task_size_of_durationEKN3hpx6chrono11picosecondsE"></span><span id="hpx::threads::task_size_of_duration__hpx::chrono::picosecondsCCE"></span><span class="target" id="task__size_8hpp_1a8145888892ae7cb02d1b64972f072a56"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3hpx7threads9task_sizeE" title="hpx::threads::task_size"><span class="n"><span class="pre">task_size</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">task_size_of_duration</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../timing/api/durations_hpx_chrono_picoseconds.html#_CPPv4N3hpx6chrono11picosecondsE" title="hpx::chrono::picoseconds"><span class="n"><span class="pre">picoseconds</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">time</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx7threads21task_size_of_durationEKN3hpx6chrono11picosecondsE" title="Link to this definition">#</a><br /></dt>
+<dd><p>The size of a function whose calls each run for about <code class="docutils literal notranslate"><span class="pre">time:</span></code> the largest size whose run time it reaches, as for bulk_task_size, and nano below a nanosecond (a call of 0.25 ns or of 30 ns is a nano call, one of 100 ns a small one). A time of zero or less has no size. </p>
+</dd></dl>
+
 </div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads18task_size_and_timeE">
+<span id="_CPPv3N3hpx7threads18task_size_and_timeE"></span><span id="_CPPv2N3hpx7threads18task_size_and_timeE"></span><span id="hpx::threads::task_size_and_time"></span><span class="target" id="structhpx_1_1threads_1_1task__size__and__time"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">task_size_and_time</span></span></span><a class="headerlink" href="#_CPPv4N3hpx7threads18task_size_and_timeE" title="Link to this definition">#</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;task_size.hpp&gt;</em></div>
+<p>The size of a function together with the run time of one of its calls, for a function whose run time is known more precisely than its size (see hpx::timed_task). time is zero if the function says nothing finer than its size. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3hpx7threads18task_size_and_timecv9task_sizeEv">
+<span id="_CPPv3NK3hpx7threads18task_size_and_timecv9task_sizeEv"></span><span id="_CPPv2NK3hpx7threads18task_size_and_timecv9task_sizeEv"></span><span id="hpx::threads::task_size_and_time::castto-task_size-operatorCCE"></span><span class="target" id="structhpx_1_1threads_1_1task__size__and__time_1a2d4e22cd84e7e180bd38f7714d0b8404"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3hpx7threads9task_sizeE" title="hpx::threads::task_size"><span class="n"><span class="pre">task_size</span></span></a></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3hpx7threads18task_size_and_timecv9task_sizeEv" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads18task_size_and_time4sizeE">
+<span id="_CPPv3N3hpx7threads18task_size_and_time4sizeE"></span><span id="_CPPv2N3hpx7threads18task_size_and_time4sizeE"></span><span id="hpx::threads::task_size_and_time::size__task_size"></span><span class="target" id="structhpx_1_1threads_1_1task__size__and__time_1af5a0b153b20052d87402cc569ac32987"></span><a class="reference internal" href="#_CPPv4N3hpx7threads9task_sizeE" title="hpx::threads::task_size"><span class="n"><span class="pre">task_size</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3hpx7threads9task_sizeE" title="hpx::threads::task_size"><span class="n"><span class="pre">task_size</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N3hpx7threads9task_size7unknownE" title="hpx::threads::task_size::unknown"><span class="n"><span class="pre">unknown</span></span></a><a class="headerlink" href="#_CPPv4N3hpx7threads18task_size_and_time4sizeE" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx7threads18task_size_and_time4timeE">
+<span id="_CPPv3N3hpx7threads18task_size_and_time4timeE"></span><span id="_CPPv2N3hpx7threads18task_size_and_time4timeE"></span><span id="hpx::threads::task_size_and_time::time__hpx::chrono::picoseconds"></span><span class="target" id="structhpx_1_1threads_1_1task__size__and__time_1a578c1032f1bfdd3f5418419a2d0792ec"></span><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../timing/api/durations_hpx_chrono_picoseconds.html#_CPPv4N3hpx6chrono11picosecondsE" title="hpx::chrono::picoseconds"><span class="n"><span class="pre">picoseconds</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">time</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../timing/api/durations_hpx_chrono_picoseconds.html#_CPPv4N3hpx6chrono11picosecondsE" title="hpx::chrono::picoseconds"><span class="n"><span class="pre">picoseconds</span></span></a><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N3hpx7threads18task_size_and_time4timeE" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="cpp type">
@@ -1923,6 +1992,76 @@ document.write(`
 <dd></dd></dl>
 
 <dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE4plus">
+<span id="_CPPv3N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE4plus"></span><span id="_CPPv2N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE4plus"></span><span id="hpx::traits::HPX_TASK_SIZE_MEMORY_BOUND_OPERATION__plus"></span><span class="target" id="task__size_8hpp_1a32ab820ea12c90056500d70ef8a5f901"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">plus</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE4plus" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE5minus">
+<span id="_CPPv3N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE5minus"></span><span id="_CPPv2N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE5minus"></span><span id="hpx::traits::HPX_TASK_SIZE_MEMORY_BOUND_OPERATION__minus"></span><span class="target" id="task__size_8hpp_1a28807a5ab674afb1f5e6e637cc3041ce"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">minus</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE5minus" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE10multiplies">
+<span id="_CPPv3N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE10multiplies"></span><span id="_CPPv2N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE10multiplies"></span><span id="hpx::traits::HPX_TASK_SIZE_MEMORY_BOUND_OPERATION__multiplies"></span><span class="target" id="task__size_8hpp_1a86ba0c276baf0d543f8c9eb77f6aed24"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">multiplies</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE10multiplies" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE6negate">
+<span id="_CPPv3N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE6negate"></span><span id="_CPPv2N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE6negate"></span><span id="hpx::traits::HPX_TASK_SIZE_MEMORY_BOUND_OPERATION__negate"></span><span class="target" id="task__size_8hpp_1af8e0178e2e8cca9f216281f9d34ae409"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">negate</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE6negate" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_and">
+<span id="_CPPv3N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_and"></span><span id="_CPPv2N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_and"></span><span id="hpx::traits::HPX_TASK_SIZE_MEMORY_BOUND_OPERATION__bit_and"></span><span class="target" id="task__size_8hpp_1a7641cf419873d0bb6aec850920d80e31"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">bit_and</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_and" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE6bit_or">
+<span id="_CPPv3N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE6bit_or"></span><span id="_CPPv2N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE6bit_or"></span><span id="hpx::traits::HPX_TASK_SIZE_MEMORY_BOUND_OPERATION__bit_or"></span><span class="target" id="task__size_8hpp_1a6d13965f3e30bdb006ead9d2ee45e5c1"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">bit_or</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE6bit_or" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_xor">
+<span id="_CPPv3N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_xor"></span><span id="_CPPv2N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_xor"></span><span id="hpx::traits::HPX_TASK_SIZE_MEMORY_BOUND_OPERATION__bit_xor"></span><span class="target" id="task__size_8hpp_1a8a947e05f985812c1081f686c0b72f0e"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">bit_xor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_xor" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_not">
+<span id="_CPPv3N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_not"></span><span id="_CPPv2N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_not"></span><span id="hpx::traits::HPX_TASK_SIZE_MEMORY_BOUND_OPERATION__bit_not"></span><span class="target" id="task__size_8hpp_1afabcaafee3a609e86ad8f1acba265cf6"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">bit_not</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_not" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE8equal_to">
+<span id="_CPPv3N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE8equal_to"></span><span id="_CPPv2N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE8equal_to"></span><span id="hpx::traits::HPX_TASK_SIZE_MEMORY_BOUND_OPERATION__equal_to"></span><span class="target" id="task__size_8hpp_1a6ff449002f50b8f5dfe27b7597fb9133"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">equal_to</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE8equal_to" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE12not_equal_to">
+<span id="_CPPv3N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE12not_equal_to"></span><span id="_CPPv2N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE12not_equal_to"></span><span id="hpx::traits::HPX_TASK_SIZE_MEMORY_BOUND_OPERATION__not_equal_to"></span><span class="target" id="task__size_8hpp_1a7e5c46d46102c7bf64f220f7b16632fe"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">not_equal_to</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE12not_equal_to" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE4less">
+<span id="_CPPv3N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE4less"></span><span id="_CPPv2N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE4less"></span><span id="hpx::traits::HPX_TASK_SIZE_MEMORY_BOUND_OPERATION__less"></span><span class="target" id="task__size_8hpp_1acd1e22fa4dfafaaf52ca67c9d43a35d1"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">less</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE4less" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7greater">
+<span id="_CPPv3N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7greater"></span><span id="_CPPv2N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7greater"></span><span id="hpx::traits::HPX_TASK_SIZE_MEMORY_BOUND_OPERATION__greater"></span><span class="target" id="task__size_8hpp_1ae514d1b0bcb3c49d20985bc17493e510"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">greater</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7greater" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE10less_equal">
+<span id="_CPPv3N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE10less_equal"></span><span id="_CPPv2N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE10less_equal"></span><span id="hpx::traits::HPX_TASK_SIZE_MEMORY_BOUND_OPERATION__less_equal"></span><span class="target" id="task__size_8hpp_1a92cd21e81e7c31f69dcfef4961b706c0"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">less_equal</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE10less_equal" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE13greater_equal">
+<span id="_CPPv3N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE13greater_equal"></span><span id="_CPPv2N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE13greater_equal"></span><span id="hpx::traits::HPX_TASK_SIZE_MEMORY_BOUND_OPERATION__greater_equal"></span><span class="target" id="task__size_8hpp_1af3c2b3cb83a3138fb3c26a085e740124"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">greater_equal</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE13greater_equal" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3hpx6traits38HPX_TASK_SIZE_BUILTIN_RANGES_OPERATIONE8equal_to">
 <span id="_CPPv3N3hpx6traits38HPX_TASK_SIZE_BUILTIN_RANGES_OPERATIONE8equal_to"></span><span id="_CPPv2N3hpx6traits38HPX_TASK_SIZE_BUILTIN_RANGES_OPERATIONE8equal_to"></span><span id="hpx::traits::HPX_TASK_SIZE_BUILTIN_RANGES_OPERATION__equal_to"></span><span class="target" id="task__size_8hpp_1ac104294730318423918667ac7effc88f"></span><span class="sig-name descname"><span class="n"><span class="pre">HPX_TASK_SIZE_BUILTIN_RANGES_OPERATION</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">equal_to</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3hpx6traits38HPX_TASK_SIZE_BUILTIN_RANGES_OPERATIONE8equal_to" title="Link to this definition">#</a><br /></dt>
 <dd></dd></dl>
@@ -1993,6 +2132,24 @@ document.write(`
 <dd></dd></dl>
 
 <dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4I00EN3hpx6traits13get_task_timeE">
+<span id="_CPPv3I00EN3hpx6traits13get_task_timeE"></span><span id="_CPPv2I00EN3hpx6traits13get_task_timeE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">F</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Enable</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structhpx_1_1traits_1_1get__task__time"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_task_time</span></span></span><a class="headerlink" href="#_CPPv4I00EN3hpx6traits13get_task_timeE" title="Link to this definition">#</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3hpx6traits13get_task_time4callERK1F">
+<span id="_CPPv3N3hpx6traits13get_task_time4callERK1F"></span><span id="_CPPv2N3hpx6traits13get_task_time4callERK1F"></span><span id="hpx::traits::get_task_time::call__FCRCE"></span><span class="target" id="structhpx_1_1traits_1_1get__task__time_1a21acc6da968d7f6760992ac6a712456c"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../timing/api/durations_hpx_chrono_picoseconds.html#_CPPv4N3hpx6chrono11picosecondsE" title="hpx::chrono::picoseconds"><span class="n"><span class="pre">picoseconds</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">call</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I00EN3hpx6traits13get_task_timeE" title="hpx::traits::get_task_time::F"><span class="n"><span class="pre">F</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3hpx6traits13get_task_time4callERK1F" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN3hpx6traits13get_task_timeE">
+<span id="_CPPv3I0EN3hpx6traits13get_task_timeE"></span><span id="_CPPv2I0EN3hpx6traits13get_task_timeE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">F</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structhpx_1_1traits_1_1get__task__time_3_01_f_01_4"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_task_time</span></span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN3hpx6traits13get_task_timeE" title="hpx::traits::get_task_time::F"><span class="n"><span class="pre">F</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../../../components/component_storage/api/migrate_from_storage.html#_CPPv43hpx" title="hpx"><span class="n"><span class="pre">hpx</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../compute_local/api/vector.html#_CPPv4N3hpx6traitsE" title="hpx::traits"><span class="n"><span class="pre">traits</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4I00EN3hpx6traits13get_task_timeE" title="hpx::traits::get_task_time"><span class="n"><span class="pre">get_task_time</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">remove_cvref_t</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN3hpx6traits13get_task_timeE" title="hpx::traits::get_task_time::F"><span class="n"><span class="pre">F</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4I0EN3hpx6traits13get_task_timeE" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4I_DaEN3hpx6traits12task_size_ofE">
 <span id="_CPPv3I_DaEN3hpx6traits12task_size_ofE"></span><span id="_CPPv2I_DaEN3hpx6traits12task_size_ofE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">F</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structhpx_1_1traits_1_1task__size__of"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">task_size_of</span></span></span><a class="headerlink" href="#_CPPv4I_DaEN3hpx6traits12task_size_ofE" title="Link to this definition">#</a><br /></dt>
 <dd><div class="breathe-sectiondef docutils container">
@@ -2057,6 +2214,11 @@ document.write(`
 <span id="_CPPv3I0EN3hpx6traits26is_typed_builtin_operationE"></span><span id="_CPPv2I0EN3hpx6traits26is_typed_builtin_operationE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">F</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structhpx_1_1traits_1_1is__typed__builtin__operation"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_typed_builtin_operation</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">false_type</span></span><a class="headerlink" href="#_CPPv4I0EN3hpx6traits26is_typed_builtin_operationE" title="Link to this definition">#</a><br /></dt>
 <dd></dd></dl>
 
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN3hpx6traits33is_memory_bound_builtin_operationE">
+<span id="_CPPv3I0EN3hpx6traits33is_memory_bound_builtin_operationE"></span><span id="_CPPv2I0EN3hpx6traits33is_memory_bound_builtin_operationE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">F</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structhpx_1_1traits_1_1is__memory__bound__builtin__operation"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_memory_bound_builtin_operation</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../coroutines/api/thread_id_type.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">false_type</span></span><a class="headerlink" href="#_CPPv4I0EN3hpx6traits33is_memory_bound_builtin_operationE" title="Link to this definition">#</a><br /></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </dd></dl>
@@ -2109,6 +2271,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c.HPX_TASK_SIZE_BUILTIN_OPERATION"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_BUILTIN_OPERATION</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c.HPX_TASK_SIZE_MEMORY_BOUND_OPERATION"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c.HPX_TASK_SIZE_BUILTIN_RANGES_OPERATION"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_BUILTIN_RANGES_OPERATION</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv43hpx"><code class="docutils literal notranslate"><span class="pre">hpx</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threadsE"><code class="docutils literal notranslate"><span class="pre">hpx::threads</span></code></a><ul class="nav section-nav flex-column">
@@ -2124,6 +2287,13 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads18task_size_durationEK9task_size"><code class="docutils literal notranslate"><span class="pre">task_size_duration()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads14bulk_task_sizeEK9task_sizeKNSt6size_tE"><code class="docutils literal notranslate"><span class="pre">bulk_task_size()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads18combined_task_sizeEK9task_sizeK9task_size"><code class="docutils literal notranslate"><span class="pre">combined_task_size()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads21task_size_of_durationEKN3hpx6chrono11picosecondsE"><code class="docutils literal notranslate"><span class="pre">task_size_of_duration()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads18task_size_and_timeE"><code class="docutils literal notranslate"><span class="pre">hpx::threads::task_size_and_time</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4NK3hpx7threads18task_size_and_timecv9task_sizeEv"><code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">task_size()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads18task_size_and_time4sizeE"><code class="docutils literal notranslate"><span class="pre">size</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx7threads18task_size_and_time4timeE"><code class="docutils literal notranslate"><span class="pre">time</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traitsE"><code class="docutils literal notranslate"><span class="pre">hpx::traits</span></code></a><ul class="nav section-nav flex-column">
@@ -2146,6 +2316,20 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE6bit_or"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_BUILTIN_OPERATION()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE7bit_xor"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_BUILTIN_OPERATION()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE7bit_not"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_BUILTIN_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE4plus"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE5minus"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE10multiplies"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE6negate"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_and"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE6bit_or"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_xor"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_not"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE8equal_to"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE12not_equal_to"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE4less"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7greater"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE10less_equal"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE13greater_equal"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits38HPX_TASK_SIZE_BUILTIN_RANGES_OPERATIONE8equal_to"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_BUILTIN_RANGES_OPERATION()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits38HPX_TASK_SIZE_BUILTIN_RANGES_OPERATIONE12not_equal_to"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_BUILTIN_RANGES_OPERATION()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits38HPX_TASK_SIZE_BUILTIN_RANGES_OPERATIONE4less"><code class="docutils literal notranslate"><span class="pre">HPX_TASK_SIZE_BUILTIN_RANGES_OPERATION()</span></code></a></li>
@@ -2160,6 +2344,11 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0_N7threads9task_sizeEEN3hpx6traits13get_task_sizeE"><code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_size&lt;</span> <span class="pre">F,</span> <span class="pre">Size</span> <span class="pre">&gt;</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I00EN3hpx6traits13get_task_timeE"><code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_time</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits13get_task_time4callERK1F"><code class="docutils literal notranslate"><span class="pre">call()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN3hpx6traits13get_task_timeE"><code class="docutils literal notranslate"><span class="pre">hpx::traits::get_task_time&lt;</span> <span class="pre">F</span> <span class="pre">&gt;</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I_DaEN3hpx6traits12task_size_ofE"><code class="docutils literal notranslate"><span class="pre">hpx::traits::task_size_of</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4N3hpx6traits12task_size_of5valueE"><code class="docutils literal notranslate"><span class="pre">value</span></code></a></li>
 </ul>
@@ -2171,6 +2360,7 @@ document.write(`
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN3hpx6traits32is_transparent_builtin_operationE"><code class="docutils literal notranslate"><span class="pre">hpx::traits::is_transparent_builtin_operation</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN3hpx6traits26is_typed_builtin_operationE"><code class="docutils literal notranslate"><span class="pre">hpx::traits::is_typed_builtin_operation</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#_CPPv4I0EN3hpx6traits33is_memory_bound_builtin_operationE"><code class="docutils literal notranslate"><span class="pre">hpx::traits::is_memory_bound_builtin_operation</span></code></a></li>
 </ul>
 </li>
 </ul>

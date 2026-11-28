@@ -1332,6 +1332,7 @@
 <li class="toctree-l4"><a class="reference internal" href="libs/core/timing/api/steady_clock_hpx_chrono_null_duration.html">hpx::chrono::null_duration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="libs/core/timing/api/high_resolution_timer_hpx_chrono_high_resolution_timer.html">hpx::chrono::high_resolution_timer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="libs/core/timing/api/high_resolution_clock_hpx_chrono_high_resolution_clock.html">hpx::chrono::high_resolution_clock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs/core/timing/api/durations_hpx_chrono_picoseconds.html">hpx::chrono::picoseconds</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="libs/core/topology/api/full_api.html">topology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -2410,6 +2411,8 @@ document.write(`
       <li><a href="libs/core/timing/api/high_resolution_timer_hpx_chrono_high_resolution_timer.html#_CPPv4N3hpx6chrono21high_resolution_timerE">hpx::chrono::high_resolution_timer (C++ class)</a>
 </li>
       <li><a href="libs/core/timing/api/steady_clock_hpx_chrono_null_duration.html#_CPPv4N3hpx6chrono13null_durationE">hpx::chrono::null_duration (C++ member)</a>
+</li>
+      <li><a href="libs/core/timing/api/durations_hpx_chrono_picoseconds.html#_CPPv4N3hpx6chrono11picosecondsE">hpx::chrono::picoseconds (C++ type)</a>
 </li>
       <li><a href="libs/core/timing/api/steady_clock_hpx_chrono_steady_duration.html#_CPPv4N3hpx6chrono15steady_durationE">hpx::chrono::steady_duration (C++ class)</a>
 </li>
@@ -5893,8 +5896,6 @@ document.write(`
 </li>
       <li><a href="libs/core/runtime_local/api/runtime_local.html#_CPPv4N3hpx7runtime10exception_E">hpx::runtime::exception_ (C++ member)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/core/runtime_local/api/runtime_local.html#_CPPv4N3hpx7runtime8finalizeEd">hpx::runtime::finalize (C++ function)</a>
 </li>
       <li><a href="libs/core/runtime_local/api/runtime_local.html#_CPPv4NK3hpx7runtime15get_app_optionsEv">hpx::runtime::get_app_options (C++ function)</a>
@@ -5905,6 +5906,8 @@ document.write(`
 </li>
       <li><a href="libs/core/runtime_local/api/runtime_local.html#_CPPv4NK3hpx7runtime19get_instance_numberEv">hpx::runtime::get_instance_number (C++ function)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs/core/runtime_local/api/runtime_local.html#_CPPv4NK3hpx7runtime15get_locality_idER10error_code">hpx::runtime::get_locality_id (C++ function)</a>
 </li>
       <li><a href="libs/core/runtime_local/api/runtime_local.html#_CPPv4NK3hpx7runtime17get_locality_nameEv">hpx::runtime::get_locality_name (C++ function)</a>
@@ -7439,7 +7442,17 @@ document.write(`
 </li>
       <li><a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx7threads9task_size7unknownE">hpx::threads::task_size::unknown (C++ enumerator)</a>
 </li>
+      <li><a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx7threads18task_size_and_timeE">hpx::threads::task_size_and_time (C++ struct)</a>
+</li>
+      <li><a href="libs/core/thread_support/api/task_size.html#_CPPv4NK3hpx7threads18task_size_and_timecv9task_sizeEv">hpx::threads::task_size_and_time::operator task_size (C++ function)</a>
+</li>
+      <li><a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx7threads18task_size_and_time4sizeE">hpx::threads::task_size_and_time::size (C++ member)</a>
+</li>
+      <li><a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx7threads18task_size_and_time4timeE">hpx::threads::task_size_and_time::time (C++ member)</a>
+</li>
       <li><a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx7threads18task_size_durationEK9task_size">hpx::threads::task_size_duration (C++ function)</a>
+</li>
+      <li><a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx7threads21task_size_of_durationEKN3hpx6chrono11picosecondsE">hpx::threads::task_size_of_duration (C++ function)</a>
 </li>
       <li><a href="libs/core/threading_base/api/thread_data.html#_CPPv4N3hpx7threads11thread_dataE">hpx::threads::thread_data (C++ class)</a>
 </li>
@@ -8491,13 +8504,21 @@ document.write(`
 </li>
       <li><a href="libs/core/thread_support/api/task_size.html#_CPPv4I0_N7threads9task_sizeEEN3hpx6traits15get_task_size_vE">hpx::traits::get_task_size_v (C++ member)</a>
 </li>
+      <li><a href="libs/core/thread_support/api/task_size.html#_CPPv4I00EN3hpx6traits13get_task_timeE">hpx::traits::get_task_time (C++ struct)</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4I0EN3hpx6traits13get_task_timeE">[1]</a>
+</li>
+      <li><a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits13get_task_time4callERK1F">hpx::traits::get_task_time::call (C++ function)</a>
+</li>
       <li><a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE10less_equal">hpx::traits::HPX_TASK_SIZE_BUILTIN_OPERATION (C++ function)</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE10logical_or">[1]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE10multiplies">[2]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE11logical_and">[3]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE11logical_not">[4]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE12not_equal_to">[5]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE13greater_equal">[6]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE4less">[7]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE4plus">[8]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE5minus">[9]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE6bit_or">[10]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE6negate">[11]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE7bit_and">[12]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE7bit_not">[13]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE7bit_xor">[14]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE7divides">[15]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE7greater">[16]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE7modulus">[17]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits31HPX_TASK_SIZE_BUILTIN_OPERATIONE8equal_to">[18]</a>
 </li>
       <li><a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits38HPX_TASK_SIZE_BUILTIN_RANGES_OPERATIONE10less_equal">hpx::traits::HPX_TASK_SIZE_BUILTIN_RANGES_OPERATION (C++ function)</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits38HPX_TASK_SIZE_BUILTIN_RANGES_OPERATIONE12not_equal_to">[1]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits38HPX_TASK_SIZE_BUILTIN_RANGES_OPERATIONE13greater_equal">[2]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits38HPX_TASK_SIZE_BUILTIN_RANGES_OPERATIONE4less">[3]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits38HPX_TASK_SIZE_BUILTIN_RANGES_OPERATIONE7greater">[4]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits38HPX_TASK_SIZE_BUILTIN_RANGES_OPERATIONE8equal_to">[5]</a>
 </li>
+      <li><a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE10less_equal">hpx::traits::HPX_TASK_SIZE_MEMORY_BOUND_OPERATION (C++ function)</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE10multiplies">[1]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE12not_equal_to">[2]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE13greater_equal">[3]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE4less">[4]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE4plus">[5]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE5minus">[6]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE6bit_or">[7]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE6negate">[8]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_and">[9]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_not">[10]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7bit_xor">[11]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE7greater">[12]</a>, <a href="libs/core/thread_support/api/task_size.html#_CPPv4N3hpx6traits36HPX_TASK_SIZE_MEMORY_BOUND_OPERATIONE8equal_to">[13]</a>
+</li>
       <li><a href="libs/core/execution_base/api/is_executor_parameters.html#_CPPv4I00EN3hpx6traits22is_executor_parametersE">hpx::traits::is_executor_parameters (C++ struct)</a>
 </li>
       <li><a href="libs/core/execution_base/api/is_executor_parameters.html#_CPPv4I0EN3hpx6traits24is_executor_parameters_vE">hpx::traits::is_executor_parameters_v (C++ member)</a>
+</li>
+      <li><a href="libs/core/thread_support/api/task_size.html#_CPPv4I0EN3hpx6traits33is_memory_bound_builtin_operationE">hpx::traits::is_memory_bound_builtin_operation (C++ struct)</a>
 </li>
       <li><a href="libs/core/iterator_support/api/is_segmented_iterator.html#_CPPv4I0EN3hpx6traits23is_segmented_iterator_tE">hpx::traits::is_segmented_iterator_t (C++ type)</a>
 </li>
@@ -9872,6 +9893,8 @@ document.write(`
 </li>
       <li><a href="libs/core/thread_support/api/task_size.html#c.HPX_TASK_SIZE_BUILTIN_RANGES_OPERATION">HPX_TASK_SIZE_BUILTIN_RANGES_OPERATION (C macro)</a>
 </li>
+      <li><a href="libs/core/thread_support/api/task_size.html#c.HPX_TASK_SIZE_MEMORY_BOUND_OPERATION">HPX_TASK_SIZE_MEMORY_BOUND_OPERATION (C macro)</a>
+</li>
       <li><a href="libs/core/config/api/config.html#c.HPX_THREAD_QUEUE_CACHED_THREADS_COUNT">HPX_THREAD_QUEUE_CACHED_THREADS_COUNT (C macro)</a>
 </li>
       <li><a href="libs/core/config/api/config.html#c.HPX_THREAD_QUEUE_INIT_THREADS_COUNT">HPX_THREAD_QUEUE_INIT_THREADS_COUNT (C macro)</a>
@@ -10079,6 +10102,13 @@ document.write(`
 
       <ul>
         <li><a href="manual/cmake_variables.html#cmdoption-arg-HPX_WITH_CXX_STANDARD-STRING">command line option</a>
+</li>
+      </ul></li>
+      <li>
+    HPX_WITH_DATAPAR_BACKEND
+
+      <ul>
+        <li><a href="manual/building_hpx.html#cmdoption-arg-HPX_WITH_DATAPAR_BACKEND">command line option</a>
 </li>
       </ul></li>
       <li>

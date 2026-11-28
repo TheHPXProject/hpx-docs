@@ -1332,6 +1332,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/timing/api/steady_clock_hpx_chrono_null_duration.html">hpx::chrono::null_duration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/timing/api/high_resolution_timer_hpx_chrono_high_resolution_timer.html">hpx::chrono::high_resolution_timer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../libs/core/timing/api/high_resolution_clock_hpx_chrono_high_resolution_clock.html">hpx::chrono::high_resolution_clock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libs/core/timing/api/durations_hpx_chrono_picoseconds.html">hpx::chrono::picoseconds</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../libs/core/topology/api/full_api.html">topology</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -2457,10 +2458,12 @@ for load balancing, from <code class="docutils literal notranslate"><span class=
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.task_size_chunk_size.copy_bytes_per_ns</span></code></p></td>
 <td><p>The value of this property defines the number of bytes a core copies in
-a nanosecond, from <code class="docutils literal notranslate"><span class="pre">1</span></code> up to <code class="docutils literal notranslate"><span class="pre">4096</span></code>. The algorithms that copy or
-move trivially copyable elements without calling a function derive the
-task size of a chunk from it. The default is <code class="docutils literal notranslate"><span class="pre">16</span></code>, about the rate for
-data that is not in the caches.</p></td>
+a nanosecond, from <code class="docutils literal notranslate"><span class="pre">1</span></code> up to <code class="docutils literal notranslate"><span class="pre">4096</span></code>, each byte read and written. The
+algorithms that copy, move, fill, swap or reverse builtin elements, and
+those that call a builtin arithmetic function object or comparison
+(<code class="docutils literal notranslate"><span class="pre">std::plus</span></code>, <code class="docutils literal notranslate"><span class="pre">std::less</span></code> and the like) on them, derive the run time of an iteration from it, from
+the bytes the iteration reads and writes (see <a class="reference internal" href="executors.html#task-sizes"><span class="std std-ref">Task sizes</span></a>). The
+default is <code class="docutils literal notranslate"><span class="pre">16</span></code>, about the rate for data that is not in the caches.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hpx.task_size_chunk_size.&lt;executor&gt;.min_chunk_time_us</span></code></p></td>
 <td><p>The value of this property defines the minimal run time of a chunk, in
